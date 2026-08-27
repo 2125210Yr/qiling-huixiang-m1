@@ -1,0 +1,23 @@
+# GameKee 整理数据表
+
+来源：https://www.gamekee.com/dc/ 已抓取的 1227 篇词条。
+这些表在 `docs/reference/gamekee/tables/`，并复制了一份到 `天命之子数据/`。
+
+| 文件 | 行数 | 说明 |
+|---|---:|---|
+| characters.csv | 345 | 5★+4★ 天子：属性、职业、初始/满破面板、技能原文 |
+| skills.csv | 1725 | 每人 普攻/TS/SS/DS/队长，含 MIN/MAX 与点火 U |
+| soul_cartas.csv | 156 | 魂之歌牌：分类、限定、特效、普卡/闪卡初始数值 |
+| puppets.csv | 220 | 人偶 |
+| buffs.csv | 93 | Buff/Debuff 名称与效果 |
+
+## 覆盖率
+
+- 天子 element 345/345，role 176/345
+- 初始 HP 192/345，满破 HP 73/345
+- TS 技能文本 345/345，点火 U 210/345
+- 魂卡分类 153/156，特效 153/156，至少一项基础数值 122/156
+
+满破面板很多词条本身就空着。3★/2★/1★ 天子 wiki 没有独立页。装备图鉴几乎只有图没有名字，未进表。
+
+用 Excel / WPS 打开 CSV（UTF-8 带 BOM）。
