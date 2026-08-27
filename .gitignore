@@ -5,6 +5,8 @@ client/UserSettings/
 client/obj/
 **/bin/
 **/obj/
+**/__pycache__/
+*.pyc
 *.apk
 *.aab
 .vs/
