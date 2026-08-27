@@ -1,0 +1,314 @@
+[
+  {
+    "name": "攻击力↑ 增加攻击力",
+    "effect": "防御力↑ 增加防御力",
+    "kind": "buff",
+    "stack_group": "攻击力↑ 增加攻击力"
+  },
+  {
+    "name": "Skill防御力↑",
+    "effect": "增加所有类型的技能防御力",
+    "kind": "buff",
+    "stack_group": "Skill防御力↑"
+  },
+  {
+    "name": "减益挑衅 代替盟友承受一个减益",
+    "effect": "回复 在一定时间内恢复一定量的HP",
+    "kind": "buff",
+    "stack_group": "减益挑衅 代替盟友承受一个减益"
+  },
+  {
+    "name": "暴击几率↑ 增加暴击率",
+    "effect": "暴击↑ 增加暴击",
+    "kind": "buff",
+    "stack_group": "暴击几率↑ 增加暴击率"
+  },
+  {
+    "name": "暴击攻击力↑",
+    "effect": "增加暴击的最终伤害",
+    "kind": "buff",
+    "stack_group": "暴击攻击力↑"
+  },
+  {
+    "name": "连击",
+    "effect": "击杀敌人后，对剩余敌人造成加成伤害",
+    "kind": "buff",
+    "stack_group": "连击"
+  },
+  {
+    "name": "觉醒",
+    "effect": "增加暴击伤害，并根据增益数量增加SS伤害",
+    "kind": "buff",
+    "stack_group": "觉醒"
+  },
+  {
+    "name": "耐心",
+    "effect": "赋予目前减益数量+1的忍耐",
+    "kind": "buff",
+    "stack_group": "耐心"
+  },
+  {
+    "name": "忍耐",
+    "effect": "使伤害无效并减少造成伤害减益的频率",
+    "kind": "buff",
+    "stack_group": "忍耐"
+  },
+  {
+    "name": "适应痛苦",
+    "effect": "提升一定量的防御力。全体盟友每失去2%HP就提升4%防御力（最多160%， 只增加适应痛苦所赋予的防御力 ）",
+    "kind": "buff",
+    "stack_group": "适应痛苦"
+  },
+  {
+    "name": "升华痛苦",
+    "effect": "提升一定量的攻击力。全体盟友每失去2%HP就提升60%攻击力（最多2400%， 只增加升华痛苦所赋予的攻击力 ）",
+    "kind": "buff",
+    "stack_group": "升华痛苦"
+  },
+  {
+    "name": "即时回复量↑",
+    "effect": "增加回复技能的效果",
+    "kind": "buff",
+    "stack_group": "即时回复量↑"
+  },
+  {
+    "name": "持续回复量↑",
+    "effect": "增加持续回复技能的效果",
+    "kind": "buff",
+    "stack_group": "持续回复量↑"
+  },
+  {
+    "name": "秘愈",
+    "effect": "每当自身行动或受到伤害时，回复自身HP",
+    "kind": "buff",
+    "stack_group": "秘愈"
+  },
+  {
+    "name": "免疫",
+    "effect": "赋予所有减益效果免疫；立即移除所有减益",
+    "kind": "buff",
+    "stack_group": "免疫"
+  },
+  {
+    "name": "重生",
+    "effect": "死亡时，以一定量HP复活，同时获得充满的Skill量表和增加攻击力",
+    "kind": "buff",
+    "stack_group": "重生"
+  },
+  {
+    "name": "弱点攻击力↑",
+    "effect": "增加弱点攻击的伤害",
+    "kind": "buff",
+    "stack_group": "弱点攻击力↑"
+  },
+  {
+    "name": "支援",
+    "effect": "根据增益数增加弱点技能伤害和攻击力",
+    "kind": "buff",
+    "stack_group": "支援"
+  },
+  {
+    "name": "Skill充能↑",
+    "effect": "增加Skill量表充能量；可与Skill回复加速叠加",
+    "kind": "buff",
+    "stack_group": "Skill充能↑"
+  },
+  {
+    "name": "Skill充能加速",
+    "effect": "加速Skill量表充能速度；可与增加Skill量表充能量的效果叠加",
+    "kind": "buff",
+    "stack_group": "Skill充能加速"
+  },
+  {
+    "name": "双刃剑",
+    "effect": "增加攻击力的同时减少防御力",
+    "kind": "buff",
+    "stack_group": "双刃剑"
+  },
+  {
+    "name": "超载",
+    "effect": "除了DS，所有Skill伤害增加，增加Skill冷却时间，减少Skill充能速度",
+    "kind": "buff",
+    "stack_group": "超载"
+  },
+  {
+    "name": "呐喊",
+    "effect": "百分比增加攻击力（最多叠加3次）",
+    "kind": "buff",
+    "stack_group": "呐喊"
+  },
+  {
+    "name": "吸血",
+    "effect": "攻击所造成伤害的一部分会逐渐回复HP",
+    "kind": "buff",
+    "stack_group": "吸血"
+  },
+  {
+    "name": "冷却时间减少",
+    "effect": "一定时间内减少目标的SS冷却时间",
+    "kind": "buff",
+    "stack_group": "冷却时间减少"
+  },
+  {
+    "name": "增加DOT回避率",
+    "effect": "增加持续伤害减益回避率",
+    "kind": "buff",
+    "stack_group": "增加DOT回避率"
+  },
+  {
+    "name": "回避率↑ 增加技能回避率",
+    "effect": "专注 100%命中率和暴击率：免疫失明和影响暴击的负面效果",
+    "kind": "buff",
+    "stack_group": "回避率↑ 增加技能回避率"
+  },
+  {
+    "name": "敏捷度↑ 增加敏捷度",
+    "effect": "狂暴 增加攻击力且无敌（无视攻击和减益），但效果结束时100%概率5s晕眩",
+    "kind": "buff",
+    "stack_group": "敏捷度↑ 增加敏捷度"
+  },
+  {
+    "name": "即时回复量↓",
+    "effect": "减少回复技能的效果",
+    "kind": "debuff",
+    "stack_group": "即时回复量↓"
+  },
+  {
+    "name": "持续回复量↓",
+    "effect": "减少持续回复技能的效果",
+    "kind": "debuff",
+    "stack_group": "持续回复量↓"
+  },
+  {
+    "name": "致命回复",
+    "effect": "将回复和持续回复的HP回复效果反转为立即伤害或持续伤害；吸血效果和吸收效果都无法造成伤害，也无法回复",
+    "kind": "debuff",
+    "stack_group": "致命回复"
+  },
+  {
+    "name": "禁止回复",
+    "effect": "无法以任何回复技能回复",
+    "kind": "debuff",
+    "stack_group": "禁止回复"
+  },
+  {
+    "name": "弱点攻击力Ⅱ",
+    "effect": "减少弱点攻击的伤害",
+    "kind": "debuff",
+    "stack_group": "弱点攻击力Ⅱ"
+  },
+  {
+    "name": "弱点防御力↓",
+    "effect": "减少弱点攻击防御力",
+    "kind": "debuff",
+    "stack_group": "弱点防御力↓"
+  },
+  {
+    "name": "Skill防御力↓",
+    "effect": "减少对所有技能的防御力",
+    "kind": "debuff",
+    "stack_group": "Skill防御力↓"
+  },
+  {
+    "name": "烙印",
+    "effect": "根据敌人增益数量，造成持续伤害",
+    "kind": "debuff",
+    "stack_group": "烙印"
+  },
+  {
+    "name": "防御力↓ 减少防御力",
+    "effect": "攻击力↓ 减少攻击力",
+    "kind": "debuff",
+    "stack_group": "防御力↓ 减少防御力"
+  },
+  {
+    "name": "失明 减少技能命中率",
+    "effect": "沉默 无法使用技能并重置Skill量表 （SS冷却时间倒数会停止）",
+    "kind": "debuff",
+    "stack_group": "失明 减少技能命中率"
+  },
+  {
+    "name": "减少减益命中率",
+    "effect": "减少目标的减益命中率",
+    "kind": "debuff",
+    "stack_group": "减少减益命中率"
+  },
+  {
+    "name": "Skill充能↓",
+    "effect": "减少Skill量表充能量；可与Skill量表充能减速叠加",
+    "kind": "debuff",
+    "stack_group": "Skill充能↓"
+  },
+  {
+    "name": "Skill充能速度↓",
+    "effect": "减少Skill量表充能速度；可与减少Skill量表充能量的效果叠加",
+    "kind": "debuff",
+    "stack_group": "Skill充能速度↓"
+  },
+  {
+    "name": "冷却时间增加",
+    "effect": "在一定时间内增加目标的SS冷却时间",
+    "kind": "debuff",
+    "stack_group": "冷却时间增加"
+  },
+  {
+    "name": "时间篡改",
+    "effect": "移除敌人的一个时间系增益；并减少Skill量表充能速度",
+    "kind": "debuff",
+    "stack_group": "时间篡改"
+  },
+  {
+    "name": "流血",
+    "effect": "对一名敌人造成持续伤害（随时间），可叠加",
+    "kind": "debuff",
+    "stack_group": "流血"
+  },
+  {
+    "name": "猛毒",
+    "effect": "DOT；回复量减少50%；无法缩减或延长减益效果",
+    "kind": "debuff",
+    "stack_group": "猛毒"
+  },
+  {
+    "name": "猛毒增幅",
+    "effect": "增加猛毒持续伤害300，回复量-30%",
+    "kind": "debuff",
+    "stack_group": "猛毒增幅"
+  },
+  {
+    "name": "乱舞之刃",
+    "effect": "减少目标的防御力，并持续造成伤害",
+    "kind": "debuff",
+    "stack_group": "乱舞之刃"
+  },
+  {
+    "name": "诅咒",
+    "effect": "造成持续伤害，并在减益效果结束或移除后，造成额外伤害",
+    "kind": "debuff",
+    "stack_group": "诅咒"
+  },
+  {
+    "name": "分解",
+    "effect": "造成持续伤害（无法缩短或延长减益效果）",
+    "kind": "debuff",
+    "stack_group": "分解"
+  },
+  {
+    "name": "灼烧",
+    "effect": "降低Skill伤害防御力，并在每次受到攻击时造成热伤（受攻击时，每2s造成持续伤害）",
+    "kind": "debuff",
+    "stack_group": "灼烧"
+  },
+  {
+    "name": "晕眩",
+    "effect": "效果时间内，使对方无法行动，且充能量表初始化（效果时间内受到攻击时延长1s，5秒上限）",
+    "kind": "debuff",
+    "stack_group": "晕眩"
+  },
+  {
+    "name": "石化",
+    "effect": "效果时间内，在受到一定次数的攻击前无法行动（充能量表不会被初始化）",
+    "kind": "debuff",
+    "stack_group": "石化"
+  }
+]

@@ -1,0 +1,13 @@
+client/Library/
+client/Temp/
+client/Logs/
+client/UserSettings/
+client/obj/
+**/bin/
+**/obj/
+*.apk
+*.aab
+.vs/
+*.user
+*.suo
+单机dc1.1整合包/*.downloading
