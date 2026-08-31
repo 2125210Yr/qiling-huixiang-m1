@@ -106,11 +106,22 @@ namespace Resonance.App
 
         public static GameObject DrawStage(Transform parent, CharacterDef def, string skinId = "")
         {
+            return DrawStageBox(parent, def, skinId, 0.06f, 0.12f, 0.94f, 0.96f, 720f);
+        }
+
+        public static GameObject DrawStage(Transform parent, CharacterDef def, string skinId, float yMin, float yMax)
+        {
+            return DrawStageBox(parent, def, skinId, 0.15f, yMin, 0.85f, yMax, 560f);
+        }
+
+        static GameObject DrawStageBox(Transform parent, CharacterDef def, string skinId,
+            float xMin, float yMin, float xMax, float yMax, float fallbackH)
+        {
             var go = new GameObject("StagePresenter", typeof(RectTransform));
             go.transform.SetParent(parent, false);
             var rt = go.GetComponent<RectTransform>();
-            rt.anchorMin = new Vector2(0.06f, 0.12f);
-            rt.anchorMax = new Vector2(0.94f, 0.96f);
+            rt.anchorMin = new Vector2(xMin, yMin);
+            rt.anchorMax = new Vector2(xMax, yMax);
             rt.offsetMin = rt.offsetMax = Vector2.zero;
             // FitInParent + 2:3 立绘，头必须在框内
 
@@ -119,7 +130,7 @@ namespace Resonance.App
             if (def != null && CharacterArt.TryPresenter(def.Id, out idle, out blink) && idle != null)
                 AddFittedStandee(go.transform, idle);
             else
-                Draw(go.transform, def, new Vector2(0.50f, 0.42f), 720f, skinId, false);
+                Draw(go.transform, def, new Vector2(0.50f, 0.42f), fallbackH, skinId, false);
             return go;
         }
 

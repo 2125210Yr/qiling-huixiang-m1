@@ -328,12 +328,14 @@ namespace Resonance.App
             }
             var grown = Growth.Apply(def, prog);
             LeftLabel(def.Name, compact ? 40 : 48, VisualTokens.TextPrimary, anchor, true);
-            LeftLabel(CharacterPresenter.RoleLine(def), 22, CharacterPresenter.ElementColor(def.Element),
-                anchor + new Vector2(0f, compact ? -0.040f : -0.048f), true);
+            LeftLabel(CharacterPresenter.RoleLine(def), compact ? 18 : 22, CharacterPresenter.ElementColor(def.Element),
+                anchor + new Vector2(0f, compact ? -0.028f : -0.048f), true);
             if (compact)
             {
-                LeftLabel("战力  " + Growth.CombatPower(grown), 32, VisualTokens.YellowValue,
-                    anchor + new Vector2(0f, -0.082f), false);
+                LeftLabel("战力  " + Growth.CombatPower(grown), 28, VisualTokens.YellowValue,
+                    anchor + new Vector2(0f, -0.062f), false);
+                LeftLabel("生命 " + grown.Hp + "   攻击 " + grown.Atk + "   防御 " + grown.Def,
+                    18, VisualTokens.TextStat, anchor + new Vector2(0f, -0.094f), false);
                 return;
             }
             LeftLabel(CharacterPresenter.Flavor(def.Id), 20, VisualTokens.TextSecondary, anchor + new Vector2(0f, -0.090f), true);
@@ -475,31 +477,32 @@ namespace Resonance.App
             var prog = _save.GetUnit(id);
             var grown = Growth.Apply(def, prog);
             var br = Growth.BreakDown(def, prog);
-            _built.Add(CharacterPresenter.DrawStage(Root(), def, prog.SkinId));
-            IdentityBlock(def, prog, new Vector2(0.06f, 0.62f), false, false);
+            _built.Add(CharacterPresenter.DrawStage(Root(), def, prog.SkinId, 0.42f, 0.92f));
+            IdentityBlock(def, prog, new Vector2(0.06f, 0.388f), true, false);
+            LeftLabel(StarLine(def, prog), 18, VisualTokens.StarEvolved, new Vector2(0.62f, 0.388f), false);
             FullLabel("契体 " + br.BodyAtk + "  好感 +" + br.AffAtk + "  装备 +" + br.GearAtk,
-                18, VisualTokens.TextSecondary, new Vector2(0.5f, 0.355f), false);
+                16, VisualTokens.TextSecondary, new Vector2(0.5f, 0.270f), false);
 
             DrawWells(prog);
 
             var pips = Growth.IgnitionPips(prog.Ignition);
-            FullLabel("燃起  " + pips + " / 6", 20, VisualTokens.GoldTitle, new Vector2(0.22f, 0.235f), false);
+            FullLabel("燃起  " + pips + " / 6", 18, VisualTokens.GoldTitle, new Vector2(0.22f, 0.165f), false);
             for (int i = 0; i < 6; i++)
             {
                 var on = i < pips;
-                var pip = MakeImage("pip", new Vector2(0.40f + i * 0.08f, 0.235f), new Vector2(56, 56),
+                var pip = MakeImage("pip", new Vector2(0.40f + i * 0.08f, 0.165f), new Vector2(48, 48),
                     on ? VisualTokens.GoldSelect : VisualTokens.SlotWell);
                 UiSprites.Apply(pip, UiSprites.Circle());
                 pip.raycastTarget = false;
             }
-            GhostBtn("点亮", new Vector2(0.90f, 0.235f), () =>
+            GhostBtn("点亮", new Vector2(0.90f, 0.165f), () =>
             {
                 prog.Ignition = Growth.CycleIgnition(prog.Ignition, def.IgnitionMax);
                 Persist();
                 DrawInspect();
             });
 
-            FullLabel("技能预约   T=点按   S=上滑", 16, VisualTokens.TextMuted, new Vector2(0.5f, 0.188f), false);
+            FullLabel("技能预约   T=点按   S=上滑", 15, VisualTokens.TextMuted, new Vector2(0.5f, 0.142f), false);
             var rsv = Growth.NormalizedReserve(prog.Reserve);
             for (int i = 0; i < 5; i++)
             {
@@ -507,7 +510,7 @@ namespace Resonance.App
                 var x = 0.14f + i * 0.18f;
                 var mark = rsv[i].ToString();
                 var fill = mark == "S" ? VisualTokens.SlideGreen : mark == "T" ? VisualTokens.YellowConfirm : VisualTokens.SlotWell;
-                var go = MakeButton(mark, new Vector2(x, 0.145f), new Vector2(88, 88),
+                var go = MakeButton(mark, new Vector2(x, 0.108f), new Vector2(72, 72),
                     mark == "E" ? VisualTokens.TextMuted : VisualTokens.TextOnYellow, () =>
                     {
                         prog.Reserve = Growth.CycleReserveSlot(prog.Reserve, slot);
@@ -517,49 +520,49 @@ namespace Resonance.App
                 var img = go.GetComponent<Image>();
                 UiSprites.Apply(img, UiSprites.Circle());
                 img.color = fill;
-                go.GetComponentInChildren<Text>().fontSize = 32;
+                go.GetComponentInChildren<Text>().fontSize = 28;
             }
 
-            GhostBtn("LV-", new Vector2(0.10f, 0.072f), () =>
+            GhostBtn("LV-", new Vector2(0.10f, 0.062f), () =>
             {
                 prog.Level = Mathf.Max(1, prog.Level - 1);
                 Persist();
                 DrawInspect();
             });
-            FullLabel("LV " + prog.Level, 18, VisualTokens.YellowValue, new Vector2(0.22f, 0.072f), false);
-            GhostBtn("LV+", new Vector2(0.34f, 0.072f), () =>
+            FullLabel("LV " + prog.Level, 18, VisualTokens.YellowValue, new Vector2(0.22f, 0.062f), false);
+            GhostBtn("LV+", new Vector2(0.34f, 0.062f), () =>
             {
                 prog.Level = Mathf.Min(Growth.MaxLevel, prog.Level + 1);
                 Persist();
                 DrawInspect();
             });
-            GhostBtn("突破+" + prog.Uncap, new Vector2(0.50f, 0.072f), () =>
+            GhostBtn("突破+" + prog.Uncap, new Vector2(0.50f, 0.062f), () =>
             {
                 prog.Uncap = prog.Uncap >= def.UncapMax ? 0 : prog.Uncap + 1;
                 Persist();
                 DrawInspect();
             });
-            GhostBtn("好感" + Growth.AffectionRank(prog.Affection), new Vector2(0.66f, 0.072f), () =>
+            GhostBtn("好感" + Growth.AffectionRank(prog.Affection), new Vector2(0.66f, 0.062f), () =>
             {
                 prog.Affection = Growth.CycleAffection(prog.Affection);
                 Persist();
                 DrawInspect();
             });
-            GhostBtn(SkinCatalog.Label(prog.SkinId), new Vector2(0.84f, 0.072f), () =>
+            GhostBtn(SkinCatalog.Label(prog.SkinId), new Vector2(0.84f, 0.062f), () =>
             {
                 prog.SkinId = SkinCatalog.Cycle(prog.SkinId);
                 Persist();
                 DrawInspect();
             });
 
-            Confirm("技能", new Vector2(0.78f, 0.028f), ToggleSkill);
-            GhostBtn("编入", new Vector2(0.22f, 0.028f), () =>
+            Confirm("技能", new Vector2(0.78f, 0.024f), ToggleSkill);
+            GhostBtn("编入", new Vector2(0.22f, 0.024f), () =>
             {
                 _save.SetPartySlot(_editSlot, id);
                 Persist();
                 Show(ScreenId.Team);
             });
-            GhostBtn("返回", new Vector2(0.50f, 0.028f), () => Show(_inspectBack));
+            GhostBtn("返回", new Vector2(0.50f, 0.024f), () => Show(_inspectBack));
             GhostBtn("×", new Vector2(0.93f, 0.95f), () => Show(_inspectBack));
             if (_skillOpen) DrawSkillModal(def, grown);
         }
@@ -571,9 +574,9 @@ namespace Resonance.App
             {
                 var slot = i;
                 var x = 0.16f + i * 0.22f;
-                FullLabel(GearCatalog.SlotNames[i], 16, VisualTokens.TextMuted, new Vector2(x, 0.325f), false);
+                FullLabel(GearCatalog.SlotNames[i], 15, VisualTokens.TextMuted, new Vector2(x, 0.248f), false);
                 var filled = !string.IsNullOrEmpty(gears[i]);
-                var go = MakeButton(filled ? GearCatalog.Label(gears[i]) : "空", new Vector2(x, 0.285f), new Vector2(150, 88),
+                var go = MakeButton(filled ? GearCatalog.Label(gears[i]) : "空", new Vector2(x, 0.214f), new Vector2(150, 72),
                     filled ? VisualTokens.YellowValue : VisualTokens.TextMuted, () =>
                     {
                         var next = GearCatalog.CycleSlot(slot, SlotGear(prog, slot));
