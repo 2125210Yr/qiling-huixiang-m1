@@ -147,7 +147,7 @@ namespace Resonance.App
                 return;
             }
             if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
-                && (_screen == ScreenId.Home || _screen == ScreenId.Stage))
+                && _screen == ScreenId.Stage)
             {
                 TryStartFromMenu();
                 return;
@@ -371,7 +371,8 @@ namespace Resonance.App
             FullLabel("契灵", 28, VisualTokens.GoldTitle, new Vector2(0.5f, 0.965f), false);
             FullLabel("五色五职  ·  战力 " + TeamPower(), 22, VisualTokens.YellowValue, new Vector2(0.5f, 0.93f), false);
             DrawElementRoleGrid(0.80f, 0.22f, new Vector2(168, 176), Inspect);
-            Confirm("编队", new Vector2(0.5f, 0.125f), () => Show(ScreenId.Team));
+            Confirm("编队", new Vector2(0.32f, 0.125f), () => Show(ScreenId.Team));
+            Confirm("出战", new Vector2(0.68f, 0.125f), () => Show(ScreenId.Stage));
             CloseX(ScreenId.Home);
         }
 
@@ -639,18 +640,28 @@ namespace Resonance.App
         {
             CharacterPresenter.MosaicFloor(Root(), _built);
             FullLabel("第1章  废都裂口", 30, VisualTokens.GoldTitle, new Vector2(0.5f, 0.96f), false);
+            var hardLocked = _save.ClearedCount < 12;
+            if (hardLocked) _save.UseHard = false;
             GhostBtn(_save.UseHard ? "普通" : "普通·", new Vector2(0.28f, 0.915f), () =>
             {
                 _save.UseHard = false;
                 Persist();
                 Show(ScreenId.Stage);
             });
-            GhostBtn(_save.UseHard ? "困难·" : "困难", new Vector2(0.72f, 0.915f), () =>
+            var hardBtn = GhostBtn(_save.UseHard ? "困难·" : "困难", new Vector2(0.72f, 0.915f), () =>
             {
+                if (hardLocked) return;
                 _save.UseHard = true;
                 Persist();
                 Show(ScreenId.Stage);
             });
+            if (hardLocked)
+            {
+                var hardTx = hardBtn.GetComponentInChildren<Text>();
+                if (hardTx != null) hardTx.color = VisualTokens.TextMuted;
+                var hardClick = hardBtn.GetComponent<Button>();
+                if (hardClick != null) hardClick.interactable = false;
+            }
             var table = Catalog.Chapter(_save.UseHard);
             var cleared = _save.UseHard ? _save.ClearedHard : _save.ClearedCount;
             FullLabel((_save.UseHard ? "困难 " : "普通 ") + cleared + " / 12", 20, VisualTokens.YellowValue, new Vector2(0.5f, 0.875f), false);
@@ -872,7 +883,7 @@ namespace Resonance.App
             ol.effectDistance = new Vector2(2, -2);
         }
 
-        void GhostBtn(string label, Vector2 anchor, UnityEngine.Events.UnityAction click)
+        GameObject GhostBtn(string label, Vector2 anchor, UnityEngine.Events.UnityAction click)
         {
             var go = MakeButton(label, anchor, new Vector2(140, 56), VisualTokens.TextPrimary, click);
             go.GetComponent<Image>().color = Color.clear;
@@ -880,6 +891,7 @@ namespace Resonance.App
             var ol = tx.gameObject.AddComponent<Outline>();
             ol.effectColor = Color.black;
             ol.effectDistance = new Vector2(2, -2);
+            return go;
         }
 
         Text PillKeep(string label, Vector2 anchor, UnityEngine.Events.UnityAction click)
