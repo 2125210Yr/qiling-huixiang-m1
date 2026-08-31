@@ -114,9 +114,9 @@ namespace Resonance.App
             rt.offsetMin = rt.offsetMax = Vector2.zero;
             // FitInParent + 2:3 立绘，头必须在框内
 
-            Texture2D idle = null;
-            Texture2D blink = null;
-            if (CharacterArt.TryPresenter(def.Id, out idle, out blink) && idle != null)
+            Texture2D idle;
+            Texture2D blink;
+            if (def != null && CharacterArt.TryPresenter(def.Id, out idle, out blink) && idle != null)
                 AddFittedStandee(go.transform, idle);
             else
                 Draw(go.transform, def, new Vector2(0.50f, 0.42f), 720f, skinId, false);
@@ -133,18 +133,16 @@ namespace Resonance.App
             rt.sizeDelta = new Vector2(wide, height);
             rt.anchoredPosition = Vector2.zero;
 
-            var cloth = SkinTint(def.Element, skinId);
+            var el = def != null ? def.Element : Element.Dark;
+            var cloth = SkinTint(el, skinId);
             Part(go.transform, "glow", UiSprites.Soft(), new Color(cloth.r, cloth.g, cloth.b, 0.22f),
                 new Vector2(0.50f, 0.22f), new Vector2(height * 0.52f, height * 0.20f));
 
-            Texture2D idle = null;
-            Texture2D blink = null;
             var bodyH = height;
             var bodyW = height * (height >= 260f ? 0.72f : 0.78f);
-            if (height >= 260f && CharacterArt.TryPresenter(def.Id, out idle, out blink))
-                AddStill(go.transform, idle, new Vector2(0.50f, 0.48f), new Vector2(bodyW, bodyH));
-            else if (CharacterArt.TryPortrait(def.Id, out idle, out blink))
-                AddStill(go.transform, idle, new Vector2(0.50f, 0.58f), new Vector2(bodyW, bodyH));
+            var still = ResolveStill(def, height);
+            if (still != null)
+                AddStill(go.transform, still, new Vector2(0.50f, height >= 260f ? 0.48f : 0.58f), new Vector2(bodyW, bodyH));
             else
             {
                 var body = Part(go.transform, "pixel", PixelStandIn.Get(def, skinId, 0), Color.white,
@@ -154,16 +152,29 @@ namespace Resonance.App
             }
 
             var discPx = Mathf.Clamp(height * 0.10f, 22f, 52f);
-            if (height >= 160f && idle == null)
+            if (height >= 160f && still == null)
             {
                 var disc = Part(go.transform, "disc", UiSprites.Circle(), VisualTokens.RoleDisc, new Vector2(0.14f, 0.70f), new Vector2(discPx, discPx));
-                var rim = Part(disc.transform, "rim", UiSprites.Circle(), ElementColor(def.Element), new Vector2(0.5f, 0.5f), new Vector2(discPx + 6f, discPx + 6f));
+                var rim = Part(disc.transform, "rim", UiSprites.Circle(), ElementColor(el), new Vector2(0.5f, 0.5f), new Vector2(discPx + 6f, discPx + 6f));
                 rim.transform.SetAsFirstSibling();
-                Part(disc.transform, "glyph", UiSprites.Stamp(RoleStamp(def.Role)), Color.white, new Vector2(0.5f, 0.5f), new Vector2(discPx * 0.52f, discPx * 0.52f));
+                var role = def != null ? def.Role : Role.Supporter;
+                Part(disc.transform, "glyph", UiSprites.Stamp(RoleStamp(role)), Color.white, new Vector2(0.5f, 0.5f), new Vector2(discPx * 0.52f, discPx * 0.52f));
             }
             if (showPlate && height >= 180f)
                 NamePlate(go.transform, def, height);
             return go;
+        }
+
+        static Texture2D ResolveStill(CharacterDef def, float height)
+        {
+            if (def == null || string.IsNullOrEmpty(def.Id)) return null;
+            Texture2D idle;
+            Texture2D blink;
+            if (height >= 260f && CharacterArt.TryPresenter(def.Id, out idle, out blink) && idle != null)
+                return idle;
+            if (CharacterArt.TryPortrait(def.Id, out idle, out blink) && idle != null)
+                return idle;
+            return null;
         }
 
         static RawImage AddFittedStandee(Transform parent, Texture tex)
@@ -202,6 +213,7 @@ namespace Resonance.App
 
         static RawImage AddStill(Transform parent, Texture tex, Vector2 anchor, Vector2 size)
         {
+            if (tex == null) return null;
             var go = new GameObject("still", typeof(RectTransform), typeof(RawImage));
             go.transform.SetParent(parent, false);
             var rt = go.GetComponent<RectTransform>();
@@ -219,11 +231,12 @@ namespace Resonance.App
         {
             var w = Mathf.Clamp(h * 0.78f, 160f, 420f);
             var namePx = Mathf.Clamp(Mathf.RoundToInt(h * 0.048f), 22, 44);
+            var el = def != null ? def.Element : Element.Dark;
             Part(t, "plate", UiSprites.Round(), new Color(0f, 0f, 0f, 0.82f),
                 new Vector2(0.50f, 0.00f), new Vector2(w, namePx + 36f));
-            Label(t, def.Name, namePx, Color.white, new Vector2(0.50f, 0.018f),
+            Label(t, def != null ? def.Name : "", namePx, Color.white, new Vector2(0.50f, 0.018f),
                 new Vector2(w - 8f, namePx + 8f), true);
-            Label(t, RoleLine(def), Mathf.Max(16, namePx - 10), ElementColor(def.Element),
+            Label(t, RoleLine(def), Mathf.Max(16, namePx - 10), ElementColor(el),
                 new Vector2(0.50f, -0.028f), new Vector2(w - 8f, 28f), true);
         }
 
@@ -251,18 +264,20 @@ namespace Resonance.App
             UiSprites.Apply(img, UiSprites.Round());
             img.color = selected ? VisualTokens.GoldSelect : VisualTokens.PanelFill;
 
+            var el = def != null ? def.Element : Element.Dark;
+            var rimCol = ElementColor(el);
             var inner = Part(go.transform, "body", UiSprites.Round(), new Color(0.08f, 0.07f, 0.07f, 1f),
                 new Vector2(0.5f, 0.58f), new Vector2(size.x - 18, size.y - 52));
             inner.raycastTarget = false;
 
-            Label(go.transform, def.Name, 20, Color.white, new Vector2(0.5f, 0.11f), new Vector2(size.x - 8, 34), true);
-            Label(go.transform, RoleLine(def), 14, ElementColor(def.Element), new Vector2(0.5f, -0.01f), new Vector2(size.x - 8, 24), true);
+            Label(go.transform, def != null ? def.Name : "", 20, Color.white, new Vector2(0.5f, 0.11f), new Vector2(size.x - 8, 34), true);
+            Label(go.transform, RoleLine(def), 14, rimCol, new Vector2(0.5f, -0.01f), new Vector2(size.x - 8, 24), true);
             Label(go.transform, "LV " + level, 14, VisualTokens.YellowValue, new Vector2(0.28f, 0.22f), new Vector2(78, 24), true);
 
-            var rim = Part(go.transform, "rim", UiSprites.Round(), ElementColor(def.Element),
+            var rim = Part(go.transform, "rim", UiSprites.Round(), rimCol,
                 new Vector2(0.5f, 0.52f), new Vector2(size.x - 2, size.y - 8));
             rim.transform.SetAsFirstSibling();
-            rim.color = ElementColor(def.Element);
+            rim.color = rimCol;
 
             Draw(go.transform, def, new Vector2(0.5f, 0.60f), size.y * 0.82f, "", false);
             if (leader)
@@ -288,18 +303,21 @@ namespace Resonance.App
             var img = go.GetComponent<Image>();
             UiSprites.Apply(img, UiSprites.Round());
             img.color = marked ? new Color(0.18f, 0.14f, 0.06f, 1f) : new Color(0.10f, 0.09f, 0.09f, 1f);
-            var rimColor = marked ? VisualTokens.GoldSelect : ElementColor(def.Element);
+            var el = def != null ? def.Element : Element.Dark;
+            var rimColor = ElementColor(el);
             var rim = Part(go.transform, "rim", UiSprites.Round(), rimColor,
                 new Vector2(0.5f, 0.52f), new Vector2(size.x + 6f, size.y + 6f));
             rim.transform.SetAsFirstSibling();
-            var bodyH = compact ? Mathf.Min(size.y * 0.78f, 132f) : Mathf.Min(size.y * 0.92f, 180f);
-            Draw(go.transform, def, new Vector2(0.5f, compact ? 0.56f : 0.58f), bodyH, "", false);
+            var bodyH = compact ? Mathf.Min(size.y * 0.70f, 118f) : Mathf.Min(size.y * 0.82f, 160f);
+            Draw(go.transform, def, new Vector2(0.5f, compact ? 0.58f : 0.60f), bodyH, "", false);
             var namePx = compact ? 15 : 22;
-            Label(go.transform, def.Name, namePx, Color.white, new Vector2(0.5f, compact ? 0.10f : 0.13f),
-                new Vector2(size.x - 6, compact ? 28 : 34), true);
-            if (!compact)
-                Label(go.transform, RoleLine(def), 15, ElementColor(def.Element), new Vector2(0.5f, 0.03f),
-                    new Vector2(size.x - 6, 24), true);
+            var rolePx = compact ? 12 : 15;
+            Label(go.transform, def != null ? def.Name : "", namePx, Color.white,
+                new Vector2(0.5f, compact ? 0.16f : 0.15f),
+                new Vector2(size.x - 6, compact ? 26 : 34), true);
+            Label(go.transform, RoleLine(def), rolePx, rimColor,
+                new Vector2(0.5f, 0.03f),
+                new Vector2(size.x - 6, compact ? 22 : 24), true);
             return go;
         }
 
@@ -450,7 +468,7 @@ namespace Resonance.App
             tx.alignment = TextAnchor.MiddleCenter;
             tx.color = color;
             tx.fontSize = size;
-            tx.text = text;
+            tx.text = text ?? "";
             tx.horizontalOverflow = HorizontalWrapMode.Overflow;
             tx.verticalOverflow = VerticalWrapMode.Overflow;
             tx.raycastTarget = false;
@@ -504,7 +522,8 @@ namespace Resonance.App
             rt.anchoredPosition = Vector2.zero;
             rt.localEulerAngles = new Vector3(0, 0, rot);
             var img = go.GetComponent<Image>();
-            UiSprites.Apply(img, sprite);
+            if (sprite != null)
+                UiSprites.Apply(img, sprite);
             img.color = color;
             img.raycastTarget = false;
             return img;
@@ -564,7 +583,7 @@ namespace Resonance.App
         public void Bind(CharacterDef def, string skin, float height)
         {
             _amp = height >= 400f ? 14f : height >= 220f ? 8f : 3.5f;
-            _phase = def != null ? (def.Id.GetHashCode() & 255) * 0.11f : 0f;
+            _phase = def != null && def.Id != null ? (def.Id.GetHashCode() & 255) * 0.11f : 0f;
             var t = transform.Find("pixel");
             if (t != null) _pixel = t.GetComponent<Image>();
             _a = PixelStandIn.Get(def, skin, 0);

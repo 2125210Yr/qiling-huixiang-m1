@@ -87,6 +87,8 @@ namespace Resonance.App
 
         public void Inspect(string id)
         {
+            if (string.IsNullOrEmpty(id) || Catalog.Characters == null || !Catalog.Characters.ContainsKey(id))
+                return;
             _inspectId = id;
             _inspectBack = _screen;
             _skillOpen = false;
@@ -431,26 +433,29 @@ namespace Resonance.App
             const float dx = 0.172f;
             for (int r = 0; r < 5; r++)
                 FullLabel(roles[r], 16, VisualTokens.TextMuted, new Vector2(x0 + r * dx, topY + 0.042f), false);
-            var ids = Catalog.MatrixIds;
+            var ids = Catalog.MatrixIds ?? Catalog.PlayableIds;
             for (int e = 0; e < 5; e++)
             {
                 var y = topY - e * stepY;
                 FullLabel(els[e], 18, CharacterPresenter.ElementColor((Element)e), new Vector2(0.048f, y), false);
                 for (int r = 0; r < 5; r++)
                 {
-                    var id = ids[e * 5 + r];
-                    if (string.IsNullOrEmpty(id) || !Catalog.Characters.ContainsKey(id)) continue;
-                    var def = Catalog.MustChar(id);
-                    var captured = id;
+                    var idx = e * 5 + r;
+                    var id = ids != null && idx < ids.Length ? ids[idx] : null;
+                    CharacterDef def = null;
+                    if (!string.IsNullOrEmpty(id) && Catalog.Characters != null)
+                        Catalog.Characters.TryGetValue(id, out def);
+                    var captured = def != null ? def.Id : id;
                     var marked = false;
-                    if (_save.PartyIds != null)
+                    if (def != null && _save.PartyIds != null)
                     {
                         for (int p = 0; p < _save.PartyIds.Length; p++)
-                            if (_save.PartyIds[p] == id) { marked = true; break; }
+                            if (_save.PartyIds[p] == captured) { marked = true; break; }
                     }
                     var cell = CharacterPresenter.DrawTile(Root(), def,
                         new Vector2(x0 + r * dx, y), tile, true, marked);
-                    cell.GetComponent<Button>().onClick.AddListener(() => onClick(captured));
+                    if (!string.IsNullOrEmpty(captured))
+                        cell.GetComponent<Button>().onClick.AddListener(() => onClick(captured));
                     _built.Add(cell);
                 }
             }
@@ -462,6 +467,10 @@ namespace Resonance.App
             CharacterPresenter.CheckerFloor(Root(), _built);
             CharacterPresenter.Embers(Root(), _built);
             var id = _inspectId ?? Catalog.DefaultParty[0];
+            if (Catalog.Characters == null || !Catalog.Characters.ContainsKey(id))
+                id = Catalog.DefaultParty[0];
+            if (Catalog.Characters == null || !Catalog.Characters.ContainsKey(id))
+                return;
             var def = Catalog.MustChar(id);
             var prog = _save.GetUnit(id);
             var grown = Growth.Apply(def, prog);
