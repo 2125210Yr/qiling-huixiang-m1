@@ -153,7 +153,7 @@ namespace Resonance.App
             UiSprites.Apply(_driveBar, UiSprites.Round());
             _driveBar.type = Image.Type.Filled;
             _driveBar.fillMethod = Image.FillMethod.Horizontal;
-            _driveLabel = Label("驱动  0%", 16, VisualTokens.DriveOrange, new Vector2(0.5f, 0.205f), new Vector2(400, 28), true);
+            _driveLabel = Label("驱动  0%", 14, VisualTokens.DriveOrange, new Vector2(0.5f, 0.219f), new Vector2(400, 22), true);
 
             var fBg = Img("fBg", new Vector2(0.5f, 0.182f), new Vector2(480, 18), new Color(0f, 0f, 0f, 0.72f));
             UiSprites.Apply(fBg, UiSprites.Round());
@@ -161,7 +161,7 @@ namespace Resonance.App
             UiSprites.Apply(_feverBar, UiSprites.Round());
             _feverBar.type = Image.Type.Filled;
             _feverBar.fillMethod = Image.FillMethod.Horizontal;
-            _feverLabel = Label("Fever  0%", 16, VisualTokens.YellowValue, new Vector2(0.5f, 0.182f), new Vector2(400, 28), true);
+            _feverLabel = Label("Fever  0%", 14, VisualTokens.YellowValue, new Vector2(0.5f, 0.196f), new Vector2(400, 22), true);
             _hintLabel = Label("点按 头像   上滑 技能   驱动满 GOOD   粉闪 Fever", 15, VisualTokens.TextPrimary,
                 new Vector2(0.5f, 0.018f), new Vector2(1040, 32), true);
         }
@@ -212,7 +212,10 @@ namespace Resonance.App
                     if (_host.Battle != null) _host.Battle.TrySlide(slot);
                 };
 
-                _readyTag[i] = ChildLabel(go.transform, "点按 / 上滑", 14, VisualTokens.TextMuted, new Vector2(0.5f, 1.20f), new Vector2(160, 24));
+                _readyTag[i] = ChildLabel(go.transform, "", 13, VisualTokens.YellowConfirm, new Vector2(0.5f, 1.05f), new Vector2(148, 22));
+                var readyOl = _readyTag[i].gameObject.AddComponent<Outline>();
+                readyOl.effectColor = Color.black;
+                readyOl.effectDistance = new Vector2(2f, -2f);
                 _nameTag[i] = ChildLabel(go.transform, ShortName(def.Name), 15, Color.white, new Vector2(0.5f, 0.08f), new Vector2(140, 22));
 
                 var hpbg = ChildImg(go.transform, "hpbg", new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), Vector2.zero, Vector2.zero, new Color(0f, 0f, 0f, 0.7f));
@@ -515,8 +518,8 @@ namespace Resonance.App
                     }
                     else
                     {
-                        _readyTag[i].text = "点按 / 上滑";
-                        _readyTag[i].color = new Color(VisualTokens.TextMuted.r, VisualTokens.TextMuted.g, VisualTokens.TextMuted.b, 0.85f);
+                        _readyTag[i].text = "蓄力";
+                        _readyTag[i].color = VisualTokens.TextMuted;
                     }
                 }
                 if (_nameTag[i] != null)
