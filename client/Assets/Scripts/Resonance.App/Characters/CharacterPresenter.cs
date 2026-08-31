@@ -270,16 +270,15 @@ namespace Resonance.App
                 new Vector2(0.5f, 0.58f), new Vector2(size.x - 18, size.y - 52));
             inner.raycastTarget = false;
 
-            Label(go.transform, def != null ? def.Name : "", 20, Color.white, new Vector2(0.5f, 0.11f), new Vector2(size.x - 8, 34), true);
-            Label(go.transform, RoleLine(def), 14, rimCol, new Vector2(0.5f, -0.01f), new Vector2(size.x - 8, 24), true);
-            Label(go.transform, "LV " + level, 14, VisualTokens.YellowValue, new Vector2(0.28f, 0.22f), new Vector2(78, 24), true);
-
             var rim = Part(go.transform, "rim", UiSprites.Round(), rimCol,
                 new Vector2(0.5f, 0.52f), new Vector2(size.x - 2, size.y - 8));
             rim.transform.SetAsFirstSibling();
             rim.color = rimCol;
 
             Draw(go.transform, def, new Vector2(0.5f, 0.60f), size.y * 0.82f, "", false);
+            Label(go.transform, def != null ? def.Name : "", 20, Color.white, new Vector2(0.5f, 0.11f), new Vector2(size.x - 8, 34), true);
+            Label(go.transform, RoleLine(def), 14, rimCol, new Vector2(0.5f, -0.01f), new Vector2(size.x - 8, 24), true);
+            Label(go.transform, "LV " + level, 14, VisualTokens.YellowValue, new Vector2(0.28f, 0.22f), new Vector2(78, 24), true);
             if (leader)
                 Label(go.transform, "队长", 12, VisualTokens.TextPrimary, new Vector2(0.5f, 1.08f), new Vector2(90, 22), true)
                     .color = VisualTokens.TextPrimary;
@@ -582,7 +581,7 @@ namespace Resonance.App
 
         public void Bind(CharacterDef def, string skin, float height)
         {
-            _amp = height >= 400f ? 14f : height >= 220f ? 8f : 3.5f;
+            _amp = height >= 400f ? 14f : height >= 220f ? 8f : height >= 160f ? 3.5f : 0f;
             _phase = def != null && def.Id != null ? (def.Id.GetHashCode() & 255) * 0.11f : 0f;
             var t = transform.Find("pixel");
             if (t != null) _pixel = t.GetComponent<Image>();
@@ -599,12 +598,15 @@ namespace Resonance.App
                 _base = rt.anchoredPosition;
                 _ready = true;
             }
-            _pop = Mathf.MoveTowards(_pop, 1f, Time.unscaledDeltaTime * 2.8f);
-            var enter = Mathf.SmoothStep(0.78f, 1f, _pop);
             var t = Time.unscaledTime + _phase;
-            rt.anchoredPosition = _base + new Vector2(Mathf.Sin(t * 1.15f) * (_amp * 0.45f), Mathf.Sin(t * 1.7f) * _amp);
-            var breathe = 1f + Mathf.Sin(t * 2.3f) * 0.03f;
-            rt.localScale = Vector3.one * enter * breathe;
+            if (_amp > 0f)
+            {
+                _pop = Mathf.MoveTowards(_pop, 1f, Time.unscaledDeltaTime * 2.8f);
+                var enter = Mathf.SmoothStep(0.78f, 1f, _pop);
+                rt.anchoredPosition = _base + new Vector2(Mathf.Sin(t * 1.15f) * (_amp * 0.45f), Mathf.Sin(t * 1.7f) * _amp);
+                var breathe = 1f + Mathf.Sin(t * 2.3f) * 0.03f;
+                rt.localScale = Vector3.one * enter * breathe;
+            }
             if (_pixel != null && _a != null && _b != null)
                 _pixel.sprite = Mathf.Repeat(t, 0.64f) < 0.32f ? _a : _b;
         }
