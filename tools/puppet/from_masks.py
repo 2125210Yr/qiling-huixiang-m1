@@ -39,3 +39,31 @@ def shirt_keep(rgb: np.ndarray, a0: np.ndarray) -> np.ndarray:
     else:
         zone[:, :] = True
     return cloth & zone
+
+
+def apply_plates(still, moves, keep, chest):
+    h, w = still.shape[:2]
+    k = np.ones((3, 3), np.uint8)
+    a0 = still[:, :, 3] > 8
+    rgb = still[:, :, :3]
+    protect = shirt_keep(rgb, a0)
+    if keep is not None:
+        protect = protect | keep
+    if chest is not None:
+        protect = protect | chest
+    plates = {}
+    punch = np.zeros((h, w), np.uint8)
+    for name, m in moves.items():
+        if int(m.sum()) == 0:
+            raise ValueError(f"empty mask: {name}")
+        dil = cv2.dilate(m.astype(np.uint8) * 255, k, iterations=2) > 128
+        layer = still.copy()
+        layer[~dil, 3] = 0
+        plates[name] = layer
+        punch = np.maximum(punch, (m.astype(np.uint8) * 255))
+    punch[protect] = 0
+    punch = cv2.erode(punch, k, iterations=1)
+    body = still.copy()
+    body[punch > 16, 3] = 0
+    plates["body"] = body
+    return plates
