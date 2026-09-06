@@ -1,7 +1,17 @@
 # tools/puppet/test_from_masks.py
 import numpy as np
 import pytest
-from from_masks import apply_plates, check_keep_overlap, centroid_uv, mask_bool, merge_landmarks, shirt_keep
+from from_masks import (
+    MOVE_SLOTS,
+    apply_plates,
+    centroid_uv,
+    check_keep_overlap,
+    composite_rest,
+    keep_holes,
+    mask_bool,
+    merge_landmarks,
+    shirt_keep,
+)
 
 
 def test_mask_bool_alpha_or_luma():
@@ -105,3 +115,34 @@ def test_merge_landmarks_file_overrides():
     out = merge_landmarks(moves, chest=None, file_marks=file_marks, defaults={"head": [0.51, 0.82], "chest": [0.50, 0.70]})
     assert out["head"] == [0.5, 0.8]
     assert out["chest"] == [0.5, 0.7]
+
+
+def test_composite_rest_identity_layers():
+    still = np.zeros((4, 4, 4), np.uint8)
+    still[:, :, :3] = 10
+    still[:, :, 3] = 255
+    body = still.copy()
+    hair = np.zeros_like(still)
+    plates = {"hair_back": hair, "body": body}
+    rest = composite_rest(plates)
+    assert rest.shape == still.shape
+    assert rest[0, 0, 3] == 255
+
+
+def test_keep_holes_zero_when_protected():
+    still = np.zeros((8, 8, 4), np.uint8)
+    still[:, :, 3] = 255
+    body = still.copy()
+    keep = np.ones((8, 8), bool)
+    assert keep_holes(still, body, keep) == 0
+
+
+def test_keep_holes_counts_when_body_missing_keep_pixels():
+    still = np.zeros((8, 8, 4), np.uint8)
+    still[:, :, 3] = 255
+    body = still.copy()
+    body[1:3, 2:5, 3] = 0
+    keep = np.zeros((8, 8), bool)
+    keep[1:3, 2:5] = True
+    assert keep_holes(still, body, keep) == 6
+    assert "body" not in MOVE_SLOTS

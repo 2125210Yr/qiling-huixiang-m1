@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import shutil
 from pathlib import Path
 
 import cv2
@@ -13,6 +14,10 @@ MOVE_SLOTS = (
     "head", "hand_r", "hand_l", "foot_r", "foot_l", "sword",
 )
 CANVAS = (1024, 1536)
+REST_ORDER = (
+    "hair_back", "body", "head", "hair_side", "hair_front",
+    "hand_l", "hand_r", "sword", "foot_l", "foot_r",
+)
 
 
 def mask_bool(arr: np.ndarray) -> np.ndarray:
@@ -56,6 +61,11 @@ def check_keep_overlap(moves: dict[str, np.ndarray], keep: np.ndarray | None) ->
 
 
 def apply_plates(still, moves, keep, chest):
+    if keep is not None:
+        keep = np.asarray(keep).astype(bool)
+    if chest is not None:
+        chest = np.asarray(chest).astype(bool)
+    moves = {name: np.asarray(m).astype(bool) for name, m in moves.items()}
     check_keep_overlap(moves, keep)
     h, w = still.shape[:2]
     k = np.ones((3, 3), np.uint8)
@@ -102,3 +112,111 @@ def merge_landmarks(moves, chest, file_marks, defaults):
     if file_marks:
         out.update(file_marks)
     return out
+
+
+def over(d, s):
+    a = s[:, :, 3:4].astype(np.float32) / 255.0
+    return d * (1 - a) + s.astype(np.float32) * a
+
+
+def composite_rest(plates: dict[str, np.ndarray]) -> np.ndarray:
+    h, w = next(iter(plates.values())).shape[:2]
+    rest = np.zeros((h, w, 4), np.float32)
+    for name in REST_ORDER:
+        if name in plates:
+            rest = over(rest, plates[name])
+    return np.clip(rest, 0, 255).astype(np.uint8)
+
+
+def keep_holes(still: np.ndarray, body: np.ndarray, keep: np.ndarray | None) -> int:
+    if keep is None:
+        return 0
+    st = still[:, :, 3] > 8
+    bd = body[:, :, 3] > 8
+    return int((keep & st & ~bd).sum())
+
+
+def write_preview(path: Path, arr: np.ndarray) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    a = arr[:, :, 3:4].astype(np.float32) / 255.0
+    rgb = arr[:, :, :3].astype(np.float32) * a + 32.0 * (1.0 - a)
+    vis = np.clip(rgb, 0, 255).astype(np.uint8)
+    m = arr[:, :, 3] > 8
+    out = np.dstack([vis, np.full(vis.shape[:2], 255, np.uint8)])
+    if m.any():
+        ys, xs = np.where(m)
+        out = out[max(0, ys.min() - 8):ys.max() + 9, max(0, xs.min() - 8):xs.max() + 9]
+    Image.fromarray(out).save(path)
+
+
+def load_rgba(p: Path) -> np.ndarray:
+    return np.array(Image.open(p).convert("RGBA"))
+
+
+def build(src: Path) -> tuple[dict[str, np.ndarray], dict, float, int]:
+    still_p = src / "still.png"
+    if not still_p.is_file():
+        raise SystemExit("missing still.png")
+    still = load_rgba(still_p)
+    h, w = still.shape[:2]
+    if (w, h) != CANVAS:
+        raise SystemExit(f"canvas must be {CANVAS[0]}x{CANVAS[1]}, got {w}x{h}")
+    mask_dir = src / "masks"
+    moves = {}
+    for name in MOVE_SLOTS:
+        p = mask_dir / f"{name}.png"
+        if not p.is_file():
+            continue
+        moves[name] = mask_bool(load_rgba(p))
+    keep = mask_bool(load_rgba(mask_dir / "keep.png")) if (mask_dir / "keep.png").is_file() else None
+    chest = mask_bool(load_rgba(mask_dir / "chest.png")) if (mask_dir / "chest.png").is_file() else None
+    file_marks = json.loads((src / "landmarks.json").read_text(encoding="utf-8")) if (src / "landmarks.json").is_file() else None
+    defaults = json.loads((Path(__file__).parent / "skeletons" / "standee_front.json").read_text(encoding="utf-8"))["landmarks"]
+    plates = apply_plates(still, moves, keep, chest)
+    marks = merge_landmarks(moves, chest, file_marks, defaults)
+    rest = composite_rest(plates)
+    diff = float(np.abs(rest[:, :, :3].astype(int) - still[:, :, :3].astype(int)).mean())
+    holes = keep_holes(still, plates["body"], keep)
+    return plates, marks, diff, holes
+
+
+def write_outputs(src: Path, plates: dict[str, np.ndarray], marks: dict, diff: float, holes: int) -> Path:
+    out = src / "layers"
+    prev = out / "preview"
+    out.mkdir(parents=True, exist_ok=True)
+    for name, arr in plates.items():
+        Image.fromarray(arr).save(out / f"{name}.png")
+        write_preview(prev / f"{name}.png", arr)
+    rest = composite_rest(plates)
+    Image.fromarray(rest).save(out / "composite_rest.png")
+    write_preview(prev / "composite_rest.png", rest)
+    (out / "landmarks.json").write_text(json.dumps(marks, indent=2), encoding="utf-8")
+    print("composite vs still mean rgb", round(diff, 2))
+    print("keep holes", holes)
+    return out
+
+
+def main():
+    import argparse
+    from pack import pack
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--id", required=True)
+    ap.add_argument("--src", required=True, type=Path)
+    ap.add_argument("--pack", action="store_true")
+    args = ap.parse_args()
+    plates, marks, diff, holes = build(args.src)
+    layers = write_outputs(args.src, plates, marks, diff, holes)
+    if args.pack:
+        repo = Path(__file__).resolve().parents[2]
+        dest_layers = repo / "client" / "Assets" / "Resources" / "Art" / "Characters" / args.id / "PuppetLayers"
+        dest_layers.mkdir(parents=True, exist_ok=True)
+        for p in layers.glob("*.png"):
+            if p.name == "composite_rest.png":
+                continue
+            shutil.copy2(p, dest_layers / p.name)
+        shutil.copy2(layers / "landmarks.json", dest_layers / "landmarks.json")
+        pack(args.id, dest_layers, "standee_front", "PuppetLayers", repo / "client" / "Assets" / "Resources" / "Art" / "Characters" / args.id / "Puppet")
+
+
+if __name__ == "__main__":
+    main()
