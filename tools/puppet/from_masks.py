@@ -41,7 +41,22 @@ def shirt_keep(rgb: np.ndarray, a0: np.ndarray) -> np.ndarray:
     return cloth & zone
 
 
+def check_keep_overlap(moves: dict[str, np.ndarray], keep: np.ndarray | None) -> None:
+    if keep is None:
+        return
+    keep = keep.astype(bool)
+    for name, m in moves.items():
+        m = np.asarray(m).astype(bool)
+        n = int(m.sum())
+        if n == 0:
+            continue
+        blocked = int((m & keep).sum())
+        if blocked / n > 0.90:
+            raise ValueError(f"keep covers {blocked}/{n} of {name}")
+
+
 def apply_plates(still, moves, keep, chest):
+    check_keep_overlap(moves, keep)
     h, w = still.shape[:2]
     k = np.ones((3, 3), np.uint8)
     a0 = still[:, :, 3] > 8

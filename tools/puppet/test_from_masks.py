@@ -1,7 +1,7 @@
 # tools/puppet/test_from_masks.py
 import numpy as np
 import pytest
-from from_masks import apply_plates, mask_bool, shirt_keep
+from from_masks import apply_plates, check_keep_overlap, mask_bool, shirt_keep
 
 
 def test_mask_bool_alpha_or_luma():
@@ -62,3 +62,29 @@ def test_empty_move_mask_raises():
     empty = np.zeros((8, 8), bool)
     with pytest.raises(ValueError, match="empty"):
         apply_plates(still, {"hand_r": empty}, keep=None, chest=None)
+
+
+def test_keep_blocks_hand_raises():
+    hand = np.zeros((8, 8), bool)
+    hand[2:6, 2:6] = True
+    keep = np.ones((8, 8), bool)
+    with pytest.raises(ValueError, match="keep"):
+        check_keep_overlap({"hand_r": hand}, keep)
+
+
+def test_keep_partial_ok():
+    hand = np.zeros((8, 8), bool)
+    hand[2:6, 2:6] = True
+    keep = np.zeros((8, 8), bool)
+    keep[2:6, 2:3] = True
+    check_keep_overlap({"hand_r": hand}, keep)
+
+
+def test_apply_plates_keep_blocks_hand_raises():
+    still = np.zeros((8, 8, 4), np.uint8)
+    still[:, :, 3] = 255
+    hand = np.zeros((8, 8), bool)
+    hand[2:6, 2:6] = True
+    keep = np.ones((8, 8), bool)
+    with pytest.raises(ValueError, match="keep"):
+        apply_plates(still, {"hand_r": hand}, keep=keep, chest=None)
