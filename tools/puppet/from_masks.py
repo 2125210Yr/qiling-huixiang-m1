@@ -82,3 +82,23 @@ def apply_plates(still, moves, keep, chest):
     body[punch > 16, 3] = 0
     plates["body"] = body
     return plates
+
+
+def centroid_uv(m: np.ndarray) -> list[float]:
+    ys, xs = np.where(m)
+    h, w = m.shape
+    u = float(xs.mean() / max(w - 1, 1))
+    v = float(1.0 - ys.mean() / max(h - 1, 1))
+    return [round(u, 4), round(v, 4)]
+
+
+def merge_landmarks(moves, chest, file_marks, defaults):
+    out = dict(defaults)
+    for key in ("head", "hand_r", "hand_l", "foot_r", "foot_l"):
+        if key in moves and int(np.asarray(moves[key]).astype(bool).sum()) > 0:
+            out[key] = centroid_uv(np.asarray(moves[key]).astype(bool))
+    if chest is not None and int(np.asarray(chest).astype(bool).sum()) > 0:
+        out["chest"] = centroid_uv(np.asarray(chest).astype(bool))
+    if file_marks:
+        out.update(file_marks)
+    return out

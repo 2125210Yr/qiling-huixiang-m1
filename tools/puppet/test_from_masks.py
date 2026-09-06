@@ -1,7 +1,7 @@
 # tools/puppet/test_from_masks.py
 import numpy as np
 import pytest
-from from_masks import apply_plates, check_keep_overlap, mask_bool, shirt_keep
+from from_masks import apply_plates, check_keep_overlap, centroid_uv, mask_bool, merge_landmarks, shirt_keep
 
 
 def test_mask_bool_alpha_or_luma():
@@ -88,3 +88,20 @@ def test_apply_plates_keep_blocks_hand_raises():
     keep = np.ones((8, 8), bool)
     with pytest.raises(ValueError, match="keep"):
         apply_plates(still, {"hand_r": hand}, keep=keep, chest=None)
+
+
+def test_centroid_uv_bottom_left_origin():
+    m = np.zeros((10, 10), bool)
+    m[1, 2] = True
+    u, v = centroid_uv(m)
+    assert abs(u - 0.25) < 0.08
+    assert abs(v - 0.85) < 0.08
+
+
+def test_merge_landmarks_file_overrides():
+    moves = {"head": np.zeros((4, 4), bool)}
+    moves["head"][0, 0] = True
+    file_marks = {"head": [0.5, 0.8], "chest": [0.5, 0.7]}
+    out = merge_landmarks(moves, chest=None, file_marks=file_marks, defaults={"head": [0.51, 0.82], "chest": [0.50, 0.70]})
+    assert out["head"] == [0.5, 0.8]
+    assert out["chest"] == [0.5, 0.7]
