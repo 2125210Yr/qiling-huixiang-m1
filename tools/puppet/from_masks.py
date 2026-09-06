@@ -23,10 +23,14 @@ REST_ORDER = (
 def mask_bool(arr: np.ndarray) -> np.ndarray:
     if arr.ndim == 2:
         return arr > 8
-    if arr.shape[2] == 4:
-        return arr[:, :, 3] > 8
     luma = arr[:, :, 0].astype(np.int16) + arr[:, :, 1] + arr[:, :, 2]
-    return luma > 24
+    luma_on = luma > 24
+    if arr.shape[2] == 3:
+        return luma_on
+    alpha_on = arr[:, :, 3] > 8
+    if alpha_on.any() and (~alpha_on).any():
+        return alpha_on
+    return luma_on
 
 
 def shirt_keep(rgb: np.ndarray, a0: np.ndarray) -> np.ndarray:
@@ -153,6 +157,15 @@ def load_rgba(p: Path) -> np.ndarray:
     return np.array(Image.open(p).convert("RGBA"))
 
 
+def load_mask(p: Path, still_hw: tuple[int, int]) -> np.ndarray:
+    arr = load_rgba(p)
+    if arr.shape[:2] != still_hw:
+        sh, sw = still_hw
+        mh, mw = arr.shape[:2]
+        raise SystemExit(f"{p.name} is {mw}x{mh}, still is {sw}x{sh}")
+    return mask_bool(arr)
+
+
 def build(src: Path) -> tuple[dict[str, np.ndarray], dict, float, int]:
     still_p = src / "still.png"
     if not still_p.is_file():
@@ -167,9 +180,9 @@ def build(src: Path) -> tuple[dict[str, np.ndarray], dict, float, int]:
         p = mask_dir / f"{name}.png"
         if not p.is_file():
             continue
-        moves[name] = mask_bool(load_rgba(p))
-    keep = mask_bool(load_rgba(mask_dir / "keep.png")) if (mask_dir / "keep.png").is_file() else None
-    chest = mask_bool(load_rgba(mask_dir / "chest.png")) if (mask_dir / "chest.png").is_file() else None
+        moves[name] = load_mask(p, still.shape[:2])
+    keep = load_mask(mask_dir / "keep.png", still.shape[:2]) if (mask_dir / "keep.png").is_file() else None
+    chest = load_mask(mask_dir / "chest.png", still.shape[:2]) if (mask_dir / "chest.png").is_file() else None
     file_marks = json.loads((src / "landmarks.json").read_text(encoding="utf-8")) if (src / "landmarks.json").is_file() else None
     defaults = json.loads((Path(__file__).parent / "skeletons" / "standee_front.json").read_text(encoding="utf-8"))["landmarks"]
     plates = apply_plates(still, moves, keep, chest)
@@ -180,10 +193,39 @@ def build(src: Path) -> tuple[dict[str, np.ndarray], dict, float, int]:
     return plates, marks, diff, holes
 
 
+def clear_stale_move_pngs(folder: Path, plates: dict | None = None) -> None:
+    keep = set(plates or ())
+    for name in MOVE_SLOTS:
+        if name == "body":
+            continue
+        if plates is not None and name in keep:
+            continue
+        p = folder / f"{name}.png"
+        if p.is_file():
+            p.unlink()
+
+
+def copy_pack_layers(src_layers: Path, dest_layers: Path, plates: dict[str, np.ndarray]) -> None:
+    dest_layers.mkdir(parents=True, exist_ok=True)
+    for p in src_layers.glob("*.png"):
+        if p.name == "composite_rest.png":
+            continue
+        shutil.copy2(p, dest_layers / p.name)
+    marks = src_layers / "landmarks.json"
+    if marks.is_file():
+        shutil.copy2(marks, dest_layers / "landmarks.json")
+    for p in dest_layers.glob("*.png"):
+        if p.stem == "body":
+            continue
+        if p.stem in MOVE_SLOTS and p.stem not in plates:
+            p.unlink()
+
+
 def write_outputs(src: Path, plates: dict[str, np.ndarray], marks: dict, diff: float, holes: int) -> Path:
     out = src / "layers"
     prev = out / "preview"
     out.mkdir(parents=True, exist_ok=True)
+    clear_stale_move_pngs(out)
     for name, arr in plates.items():
         Image.fromarray(arr).save(out / f"{name}.png")
         write_preview(prev / f"{name}.png", arr)
@@ -209,12 +251,7 @@ def main():
     if args.pack:
         repo = Path(__file__).resolve().parents[2]
         dest_layers = repo / "client" / "Assets" / "Resources" / "Art" / "Characters" / args.id / "PuppetLayers"
-        dest_layers.mkdir(parents=True, exist_ok=True)
-        for p in layers.glob("*.png"):
-            if p.name == "composite_rest.png":
-                continue
-            shutil.copy2(p, dest_layers / p.name)
-        shutil.copy2(layers / "landmarks.json", dest_layers / "landmarks.json")
+        copy_pack_layers(layers, dest_layers, plates)
         pack(args.id, dest_layers, "standee_front", "PuppetLayers", repo / "client" / "Assets" / "Resources" / "Art" / "Characters" / args.id / "Puppet")
 
 

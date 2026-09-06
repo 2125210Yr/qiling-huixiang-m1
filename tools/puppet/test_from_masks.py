@@ -1,16 +1,22 @@
 # tools/puppet/test_from_masks.py
+from pathlib import Path
+
 import numpy as np
 import pytest
+from PIL import Image
 from from_masks import (
     MOVE_SLOTS,
     apply_plates,
+    build,
     centroid_uv,
     check_keep_overlap,
     composite_rest,
+    copy_pack_layers,
     keep_holes,
     mask_bool,
     merge_landmarks,
     shirt_keep,
+    write_outputs,
 )
 
 
@@ -20,6 +26,24 @@ def test_mask_bool_alpha_or_luma():
     a[2, 2] = (200, 200, 200, 0)
     m = mask_bool(a)
     assert m[1, 1] and not m[2, 2]
+
+
+def test_mask_bool_opaque_white_true_black_false():
+    a = np.zeros((4, 4, 4), np.uint8)
+    a[:, :, 3] = 255
+    a[1, 1, :3] = 255
+    m = mask_bool(a)
+    assert m[1, 1]
+    assert not m[0, 0]
+
+
+def test_mask_bool_transparent_white_false():
+    a = np.zeros((4, 4, 4), np.uint8)
+    a[1, 1] = (255, 255, 255, 255)
+    a[2, 2] = (255, 255, 255, 0)
+    m = mask_bool(a)
+    assert m[1, 1]
+    assert not m[2, 2]
 
 
 def test_shirt_keep_protects_gray_white_not_mint():
@@ -146,3 +170,74 @@ def test_keep_holes_counts_when_body_missing_keep_pixels():
     keep[1:3, 2:5] = True
     assert keep_holes(still, body, keep) == 6
     assert "body" not in MOVE_SLOTS
+
+
+def _rgba(h, w, rgb=(10, 10, 10), a=255):
+    arr = np.zeros((h, w, 4), np.uint8)
+    arr[:, :, :3] = rgb
+    arr[:, :, 3] = a
+    return arr
+
+
+def test_build_mask_size_mismatch(tmp_path: Path):
+    still = _rgba(1536, 1024)
+    Image.fromarray(still).save(tmp_path / "still.png")
+    masks = tmp_path / "masks"
+    masks.mkdir()
+    bad = _rgba(16, 16)
+    bad[4:12, 4:12, :3] = 255
+    Image.fromarray(bad).save(masks / "head.png")
+    with pytest.raises(SystemExit, match=r"head\.png") as ei:
+        build(tmp_path)
+    msg = str(ei.value)
+    assert "16" in msg and "1024" in msg and "1536" in msg
+
+
+def test_build_keep_mask_size_mismatch(tmp_path: Path):
+    still = _rgba(1536, 1024)
+    Image.fromarray(still).save(tmp_path / "still.png")
+    masks = tmp_path / "masks"
+    masks.mkdir()
+    Image.fromarray(_rgba(8, 8)).save(masks / "keep.png")
+    with pytest.raises(SystemExit, match=r"keep\.png") as ei:
+        build(tmp_path)
+    msg = str(ei.value)
+    assert "8" in msg
+
+
+def test_write_outputs_drops_stale_move_slots_keeps_body(tmp_path: Path):
+    layers = tmp_path / "layers"
+    layers.mkdir()
+    Image.fromarray(_rgba(4, 4)).save(layers / "hair_front.png")
+    Image.fromarray(_rgba(4, 4, rgb=(1, 2, 3))).save(layers / "body.png")
+    Image.fromarray(_rgba(4, 4)).save(layers / "composite_rest.png")
+    body = _rgba(4, 4, rgb=(9, 9, 9))
+    hair = _rgba(4, 4, rgb=(20, 20, 20))
+    plates = {"body": body, "hair_back": hair}
+    write_outputs(tmp_path, plates, {"head": [0.5, 0.8]}, 0.0, 0)
+    assert not (layers / "hair_front.png").is_file()
+    assert (layers / "body.png").is_file()
+    assert (layers / "hair_back.png").is_file()
+    assert (layers / "composite_rest.png").is_file()
+
+
+def test_copy_pack_layers_drops_stale_slots_keeps_body(tmp_path: Path):
+    src = tmp_path / "layers"
+    dest = tmp_path / "dest"
+    src.mkdir()
+    dest.mkdir()
+    Image.fromarray(_rgba(4, 4)).save(src / "body.png")
+    Image.fromarray(_rgba(4, 4)).save(src / "head.png")
+    Image.fromarray(_rgba(4, 4)).save(src / "composite_rest.png")
+    (src / "landmarks.json").write_text("{}", encoding="utf-8")
+    Image.fromarray(_rgba(4, 4)).save(dest / "sword.png")
+    Image.fromarray(_rgba(4, 4)).save(dest / "body.png")
+    Image.fromarray(_rgba(4, 4)).save(dest / "hair_front.png")
+    plates = {"body": _rgba(4, 4), "head": _rgba(4, 4)}
+    copy_pack_layers(src, dest, plates)
+    assert (dest / "body.png").is_file()
+    assert (dest / "head.png").is_file()
+    assert (dest / "landmarks.json").is_file()
+    assert not (dest / "sword.png").is_file()
+    assert not (dest / "hair_front.png").is_file()
+    assert not (dest / "composite_rest.png").is_file()
