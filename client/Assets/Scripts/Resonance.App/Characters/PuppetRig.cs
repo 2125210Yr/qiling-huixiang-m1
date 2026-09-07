@@ -221,7 +221,8 @@ namespace Resonance.App
 
         public void OnPointerDown(PointerEventData e) { Punch(e); }
 
-        public bool CloseArms() { return _motion.StartClasp(); }
+        // Rejected visual prototype: keep API compatible, but do not drive this pose.
+        public bool CloseArms() { return false; }
 
         public bool LiftRightLeg() { return _hasLegRig && _motion.StartLegLift(); }
 
@@ -568,9 +569,9 @@ namespace Resonance.App
                 var oR = _chestOuter != null ? _chestOuter[i].y : wr;
                 var aL = _armInfluence != null ? _armInfluence[i].x : 0f;
                 var aR = _armInfluence != null ? _armInfluence[i].y : 0f;
-                var squeeze = _motion.ClaspAmount;
-                var sL = squeeze + _motion.SqueezeLeft * (1-squeeze) * .30f;
-                var sR = squeeze + _motion.SqueezeRight * (1-squeeze) * .30f;
+                const float squeeze = 0f; // Rejected clasp deformation is disabled.
+                const float sL = 0f;
+                const float sR = 0f;
                 var bl = _motion.ChestLeft;
                 var br = _motion.ChestRight;
                 var wPendL = 0.25f * wl + 0.75f * oL;
@@ -588,7 +589,7 @@ namespace Resonance.App
                 p.x += (inL - inR) * _canvasWidth * 0.0065f;
                 p.y += squeeze * (oL + oR) * _canvasHeight * .0012f;
                 p.y += (bl * wl + br * wr) * _canvasHeight * 0.12f;
-                var clamp = _motion.ArmClosure;
+                const float clamp = 0f;
                 p.x += (aL - aR) * clamp * _canvasWidth * 0.009f;
                 p.x += (hair.x * (_motion.HairLeft * .35f + _motion.HairLeftTip * .65f)
                     + hair.y * (_motion.HairRight * .35f + _motion.HairRightTip * .65f)) * _canvasWidth * .0018f;

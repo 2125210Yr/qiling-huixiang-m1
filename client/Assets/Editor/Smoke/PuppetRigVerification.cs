@@ -6,6 +6,28 @@ using UnityEditor;
 using UnityEngine;
 public static class PuppetRigVerification
 {
+    public static void RunClaspDisabled()
+    {
+        var host=new GameObject("DisabledClaspVerification",typeof(RectTransform));
+        if(!PuppetRig.TryAttach(host.transform,"C001"))throw new Exception("Bind failed");
+        var rig=host.GetComponent<PuppetRig>();
+        if(rig.CloseArms())throw new Exception("Rejected pose still enabled");
+        const BindingFlags flags=BindingFlags.NonPublic|BindingFlags.Instance;
+        var type=typeof(PuppetRig);
+        var motion=(PuppetMotion)type.GetField("_motion",flags).GetValue(rig);
+        var secondary=type.GetMethod("ApplySecondaryMesh",flags);
+        var renderer=(SkinnedMeshRenderer)type.GetField("_smr",flags).GetValue(rig);
+        motion.Step(.20);secondary.Invoke(rig,null);var before=renderer.sharedMesh.vertices;
+        type.GetField("_motion",flags).SetValue(rig,new PuppetMotion());
+        var triggered=(PuppetMotion)type.GetField("_motion",flags).GetValue(rig);
+        triggered.StartClasp();triggered.Step(.20);secondary.Invoke(rig,null);
+        var after=renderer.sharedMesh.vertices;
+        for(int i=0;i<before.Length;i++)
+            if((after[i]-before[i]).sqrMagnitude>1e-12f)throw new Exception("Rejected channel still deforms vertex "+i);
+        if(!rig.LiftRightLeg())throw new Exception("Leg action regressed");
+        Debug.Log("PUPPET_CLASP_DISABLED_PASS");
+    }
+
     public static void RunClasp()
     {
         var output=@"F:\天命之子\codex专区\puppet-rig-fix\clasp-preview";
