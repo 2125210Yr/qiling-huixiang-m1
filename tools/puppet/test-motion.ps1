@@ -29,3 +29,12 @@ for($i=0;$i -lt 40;$i++){$a.Step(1.0/120);$peak=[Math]::Max($peak,$a.Blink)}
 Assert ($peak -gt .98 -and $a.Blink -eq 0) 'blink closes and reopens'
 $a.Step([double]::NaN);$a.Step(-1);$a.Step(100)
 Assert (![float]::IsNaN($a.ChestLeft) -and [Math]::Abs($a.HairLeftTip) -le 5) 'invalid time and app resume remain bounded'
+$a=[Resonance.App.PuppetMotion]::new();$b=[Resonance.App.PuppetMotion]::new()
+Assert ($a.StartLegLift()) 'leg lift starts'
+Assert (!$a.StartLegLift()) 'repeated click does not restart the leg'
+$b.StartLegLift() | Out-Null
+for($i=0;$i -lt 48;$i++){$a.Step(1.0/30)}
+for($i=0;$i -lt 192;$i++){$b.Step(1.0/120)}
+Assert ($a.LegLift -gt .99 -and [Math]::Abs($a.LegLift-$b.LegLift) -lt .000001) 'leg reaches its raised pose consistently across frame rates'
+for($i=0;$i -lt 90;$i++){$a.Step(1.0/30)}
+Assert (!$a.LegActive -and $a.LegLift -eq 0) 'leg lift returns exactly to rest'

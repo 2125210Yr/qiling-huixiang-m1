@@ -13,8 +13,8 @@ namespace Resonance.App
     {
         public const int WorldLayer = 9;
         const float Ppu = 100f;
-        const int GridX = 41;
-        const int GridY = 61;
+        const int GridX = 129;
+        const int GridY = 193;
         static readonly Vector3 Origin = new Vector3(-240f, 0f, 0f);
 
         const int BoneRoot = 0;
@@ -23,7 +23,9 @@ namespace Resonance.App
         const int BoneAnkleR = 3;
         const int BoneAnkleL = 4;
         const int BoneHead = 5;
-        const int BoneCount = 6;
+        const int BonePelvis = 6;
+        const int BoneThighR = 7;
+        const int BoneKneeR = 8;
 
         RenderTexture _rt;
         Camera _cam;
@@ -70,6 +72,12 @@ namespace Resonance.App
         float _canvasWidth, _canvasHeight;
         Texture2D _blinkTexture;
         Shader _faceShader;
+        bool _hasLegRig;
+        Transform _legPelvis, _thighR, _kneeR;
+        Vector3 _hipRest, _kneeRest, _ankleRest;
+        static readonly float[] LegRows = { 570,620,740,840,900,970,1070,1135,1180,1230,1270,1310,1340 };
+        static readonly float[] LegLeft = { 460,465,490,535,530,503,475,458,440,413,420,458,470 };
+        static readonly float[] LegRight = { 602,589,602,615,622,578,549,534,505,484,489,481,472 };
 
         public static bool TryAttach(Transform host, string id)
         {
@@ -104,6 +112,10 @@ namespace Resonance.App
             _canvasWidth = bodyW;
             _canvasHeight = bodyH;
             _motion = new PuppetMotion();
+            _hasLegRig = id == "C001";
+            _hipRest = Uv(.520f,.595f,bodyW,bodyH);
+            _kneeRest = Uv(.581f,.421f,bodyW,bodyH);
+            _ankleRest = Uv(.470f,.255f,bodyW,bodyH);
             _headU = dto.headU > 0.01f ? dto.headU : 0.51f;
             _headV = dto.headV > 0.01f ? dto.headV : 0.82f;
             _chestU = dto.chestU > 0.01f ? dto.chestU : 0.50f;
@@ -203,6 +215,8 @@ namespace Resonance.App
 
         public void OnPointerDown(PointerEventData e) { Punch(e); }
 
+        public bool LiftRightLeg() { return _hasLegRig && _motion.StartLegLift(); }
+
         public void Punch(PointerEventData e)
         {
             if (e == null || _view == null) return;
@@ -215,6 +229,11 @@ namespace Resonance.App
             var u = (local.x - r.xMin) / r.width;
             var v = (local.y - r.yMin) / r.height;
             if (_bodyMesh == null) return;
+            if (_hasLegRig && u>.40f && u<.65f && v>.12f && v<.58f)
+            {
+                LiftRightLeg();
+                return;
+            }
             if (v > .76f && v < .92f && u > .42f && u < .64f)
             {
                 _motion.Look((u - _headU) / .065f);
@@ -279,6 +298,47 @@ namespace Resonance.App
                 _ankleL.localRotation = Quaternion.Euler(0f, 0f, footLDeg);
             if (_headBone != null)
                 _headBone.localRotation = Quaternion.Euler(0f, 0f, hairDeg);
+            ApplyLegPose(_motion.LegLift);
+        }
+
+        void ApplyLegPose(float lift)
+        {
+            if (!_hasLegRig || _thighR == null) return;
+            lift = Mathf.Clamp01(lift);
+            // The tiny pelvic follow does not move the support-foot/root bone.
+            var follow = new Vector3(_canvasWidth*.001f, _canvasHeight*.0015f,0)*lift;
+            _legPelvis.localPosition=follow;
+            var hip=_hipRest+follow;
+            var target=_ankleRest + new Vector3(-_canvasWidth*.010f,_canvasHeight*.016f,0)*lift;
+            var upper=_kneeRest-_hipRest; var lower=_ankleRest-_kneeRest;
+            var solved=PuppetLegIK.Solve(hip.x,hip.y,target.x,target.y,upper.magnitude,lower.magnitude,1);
+            var knee=new Vector3((float)solved.KneeX,(float)solved.KneeY,0);
+            var ankle=new Vector3((float)solved.AnkleX,(float)solved.AnkleY,0);
+            var hipAngle=Vector2.SignedAngle(upper,knee-hip);
+            var shinAngle=Vector2.SignedAngle(lower,ankle-knee);
+            _thighR.localRotation=Quaternion.Euler(0,0,hipAngle);
+            _kneeR.localRotation=Quaternion.Euler(0,0,shinAngle-hipAngle);
+            // Keep the boot rigid and its original world orientation.
+            _ankleR.localRotation=Quaternion.Euler(0,0,-shinAngle);
+        }
+
+        static float FrontLegWeight(float u,float v)
+        {
+            var x=u*1024f; var y=(1-v)*1536f;
+            if(y<LegRows[0] || y>LegRows[LegRows.Length-1])return 0;
+            int row=0;
+            while(row<LegRows.Length-2 && y>LegRows[row+1])row++;
+            var t=Mathf.InverseLerp(LegRows[row],LegRows[row+1],y);
+            var left=Mathf.Lerp(LegLeft[row],LegLeft[row+1],t);
+            var right=Mathf.Lerp(LegRight[row],LegRight[row+1],t);
+            var leftWeight=Mathf.SmoothStep(0,1,Mathf.InverseLerp(left-60,left,x));
+            var feather=y>1170 ? 8f : 38f;
+            var rightWeight=1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(right,right+feather,x));
+            var top=Mathf.SmoothStep(0,1,Mathf.InverseLerp(570,730,y));
+            var bottom=1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(1305,1340,y));
+            // The other boot is an explicit exclusion, not another moving ankle.
+            var support= y>1190 ? Mathf.SmoothStep(0,1,Mathf.InverseLerp(490,501,x)) : 0;
+            return leftWeight*rightWeight*top*bottom*(1-support);
         }
 
         void ApplyMouth(float breath01)
@@ -300,8 +360,13 @@ namespace Resonance.App
             _chestBone.localPosition = _breastLP;
             _wrist = Bone(_world, "bone_wrist");
             _wrist.localPosition = _handC;
-            _ankleR = Bone(_world, "bone_ankleR");
-            _ankleR.localPosition = _footRC;
+            _legPelvis = Bone(_world, "bone_pelvis");
+            _thighR = Bone(_legPelvis, "bone_thighR");
+            _thighR.localPosition = _hipRest;
+            _kneeR = Bone(_thighR, "bone_kneeR");
+            _kneeR.localPosition = _kneeRest-_hipRest;
+            _ankleR = Bone(_hasLegRig ? _kneeR : _world, "bone_ankleR");
+            _ankleR.localPosition = _hasLegRig ? _ankleRest-_kneeRest : _footRC;
             _ankleL = Bone(_world, "bone_ankleL");
             _ankleL.localPosition = _footLC;
             _headBone = Bone(_world, "bone_head");
@@ -339,7 +404,7 @@ namespace Resonance.App
             }
             smr.sharedMaterial = mat;
             _mats.Add(mat);
-            var bones = new[] { _rootBone, _chestBone, _wrist, _ankleR, _ankleL, _headBone };
+            var bones = new[] { _rootBone, _chestBone, _wrist, _ankleR, _ankleL, _headBone, _legPelvis, _thighR, _kneeR };
             var bind = new Matrix4x4[bones.Length];
             for (int i = 0; i < bones.Length; i++)
                 bind[i] = bones[i].worldToLocalMatrix * go.transform.localToWorldMatrix;
@@ -391,6 +456,7 @@ namespace Resonance.App
                     wh = Falloff(p, _headC, 4.2f, 5.5f) * 0.85f * (1f - torso);
                     var face = SoftBox(u, v, 0.44f, 0.60f, 0.79f, 0.90f, 0.025f);
                     wh = Mathf.Max(wh, Falloff(p, _headC, 1.1f, 0.9f) * face);
+                    if (_hasLegRig) war=0f;
                     ww = Mathf.Clamp01(ww);
                     war = Mathf.Clamp01(war);
                     wal = Mathf.Clamp01(wal);
@@ -398,6 +464,21 @@ namespace Resonance.App
                     wh *= (1f - ww) * (1f - war) * (1f - wal) * (1f - wc);
                     var wRoot = 1f - Mathf.Clamp01(wc + ww + war + wal + wh);
                     bw[i] = PackWeights(wRoot, wc, ww, war, wal, wh);
+                    if (_hasLegRig)
+                    {
+                        var leg=FrontLegWeight(u,v);
+                        if(leg>0)
+                        {
+                            var thigh=Mathf.SmoothStep(0,1,Mathf.InverseLerp(.385f,.455f,v));
+                            var boot=1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(.235f,.280f,v));
+                            bw[i]=new BoneWeight {
+                                boneIndex0=BoneRoot,weight0=1-leg,
+                                boneIndex1=BoneThighR,weight1=leg*thigh*(1-boot),
+                                boneIndex2=BoneKneeR,weight2=leg*(1-thigh)*(1-boot),
+                                boneIndex3=BoneAnkleR,weight3=leg*boot
+                            };
+                        }
+                    }
                     i++;
                 }
             }
@@ -419,8 +500,16 @@ namespace Resonance.App
                     tris[t++] = c;
                 }
             }
+            if (_hasLegRig)
+            {
+                PuppetBootTopology.Split(ref verts,ref uv,ref bw,ref tris);
+                n=verts.Length;
+                nrm=new Vector3[n];
+                for(int k=0;k<n;k++)nrm[k]=new Vector3(0,0,-1);
+            }
             if (_bodyMesh != null) Object.Destroy(_bodyMesh);
             _bodyMesh = new Mesh();
+            if(n>65535)_bodyMesh.indexFormat=IndexFormat.UInt32;
             _bodyMesh.name = "puppet-body";
             _restVertices = verts;
             _motionVertices = (Vector3[])verts.Clone();
@@ -652,6 +741,7 @@ namespace Resonance.App
             _smr = null;
             _rootBone = _chestBone = _headBone = null;
             _wrist = _ankleL = _ankleR = null;
+            _legPelvis = _thighR = _kneeR = null;
             _mouthMat = null;
             _tapOffset = _tapVelocity = 0f;
         }

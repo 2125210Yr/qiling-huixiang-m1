@@ -11,7 +11,7 @@ namespace Resonance.App
         readonly Spring _hairLeft = new Spring(), _hairLeftTip = new Spring();
         readonly Spring _hairRight = new Spring(), _hairRightTip = new Spring();
         readonly Spring _gaze = new Spring();
-        double _gazeTarget;
+        double _gazeTarget, _legTime = -1;
         public float ChestLeft { get { return (float)_chestLeft.Position; } }
         public float ChestRight { get { return (float)_chestRight.Position; } }
         public float HairLeft { get { return (float)_hairLeft.Position; } }
@@ -22,6 +22,14 @@ namespace Resonance.App
         public float Breath { get { return (float)Math.Sin(_time * 1.05); } }
         public float Swing { get; private set; }
         public float Blink { get; private set; }
+        public float LegLift { get; private set; }
+        public bool LegActive { get { return _legTime >= 0; } }
+        public bool StartLegLift()
+        {
+            if (LegActive) return false;
+            _legTime=0;
+            return true;
+        }
         public bool SkillActive { get { return _skillTime >= 0; } }
         public void TapChest(float side)
         {
@@ -44,6 +52,13 @@ namespace Resonance.App
             while (_pending + 1e-10 >= Tick)
             {
                 _pending -= Tick; _time += Tick;
+                if (LegActive)
+                {
+                    _legTime += Tick;
+                    LegLift = (float)(_legTime < 1.35 ? Ease(_legTime/1.35)
+                        : _legTime < 1.9 ? 1 : 1-Ease((_legTime-1.9)/1.8));
+                    if (_legTime >= 3.7) { _legTime=-1; LegLift=0; }
+                }
                 if (SkillActive)
                 {
                     _skillTime += Tick;
