@@ -1,0 +1,22 @@
+[
+  {
+    "file": "candidate-01-rejected.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGB",
+    "alpha_extrema": null,
+    "sha256": "76947f4238eaf88ea75413520f37152f07b1a34ae0901401842e6919a5d908e2"
+  },
+  {
+    "file": "candidate-02-study.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGB",
+    "alpha_extrema": null,
+    "sha256": "fcc401d5d472b1e4809144fb56b0af04f29a3c48ca89abd73221c62ccdbdc4af"
+  }
+]
