@@ -64,6 +64,12 @@ namespace Resonance.App
         bool _hasHand;
         bool _hasFoot;
         float _idleT;
+        PuppetMotion _motion = new PuppetMotion();
+        Vector3[] _restVertices, _motionVertices;
+        Vector2[] _chestInfluence, _hairInfluence;
+        float _canvasWidth, _canvasHeight;
+        Texture2D _blinkTexture;
+        Shader _faceShader;
 
         public static bool TryAttach(Transform host, string id)
         {
@@ -88,11 +94,16 @@ namespace Resonance.App
                 if (dto.slots[i] != null && dto.slots[i].id == "body")
                     body = CharacterArt.LoadPuppetTex(id, dto.slots[i].tex);
             if (body == null) return false;
+            _blinkTexture = CharacterArt.LoadPuppetTex(id, "PuppetMotion/blink");
+            _faceShader = Resources.Load<Shader>("Art/Characters/" + id + "/PuppetMotion/PuppetFace");
 
             var w = dto.canvasW > 0 ? dto.canvasW : body.width;
             var h = dto.canvasH > 0 ? dto.canvasH : body.height;
             var bodyW = w / Ppu;
             var bodyH = h / Ppu;
+            _canvasWidth = bodyW;
+            _canvasHeight = bodyH;
+            _motion = new PuppetMotion();
             _headU = dto.headU > 0.01f ? dto.headU : 0.51f;
             _headV = dto.headV > 0.01f ? dto.headV : 0.82f;
             _chestU = dto.chestU > 0.01f ? dto.chestU : 0.50f;
@@ -151,7 +162,7 @@ namespace Resonance.App
             var raw = view.GetComponent<RawImage>();
             raw.texture = _rt;
             raw.color = Color.white;
-            raw.raycastTarget = false;
+            raw.raycastTarget = true;
             var fit = view.AddComponent<AspectRatioFitter>();
             fit.aspectMode = AspectRatioFitter.AspectMode.FitInParent;
             fit.aspectRatio = w / (float)h;
@@ -204,11 +215,18 @@ namespace Resonance.App
             var u = (local.x - r.xMin) / r.width;
             var v = (local.y - r.yMin) / r.height;
             if (_bodyMesh == null) return;
+            if (v > .76f && v < .92f && u > .42f && u < .64f)
+            {
+                _motion.Look((u - _headU) / .065f);
+                _motion.BlinkNow();
+                return;
+            }
             if (u >= _hitU0 && u <= _hitU1 && v >= _hitV0 && v <= _hitV1)
             {
                 // Add velocity, never reset position: repeated taps remain continuous.
                 var side = u < _chestU ? -1f : 1f;
-                _tapVelocity = Mathf.Clamp(_tapVelocity + 6f * side, -8f, 8f);
+                _motion.TapChest(side);
+                _tapVelocity = Mathf.Clamp(_tapVelocity + 1.2f * side, -2f, 2f);
             }
         }
 
@@ -216,12 +234,14 @@ namespace Resonance.App
         {
             HideFromOthers();
             _idleT += Time.unscaledDeltaTime;
+            _motion.Step(Time.unscaledDeltaTime);
+            ApplySecondaryMesh();
             var breath = Mathf.Sin(_idleT * 1.05f);
             AdvanceSpring(ref _tapOffset, ref _tapVelocity, Time.unscaledDeltaTime);
             // The uncut still cannot support independent wrist/ankle rotation without
             // bending the weapon or dragging neighbouring hair. Keep these anchored.
             var swayDeg = Mathf.Sin(_idleT * 1.05f) * 0.65f + _tapOffset * 2f;
-            var hairDeg = Mathf.Sin(_idleT * 0.42f) * 0.45f;
+            var hairDeg = Mathf.Sin(_idleT * 0.42f) * 0.25f + _motion.Gaze * .45f;
             ApplyBones(breath, swayDeg, 0f, 0f, 0f, hairDeg);
             ApplyMouth(0.5f + 0.5f * breath);
             if (_cam != null) _cam.Render();
@@ -305,7 +325,13 @@ namespace Resonance.App
             smr.reflectionProbeUsage = ReflectionProbeUsage.Off;
             smr.allowOcclusionWhenDynamic = false;
             smr.sortingOrder = 1;
-            var mat = MakeMat(tex);
+            var mat = _blinkTexture != null && _faceShader != null ? new Material(_faceShader) : MakeMat(tex);
+            if (mat != null && _blinkTexture != null && _faceShader != null)
+            {
+                mat.mainTexture = tex;
+                mat.SetTexture("_BlinkTex", _blinkTexture);
+                mat.SetFloat("_Blink", 0f);
+            }
             if (mat == null)
             {
                 Object.Destroy(go);
@@ -396,12 +422,54 @@ namespace Resonance.App
             if (_bodyMesh != null) Object.Destroy(_bodyMesh);
             _bodyMesh = new Mesh();
             _bodyMesh.name = "puppet-body";
+            _restVertices = verts;
+            _motionVertices = (Vector3[])verts.Clone();
+            _chestInfluence = new Vector2[n];
+            _hairInfluence = new Vector2[n];
+            for (int k = 0; k < n; k++)
+            {
+                var u = uv[k].x; var v = uv[k].y;
+                _chestInfluence[k] = new Vector2(
+                    SoftEllipse(u,v,.468f,.712f,.050f,.048f,.030f),
+                    SoftEllipse(u,v,.575f,.708f,.075f,.045f,.030f));
+                // One still: pin the torso, grip, blade and roots. Motion fades into
+                // the connected canvas; true disocclusion requires repaired layers.
+                var left = SoftBox(u,v,.09f,.33f,.30f,.69f,.06f);
+                var right = SoftBox(u,v,.72f,.91f,.32f,.61f,.065f);
+                var bladeU = Mathf.Lerp(.238f,.42f,Mathf.InverseLerp(.15f,.54f,v));
+                var swordGuard = SoftBox(u,v,bladeU-.035f,bladeU+.035f,.13f,.57f,.025f);
+                var tail = Mathf.SmoothStep(0,1,Mathf.InverseLerp(.77f,.30f,v));
+                _hairInfluence[k] = new Vector2(left*(1-swordGuard)*tail, right*tail);
+            }
+            _bodyMesh.MarkDynamic();
             _bodyMesh.vertices = verts;
             _bodyMesh.normals = nrm;
             _bodyMesh.uv = uv;
             _bodyMesh.triangles = tris;
             _bodyMesh.boneWeights = bw;
             _bodyMesh.RecalculateBounds();
+        }
+
+        void ApplySecondaryMesh()
+        {
+            if (_bodyMesh == null || _restVertices == null) return;
+            for (int i=0; i<_restVertices.Length; i++)
+            {
+                var p = _restVertices[i];
+                var chest = _chestInfluence[i];
+                var hair = _hairInfluence[i];
+                var left = _motion.ChestLeft * chest.x;
+                var right = _motion.ChestRight * chest.y;
+                p.y += (left + right) * _canvasHeight;
+                p.x += (left - right) * _canvasWidth * .15f;
+                p.x += (hair.x * (_motion.HairLeft * .35f + _motion.HairLeftTip * .65f)
+                    + hair.y * (_motion.HairRight * .35f + _motion.HairRightTip * .65f)) * _canvasWidth * .0018f;
+                p.y += (hair.x * _motion.HairLeftTip + hair.y * _motion.HairRightTip) * _canvasHeight * .00025f;
+                _motionVertices[i] = p;
+            }
+            _bodyMesh.vertices = _motionVertices;
+            if (_smr != null && _smr.sharedMaterial.HasProperty("_Blink"))
+                _smr.sharedMaterial.SetFloat("_Blink", _motion.Blink);
         }
 
         static BoneWeight PackWeights(float wRoot, float wChest, float wWrist, float wAnkleR, float wAnkleL, float wHead)
@@ -579,6 +647,8 @@ namespace Resonance.App
             for (int i = 0; i < _mats.Count; i++)
                 if (_mats[i] != null) Object.Destroy(_mats[i]);
             _mats.Clear();
+            _restVertices = _motionVertices = null;
+            _chestInfluence = _hairInfluence = null;
             _smr = null;
             _rootBone = _chestBone = _headBone = null;
             _wrist = _ankleL = _ankleR = null;

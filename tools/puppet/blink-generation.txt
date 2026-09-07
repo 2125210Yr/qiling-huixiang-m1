@@ -1,0 +1,5 @@
+Built-in image_gen; targeted edit of the original C001 face crop.
+Prompt: Edit ONLY the eyelids of this exact close-up of an adult anime game character to show both eyes gently completely closed in a natural blink. Preserve all other pixels and exact facial identity, face angle, hair, bangs, brows, nose, lips, earrings, skin color, shading and crop framing. Do not beautify, redesign, reposition, sharpen or change expression. Closed upper eyelashes curve gently along each original eye shape and are aligned to the original eye positions; no iris remains visible. Same 600:440 aspect ratio and exact image composition; do not zoom or recenter. This image is a precisely registered alternate frame for a game character blink, NOT a new portrait. Preserve transparency where present.
+Result used only inside eye masks; output is RGB, not a transparent layer. No transparency claim is made. Source full canvas 1024x1536, crop (465,230)-(615,340); reference enlarged to 600x440 for inspection. Generated file resolution is recorded in asset metadata, not described as original-source resolution.
+
+Actual generated output: (1464, 1074) pixels, RGB.
