@@ -6,6 +6,61 @@ using UnityEditor;
 using UnityEngine;
 public static class PuppetRigVerification
 {
+    public static void RunClasp()
+    {
+        var output=@"F:\天命之子\codex专区\puppet-rig-fix\clasp-preview";
+        Directory.CreateDirectory(output);
+        var host=new GameObject("ClaspVerification",typeof(RectTransform));
+        if(!PuppetRig.TryAttach(host.transform,"C001"))throw new Exception("Bind failed");
+        var rig=host.GetComponent<PuppetRig>();const BindingFlags f=BindingFlags.NonPublic|BindingFlags.Instance;
+        var type=typeof(PuppetRig);var field=type.GetField("_motion",f);
+        var motion=(PuppetMotion)field.GetValue(rig);var baseline=new PuppetMotion();
+        var renderer=(SkinnedMeshRenderer)type.GetField("_smr",f).GetValue(rig);
+        var camera=(Camera)type.GetField("_cam",f).GetValue(rig);
+        var secondary=type.GetMethod("ApplySecondaryMesh",f);var apply=type.GetMethod("ApplyBones",f);
+        var rest=renderer.sharedMesh.vertices;var uv=renderer.sharedMesh.uv;var triangles=renderer.sharedMesh.triangles;
+        var baked=new Mesh();var reference=new Mesh();float minimum=1,clothMin=1,clothMax=1,pinError=0,maxMove=0;Vector2 minimumUv=Vector2.zero;
+        for(int frame=0;frame<165;frame++)
+        {
+            if(frame==15 && (!rig.CloseArms() || rig.CloseArms()))throw new Exception("Clasp trigger failed");
+            if(frame==48){motion.StartLegLift();baseline.StartLegLift();}
+            motion.Step(1.0/30);baseline.Step(1.0/30);
+            float t=(frame+1)/30f;type.GetField("_idleT",f).SetValue(rig,t);
+            var args=new object[]{Mathf.Sin(t*.72f),0f,Mathf.Sin(t*.46f)*1.05f,(.5f+.5f*Mathf.Sin(t*.44f))*1.8f,(.5f+.5f*Mathf.Sin(t*.44f+2.1f))*1.5f,-Mathf.Sin(t*.52f)*1.15f*.40f};
+            field.SetValue(rig,baseline);secondary.Invoke(rig,null);apply.Invoke(rig,args);renderer.BakeMesh(reference);var neutral=reference.vertices;
+            field.SetValue(rig,motion);secondary.Invoke(rig,null);apply.Invoke(rig,args);renderer.BakeMesh(baked);var moved=baked.vertices;
+            for(int k=0;k<uv.Length;k++)
+            {
+                float delta=Vector3.Distance(moved[k],neutral[k]);maxMove=Mathf.Max(maxMove,delta);
+                if(uv[k].y>.78f || uv[k].y<.49f)pinError=Mathf.Max(pinError,delta);
+            }
+            for(int k=0;k<triangles.Length;k+=3)
+            {
+                int a=triangles[k],b=triangles[k+1],c=triangles[k+2];
+                float area=Vector3.Cross(moved[b]-moved[a],moved[c]-moved[a]).z;
+                float ratio=area/Vector3.Cross(rest[b]-rest[a],rest[c]-rest[a]).z;
+                if(float.IsNaN(ratio)||ratio<=0)throw new Exception("Fold at frame "+frame+" triangle "+k);
+                minimum=Mathf.Min(minimum,ratio);
+                var center=(uv[a]+uv[b]+uv[c])/3;
+                if(center.x>.41f && center.x<.70f && center.y>.66f && center.y<.78f)
+                {
+                    float relative=area/Vector3.Cross(neutral[b]-neutral[a],neutral[c]-neutral[a]).z;
+                    if(relative<clothMin){clothMin=relative;minimumUv=center;}clothMax=Mathf.Max(clothMax,relative);
+                }
+            }
+            if(frame%2!=0)continue;
+            camera.Render();var previous=RenderTexture.active;RenderTexture.active=camera.targetTexture;
+            var image=new Texture2D(camera.targetTexture.width,camera.targetTexture.height,TextureFormat.RGBA32,false);
+            image.ReadPixels(new Rect(0,0,image.width,image.height),0,0);image.Apply();
+            File.WriteAllBytes(Path.Combine(output,"frame-"+(frame/2).ToString("D3")+".png"),image.EncodeToPNG());
+            RenderTexture.active=previous;UnityEngine.Object.DestroyImmediate(image);
+        }
+        if(motion.ClaspActive || motion.ClaspAmount!=0 || motion.ArmClosure!=0)throw new Exception("Clasp did not return");
+        if(pinError>.0001f || clothMin<.60f || clothMax>1.5f)throw new Exception("Cloth constraint: "+clothMin+".."+clothMax+" at="+minimumUv+" pin="+pinError);
+        File.WriteAllText(Path.Combine(output,"result.txt"),"PASS: 165 combined idle/clasp/leg poses; min triangle ratio="+minimum+"; relative cloth area="+clothMin+".."+clothMax+"; collar/lower-body differential="+pinError+"; max clasp displacement pixels="+(maxMove*100)+"; exact action return.");
+        Debug.Log("PUPPET_CLASP_PASS");
+    }
+
     public static void RunLeg()
     {
         var output=@"F:\天命之子\codex专区\puppet-rig-fix\leg-final-preview";

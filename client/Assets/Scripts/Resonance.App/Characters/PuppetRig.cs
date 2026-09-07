@@ -36,6 +36,9 @@ namespace Resonance.App
         Vector3 _breastLP;
         Vector3 _chestC;
         Vector3 _headC;
+        Vector3 _attachL;
+        Vector3 _attachR;
+        Vector3 _idleHip;
         Transform _rootBone;
         Transform _chestBone;
         Transform _headBone;
@@ -68,7 +71,7 @@ namespace Resonance.App
         float _idleT;
         PuppetMotion _motion = new PuppetMotion();
         Vector3[] _restVertices, _motionVertices;
-        Vector2[] _chestInfluence, _hairInfluence;
+        Vector2[] _chestInfluence, _chestOuter, _armInfluence, _hairInfluence;
         float _canvasWidth, _canvasHeight;
         Texture2D _blinkTexture;
         Shader _faceShader;
@@ -132,6 +135,9 @@ namespace Resonance.App
             _hitV1 = 0.78f;
             _chestC = Uv(_chestU, _chestV, bodyW, bodyH);
             _breastLP = Uv(0.520f, 0.778f, bodyW, bodyH);
+            _attachL = Uv(0.498f, 0.748f, bodyW, bodyH);
+            _attachR = Uv(0.528f, 0.748f, bodyW, bodyH);
+            _idleHip = Uv(0.515f, 0.455f, bodyW, bodyH);
             _headC = Uv(_headU, _headV, bodyW, bodyH);
             _handC = Uv(_handU, _handV, bodyW, bodyH);
             _footRC = Uv(_footRU, _footRV, bodyW, bodyH);
@@ -215,6 +221,8 @@ namespace Resonance.App
 
         public void OnPointerDown(PointerEventData e) { Punch(e); }
 
+        public bool CloseArms() { return _motion.StartClasp(); }
+
         public bool LiftRightLeg() { return _hasLegRig && _motion.StartLegLift(); }
 
         public void Punch(PointerEventData e)
@@ -242,10 +250,7 @@ namespace Resonance.App
             }
             if (u >= _hitU0 && u <= _hitU1 && v >= _hitV0 && v <= _hitV1)
             {
-                // Add velocity, never reset position: repeated taps remain continuous.
-                var side = u < _chestU ? -1f : 1f;
-                _motion.TapChest(side);
-                _tapVelocity = Mathf.Clamp(_tapVelocity + 1.2f * side, -2f, 2f);
+                CloseArms();
             }
         }
 
@@ -255,13 +260,14 @@ namespace Resonance.App
             _idleT += Time.unscaledDeltaTime;
             _motion.Step(Time.unscaledDeltaTime);
             ApplySecondaryMesh();
-            var breath = Mathf.Sin(_idleT * 1.05f);
+            var breath = Mathf.Sin(_idleT * 0.72f);
             AdvanceSpring(ref _tapOffset, ref _tapVelocity, Time.unscaledDeltaTime);
-            // The uncut still cannot support independent wrist/ankle rotation without
-            // bending the weapon or dragging neighbouring hair. Keep these anchored.
-            var swayDeg = Mathf.Sin(_idleT * 1.05f) * 0.65f + _tapOffset * 2f;
-            var hairDeg = Mathf.Sin(_idleT * 0.42f) * 0.25f + _motion.Gaze * .45f;
-            ApplyBones(breath, swayDeg, 0f, 0f, 0f, hairDeg);
+            var bodySway = Mathf.Sin(_idleT * 0.52f) * 1.15f;
+            var hairDeg = -bodySway * 0.40f + _motion.Gaze * .45f;
+            var wristDeg = Mathf.Sin(_idleT * 0.46f) * 1.05f;
+            var footR = (0.50f + 0.50f * Mathf.Sin(_idleT * 0.44f)) * 1.8f;
+            var footL = (0.50f + 0.50f * Mathf.Sin(_idleT * 0.44f + 2.1f)) * 1.5f;
+            ApplyBones(breath, 0f, wristDeg, footR, footL, hairDeg);
             ApplyMouth(0.5f + 0.5f * breath);
             if (_cam != null) _cam.Render();
         }
@@ -285,10 +291,8 @@ namespace Resonance.App
         {
             if (_chestBone != null)
             {
-                _chestBone.localRotation = Quaternion.Euler(0f, 0f, swayDeg);
-                var sy = 1f + 0.004f * inhale;
-                // Preserve planar area instead of continually inflating the shirt.
-                _chestBone.localScale = new Vector3(1f / sy, sy, 1f);
+                _chestBone.localRotation = Quaternion.identity;
+                _chestBone.localScale = Vector3.one;
             }
             if (_wrist != null)
                 _wrist.localRotation = Quaternion.Euler(0f, 0f, wristDeg);
@@ -439,9 +443,9 @@ namespace Resonance.App
                     nrm[i] = new Vector3(0f, 0f, -1f);
                     var u = uv[i].x;
                     var v = uv[i].y;
-                    var wc = Mathf.Max(
-                        SoftEllipse(u, v, 0.468f, 0.712f, 0.050f, 0.048f, 0.014f),
-                        SoftEllipse(u, v, 0.575f, 0.708f, 0.090f, 0.052f, 0.014f));
+                    var wc = BustGate(u, v) * Mathf.Max(
+                        SoftEllipse(u, v, 0.462f, 0.715f, 0.048f, 0.046f, 0.032f),
+                        SoftEllipse(u, v, 0.575f, 0.710f, 0.082f, 0.046f, 0.032f));
                     var ww = 0f;
                     if (u < 0.50f && v < 0.62f && v > 0.10f)
                         ww = Mathf.Max(Falloff(p, _handC, 1.15f, 1.55f), Falloff(p, blade, 1.35f, 1.75f));
@@ -514,15 +518,25 @@ namespace Resonance.App
             _restVertices = verts;
             _motionVertices = (Vector3[])verts.Clone();
             _chestInfluence = new Vector2[n];
+            _chestOuter = new Vector2[n];
+            _armInfluence = new Vector2[n];
             _hairInfluence = new Vector2[n];
             for (int k = 0; k < n; k++)
             {
                 var u = uv[k].x; var v = uv[k].y;
-                _chestInfluence[k] = new Vector2(
-                    SoftEllipse(u,v,.468f,.712f,.050f,.048f,.030f),
-                    SoftEllipse(u,v,.575f,.708f,.075f,.045f,.030f));
-                // One still: pin the torso, grip, blade and roots. Motion fades into
-                // the connected canvas; true disocclusion requires repaired layers.
+                var gate = BustGate(u, v);
+                var wl = SoftEllipse(u, v, 0.462f, 0.715f, 0.048f, 0.046f, 0.032f) * gate;
+                var wr = SoftEllipse(u, v, 0.575f, 0.710f, 0.082f, 0.046f, 0.032f) * gate;
+                _chestInfluence[k] = new Vector2(wl, wr);
+                // Outer/lower tissue moves more; inner-upper attach stays. Not a fluid slab.
+                _chestOuter[k] = new Vector2(
+                    wl * Mathf.Clamp01(0.40f * Mathf.InverseLerp(0.505f, 0.428f, u)
+                        + 0.60f * Mathf.InverseLerp(0.752f, 0.678f, v)),
+                    wr * Mathf.Clamp01(0.40f * Mathf.InverseLerp(0.518f, 0.655f, u)
+                        + 0.60f * Mathf.InverseLerp(0.752f, 0.678f, v)));
+                var sleeve = SoftBox(u, v, 0.355f, 0.428f, 0.56f, 0.71f, 0.035f);
+                var pocket = SoftBox(u, v, 0.612f, 0.682f, 0.54f, 0.67f, 0.035f);
+                _armInfluence[k] = new Vector2(sleeve * (1f - wl - wr), pocket * (1f - wl - wr));
                 var left = SoftBox(u,v,.09f,.33f,.30f,.69f,.06f);
                 var right = SoftBox(u,v,.72f,.91f,.32f,.61f,.065f);
                 var bladeU = Mathf.Lerp(.238f,.42f,Mathf.InverseLerp(.15f,.54f,v));
@@ -544,21 +558,49 @@ namespace Resonance.App
             if (_bodyMesh == null || _restVertices == null) return;
             for (int i=0; i<_restVertices.Length; i++)
             {
-                var p = _restVertices[i];
+                var bodySway = Mathf.Sin(_idleT * 0.52f) * 1.15f;
+                var p = RotZ(_restVertices[i], _idleHip, bodySway);
                 var chest = _chestInfluence[i];
                 var hair = _hairInfluence[i];
-                var left = _motion.ChestLeft * chest.x;
-                var right = _motion.ChestRight * chest.y;
-                p.y += (left + right) * _canvasHeight;
-                p.x += (left - right) * _canvasWidth * .15f;
+                var wl = chest.x;
+                var wr = chest.y;
+                var oL = _chestOuter != null ? _chestOuter[i].x : wl;
+                var oR = _chestOuter != null ? _chestOuter[i].y : wr;
+                var aL = _armInfluence != null ? _armInfluence[i].x : 0f;
+                var aR = _armInfluence != null ? _armInfluence[i].y : 0f;
+                var squeeze = _motion.ClaspAmount;
+                var sL = squeeze + _motion.SqueezeLeft * (1-squeeze) * .30f;
+                var sR = squeeze + _motion.SqueezeRight * (1-squeeze) * .30f;
+                var bl = _motion.ChestLeft;
+                var br = _motion.ChestRight;
+                var wPendL = 0.25f * wl + 0.75f * oL;
+                var wPendR = 0.25f * wr + 0.75f * oR;
+                var sway = Mathf.Sin(_idleT * 0.95f) * 1.6f * (1-.85f*squeeze);
+                var aLPivot = RotZ(_attachL, _idleHip, bodySway);
+                var aRPivot = RotZ(_attachR, _idleHip, bodySway);
+                if (wPendL > 0.001f)
+                    p = Vector3.Lerp(p, RotZ(p, aLPivot, sway), wPendL);
+                if (wPendR > 0.001f)
+                    p = Vector3.Lerp(p, RotZ(p, aRPivot, -sway * 0.92f), wPendR);
+                // Tap: outer tissue moves toward cleavage; arms clamp. No volume inflate.
+                var inL = sL * wPendL;
+                var inR = sR * wPendR;
+                p.x += (inL - inR) * _canvasWidth * 0.0065f;
+                p.y += squeeze * (oL + oR) * _canvasHeight * .0012f;
+                p.y += (bl * wl + br * wr) * _canvasHeight * 0.12f;
+                var clamp = _motion.ArmClosure;
+                p.x += (aL - aR) * clamp * _canvasWidth * 0.009f;
                 p.x += (hair.x * (_motion.HairLeft * .35f + _motion.HairLeftTip * .65f)
                     + hair.y * (_motion.HairRight * .35f + _motion.HairRightTip * .65f)) * _canvasWidth * .0018f;
                 p.y += (hair.x * _motion.HairLeftTip + hair.y * _motion.HairRightTip) * _canvasHeight * .00025f;
                 _motionVertices[i] = p;
             }
             _bodyMesh.vertices = _motionVertices;
-            if (_smr != null && _smr.sharedMaterial.HasProperty("_Blink"))
-                _smr.sharedMaterial.SetFloat("_Blink", _motion.Blink);
+            if (_smr != null && _smr.sharedMaterial != null)
+            {
+                var mat = _smr.sharedMaterial;
+                mat.SetFloat("_Blink", _motion.Blink);
+            }
         }
 
         static BoneWeight PackWeights(float wRoot, float wChest, float wWrist, float wAnkleR, float wAnkleL, float wHead)
@@ -602,6 +644,15 @@ namespace Resonance.App
             return new Vector3((u - 0.5f) * bodyW, v * bodyH, 0f);
         }
 
+        static Vector3 RotZ(Vector3 p, Vector3 c, float deg)
+        {
+            var d = p - c;
+            var rad = deg * Mathf.Deg2Rad;
+            var cs = Mathf.Cos(rad);
+            var sn = Mathf.Sin(rad);
+            return c + new Vector3(d.x * cs - d.y * sn, d.x * sn + d.y * cs, 0f);
+        }
+
         static float Falloff(Vector3 p, Vector3 c, float rx, float ry)
         {
             var d = p - c;
@@ -624,6 +675,18 @@ namespace Resonance.App
             if (v < v0) wv = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(v0 - feather, v0, v));
             else if (v > v1) wv = 1f - Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(v1, v1 + feather, v));
             return wu * wv;
+        }
+
+        static float BustGate(float u, float v)
+        {
+            // Pin waist, abdomen, neck and the left shoulder.
+            if (v < 0.668f || v > 0.775f || u < 0.418f || u > 0.690f)
+                return 0f;
+            var g = 1f;
+            if (u < 0.445f) g *= Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0.418f, 0.445f, u));
+            if (v < 0.688f) g *= Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0.668f, 0.688f, v));
+            if (v > 0.758f) g *= 1f - Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0.758f, 0.775f, v));
+            return g;
         }
 
         static float SoftEllipse(float u, float v, float cu, float cv, float ru, float rv, float feather)
@@ -737,12 +800,14 @@ namespace Resonance.App
                 if (_mats[i] != null) Object.Destroy(_mats[i]);
             _mats.Clear();
             _restVertices = _motionVertices = null;
-            _chestInfluence = _hairInfluence = null;
+            _chestInfluence = _chestOuter = _armInfluence = _hairInfluence = null;
             _smr = null;
             _rootBone = _chestBone = _headBone = null;
             _wrist = _ankleL = _ankleR = null;
             _legPelvis = _thighR = _kneeR = null;
             _mouthMat = null;
+            _blinkTexture = null;
+            _faceShader = null;
             _tapOffset = _tapVelocity = 0f;
         }
     }
