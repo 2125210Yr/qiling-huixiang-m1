@@ -83,6 +83,70 @@ public static class PuppetRigVerification
         Debug.Log("PUPPET_CLASP_PASS");
     }
 
+    public static void RunKnee()
+    {
+        var output=@"F:\天命之子\codex专区\puppet-rig-fix\knee-preview";
+        Directory.CreateDirectory(output);
+        var host=new GameObject("LegVerification",typeof(RectTransform));
+        if(!PuppetRig.TryAttach(host.transform,"C001"))throw new Exception("Bind failed");
+        var rig=host.GetComponent<PuppetRig>();const BindingFlags flags=BindingFlags.NonPublic|BindingFlags.Instance;
+        var type=typeof(PuppetRig);var motion=(PuppetMotion)type.GetField("_motion",flags).GetValue(rig);
+        var renderer=(SkinnedMeshRenderer)type.GetField("_smr",flags).GetValue(rig);
+        var camera=(Camera)type.GetField("_cam",flags).GetValue(rig);
+        var thigh=(Transform)type.GetField("_thighR",flags).GetValue(rig);
+        var knee=(Transform)type.GetField("_kneeR",flags).GetValue(rig);
+        var ankle=(Transform)type.GetField("_ankleR",flags).GetValue(rig);
+        var support=(Transform)type.GetField("_ankleL",flags).GetValue(rig);
+        var supportRest=support.position;var ankleRest=ankle.position;
+        var upperLength=Vector3.Distance(thigh.position,knee.position);var lowerLength=Vector3.Distance(knee.position,ankle.position);
+        var apply=type.GetMethod("ApplyBones",flags);var secondary=type.GetMethod("ApplySecondaryMesh",flags);
+        var clothTexture=new Texture2D(2,2);
+        clothTexture.LoadImage(File.ReadAllBytes(Path.Combine(Application.dataPath,"Resources/Art/Characters/C001/PuppetLayers/body.png")));
+        var rest=renderer.sharedMesh.vertices;var tris=renderer.sharedMesh.triangles;var uv=renderer.sharedMesh.uv;
+        int supportVertex=0;float nearest=float.MaxValue;
+        for(int i=0;i<uv.Length;i++){var d=(uv[i]-new Vector2(.52f,.10f)).sqrMagnitude;if(d<nearest){nearest=d;supportVertex=i;}}
+        float minimum=1,maxLift=0,maxBoneError=0,maxSupportError=0,maxKneeStretch=1;Vector2 stretchUv=Vector2.zero; Vector2 compressedUv=Vector2.zero;var baked=new Mesh();
+        if(!rig.LiftRightLeg() || rig.LiftRightLeg())throw new Exception("Trigger/retrigger failed");
+        for(int sample=0;sample<135;sample++)
+        {
+            motion.Step(1.0/30);secondary.Invoke(rig,null);
+            apply.Invoke(rig,new object[]{motion.Breath,motion.Breath*.65f,0f,0f,0f,0f});
+            maxBoneError=Mathf.Max(maxBoneError,Mathf.Abs(Vector3.Distance(thigh.position,knee.position)-upperLength),Mathf.Abs(Vector3.Distance(knee.position,ankle.position)-lowerLength));
+            maxSupportError=Mathf.Max(maxSupportError,Vector3.Distance(support.position,supportRest));
+            maxLift=Mathf.Max(maxLift,ankle.position.y-ankleRest.y);
+            renderer.BakeMesh(baked);var verts=baked.vertices;
+            maxSupportError=Mathf.Max(maxSupportError,Vector3.Distance(verts[supportVertex],rest[supportVertex]));
+            for(int i=0;i<tris.Length;i+=3)
+            {
+                int a=tris[i],b=tris[i+1],c=tris[i+2];
+                var ratio=Vector3.Cross(verts[b]-verts[a],verts[c]-verts[a]).z/Vector3.Cross(rest[b]-rest[a],rest[c]-rest[a]).z;
+                if(ratio<minimum){minimum=ratio;compressedUv=(uv[a]+uv[b]+uv[c])/3;}
+                if(float.IsNaN(ratio)||ratio<=0)throw new Exception("Fold at sample "+sample+" triangle "+i+" ratio "+ratio);
+                foreach(var pair in new[]{new[]{a,b},new[]{b,c},new[]{c,a}})
+                {
+                    int j=pair[0],k=pair[1];var center=(uv[j]+uv[k])*.5f;
+                    // Visible fabric around the back of the bent knee, excluding background.
+                    if(center.x>.48f && center.x<.64f && center.y>.32f && center.y<.445f && clothTexture.GetPixelBilinear(center.x,center.y).a>.95f)
+                    {
+                        float stretch=Vector3.Distance(verts[j],verts[k])/Vector3.Distance(rest[j],rest[k]);
+                        if(stretch>maxKneeStretch){maxKneeStretch=stretch;stretchUv=center;}
+                    }
+                }
+            }
+            if(sample%2!=0)continue;
+            camera.Render();var previous=RenderTexture.active;RenderTexture.active=camera.targetTexture;
+            var image=new Texture2D(camera.targetTexture.width,camera.targetTexture.height,TextureFormat.RGBA32,false);
+            image.ReadPixels(new Rect(0,0,image.width,image.height),0,0);image.Apply();
+            File.WriteAllBytes(Path.Combine(output,"frame-"+(sample/2).ToString("D3")+".png"),image.EncodeToPNG());
+            RenderTexture.active=previous;UnityEngine.Object.DestroyImmediate(image);
+        }
+        if(maxBoneError>.0001f || maxSupportError>.0001f || maxLift<.2f)throw new Exception("Leg invariant failure");
+        if(motion.LegActive || motion.LegLift!=0 || Vector3.Distance(ankle.position,ankleRest)>.0001f)throw new Exception("Rest pose not restored");
+        File.WriteAllText(Path.Combine(output,"result.txt"),"MEASURED: 135 poses; minimum triangle area="+minimum+" at UV "+compressedUv+"; bone error="+maxBoneError+"; support error="+maxSupportError+"; ankle lift pixels="+(maxLift*100)+"; knee max edge stretch="+maxKneeStretch+" at UV "+stretchUv+"; exact return to rest.");
+        if(maxKneeStretch>1.12f)throw new Exception("Knee cloth stretched "+maxKneeStretch+" at UV "+stretchUv);
+        Debug.Log("PUPPET_KNEE_PASS");
+    }
+
     public static void RunLeg()
     {
         var output=@"F:\天命之子\codex专区\puppet-rig-fix\leg-final-preview";

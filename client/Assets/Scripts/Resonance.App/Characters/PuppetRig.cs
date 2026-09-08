@@ -337,7 +337,12 @@ namespace Resonance.App
             var left=Mathf.Lerp(LegLeft[row],LegLeft[row+1],t);
             var right=Mathf.Lerp(LegRight[row],LegRight[row+1],t);
             var leftWeight=Mathf.SmoothStep(0,1,Mathf.InverseLerp(left-60,left,x));
-            var feather=y>1170 ? 8f : 38f;
+            // Keep visible knee fabric fully on the moving leg. Fade into the
+            // transparent margin, not across the trouser highlights/outer seam.
+            var kneeBand=Mathf.SmoothStep(0,1,Mathf.InverseLerp(730,830,y))
+                * (1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(1000,1120,y)));
+            right += 40f*kneeBand;
+            var feather=y>1170 ? 8f : Mathf.Lerp(38f,70f,kneeBand);
             var rightWeight=1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(right,right+feather,x));
             var top=Mathf.SmoothStep(0,1,Mathf.InverseLerp(570,730,y));
             var bottom=1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(1305,1340,y));
@@ -474,7 +479,9 @@ namespace Resonance.App
                         var leg=FrontLegWeight(u,v);
                         if(leg>0)
                         {
-                            var thigh=Mathf.SmoothStep(0,1,Mathf.InverseLerp(.385f,.455f,v));
+                            // Spread the hinge blend over the lower thigh and upper calf;
+                            // a narrow horizontal band stretches the knee-back folds.
+                            var thigh=Mathf.SmoothStep(0,1,Mathf.InverseLerp(.35f,.49f,v));
                             var boot=1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(.235f,.280f,v));
                             bw[i]=new BoneWeight {
                                 boneIndex0=BoneRoot,weight0=1-leg,
