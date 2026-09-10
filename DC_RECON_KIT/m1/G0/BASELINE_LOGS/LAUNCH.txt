@@ -1,0 +1,22 @@
+M1-G2-CAPTURE-STATES launch record
+date: 2026-09-10
+task: M1-G2-CAPTURE-STATES
+path_chosen: Editor PlayMode Vertical Slice Smoke (NOT batchmode, NOT nographics)
+
+occupancy:
+- No EditorInstance at start.
+- First Editor (pid 53064) hung after CS0117 ExitedPlayMode; no window (hwnd=0); Stop-Process. Not a second project.
+- Relunched one Editor pid 44048 after source fix (EnteredEditMode). BatchMode: 0.
+
+command (final live Editor):
+D:\Unity\Hub\Editor\6000.3.23f1\Editor\Unity.exe -projectPath F:\天命之子\client -logFile F:\天命之子\DC_RECON_KIT\m1\G0\BASELINE_LOGS\editor-playmode-20260910-capture-b.log
+
+flags_not_used: -batchmode -nographics
+trigger: after "[Project] Loading completed" (16.176s) write client/Temp/vs-smoke.request at 2026-09-10 20:06:39
+result: [VS-SMOKE] PASS in capture-b.log; captures 07_drive/08_fever/09_result mtime 20:06:46–20:06:51
+temp_wipe: Unity deleted client/Temp on Editor.Exit (incl. vs-smoke.result.txt). Body recovered from log; durable copy now also written to client/captures/vs-smoke.result.txt
+save_isolation: save=client/Temp/vs-smoke-save/save.json ; save-isolated=True
+user_save_untouched: LocalLow\Resonance\契灵回响\save.json still 2026-09-10 17:37:27 / 2249 bytes; .bak still 17:20:24
+label: 我方切片 / our_slice — NOT original GT.
+
+do_not: upgrade Unity; invent GL_FINAL_VERIFIED; open G3; claim M1验收; rewrite user LocalLow save.

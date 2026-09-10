@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "FormulaProfiles",
+  "contract_version": "1.0-G1-2026-09-09",
+  "status": "CONTRACT_FROZEN",
+  "gl_values": "UNKNOWN",
+  "profile_role": "contrast_only",
+  "allowed_profiles": [
+    {
+      "id": "JP_LEGACY_EMPIRICAL",
+      "evidence_class": "EMPIRICAL",
+      "region": "JP_LEGACY",
+      "source_ids": ["S05", "S06", "S07", "S08", "S09", "S10", "S16"]
+    },
+    {
+      "id": "KR_LEGACY_REPORTED",
+      "evidence_class": "REPORTED",
+      "region": "KR_LEGACY",
+      "source_ids": ["S07"]
+    }
+  ],
+  "forbidden_profiles": [
+    "GL_FINAL_VERIFIED",
+    "JP_FINAL_VERIFIED",
+    "KR_FINAL_VERIFIED"
+  ],
+  "inherit_legacy_as_gl": false,
+  "generic_atk_times_mul_minus_def_forbidden": true,
+  "drive_ui_as_actual_damage_forbidden": true,
+  "slide_uniform_rng_as_truth_forbidden": true,
+  "ignition_compose": "UNKNOWN",
+  "referencer": "DC_RECON_KIT/tools/candidate_formulas.py",
+  "fidelity_pass_without_gt": false
+}

@@ -1,0 +1,27 @@
+JSON_PARSE PASS sources.json
+JSON_PARSE PASS templates/acceptance_results.json
+JSON_PARSE PASS templates/battle_sample.json
+JSON_PARSE PASS templates/evidence_record.json
+JSON_PARSE PASS templates/module_audit.json
+JSON_PARSE PASS templates/motion_cue_sheet.json
+JSON_PARSE PASS templates/synthetic_skill_example.json
+JSON_PARSE PASS templates/target_manifest.json
+JSON_PARSE PASS templates/task_lease.json
+JSON_PARSE PASS templates/ui_measurements.json
+TOML_PARSE PASS codex_templates/agents/dc_audit.toml
+TOML_PARSE PASS codex_templates/agents/dc_battle.toml
+TOML_PARSE PASS codex_templates/agents/dc_math.toml
+TOML_PARSE PASS codex_templates/agents/dc_meta.toml
+TOML_PARSE PASS codex_templates/agents/dc_presentation.toml
+TOML_PARSE PASS codex_templates/agents/dc_qa.toml
+TOML_PARSE PASS codex_templates/agents/dc_research.toml
+TOML_PARSE PASS codex_templates/agents/dc_ui.toml
+TOML_PARSE PASS codex_templates/config.fragment.toml
+PYTHON_AST PASS tools/candidate_formulas.py
+PYTHON_AST PASS tools/test_candidate_formulas.py
+SOURCE_IDS PASS
+UNITY_RUNTIME NOT_RUN
+CODEX_CONFIG_LOAD NOT_RUN
+ORIGINAL_GAME_FIDELITY NOT_MEASURED
+USER_PROJECT_AUDIT NOT_RUN
+FORMULA_UNIT_TESTS SYNTHETIC_ONLY; SEE tool_test_results.txt

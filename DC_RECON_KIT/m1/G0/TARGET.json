@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0",
+  "gate": "G0",
+  "status": "TARGET_FROZEN_GT_SEARCHING",
+  "frozen_at": "2026-09-09",
+  "region": "GL",
+  "region_label": "国际服",
+  "version_window": "PRE_SHUTDOWN_LATE_INCLUDING_IGNITION",
+  "version_window_note": "停服前后期；范围含 Ignition/增幅。不得用 Ignition 前数值当 GL 定版。",
+  "client_build": "UNKNOWN",
+  "platform": "mobile",
+  "orientation": "portrait",
+  "reference_viewport": {
+    "width": null,
+    "height": null,
+    "native_content_rect": null,
+    "safe_area": null,
+    "measurement_status": "NOT_MEASURED",
+    "blocked_on": "primary_gt"
+  },
+  "target_device": "mobile_portrait",
+  "reference_speed_mode": "UNKNOWN",
+  "reference_auto_settings": "UNKNOWN",
+  "project_unity_version": "6000.3.23f1",
+  "existing_ui_system": "UNKNOWN_NOT_RESCANNED",
+  "existing_render_pipeline": "URP",
+  "unity_project_root": "client/",
+  "scope_status": "FROZEN",
+  "primary_mode": "NormalPve5",
+  "primary_mode_label": "普通 5 人 PVE",
+  "candidate_modes": [
+    "Story",
+    "Daily",
+    "Underground",
+    "DevilRumble",
+    "Narrative",
+    "Ragna",
+    "WorldBoss",
+    "Rebirth",
+    "EndlessDuel"
+  ],
+  "in_scope_m1": [
+    "NormalPve5_core_combat_slice"
+  ],
+  "out_of_scope_m1": [
+    "Ragna_as_primary_truth",
+    "WorldBoss_as_primary_truth",
+    "KR_Raid_as_primary_truth",
+    "full_meta_loop",
+    "real_network_services"
+  ],
+  "primary_gt": {
+    "status": "SEARCH_IN_PROGRESS",
+    "id": null,
+    "role": "ordinary_5p_pve_combat_truth",
+    "required": true
+  },
+  "supplement_refs_not_primary_gt": [
+    "REF_YT_mJrT2conPCI",
+    "REF_YT_Vdf4V693IcU",
+    "REF_YT_89jpoNqAwa8"
+  ],
+  "formula_policy": {
+    "allowed_profiles": [
+      "JP_LEGACY_EMPIRICAL",
+      "KR_LEGACY_REPORTED"
+    ],
+    "profile_role": "contrast_only",
+    "gl_values": "UNKNOWN",
+    "forbidden_profiles": [
+      "GL_FINAL_VERIFIED",
+      "JP_FINAL_VERIFIED",
+      "KR_FINAL_VERIFIED"
+    ],
+    "inherit_jp_or_kr_as_gl": false
+  },
+  "user_owned_content": [
+    "character_illustrations",
+    "authored_character_skills",
+    "text"
+  ],
+  "implementation_owned": [
+    "generic_skill_engine",
+    "battle_rules",
+    "ui",
+    "motion",
+    "vfx_framework",
+    "audio_framework",
+    "progression",
+    "save"
+  ],
+  "source_ids": [
+    "S04",
+    "S05",
+    "S06",
+    "S07",
+    "S08",
+    "S09",
+    "S10",
+    "S11",
+    "S14",
+    "S16",
+    "S17",
+    "S18",
+    "S19",
+    "S21"
+  ],
+  "reference_root": "DC_RECON_KIT/m1/G0/REFERENCE_INDEX.json",
+  "allow_mock_services": true,
+  "network_fidelity_claim": false,
+  "confirmation_record": {
+    "confirmed_by": "user",
+    "confirmed_at": "2026-09-09",
+    "items": [
+      "region=GL",
+      "version_window=PRE_SHUTDOWN_LATE_INCLUDING_IGNITION",
+      "platform=mobile_portrait",
+      "primary_mode=NormalPve5",
+      "primary_gt=SEARCH_IN_PROGRESS",
+      "legacy_videos_not_ordinary_combat_sole_truth"
+    ]
+  }
+}

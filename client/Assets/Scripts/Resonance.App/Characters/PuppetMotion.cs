@@ -6,7 +6,7 @@ namespace Resonance.App
     {
         const double Tick = 1.0 / 120.0;
         double _pending, _time, _skillTime = -1, _blinkTime = -1, _nextBlink = 4.2;
-        double _previousSwing, _previousSwingSpeed;
+        double _previousSwing, _previousSwingSpeed, _previousLift, _previousLiftSpeed;
         readonly Spring _chestLeft = new Spring(), _chestRight = new Spring();
         readonly Spring _hairLeft = new Spring(), _hairLeftTip = new Spring();
         readonly Spring _hairRight = new Spring(), _hairRightTip = new Spring();
@@ -20,15 +20,24 @@ namespace Resonance.App
         public float HairRightTip { get { return (float)_hairRightTip.Position; } }
         public float Gaze { get { return (float)_gaze.Position; } }
         public float Breath { get { return (float)Math.Sin(_time * 1.05); } }
+        public float BodySway { get; private set; }
         public float Swing { get; private set; }
         public float Blink { get; private set; }
         public float SqueezeLeft
         {
-            get { return (float)Clamp(-_chestLeft.Position / 0.005, 0, 1); }
+            get
+            {
+                var tap = Clamp(-_chestLeft.Position / 0.005, 0, 1);
+                return (float)Clamp(Math.Max(tap, ClaspAmount), 0, 1);
+            }
         }
         public float SqueezeRight
         {
-            get { return (float)Clamp(-_chestRight.Position / 0.005, 0, 1); }
+            get
+            {
+                var tap = Clamp(-_chestRight.Position / 0.005, 0, 1);
+                return (float)Clamp(Math.Max(tap, ClaspAmount), 0, 1);
+            }
         }
         public float ArmClosure { get; private set; }
         public float ClaspAmount { get; private set; }
@@ -50,8 +59,8 @@ namespace Resonance.App
         public bool SkillActive { get { return _skillTime >= 0; } }
         public void TapChest(float side)
         {
-            _chestLeft.Impulse(side <= 0 ? -.035 : -.009, .075);
-            _chestRight.Impulse(side > 0 ? -.035 : -.009, .075);
+            _chestLeft.Impulse(side <= 0 ? -.055 : -.012, .09);
+            _chestRight.Impulse(side > 0 ? -.055 : -.012, .09);
         }
         public void Look(float direction) { _gazeTarget = Clamp(direction, -1, 1); }
         public void BlinkNow() { if (_blinkTime < 0) _blinkTime = 0; }
@@ -93,12 +102,27 @@ namespace Resonance.App
                 var speed = (Swing - _previousSwing) / Tick;
                 var acceleration = (speed - _previousSwingSpeed) / Tick;
                 _previousSwing = Swing; _previousSwingSpeed = speed;
-                _chestLeft.Step(Clamp(-acceleration * .00003, -.003, .003), Tick, 4.2, 7.2, .006);
-                _chestRight.Step(Clamp(-acceleration * .000025, -.003, .003), Tick, 4.6, 8.0, .006);
+                var liftSpeed = (LegLift - _previousLift) / Tick;
+                var liftAcc = (liftSpeed - _previousLiftSpeed) / Tick;
+                _previousLift = LegLift; _previousLiftSpeed = liftSpeed;
+                var sway = Math.Sin(_time * 0.52);
+                BodySway = (float)(sway * 0.70);
+                var swayAcc = -sway * 0.52 * 0.52;
+                var breath = Math.Sin(_time * 1.05);
+                var drive = Clamp(
+                    -swayAcc * 0.010
+                    + breath * 0.0018
+                    - liftAcc * 0.002
+                    - acceleration * 0.00003,
+                    -0.0035, 0.0035);
+                // Follow body/breath with lag. No self-driven 1Hz sine — that reads as a hanging drop.
+                _chestLeft.Step(drive, Tick, 2.8, 5.6, .006);
+                _chestRight.Step(drive * 0.86 + breath * 0.0004, Tick, 3.0, 5.2, .006);
                 var wind = Math.Sin(_time * .38) * .65 + Math.Sin(_time * .62) * .2;
-                _hairLeft.Step(wind - speed * .25, Tick, 2.4, 3.4, 2.5);
+                var bodySpeed = Math.Cos(_time * 0.52) * 0.52 * 1.05;
+                _hairLeft.Step(wind - speed * .25 - bodySpeed * .18, Tick, 2.4, 3.4, 2.5);
                 _hairLeftTip.Step(_hairLeft.Position * 1.7 - speed * .3, Tick, 1.9, 2.6, 5);
-                _hairRight.Step(-wind * .8 - speed * .2, Tick, 2.6, 3.8, 2.5);
+                _hairRight.Step(-wind * .8 - speed * .2 - bodySpeed * .12, Tick, 2.6, 3.8, 2.5);
                 _hairRightTip.Step(_hairRight.Position * 1.6 - speed * .3, Tick, 2.1, 2.8, 5);
                 _gaze.Step(_gazeTarget, Tick, 5.5, 6.5, 1);
                 if (_blinkTime < 0 && _time >= _nextBlink) _blinkTime = 0;

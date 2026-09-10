@@ -1,0 +1,14 @@
+{
+  "name": "Resonance.App",
+  "rootNamespace": "Resonance.App",
+  "references": [ "Resonance.Battle", "EmeraldInochi" ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

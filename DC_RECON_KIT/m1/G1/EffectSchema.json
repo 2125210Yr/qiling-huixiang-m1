@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "EffectSchema",
+  "contract_version": "1.0-G1-2026-09-09",
+  "status": "CONTRACT_FROZEN",
+  "unknown_opcode_policy": "FAIL",
+  "silent_unknown_opcode_forbidden": true,
+  "script_in_skill_forbidden": true,
+  "poison": {
+    "implemented_in_engine": true,
+    "decision": "IMPLEMENTED",
+    "triggers": ["on_action", "on_hit"],
+    "per_second_dot_forbidden": true,
+    "gl_timing": "UNKNOWN",
+    "source_ids": ["S19"]
+  },
+  "bleed": {
+    "implemented_in_engine": true,
+    "triggers": ["on_action", "on_hit"],
+    "per_second_dot_forbidden": true,
+    "gl_timing": "UNKNOWN"
+  },
+  "shield": {
+    "implemented_in_engine": true,
+    "gl_values": "UNKNOWN"
+  },
+  "control": {
+    "implemented_in_engine": true,
+    "kinds": ["stun", "freeze"],
+    "pauses_charge": true,
+    "pauses_slide_cd_default": false,
+    "gl_duration": "UNKNOWN"
+  },
+  "taunt": {
+    "implemented_in_engine": true,
+    "gl_values": "UNKNOWN"
+  },
+  "unimplemented_opcodes": [
+    "dmg.pierce",
+    "dmg.extra_flat",
+    "status.dispel",
+    "retarget",
+    "revive"
+  ],
+  "target_keys": [
+    "hp_absolute",
+    "hp_ratio",
+    "atk_rank",
+    "element",
+    "row",
+    "random"
+  ],
+  "rank_eval_modes": ["cast_snapshot", "per_hit_recompute", "UNKNOWN"],
+  "default_rank_eval": "UNKNOWN",
+  "resolve_slots": [
+    "segment_damage",
+    "followup",
+    "per_target_or_hit_chance",
+    "dispel",
+    "resist",
+    "immune",
+    "shield",
+    "reflect",
+    "lifesteal",
+    "revive"
+  ],
+  "gl_resolve_order": "UNKNOWN",
+  "opcodes": [
+    "dmg.tap",
+    "dmg.slide",
+    "dmg.auto",
+    "dmg.pierce",
+    "dmg.extra_flat",
+    "dmg.drive_actual",
+    "dmg.fever_parts",
+    "status.apply",
+    "status.dispel",
+    "poison.apply",
+    "shield.apply",
+    "control.apply",
+    "charge.add",
+    "charge.rate",
+    "slide_cd",
+    "retarget",
+    "revive"
+  ],
+  "numeric_status": "UNKNOWN",
+  "formula_profiles_allowed": [
+    "JP_LEGACY_EMPIRICAL",
+    "KR_LEGACY_REPORTED"
+  ]
+}

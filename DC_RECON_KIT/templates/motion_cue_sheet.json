@@ -1,0 +1,18 @@
+{
+  "event_id": null,
+  "reference_id": null,
+  "source_fps": null,
+  "source_playback_speed": null,
+  "dropped_frames_known": null,
+  "clock": null,
+  "input_frame": null,
+  "anticipation_start": null,
+  "impact_frame": null,
+  "number_frame": null,
+  "audio_start_frame": null,
+  "recovery_end_frame": null,
+  "next_input_frame": null,
+  "tracks": [],
+  "measurement_uncertainty_frames": null,
+  "status": "NOT_MEASURED"
+}

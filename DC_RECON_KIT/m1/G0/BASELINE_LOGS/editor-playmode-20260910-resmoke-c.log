@@ -1,0 +1,1260 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.3/staging' branch; Version is '6000.3.23f1 (09d2ecc7fb28) revision 643820'; Using compiler version '194234433'; Build Type 'Release'
+[Licensing::IpcConnector] Channel LicenseClient-Administrator doesn't exist
+OS: 'Windows 11  (10.0.26200) Professional' Language: 'zh' Physical Memory: 32581 MB
+BatchMode: 0, IsHumanControllingUs: 1, StartBugReporterOnCrash: 1, Is64bit: 1
+System  architecture: x64
+Process architecture: x64
+Date: 2026-09-10T09:09:28Z
+[Licensing::Module] Successfully launched the LicensingClient (PId: 40916)
+
+COMMAND LINE ARGUMENTS:
+D:\Unity\Hub\Editor\6000.3.23f1\Editor\Unity.exe
+-projectPath
+F:\天命之子\client
+-logFile
+F:\天命之子\DC_RECON_KIT\m1\G0\BASELINE_LOGS\editor-playmode-20260910-resmoke-c.log
+Successfully changed project path to: F:\天命之子\client
+F:/天命之子/client
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-remapper-allocator-initial-capacity=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+Player connection [42820]  Target information:
+
+Player connection [42820]  * "[IP] 192.168.1.54 [Port] 55504 [Flags] 2 [Guid] 3075980756 [EditorId] 3075980756 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-AKI3LSA) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [42820]  * "[IP] 172.23.112.1 [Port] 55504 [Flags] 2 [Guid] 3075980756 [EditorId] 3075980756 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-AKI3LSA) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [42820]  * "[IP] 198.18.0.1 [Port] 55504 [Flags] 2 [Guid] 3075980756 [EditorId] 3075980756 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-AKI3LSA) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [42820] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [42820] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Administrator" at "2026-09-10T09:09:29.6769731Z"
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 40916, path: "D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Package Manager] Connected to IPC stream "Upm-13000" after 0.7 seconds.
+[Licensing::Module] Licensing is not yet initialized.
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.3+d7ffd15
+  Session Id:              02f3604e66b74153b9da0d34b67d1bec
+  Correlation Id:          6c328366992857ae8d581f28417ebfd5
+  External correlation Id: 8617942912232594422
+  Machine Id:              2I/XDZsLcGAfRljEGy76IATF7BI=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-Administrator" (connect: 0.86s, validation: 0.69s, handshake: 0.13s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Administrator-notifications" at "2026-09-10T09:09:30.4953379Z"
+[Licensing::Module] Connected to LicensingClient (PId: 40916, launch time: 0.04, total connection time: 1.68s)
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-99BH-9QMP-CCW5-HN7U-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-09-21T06:35:02Z
+[Licensing::Module] License group:
+  Id: ewogICJzdWJzR3JvdXAiIDogInVuaXR5IGVkaXRvciIsCiAgIm5hbWVzcGFjZSIgOiAidW5pdHlfZWRpdG9yIiwKICAidHlwZSIgOiAiRURJVE9SIiwKICAidGFnIiA6ICJVbml0eVBlcnNvbmFsXXXX
+  Product: Unity Personal Version
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.01
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-99BH-9QMP-CCW5-HN7U-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-09-21T06:35:02Z
+[Licensing::Module] License group:
+  Id: ewogICJzdWJzR3JvdXAiIDogInVuaXR5IGVkaXRvciIsCiAgIm5hbWVzcGFjZSIgOiAidW5pdHlfZWRpdG9yIiwKICAidHlwZSIgOiAiRURJVE9SIiwKICAidGFnIiA6ICJVbml0eVBlcnNvbmFsXXXX
+  Product: Unity Personal Version
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Module] Licensing Background thread has ended after 1.79s
+[Licensing::Module] Licensing is initialized (took 0.27s).
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-99BH-9QMP-CCW5-HN7U-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-09-21T06:35:02Z
+[Licensing::Module] License group:
+  Id: ewogICJzdWJzR3JvdXAiIDogInVuaXR5IGVkaXRvciIsCiAgIm5hbWVzcGFjZSIgOiAidW5pdHlfZWRpdG9yIiwKICAidHlwZSIgOiAiRURJVE9SIiwKICAidGFnIiA6ICJVbml0eVBlcnNvbmFsXXXX
+  Product: Unity Personal Version
+  Type: Assigned
+  Expiration: Unlimited
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Artifact Garbage Collection - Removed 2 unused hashed content files
+Refreshing native plugins compatible for Editor in 10.08 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.3.23f1 (09d2ecc7fb28)
+[Subsystems] Discovering subsystems at path D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path F:/天命之子/client/Assets
+[D3D12 Device Filter] Vendor Name: NVIDIA
+[D3D12 Device Filter] Device Name: NVIDIA GeForce RTX 4060 Ti
+[D3D12 Device Filter] Driver Version: 32.0.16.1047
+[D3D12 Device Filter] Feature Level: 12.2
+[D3D12 Device Filter] Graphics Memory: 7949 MB
+[D3D12 Device Filter] Processor Count: 16
+[D3D12 Device Filter] Device Type: Discrete
+GfxDevice: creating device client; kGfxThreadingModeSplitJobs
+d3d12: failed to query info queue interface (0x80004002).
+Direct3D:
+    Version:         Direct3D 12 [level 12.2]
+    Renderer:        NVIDIA GeForce RTX 4060 Ti (ID=0x2803)
+    Vendor:          NVIDIA
+    VRAM:            7949 MB
+    App VRAM Budget: 7181 MB
+    Driver:          32.0.16.1047
+Initialize mono
+Mono path[0] = 'D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56000
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-99BH-9QMP-CCW5-HN7U-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-09-21T06:35:02Z
+[Licensing::Module] License group:
+  Id: ewogICJzdWJzR3JvdXAiIDogInVuaXR5IGVkaXRvciIsCiAgIm5hbWVzcGFjZSIgOiAidW5pdHlfZWRpdG9yIiwKICAidHlwZSIgOiAiRURJVE9SIiwKICAidGFnIiA6ICJVbml0eVBlcnNvbmFsXXXX
+  Product: Unity Personal Version
+  Type: Assigned
+  Expiration: Unlimited
+Register platform support module: D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Registered in 0.015251 seconds.
+- Loaded All Assemblies, in  0.713 seconds
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Package Manager log level set to [2]
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.644 seconds
+Domain Reload Profiling: 1357ms
+	BeginReloadAssembly (300ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (19ms)
+	RebuildCommonClasses (63ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (83ms)
+	LoadAllAssembliesAndSetupDomain (250ms)
+		LoadAssemblies (282ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (245ms)
+			TypeCache.Refresh (242ms)
+				TypeCache.ScanAssembly (224ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (645ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (589ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (156ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (115ms)
+			ProcessInitializeOnLoadAttributes (198ms)
+			ProcessInitializeOnLoadMethodAttributes (114ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-99BH-9QMP-CCW5-HN7U-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-09-21T06:35:02Z
+[Licensing::Module] License group:
+  Id: ewogICJzdWJzR3JvdXAiIDogInVuaXR5IGVkaXRvciIsCiAgIm5hbWVzcGFjZSIgOiAidW5pdHlfZWRpdG9yIiwKICAidHlwZSIgOiAiRURJVE9SIiwKICAidGFnIiA6ICJVbml0eVBlcnNvbmFsXXXX
+  Product: Unity Personal Version
+  Type: Assigned
+  Expiration: Unlimited
+Application.AssetDatabase Initial Refresh Start
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 51 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.ide.visualstudio@2.0.22 (location: F:\天命之子\client\Library\PackageCache\com.unity.ide.visualstudio@8140e851d83e)
+    com.unity.inputsystem@1.14.2 (location: F:\天命之子\client\Library\PackageCache\com.unity.inputsystem@be6c4fd0abf5)
+    com.unity.2d.animation@11.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.2d.animation@a1db3619cb6f)
+    com.unity.2d.common@12.0.4 (location: F:\天命之子\client\Library\PackageCache\com.unity.2d.common@3e42aeccb30d)
+    com.unity.collections@2.6.8 (location: F:\天命之子\client\Library\PackageCache\com.unity.collections@84e8eb3fc12e)
+    com.unity.burst@1.8.30 (location: F:\天命之子\client\Library\PackageCache\com.unity.burst@2f3d916873ea)
+    com.unity.mathematics@1.3.3 (location: F:\天命之子\client\Library\PackageCache\com.unity.mathematics@19a9377c4ffa)
+    com.unity.nuget.mono-cecil@1.11.6 (location: F:\天命之子\client\Library\PackageCache\com.unity.nuget.mono-cecil@ecb9724e46ff)
+    com.unity.test-framework.performance@3.5.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.test-framework.performance@8b56083ec0f0)
+    com.unity.searcher@4.9.5 (location: F:\天命之子\client\Library\PackageCache\com.unity.searcher@a463122f2c00)
+  Built-in packages:
+    com.unity.render-pipelines.universal@17.3.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.render-pipelines.universal@7865b6b91f8a)
+    com.unity.test-framework@1.6.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.test-framework@bd7f943e9647)
+    com.unity.ugui@2.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.ugui@27635d171b1a)
+    com.unity.2d.sprite@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.2d.sprite@5b922524bd83)
+    com.unity.modules.ai@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.ai)
+    com.unity.modules.androidjni@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.androidjni)
+    com.unity.modules.animation@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.animation)
+    com.unity.modules.assetbundle@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.assetbundle)
+    com.unity.modules.audio@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.audio)
+    com.unity.modules.cloth@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.cloth)
+    com.unity.modules.director@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.director)
+    com.unity.modules.imageconversion@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.imageconversion)
+    com.unity.modules.imgui@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.jsonserialize)
+    com.unity.modules.particlesystem@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.particlesystem)
+    com.unity.modules.physics@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.physics)
+    com.unity.modules.physics2d@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.physics2d)
+    com.unity.modules.screencapture@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.screencapture)
+    com.unity.modules.terrain@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.terrain)
+    com.unity.modules.terrainphysics@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.terrainphysics)
+    com.unity.modules.tilemap@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.tilemap)
+    com.unity.modules.ui@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.ui)
+    com.unity.modules.uielements@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.uielements)
+    com.unity.modules.umbra@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.umbra)
+    com.unity.modules.unityanalytics@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.unityanalytics)
+    com.unity.modules.unitywebrequest@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.unitywebrequest)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.unitywebrequestassetbundle)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.unitywebrequestaudio)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.unitywebrequesttexture)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.unitywebrequestwww)
+    com.unity.modules.vehicles@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.vehicles)
+    com.unity.modules.video@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.video)
+    com.unity.modules.vr@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.vr)
+    com.unity.modules.wind@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.wind)
+    com.unity.modules.xr@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.xr)
+    com.unity.modules.subsystems@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.subsystems)
+    com.unity.modules.hierarchycore@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.hierarchycore)
+    com.unity.ext.nunit@2.0.5 (location: F:\天命之子\client\Library\PackageCache\com.unity.ext.nunit@d8c07649098d)
+    com.unity.render-pipelines.core@17.3.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.render-pipelines.core@0bb36005e9ba)
+    com.unity.shadergraph@17.3.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.shadergraph@b4b75cc00891)
+    com.unity.render-pipelines.universal-config@17.0.3 (location: F:\天命之子\client\Library\PackageCache\com.unity.render-pipelines.universal-config@8dc1aab4af1d)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.07 seconds
+[ScriptCompilation] Requested script compilation because: Assetdatabase observed changes in script compilation related files
+Starting: D:\Unity\Hub\Editor\6000.3.23f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: F:/天命之子/client
+ExitCode: 0 Duration: 13s
+[631/808    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[788/808    2s] Csc Library/Bee/artifacts/1900b0aE.dag/Resonance.Battle.dll (+2 others)
+[789/808    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Resonance.Battle.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Resonance.Battle.dll, with 140 defines and 127 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[790/808    0s] CopyFiles Library/ScriptAssemblies/Resonance.Battle.dll
+[791/808    0s] CopyFiles Library/ScriptAssemblies/Resonance.Battle.pdb
+[BUSY       6s] Csc Library/Bee/artifacts/1900b0aE.dag/Resonance.App.dll (+2 others)
+[792/808    7s] Csc Library/Bee/artifacts/1900b0aE.dag/Resonance.App.dll (+2 others)
+Assets\Scripts\Resonance.App\Battle\Vfx\VfxFeverOverlay.cs(33,15): warning CS0414: The field 'VfxFeverOverlay._pop' is assigned but its value is never used
+
+Assets\Scripts\Resonance.App\Characters\PuppetRig.cs(76,14): warning CS0414: The field 'PuppetRig._hasHair' is assigned but its value is never used
+
+Assets\Scripts\Resonance.App\Characters\PuppetRig.cs(75,14): warning CS0414: The field 'PuppetRig._hasHead' is assigned but its value is never used
+
+Assets\Scripts\Resonance.App\Characters\PuppetRig.cs(77,14): warning CS0414: The field 'PuppetRig._hasHand' is assigned but its value is never used
+
+Assets\Scripts\Resonance.App\Characters\PuppetRig.cs(78,14): warning CS0414: The field 'PuppetRig._hasFoot' is assigned but its value is never used
+[793/808    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Resonance.App.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Resonance.App.dll, with 140 defines and 264 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[794/808    0s] CopyFiles Library/ScriptAssemblies/Resonance.App.dll
+[795/808    0s] CopyFiles Library/ScriptAssemblies/Resonance.App.pdb
+[796/808    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Resonance.Editor.dll (+2 others)
+[797/808    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Resonance.Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Resonance.Editor.dll, with 138 defines and 276 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[798/808    0s] CopyFiles Library/ScriptAssemblies/Resonance.Editor.pdb
+[799/808    0s] CopyFiles Library/ScriptAssemblies/Resonance.Editor.dll
+[800/808    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll (+2 others)
+[801/808    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll (+2 others)
+[802/808    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp-Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll, with 138 defines and 323 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[803/808    1s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll, with 140 defines and 307 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[804/808    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.dll
+[805/808    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.pdb
+[806/808    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+[807/808    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.pdb
+*** Tundra build success (13.09 seconds), 21 items updated, 808 evaluated
+Assets\Scripts\Resonance.App\Battle\Vfx\VfxFeverOverlay.cs(33,15): warning CS0414: The field 'VfxFeverOverlay._pop' is assigned but its value is never used
+Assets\Scripts\Resonance.App\Characters\PuppetRig.cs(76,14): warning CS0414: The field 'PuppetRig._hasHair' is assigned but its value is never used
+Assets\Scripts\Resonance.App\Characters\PuppetRig.cs(75,14): warning CS0414: The field 'PuppetRig._hasHead' is assigned but its value is never used
+Assets\Scripts\Resonance.App\Characters\PuppetRig.cs(77,14): warning CS0414: The field 'PuppetRig._hasHand' is assigned but its value is never used
+Assets\Scripts\Resonance.App\Characters\PuppetRig.cs(78,14): warning CS0414: The field 'PuppetRig._hasFoot' is assigned but its value is never used
+AssetDatabase: script compilation time: 15.090246s
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.030 seconds
+Refreshing native plugins compatible for Editor in 4.49 ms, found 4 plugins.
+Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.PathTracing.Core.WorldRenderPipelineResources, Unity.PathTracing.Runtime (1 object)
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  9.436 seconds
+Domain Reload Profiling: 10463ms
+	BeginReloadAssembly (413ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (34ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (166ms)
+	RebuildCommonClasses (49ms)
+	RebuildNativeTypeToScriptingClass (18ms)
+	initialDomainReloadingComplete (30ms)
+	LoadAllAssembliesAndSetupDomain (516ms)
+		LoadAssemblies (457ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (223ms)
+			TypeCache.Refresh (148ms)
+				TypeCache.ScanAssembly (136ms)
+			BuildScriptInfoCaches (54ms)
+			ResolveRequiredComponents (16ms)
+	FinalizeReload (9437ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (8961ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (58ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (203ms)
+			ProcessInitializeOnLoadAttributes (8598ms)
+			ProcessInitializeOnLoadMethodAttributes (95ms)
+			AfterProcessingInitializeOnLoad (2ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (27ms)
+Refreshing native plugins compatible for Editor in 1.39 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=9e264bd4438f57d4c8da93670e57ff0f): Total: 26.544 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=2940 (actual=0, local cache=2940, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=10026 ms
+		Asset DB Callback time: managed=268 ms, native=86 ms
+		Scripting: domain reloads=1, domain reload time=1030 ms, compile time=15093 ms, other=39 ms
+		Project Asset Count: scripts=1008, non-scripts=2763
+		Asset File Changes: new=0, changed=9, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 75.353ms
+	ApplyChangesToAssetFolders: 0.774ms
+	Scan: 203.513ms
+	OnSourceAssetsModified: 1.023ms
+	CategorizeAssetsWithTransientArtifact: 33.720ms
+	ProcessAssetsWithTransientArtifactChanges: 69.719ms
+	CategorizeAssets: 66.360ms
+	ImportOutOfDateAssets: 9488.791ms (-5641.805ms without children)
+		CompileScripts: 15092.570ms
+		ReloadNativeAssets: 0.026ms
+		UnloadImportedAssets: 0.858ms
+		ReloadImportedAssets: 35.391ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 1.100ms
+		InitializingProgressBar: 0.001ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
+		OnDemandSchedulerStart: 0.650ms
+	PostProcessAllAssets: 272.097ms
+	Hotreload: 8.282ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.002ms
+	UnloadStreamsBegin: 2.371ms
+	PersistCurrentRevisions: 2.365ms
+	UnloadStreamsEnd: 0.366ms
+	GenerateScriptTypeHashes: 4.645ms
+	Untracked: 16319.032ms
+
+Application.AssetDatabase Initial Refresh End
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Scanning for USB devices : 3.146ms
+Initializing Unity extensions:
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-契灵回响
+Unloading 28 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 4193 unused Assets / (3.9 MB). Loaded Objects now: 5072.
+Memory consumption went from 197.7 MB to 193.7 MB.
+Total: 11.136700 ms (FindLiveObjects: 0.696100 ms CreateObjectMapping: 0.631700 ms MarkObjects: 7.490500 ms  DeleteObjects: 2.316700 ms)
+
+[LAYOUT] About to load UserSettings\Layouts\default-6000.dwlt, keepMainWindow=False
+[LAYOUT] About to save layout F:\天命之子\client\UserSettings\Layouts\default-6000.dwlt
+[LAYOUT] About to save layout C:/Users/Administrator/AppData/Roaming/Unity/Editor-5.x/Preferences\Layouts\current\default-6000.dwlt
+[MODES] ModeService[default].InitializeCurrentMode
+[MODES] ModeService[default].RaiseModeChanged(default, default)
+This project uses Input Manager, which is marked for deprecation. To manage input in your project, use the <a href="https://docs.unity3d.com/Packages/com.unity.inputsystem@latest">Input System package</a> instead.
+<RI> Initializing input.
+Using Windows.Gaming.Input
+<RI> Input initialized.
+[Project] Loading completed in 34.574 seconds
+	Project init time: 				31.619 seconds
+		Template init time: 		0.000 seconds
+		Package Manager init time: 		0.929 seconds
+		Asset Database init time: 		0.708 seconds
+		Global illumination init time: 	0.015 seconds
+		Assemblies load time: 			1.377 seconds
+		Unity extensions init time: 	0.007 seconds
+		Asset Database refresh time: 	26.544 seconds
+	Scene opening time: 			2.076 seconds
+##utp:{"type":"ProjectInfo","version":2,"phase":"Immediate","time":1789031403195,"processId":13000,"projectLoad":34.573991799999998,"projectInit":31.6186322,"templateInit":0.0,"packageManagerInit":0.9288936,"assetDatabaseInit":0.7084889,"globalIlluminationInit":0.0151851,"assembliesLoad":1.3774186,"unityExtensionsInit":0.0071418,"assetDatabaseRefresh":26.5443987,"sceneOpening":2.0764061}
+##utp:{"type":"EditorInfo","version":2,"phase":"Immediate","time":1789031403195,"processId":13000,"editorVersion":"6000.3.23f1 (09d2ecc7fb28)","branch":"6000.3/staging","buildType":"Release","platform":"Windows"}
+Asset Pipeline Refresh (id=5a27006db657cfb448b32a113365d447): Total: 0.063 seconds - Initiated by RefreshV2(AllowForceSynchronousImport)
+Asset Pipeline Refresh (id=e23f3a668f33fb244bf153774d90dca0): Total: 0.106 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+Created GICache directory at C:/Users/Administrator/AppData/LocalLow/Unity/Caches/GiCache. Took: 0.067s, timestamps: [35.795 - 35.862]
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Client] Successfully resolved entitlement details
+Android Extension - Scanning For ADB Devices 4333 ms
+Android Extension - Scanning For ADB Devices 3694 ms
+Attempted to call .Dispose on an already disposed CancellationTokenSource
+Android Extension - Scanning For ADB Devices 1726 ms
+Android Extension - Scanning For ADB Devices 1753 ms
+TrimDiskCacheJob: Current cache size 0mb
+[VS-SMOKE] entering play mode
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Resonance.EditorTools.VerticalSliceSmoke:TryEnterPlay () (at Assets/Editor/Smoke/VerticalSliceSmoke.cs:121)
+Resonance.EditorTools.VerticalSliceSmoke:Poll () (at Assets/Editor/Smoke/VerticalSliceSmoke.cs:102)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+(Filename: Assets/Editor/Smoke/VerticalSliceSmoke.cs Line: 121)
+
+Reloading assemblies for play mode.
+Reloading assemblies after forced synchronous recompile.
+Attempted to call .Dispose on an already disposed CancellationTokenSource
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-99BH-9QMP-CCW5-HN7U-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-09-21T06:35:02Z
+[Licensing::Module] License group:
+  Id: ewogICJzdWJzR3JvdXAiIDogInVuaXR5IGVkaXRvciIsCiAgIm5hbWVzcGFjZSIgOiAidW5pdHlfZWRpdG9yIiwKICAidHlwZSIgOiAiRURJVE9SIiwKICAidGFnIiA6ICJVbml0eVBlcnNvbmFsXXXX
+  Product: Unity Personal Version
+  Type: Assigned
+  Expiration: Unlimited
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  4.390 seconds
+Refreshing native plugins compatible for Editor in 5.19 ms, found 4 plugins.
+Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.PathTracing.Core.WorldRenderPipelineResources, Unity.PathTracing.Runtime (1 object)
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-99BH-9QMP-CCW5-HN7U-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-09-21T06:35:02Z
+[Licensing::Module] License group:
+  Id: ewogICJzdWJzR3JvdXAiIDogInVuaXR5IGVkaXRvciIsCiAgIm5hbWVzcGFjZSIgOiAidW5pdHlfZWRpdG9yIiwKICAidHlwZSIgOiAiRURJVE9SIiwKICAidGFnIiA6ICJVbml0eVBlcnNvbmFsXXXX
+  Product: Unity Personal Version
+  Type: Assigned
+  Expiration: Unlimited
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.895 seconds
+Domain Reload Profiling: 7290ms
+	BeginReloadAssembly (3794ms)
+		ExecutionOrderSort (1ms)
+		DisableScriptedObjects (381ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (11ms)
+		CreateAndSetChildDomain (2688ms)
+	RebuildCommonClasses (87ms)
+	RebuildNativeTypeToScriptingClass (23ms)
+	initialDomainReloadingComplete (42ms)
+	LoadAllAssembliesAndSetupDomain (446ms)
+		LoadAssemblies (490ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (319ms)
+			TypeCache.Refresh (28ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (236ms)
+			ResolveRequiredComponents (41ms)
+	FinalizeReload (2897ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1308ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (56ms)
+			SetLoadedEditorAssemblies (6ms)
+			BeforeProcessingInitializeOnLoad (234ms)
+			ProcessInitializeOnLoadAttributes (817ms)
+			ProcessInitializeOnLoadMethodAttributes (191ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (1001ms)
+Asset Pipeline Refresh (id=5958a88462d032241afad882d96a6c0b): Total: 8.090 seconds - Initiated by StopAssetImportingV2(ForceSynchronousImport | ForceDomainReload)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=3520 ms
+		Asset DB Callback time: managed=71 ms, native=2 ms
+		Scripting: domain reloads=1, domain reload time=4490 ms, compile time=4 ms, other=0 ms
+		Project Asset Count: scripts=1008, non-scripts=2763
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.169ms
+	InvokePackagesCallback: 3.812ms
+	ApplyChangesToAssetFolders: 3.779ms
+	Scan: 0.001ms
+	OnSourceAssetsModified: 0.002ms
+	CategorizeAssetsWithTransientArtifact: 0.008ms
+	ProcessAssetsWithTransientArtifactChanges: 4.325ms
+	CategorizeAssets: 321.671ms
+	ImportOutOfDateAssets: 2914.890ms (2761.970ms without children)
+		CompileScripts: 4.408ms
+		CollectScriptTypesHashes: 144.874ms
+		ReloadNativeAssets: 1.320ms
+		UnloadImportedAssets: 1.125ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.772ms
+		InitializingProgressBar: 0.001ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
+		OnDemandSchedulerStart: 0.419ms
+	PostProcessAllAssets: 71.146ms
+	GatherAllCurrentPrimaryArtifactRevisions: 6.443ms
+	UnloadStreamsBegin: 2.794ms
+	PersistCurrentRevisions: 0.159ms
+	UnloadStreamsEnd: 0.002ms
+	GenerateScriptTypeHashes: 10.397ms
+	Untracked: 4760.956ms
+
+Loaded scene 'Temp/__Backupscenes/0.backup'
+	Deserialize:            1.463 ms
+	Integration:            411.845 ms
+	Integration of assets:  0.007 ms
+	Thread Wait Time:       0.036 ms
+	Total Operation Time:   413.350 ms
+EMERALD_LOADED parts=4 vertices=11873 parameters=6
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+EmeraldInochi.InochiStandee:Initialize () (at Assets/EmeraldInochi/InochiStandee.cs:94)
+EmeraldInochi.InochiStandee:Attach (UnityEngine.Transform) (at Assets/EmeraldInochi/InochiStandee.cs:51)
+Resonance.App.EmeraldLobby:TryAttach (UnityEngine.Transform,System.Collections.Generic.List`1<UnityEngine.GameObject>) (at Assets/Scripts/Resonance.App/UI/EmeraldLobby.cs:16)
+Resonance.App.GameRoot:DrawHome () (at Assets/Scripts/Resonance.App/Core/GameRoot.cs:397)
+Resonance.App.GameRoot:Show (Resonance.App.GameRoot/ScreenId) (at Assets/Scripts/Resonance.App/Core/GameRoot.cs:357)
+Resonance.App.GameRoot:<DrawBoot>b__71_0 () (at Assets/Scripts/Resonance.App/Core/GameRoot.cs:387)
+Resonance.App.BootSplash/Hold:Update () (at Assets/Scripts/Resonance.App/UI/BootSplash.cs:83)
+
+(Filename: Assets/EmeraldInochi/InochiStandee.cs Line: 94)
+
+[Licensing::Client] Successfully resolved entitlement details
+Start Indexing on Editor startup
+[Indexing] Starting Initial Indexing for Assets
+Setting the duration while system is still playing is not supported. Please wait until the system has stopped and all particles have expired or call Stop with ParticleSystemStopBehavior.StopEmittingAndClear to completely stop the system.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+Resonance.App.IceParticles:AddSystem (UnityEngine.Transform,int,System.Collections.Generic.List`1<UnityEngine.Material>,string,UnityEngine.Sprite,single,int,single,single,single,single,single,single,single,single,single,single,single,bool) (at Assets/Scripts/Resonance.App/Characters/IceParticles.cs:130)
+Resonance.App.ForegroundIce:Emit (UnityEngine.Transform,int,System.Collections.Generic.List`1<UnityEngine.Material>) (at Assets/Scripts/Resonance.App/Characters/ForegroundIce.cs:15)
+Resonance.App.IceParticles:Build (UnityEngine.UI.RawImage,bool) (at Assets/Scripts/Resonance.App/Characters/IceParticles.cs:62)
+Resonance.App.IceParticles:Attach (UnityEngine.Transform,System.Collections.Generic.List`1<UnityEngine.GameObject>,bool) (at Assets/Scripts/Resonance.App/Characters/IceParticles.cs:39)
+Resonance.App.GameRoot:DrawInspect () (at Assets/Scripts/Resonance.App/Core/GameRoot.cs:797)
+Resonance.App.GameRoot:Inspect (string) (at Assets/Scripts/Resonance.App/Core/GameRoot.cs:121)
+Resonance.App.VerticalSliceSmokeRuntime:Update () (at Assets/Scripts/Resonance.App/Debug/VerticalSliceSmokeRuntime.cs:117)
+
+[Assets/Scripts/Resonance.App/Core/GameRoot.cs line 797]
+
+Setting the duration while system is still playing is not supported. Please wait until the system has stopped and all particles have expired or call Stop with ParticleSystemStopBehavior.StopEmittingAndClear to completely stop the system.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+Resonance.App.IceParticles:AddSystem (UnityEngine.Transform,int,System.Collections.Generic.List`1<UnityEngine.Material>,string,UnityEngine.Sprite,single,int,single,single,single,single,single,single,single,single,single,single,single,bool) (at Assets/Scripts/Resonance.App/Characters/IceParticles.cs:130)
+Resonance.App.ForegroundIce:Emit (UnityEngine.Transform,int,System.Collections.Generic.List`1<UnityEngine.Material>) (at Assets/Scripts/Resonance.App/Characters/ForegroundIce.cs:17)
+Resonance.App.IceParticles:Build (UnityEngine.UI.RawImage,bool) (at Assets/Scripts/Resonance.App/Characters/IceParticles.cs:62)
+Resonance.App.IceParticles:Attach (UnityEngine.Transform,System.Collections.Generic.List`1<UnityEngine.GameObject>,bool) (at Assets/Scripts/Resonance.App/Characters/IceParticles.cs:39)
+Resonance.App.GameRoot:DrawInspect () (at Assets/Scripts/Resonance.App/Core/GameRoot.cs:797)
+Resonance.App.GameRoot:Inspect (string) (at Assets/Scripts/Resonance.App/Core/GameRoot.cs:121)
+Resonance.App.VerticalSliceSmokeRuntime:Update () (at Assets/Scripts/Resonance.App/Debug/VerticalSliceSmokeRuntime.cs:117)
+
+[Assets/Scripts/Resonance.App/Core/GameRoot.cs line 797]
+
+Setting the duration while system is still playing is not supported. Please wait until the system has stopped and all particles have expired or call Stop with ParticleSystemStopBehavior.StopEmittingAndClear to completely stop the system.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+Resonance.App.IceParticles:AddSystem (UnityEngine.Transform,int,System.Collections.Generic.List`1<UnityEngine.Material>,string,UnityEngine.Sprite,single,int,single,single,single,single,single,single,single,single,single,single,single,bool) (at Assets/Scripts/Resonance.App/Characters/IceParticles.cs:130)
+Resonance.App.ForegroundIce:Emit (UnityEngine.Transform,int,System.Collections.Generic.List`1<UnityEngine.Material>) (at Assets/Scripts/Resonance.App/Characters/ForegroundIce.cs:20)
+Resonance.App.IceParticles:Build (UnityEngine.UI.RawImage,bool) (at Assets/Scripts/Resonance.App/Characters/IceParticles.cs:62)
+Resonance.App.IceParticles:Attach (UnityEngine.Transform,System.Collections.Generic.List`1<UnityEngine.GameObject>,bool) (at Assets/Scripts/Resonance.App/Characters/IceParticles.cs:39)
+Resonance.App.GameRoot:DrawInspect () (at Assets/Scripts/Resonance.App/Core/GameRoot.cs:797)
+Resonance.App.GameRoot:Inspect (string) (at Assets/Scripts/Resonance.App/Core/GameRoot.cs:121)
+Resonance.App.VerticalSliceSmokeRuntime:Update () (at Assets/Scripts/Resonance.App/Debug/VerticalSliceSmokeRuntime.cs:117)
+
+[Assets/Scripts/Resonance.App/Core/GameRoot.cs line 797]
+
+Setting the duration while system is still playing is not supported. Please wait until the system has stopped and all particles have expired or call Stop with ParticleSystemStopBehavior.StopEmittingAndClear to completely stop the system.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+Resonance.App.IceParticles:AddSystem (UnityEngine.Transform,int,System.Collections.Generic.List`1<UnityEngine.Material>,string,UnityEngine.Sprite,single,int,single,single,single,single,single,single,single,single,single,single,single,bool) (at Assets/Scripts/Resonance.App/Characters/IceParticles.cs:130)
+Resonance.App.ForegroundIce:Emit (UnityEngine.Transform,int,System.Collections.Generic.List`1<UnityEngine.Material>) (at Assets/Scripts/Resonance.App/Characters/ForegroundIce.cs:22)
+Resonance.App.IceParticles:Build (UnityEngine.UI.RawImage,bool) (at Assets/Scripts/Resonance.App/Characters/IceParticles.cs:62)
+Resonance.App.IceParticles:Attach (UnityEngine.Transform,System.Collections.Generic.List`1<UnityEngine.GameObject>,bool) (at Assets/Scripts/Resonance.App/Characters/IceParticles.cs:39)
+Resonance.App.GameRoot:DrawInspect () (at Assets/Scripts/Resonance.App/Core/GameRoot.cs:797)
+Resonance.App.GameRoot:Inspect (string) (at Assets/Scripts/Resonance.App/Core/GameRoot.cs:121)
+Resonance.App.VerticalSliceSmokeRuntime:Update () (at Assets/Scripts/Resonance.App/Debug/VerticalSliceSmokeRuntime.cs:117)
+
+[Assets/Scripts/Resonance.App/Core/GameRoot.cs line 797]
+
+[VS-SMOKE]
+PASS
+screens=Boot,Home,Characters,Team,Inspect,Stage,Battle,Result
+captures=01_home.png,ui_home.png,02_roster.png,02_characters.png,ui_roster.png,04_team.png,ui_team.png,03_inspect.png,ui_inspect.png,06_battle.png,ui_battle.png
+result=胜利
+cleared=True
+tap=True slide=True drive=True fever=True
+save=C:\Users\Administrator\AppData\LocalLow\Resonance\契灵回响\save.json
+save-json={"party":["C007","C010","C001","C003","C005"],"leader":1,"cleared":true,"clearedN":12,"seed":25371703,"speed":2,"auto":2,"hard":false,"clearedH":12,"gold":12280,"stone":182,"meal":2,"pvp":true,"daily":0,"mail":7,"roster":["C001","C007","C010","C003","C005"],"skins":["C001:echo"],"puppets":["P001","P002","P003"],"units":[{"id":"C001","lv":60,"uncap":0,"ign":1,"ia":0,"ic":0,"ig":0,"aff":100,"rsv":"STSTT","skin":"echo","g0":"EQ_WPN","g1":"EQ_ARM","g2":"EQ_ACC","g3":"EQ_CRD","p0":0,"p1":0,"p2":0,"p3":0},{"id":"C007","lv":60,"uncap":0,"ign":0,"ia":0,"ic":0,"ig":0,"aff":100,"rsv":"TTEEE","skin":"","g0":"EQ_WPN","g1":"EQ_ARM","g2":"EQ_ACC","g3":"EQ_CRD","p0":0,"p1":0,"p2":0,"p3":0},{"id":"C010","lv":60,"uncap":0,"ign":0,"ia":0,"ic":0,"ig":0,"aff":100,"rsv":"SSTEE","skin":"","g0":"","g1":"","g2":"EQ_ACC","g3":"EQ_CRD","p0":0,"p1":0,"p2":0,"p3":0},{"id":"C003","lv":60,"uncap":0,"ign":0,"ia":0,"ic":0,"ig":0,"aff":100,"rsv":"TEEEE","skin":"","g0":"EQ_WPN","g1":"","g2":"","g3":"EQ_CRD","p0":0,"p1":0,"p2":0,"p3":0},{"id":"C005","lv":60,"uncap":0,"ign":0,"ia":0,"ic":0,"ig":0,"aff":100,"rsv":"ESTEE","skin":"","g0":"EQ_WPN","g1":"EQ_ARM","g2":"","g3":"","p0":0,"p1":0,"p2":0,"p3":0},{"id":"C002","lv":1,"uncap":0,"ign":0,"ia":0,"ic":0,"ig":0,"aff":0,"rsv":"EEEEE","skin":"","g0":"","g1":"","g2":"","g3":"","p0":0,"p1":0,"p2":0,"p3":0},{"id":"C014","lv":1,"uncap":0,"ign":0,"ia":0,"ic":0,"ig":0,"aff":0,"rsv":"EEEEE","skin":"","g0":"","g1":"","g2":"","g3":"","p0":0,"p1":0,"p2":0,"p3":0},{"id":"C006","lv":1,"uncap":0,"ign":0,"ia":0,"ic":0,"ig":0,"aff":0,"rsv":"EEEEE","skin":"","g0":"","g1":"","g2":"","g3":"","p0":0,"p1":0,"p2":0,"p3":0},{"id":"C013","lv":1,"uncap":0,"ign":0,"ia":0,"ic":0,"ig":0,"aff":0,"rsv":"EEEEE","skin":"","g0":"","g1":"","g2":"","g3":"","p0":0,"p1":0,"p2":0,"p3":0},{"id":"C011","lv":1,"uncap":0,"ign":0,"ia":0,"ic":0,"ig":0,"aff":0,"rsv":"EEEEE","skin":"","g0":"","g1":"","g2":"","g3":"","p0":0,"p1":0,"p2":0,"p3":0},{"id":"C021","lv":1,"uncap":0,"ign":0,"ia":0,"ic":0,"ig":0,"aff":0,"rsv":"EEEEE","skin":"","g0":"","g1":"","g2":"","g3":"","p0":0,"p1":0,"p2":0,"p3":0},{"id":"C016","lv":1,"uncap":0,"ign":0,"ia":0,"ic":0,"ig":0,"aff":0,"rsv":"EEEEE","skin":"","g0":"","g1":"","g2":"","g3":"","p0":0,"p1":0,"p2":0,"p3":0}]}
+log:smoke start
+log:shot 01_home.png,ui_home.png
+log:home
+log:phase Characters
+log:shot 02_roster.png,02_characters.png,ui_roster.png
+log:phase Team
+log:shot 04_team.png,ui_team.png
+log:phase Inspect
+log:shot 03_inspect.png,ui_inspect.png
+log:phase Stage
+log:phase Battle
+log:shot 06_battle.png,ui_battle.png
+log:tap 0
+log:slide 1
+log:drive qte slot=0
+log:drive perfect fever=60 active=False
+log:drive qte slot=0
+log:drive perfect fever=0 active=True
+log:result 胜利
+log:phase Result
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Resonance.App.VerticalSliceSmokeRuntime:WriteResult (string) (at Assets/Scripts/Resonance.App/Debug/VerticalSliceSmokeRuntime.cs:322)
+Resonance.App.VerticalSliceSmokeRuntime:Finish (Resonance.App.GameRoot) (at Assets/Scripts/Resonance.App/Debug/VerticalSliceSmokeRuntime.cs:269)
+Resonance.App.VerticalSliceSmokeRuntime:Update () (at Assets/Scripts/Resonance.App/Debug/VerticalSliceSmokeRuntime.cs:141)
+
+(Filename: Assets/Scripts/Resonance.App/Debug/VerticalSliceSmokeRuntime.cs Line: 322)
+
+Unloading 18 Unused Serialized files (Serialized files now loaded: 0)
+Loaded scene 'Temp/__Backupscenes/0.backup'
+	Deserialize:            0.763 ms
+	Integration:            192.127 ms
+	Integration of assets:  0.003 ms
+	Thread Wait Time:       0.012 ms
+	Total Operation Time:   192.906 ms
+Unloading 26 unused Assets / (0.6 MB). Loaded Objects now: 5881.
+Memory consumption went from 342.3 MB to 341.7 MB.
+Total: 19.249700 ms (FindLiveObjects: 0.388600 ms CreateObjectMapping: 0.256400 ms MarkObjects: 18.464000 ms  DeleteObjects: 0.135100 ms)
+
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-99BH-9QMP-CCW5-HN7U-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-09-21T06:35:02Z
+[Licensing::Module] License group:
+  Id: ewogICJzdWJzR3JvdXAiIDogInVuaXR5IGVkaXRvciIsCiAgIm5hbWVzcGFjZSIgOiAidW5pdHlfZWRpdG9yIiwKICAidHlwZSIgOiAiRURJVE9SIiwKICAidGFnIiA6ICJVbml0eVBlcnNvbmFsXXXX
+  Product: Unity Personal Version
+  Type: Assigned
+  Expiration: Unlimited
+Starting new worker id: 0 with log in F:/天命之子/client/Logs/AssetImportWorker0.log
+Starting new worker id: 1 with log in F:/天命之子/client/Logs/AssetImportWorker1.log
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+Starting new worker id: 2 with log in F:/天命之子/client/Logs/AssetImportWorker2.log
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+[CoreBusinessMetrics] Unable to remove a message from cache. SQLite returned error message "database is locked"
+Starting new worker id: 3 with log in F:/天命之子/client/Logs/AssetImportWorker3.log
+Worker ready: AssetImportWorker1 1
+Worker ready: AssetImportWorker0 0
+Worker ready: AssetImportWorker2 2
+Worker ready: AssetImportWorker3 3
+[Worker2] Start importing Assets/Scripts/Resonance.App/Battle/PixelCombatFx.cs using Guid(b01c24f58e1d6c746b730229009b2e5d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker1] Start importing Assets/Scripts/Resonance.App/Core/GameRoot.cs using Guid(ce88b8b8263406a46a74e3f7aee08872) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker2] (ScriptedImporter)
+[Worker1] (ScriptedImporter)
+[Worker0] Start importing Assets/Scripts/Resonance.Battle/Core/SliceDriveSequence.cs using Guid(8f3a1c2e9b7d4e6a91c0d5e2f4a8b3c1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] (ScriptedImporter)
+[Worker1]  -> (artifact id: 'fb3ef52adad0e0f378d0f3276533506b') in 0.3215705 seconds
+[Worker2]  -> (artifact id: '00000000000000000000000000000000') in 0.3284573 seconds
+[Worker2]   ERROR: Build asset version error: assets/scripts/resonance.app/battle/pixelcombatfx.cs in SourceAssetDB has modification time of '2026-09-10T08:44:33.8665115Z' while content on disk has modification time of '2026-09-10T09:13:03.3950901Z'
+[Worker2] Import Error Code:(4)
+Message: Build asset version error: assets/scripts/resonance.app/battle/pixelcombatfx.cs in SourceAssetDB has modification time of '2026-09-10T08:44:33.8665115Z' while content on disk has modification time of '2026-09-10T09:13:03.3950901Z'
+[Worker0]  -> (artifact id: 'e82992cdd333b97bf42338579490ec6e') in 0.3482948 seconds
+[Worker2] Start importing Assets/Scripts/Resonance.App/UI/SkillDemoSlide.cs using Guid(8230a9aa22d1b2a45b9fe7e64d15d333) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] Start importing Assets/Scripts/Resonance.App/Battle/Vfx/VfxDriveCrush.cs using Guid(fc86b0f06eb378543a3fce7cae4e4a0d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] (ScriptedImporter)
+[Worker2] (ScriptedImporter)
+[Worker1] Start importing Assets/Scripts/Resonance.Battle/Core/BattleSim.cs using Guid(4263c659daf98eb44b07fa85d54ea182) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker1] (ScriptedImporter)
+[Worker2]  -> (artifact id: '00000000000000000000000000000000') in 0.0097937 seconds
+[Worker2]   ERROR: Build asset version error: assets/scripts/resonance.app/ui/skilldemoslide.cs in SourceAssetDB has modification time of '2026-09-10T09:08:14.499638Z' while content on disk has modification time of '2026-09-10T09:14:40.5336411Z'
+[Worker0]  -> (artifact id: '4898202b8cddd6a6de5b0fc49b16ae92') in 0.0079376 seconds
+[Worker2] Import Error Code:(4)
+Message: Build asset version error: assets/scripts/resonance.app/ui/skilldemoslide.cs in SourceAssetDB has modification time of '2026-09-10T09:08:14.499638Z' while content on disk has modification time of '2026-09-10T09:14:40.5336411Z'
+[Worker1]  -> (artifact id: '00000000000000000000000000000000') in 0.0097766 seconds
+[Worker1]   ERROR: Build asset version error: assets/scripts/resonance.battle/core/battlesim.cs in SourceAssetDB has modification time of '2026-09-10T09:07:51.3301886Z' while content on disk has modification time of '2026-09-10T09:18:26.7818927Z'
+[Worker1] Import Error Code:(4)
+Message: Build asset version error: assets/scripts/resonance.battle/core/battlesim.cs in SourceAssetDB has modification time of '2026-09-10T09:07:51.3301886Z' while content on disk has modification time of '2026-09-10T09:18:26.7818927Z'
+[Worker1] Start importing Assets/Scripts/Resonance.App/Battle/BattleHud.cs using Guid(7c4e91a2b8d64f0e9a1c3d5e7f90b2a4) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker1] (ScriptedImporter)
+[Worker2] Start importing Assets/Scripts/Resonance.App/Battle/Vfx/VfxRouter.cs using Guid(8142c4fc20e6143479a7ffaed654d76f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker2] (ScriptedImporter)
+[Worker1]  -> (artifact id: '5862308cc7dc84fd7966b927b5577518') in 0.0099595 seconds
+[Worker2]  -> (artifact id: '71d013516d294beed80408e876d26140') in 0.0062885 seconds
+[Worker0] Start importing Assets/Editor/Smoke/VerticalSliceSmoke.cs using Guid(87e4c8d4e47449642a62beb2c55b9312) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] (ScriptedImporter)
+[Worker0]  -> (artifact id: '74dbced88be6d2d4c182272ff6ce2efe') in 0.012226 seconds
+[Worker0] Curl error 23: Failure writing output to destination, passed 293 returned 0
+[Worker1] Start importing Assets/Scripts/Resonance.App/UI/VisualTokens.cs using Guid(5ccb49bbe12fcc94581cb331068b204b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker1] (ScriptedImporter)
+[Worker1]  -> (artifact id: '750add20236f2ee4b18bac700ec048bf') in 0.0076743 seconds
+[Worker2] Start importing Assets/Scripts/Resonance.App/Debug/VerticalSliceSmokeRuntime.cs using Guid(de98c914532085a4485a287c104d3ae1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker2] (ScriptedImporter)
+[Worker2]  -> (artifact id: 'e4b8e18b44b952569529aea78bdd402a') in 0.0113778 seconds
+[Worker0] Start importing Assets/Scripts/Resonance.App/Battle/Vfx/VfxWordStamp.cs using Guid(1ea820277638c7b408363ffea4d2fd09) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] (ScriptedImporter)
+[Worker0]  -> (artifact id: 'fd732e6fe805595ea2f74e455e77083d') in 0.0129976 seconds
+[ScriptCompilation] Requested script compilation because: Assetdatabase observed changes in script compilation related files
+AssetDatabase: script compilation time: 0.001382s
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-99BH-9QMP-CCW5-HN7U-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-09-21T06:35:02Z
+[Licensing::Module] License group:
+  Id: ewogICJzdWJzR3JvdXAiIDogInVuaXR5IGVkaXRvciIsCiAgIm5hbWVzcGFjZSIgOiAidW5pdHlfZWRpdG9yIiwKICAidHlwZSIgOiAiRURJVE9SIiwKICAidGFnIiA6ICJVbml0eVBlcnNvbmFsXXXX
+  Product: Unity Personal Version
+  Type: Assigned
+  Expiration: Unlimited
+Starting: D:\Unity\Hub\Editor\6000.3.23f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: F:/天命之子/client
+Starting: D:\Unity\Hub\Editor\6000.3.23f1\Editor\Data\netcorerun\netcorerun.exe "D:\Unity\Hub\Editor\6000.3.23f1\Editor\Data\Tools\BuildPipeline\ScriptCompilationBuildProgram.exe" "Library/Bee/1900b0aE.dag.json" "Library/Bee/1900b0aE-inputdata.json" "Library\Bee\buildprogram0.traceevents"
+WorkingDir: F:/天命之子/client
+ExitCode: 4 Duration: 0s251ms
+Rebuilding DAG because FileSignature timestamp changed: Library/Bee/1900b0aE-inputdata.json
+*** Tundra requires additional run (0.12 seconds), 0 items updated, 0 evaluated
+ExitCode: 0 Duration: 0s979ms
+Starting: D:\Unity\Hub\Editor\6000.3.23f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --dagfilejson="Library\Bee\1900b0aE.dag.json" --profile="Library/Bee/backend2.traceevents" ScriptAssemblies
+WorkingDir: F:/天命之子/client
+ExitCode: 3 Duration: 1s877ms
+Finished compiling graph: 811 nodes, 14419 flattened edges (11833 ToBuild, 124 ToUse), maximum node priority 910
+[457/808    0s] WriteText Library/Bee/artifacts/1900b0aE.dag/Resonance.App.rsp
+[631/808    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[788/808    1s] Csc Library/Bee/artifacts/1900b0aE.dag/Resonance.Battle.dll (+2 others)
+##### CommandLine
+"D:\Unity\Hub\Editor\6000.3.23f1\Editor\Data\NetCoreRuntime\dotnet.exe" exec "D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/DotNetSdkRoslyn/csc.dll" /nostdlib /noconfig /shared "@Library/Bee/artifacts/1900b0aE.dag/Resonance.Battle.rsp" "@Library/Bee/artifacts/1900b0aE.dag/Resonance.Battle.rsp2"
+##### Contents of Library\Bee\artifacts\1900b0aE.dag\Resonance.Battle.rsp
+-target:library
+-out:"Library/Bee/artifacts/1900b0aE.dag/Resonance.Battle.dll"
+-refout:"Library/Bee/artifacts/1900b0aE.dag/Resonance.Battle.ref.dll"
+-define:UNITY_6000_3_23
+-define:UNITY_6000_3
+-define:UNITY_6000
+-define:UNITY_5_3_OR_NEWER
+-define:UNITY_5_4_OR_NEWER
+-define:UNITY_5_5_OR_NEWER
+-define:UNITY_5_6_OR_NEWER
+-define:UNITY_2017_1_OR_NEWER
+-define:UNITY_2017_2_OR_NEWER
+-define:UNITY_2017_3_OR_NEWER
+-define:UNITY_2017_4_OR_NEWER
+-define:UNITY_2018_1_OR_NEWER
+-define:UNITY_2018_2_OR_NEWER
+-define:UNITY_2018_3_OR_NEWER
+-define:UNITY_2018_4_OR_NEWER
+-define:UNITY_2019_1_OR_NEWER
+-define:UNITY_2019_2_OR_NEWER
+-define:UNITY_2019_3_OR_NEWER
+-define:UNITY_2019_4_OR_NEWER
+-define:UNITY_2020_1_OR_NEWER
+-define:UNITY_2020_2_OR_NEWER
+-define:UNITY_2020_3_OR_NEWER
+-define:UNITY_2021_1_OR_NEWER
+-define:UNITY_2021_2_OR_NEWER
+-define:UNITY_2021_3_OR_NEWER
+-define:UNITY_2022_1_OR_NEWER
+-define:UNITY_2022_2_OR_NEWER
+-define:UNITY_2022_3_OR_NEWER
+-define:UNITY_2023_1_OR_NEWER
+-define:UNITY_2023_2_OR_NEWER
+-define:UNITY_2023_3_OR_NEWER
+-define:UNITY_6000_0_OR_NEWER
+-define:UNITY_6000_1_OR_NEWER
+-define:UNITY_6000_2_OR_NEWER
+-define:UNITY_6000_3_OR_NEWER
+-define:PLATFORM_ARCH_64
+-define:UNITY_64
+-define:UNITY_INCLUDE_TESTS
+-define:ENABLE_AR
+-define:ENABLE_AUDIO
+-define:ENABLE_AUDIO_SCRIPTABLE_PIPELINE
+-define:ENABLE_CACHING
+-define:ENABLE_CLOTH
+-define:ENABLE_EVENT_QUEUE
+-define:ENABLE_MICROPHONE
+-define:ENABLE_MULTIPLE_DISPLAYS
+-define:ENABLE_PHYSICS
+-define:ENABLE_TEXTURE_STREAMING
+-define:ENABLE_VIRTUALTEXTURING
+-define:ENABLE_LZMA
+-define:ENABLE_UNITYEVENTS
+-define:ENABLE_VR
+-define:ENABLE_WEBCAM
+-define:ENABLE_UNITYWEBREQUEST
+-define:ENABLE_WWW
+-define:ENABLE_CLOUD_SERVICES
+-define:ENABLE_CLOUD_SERVICES_ADS
+-define:ENABLE_CLOUD_SERVICES_USE_WEBREQUEST
+-define:ENABLE_UNITY_CONSENT
+-define:ENABLE_UNITY_CLOUD_IDENTIFIERS
+-define:ENABLE_CLOUD_SERVICES_CRASH_REPORTING
+-define:ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING
+-define:ENABLE_CLOUD_SERVICES_PURCHASING
+-define:ENABLE_CLOUD_SERVICES_ANALYTICS
+-define:ENABLE_CLOUD_SERVICES_BUILD
+-define:ENABLE_EDITOR_GAME_SERVICES
+-define:ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT
+-define:ENABLE_CLOUD_LICENSE
+-define:ENABLE_EDITOR_HUB_LICENSE
+-define:ENABLE_WEBSOCKET_CLIENT
+-define:ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API
+-define:ENABLE_DIRECTOR_AUDIO
+-define:ENABLE_DIRECTOR_TEXTURE
+-define:ENABLE_MANAGED_JOBS
+-define:ENABLE_MANAGED_TRANSFORM_JOBS
+-define:ENABLE_MANAGED_ANIMATION_JOBS
+-define:ENABLE_MANAGED_AUDIO_JOBS
+-define:ENABLE_MANAGED_UNITYTLS
+-define:INCLUDE_DYNAMIC_GI
+-define:ENABLE_SCRIPTING_GC_WBARRIERS
+-define:PLATFORM_SUPPORTS_MONO
+-define:RENDER_SOFTWARE_CURSOR
+-define:ENABLE_MARSHALLING_TESTS
+-define:ENABLE_VIDEO
+-define:ENABLE_NAVIGATION_OFFMESHLINK_TO_NAVMESHLINK
+-define:ENABLE_ACCELERATOR_CLIENT_DEBUGGING
+-define:ENABLE_ACCESSIBILITY_SCREEN_READER
+-define:TEXTCORE_1_0_OR_NEWER
+-define:EDITOR_ONLY_NAVMESH_BUILDER_DEPRECATED
+-define:PLATFORM_STANDALONE_WIN
+-define:PLATFORM_STANDALONE
+-define:UNITY_STANDALONE_WIN
+-define:UNITY_STANDALONE
+-define:ENABLE_RUNTIME_GI
+-define:ENABLE_MOVIES
+-define:ENABLE_NETWORK
+-define:ENABLE_NVIDIA
+-define:ENABLE_AMD
+-define:ENABLE_CRUNCH_TEXTURE_COMPRESSION
+-define:ENABLE_CLOUD_SERVICES_ENGINE_DIAGNOSTICS
+-define:ENABLE_OUT_OF_PROCESS_CRASH_HANDLER
+-define:ENABLE_CLUSTER_SYNC
+-define:ENABLE_CLUSTERINPUT
+-define:PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP
+-define:GFXDEVICE_WAITFOREVENT_MESSAGEPUMP
+-define:PLATFORM_USES_EXPLICIT_MEMORY_MANAGER_INITIALIZER
+-define:PLATFORM_SUPPORTS_WAIT_FOR_PRESENTATION
+-define:PLATFORM_SUPPORTS_SPLIT_GRAPHICS_JOBS
+-define:PLATFORM_USES_VULKAN_OLD_SWAPCHAIN
+-define:ENABLE_MONO
+-define:NET_STANDARD_2_0
+-define:NET_STANDARD
+-define:NET_STANDARD_2_1
+-define:NETSTANDARD
+-define:NETSTANDARD2_1
+-define:ENABLE_PROFILER
+-define:ENABLE_PROFILER_ASSISTANT_INTEGRATION
+-define:DEBUG
+-define:TRACE
+-define:UNITY_ASSERTIONS
+-define:UNITY_EDITOR
+-define:UNITY_EDITOR_64
+-define:UNITY_EDITOR_WIN
+-define:ENABLE_UNITY_COLLECTIONS_CHECKS
+-define:ENABLE_BURST_AOT
+-define:UNITY_TEAM_LICENSE
+-define:ENABLE_CUSTOM_RENDER_TEXTURE
+-define:ENABLE_DIRECTOR
+-define:ENABLE_LOCALIZATION
+-define:ENABLE_SPRITES
+-define:ENABLE_TERRAIN
+-define:ENABLE_TILEMAP
+-define:ENABLE_TIMELINE
+-define:ENABLE_INPUT_SYSTEM
+-define:ENABLE_LEGACY_INPUT_MANAGER
+-define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
+-define:TEXTCORE_TEXT_ENGINE_1_5_OR_NEWER
+-define:TEXTCORE_FONT_ENGINE_1_6_OR_NEWER
+-define:CSHARP_7_OR_LATER
+-define:CSHARP_7_3_OR_NEWER
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/Extensions/2.0.0/System.Runtime.InteropServices.WindowsRuntime.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.ComponentModel.Composition.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Core.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Data.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Drawing.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.IO.Compression.FileSystem.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Net.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Numerics.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Runtime.Serialization.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.ServiceModel.Web.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Transactions.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Web.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Windows.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Xml.Linq.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Xml.Serialization.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Xml.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/mscorlib.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/Microsoft.Win32.Primitives.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.AppContext.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Buffers.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.Concurrent.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.NonGeneric.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.Specialized.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.EventBasedAsync.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.Primitives.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.TypeConverter.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Console.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Data.Common.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Contracts.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Debug.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.FileVersionInfo.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Process.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.StackTrace.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.TextWriterTraceListener.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Tools.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.TraceSource.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Tracing.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Drawing.Primitives.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Dynamic.Runtime.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Globalization.Calendars.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Globalization.Extensions.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Globalization.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.Compression.ZipFile.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.Compression.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.DriveInfo.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.Primitives.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.Watcher.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.IsolatedStorage.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.MemoryMappedFiles.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.Pipes.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.UnmanagedMemoryStream.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.Expressions.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.Parallel.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.Queryable.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Memory.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Http.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.NameResolution.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.NetworkInformation.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Ping.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Primitives.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Requests.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Security.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Sockets.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.WebHeaderCollection.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.WebSockets.Client.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.WebSockets.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Numerics.Vectors.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.ObjectModel.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.DispatchProxy.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Emit.ILGeneration.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Emit.Lightweight.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Emit.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Extensions.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Primitives.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Resources.Reader.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Resources.ResourceManager.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Resources.Writer.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.CompilerServices.VisualC.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Extensions.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Handles.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.InteropServices.RuntimeInformation.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.InteropServices.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Numerics.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Formatters.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Json.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Primitives.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Xml.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Claims.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Algorithms.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Csp.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Encoding.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Primitives.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.X509Certificates.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Principal.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.SecureString.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Text.Encoding.Extensions.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Text.Encoding.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Text.RegularExpressions.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Overlapped.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Tasks.Extensions.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Tasks.Parallel.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Tasks.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Thread.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.ThreadPool.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Timer.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.ValueTuple.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.ReaderWriter.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XDocument.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XPath.XDocument.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XPath.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XmlDocument.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XmlSerializer.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/NetStandard/ref/2.1.0/netstandard.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/PlaybackEngines/AndroidPlayer/Unity.Android.Gradle.dll"
+-r:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/PlaybackEngines/AndroidPlayer/Unity.Android.Types.dll"
+-r:"Library/PackageCache/com.unity.collections@84e8eb3fc12e/Unity.Collections.LowLevel.ILSupport/Unity.Collections.LowLevel.ILSupport.dll"
+-r:"Library/PackageCache/com.unity.ext.nunit@d8c07649098d/net40/unity-custom/nunit.framework.dll"
+-r:"Library/PackageCache/com.unity.nuget.mono-cecil@ecb9724e46ff/Mono.Cecil.dll"
+-analyzer:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/Tools/BuildPipeline/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
+-analyzer:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/Tools/BuildPipeline/Unity.SourceGenerators/Unity.SourceGenerators.dll"
+-analyzer:"D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/Tools/BuildPipeline/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
+"Assets/Scripts/Resonance.Battle/Content/BuffCatalog.cs"
+"Assets/Scripts/Resonance.Battle/Content/Catalog.cs"
+"Assets/Scripts/Resonance.Battle/Content/CatalogJson.cs"
+"Assets/Scripts/Resonance.Battle/Content/SkillTags.cs"
+"Assets/Scripts/Resonance.Battle/Core/BattleEventLog.cs"
+"Assets/Scripts/Resonance.Battle/Core/BattleSim.cs"
+"Assets/Scripts/Resonance.Battle/Core/DamageMath.cs"
+"Assets/Scripts/Resonance.Battle/Core/Definitions.cs"
+"Assets/Scripts/Resonance.Battle/Core/EffectOpcodes.cs"
+"Assets/Scripts/Resonance.Battle/Core/Enums.cs"
+"Assets/Scripts/Resonance.Battle/Core/FightStats.cs"
+"Assets/Scripts/Resonance.Battle/Core/FormulaProfile.cs"
+"Assets/Scripts/Resonance.Battle/Core/LeaderSkill.cs"
+"Assets/Scripts/Resonance.Battle/Core/SliceDriveSequence.cs"
+"Assets/Scripts/Resonance.Battle/Loop/MvpLoop.cs"
+"Assets/Scripts/Resonance.Battle/Progression/Bond.cs"
+"Assets/Scripts/Resonance.Battle/Progression/Costume.cs"
+"Assets/Scripts/Resonance.Battle/Progression/Equipment.cs"
+"Assets/Scripts/Resonance.Battle/Progression/Food.cs"
+"Assets/Scripts/Resonance.Battle/Progression/Gear.cs"
+"Assets/Scripts/Resonance.Battle/Progression/Growth.cs"
+"Assets/Scripts/Resonance.Battle/Progression/Ignition.cs"
+"Assets/Scripts/Resonance.Battle/Progression/Puppets.cs"
+"Assets/Scripts/Resonance.Battle/Progression/PvpRules.cs"
+"Assets/Scripts/Resonance.Battle/Progression/StageMode.cs"
+"Assets/Scripts/Resonance.Battle/Save/SaveStore.cs"
+-langversion:9.0
+/deterministic
+/optimize+
+/debug:portable
+/nologo
+/RuntimeMetadataVersion:v4.0.30319
+/nowarn:0169
+/nowarn:0649
+/nowarn:0282
+/nowarn:1701
+/nowarn:1702
+/utf8output
+/preferreduilang:en-US
+/additionalfile:"Library/Bee/artifacts/1900b0aE.dag/Resonance.Battle.UnityAdditionalFile.txt"
+##### Custom Environment Variables
+DOTNET_MULTILEVEL_LOOKUP=0
+##### ExitCode
+1
+##### Output
+Assets\Scripts\Resonance.Battle\Core\BattleSim.cs(693,14): error CS0111: Type 'BattleSim' already defines a member called 'NoteResult' with the same parameter types
+*** Tundra build failed (1.76 seconds), 3 items updated, 808 evaluated
+## Script Compilation Error for: Csc Library/Bee/artifacts/1900b0aE.dag/Resonance.Battle.dll (+2 others)
+## CmdLine: "D:\Unity\Hub\Editor\6000.3.23f1\Editor\Data\NetCoreRuntime\dotnet.exe" exec "D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/DotNetSdkRoslyn/csc.dll" /nostdlib /noconfig /shared "@Library/Bee/artifacts/1900b0aE.dag/Resonance.Battle.rsp" "@Library/Bee/artifacts/1900b0aE.dag/Resonance.Battle.rsp2"
+## Output:
+Assets\Scripts\Resonance.Battle\Core\BattleSim.cs(693,14): error CS0111: Type 'BattleSim' already defines a member called 'NoteResult' with the same parameter types
+
+Assets\Scripts\Resonance.Battle\Core\BattleSim.cs(693,14): error CS0111: Type 'BattleSim' already defines a member called 'NoteResult' with the same parameter types
+Refreshing native plugins compatible for Editor in 1.72 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=0fb062ccff409ce42baa4f5e37bc4f90): Total: 4.596 seconds - Initiated by RefreshV2(AllowForceSynchronousImport)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=297 ms
+		Asset DB Callback time: managed=261 ms, native=17 ms
+		Scripting: domain reloads=0, domain reload time=0 ms, compile time=4019 ms, other=0 ms
+		Project Asset Count: scripts=1008, non-scripts=2763
+		Asset File Changes: new=1, changed=8, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.002ms
+	InvokePackagesCallback: 1.668ms
+	ApplyChangesToAssetFolders: 0.564ms
+	Scan: 45.540ms
+	OnSourceAssetsModified: 1.537ms
+	CategorizeAssetsWithTransientArtifact: 0.117ms
+	ProcessAssetsWithTransientArtifactChanges: 4.885ms
+	CategorizeAssets: 25.746ms
+	ImportOutOfDateAssets: 1.984ms (-4018.899ms without children)
+		CompileScripts: 4019.394ms
+		ReloadNativeAssets: 0.041ms
+		UnloadImportedAssets: 0.090ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.481ms
+		InitializingProgressBar: 0.001ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
+		OnDemandSchedulerStart: 0.876ms
+	PostProcessAllAssets: 264.572ms
+	Hotreload: 12.102ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.486ms
+	UnloadStreamsBegin: 0.012ms
+	PersistCurrentRevisions: 0.120ms
+	UnloadStreamsEnd: 0.001ms
+	Untracked: 4236.538ms
+
+Total cache size 254515123
+Total cache size after purge 254515123, took 00:00:00.6392188
+Starting new worker id: 4 with log in F:/天命之子/client/Logs/AssetImportWorker4.log
+[Worker0] Start importing Assets/Scripts/Resonance.App/UI/PauseBoard.cs using Guid(a10281afb07d26746a000dc3374c9551) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker2] Start importing Assets/Scripts/Resonance.App/Debug/M1DevOverlay.cs using Guid(07bd3ec4af1956a45917534b0e3a7570) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] (ScriptedImporter)
+[Worker0]  -> (artifact id: '08b4bb1e7d665070949f6fc4d8b459c2') in 0.0059769 seconds
+[Worker2] (ScriptedImporter)
+[Worker2]  -> (artifact id: 'bb479f5460c5507b4fcff78300a2be08') in 0.0060852 seconds
+[Worker0] Start importing Assets/Scripts/Resonance.App/Battle/PixelCombatFx.cs using Guid(b01c24f58e1d6c746b730229009b2e5d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker2] Start importing Assets/Scripts/Resonance.Battle/Save/SaveStore.cs using Guid(b3538ccfcb68bf54794080e07d2047c2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] (ScriptedImporter)
+[Worker2] (ScriptedImporter)
+[Worker2]  -> (artifact id: 'c5832ccd278436d09bd98b1b75b536f7') in 0.0065354 seconds
+[Worker0]  -> (artifact id: '908c16880e2cacbb6257be3fe95485d3') in 0.0620578 seconds
+[Worker2] Start importing Assets/Scripts/Resonance.Battle/Core/BattleSim.cs using Guid(4263c659daf98eb44b07fa85d54ea182) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker2] (ScriptedImporter)
+[Worker0] Start importing Assets/Scripts/Resonance.App/UI/SkillDemoSlide.cs using Guid(8230a9aa22d1b2a45b9fe7e64d15d333) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] (ScriptedImporter)
+[Worker2]  -> (artifact id: 'cffa6b0fd22ab9d14705712c1ff5f842') in 0.006555 seconds
+[Worker2] Start importing Assets/Scripts/Resonance.App/UI/NebulaBoard.cs using Guid(bc3aedca475d4d640a328b9900053369) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker2] (ScriptedImporter)
+[Worker2]  -> (artifact id: '661a8e99ce991674f7775e634267a806') in 0.0100382 seconds
+[Worker0]  -> (artifact id: '173da1b55044fbb956284b9466ac5ffd') in 0.0685525 seconds
+[Worker2] Start importing Assets/Scripts/Resonance.App/UI/SkillDemoDrive.cs using Guid(35d4a74f76619224cafbbf484befa323) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker2] (ScriptedImporter)
+[Worker2]  -> (artifact id: '58fe22efa66d31d40aa83a0f7d9094ec') in 0.0451539 seconds
+Worker ready: AssetImportWorker4 4
+Scanning for USB devices : 9.988ms
+Scanning for USB devices : 2.493ms
+Android Extension - Scanning For ADB Devices 3560 ms
+Android Extension - Scanning For ADB Devices 1809 ms
+Attempted to call .Dispose on an already disposed CancellationTokenSource
+Android Extension - Scanning For ADB Devices 1708 ms
+Android Extension - Scanning For ADB Devices 1789 ms
+[LAYOUT] About to save layout F:\天命之子\client\UserSettings\Layouts\default-6000.dwlt
+[LAYOUT] About to save layout C:/Users/Administrator/AppData/Roaming/Unity/Editor-5.x/Preferences\Layouts\current\default-6000.dwlt
+Killing ADB server in 0.5158443 seconds.
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+[Licensing::IpcConnector] LicenseClient-Administrator-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-Administrator channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+Cleanup mono
+Checking for leaked weakptr:
+  Found no leaked weakptrs.
+[Package Manager] Server process was shutdown
+##utp:{"type":"MemoryLeaks","version":2,"phase":"Immediate","time":1789033900583,"processId":13000,"allocatedMemory":15861163,"memoryLabels":[{"Default":29317},{"Permanent":15236},{"NewDelete":70905},{"Thread":4238472},{"Manager":821728},{"VertexData":8},{"Geometry":816},{"Texture":296},{"Shader":89593},{"Material":24},{"GfxDevice":57968},{"GfxThread":1536},{"Animation":392},{"Audio":3040},{"FreeType":8},{"FontEngine":736},{"Physics":2146},{"Physics2D":16},{"Serialization":210799},{"Input":14984},{"JobScheduler":33024},{"TextLib":16120},{"Mono":32},{"MonoCode":184},{"ScriptingNativeRuntime":155060},{"BaseObject":1651360},{"Resource":1336},{"Renderer":3000},{"Transform":4685},{"File":18618},{"WebCam":616},{"Culling":32},{"Terrain":11394},{"Wind":24},{"STL":40},{"String":9934},{"DynamicArray":109744},{"HashMap":97805},{"Utility":2660938},{"Curl":48},{"PoolAlloc":2296},{"AI":80},{"TypeTree":13861},{"ScriptManager":512},{"RuntimeInitializeOnLoadManager":64},{"SpriteAtlas":112},{"GI":7792},{"Director":8240},{"CloudService":7024},{"WebRequest":4507},{"VR":47994},{"SceneManager":504},{"Video":208},{"LazyScriptCache":32},{"NativeArray":9768},{"Camera":17},{"Secure":265},{"SerializationCache":1576},{"APIUpdating":10320},{"Subsystems":336},{"VirtualTexturing":57888},{"StaticSafetyDebugInfo":278528},{"Analytics":464},{"Hierarchy":608},{"CoreStats":13112},{"Identifiers":6480},{"Gui":221},{"EditorUtility":160977},{"VersionControl":4},{"Undo":947},{"AssetDatabase":4847939},{"EditorGi":328},{"UnityConnect":29344},{"Upm":1972},{"AssetCompliance":64},{"DrivenProperties":72},{"LocalIPC":219},{"ProfilerEditor":9746},{"CoreBusinessMetrics":3504},{"Licensing":1264},{"AssetReference":32},{"IPCStream":32}]}

@@ -1,0 +1,5 @@
+# Merge into the existing .codex/config.toml. Do not duplicate an existing [agents] table.
+# Checked against official documentation on 2026-09-09; verify installed Codex support.
+[agents]
+enabled = true
+max_concurrent_threads_per_session = 4

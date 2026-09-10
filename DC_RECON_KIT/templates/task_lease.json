@@ -1,0 +1,19 @@
+{
+  "task_id": null,
+  "agent": null,
+  "milestone": null,
+  "depends_on": [],
+  "contract_version": null,
+  "input_evidence_ids": [],
+  "allowed_paths": [],
+  "forbidden_paths": [
+    "ProjectSettings",
+    "Packages"
+  ],
+  "shared_unity_asset_write": false,
+  "active_editor_write": false,
+  "acceptance_commands": [],
+  "expected_artifacts": [],
+  "lease_owner_approval": null,
+  "status": "UNASSIGNED"
+}

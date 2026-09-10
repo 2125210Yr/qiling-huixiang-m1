@@ -1,0 +1,25 @@
+{
+  "milestone": null,
+  "target_manifest_hash": null,
+  "scope_coverage": null,
+  "evidence_coverage": null,
+  "weights": {
+    "combat": 35,
+    "ui": 20,
+    "presentation": 15,
+    "numerics": 20,
+    "meta": 10
+  },
+  "scores": {
+    "combat": null,
+    "ui": null,
+    "presentation": null,
+    "numerics": null,
+    "meta": null
+  },
+  "critical_pass": null,
+  "tests": [],
+  "raw_artifacts": [],
+  "unknowns": [],
+  "status": "NOT_RUN"
+}

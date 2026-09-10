@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "ClockPolicy",
+  "contract_version": "1.0-G1-2026-09-09",
+  "status": "CONTRACT_FROZEN",
+  "implementation_tick_hz": 30,
+  "implementation_tick_is_official_gl": false,
+  "turn_based": false,
+  "clocks": [
+    "auto_interval",
+    "skill_charge",
+    "slide_cd",
+    "status_duration",
+    "periodic_trigger",
+    "stage_countdown",
+    "drive_qte",
+    "fever_window",
+    "ui_realtime"
+  ],
+  "slide_cd_present": true,
+  "slide_cd_decision": "IMPLEMENTED",
+  "slide_cd_sec": null,
+  "slide_cd_sec_status": "UNKNOWN",
+  "charge_equals_cd": false,
+  "single_control_pauses_all_progress_default": false,
+  "control_pauses_charge": true,
+  "control_pauses_slide_cd_default": false,
+  "global_timescale_as_fidelity_forbidden": true,
+  "ui_clock_independent_of_battle_pause": true,
+  "speed_mode_reference": "UNKNOWN",
+  "auto_settings_reference": "UNKNOWN",
+  "drive_events": [
+    "select",
+    "queue",
+    "presentation",
+    "qte_eval",
+    "actual_damage",
+    "fever_gain"
+  ],
+  "fever_params": [
+    "input_window",
+    "tap_throttle",
+    "auto_rate",
+    "retarget",
+    "damage_branch",
+    "end_condition"
+  ],
+  "command_order": ["tick_index", "phase", "seq"]
+}

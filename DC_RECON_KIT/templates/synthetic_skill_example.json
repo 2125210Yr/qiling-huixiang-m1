@@ -1,0 +1,26 @@
+{
+  "schema_kind": "ILLUSTRATIVE_SYNTHETIC_NOT_DC_CHARACTER_DATA",
+  "id": "fixture.tap.two_hits",
+  "action_kind": "Tap",
+  "formula_profile": null,
+  "target": {
+    "selector": "lowest_hp_ratio",
+    "count": 1,
+    "tie_break": "stable_entity_id",
+    "snapshot": "cast_start"
+  },
+  "effects": [
+    {
+      "op": "Damage",
+      "channel": "ordinary_tap",
+      "hit_count": 2,
+      "hit_timing_ticks": null,
+      "amount_source": "fixture_only",
+      "formula_ref": null
+    }
+  ],
+  "ready_policy": null,
+  "on_finish": null,
+  "source_ids": [],
+  "production_import_allowed": false
+}

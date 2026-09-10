@@ -1,0 +1,374 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "UiStateMap",
+  "contract_version": "1.0-G1-2026-09-09",
+  "status": "CONTRACT_FROZEN",
+  "doc_task": "M1-G2-UIMAP-DOC",
+  "doc_date": "2026-09-10",
+  "orientation": "portrait",
+  "platform": "mobile",
+  "viewport": {
+    "width": null,
+    "height": null,
+    "measurement_status": "NOT_MEASURED",
+    "blocked_on": "primary_gt"
+  },
+  "primary_gt": "SEARCH_IN_PROGRESS",
+  "legacy_videos_as_layout_truth": false,
+  "t27": "NOT_CLAIMED",
+  "battle_layout": "NEEDS_REFERENCE",
+  "memorial_lobby_is_not_battle": true,
+  "memorial_lobby_forbidden_as": [
+    "battle_page",
+    "battle_coords",
+    "T27"
+  ],
+  "m1_required_states": [
+    "BattleIdle",
+    "ChargingReady",
+    "Tap",
+    "Slide",
+    "DriveSelect",
+    "Qte",
+    "Fever",
+    "Controlled",
+    "DeathOrWave",
+    "Result"
+  ],
+  "m1_flow": ["Entry", "BattleSlice", "Return"],
+  "later_screens": [
+    "Home",
+    "CharacterList",
+    "CharacterDetail",
+    "Growth",
+    "FormationLeader",
+    "StageSelect",
+    "PartyConfirm",
+    "Drops",
+    "EquipmentSoulCarta",
+    "WorldBoss20"
+  ],
+  "m1_state_impl": [
+    {
+      "id": "BattleIdle",
+      "paths": ["client/Assets/Scripts/Resonance.App/Battle/BattleHud.cs"],
+      "layout_status": "NEEDS_REFERENCE"
+    },
+    {
+      "id": "ChargingReady",
+      "paths": ["client/Assets/Scripts/Resonance.App/Battle/BattleHud.cs"],
+      "layout_status": "NEEDS_REFERENCE"
+    },
+    {
+      "id": "Tap",
+      "paths": ["client/Assets/Scripts/Resonance.App/Battle/BattleHud.cs"],
+      "layout_status": "NEEDS_REFERENCE"
+    },
+    {
+      "id": "Slide",
+      "paths": ["client/Assets/Scripts/Resonance.App/Battle/BattleHud.cs"],
+      "layout_status": "NEEDS_REFERENCE"
+    },
+    {
+      "id": "DriveSelect",
+      "paths": ["client/Assets/Scripts/Resonance.App/Battle/BattleHud.cs"],
+      "layout_status": "NEEDS_REFERENCE"
+    },
+    {
+      "id": "Qte",
+      "paths": ["client/Assets/Scripts/Resonance.App/Battle/BattleHud.cs"],
+      "layout_status": "NEEDS_REFERENCE"
+    },
+    {
+      "id": "Fever",
+      "paths": ["client/Assets/Scripts/Resonance.App/Battle/BattleHud.cs"],
+      "layout_status": "NEEDS_REFERENCE"
+    },
+    {
+      "id": "Controlled",
+      "paths": ["client/Assets/Scripts/Resonance.App/Battle/BattleHud.cs"],
+      "layout_status": "NEEDS_REFERENCE"
+    },
+    {
+      "id": "DeathOrWave",
+      "paths": ["client/Assets/Scripts/Resonance.App/Battle/BattleHud.cs"],
+      "layout_status": "NEEDS_REFERENCE"
+    },
+    {
+      "id": "Result",
+      "paths": ["client/Assets/Scripts/Resonance.App/UI/ResultBoard.cs"],
+      "layout_status": "NEEDS_REFERENCE"
+    }
+  ],
+  "later_screen_impl": [
+    {
+      "id": "Home",
+      "wired": true,
+      "is_battle": false,
+      "paths": [
+        "client/Assets/Scripts/Resonance.App/UI/HomeHud.cs",
+        "client/Assets/Scripts/Resonance.App/UI/LobbyRail.cs",
+        "client/Assets/Scripts/Resonance.App/UI/EmeraldLobby.cs",
+        "client/Assets/Scripts/Resonance.App/UI/LobbyStage.cs"
+      ],
+      "layout_status": "NEEDS_REFERENCE",
+      "note": "Lobby/home only. Memorial lobby stills and EmeraldLobby standee are not a battle page."
+    },
+    {
+      "id": "CharacterList",
+      "wired": true,
+      "paths": [
+        "client/Assets/Scripts/Resonance.App/UI/TeamBoard.cs",
+        "client/Assets/Scripts/Resonance.App/UI/ArchiveBoard.cs"
+      ],
+      "entry": ["DrawRoster", "Archive filter"],
+      "layout_status": "NEEDS_REFERENCE"
+    },
+    {
+      "id": "CharacterDetail",
+      "wired": true,
+      "paths": ["client/Assets/Scripts/Resonance.App/UI/InspectBoard.cs"],
+      "g1_screen": "CharacterDetail",
+      "layout_status": "NEEDS_REFERENCE"
+    },
+    {
+      "id": "Growth",
+      "wired": true,
+      "paths": [
+        "client/Assets/Scripts/Resonance.App/UI/InspectBoard.cs",
+        "client/Assets/Scripts/Resonance.App/UI/IgnitionBoard.cs"
+      ],
+      "layout_status": "NEEDS_REFERENCE"
+    },
+    {
+      "id": "FormationLeader",
+      "wired": true,
+      "paths": ["client/Assets/Scripts/Resonance.App/UI/TeamBoard.cs"],
+      "entry": ["DrawTeam"],
+      "layout_status": "NEEDS_REFERENCE",
+      "note": "DrawMemorial is a team-layout helper name, not memorial-edition lobby, not battle."
+    },
+    {
+      "id": "StageSelect",
+      "wired": true,
+      "paths": [
+        "client/Assets/Scripts/Resonance.App/UI/StageBoard.cs",
+        "client/Assets/Scripts/Resonance.App/UI/WavePreview.cs"
+      ],
+      "layout_status": "NEEDS_REFERENCE"
+    },
+    {
+      "id": "PartyConfirm",
+      "wired": false,
+      "paths": [],
+      "note": "No dedicated Board. Fight CTA lives on WavePreview/StageBoard."
+    },
+    {
+      "id": "Drops",
+      "wired": true,
+      "partial": true,
+      "paths": ["client/Assets/Scripts/Resonance.App/UI/ResultBoard.cs"],
+      "layout_status": "NEEDS_REFERENCE",
+      "note": "Loot line on ResultBoard. LootPopup.cs exists but is not wired."
+    },
+    {
+      "id": "EquipmentSoulCarta",
+      "wired": true,
+      "partial": true,
+      "paths": ["client/Assets/Scripts/Resonance.App/UI/InspectBoard.cs"],
+      "note": "Equip wells only. No dedicated Soul Carta page. LibraryBoard is lore, not gear."
+    },
+    {
+      "id": "WorldBoss20",
+      "wired": false,
+      "paths": [],
+      "kept_in_denominator": true,
+      "note": "No 20-person page. DeepBoard/NebulaBoard are not WB. VfxWorldBossBar is VFX, not a page."
+    }
+  ],
+  "board_files": [
+    {
+      "file": "AchievementBoard.cs",
+      "path": "client/Assets/Scripts/Resonance.App/UI/AchievementBoard.cs",
+      "page": "Achieve",
+      "wired": true
+    },
+    {
+      "file": "ArchiveBoard.cs",
+      "path": "client/Assets/Scripts/Resonance.App/UI/ArchiveBoard.cs",
+      "page": "CharacterList",
+      "wired": true
+    },
+    {
+      "file": "CostumeBoard.cs",
+      "path": "client/Assets/Scripts/Resonance.App/UI/CostumeBoard.cs",
+      "page": "Costume",
+      "wired": true
+    },
+    {
+      "file": "DailyBoard.cs",
+      "path": "client/Assets/Scripts/Resonance.App/UI/DailyBoard.cs",
+      "page": "Daily",
+      "wired": true
+    },
+    {
+      "file": "DeepBoard.cs",
+      "path": "client/Assets/Scripts/Resonance.App/UI/DeepBoard.cs",
+      "page": "Deep",
+      "wired": true,
+      "is_world_boss_20": false
+    },
+    {
+      "file": "FoodBoard.cs",
+      "path": "client/Assets/Scripts/Resonance.App/UI/FoodBoard.cs",
+      "page": "Food",
+      "wired": true
+    },
+    {
+      "file": "FriendBoard.cs",
+      "path": "client/Assets/Scripts/Resonance.App/UI/FriendBoard.cs",
+      "page": "Friend",
+      "wired": true
+    },
+    {
+      "file": "IgnitionBoard.cs",
+      "path": "client/Assets/Scripts/Resonance.App/UI/IgnitionBoard.cs",
+      "page": "Growth",
+      "wired": true
+    },
+    {
+      "file": "InspectBoard.cs",
+      "path": "client/Assets/Scripts/Resonance.App/UI/InspectBoard.cs",
+      "page": "CharacterDetail",
+      "wired": true
+    },
+    {
+      "file": "LibraryBoard.cs",
+      "path": "client/Assets/Scripts/Resonance.App/UI/LibraryBoard.cs",
+      "page": "Library",
+      "wired": true,
+      "is_soul_carta": false
+    },
+    {
+      "file": "MailBoard.cs",
+      "path": "client/Assets/Scripts/Resonance.App/UI/MailBoard.cs",
+      "page": "Mail",
+      "wired": true
+    },
+    {
+      "file": "NebulaBoard.cs",
+      "path": "client/Assets/Scripts/Resonance.App/UI/NebulaBoard.cs",
+      "page": "DeepOverlay",
+      "wired": true,
+      "is_world_boss_20": false
+    },
+    {
+      "file": "PauseBoard.cs",
+      "path": "client/Assets/Scripts/Resonance.App/UI/PauseBoard.cs",
+      "page": "PauseOverlay",
+      "wired": true,
+      "layout_status": "NEEDS_REFERENCE"
+    },
+    {
+      "file": "PvpBoard.cs",
+      "path": "client/Assets/Scripts/Resonance.App/UI/PvpBoard.cs",
+      "page": "Pvp",
+      "wired": true
+    },
+    {
+      "file": "RestBoard.cs",
+      "path": "client/Assets/Scripts/Resonance.App/UI/RestBoard.cs",
+      "page": "Rest",
+      "wired": true
+    },
+    {
+      "file": "ResultBoard.cs",
+      "path": "client/Assets/Scripts/Resonance.App/UI/ResultBoard.cs",
+      "page": "Result",
+      "wired": true,
+      "layout_status": "NEEDS_REFERENCE"
+    },
+    {
+      "file": "ShopBoard.cs",
+      "path": "client/Assets/Scripts/Resonance.App/UI/ShopBoard.cs",
+      "page": "Shop",
+      "wired": true
+    },
+    {
+      "file": "StageBoard.cs",
+      "path": "client/Assets/Scripts/Resonance.App/UI/StageBoard.cs",
+      "page": "StageSelect",
+      "wired": true
+    },
+    {
+      "file": "SummonBoard.cs",
+      "path": "client/Assets/Scripts/Resonance.App/UI/SummonBoard.cs",
+      "page": "Summon",
+      "wired": true
+    },
+    {
+      "file": "TeamBoard.cs",
+      "path": "client/Assets/Scripts/Resonance.App/UI/TeamBoard.cs",
+      "page": "FormationLeader",
+      "wired": true
+    },
+    {
+      "file": "TitleBoard.cs",
+      "path": "client/Assets/Scripts/Resonance.App/UI/TitleBoard.cs",
+      "page": "Title",
+      "wired": true
+    },
+    {
+      "file": "TutorialBoard.cs",
+      "path": "client/Assets/Scripts/Resonance.App/UI/TutorialBoard.cs",
+      "page": "Tutorial",
+      "wired": true
+    }
+  ],
+  "non_board_pages": [
+    {
+      "id": "Home",
+      "paths": [
+        "client/Assets/Scripts/Resonance.App/UI/HomeHud.cs",
+        "client/Assets/Scripts/Resonance.App/UI/LobbyRail.cs",
+        "client/Assets/Scripts/Resonance.App/UI/EmeraldLobby.cs",
+        "client/Assets/Scripts/Resonance.App/UI/LobbyStage.cs"
+      ],
+      "is_battle": false
+    },
+    {
+      "id": "Battle",
+      "paths": ["client/Assets/Scripts/Resonance.App/Battle/BattleHud.cs"],
+      "layout_status": "NEEDS_REFERENCE",
+      "is_memorial_lobby": false
+    },
+    {
+      "id": "Settings",
+      "paths": ["client/Assets/Scripts/Resonance.App/UI/SettingsModal.cs"]
+    },
+    {
+      "id": "Boot",
+      "paths": ["client/Assets/Scripts/Resonance.App/UI/BootSplash.cs"]
+    }
+  ],
+  "unwired": [
+    {
+      "path": "client/Assets/Scripts/Resonance.App/UI/ChapterMap.cs",
+      "note": "File exists. GameRoot does not call it. Stage select uses StageBoard."
+    },
+    {
+      "path": "client/Assets/Scripts/Resonance.App/UI/LootPopup.cs",
+      "note": "File exists. GameRoot does not call it. Drops currently use ResultBoard loot line."
+    }
+  ],
+  "forbidden_as_battle_page": [
+    "client/Assets/Scripts/Resonance.App/UI/HomeHud.cs",
+    "client/Assets/Scripts/Resonance.App/UI/LobbyRail.cs",
+    "client/Assets/Scripts/Resonance.App/UI/EmeraldLobby.cs",
+    "client/Assets/Scripts/Resonance.App/UI/LobbyStage.cs",
+    "docs/reference/mobile-archive/",
+    "docs/reference/ui-lock/"
+  ],
+  "elements": [],
+  "saas_restyle_forbidden": true
+}

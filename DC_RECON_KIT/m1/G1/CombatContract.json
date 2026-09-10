@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "CombatContract",
+  "contract_version": "1.0-G1-2026-09-09",
+  "status": "CONTRACT_FROZEN",
+  "target_ref": "../G0/TARGET.json",
+  "tick_hz": 30,
+  "turn_based": false,
+  "m1_visible_party_size": 5,
+  "party_size_hardcoded": false,
+  "actions": ["Auto", "Tap", "Slide", "Drive", "Fever"],
+  "state_domains": [
+    "Alive",
+    "Targetable",
+    "Charging",
+    "SkillReady",
+    "ActionQueued",
+    "Casting",
+    "SlideCd",
+    "Controlled",
+    "DriveSelect",
+    "Qte",
+    "Fever",
+    "Resolve"
+  ],
+  "exclusive_enum_forbidden": true,
+  "logic_bound_to_animation_forbidden": true,
+  "drive_ui_prediction_is_not_damage": true,
+  "formula_profiles_allowed": [
+    "JP_LEGACY_EMPIRICAL",
+    "KR_LEGACY_REPORTED"
+  ],
+  "formula_profiles_forbidden": [
+    "GL_FINAL_VERIFIED"
+  ],
+  "gl_numeric_status": "UNKNOWN",
+  "unknown_opcode_policy": "FAIL",
+  "poison_policy": "ACTION_AND_HIT_TRIGGERS",
+  "poison_per_second_dot_forbidden": true,
+  "core_decision": "REUSE_REPAIR_DO_NOT_REPLACE",
+  "repair": [
+    "add_SlideCd",
+    "unhardcode_party_size_5",
+    "execute_poison",
+    "fail_unknown_opcode"
+  ]
+}

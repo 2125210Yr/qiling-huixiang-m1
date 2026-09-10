@@ -7,11 +7,13 @@ using UnityEngine.UI;
 namespace Resonance.App
 {
     /// <summary>
-    /// One uncut still on a SkinnedMeshRenderer. Chest/wrist/ankle/head are Unity bones.
+    /// One uncut still on a SkinnedMeshRenderer. Shoulder/wrist/ankle/head are Unity bones.
     /// </summary>
     public sealed class PuppetRig : MonoBehaviour, IPointerDownHandler
     {
         public const int WorldLayer = 9;
+        [Tooltip("勾选后停止自动摆姿势，可在层级里点骨骼用 E 旋转")]
+        public bool freezePose;
         const float Ppu = 100f;
         const int GridX = 129;
         const int GridY = 193;
@@ -26,6 +28,8 @@ namespace Resonance.App
         const int BonePelvis = 6;
         const int BoneThighR = 7;
         const int BoneKneeR = 8;
+        const int BoneArmL = 9;
+        const int BoneArmR = 10;
 
         RenderTexture _rt;
         Camera _cam;
@@ -43,6 +47,8 @@ namespace Resonance.App
         Transform _chestBone;
         Transform _headBone;
         Transform _wrist;
+        Transform _armL;
+        Transform _armR;
         Transform _ankleL;
         Transform _ankleR;
         Material _mouthMat;
@@ -62,6 +68,8 @@ namespace Resonance.App
         float _footLV = 0.23f;
         float _hitU0, _hitU1, _hitV0, _hitV1;
         Vector3 _handC;
+        Vector3 _shoulderL;
+        Vector3 _shoulderR;
         Vector3 _footRC;
         Vector3 _footLC;
         bool _hasHead;
@@ -71,9 +79,11 @@ namespace Resonance.App
         float _idleT;
         PuppetMotion _motion = new PuppetMotion();
         Vector3[] _restVertices, _motionVertices;
-        Vector2[] _chestInfluence, _chestOuter, _armInfluence, _hairInfluence;
+        Vector2[] _chestInfluence, _chestOuter, _hairInfluence;
+        PuppetSoftBust _softBust;
         float _canvasWidth, _canvasHeight;
         Texture2D _blinkTexture;
+        Texture2D _chestBounce;
         Shader _faceShader;
         bool _hasLegRig;
         Transform _legPelvis, _thighR, _kneeR;
@@ -81,6 +91,21 @@ namespace Resonance.App
         static readonly float[] LegRows = { 570,620,740,840,900,970,1070,1135,1180,1230,1270,1310,1340 };
         static readonly float[] LegLeft = { 460,465,490,535,530,503,475,458,440,413,420,458,470 };
         static readonly float[] LegRight = { 602,589,602,615,622,578,549,534,505,484,489,481,472 };
+
+        public Transform WorldRoot { get { return _world; } }
+
+        public void RenderNow()
+        {
+            if (_cam != null) _cam.Render();
+        }
+
+        public void RevealBones()
+        {
+            if (_world == null) return;
+            _world.gameObject.hideFlags = HideFlags.None;
+            foreach (var t in _world.GetComponentsInChildren<Transform>(true))
+                t.gameObject.hideFlags = HideFlags.None;
+        }
 
         public static bool TryAttach(Transform host, string id)
         {
@@ -106,6 +131,7 @@ namespace Resonance.App
                     body = CharacterArt.LoadPuppetTex(id, dto.slots[i].tex);
             if (body == null) return false;
             _blinkTexture = CharacterArt.LoadPuppetTex(id, "PuppetMotion/blink");
+            _chestBounce = CharacterArt.LoadPuppetTex(id, "PuppetMotion/chest_bounce");
             _faceShader = Resources.Load<Shader>("Art/Characters/" + id + "/PuppetMotion/PuppetFace");
 
             var w = dto.canvasW > 0 ? dto.canvasW : body.width;
@@ -135,11 +161,13 @@ namespace Resonance.App
             _hitV1 = 0.78f;
             _chestC = Uv(_chestU, _chestV, bodyW, bodyH);
             _breastLP = Uv(0.520f, 0.778f, bodyW, bodyH);
-            _attachL = Uv(0.498f, 0.748f, bodyW, bodyH);
-            _attachR = Uv(0.528f, 0.748f, bodyW, bodyH);
+            _attachL = Uv(0.455f, 0.758f, bodyW, bodyH);
+            _attachR = Uv(0.580f, 0.752f, bodyW, bodyH);
             _idleHip = Uv(0.515f, 0.455f, bodyW, bodyH);
             _headC = Uv(_headU, _headV, bodyW, bodyH);
             _handC = Uv(_handU, _handV, bodyW, bodyH);
+            _shoulderL = Uv(0.395f, 0.752f, bodyW, bodyH);
+            _shoulderR = Uv(0.638f, 0.738f, bodyW, bodyH);
             _footRC = Uv(_footRU, _footRV, bodyW, bodyH);
             _footLC = Uv(_footLU, _footLV, bodyW, bodyH);
             _hasHead = false;
@@ -221,8 +249,11 @@ namespace Resonance.App
 
         public void OnPointerDown(PointerEventData e) { Punch(e); }
 
-        // Rejected visual prototype: keep API compatible, but do not drive this pose.
-        public bool CloseArms() { return false; }
+        public bool CloseArms()
+        {
+            _motion.TapChest(0f);
+            return false;
+        }
 
         public bool LiftRightLeg() { return _hasLegRig && _motion.StartLegLift(); }
 
@@ -251,26 +282,43 @@ namespace Resonance.App
             }
             if (u >= _hitU0 && u <= _hitU1 && v >= _hitV0 && v <= _hitV1)
             {
-                CloseArms();
+                var side = u < _chestU ? -1f : 1f;
+                _motion.TapChest(side);
             }
         }
 
         void LateUpdate()
         {
             HideFromOthers();
-            _idleT += Time.unscaledDeltaTime;
-            _motion.Step(Time.unscaledDeltaTime);
-            ApplySecondaryMesh();
-            var breath = Mathf.Sin(_idleT * 0.72f);
-            AdvanceSpring(ref _tapOffset, ref _tapVelocity, Time.unscaledDeltaTime);
-            var bodySway = Mathf.Sin(_idleT * 0.52f) * 1.15f;
-            var hairDeg = -bodySway * 0.40f + _motion.Gaze * .45f;
-            var wristDeg = Mathf.Sin(_idleT * 0.46f) * 1.05f;
-            var footR = (0.50f + 0.50f * Mathf.Sin(_idleT * 0.44f)) * 1.8f;
-            var footL = (0.50f + 0.50f * Mathf.Sin(_idleT * 0.44f + 2.1f)) * 1.5f;
-            ApplyBones(breath, 0f, wristDeg, footR, footL, hairDeg);
-            ApplyMouth(0.5f + 0.5f * breath);
+            if (!freezePose)
+            {
+                _idleT += Time.unscaledDeltaTime;
+                _motion.Step(Time.unscaledDeltaTime);
+                ApplySecondaryMesh();
+                var breath = Mathf.Sin(_idleT * 0.72f);
+                AdvanceSpring(ref _tapOffset, ref _tapVelocity, Time.unscaledDeltaTime);
+                var bodySway = _motion.BodySway;
+                var hairDeg = -bodySway * 0.55f + _motion.Gaze * .45f;
+                var wristDeg = Mathf.Sin(_idleT * 0.46f) * 0.55f;
+                var footR = (0.50f + 0.50f * Mathf.Sin(_idleT * 0.44f)) * 1.8f;
+                var footL = (0.50f + 0.50f * Mathf.Sin(_idleT * 0.44f + 2.1f)) * 1.5f;
+                ApplyBones(breath, 0f, wristDeg, footR, footL, hairDeg);
+                ApplyMouth(0.5f + 0.5f * breath);
+            }
             if (_cam != null) _cam.Render();
+        }
+
+        void OnDrawGizmos()
+        {
+            if (_world == null) return;
+            Gizmos.color = new Color(1f, 0.55f, 0.2f, 0.9f);
+            foreach (var t in _world.GetComponentsInChildren<Transform>(true))
+            {
+                if (t == _world || !t.name.StartsWith("bone_")) continue;
+                Gizmos.DrawWireSphere(t.position, 0.08f);
+                if (t.parent != null && t.parent != _world)
+                    Gizmos.DrawLine(t.parent.position, t.position);
+            }
         }
 
         // Exact solution of a damped spring: consistent at different frame rates.
@@ -295,6 +343,10 @@ namespace Resonance.App
                 _chestBone.localRotation = Quaternion.identity;
                 _chestBone.localScale = Vector3.one;
             }
+            if (_armL != null)
+                _armL.localRotation = Quaternion.identity;
+            if (_armR != null)
+                _armR.localRotation = Quaternion.identity;
             if (_wrist != null)
                 _wrist.localRotation = Quaternion.Euler(0f, 0f, wristDeg);
             if (_ankleR != null)
@@ -351,6 +403,18 @@ namespace Resonance.App
             return leftWeight*rightWeight*top*bottom*(1-support);
         }
 
+        static float LeftArmWeight(float u, float v)
+        {
+            // Deltoid to wrist as one piece. Feather only into the torso, never
+            // across the mid-sleeve — that pinch is the rejected clasp.
+            return SoftBox(u, v, 0.338f, 0.432f, 0.505f, 0.758f, 0.028f);
+        }
+
+        static float RightArmWeight(float u, float v)
+        {
+            return SoftBox(u, v, 0.608f, 0.698f, 0.528f, 0.752f, 0.030f);
+        }
+
         void ApplyMouth(float breath01)
         {
             if (_mouthMat == null || _mouth0 == null) return;
@@ -368,8 +432,12 @@ namespace Resonance.App
             _rootBone.localPosition = Vector3.zero;
             _chestBone = Bone(_world, "bone_chest");
             _chestBone.localPosition = _breastLP;
-            _wrist = Bone(_world, "bone_wrist");
-            _wrist.localPosition = _handC;
+            _armL = Bone(_world, "bone_armL");
+            _armL.localPosition = _shoulderL;
+            _wrist = Bone(_armL, "bone_wrist");
+            _wrist.localPosition = _handC - _shoulderL;
+            _armR = Bone(_world, "bone_armR");
+            _armR.localPosition = _shoulderR;
             _legPelvis = Bone(_world, "bone_pelvis");
             _thighR = Bone(_legPelvis, "bone_thighR");
             _thighR.localPosition = _hipRest;
@@ -406,6 +474,13 @@ namespace Resonance.App
                 mat.mainTexture = tex;
                 mat.SetTexture("_BlinkTex", _blinkTexture);
                 mat.SetFloat("_Blink", 0f);
+                if (_chestBounce != null)
+                {
+                    mat.SetTexture("_ChestTex", _chestBounce);
+                    mat.SetVector("_ChestRect", new Vector4(0.45703125f, 0.66927083f, 0.23046875f, 0.1171875f));
+                    mat.SetFloat("_ChestL", 0f);
+                    mat.SetFloat("_ChestR", 0f);
+                }
             }
             if (mat == null)
             {
@@ -414,7 +489,7 @@ namespace Resonance.App
             }
             smr.sharedMaterial = mat;
             _mats.Add(mat);
-            var bones = new[] { _rootBone, _chestBone, _wrist, _ankleR, _ankleL, _headBone, _legPelvis, _thighR, _kneeR };
+            var bones = new[] { _rootBone, _chestBone, _wrist, _ankleR, _ankleL, _headBone, _legPelvis, _thighR, _kneeR, _armL, _armR };
             var bind = new Matrix4x4[bones.Length];
             for (int i = 0; i < bones.Length; i++)
                 bind[i] = bones[i].worldToLocalMatrix * go.transform.localToWorldMatrix;
@@ -490,6 +565,29 @@ namespace Resonance.App
                                 boneIndex3=BoneAnkleR,weight3=leg*boot
                             };
                         }
+                        var armL = LeftArmWeight(u, v) * (1f - wc);
+                        var armR = RightArmWeight(u, v) * (1f - wc);
+                        if (armL > 0.02f)
+                        {
+                            // Whole sleeve is one rigid piece on the shoulder bone.
+                            // The wrist is parented to that shoulder, so the hand/sword
+                            // follow the same rotation instead of pinching at the elbow.
+                            var handness = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0.58f, 0.50f, v));
+                            bw[i] = new BoneWeight
+                            {
+                                boneIndex0 = BoneRoot, weight0 = 1f - armL,
+                                boneIndex1 = BoneArmL, weight1 = armL * (1f - handness),
+                                boneIndex2 = BoneWrist, weight2 = armL * handness
+                            };
+                        }
+                        else if (armR > 0.02f)
+                        {
+                            bw[i] = new BoneWeight
+                            {
+                                boneIndex0 = BoneRoot, weight0 = 1f - armR,
+                                boneIndex1 = BoneArmR, weight1 = armR
+                            };
+                        }
                     }
                     i++;
                 }
@@ -527,14 +625,13 @@ namespace Resonance.App
             _motionVertices = (Vector3[])verts.Clone();
             _chestInfluence = new Vector2[n];
             _chestOuter = new Vector2[n];
-            _armInfluence = new Vector2[n];
             _hairInfluence = new Vector2[n];
             for (int k = 0; k < n; k++)
             {
                 var u = uv[k].x; var v = uv[k].y;
                 var gate = BustGate(u, v);
-                var wl = SoftEllipse(u, v, 0.462f, 0.715f, 0.048f, 0.046f, 0.032f) * gate;
-                var wr = SoftEllipse(u, v, 0.575f, 0.710f, 0.082f, 0.046f, 0.032f) * gate;
+                var wl = SoftEllipse(u, v, 0.458f, 0.718f, 0.062f, 0.052f, 0.028f) * gate;
+                var wr = SoftEllipse(u, v, 0.582f, 0.712f, 0.095f, 0.054f, 0.028f) * gate;
                 _chestInfluence[k] = new Vector2(wl, wr);
                 // Outer/lower tissue moves more; inner-upper attach stays. Not a fluid slab.
                 _chestOuter[k] = new Vector2(
@@ -542,9 +639,6 @@ namespace Resonance.App
                         + 0.60f * Mathf.InverseLerp(0.752f, 0.678f, v)),
                     wr * Mathf.Clamp01(0.40f * Mathf.InverseLerp(0.518f, 0.655f, u)
                         + 0.60f * Mathf.InverseLerp(0.752f, 0.678f, v)));
-                var sleeve = SoftBox(u, v, 0.355f, 0.428f, 0.56f, 0.71f, 0.035f);
-                var pocket = SoftBox(u, v, 0.612f, 0.682f, 0.54f, 0.67f, 0.035f);
-                _armInfluence[k] = new Vector2(sleeve * (1f - wl - wr), pocket * (1f - wl - wr));
                 var left = SoftBox(u,v,.09f,.33f,.30f,.69f,.06f);
                 var right = SoftBox(u,v,.72f,.91f,.32f,.61f,.065f);
                 var bladeU = Mathf.Lerp(.238f,.42f,Mathf.InverseLerp(.15f,.54f,v));
@@ -559,6 +653,9 @@ namespace Resonance.App
             _bodyMesh.triangles = tris;
             _bodyMesh.boneWeights = bw;
             _bodyMesh.RecalculateBounds();
+            _softBust = new PuppetSoftBust();
+            if (!_softBust.Bind(_restVertices, _chestInfluence, _chestOuter, _canvasWidth, _canvasHeight))
+                _softBust = null;
         }
 
         void ApplySecondaryMesh()
@@ -566,41 +663,33 @@ namespace Resonance.App
             if (_bodyMesh == null || _restVertices == null) return;
             for (int i=0; i<_restVertices.Length; i++)
             {
-                var bodySway = Mathf.Sin(_idleT * 0.52f) * 1.15f;
-                var p = RotZ(_restVertices[i], _idleHip, bodySway);
+                var rest = _restVertices[i];
+                var bodySway = _motion.BodySway;
+                var p = RotZ(rest, _idleHip, bodySway);
                 var chest = _chestInfluence[i];
                 var hair = _hairInfluence[i];
                 var wl = chest.x;
                 var wr = chest.y;
                 var oL = _chestOuter != null ? _chestOuter[i].x : wl;
                 var oR = _chestOuter != null ? _chestOuter[i].y : wr;
-                var aL = _armInfluence != null ? _armInfluence[i].x : 0f;
-                var aR = _armInfluence != null ? _armInfluence[i].y : 0f;
-                const float squeeze = 0f; // Rejected clasp deformation is disabled.
-                const float sL = 0f;
-                const float sR = 0f;
                 var bl = _motion.ChestLeft;
                 var br = _motion.ChestRight;
                 var wPendL = 0.25f * wl + 0.75f * oL;
                 var wPendR = 0.25f * wr + 0.75f * oR;
-                var sway = Mathf.Sin(_idleT * 0.95f) * 1.6f * (1-.85f*squeeze);
                 var aLPivot = RotZ(_attachL, _idleHip, bodySway);
                 var aRPivot = RotZ(_attachR, _idleHip, bodySway);
+                var u = rest.x / Mathf.Max(0.001f, _canvasWidth) + 0.5f;
+                var v = rest.y / Mathf.Max(0.001f, _canvasHeight);
+                var gap = SoftBox(u, v, 0.486f, 0.544f, 0.692f, 0.772f, 0.016f);
+                var flesh = 1f - gap;
+                const float springToDeg = 14f / 0.006f;
                 if (wPendL > 0.001f)
-                    p = Vector3.Lerp(p, RotZ(p, aLPivot, sway), wPendL);
+                    p = Vector3.Lerp(p, RotZ(p, aLPivot, bl * springToDeg * flesh), wPendL);
                 if (wPendR > 0.001f)
-                    p = Vector3.Lerp(p, RotZ(p, aRPivot, -sway * 0.92f), wPendR);
-                // Tap: outer tissue moves toward cleavage; arms clamp. No volume inflate.
-                var inL = sL * wPendL;
-                var inR = sR * wPendR;
-                p.x += (inL - inR) * _canvasWidth * 0.0065f;
-                p.y += squeeze * (oL + oR) * _canvasHeight * .0012f;
-                p.y += (bl * wl + br * wr) * _canvasHeight * 0.12f;
-                const float clamp = 0f;
-                p.x += (aL - aR) * clamp * _canvasWidth * 0.009f;
+                    p = Vector3.Lerp(p, RotZ(p, aRPivot, br * springToDeg * flesh), wPendR);
                 p.x += (hair.x * (_motion.HairLeft * .35f + _motion.HairLeftTip * .65f)
-                    + hair.y * (_motion.HairRight * .35f + _motion.HairRightTip * .65f)) * _canvasWidth * .0018f;
-                p.y += (hair.x * _motion.HairLeftTip + hair.y * _motion.HairRightTip) * _canvasHeight * .00025f;
+                    + hair.y * (_motion.HairRight * .35f + _motion.HairRightTip * .65f)) * _canvasWidth * .0032f;
+                p.y += (hair.x * _motion.HairLeftTip + hair.y * _motion.HairRightTip) * _canvasHeight * .00035f;
                 _motionVertices[i] = p;
             }
             _bodyMesh.vertices = _motionVertices;
@@ -608,6 +697,11 @@ namespace Resonance.App
             {
                 var mat = _smr.sharedMaterial;
                 mat.SetFloat("_Blink", _motion.Blink);
+                if (mat.HasProperty("_ChestL"))
+                {
+                    mat.SetFloat("_ChestL", 0f);
+                    mat.SetFloat("_ChestR", 0f);
+                }
             }
         }
 
@@ -808,13 +902,15 @@ namespace Resonance.App
                 if (_mats[i] != null) Object.Destroy(_mats[i]);
             _mats.Clear();
             _restVertices = _motionVertices = null;
-            _chestInfluence = _chestOuter = _armInfluence = _hairInfluence = null;
+            _chestInfluence = _chestOuter = _hairInfluence = null;
+            _softBust = null;
             _smr = null;
             _rootBone = _chestBone = _headBone = null;
-            _wrist = _ankleL = _ankleR = null;
+            _wrist = _armL = _armR = _ankleL = _ankleR = null;
             _legPelvis = _thighR = _kneeR = null;
             _mouthMat = null;
             _blinkTexture = null;
+            _chestBounce = null;
             _faceShader = null;
             _tapOffset = _tapVelocity = 0f;
         }

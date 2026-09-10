@@ -1,0 +1,20 @@
+{
+  "id": null,
+  "rule_id": null,
+  "claim": null,
+  "class": "UNKNOWN",
+  "region": null,
+  "version_window": null,
+  "source_url": null,
+  "source_published": null,
+  "source_revised": null,
+  "accessed": null,
+  "source_file_sha256": null,
+  "exact_locator": null,
+  "conditions": {},
+  "observation": null,
+  "inference": null,
+  "contradictions": [],
+  "superseded_by": null,
+  "verified_by": null
+}

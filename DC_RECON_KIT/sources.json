@@ -1,0 +1,316 @@
+{
+  "research_date": "2026-09-09",
+  "notes": "来源只支持其对应版本/条件。下面的简述不是最终服完整真值。网页日期与最后修订日期需代理再次保存原页面核对。",
+  "sources": [
+    {
+      "id": "S01",
+      "title": "SHIFT UP 2024-06-27 证券披露：引擎技术风险",
+      "url": "https://cdn.financialreports.eu/financialreports/media/filings/16367/2024/RNS/16367_rns_2024-06-27_6eff5908-ee22-45b4-86bf-0c3099580a0a.html",
+      "kind": "corporate_disclosure",
+      "published_or_revised": "2024-06-27",
+      "supports": "原作采用自研引擎；不能用 NIKKE 的 Unity 选型反推 DC。",
+      "inspection": "archived_primary_document",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S02",
+      "title": "Live2D 官方 Showcase：Destiny Child",
+      "url": "https://www.live2d.com/en/showcase/title/destiny-child/",
+      "kind": "official_technology",
+      "published_or_revised": "unknown",
+      "supports": "登记 Cubism 2；页面宣传图可作视觉结构线索，不是原生 UI 尺寸表。",
+      "inspection": "page_and_image_inspected",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S03",
+      "title": "Live2D：Cubism 2.1 数据转换",
+      "url": "https://docs.live2d.com/cubism-editor-manual/convert-data-cubism-2-to-3/",
+      "kind": "official_documentation",
+      "published_or_revised": "unknown",
+      "supports": "原工程数据转换与旧运行时 .moc/.mtn 兼容性不同。",
+      "inspection": "official_documentation",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S04",
+      "title": "Inven：DC 综合实机指南",
+      "url": "https://www.inven.co.kr/webzine/news/?news=163151&site=mini",
+      "kind": "contemporaneous_gameplay_guide",
+      "published_or_revised": "2016-09-02",
+      "supports": "早期 KR 玩法、界面截图和操作流程；不是 2023 定版。",
+      "inspection": "firsthand_guide_with_screenshots",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S05",
+      "title": "吟味：自动攻击与 Normal/Tap 伤害实测",
+      "url": "https://ginmy.net/dc_normal_damage_formula",
+      "kind": "player_original_experiment",
+      "published_or_revised": "2017-12-06; revised 2018-12-29",
+      "supports": "JP 早期候选公式；敌防御含反推假设；KR 部分转述 Nymphet。",
+      "inspection": "original_empirical_article",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S06",
+      "title": "吟味：Slide 伤害与敏捷区间",
+      "url": "https://ginmy.net/dc_slide_damage_formula",
+      "kind": "player_original_experiment",
+      "published_or_revised": "2017-12-09; revised 2018-12-29",
+      "supports": "范围模型有测试；分布、属性/暴击分支未全部独立验证。",
+      "inspection": "original_empirical_article",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S07",
+      "title": "吟味：高防御区间验证",
+      "url": "https://ginmy.net/dc_high_def_enemy_inspection",
+      "kind": "player_original_experiment",
+      "published_or_revised": "2018-06-04; revised 2018-12-29",
+      "supports": "高防御与 KR/JP 二次衰减差异；不能迁移为 GL 最终规则。",
+      "inspection": "original_empirical_article",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S08",
+      "title": "吟味：防御无视伤害",
+      "url": "https://ginmy.net/dc_armor_piercing_skill_inspection",
+      "kind": "player_original_experiment",
+      "published_or_revised": "2018-05-03; revised 2018-12-29",
+      "supports": "历史穿防通道候选拟合；不是直接减 DEF 或全额真伤。",
+      "inspection": "original_empirical_article",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S09",
+      "title": "吟味：Fever 伤害",
+      "url": "https://ginmy.net/dc_fever_damage_formula",
+      "kind": "player_original_experiment",
+      "published_or_revised": "2017-12-07; revised 2018-12-29",
+      "supports": "普通基底、穿防与额外伤害在 Fever 中的不同处理，另有连打型例外。",
+      "inspection": "original_article_search_text",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S10",
+      "title": "吟味：多种伤害增加效果",
+      "url": "https://ginmy.net/dc_several_damage_buffs",
+      "kind": "player_original_experiment",
+      "published_or_revised": "unknown",
+      "supports": "额外伤害与穿防通道不可合并；目标侧最终减伤不能忽略。",
+      "inspection": "original_article_search_text",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S11",
+      "title": "吟味：速度类增益对照",
+      "url": "https://ginmy.net/dc_speed_buff_comparison",
+      "kind": "player_original_experiment",
+      "published_or_revised": "2020-11-04; revised 2020-11-21",
+      "supports": "充能速度、充能量与直接增加充能不同。",
+      "inspection": "original_article_search_text",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S12",
+      "title": "吟味：Critical 属性效率",
+      "url": "https://ginmy.net/dc_critical_stat_efficiency",
+      "kind": "player_original_experiment",
+      "published_or_revised": "2019-04-23; revised 2019-12-02",
+      "supports": "有限样本；不能宣称得到精确暴击概率曲线或固定上限。",
+      "inspection": "original_empirical_article",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S13",
+      "title": "吟味：减益命中旧实验及更正",
+      "url": "https://ginmy.net/dc_accuracy_of_debuff_skill",
+      "kind": "player_original_experiment_with_correction",
+      "published_or_revised": "revised 2020-08-20",
+      "supports": "原文有结论更正；旧敏捷命中推论不得直接定版，需追原公告和目标服。",
+      "inspection": "correction_noted; linked_official_notice_not_independently_verified",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S14",
+      "title": "吟味：睡眠减益时钟行为",
+      "url": "https://ginmy.net/dc_nap_debuff_inspection",
+      "kind": "player_original_experiment",
+      "published_or_revised": "2019",
+      "supports": "充能与 Slide 冷却应独立测试，不是一条进度条。",
+      "inspection": "original_article_search_text",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S15",
+      "title": "吟味：Damage X% 的作用位置",
+      "url": "https://ginmy.net/dc_damage_with_x_inspection",
+      "kind": "player_original_experiment",
+      "published_or_revised": "2018",
+      "supports": "某类百分比表述作用于装备攻击贡献，非整个伤害。",
+      "inspection": "original_empirical_article",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S16",
+      "title": "吟味：检验汇总与 Drive 预测显示",
+      "url": "https://ginmy.net/dc_summarize_inspections",
+      "kind": "player_original_experiment_index",
+      "published_or_revised": "unknown",
+      "supports": "预测显示伤害不可当作实际对敌 Drive 结算公式。",
+      "inspection": "original_article_search_text",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S17",
+      "title": "日服官方：World Boss 完全攻略",
+      "url": "https://blog.destiny-child.jp/archives/13015699.html",
+      "kind": "official_game_guide",
+      "published_or_revised": "2018",
+      "supports": "20 人，前后排，自动战斗。",
+      "inspection": "official_page",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S18",
+      "title": "日服官方：World Boss 2021 指南",
+      "url": "https://blog.destiny-child.jp/archives/28885945.html",
+      "kind": "official_game_guide",
+      "published_or_revised": "2021",
+      "supports": "20 人编成与 Drive 顺序设定。",
+      "inspection": "official_page",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S19",
+      "title": "日服官方：中级者指南",
+      "url": "https://blog.destiny-child.jp/archives/11661553.html",
+      "kind": "official_game_guide",
+      "published_or_revised": "unknown",
+      "supports": "成长分支、毒的行动/受击触发与战斗技能提示。",
+      "inspection": "official_page",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S20",
+      "title": "日服官方：2020-03-26 更新",
+      "url": "https://blog.destiny-child.jp/archives/23991973.html",
+      "kind": "official_patch_note",
+      "published_or_revised": "2020-03-26",
+      "supports": "技能预约等功能存在版本时间边界。",
+      "inspection": "official_page",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S21",
+      "title": "日服官方：Ignition 实装",
+      "url": "https://blog.destiny-child.jp/archives/25620480.html",
+      "kind": "official_patch_note",
+      "published_or_revised": "2020-08-20",
+      "supports": "后期点火系统必须单独纳入定版，而不能沿用前期数值假定。",
+      "inspection": "official_page",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S22",
+      "title": "日服官方：Rebirth Labyrinth 指南",
+      "url": "https://blog.destiny-child.jp/archives/15504966.html",
+      "kind": "official_game_guide",
+      "published_or_revised": "unknown",
+      "supports": "模式独立规则的考据入口。",
+      "inspection": "official_page",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S23",
+      "title": "吟味：增幅敏捷检验",
+      "url": "https://ginmy.net/dc_enhance-agility",
+      "kind": "player_original_experiment",
+      "published_or_revised": "2020-08-30; revised 2020-09-22",
+      "supports": "增幅属性必须区别普通属性；不推导未经验证的全局等价式。",
+      "inspection": "original_article_search_text",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S24",
+      "title": "吟味：增幅暴击检验",
+      "url": "https://ginmy.net/dc_enhanced-crit_inspection",
+      "kind": "player_original_experiment",
+      "published_or_revised": "2020",
+      "supports": "测试条件不能泛化到所有攻击。",
+      "inspection": "original_article_search_text",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S25",
+      "title": "Live2D-DCG viewer 源码",
+      "url": "https://github.com/Live2D-DCG/Live2D-DCG.github.io",
+      "kind": "repository_author",
+      "published_or_revised": "unknown",
+      "supports": "角色查看器与资料索引；没有据此验证出完整战斗引擎。",
+      "inspection": "readme_and_index_inspected",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S26",
+      "title": "DestinyChild-Live2D-Repacker",
+      "url": "https://github.com/byyuurin/DestinyChild-Live2D-Repacker",
+      "kind": "repository_author",
+      "published_or_revised": "unknown",
+      "supports": "资源格式/重打包工具，不等于战斗源码。",
+      "inspection": "repository_inspected",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S27",
+      "title": "CoplayDev Unity MCP",
+      "url": "https://github.com/CoplayDev/unity-mcp",
+      "kind": "repository_author",
+      "published_or_revised": "current checked 2026-09-09",
+      "supports": "可选的 Unity 编辑器自动化桥；先检查项目和已安装版本。",
+      "inspection": "readme_inspected",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S28",
+      "title": "OpenAI：Using Goals in Codex",
+      "url": "https://developers.openai.com/cookbook/examples/codex/using_goals_in_codex",
+      "kind": "official_documentation",
+      "published_or_revised": "2026-05-09",
+      "supports": "/goal 生命周期和版本要求；并不自动生成完整多代理工作流。",
+      "inspection": "official_page",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S29",
+      "title": "OpenAI：Subagents 配置",
+      "url": "https://learn.chatgpt.com/docs/agent-configuration/subagents",
+      "kind": "official_documentation",
+      "published_or_revised": "current checked 2026-09-09",
+      "supports": "[agents] 并发、enabled、自定义 agent TOML 与权限继承。",
+      "inspection": "official_page",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S30",
+      "title": "RaGEZONE：声称提供源码的讨论帖",
+      "url": "https://forum.ragezone.com/threads/destiny-child-client-source-code-server-source-code-development-documentation.1229955/",
+      "kind": "forum_claim_and_firsthand_replies",
+      "published_or_revised": "2024-06-23",
+      "supports": "楼内区分较旧源码、不同版本截图和简陋模拟器；未核验下载内容、授权、完整性。",
+      "inspection": "thread_text_only; NO_archive_downloaded",
+      "accessed": "2026-09-09"
+    },
+    {
+      "id": "S31",
+      "title": "吟味：研究总索引",
+      "url": "https://ginmy.net/destiny-child-ginmy",
+      "kind": "research_index",
+      "published_or_revised": "unknown",
+      "supports": "进一步追踪机制实验的入口，单个链接仍须独立阅读。",
+      "inspection": "index_inspected",
+      "accessed": "2026-09-09"
+    }
+  ]
+}

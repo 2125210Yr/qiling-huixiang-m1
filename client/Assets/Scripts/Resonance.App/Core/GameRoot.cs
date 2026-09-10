@@ -9,13 +9,15 @@ namespace Resonance.App
 {
     public sealed class GameRoot : MonoBehaviour
     {
-        enum ScreenId { Boot, Home, Characters, Team, Stage, Battle, Result, Archive, Library, Deep, Settings }
+        enum ScreenId { Boot, Home, Characters, Team, Stage, Battle, Result, Archive, Library, Deep, Settings, Summon, Daily, Shop, Mail, Achieve, Title, Friend, Rest, Food, Pvp, Tutorial, Costume }
 
         public static GameRoot Live { get; private set; }
         public string CurrentScreen => _screen.ToString();
         public SaveBlob SaveData => _save;
         public BattleSim Battle => _battle;
         public bool QteOpen => _hud != null && _hud.QteOpen;
+        public bool DriveSelectVisible => _hud != null && _hud.DriveSelectVisible;
+        public BattleCueCopy.Kind VisibleStamp => _hud != null ? _hud.VisibleStamp : BattleCueCopy.Kind.None;
         public string ResultTitle => _resultTitle;
         public bool FeverOn => _battle != null && _battle.FeverActive;
         public bool FeverSeen => _battle != null && _battle.FeverEver;
@@ -37,6 +39,11 @@ namespace Resonance.App
         int _editSlot;
         string _lootLine;
         bool _skillOpen;
+        bool _costumeOpen;
+        bool _ignitionOpen;
+        bool _equipNotice;
+        bool _moreOpen;
+        int _tutorialPage;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void AutoBoot()
@@ -62,14 +69,32 @@ namespace Resonance.App
             VerticalSliceSmokeRuntime.TrySpawn();
         }
 
+        void OnApplicationQuit() => Persist();
+
+        void OnApplicationPause(bool paused)
+        {
+            if (paused) Persist();
+        }
+
+        void OnApplicationFocus(bool focus)
+        {
+            if (!focus) Persist();
+        }
+
         void OnDestroy()
         {
-            if (Live == this) Live = null;
+            if (Live == this)
+            {
+                Persist();
+                Live = null;
+            }
         }
 
         public void Go(string screenName)
         {
-            Show((ScreenId)Enum.Parse(typeof(ScreenId), screenName));
+            ScreenId id;
+            if (!Enum.TryParse(screenName, true, out id)) return;
+            Show(id);
         }
 
         public void StartVsBattle()
@@ -80,7 +105,7 @@ namespace Resonance.App
 
         public void SetLeader(int slot)
         {
-            _save.LeaderSlot = Mathf.Clamp(slot, 0, 4);
+            _save.LeaderSlot = _save.ClampLeaderSlot(slot);
             Persist();
             Show(ScreenId.Team);
         }
@@ -92,6 +117,9 @@ namespace Resonance.App
             _inspectId = id;
             _inspectBack = _screen;
             _skillOpen = false;
+            _costumeOpen = false;
+            _ignitionOpen = false;
+            _equipNotice = false;
             DrawInspect();
         }
 
@@ -115,7 +143,8 @@ namespace Resonance.App
 
         public bool FireDrivePerfect()
         {
-            return _hud != null && _hud.FirePerfect();
+            if (_hud != null) return _hud.FirePerfect();
+            return SliceDriveSequence.TryFirePerfect(_battle);
         }
 
         public void CycleBattleAuto()
@@ -136,18 +165,22 @@ namespace Resonance.App
 
         public void ToggleBattlePause()
         {
-            if (_battle == null) return;
-            _battle.Paused = !_battle.Paused;
+            if (_battle == null || _screen != ScreenId.Battle) return;
+            if (_battle.Paused)
+            {
+                _battle.Paused = false;
+                var overlay = Root().Find("PauseBoard");
+                if (overlay != null) DestroyImmediate(overlay.gameObject);
+                return;
+            }
+            _battle.Paused = true;
+            PauseBoard.Draw(Root(), ToggleBattlePause, () => Show(ScreenId.Home));
         }
 
         void Update()
         {
             if (_screen == ScreenId.Boot)
-            {
-                _bootT += Time.unscaledDeltaTime;
-                if (_bootT > 1.55f) Show(ScreenId.Home);
                 return;
-            }
             if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
                 && _screen == ScreenId.Stage)
             {
@@ -155,14 +188,10 @@ namespace Resonance.App
                 return;
             }
             if (_screen != ScreenId.Battle || _battle == null) return;
-            if (_hud != null && _hud.QteOpen)
-            {
-                _hud.Tick();
-                return;
-            }
             _simAcc += Time.deltaTime * BattleSim.TickHz;
             var ticks = (int)_simAcc;
             _simAcc -= ticks;
+            if (ticks > BattleSim.TickHz * 2) ticks = BattleSim.TickHz * 2;
             for (int i = 0; i < ticks; i++)
             {
                 if (_battle.Outcome == BattleOutcome.InProgress)
@@ -172,7 +201,7 @@ namespace Resonance.App
                 else
                     break;
             }
-            if (_battle.Outcome != BattleOutcome.InProgress && !_battle.FeverActive)
+            if (_battle.Settled)
             {
                 if (_battle.Outcome == BattleOutcome.Victory)
                     _lootLine = SaveStore.ApplyVictory(_save, _activeStage, _save.UseHard);
@@ -185,20 +214,134 @@ namespace Resonance.App
             if (_hud != null) _hud.Tick();
         }
 
-        string SavePath() => System.IO.Path.Combine(Application.persistentDataPath, "save.json");
+        string SavePath() => SaveStore.DefaultPath;
 
-        void Persist() => SaveStore.Write(_save, SavePath());
+        void Persist()
+        {
+            if (_save == null) return;
+            Costume.WriteTo(_save.Skins);
+            try { SaveStore.Write(_save, SavePath()); }
+            catch { }
+        }
+
+        string PullSummon()
+        {
+            if (_save == null) return "";
+            if (!_save.SpendStone(1) && !_save.SpendGold(300)) return "";
+            var ids = Catalog.PlayableIds;
+            var pool = new List<string>();
+            if (ids != null)
+            {
+                for (int i = 0; i < ids.Length; i++)
+                    if (!string.IsNullOrEmpty(ids[i]) && !_save.Owns(ids[i])) pool.Add(ids[i]);
+            }
+            if (pool.Count == 0)
+            {
+                _save.AddGold(200);
+                Persist();
+                return "";
+            }
+            var pick = pool[UnityEngine.Random.Range(0, pool.Count)];
+            _save.Grant(pick);
+            Persist();
+            return pick;
+        }
+
+        void ClaimDaily(int index)
+        {
+            if (_save == null || index < 0 || index > 4) return;
+            var bit = 1 << index;
+            if ((_save.DailyClaimed & bit) != 0) return;
+            if (index == 0) _save.AddGold(80);
+            else if (index == 1) _save.AddGold(40);
+            else if (index == 2) _save.AddGold(40);
+            else if (index == 3) _save.AddGold(30);
+            else _save.AddStone(1);
+            _save.DailyClaimed |= bit;
+            Persist();
+            Show(ScreenId.Daily);
+        }
+
+        void BuyShop(int index)
+        {
+            if (_save == null) return;
+            var lead = _save.LeaderId();
+            var u = _save.GetUnit(lead);
+            if (index == 0)
+            {
+                if (!_save.SpendStone(80)) return;
+                _save.AddGold(12000);
+            }
+            else if (index == 1)
+            {
+                if (!_save.SpendGold(200)) return;
+                _save.AddStone(180);
+            }
+            else if (index == 2)
+            {
+                if (!_save.SpendGold(110)) return;
+                if (u != null && u.Level < Growth.MaxLevel) u.Level++;
+            }
+            else if (index == 3)
+            {
+                if (!_save.SpendGold(150)) return;
+                if (u != null) u.Affection = Mathf.Min(100, u.Affection + 40);
+            }
+            else return;
+            Persist();
+            Show(ScreenId.Shop);
+        }
+
+        void ReadMail(int index)
+        {
+            if (_save == null || index < 0 || index > 2) return;
+            var bit = 1 << index;
+            if ((_save.MailRead & bit) != 0) return;
+            if (index == 0)
+            {
+                _save.AddGold(200);
+                _save.AddStone(2);
+            }
+            else if (index == 1) _save.AddGold(80);
+            _save.MailRead |= bit;
+            Persist();
+            Show(ScreenId.Mail);
+        }
+
+        void AddIgnitionStone(UnitProgress prog, CharacterDef def, int kind)
+        {
+            if (_save == null || prog == null) return;
+            var cap = Ignition.StoneCap;
+            var cur = kind == 1 ? prog.IgnCrt : kind == 2 ? prog.IgnAgl : prog.IgnAtk;
+            if (cur >= cap) return;
+            if (!_save.SpendStone(1)) return;
+            if (kind == 1) prog.IgnCrt = Ignition.Clamp(prog.IgnCrt + 1);
+            else if (kind == 2) prog.IgnAgl = Ignition.Clamp(prog.IgnAgl + 1);
+            else prog.IgnAtk = Ignition.Clamp(prog.IgnAtk + 1);
+            var sum = prog.IgnAtk + prog.IgnCrt + prog.IgnAgl;
+            var max = def != null ? def.IgnitionMax : 12;
+            if (max < 1) max = 12;
+            prog.Ignition = Mathf.Min(max, sum);
+            Persist();
+        }
 
         CharacterDef Grown(string id)
         {
-            return Growth.Apply(Catalog.MustChar(id), _save.GetUnit(id));
+            var def = Catalog.TryChar(id);
+            if (def == null) return null;
+            return Growth.Apply(def, _save.GetUnit(id));
         }
 
         int TeamPower()
         {
             var n = 0;
-            for (int i = 0; i < 5; i++)
-                n += Growth.CombatPower(Grown(_save.PartyIds[i]));
+            if (_save == null || _save.PartyIds == null) return 0;
+            for (int i = 0; i < _save.PartyIds.Length; i++)
+            {
+                var grown = Grown(_save.PartyIds[i]);
+                if (grown == null) continue;
+                n += Growth.CombatPower(grown);
+            }
             return n;
         }
 
@@ -206,6 +349,9 @@ namespace Resonance.App
         {
             _screen = id;
             _skillOpen = false;
+            _costumeOpen = false;
+            _ignitionOpen = false;
+            _moreOpen = false;
             ClearUi();
             switch (id)
             {
@@ -220,100 +366,271 @@ namespace Resonance.App
                 case ScreenId.Library: DrawLibrary(); break;
                 case ScreenId.Deep: DrawDeep(); break;
                 case ScreenId.Settings: DrawSettings(); break;
+                case ScreenId.Summon: DrawSummon(); break;
+                case ScreenId.Daily: DrawDaily(); break;
+                case ScreenId.Shop: DrawShop(); break;
+                case ScreenId.Mail: DrawMail(); break;
+                case ScreenId.Achieve: DrawAchieve(); break;
+                case ScreenId.Title: DrawTitle(); break;
+                case ScreenId.Friend: DrawFriend(); break;
+                case ScreenId.Rest: DrawRest(); break;
+                case ScreenId.Food: DrawFood(); break;
+                case ScreenId.Pvp: DrawPvp(); break;
+                case ScreenId.Tutorial: DrawTutorial(); break;
+                case ScreenId.Costume: DrawCostume(); break;
             }
+            MarkEntryDev(id);
         }
 
         void DrawBoot()
         {
-            CharacterPresenter.CheckerFloor(Root(), _built);
-            CharacterPresenter.Embers(Root(), _built, 16);
-            var wash = MakeImage("wash", new Vector2(0.5f, 0.58f), new Vector2(720, 720),
-                new Color(VisualTokens.GoldSelect.r, VisualTokens.GoldSelect.g, VisualTokens.GoldSelect.b, 0.28f));
-            UiSprites.Apply(wash, UiSprites.Soft());
-            wash.raycastTarget = false;
-            wash.gameObject.AddComponent<PulseGlow>().Seed(0.40f, 3.4f, 0f);
-            FullLabel("契灵回响", 64, VisualTokens.GoldSelect, new Vector2(0.5f, 0.58f), true);
-            FullLabel("点按  ·  上滑  ·  驱动", 28, VisualTokens.TextPrimary, new Vector2(0.5f, 0.48f), true);
-            FullLabel("二十五契灵  ·  五色五职", 20, VisualTokens.YellowValue, new Vector2(0.5f, 0.42f), false);
+            BootSplash.Draw(Root(), () =>
+            {
+                if (_screen == ScreenId.Boot) Show(ScreenId.Home);
+            });
         }
 
         void DrawHome()
         {
-            CharacterPresenter.CheckerFloor(Root(), _built);
-            CharacterPresenter.Embers(Root(), _built, 8);
-            var lead = _save.PartyIds[Mathf.Clamp(_save.LeaderSlot, 0, 4)];
-            var def = Catalog.MustChar(lead);
-            _built.Add(CharacterPresenter.DrawStage(Root(), def, _save.GetUnit(lead).SkinId));
-            LeftLabel(def.Name, 36, VisualTokens.TextPrimary, new Vector2(0.06f, 0.14f), true);
-            GhostBtn("设定", new Vector2(0.90f, 0.94f), () => Show(ScreenId.Settings));
+            var lead = _save.LeaderId();
+            var def = Catalog.TryChar(lead);
+            DrawLobbyStage(def);
+            // The cosmetic lives only on Home; roster, party and battle retain their real leader.
+            var bunny = EmeraldLobby.TryAttach(Root(), _built);
+            if (!bunny && def != null)
+                _built.Add(CharacterPresenter.DrawStage(Root(), def, _save.GetUnit(lead).SkinId));
+            HomeHud.Draw(Root(), _built, bunny ? null : def,
+                !bunny && def != null ? _save.GetUnit(lead) : null,
+                () => Show(ScreenId.Settings),
+                () => Show(ScreenId.Team),
+                () => Show(ScreenId.Stage));
+            if (bunny) EmeraldLobby.DrawIdentity(Root(), _built);
+            HomeIdleFx.Attach(Root(), _built);
+            LobbyRail.DrawHome(Root(), _built,
+                () => Show(ScreenId.Summon),
+                () => { _moreOpen = true; RedrawHome(); },
+                () => Show(ScreenId.Mail));
             Nav();
+            EmeraldLobby.DrawToggle(Root(), _built, bunny, RedrawHome);
+            if (_moreOpen)
+            {
+                LobbyRail.DrawMenu(Root(), _built, Go, () =>
+                {
+                    _moreOpen = false;
+                    RedrawHome();
+                });
+            }
+        }
+
+        void RedrawHome()
+        {
+            if (_screen != ScreenId.Home) _screen = ScreenId.Home;
+            ClearUi();
+            DrawHome();
+            MarkEntryDev(ScreenId.Home);
+        }
+
+        void MarkEntryDev(ScreenId id)
+        {
+            if (id != ScreenId.Home && id != ScreenId.Team && id != ScreenId.Stage && id != ScreenId.Result)
+                return;
+            var extra = "no GL numbers";
+            if (id == ScreenId.Result && _battle != null)
+                extra = "contrast " + _battle.Profile + " not GL";
+            DevOverlay.Draw(Root(), _built, id.ToString(), extra);
+        }
+
+        void DrawLobbyStage(CharacterDef def)
+        {
+            LobbyStage.Draw(Root(), _built, def != null && def.Id == "C001");
         }
 
         void DrawArchive()
         {
-            CharacterPresenter.MosaicFloor(Root(), _built);
-            FullLabel("图录", 28, VisualTokens.GoldTitle, new Vector2(0.5f, 0.965f), false);
-            FullLabel("二十五契灵  ·  五色五职", 18, VisualTokens.YellowValue, new Vector2(0.5f, 0.93f), false);
-            DrawElementRoleGrid(0.80f, 0.16f, new Vector2(168, 196), Inspect);
+            ArchiveBoard.Draw(Root(), _save.Roster, Inspect);
             CloseX(ScreenId.Home);
         }
 
         void DrawLibrary()
         {
-            CharacterPresenter.MosaicFloor(Root(), _built);
-            FullLabel("书库", 28, VisualTokens.GoldTitle, new Vector2(0.5f, 0.965f), false);
-            FullLabel("点开看  点按 / 上滑 / 驱动  ·  无抽卡", 18, VisualTokens.YellowValue, new Vector2(0.5f, 0.93f), false);
-            DrawElementRoleGrid(0.80f, 0.16f, new Vector2(168, 188), Inspect);
+            LibraryBoard.Draw(Root());
             CloseX(ScreenId.Home);
+        }
+
+        void DrawSummon()
+        {
+            var lead = _save.LeaderId();
+            var def = Catalog.TryChar(lead);
+            DrawLobbyStage(def);
+            CurrencyPlate.Draw(Root(), _built, _save.Gold, _save.Stone);
+            SummonBoard.Draw(Root(), () => Show(ScreenId.Home), () =>
+            {
+                var got = PullSummon();
+                var pulled = Catalog.TryChar(got);
+                var show = pulled != null ? pulled : def;
+                VfxSummonBurst.Play(Root(), show != null ? show.Name : "契核回响", show != null ? show.NativeStar : 3);
+                Show(ScreenId.Summon);
+            });
+        }
+
+        void DrawDaily()
+        {
+            var lead = _save.LeaderId();
+            var def = Catalog.TryChar(lead);
+            DrawLobbyStage(def);
+            CurrencyPlate.Draw(Root(), _built, _save.Gold, _save.Stone);
+            DailyBoard.Draw(Root(), _save.DailyClaimed, () => Show(ScreenId.Home), ClaimDaily);
+        }
+
+        void DrawShop()
+        {
+            var lead = _save.LeaderId();
+            var def = Catalog.TryChar(lead);
+            DrawLobbyStage(def);
+            CurrencyPlate.Draw(Root(), _built, _save.Gold, _save.Stone);
+            ShopBoard.Draw(Root(), () => Show(ScreenId.Home), BuyShop);
+        }
+
+        void DrawMail()
+        {
+            var lead = _save.LeaderId();
+            var def = Catalog.TryChar(lead);
+            DrawLobbyStage(def);
+            CurrencyPlate.Draw(Root(), _built, _save.Gold, _save.Stone);
+            MailBoard.Draw(Root(), _save.MailRead, () => Show(ScreenId.Home), ReadMail);
+        }
+
+        void DrawAchieve()
+        {
+            var lead = _save.LeaderId();
+            var def = Catalog.TryChar(lead);
+            DrawLobbyStage(def);
+            AchievementBoard.Draw(Root(), () => Show(ScreenId.Home));
+        }
+
+        void DrawTitle()
+        {
+            var lead = _save.LeaderId();
+            var def = Catalog.TryChar(lead);
+            DrawLobbyStage(def);
+            TitleBoard.Draw(Root(), () => Show(ScreenId.Home));
+        }
+
+        void DrawFriend()
+        {
+            var lead = _save.LeaderId();
+            var def = Catalog.TryChar(lead);
+            DrawLobbyStage(def);
+            FriendBoard.Draw(Root(), () => Show(ScreenId.Home));
+        }
+
+        void DrawRest()
+        {
+            var lead = _save.LeaderId();
+            var def = Catalog.TryChar(lead);
+            DrawLobbyStage(def);
+            var pts = _save.GetUnit(lead).Affection;
+            RestBoard.Draw(Root(), pts, () => Show(ScreenId.Home), () =>
+            {
+                var u = _save.GetUnit(lead);
+                u.Affection = Mathf.Min(Bond.PointCap, u.Affection + 10);
+                Persist();
+                Show(ScreenId.Rest);
+            });
+            VfxRestSteam.Play(Root(), new Vector2(0.5f, 0.48f));
+        }
+
+        void DrawFood()
+        {
+            var lead = _save.LeaderId();
+            var def = Catalog.TryChar(lead);
+            DrawLobbyStage(def);
+            FoodBoard.Draw(Root(), _save.Meal, () => Show(ScreenId.Home), i =>
+            {
+                _save.Meal = i;
+                Persist();
+                Show(ScreenId.Food);
+            });
+        }
+
+        void DrawPvp()
+        {
+            var lead = _save.LeaderId();
+            var def = Catalog.TryChar(lead);
+            DrawLobbyStage(def);
+            PvpBoard.Draw(Root(), _save.PvpDoor, () => Show(ScreenId.Home), () =>
+            {
+                _save.PvpDoor = !_save.PvpDoor;
+                Persist();
+                Show(ScreenId.Pvp);
+            });
+        }
+
+        void DrawTutorial()
+        {
+            TutorialBoard.Draw(Root(), _tutorialPage, () =>
+            {
+                _tutorialPage = 0;
+                Show(ScreenId.Home);
+            }, () =>
+            {
+                _tutorialPage = Mathf.Min(2, _tutorialPage + 1);
+                Show(ScreenId.Tutorial);
+            });
+        }
+
+        void DrawCostume()
+        {
+            _costumeOpen = true;
+            DrawInspect();
         }
 
         void DrawSettings()
         {
-            CharacterPresenter.MosaicFloor(Root(), _built);
-            FullLabel("设定", 28, VisualTokens.GoldTitle, new Vector2(0.5f, 0.88f), false);
-            FullLabel("只改本机  ·  不联网", 18, VisualTokens.TextMuted, new Vector2(0.5f, 0.83f), false);
-            Confirm(_save.Auto == AutoMode.Manual ? "自动  关"
-                : _save.Auto == AutoMode.Semi ? "半自动" : "全自动", new Vector2(0.5f, 0.68f), () =>
+            var lead = _save.LeaderId();
+            var def = Catalog.TryChar(lead);
+            DrawLobbyStage(def);
+            if (def != null)
+                _built.Add(CharacterPresenter.DrawStage(Root(), def, _save.GetUnit(lead).SkinId));
+            SettingsModal.Draw(Root(), _built, _save.Auto, _save.Speed, new SettingsHooks
             {
-                CycleBattleAuto();
-                Show(ScreenId.Settings);
+                onAuto = () =>
+                {
+                    CycleBattleAuto();
+                    Show(ScreenId.Settings);
+                },
+                onSpeed = () =>
+                {
+                    _save.Speed = _save.Speed == 1 ? 2 : 1;
+                    Persist();
+                    Show(ScreenId.Settings);
+                },
+                onWipe = () =>
+                {
+                    _save = SaveStore.Reset(SavePath());
+                    Show(ScreenId.Home);
+                },
+                onBack = () => Show(ScreenId.Home)
             });
-            Confirm(_save.Speed == 2 ? "倍速  2×" : "倍速  1×", new Vector2(0.5f, 0.56f), () =>
-            {
-                _save.Speed = _save.Speed == 1 ? 2 : 1;
-                Persist();
-                Show(ScreenId.Settings);
-            });
-            FullLabel("契灵回响  MVP v0.1.0", 18, VisualTokens.TextSecondary, new Vector2(0.5f, 0.42f), false);
-            GhostBtn("清除本地存档", new Vector2(0.5f, 0.28f), () =>
-            {
-                _save = SaveStore.Reset(SavePath());
-                Show(ScreenId.Home);
-            });
-            Confirm("回首页", new Vector2(0.5f, 0.16f), () => Show(ScreenId.Home));
+            // 设置是模态：不挂底部六签。
         }
 
         void DrawDeep()
         {
             CharacterPresenter.MosaicFloor(Root(), _built);
-            FullLabel("深途", 28, VisualTokens.GoldTitle, new Vector2(0.5f, 0.88f), false);
-            var n = _save.ClearedCount;
-            if (n < 12)
+            DeepBoard.Draw(Root(), _save.ClearedCount, node =>
             {
-                FullLabel("裂口还没走完\n普通 " + n + " / 12\n先去「关卡」封上城门守核", 24, VisualTokens.TextPrimary, new Vector2(0.5f, 0.55f), false);
-                Confirm("去关卡", new Vector2(0.5f, 0.22f), () => Show(ScreenId.Stage));
-            }
-            else
-            {
-                FullLabel("第1章裂口已封\n困难关在「关卡」里切换\n更深的层仍关闭（不做星云/公会）", 24, VisualTokens.TextPrimary, new Vector2(0.5f, 0.55f), false);
-                Confirm("去困难", new Vector2(0.5f, 0.22f), () =>
+                StartBattleAt(Mathf.Clamp(node, 0, 11));
+            });
+            if (_save.ClearedCount >= 12)
+                NebulaBoard.Draw(Root(), Mathf.Max(1, _save.ClearedHard), () =>
                 {
                     _save.UseHard = true;
                     Persist();
-                    Show(ScreenId.Stage);
+                    StartBattleAt(0);
                 });
-            }
             CloseX(ScreenId.Home);
+            // 深途全屏：不挂底部六签。
         }
 
         void IdentityBlock(CharacterDef def, UnitProgress prog, Vector2 anchor, bool compact = false, bool plate = false)
@@ -371,45 +688,45 @@ namespace Resonance.App
 
         void DrawCharacters()
         {
-            CharacterPresenter.MosaicFloor(Root(), _built);
-            FullLabel("契灵", 28, VisualTokens.GoldTitle, new Vector2(0.5f, 0.965f), false);
-            FullLabel("五色五职  ·  战力 " + TeamPower(), 22, VisualTokens.YellowValue, new Vector2(0.5f, 0.93f), false);
-            DrawElementRoleGrid(0.80f, 0.22f, new Vector2(168, 176), Inspect);
-            Confirm("编队", new Vector2(0.32f, 0.125f), () => Show(ScreenId.Team));
-            Confirm("出战", new Vector2(0.68f, 0.125f), () => Show(ScreenId.Stage));
-            CloseX(ScreenId.Home);
+            TeamBoard.DrawRoster(Root(), _built, _save, Inspect);
+            Nav();
         }
 
         void DrawTeam()
         {
-            CharacterPresenter.MosaicFloor(Root(), _built);
-            FullLabel("编队", 28, VisualTokens.GoldTitle, new Vector2(0.5f, 0.965f), false);
-            FullLabel("点选槽位换人 · 委任队长", 18, VisualTokens.TextSecondary, new Vector2(0.5f, 0.93f), false);
-            DrawPartyRow(0.84f, true, 118f, 148f);
-            var sel = Catalog.MustChar(_save.PartyIds[_editSlot]);
-            FullLabel(sel.Name + "  战力 " + Growth.CombatPower(Grown(sel.Id)), 22, VisualTokens.YellowValue, new Vector2(0.38f, 0.72f), false);
-            GhostBtn("詳細", new Vector2(0.78f, 0.72f), () => Inspect(_save.PartyIds[_editSlot]));
-            GhostBtn("队长", new Vector2(0.22f, 0.72f), () => SetLeader(_editSlot));
-            DrawElementRoleGrid(0.60f, 0.14f, new Vector2(156, 148), id =>
-            {
-                _save.SetPartySlot(_editSlot, id);
-                Persist();
-                Show(ScreenId.Team);
-            });
+            TeamBoard.DrawTeam(Root(), _built, _save, _editSlot,
+                slot => { _editSlot = slot; Show(ScreenId.Team); },
+                id =>
+                {
+                    _save.SetPartySlot(_editSlot, id);
+                    Persist();
+                    Show(ScreenId.Team);
+                },
+                SetLeader,
+                Inspect);
             Nav();
+            var goStage = OverlayDraw.Hit(Root(), _built, new Vector2(0.86f, 0.168f), new Vector2(160, 48),
+                () => Show(ScreenId.Stage));
+            if (goStage != null) goStage.name = "去关卡";
+            var txStage = OverlayDraw.Label(Root(), _built, "去关卡", 18, VisualTokens.GoldMetal,
+                new Vector2(0.86f, 0.168f), new Vector2(150, 40), false, true, 2f);
+            if (txStage != null) txStage.raycastTarget = false;
         }
 
         void DrawPartyRow(float y, bool selectable, float chipW, float chipH)
         {
-            for (int i = 0; i < 5; i++)
+            var n = _save != null && _save.PartyIds != null ? _save.PartyIds.Length : 0;
+            var dx = n <= 5 ? 0.19f : (n > 0 ? 0.76f / n : 0.19f);
+            for (int i = 0; i < n; i++)
             {
                 var id = _save.PartyIds[i];
-                var def = Catalog.MustChar(id);
+                var def = Catalog.TryChar(id);
+                if (def == null) continue;
                 var lv = _save.GetUnit(id).Level;
                 var selected = selectable && i == _editSlot;
                 var slot = i;
                 var chip = CharacterPresenter.DrawChip(Root(), def,
-                    new Vector2(0.12f + i * 0.19f, y), new Vector2(chipW, chipH), selected, i == _save.LeaderSlot, lv);
+                    new Vector2(0.12f + i * dx, y), new Vector2(chipW, chipH), selected, i == _save.LeaderSlot, lv);
                 var btn = chip.AddComponent<Button>();
                 btn.targetGraphic = chip.GetComponent<Image>();
                 btn.onClick.AddListener(() =>
@@ -466,105 +783,204 @@ namespace Resonance.App
         void DrawInspect()
         {
             ClearUi();
-            CharacterPresenter.CheckerFloor(Root(), _built);
-            CharacterPresenter.Embers(Root(), _built);
             var id = _inspectId ?? Catalog.DefaultParty[0];
             if (Catalog.Characters == null || !Catalog.Characters.ContainsKey(id))
                 id = Catalog.DefaultParty[0];
             if (Catalog.Characters == null || !Catalog.Characters.ContainsKey(id))
                 return;
-            var def = Catalog.MustChar(id);
+            var def = Catalog.TryChar(id);
+            if (def == null) return;
+            DrawLobbyStage(def);
             var prog = _save.GetUnit(id);
-            var grown = Growth.Apply(def, prog);
-            var br = Growth.BreakDown(def, prog);
-            _built.Add(CharacterPresenter.DrawStage(Root(), def, prog.SkinId, 0.42f, 0.92f));
-            IdentityBlock(def, prog, new Vector2(0.06f, 0.388f), true, false);
-            LeftLabel(StarLine(def, prog), 18, VisualTokens.StarEvolved, new Vector2(0.62f, 0.388f), false);
-            FullLabel("契体 " + br.BodyAtk + "  好感 +" + br.AffAtk + "  装备 +" + br.GearAtk,
-                16, VisualTokens.TextSecondary, new Vector2(0.5f, 0.270f), false);
-
-            DrawWells(prog);
-
-            var pips = Growth.IgnitionPips(prog.Ignition);
-            FullLabel("燃起  " + pips + " / 6", 18, VisualTokens.GoldTitle, new Vector2(0.22f, 0.165f), false);
-            for (int i = 0; i < 6; i++)
+            if (!Costume.Unlocked(id, prog.SkinId))
+                prog.SkinId = "";
+            _built.Add(CharacterPresenter.DrawStage(Root(), def, prog.SkinId));
+            if (def != null && def.Id == "C001")
+                IceParticles.Attach(Root(), _built, true);
+            AttachInspectSwipe();
+            InspectBoard.Draw(Root(), _built, def, prog, new InspectHooks
             {
-                var on = i < pips;
-                var pip = MakeImage("pip", new Vector2(0.40f + i * 0.08f, 0.165f), new Vector2(48, 48),
-                    on ? VisualTokens.GoldSelect : VisualTokens.SlotWell);
-                UiSprites.Apply(pip, UiSprites.Circle());
-                pip.raycastTarget = false;
-            }
-            GhostBtn("点亮", new Vector2(0.90f, 0.165f), () =>
-            {
-                prog.Ignition = Growth.CycleIgnition(prog.Ignition, def.IgnitionMax);
-                Persist();
-                DrawInspect();
-            });
-
-            FullLabel("技能预约   T=点按   S=上滑", 15, VisualTokens.TextMuted, new Vector2(0.5f, 0.142f), false);
-            var rsv = Growth.NormalizedReserve(prog.Reserve);
-            for (int i = 0; i < 5; i++)
-            {
-                var slot = i;
-                var x = 0.14f + i * 0.18f;
-                var mark = rsv[i].ToString();
-                var fill = mark == "S" ? VisualTokens.SlideGreen : mark == "T" ? VisualTokens.YellowConfirm : VisualTokens.SlotWell;
-                var go = MakeButton(mark, new Vector2(x, 0.108f), new Vector2(72, 72),
-                    mark == "E" ? VisualTokens.TextMuted : VisualTokens.TextOnYellow, () =>
+                onClose = () => Show(_inspectBack),
+                onSkills = ToggleSkill,
+                onEquipSlot = slot =>
+                {
+                    var current = SlotGear(prog, slot);
+                    var next = GearCatalog.CycleSlot(slot, current);
+                    if (string.IsNullOrEmpty(current) && string.IsNullOrEmpty(next))
                     {
-                        prog.Reserve = Growth.CycleReserveSlot(prog.Reserve, slot);
-                        Persist();
+                        _equipNotice = true;
+                        DrawInspect();
+                        return;
+                    }
+                    SetSlotGear(prog, slot, next);
+                    Persist();
+                    DrawInspect();
+                },
+                onEquipPlus = slot => UpgradePlus(prog, slot),
+                onIgnition = () =>
+                {
+                    _ignitionOpen = true;
+                    DrawInspect();
+                },
+                onLevel = () =>
+                {
+                    prog.Level = prog.Level >= Growth.MaxLevel ? 1 : prog.Level + 1;
+                    Persist();
+                    DrawInspect();
+                    VfxLevelUp.Play(Root(), prog.Level);
+                },
+                onUncap = () =>
+                {
+                    prog.Uncap = prog.Uncap >= def.UncapMax ? 0 : prog.Uncap + 1;
+                    Persist();
+                    DrawInspect();
+                    VfxUncap.Play(Root(), OverlayDraw.StarCount(def, prog));
+                },
+                onAffection = () =>
+                {
+                    prog.Affection = Growth.CycleAffection(prog.Affection);
+                    Persist();
+                    DrawInspect();
+                    VfxAffection.Play(Root(), new Vector2(0.22f, 0.42f), prog.Affection);
+                },
+                onSkin = () =>
+                {
+                    _costumeOpen = true;
+                    DrawInspect();
+                },
+                onJoinParty = () =>
+                {
+                    _save.SetPartySlot(_editSlot, id);
+                    Persist();
+                    Show(ScreenId.Team);
+                },
+                onPrev = () => CycleInspect(-1),
+                onNext = () => CycleInspect(1)
+            });
+            if (_skillOpen) InspectBoard.DrawSkillSheet(Root(), _built, def, prog, ToggleSkill);
+            if (_costumeOpen)
+            {
+                CostumeBoard.Draw(Root(), id, prog.SkinId, () =>
+                {
+                    _costumeOpen = false;
+                    DrawInspect();
+                }, skin =>
+                {
+                    if (string.IsNullOrEmpty(skin) || Costume.Unlocked(id, skin))
+                    {
+                        prog.SkinId = skin ?? "";
+                    }
+                    else if (_save.SpendStone(40))
+                    {
+                        Costume.Unlock(id, skin);
+                        prog.SkinId = skin;
+                    }
+                    else return;
+                    Persist();
+                    _costumeOpen = false;
+                    DrawInspect();
+                });
+            }
+            if (_ignitionOpen)
+            {
+                IgnitionBoard.Draw(Root(), prog.IgnAtk, prog.IgnCrt, prog.IgnAgl, Ignition.StoneCap,
+                    () =>
+                    {
+                        _ignitionOpen = false;
+                        DrawInspect();
+                    }, kind =>
+                    {
+                        AddIgnitionStone(prog, def, kind);
                         DrawInspect();
                     });
-                var img = go.GetComponent<Image>();
-                UiSprites.Apply(img, UiSprites.Circle());
-                img.color = fill;
-                go.GetComponentInChildren<Text>().fontSize = 28;
             }
+            else if (_equipNotice && !_skillOpen && !_costumeOpen)
+            {
+                InspectBoard.DrawEmptyNotice(Root(), _built, () =>
+                {
+                    _equipNotice = false;
+                    DrawInspect();
+                });
+            }
+        }
 
-            GhostBtn("LV-", new Vector2(0.10f, 0.062f), () =>
-            {
-                prog.Level = Mathf.Max(1, prog.Level - 1);
-                Persist();
-                DrawInspect();
-            });
-            FullLabel("LV " + prog.Level, 18, VisualTokens.YellowValue, new Vector2(0.22f, 0.062f), false);
-            GhostBtn("LV+", new Vector2(0.34f, 0.062f), () =>
-            {
-                prog.Level = Mathf.Min(Growth.MaxLevel, prog.Level + 1);
-                Persist();
-                DrawInspect();
-            });
-            GhostBtn("突破+" + prog.Uncap, new Vector2(0.50f, 0.062f), () =>
-            {
-                prog.Uncap = prog.Uncap >= def.UncapMax ? 0 : prog.Uncap + 1;
-                Persist();
-                DrawInspect();
-            });
-            GhostBtn("好感" + Growth.AffectionRank(prog.Affection), new Vector2(0.66f, 0.062f), () =>
-            {
-                prog.Affection = Growth.CycleAffection(prog.Affection);
-                Persist();
-                DrawInspect();
-            });
-            GhostBtn(SkinCatalog.Label(prog.SkinId), new Vector2(0.84f, 0.062f), () =>
-            {
-                prog.SkinId = SkinCatalog.Cycle(prog.SkinId);
-                Persist();
-                DrawInspect();
-            });
+        void AttachInspectSwipe()
+        {
+            var go = new GameObject("InspectSwipe", typeof(RectTransform), typeof(Image));
+            go.transform.SetParent(Root(), false);
+            var rt = go.GetComponent<RectTransform>();
+            rt.anchorMin = new Vector2(0.05f, 0.15f);
+            rt.anchorMax = new Vector2(0.82f, 0.92f);
+            rt.offsetMin = rt.offsetMax = Vector2.zero;
+            var img = go.GetComponent<Image>();
+            UiSprites.Apply(img, UiSprites.Pixel());
+            img.color = Color.clear;
+            img.raycastTarget = true;
+            var cr = img.canvasRenderer;
+            if (cr != null) cr.cullTransparentMesh = false;
+            var pad = go.AddComponent<InspectSwipePad>();
+            pad.OnPrev = () => CycleInspect(-1);
+            pad.OnNext = () => CycleInspect(1);
+            _built.Add(go);
+        }
 
-            Confirm("技能", new Vector2(0.78f, 0.024f), ToggleSkill);
-            GhostBtn("编入", new Vector2(0.22f, 0.024f), () =>
+        void CycleInspect(int dir)
+        {
+            if (dir == 0) return;
+            var ids = InspectRoster();
+            if (ids == null || ids.Count < 2) return;
+            var cur = _inspectId ?? "";
+            var idx = 0;
+            for (int i = 0; i < ids.Count; i++)
             {
-                _save.SetPartySlot(_editSlot, id);
-                Persist();
-                Show(ScreenId.Team);
-            });
-            GhostBtn("返回", new Vector2(0.50f, 0.024f), () => Show(_inspectBack));
-            GhostBtn("×", new Vector2(0.93f, 0.95f), () => Show(_inspectBack));
-            if (_skillOpen) DrawSkillModal(def, grown);
+                if (ids[i] == cur)
+                {
+                    idx = i;
+                    break;
+                }
+            }
+            for (int n = 0; n < ids.Count; n++)
+            {
+                idx += dir;
+                if (idx < 0) idx += ids.Count;
+                if (idx >= ids.Count) idx -= ids.Count;
+                var id = ids[idx];
+                if (string.IsNullOrEmpty(id) || id == cur) continue;
+                if (Catalog.TryChar(id) == null) continue;
+                _inspectId = id;
+                _skillOpen = false;
+                _costumeOpen = false;
+                _ignitionOpen = false;
+                _equipNotice = false;
+                DrawInspect();
+                return;
+            }
+        }
+
+        List<string> InspectRoster()
+        {
+            var list = new List<string>();
+            if (_save != null && _save.Roster != null && _save.Roster.Count > 0)
+            {
+                for (int i = 0; i < _save.Roster.Count; i++)
+                {
+                    var id = _save.Roster[i];
+                    if (string.IsNullOrEmpty(id)) continue;
+                    if (Catalog.TryChar(id) == null) continue;
+                    list.Add(id);
+                }
+                if (list.Count > 0) return list;
+            }
+            var play = Catalog.PlayableIds;
+            if (play == null) return list;
+            for (int i = 0; i < play.Length; i++)
+            {
+                var id = play[i];
+                if (string.IsNullOrEmpty(id)) continue;
+                if (Catalog.TryChar(id) == null) continue;
+                list.Add(id);
+            }
+            return list;
         }
 
         void DrawWells(UnitProgress prog)
@@ -613,128 +1029,79 @@ namespace Resonance.App
             }
         }
 
+        static int SlotPlus(UnitProgress p, int slot)
+        {
+            switch (slot)
+            {
+                case 0: return p.Plus0;
+                case 1: return p.Plus1;
+                case 2: return p.Plus2;
+                default: return p.Plus3;
+            }
+        }
+
+        static void SetSlotPlus(UnitProgress p, int slot, int plus)
+        {
+            switch (slot)
+            {
+                case 0: p.Plus0 = plus; break;
+                case 1: p.Plus1 = plus; break;
+                case 2: p.Plus2 = plus; break;
+                default: p.Plus3 = plus; break;
+            }
+        }
+
+        void UpgradePlus(UnitProgress prog, int slot)
+        {
+            if (_save == null || prog == null) return;
+            var current = SlotPlus(prog, slot);
+            if (current >= 15) return;
+            var cost = 80 * (current + 1);
+            if (!_save.SpendGold(cost)) return;
+            SetSlotPlus(prog, slot, current + 1);
+            Persist();
+            DrawInspect();
+        }
+
         void ToggleSkill()
         {
             _skillOpen = !_skillOpen;
             DrawInspect();
         }
 
-        void DrawSkillModal(CharacterDef def, CharacterDef grown)
-        {
-            var dim = MakeImage("dim", new Vector2(0.5f, 0.5f), new Vector2(1080, 1920), VisualTokens.OverlayDim);
-            dim.raycastTarget = true;
-            PanelBox("技能", new Vector2(0.5f, 0.52f), new Vector2(860, 720));
-            var lines = KitLine("连击", def.AutoSkillId, def, grown)
-                + "\n" + KitLine("点按", def.TapSkillId, def, grown)
-                + "\n" + KitLine("上滑", def.SlideSkillId, def, grown)
-                + "\n" + KitLine("驱动", def.DriveSkillId, def, grown)
-                + "\n" + KitLine("队长", def.LeaderSkillId, def, grown)
-                + "\n生命 " + grown.Hp + "  攻击 " + grown.Atk + "  战力 " + Growth.CombatPower(grown);
-            FullLabel(lines, 22, VisualTokens.TextStat, new Vector2(0.5f, 0.52f), false);
-            Confirm("关闭", new Vector2(0.5f, 0.26f), ToggleSkill);
-        }
-
-        static string KitLine(string tag, string skillId, CharacterDef def, CharacterDef grown)
-        {
-            var s = Catalog.MustSkill(skillId);
-            var extra = "";
-            if (s.AtkCoef > 0f || s.FlatPower > 0)
-            {
-                var dmg = DamageMath.ComputeSkill(s.Type, grown.Atk, s.AtkCoef, s.FlatPower, 650, def.Element, Element.Wood, false, 1f, 1f);
-                extra = "  ~" + dmg;
-            }
-            else if (s.HealCoef > 0f || s.FlatHeal > 0)
-                extra = "  治疗";
-            return tag + "  " + s.Name + extra;
-        }
-
         void DrawStage()
         {
-            CharacterPresenter.MosaicFloor(Root(), _built);
-            FullLabel("第1章  废都裂口", 30, VisualTokens.GoldTitle, new Vector2(0.5f, 0.96f), false);
             var hardLocked = _save.ClearedCount < 12;
             if (hardLocked) _save.UseHard = false;
-            GhostBtn(_save.UseHard ? "普通" : "普通·", new Vector2(0.28f, 0.915f), () =>
-            {
-                _save.UseHard = false;
-                Persist();
-                Show(ScreenId.Stage);
-            });
-            var hardBtn = GhostBtn(_save.UseHard ? "困难·" : "困难", new Vector2(0.72f, 0.915f), () =>
-            {
-                if (hardLocked) return;
-                _save.UseHard = true;
-                Persist();
-                Show(ScreenId.Stage);
-            });
-            if (hardLocked)
-            {
-                var hardTx = hardBtn.GetComponentInChildren<Text>();
-                if (hardTx != null) hardTx.color = VisualTokens.TextMuted;
-                var hardClick = hardBtn.GetComponent<Button>();
-                if (hardClick != null) hardClick.interactable = false;
-            }
             var table = Catalog.Chapter(_save.UseHard);
-            var cleared = _save.UseHard ? _save.ClearedHard : _save.ClearedCount;
-            FullLabel((_save.UseHard ? "困难 " : "普通 ") + cleared + " / 12", 20, VisualTokens.YellowValue, new Vector2(0.5f, 0.875f), false);
-            for (int i = 0; i < table.Length; i++)
-            {
-                var idx = i;
-                var locked = StageLocked(idx);
-                var selected = i == _stageIndex;
-                var st = table[i];
-                var raw = st.Name ?? "";
-                var sp = raw.LastIndexOf(' ');
-                var shortName = sp >= 0 && sp + 1 < raw.Length ? raw.Substring(sp + 1) : raw;
-                var label = (locked ? "锁\n" : (i + 1).ToString("00") + "\n") + shortName;
-                var col = i % 3;
-                var row = i / 3;
-                var go = MakeButton(label, new Vector2(0.18f + col * 0.32f, 0.76f - row * 0.125f), new Vector2(300, 150),
-                    locked ? VisualTokens.TextMuted : VisualTokens.TextPrimary, () =>
-                    {
-                        if (locked) return;
-                        _stageIndex = idx;
-                        Show(ScreenId.Stage);
-                    });
-                var img = go.GetComponent<Image>();
-                UiSprites.Apply(img, UiSprites.Round());
-                img.color = selected ? new Color(0.18f, 0.14f, 0.04f) : VisualTokens.PanelFill;
-                var tx = go.GetComponentInChildren<Text>();
-                if (tx != null) tx.fontSize = 20;
-                if (selected)
+            if (table == null || table.Length == 0) table = Catalog.Stages;
+            _stageIndex = Mathf.Clamp(_stageIndex, 0, Mathf.Max(0, table.Length - 1));
+            while (_stageIndex > 0 && StageLocked(_stageIndex)) _stageIndex--;
+
+            CharacterPresenter.StageBackdrop(Root(), _built, _stageIndex, _save.UseHard, false);
+            StageBoard.Draw(Root(), _built, table, _stageIndex, _save.UseHard, hardLocked,
+                _save.UseHard ? _save.ClearedHard : _save.ClearedCount,
+                StageLocked,
+                idx => { _stageIndex = idx; Show(ScreenId.Stage); },
+                () =>
                 {
-                    var ol = go.AddComponent<Outline>();
-                    ol.effectColor = VisualTokens.GoldSelect;
-                    ol.effectDistance = new Vector2(2, -2);
-                }
-            }
-            DrawWavePreview(table[Mathf.Clamp(_stageIndex, 0, table.Length - 1)]);
-            var pick = table[Mathf.Clamp(_stageIndex, 0, table.Length - 1)];
-            FullLabel((pick != null ? pick.Name : "") + "  ·  PHASE 1/2", 18, VisualTokens.TextSecondary, new Vector2(0.5f, 0.138f), false);
-            Confirm("战斗开始", new Vector2(0.5f, 0.078f), () => StartBattleAt(_stageIndex));
-            CloseX(ScreenId.Home);
+                    _save.UseHard = false;
+                    Persist();
+                    Show(ScreenId.Stage);
+                },
+                () =>
+                {
+                    if (hardLocked) return;
+                    _save.UseHard = true;
+                    Persist();
+                    Show(ScreenId.Stage);
+                },
+                () => StartBattleAt(_stageIndex),
+                () => Show(ScreenId.Home),
+                () => Show(ScreenId.Team));
         }
 
         bool StageLocked(int index) => _save.IsStageLocked(index);
-
-        void DrawWavePreview(StageDef st)
-        {
-            if (st == null || st.Wave0 == null) return;
-            FullLabel("本关敌人（前波）", 16, VisualTokens.TextMuted, new Vector2(0.22f, 0.255f), false);
-            var n = Math.Min(5, st.Wave0.Length);
-            for (int i = 0; i < n; i++)
-            {
-                var id = st.Wave0[i];
-                if (!Catalog.Characters.ContainsKey(id)) continue;
-                var def = Catalog.MustChar(id);
-                var chip = CharacterPresenter.DrawChip(Root(), def, new Vector2(0.16f + i * 0.17f, 0.195f),
-                    new Vector2(110, 128), false, false, 1);
-                chip.GetComponent<Image>().raycastTarget = false;
-                _built.Add(chip);
-            }
-            if (st.Wave1 != null && st.Wave1.Length > 0 && Catalog.Characters.ContainsKey(st.Wave1[0]))
-                FullLabel("第二波  BOSS  " + Catalog.MustChar(st.Wave1[0]).Name, 16, VisualTokens.YellowValue, new Vector2(0.5f, 0.155f), false);
-        }
 
         void TryStartFromMenu()
         {
@@ -765,11 +1132,17 @@ namespace Resonance.App
             _activeStage = index;
             _save.LastSeed = unchecked(Environment.TickCount);
             var stage = table[index];
-            _battle = new BattleSim(_save.PartyIds, _save.LeaderSlot, _save.LastSeed, stage, _save.ProgressForParty())
+            var mods = new BattleMods
+            {
+                FoodAtkMul = Food.AtkMulOf(_save.Meal),
+                CartaMul = PvpRules.CartaMulIfPvp(_save.PvpDoor)
+            };
+            _battle = new BattleSim(_save.PartyIds, _save.LeaderSlot, _save.LastSeed, stage, _save.ProgressForParty(), mods)
             {
                 Speed = _save.Speed,
                 Auto = _save.Auto,
-                Deterministic = false
+                Deterministic = true,
+                Profile = FormulaProfile.JP_LEGACY_EMPIRICAL
             };
             _simAcc = 0f;
             Show(ScreenId.Battle);
@@ -777,6 +1150,11 @@ namespace Resonance.App
 
         void DrawBattle()
         {
+            if (_battle == null)
+            {
+                Show(ScreenId.Home);
+                return;
+            }
             _hud = new BattleHud(this, Root(), _built);
             _hud.Build(_activeStage);
         }
@@ -784,47 +1162,17 @@ namespace Resonance.App
         void DrawResult()
         {
             CharacterPresenter.MosaicFloor(Root(), _built);
-            MakeImage("dim", new Vector2(0.5f, 0.5f), new Vector2(1080, 1920), VisualTokens.OverlayDim);
             var win = _resultTitle == "胜利";
-            FullLabel(win ? "胜利" : "失败", 56, win ? VisualTokens.GoldSelect : VisualTokens.StarEvolved, new Vector2(0.5f, 0.64f), true);
             var cleared = _save.UseHard ? _save.ClearedHard : _save.ClearedCount;
-            var track = _save.UseHard ? "困难" : "普通";
-            FullLabel(track + "  " + cleared + " / 12  已写入本地", 22, VisualTokens.TextPrimary, new Vector2(0.5f, 0.54f), false);
-            if (!string.IsNullOrEmpty(_lootLine))
-                FullLabel("掉落  " + _lootLine + "    全队好感 +4", 22, VisualTokens.YellowValue, new Vector2(0.5f, 0.46f), false);
-            else
-                FullLabel(win ? "掉落  无额外装备    全队好感 +4" : "掉落  无", 20, VisualTokens.TextMuted, new Vector2(0.5f, 0.46f), false);
-            if (_battle != null)
-            {
-                int tap = 0, slide = 0, drive = 0, auto = 0;
-                for (int i = 0; i < _battle.Casts.Count; i++)
-                {
-                    var fx = _battle.Casts[i];
-                    if (!fx.CasterAlly || fx.Fever) continue;
-                    if (fx.Type == SkillType.Slide) slide++;
-                    else if (fx.Type == SkillType.Drive) drive++;
-                    else if (fx.Type == SkillType.Tap) tap++;
-                    else if (fx.Type == SkillType.Auto) auto++;
-                }
-                FullLabel("连击 " + auto + "   点按 " + tap + "   上滑 " + slide + "   驱动 " + drive,
-                    20, VisualTokens.TextSecondary, new Vector2(0.5f, 0.38f), false);
-                FullLabel(_battle.FeverEver ? "狂热时间  有" : "狂热时间  无",
-                    22, _battle.FeverEver ? VisualTokens.YellowValue : VisualTokens.TextMuted, new Vector2(0.5f, 0.335f), false);
-                if (tap + slide + drive == 0)
-                    FullLabel("点按头像  ·  上滑头像  ·  Drive 满了点翼标", 18, VisualTokens.YellowValue, new Vector2(0.5f, 0.29f), false);
-            }
-            var y = 0.20f;
+            System.Action next = null;
             if (win && cleared > 0 && cleared < 12)
-            {
-                Confirm("下一关", new Vector2(0.5f, y), () =>
-                {
-                    _stageIndex = cleared;
-                    StartBattleAt(_stageIndex);
-                });
-                y -= 0.075f;
-            }
-            Confirm("再战", new Vector2(0.5f, y), () => StartBattleAt(_activeStage));
-            Confirm("回首页", new Vector2(0.5f, y - 0.075f), () => Show(ScreenId.Home));
+                next = () => { _stageIndex = cleared; StartBattleAt(_stageIndex); };
+            else
+                next = () => StartBattleAt(_activeStage);
+            ResultBoard.Draw(Root(), win, _battle, _lootLine, () => Show(ScreenId.Home), next);
+            VfxStageClear.Play(Root(), win);
+            if (win && !string.IsNullOrEmpty(_lootLine))
+                VfxLootDrop.Play(Root(), new Vector2(0.5f, 0.44f), _lootLine);
         }
 
         void DrawStub(string title, string body)
@@ -837,17 +1185,26 @@ namespace Resonance.App
 
         void Nav()
         {
-            Tab("首页", 0, ScreenId.Home);
-            Tab("契灵", 1, ScreenId.Characters);
-            Tab("关卡", 2, ScreenId.Stage);
-            Tab("图录", 3, ScreenId.Archive);
-            Tab("书库", 4, ScreenId.Library);
-            Tab("深途", 5, ScreenId.Deep);
+            var sel = 0;
+            if (_screen == ScreenId.Characters || _screen == ScreenId.Team) sel = 1;
+            else if (_screen == ScreenId.Stage) sel = 2;
+            else if (_screen == ScreenId.Archive) sel = 3;
+            else if (_screen == ScreenId.Library) sel = 4;
+            else if (_screen == ScreenId.Deep) sel = 5;
+            UiChrome.TabBar(Root(), _built, sel, null, i =>
+            {
+                if (i == 1) Show(ScreenId.Team);
+                else if (i == 2) Show(ScreenId.Stage);
+                else if (i == 3) Show(ScreenId.Archive);
+                else if (i == 4) Show(ScreenId.Library);
+                else if (i == 5) Show(ScreenId.Deep);
+                else Show(ScreenId.Home);
+            });
         }
 
         void CloseX(ScreenId back)
         {
-            GhostBtn("×", new Vector2(0.93f, 0.95f), () => Show(back));
+            UiChrome.CloseX(Root(), _built, new Vector2(0.93f, 0.95f), () => Show(back));
         }
 
         void Tab(string label, int index, ScreenId id)
@@ -886,20 +1243,22 @@ namespace Resonance.App
 
         void Confirm(string label, Vector2 anchor, UnityEngine.Events.UnityAction click)
         {
-            var go = MakeButton(label, anchor, new Vector2(320, 84), VisualTokens.TextOnYellow, click);
-            var img = go.GetComponent<Image>();
-            UiSprites.Apply(img, UiSprites.Pill());
-            img.color = VisualTokens.YellowConfirm;
-            var ol = go.AddComponent<Outline>();
-            ol.effectColor = VisualTokens.TextOnYellow;
-            ol.effectDistance = new Vector2(2, -2);
+            UiChrome.Confirm(Root(), _built, label, anchor, () => click());
         }
 
         GameObject GhostBtn(string label, Vector2 anchor, UnityEngine.Events.UnityAction click)
         {
-            var go = MakeButton(label, anchor, new Vector2(140, 56), VisualTokens.TextPrimary, click);
-            go.GetComponent<Image>().color = Color.clear;
+            var go = MakeButton(label, anchor, new Vector2(72, 32), VisualTokens.TextPrimary, click);
+            var img = go.GetComponent<Image>();
+            img.color = Color.clear;
+            var cg = go.GetComponent<CanvasGroup>();
+            if (cg == null) cg = go.AddComponent<CanvasGroup>();
+            cg.ignoreParentGroups = true;
+            cg.blocksRaycasts = true;
+            cg.interactable = true;
             var tx = go.GetComponentInChildren<Text>();
+            tx.fontSize = 20;
+            tx.raycastTarget = false;
             var ol = tx.gameObject.AddComponent<Outline>();
             ol.effectColor = Color.black;
             ol.effectDistance = new Vector2(2, -2);
@@ -1033,6 +1392,9 @@ namespace Resonance.App
             cam.clearFlags = CameraClearFlags.SolidColor;
             cam.depth = -100;
             cam.enabled = true;
+            cam.cullingMask &= ~((1 << Sprite2DStandee.WorldLayer)
+                | (1 << IceParticles.BackLayer) | (1 << IceParticles.FrontLayer)
+                | (1 << CutoutRig.WorldLayer));
             var go = new GameObject("Canvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
             go.transform.SetParent(transform, false);
             _canvas = go.GetComponent<Canvas>();
@@ -1049,6 +1411,39 @@ namespace Resonance.App
             if (FindFirstObjectByType<EventSystem>() != null) return;
             var es = new GameObject("EventSystem", typeof(EventSystem), typeof(StandaloneInputModule));
             DontDestroyOnLoad(es);
+        }
+    }
+
+    sealed class InspectSwipePad : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+    {
+        public Action OnPrev;
+        public Action OnNext;
+        Vector2 _start;
+        bool _dragged;
+
+        public void OnBeginDrag(PointerEventData e)
+        {
+            _start = e.position;
+            _dragged = false;
+        }
+
+        public void OnDrag(PointerEventData e)
+        {
+            if (Mathf.Abs(e.position.x - _start.x) > 28f) _dragged = true;
+        }
+
+        public void OnEndDrag(PointerEventData e)
+        {
+            if (!_dragged) return;
+            var dx = e.position.x - _start.x;
+            if (dx > 72f)
+            {
+                if (OnPrev != null) OnPrev();
+            }
+            else if (dx < -72f)
+            {
+                if (OnNext != null) OnNext();
+            }
         }
     }
 

@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "status": "UNCONFIRMED",
+  "region": null,
+  "version_window": null,
+  "client_build": null,
+  "platform": null,
+  "reference_viewport": {
+    "width": null,
+    "height": null,
+    "native_content_rect": null,
+    "safe_area": null
+  },
+  "target_device": null,
+  "reference_speed_mode": null,
+  "reference_auto_settings": null,
+  "project_unity_version": null,
+  "existing_ui_system": null,
+  "existing_render_pipeline": null,
+  "scope_status": "PROPOSED_REQUIRES_FREEZE",
+  "candidate_modes": [
+    "Story",
+    "Daily",
+    "Underground",
+    "DevilRumble",
+    "Narrative",
+    "Ragna",
+    "WorldBoss",
+    "Rebirth",
+    "EndlessDuel"
+  ],
+  "user_owned_content": [
+    "character_illustrations",
+    "authored_character_skills",
+    "text"
+  ],
+  "implementation_owned": [
+    "generic_skill_engine",
+    "battle_rules",
+    "ui",
+    "motion",
+    "vfx_framework",
+    "audio_framework",
+    "progression",
+    "save"
+  ],
+  "source_ids": [],
+  "reference_root": null,
+  "allow_mock_services": true,
+  "network_fidelity_claim": false,
+  "confirmation_record": null
+}

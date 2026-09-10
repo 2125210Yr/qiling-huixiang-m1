@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0",
+  "gate": "G1",
+  "status": "CONTRACT_FROZEN",
+  "shared_unity_rule": "Only main coordinator writes client/ shared .unity/.prefab/.meta, Packages, ProjectSettings, active editor. This wave: no Unity writes.",
+  "leases": [
+    {
+      "task_id": "M1-G0-FREEZE",
+      "agent": "main",
+      "milestone": "M1",
+      "depends_on": [],
+      "contract_version": "1.0-G1-2026-09-09",
+      "allowed_paths": [
+        "DC_RECON_KIT/m1/G0/"
+      ],
+      "forbidden_paths": [
+        "client/",
+        "ProjectSettings",
+        "Packages"
+      ],
+      "shared_unity_asset_write": false,
+      "active_editor_write": false,
+      "expected_artifacts": [
+        "AUDIT.md",
+        "TARGET.json",
+        "REFERENCE_INDEX.json",
+        "UNKNOWN_REGISTER.json",
+        "BASELINE_LOGS.md",
+        "STATUS.md"
+      ],
+      "status": "RELEASED_DOCS_WRITTEN"
+    },
+    {
+      "task_id": "M1-G1-CONTRACT",
+      "agent": "main",
+      "milestone": "M1",
+      "depends_on": ["M1-G0-FREEZE"],
+      "contract_version": "1.0-G1-2026-09-09",
+      "allowed_paths": [
+        "DC_RECON_KIT/m1/G1/"
+      ],
+      "forbidden_paths": [
+        "client/",
+        "ProjectSettings",
+        "Packages"
+      ],
+      "shared_unity_asset_write": false,
+      "active_editor_write": false,
+      "expected_artifacts": [
+        "CombatContract.md",
+        "CombatContract.json",
+        "EffectSchema.md",
+        "EffectSchema.json",
+        "ClockPolicy.md",
+        "ClockPolicy.json",
+        "FormulaProfiles.md",
+        "FormulaProfiles.json",
+        "UiStateMap.md",
+        "UiStateMap.json",
+        "FILE_LEASES.json",
+        "NEXT_WAVE.md"
+      ],
+      "status": "RELEASED_DOCS_WRITTEN"
+    },
+    {
+      "task_id": "M1-G2-BATTLE-REPAIR",
+      "agent": "dc_battle",
+      "milestone": "M1",
+      "depends_on": ["M1-G1-CONTRACT"],
+      "contract_version": "1.0-G1-2026-09-09",
+      "allowed_paths": [
+        "client/Assets/Scripts/Resonance.Battle/",
+        "tools/BattleSim.Tests/"
+      ],
+      "forbidden_paths": [
+        "ProjectSettings",
+        "Packages",
+        "DC_RECON_KIT/m1/G0/TARGET.json"
+      ],
+      "shared_unity_asset_write": false,
+      "active_editor_write": false,
+      "notes": "Main continuation repaired SlideCd / party size / poison / opcode FAIL / event log. Did not REPLACE BattleSim.",
+      "status": "RELEASED_REPAIR_LANDED"
+    },
+    {
+      "task_id": "M1-G2-MATH-CONTRAST",
+      "agent": "dc_math",
+      "milestone": "M1",
+      "depends_on": ["M1-G1-CONTRACT"],
+      "allowed_paths": [
+        "DC_RECON_KIT/tools/",
+        "client/Assets/Scripts/Resonance.Battle/Core/DamageMath.cs",
+        "client/Assets/Scripts/Resonance.Battle/Core/FormulaProfile.cs"
+      ],
+      "forbidden_paths": [
+        "client/",
+        "ProjectSettings",
+        "Packages"
+      ],
+      "shared_unity_asset_write": false,
+      "notes": "JP_LEGACY_EMPIRICAL / KR_LEGACY_REPORTED contrast only. GL_UNKNOWN default. No GL_FINAL_VERIFIED.",
+      "status": "RELEASED_CONTRAST_WIRED"
+    },
+    {
+      "task_id": "M1-G2-UI",
+      "agent": "dc_ui",
+      "milestone": "M1",
+      "depends_on": ["M1-G1-CONTRACT", "primary_gt"],
+      "allowed_paths": [
+        "client/Assets/Scripts/Resonance.App/Battle/BattleHud.cs"
+      ],
+      "forbidden_paths": [
+        "ProjectSettings",
+        "Packages"
+      ],
+      "shared_unity_asset_write": false,
+      "notes": "Portrait HUD state domains + Tap/Slide split. Layout NEEDS_REFERENCE. No fake T27. Still blocked on GT for coordinates.",
+      "status": "RELEASED_HUD_NEEDS_REFERENCE"
+    },
+    {
+      "task_id": "M1-G2-PRESENTATION",
+      "agent": "dc_presentation",
+      "milestone": "M1",
+      "depends_on": ["M1-G1-CONTRACT", "primary_gt"],
+      "allowed_paths": [
+        "client/Assets/Scripts/Resonance.App/Battle/",
+        "client/Assets/Scripts/Resonance.App/Characters/CharacterPresenter.cs"
+      ],
+      "forbidden_paths": [
+        "ProjectSettings",
+        "Packages"
+      ],
+      "shared_unity_asset_write": false,
+      "notes": "ICharacterPresentation adapter on existing bones. Cues follow events. No shared scene/prefab/meta writes.",
+      "status": "RELEASED_ADAPTER_LANDED"
+    },
+    {
+      "task_id": "M1-G2-QA",
+      "agent": "dc_qa",
+      "milestone": "M1",
+      "depends_on": ["M1-G1-CONTRACT"],
+      "allowed_paths": [
+        "DC_RECON_KIT/m1/"
+      ],
+      "forbidden_paths": [
+        "client/",
+        "ProjectSettings",
+        "Packages"
+      ],
+      "shared_unity_asset_write": false,
+      "notes": "Independent evidence only. PlayMode currently NOT_RUN.",
+      "status": "UNASSIGNED_PENDING_G2"
+    }
+  ]
+}

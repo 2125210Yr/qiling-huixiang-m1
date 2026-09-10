@@ -1,0 +1,24 @@
+{
+  "screen_id": null,
+  "state_id": null,
+  "reference_id": null,
+  "region": null,
+  "version_window": null,
+  "is_native_screenshot": null,
+  "viewport": null,
+  "excluded_regions": [],
+  "elements": [
+    {
+      "id": null,
+      "rect_normalized": null,
+      "anchor": null,
+      "pivot": null,
+      "z_order": null,
+      "font_height_ratio": null,
+      "outline": null,
+      "hit_rect": null,
+      "evidence_id": null
+    }
+  ],
+  "measurement_status": "NOT_MEASURED"
+}

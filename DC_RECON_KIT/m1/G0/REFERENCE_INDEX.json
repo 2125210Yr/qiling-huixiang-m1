@@ -1,0 +1,125 @@
+{
+  "schema_version": "1.0",
+  "gate": "G0",
+  "status": "TARGET_FROZEN_GT_SEARCHING",
+  "primary_gt": {
+    "status": "SEARCH_IN_PROGRESS",
+    "role": "ordinary_5p_pve_combat_truth",
+    "id": null,
+    "note": "普通 5 人 PVE 唯一真值尚未入库。三份旧录像不得顶替。"
+  },
+  "legacy_video_policy": "NOT_SOLE_TRUTH_FOR_ORDINARY_COMBAT",
+  "entries": [
+    {
+      "id": "REF_YT_mJrT2conPCI",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=mJrT2conPCI",
+      "youtube_id": "mJrT2conPCI",
+      "region": "GL",
+      "mode": "Ragna",
+      "role": "supplement_only",
+      "usable_for": ["ragna_presentation_cues", "gl_era_look"],
+      "not_usable_for": [
+        "ordinary_5p_pve_sole_truth",
+        "gl_damage_formula",
+        "primary_gt"
+      ],
+      "note": "GL Ragna 补充。模式规则与普通 5 人 PVE 不同。"
+    },
+    {
+      "id": "REF_YT_Vdf4V693IcU",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=Vdf4V693IcU",
+      "youtube_id": "Vdf4V693IcU",
+      "region": "KR",
+      "mode": "Raid",
+      "role": "diff_contrast",
+      "usable_for": ["kr_raid_diff_notes"],
+      "not_usable_for": [
+        "ordinary_5p_pve_sole_truth",
+        "gl_damage_formula",
+        "primary_gt",
+        "kr_to_gl_numeric_migration"
+      ],
+      "note": "KR Raid 差异对照。跨服/跨模式不得当 GL 普通战斗真值。"
+    },
+    {
+      "id": "REF_YT_89jpoNqAwa8",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=89jpoNqAwa8",
+      "youtube_id": "89jpoNqAwa8",
+      "region": "UNKNOWN",
+      "mode": "WorldBoss",
+      "role": "diff_contrast",
+      "usable_for": ["world_boss_diff_notes", "20p_layout_awareness"],
+      "not_usable_for": [
+        "ordinary_5p_pve_sole_truth",
+        "gl_damage_formula",
+        "primary_gt",
+        "wb_rules_as_5p_pve"
+      ],
+      "note": "WB 差异对照。20 人前后排/Drive 顺序不可压成五人切片真值。"
+    }
+  ],
+  "kit_sources_contrast_only": [
+    {
+      "id": "S04",
+      "role": "early_kr_gameplay_ui_flow",
+      "region": "KR_EARLY",
+      "not_gl_final": true
+    },
+    {
+      "id": "S05",
+      "role": "jp_legacy_tap_auto_candidate",
+      "profile": "JP_LEGACY_EMPIRICAL"
+    },
+    {
+      "id": "S06",
+      "role": "jp_legacy_slide_bounds_candidate",
+      "profile": "JP_LEGACY_EMPIRICAL"
+    },
+    {
+      "id": "S07",
+      "role": "jp_kr_high_def_contrast",
+      "profiles": ["JP_LEGACY_EMPIRICAL", "KR_LEGACY_REPORTED"]
+    },
+    {
+      "id": "S08",
+      "role": "jp_legacy_pierce_fit",
+      "profile": "JP_LEGACY_EMPIRICAL"
+    },
+    {
+      "id": "S09",
+      "role": "jp_legacy_fever_channels",
+      "profile": "JP_LEGACY_EMPIRICAL"
+    },
+    {
+      "id": "S11",
+      "role": "charge_vs_cd_semantics"
+    },
+    {
+      "id": "S14",
+      "role": "slide_cd_independent_of_charge"
+    },
+    {
+      "id": "S16",
+      "role": "drive_ui_prediction_is_not_actual_damage"
+    },
+    {
+      "id": "S17",
+      "role": "wb_20p_official_jp"
+    },
+    {
+      "id": "S18",
+      "role": "wb_drive_order_official_jp"
+    },
+    {
+      "id": "S19",
+      "role": "poison_action_and_hit_triggers"
+    },
+    {
+      "id": "S21",
+      "role": "ignition_exists_in_late_window"
+    }
+  ]
+}

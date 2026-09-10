@@ -1,0 +1,27 @@
+{
+  "sample_id": null,
+  "kind": "UNFILLED_NOT_AN_OBSERVATION",
+  "region": null,
+  "version_window": null,
+  "mode": null,
+  "reference_id": null,
+  "source_timestamp": null,
+  "frame_range": null,
+  "attacker": {
+    "naked_stats": null,
+    "equipment_deltas": null,
+    "amplified_stats": null,
+    "skill_display_damage": null,
+    "buffs": null
+  },
+  "target": {
+    "defense": null,
+    "defense_is_known": false,
+    "modifiers": null
+  },
+  "action_branch": null,
+  "observed_hits": [],
+  "unknowns": [],
+  "dataset_split": null,
+  "usable_as_complete_input_oracle": false
+}

@@ -1,0 +1,33 @@
+PASS
+screens=Boot,Home,Characters,Team,Inspect,Stage,Battle,Result
+captures=01_home.png,ui_home.png,02_roster.png,02_characters.png,ui_roster.png,04_team.png,ui_team.png,03_inspect.png,ui_inspect.png,06_battle.png,ui_battle.png,07_drive.png,08_fever.png,09_result.png
+result=胜利
+cleared=True
+tap=True slide=True drive=True fever=True
+save=F:\天命之子\client\Temp\vs-smoke-save\save.json
+save-isolated=True
+save-user=C:\Users\Administrator\AppData\LocalLow\Resonance\契灵回响\save.json
+save-json={"party":["C001","C007","C010","C003","C005"],"leader":1,"cleared":true,"clearedN":1,"seed":35358359,"speed":2,"auto":2,"hard":false,"clearedH":0,"gold":12000,"stone":180,"meal":-1,"pvp":false,"daily":0,"mail":0,"roster":["C001","C007","C010","C003","C005"],"skins":["C001:echo"],"puppets":["P001","P002","P003"],"units":[{"id":"C001","lv":2,"uncap":0,"ign":0,"ia":0,"ic":0,"ig":0,"aff":4,"rsv":"TSTEE","skin":"","g0":"EQ_WPN","g1":"","g2":"","g3":"SC006","p0":0,"p1":0,"p2":0,"p3":0},{"id":"C007","lv":2,"uncap":0,"ign":0,"ia":0,"ic":0,"ig":0,"aff":4,"rsv":"TTEEE","skin":"","g0":"","g1":"EQ_ARM","g2":"","g3":"","p0":0,"p1":0,"p2":0,"p3":0},{"id":"C010","lv":2,"uncap":0,"ign":0,"ia":0,"ic":0,"ig":0,"aff":4,"rsv":"SSTEE","skin":"","g0":"","g1":"","g2":"EQ_ACC","g3":"","p0":0,"p1":0,"p2":0,"p3":0},{"id":"C003","lv":2,"uncap":0,"ign":0,"ia":0,"ic":0,"ig":0,"aff":4,"rsv":"TEEEE","skin":"","g0":"","g1":"","g2":"","g3":"SC006","p0":0,"p1":0,"p2":0,"p3":0},{"id":"C005","lv":2,"uncap":0,"ign":0,"ia":0,"ic":0,"ig":0,"aff":4,"rsv":"ESTEE","skin":"","g0":"EQ_WPN","g1":"","g2":"","g3":"","p0":0,"p1":0,"p2":0,"p3":0}]}
+log:smoke start
+log:shot 01_home.png,ui_home.png
+log:home
+log:phase Characters
+log:shot 02_roster.png,02_characters.png,ui_roster.png
+log:phase Team
+log:shot 04_team.png,ui_team.png
+log:phase Inspect
+log:shot 03_inspect.png,ui_inspect.png
+log:phase Stage
+log:phase Battle
+log:shot 06_battle.png,ui_battle.png
+log:tap 0
+log:slide 1
+log:drive qte slot=0
+log:shot 07_drive.png
+log:drive perfect fever=60 active=False
+log:drive qte slot=0
+log:drive perfect fever=0 active=True
+log:shot 08_fever.png
+log:result 胜利
+log:phase Result
+log:shot 09_result.png

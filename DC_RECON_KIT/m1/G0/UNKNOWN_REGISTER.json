@@ -1,0 +1,378 @@
+{
+  "schema_version": "1.0",
+  "gate": "G0",
+  "task_id": "M1-G2-UNKNOWNS-DOC",
+  "reviewed": "2026-09-10",
+  "status": "OPEN",
+  "policy": "UNKNOWN stays UNKNOWN. No GL_FINAL_VERIFIED. JP/KR profiles are contrast only. Unimplemented / NOT_RUN / UNKNOWN stay in the denominator. No silent drop. No 90% claim.",
+  "consulted": [
+    "STATUS.md",
+    "QA_DRIVE.md",
+    "QA_EXECUTOR.md",
+    "T_MATRIX.md",
+    "SLICE_VS_RAGNA.md",
+    "GL_PVE_GROUND_TRUTH.md",
+    "GL_PVE_GROUND_TRUTH.json",
+    "M1_UNGATE.md",
+    "LOCAL_PVE_MISSING.md",
+    "BASELINE_LOGS.md",
+    "TARGET.json",
+    "DC_RECON_KIT/m1/G1/ClockPolicy.json",
+    "DC_RECON_KIT/m1/G1/FormulaProfiles.json",
+    "DC_RECON_KIT/m1/G1/UiStateMap.md",
+    "DC_RECON_KIT/04_ACCEPTANCE_AND_TESTS.md"
+  ],
+  "gates": {
+    "TARGET": "TARGET_FROZEN_GT_SEARCHING",
+    "CONTRACT": "CONTRACT_FROZEN",
+    "MILESTONE": "M1_IN_PROGRESS_NOT_ACCEPTED",
+    "G0": "PASSED_WITH_GT_OPEN",
+    "G1": "PASSED_CONTRACT_FROZEN",
+    "G2": "IN_PROGRESS_CORE_SLICE_NOT_PASSED",
+    "PlayMode": "FAILED",
+    "EditMode": "NOT_RUN",
+    "primary_gt": "CANDIDATE_NEEDS_FETCH_BLOCKED",
+    "GL_FINAL_VERIFIED": "forbidden_not_created",
+    "fidelity_score": "0_not_claimed"
+  },
+  "denominator": {
+    "note": "Counts are presence in the agreed scope, not passes. Do not rewrite as 5/5 or 90%.",
+    "t01_t32": {
+      "n": 32,
+      "function_implemented": ["T01", "T03", "T10", "T15", "T18"],
+      "function_implemented_n": 5,
+      "function_stub_n": 17,
+      "function_missing": ["T02", "T13", "T24"],
+      "function_missing_n": 3,
+      "function_not_run": ["T26", "T27", "T28", "T29", "T30", "T31", "T32"],
+      "function_not_run_n": 7,
+      "fidelity_implemented_n": 0,
+      "fidelity_blocked_n": 32,
+      "kept_unimplemented": ["T02", "T13", "T21_20p_front_back", "T24", "T26", "T27", "T28", "T29", "T30", "T31", "T32"]
+    },
+    "g2_slices": {
+      "n": 9,
+      "items": [
+        "Auto",
+        "Tap",
+        "Slide",
+        "Drive+QTE",
+        "Fever",
+        "control_shield_retarget",
+        "death_wave_result",
+        "pause_speed_auto",
+        "entry_and_return"
+      ],
+      "fidelity_implemented_n": 0,
+      "kept": "entry_and_return stays; WB 20p page stays listed in UiStateMap follow-on, not dropped from later denominators"
+    },
+    "uistate_m1_required": {
+      "n": 10,
+      "items": [
+        "BattleIdle",
+        "ChargingReady",
+        "Tap",
+        "Slide",
+        "DriveSelect",
+        "Qte",
+        "Fever",
+        "Controlled",
+        "DeathOrWave",
+        "Result"
+      ],
+      "plus": ["entry", "return"],
+      "fidelity_implemented_n": 0
+    },
+    "unknown_ids": {
+      "n": 15,
+      "ids": [
+        "U001",
+        "U002",
+        "U003",
+        "U004",
+        "U005",
+        "U006",
+        "U007",
+        "U008",
+        "U009",
+        "U010",
+        "U011",
+        "U012",
+        "U013",
+        "U014",
+        "U015"
+      ],
+      "closed_n": 0
+    }
+  },
+  "cannot_close_with": [
+    "docs/reference/gl-shutdown-pve/supplementary/ragna_gl/",
+    "docs/reference/gl-shutdown-pve/our_slice/",
+    "mJrT2conPCI Ragna stills or 150pct / TO FEVER numbers",
+    "Vdf4V693IcU KR Raid",
+    "89jpoNqAwa8 World Boss",
+    "battle_refs HUD REPORTED mixed-region stills",
+    "memorial lobby / 专区 skeletal previews",
+    "2019 EN 5p candidates (cross_era_gl only)",
+    "READY TO RUMBLE as ordinary wave",
+    "IT'S SHOWTIME as Fever",
+    "PlayMode FAIL drive never fired",
+    "dotnet test green counts (115 STATUS / 118 QA_DRIVE)",
+    "code-side StayHeld / SliceDriveSequence without a new Editor PlayMode pass",
+    "JP_LEGACY_EMPIRICAL live StartBattleAt numbers",
+    "GL_UNKNOWN fixture sequences that do not change HP"
+  ],
+  "ordinary_5p_holes_still_open": [
+    {
+      "hole": "shutdown-window GL ordinary 5p PVE mp4",
+      "blocked_by": ["U001"],
+      "note": "docs/reference/gl-shutdown-pve/ still 0 mp4"
+    },
+    {
+      "hole": "ordinary charge / tap isolated gestures",
+      "blocked_by": ["U001", "U002"]
+    },
+    {
+      "hole": "ordinary Drive select panel",
+      "blocked_by": ["U001", "U003"],
+      "note": "Ragna supplement shows wings + cut-in only; panel still missing"
+    },
+    {
+      "hole": "ordinary death / wave",
+      "blocked_by": ["U001"]
+    },
+    {
+      "hole": "ordinary star / drop result",
+      "blocked_by": ["U001"],
+      "note": "Ragna ranking + Close is a different mode"
+    },
+    {
+      "hole": "measurable portrait HUD coordinates",
+      "blocked_by": ["U010"],
+      "note": "forbids T27"
+    },
+    {
+      "hole": "GL formula channels",
+      "blocked_by": ["U002", "U003", "U006"]
+    }
+  ],
+  "items": [
+    {
+      "id": "U001",
+      "topic": "primary_gt_ordinary_5p_pve",
+      "class": "UNKNOWN",
+      "region": "GL",
+      "version_window": "PRE_SHUTDOWN_LATE_INCLUDING_IGNITION",
+      "status": "SEARCH_IN_PROGRESS",
+      "blocking": true,
+      "blocks": [
+        "fidelity_pass",
+        "viewport_measure",
+        "clock_calibration",
+        "cue_sheet",
+        "T27",
+        "numeric_fidelity_pass",
+        "G2_slice_pass"
+      ],
+      "evidence": {
+        "shutdown_pve_dir_mp4": 0,
+        "primary_gt": "CANDIDATE_NEEDS_FETCH",
+        "remote_fetch": "BLOCKED_YOUTUBE_FAMILY_TLS_EOF",
+        "local_candidates": "38 hits / 0 usable ordinary 5p PVE (M1-G0-GT-LOCAL)",
+        "supplementary": "ragna_gl stills from mJrT2conPCI; truth_tier supplementary != primary",
+        "our_slice": "Editor VS Smoke FAIL; not GT",
+        "compare": "SLICE_VS_RAGNA.md — both sides cannot fill ordinary 5p holes"
+      },
+      "note": "2026-09-10 M1-G2-UNKNOWNS-DOC. Primary still missing. Supplementary Ragna and our_slice do not promote. Do not re-run yt-dlp on this machine. Wait for a local drop into docs/reference/gl-shutdown-pve/."
+    },
+    {
+      "id": "U002",
+      "topic": "gl_tap_slide_auto_fever_actual_formulas",
+      "class": "UNKNOWN",
+      "region": "GL",
+      "status": "OPEN",
+      "allowed_contrast": ["JP_LEGACY_EMPIRICAL", "KR_LEGACY_REPORTED"],
+      "forbidden": ["GL_FINAL_VERIFIED"],
+      "blocking": true,
+      "blocks": ["numeric_fidelity_pass", "T15_fidelity", "T16_fidelity"],
+      "evidence": {
+        "default_sim_profile": "GL_UNKNOWN_does_not_apply_hp",
+        "live_client_start": "GameRoot.StartBattleAt still JP_LEGACY_EMPIRICAL (contrast, not GL)",
+        "fever_channel": "no longer reads Tap AtkCoef/FlatPower (function only)",
+        "fever_window_impl": "7s / 70 hit is implementation, not GL measured",
+        "qa": "QA_DRIVE / QA_EXECUTOR / T_MATRIX: GL formulas remain UNKNOWN"
+      },
+      "note": "Internal channel split is not a GL formula close. JP live numbers are contrast."
+    },
+    {
+      "id": "U003",
+      "topic": "gl_actual_drive_damage",
+      "class": "UNKNOWN",
+      "region": "GL",
+      "status": "OPEN",
+      "blocking": true,
+      "blocks": ["Drive+QTE_fidelity", "T28_drive_timing"],
+      "evidence": {
+        "s16": "Drive UI prediction is not enemy damage",
+        "playmode": "FAIL drive never fired — no Drive/QTE/Fever frames in our_slice",
+        "ragna_qte": "PERFECT DAMAGE 150pct / N% TO FEVER must not enter ordinary numeric baseline",
+        "impl_multipliers": "0.9 / 1.2 / 1.5 have no GT",
+        "qa": "QA_DRIVE BLOCKED table: U003 still UNKNOWN"
+      },
+      "note": "S16 Drive UI 预测不是对敌伤害。Ragna QTE 数字不是普通 5 人 PVE。无独立实测不得闭项。"
+    },
+    {
+      "id": "U004",
+      "topic": "gl_crit_probability_curve",
+      "class": "UNKNOWN",
+      "status": "OPEN",
+      "source_limit": "S12_insufficient",
+      "blocking": false,
+      "blocks": ["T16_fidelity"],
+      "note": "Element/crit fixtures exist. Fever crit exception has no GT. Stays in T16 denominator."
+    },
+    {
+      "id": "U005",
+      "topic": "gl_hit_resist_control_rates",
+      "class": "UNKNOWN",
+      "status": "OPEN",
+      "source_limit": "S13_corrected_do_not_lock",
+      "blocking": false,
+      "blocks": ["T09_fidelity"],
+      "note": "Taunt apply + prefer exists (function). Immunity / unselectable still missing. Do not lock S13."
+    },
+    {
+      "id": "U006",
+      "topic": "gl_ignition_amp_stat_compose",
+      "class": "UNKNOWN",
+      "status": "OPEN",
+      "note": "目标窗含 Ignition；组合规则未取证。IgnitionTests 只证明通道形，不是 GL compose。",
+      "source_ids": ["S21", "S23", "S24"],
+      "blocking": true,
+      "blocks": ["late_stat_fidelity", "T19_fidelity"],
+      "evidence": {
+        "formula_profiles": "ignition_compose=UNKNOWN",
+        "tests": "IgnitionTests 6 + ChannelsAreIndependent = shape only"
+      }
+    },
+    {
+      "id": "U007",
+      "topic": "rounding_and_resolve_order",
+      "class": "UNKNOWN",
+      "status": "OPEN",
+      "blocking": false,
+      "blocks": ["T20_fidelity"],
+      "note": "Shield absorb exists. Critical rounding table / multi-hit sum / zero-hp shield have no GT."
+    },
+    {
+      "id": "U008",
+      "topic": "gl_boss_def_and_mode_reduction",
+      "class": "UNKNOWN",
+      "status": "OPEN",
+      "blocking": false,
+      "note": "Ragna Boss bar / Raid / WB totals are contrast-only. Ordinary PVE def and mode reduction unmeasured."
+    },
+    {
+      "id": "U009",
+      "topic": "buff_stack_snapshot_vs_live",
+      "class": "UNKNOWN",
+      "status": "OPEN",
+      "blocking": false,
+      "blocks": ["T12_fidelity"],
+      "note": "Control pauses charge; SlideCd continues. Refresh / cap / snapshot-vs-live unclosed."
+    },
+    {
+      "id": "U010",
+      "topic": "reference_viewport_px",
+      "class": "UNKNOWN",
+      "status": "NOT_MEASURED",
+      "blocking": true,
+      "blocks": ["ui_coordinate_pass", "T27"],
+      "evidence": {
+        "target_json": "reference_viewport.measurement_status=NOT_MEASURED; blocked_on=primary_gt",
+        "uistate": "LayoutStatus NEEDS_REFERENCE",
+        "ragna_ui_crop": "406:720:437:0 three-column capture — forbidden as pixel coordinates",
+        "battle_refs": "REPORTED + JP/KR + CN wiki mixed",
+        "memorial": "lobby stills are not battle coordinates"
+      },
+      "note": "2026-09-10. No T27 pass. Supplementary / our_slice / memorial cannot measure native portrait rect."
+    },
+    {
+      "id": "U011",
+      "topic": "reference_speed_and_auto",
+      "class": "UNKNOWN",
+      "status": "OPEN",
+      "blocking": false,
+      "blocks": ["T04_fidelity", "pause_speed_auto_fidelity"],
+      "also": [
+        "slide_cd_sec=UNKNOWN (ClockPolicy.slide_cd_sec null; impl placeholder 8s)",
+        "fever_window 7s/70hit unverified as GL",
+        "QTE timeout 1.2s unverified as GL"
+      ],
+      "evidence": {
+        "clock_policy": "speed_mode_reference=UNKNOWN; auto_settings_reference=UNKNOWN",
+        "target_json": "reference_speed_mode=UNKNOWN; reference_auto_settings=UNKNOWN",
+        "qa_drive": "Full Auto still ignores HoldSim; opening stage can still clear on Auto"
+      },
+      "note": "StayHeld / Full Auto fixtures are function only. Live Full Auto can still race CheckWave before Drive."
+    },
+    {
+      "id": "U012",
+      "topic": "gl_slide_r_distribution",
+      "class": "UNKNOWN",
+      "status": "OPEN",
+      "note": "S06 只支持区间，不支持均匀抽样当真值。T18 功能 IMPLEMENTED（非均匀夹具）。实战 variance=1 ≠ GL 分布真值。",
+      "blocking": false,
+      "blocks": ["T18_fidelity"],
+      "evidence": {
+        "t18_function": "SlideDoesNotUseUniformVarianceRng",
+        "truth": "distribution still UNKNOWN"
+      }
+    },
+    {
+      "id": "U013",
+      "topic": "playmode_runtime_baseline",
+      "class": "UNKNOWN",
+      "status": "FAILED",
+      "blocking": true,
+      "blocks": ["runtime_reuse_claims", "T26", "visual_pass"],
+      "evidence": {
+        "archive": "M1-G2-PLAY-RECORD Editor VS Smoke; client/Temp/vs-smoke.result.txt = FAIL drive never fired; phase=Result; tap 0; slide 1; result 胜利; no Fever; no result shot",
+        "screenshots": "DC_RECON_KIT/m1/G0/BASELINE_LOGS/ and docs/reference/gl-shutdown-pve/our_slice/ (our slice, not GT)",
+        "qa_drive": "M1-G2-QA-DRIVE: code path targets Manual+per-frame StayHeld + ReadyCharges; PlayMode was NOT re-run; do not write PlayMode PASS",
+        "status_md": "PlayMode still FAILED; code-side Hold/sequence exists; Editor not reopened this review",
+        "full_auto": "core still ignores Hold when Auto=Full; opening stage can still clear"
+      },
+      "note": "2026-09-10 M1-G2-UNKNOWNS-DOC. FAILED with artifacts, still UNKNOWN (not a fidelity pass). Code-side smoke hold is not a new Editor green. Launch success ≠ pass."
+    },
+    {
+      "id": "U014",
+      "topic": "gl_poison_trigger_timing",
+      "class": "UNKNOWN",
+      "status": "OPEN",
+      "note": "S19 为 JP 官方行动/受击触发线索；GL 时序未测。实现不得改成每秒 DoT。T10 功能 IMPLEMENTED；GL_UNKNOWN 不改 HP。SlideCd 秒数不并进本项（见 U011.also）。",
+      "blocking": false,
+      "blocks": ["T10_fidelity"],
+      "evidence": {
+        "effect_schema": "poison.implemented_in_engine=true; triggers on_action / on_hit",
+        "t10_function": "PoisonTriggersOnActionAndHitTakenNotPerSecond",
+        "frame_gap": "UNKNOWN"
+      }
+    },
+    {
+      "id": "U015",
+      "topic": "editmode_runtime_baseline",
+      "class": "UNKNOWN",
+      "status": "NOT_RUN",
+      "blocking": true,
+      "blocks": ["unity_editmode_claims", "T26_editmode_half"],
+      "evidence": {
+        "status_md": "EditMode=NOT_RUN",
+        "qa_drive": "Unity EditMode/PlayMode not run this QA",
+        "t_matrix": "client/Assets has 0 *Test*.cs; no project UTF EditMode/PlayMode tests",
+        "baseline_logs": "EditMode result path empty"
+      },
+      "note": "2026-09-10 added so EditMode stays in the unknown denominator. Not the same row as U013 PlayMode FAILED. Do not infer EditMode from dotnet test."
+    }
+  ]
+}

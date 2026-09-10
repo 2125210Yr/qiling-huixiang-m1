@@ -1,0 +1,8 @@
+name = "dc_battle"
+description = "纯逻辑战斗、时钟、目标与效果"
+sandbox_mode = "workspace-write"
+developer_instructions = """
+首先阅读项目现有AGENTS.md和DC_RECON_KIT/00_README.md、03_MULTIAGENT_AND_MILESTONES.md、04_ACCEPTANCE_AND_TESTS.md。
+仅写获租约Battle边界。先读共享契约；模拟与动画独立、多时钟分离、按模式人数。先写失败测试再修；禁止自己造第二套数据模型、修改UI共享资产或依赖Animator扣血。
+所有路径先映射到当前真实工程。禁止删除用户改动、禁止递归spawn、禁止越出租约。返回证据、实际改动、测试结果、未知项及阻塞；没有执行就写NOT_RUN。
+"""

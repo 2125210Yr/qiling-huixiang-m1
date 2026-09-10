@@ -1,0 +1,1988 @@
+{
+  "schema_version": "1.0",
+  "gate": "G0",
+  "kind": "GL_PVE_GROUND_TRUTH",
+  "accessed": "2026-09-10",
+  "region": "GL",
+  "primary_mode": "NormalPve5",
+  "version_window": "PRE_SHUTDOWN_LATE_INCLUDING_IGNITION",
+  "policy": {
+    "jp_kr_official_is_not_gl_verified": true,
+    "legacy_local_mp4_not_primary": true,
+    "mJrT2conPCI": "Ragna_supplement_only",
+    "Vdf4V693IcU": "KR_Raid_contrast_only",
+    "89jpoNqAwa8": "WB_contrast_only"
+  },
+  "coverage_keys": [
+    "charge",
+    "tap",
+    "slide",
+    "drive",
+    "qte",
+    "fever",
+    "hit",
+    "death",
+    "wave",
+    "result"
+  ],
+  "coverage_values": [
+    "inferred",
+    "desc",
+    "unknown",
+    "n/a",
+    "local_unwatched"
+  ],
+  "local_scan": {
+    "path": "docs/reference/gamekee/_combined/battle_vids/",
+    "present": true,
+    "mp4": [
+      {
+        "file": "mJrT2conPCI.mp4",
+        "duration_s": 383.054,
+        "resolution": "1280x720",
+        "capture": "landscape"
+      },
+      {
+        "file": "Vdf4V693IcU.mp4",
+        "duration_s": 261.694,
+        "resolution": "1280x720",
+        "capture": "landscape"
+      },
+      {
+        "file": "89jpoNqAwa8.mp4",
+        "duration_s": 394.3,
+        "resolution": "1280x720",
+        "capture": "landscape"
+      }
+    ],
+    "also": [
+      "frames/",
+      "keys/",
+      "crops/"
+    ],
+    "ordinary_5p_pve_mp4": 0
+  },
+  "shutdown_pve_dir": {
+    "path": "docs/reference/gl-shutdown-pve/",
+    "mp4_count": 0,
+    "last_fetch": "2026-09-10",
+    "last_fetch_task": "M1-G0-GT-RETRY",
+    "last_fetch_result": "SSL_EOF_YOUTUBE_FAMILY_STILL_BLOCKED",
+    "last_local_scan_task": "M1-G0-GT-LOCAL",
+    "last_local_scan": "2026-09-10",
+    "waiting": "user_drop_gl_ordinary_5p_pve_mp4",
+    "last_supp_task": "M1-G2-SUPP-CUES",
+    "last_supp": "2026-09-10",
+    "supplementary_frames": "docs/reference/gl-shutdown-pve/supplementary/ragna_gl/",
+    "note": "supplementary/ragna_gl has extracted stills from mJrT2conPCI only. Still 0 primary ordinary 5p PVE mp4."
+  },
+  "era_policy": {
+    "shutdown_late_primary": "PRE_SHUTDOWN_LATE_INCLUDING_IGNITION",
+    "en_gl_5p_2019_2020": "cross_era_gl",
+    "do_not_promote_2019_as_shutdown_primary": true
+  },
+  "fetch_attempts": [
+    {
+      "at": "2026-09-10",
+      "tool": "yt-dlp 2026.08.19",
+      "urls": [
+        "https://www.youtube.com/watch?v=-SUrcOZav_c",
+        "https://www.youtube.com/watch?v=IRDqNAhKKr4",
+        "https://www.youtube.com/watch?v=FocgkwV-lB8"
+      ],
+      "result": "FAIL",
+      "error": "SSL: UNEXPECTED_EOF_WHILE_READING on YouTube API page; watch-page fetch timed out",
+      "mp4_written": 0
+    },
+    {
+      "at": "2026-09-10",
+      "task_id": "M1-G0-GT-RETRY",
+      "tool": "yt-dlp 2026.08.19 + curl/schannel + node 24 fetch + WebFetch + Invidious/Piped/Cobalt",
+      "urls": [
+        "https://www.youtube.com/watch?v=-SUrcOZav_c",
+        "https://www.youtube.com/watch?v=IRDqNAhKKr4",
+        "https://www.youtube.com/watch?v=FocgkwV-lB8"
+      ],
+      "commands_and_errors": [
+        "yt-dlp --proxy http://127.0.0.1:7890 --legacy-server-connect --force-ipv4 --extractor-args youtube:player_client=android --socket-timeout 25 --skip-download -- -SUrcOZav_c -> SSL: UNEXPECTED_EOF_WHILE_READING webpage + API page",
+        "yt-dlp --no-check-certificates --proxy http://127.0.0.1:7890 --legacy-server-connect --force-ipv4 --extractor-args youtube:player_client=web -- FocgkwV-lB8 -> same SSL EOF",
+        "curl -x 127.0.0.1:7890 https://www.youtube.com/ -> CONNECT 200 then TLS hang; oembed schannel handshake failed (35)",
+        "curl --noproxy * https://www.youtube.com/ -> no headers / hang",
+        "curl -k --ssl-no-revoke -x proxy --http1.1 https://www.youtube.com/ -> CONNECT 200 then hang",
+        "python ssl wrap_socket www.youtube.com:443 -> TimeoutError",
+        "node fetch youtube oembed/watch (proxy and noproxy) -> fetch failed",
+        "yt-dlp --list-impersonate-targets -> curl_cffi unavailable (chrome/edge/firefox/safari/tor)",
+        "python 3.11 -m yt_dlp -> ModuleNotFoundError (yt-dlp is CPython 3.13 Scripts)",
+        "WebFetch watch?v=-SUrcOZav_c / embed / r.jina.ai watch -> timeout",
+        "WebFetch oembed for listed IDs -> OK titles only",
+        "yewtu.be/api/v1/videos/-SUrcOZav_c -> 403",
+        "inv.nadeko.net/api/v1/videos/-SUrcOZav_c -> Endpoint disabled",
+        "invidious.fdn.fr/api/v1/videos/-SUrcOZav_c -> 500",
+        "invidious.privacyredirect.com/api -> 404",
+        "invidious.f5.si/watch?v=-SUrcOZav_c -> 403",
+        "invidious.tiekoetter.com/latest_version?id=-SUrcOZav_c&itag=18 -> 400",
+        "invidious.tiekoetter.com/latest_version?id=FocgkwV-lB8&itag=18 -> timeout",
+        "piped.video/api/v1/streams/-SUrcOZav_c -> 422",
+        "pipedapi.kavin.rocks/streams/-SUrcOZav_c -> Chrome error HTML, not JSON",
+        "pipedapi.adminforge.de/streams/-SUrcOZav_c -> timeout",
+        "yt.chocolatemoo53.com/api/v1/videos/IRDqNAhKKr4 -> WebFetch timeout; local curl schannel 35",
+        "api.invidious.io/instances.json -> listed public instances have api=false",
+        "POST api.cobalt.tools -> error.api.auth.jwt.missing",
+        "POST co.wuk.sh / cobalt.api.timelessq.com --noproxy -> curl 6 could not resolve host",
+        "cursor-ide-browser navigate youtube -> No browser tab available / view not found",
+        "img.youtube.com / i.ytimg.com thumbs WebFetch 404/500; local noproxy thumbs not written",
+        "example.com HTTPS works proxy and noproxy; YouTube-family TLS does not"
+      ],
+      "result": "FAIL",
+      "error": "YouTube-family TLS UNEXPECTED_EOF / schannel handshake fail on this host (proxy 127.0.0.1:7890 CONNECT ok). Public oembed via WebFetch works. No mp4.",
+      "mp4_written": 0,
+      "frame_analysis": "NOT_DONE"
+    }
+  ],
+  "primary": {
+    "status": "CANDIDATE_NEEDS_FETCH",
+    "id": "YT_-SUrcOZav_c",
+    "url": "https://www.youtube.com/watch?v=-SUrcOZav_c",
+    "title": "Destiny Child let you experience being a \"Whale\" in gacha game now. End of Service 21st Sept 23",
+    "channel": "A Yuu",
+    "date": "2023-09_approx_from_title",
+    "duration": "21:30",
+    "duration_s": 1290,
+    "orientation": {
+      "capture": "unknown",
+      "game_ui": "portrait_expected"
+    },
+    "mode": "UNKNOWN_LATE_WHALE_MONTAGE",
+    "ui": "EN_UNCONFIRMED",
+    "why": "oembed 确认标题/频道仍在。watch 页 WebFetch 超时；本机 yt-dlp/curl/node 对 www.youtube.com 均为 SSL EOF 或 handshake fail。未打开可播画面，不能确认英文 UI / 普通 5 人 PVE / Drive-QTE-Fever。覆盖保持 unknown。未逐帧。",
+    "mp4": "NEEDS_FETCH",
+    "coverage": {
+      "charge": "unknown",
+      "tap": "unknown",
+      "slide": "unknown",
+      "drive": "unknown",
+      "qte": "unknown",
+      "fever": "unknown",
+      "hit": "unknown",
+      "death": "unknown",
+      "wave": "unknown",
+      "result": "unknown"
+    },
+    "oembed": {
+      "ok": true,
+      "title": "Destiny Child let you experience being a \"Whale\" in gacha game now. End of Service 21st Sept 23",
+      "author_name": "A Yuu",
+      "author_url": "https://www.youtube.com/@ayuu."
+    },
+    "watch_page": "TIMEOUT_OR_TLS_FAIL",
+    "visual_confirm": "UNKNOWN_NO_FRAME"
+  },
+  "best_confirmed_en_gl_5p_pve": {
+    "status": "ERA_GAP_NOT_LATE_WINDOW",
+    "era": "cross_era_gl",
+    "note": "英文/GL UI 与普通 5 人 PVE 全流程最完整，但 2019–2020，Ignition 前或刚引入，不得冒充停服后期定版。同频道可交叉。era=cross_era_gl。",
+    "primary_url": "https://www.youtube.com/watch?v=IRDqNAhKKr4",
+    "cross_same_channel": [
+      "https://www.youtube.com/watch?v=-jTSXESlRbY",
+      "https://www.youtube.com/watch?v=JMIsch4Onyc",
+      "https://www.youtube.com/watch?v=ZresCSCPVp0",
+      "https://www.youtube.com/watch?v=QP72B54xEcA",
+      "https://www.youtube.com/watch?v=oOSGryDmibg",
+      "https://www.youtube.com/watch?v=rVjBLJOWSNc"
+    ],
+    "mp4": "NEEDS_FETCH",
+    "oembed_ok": true,
+    "watch_page": "TIMEOUT_OR_TLS_FAIL",
+    "visual_confirm": "UNKNOWN_NO_FRAME"
+  },
+  "late_window_backups": [
+    "https://www.youtube.com/watch?v=VydVl7BtbKk",
+    "https://www.youtube.com/watch?v=QIng41LnZN4",
+    "https://www.youtube.com/watch?v=Ker9A2rkvuA",
+    "https://www.youtube.com/watch?v=Gv3bkTE18o4"
+  ],
+  "entries": [
+    {
+      "id": "YT_-SUrcOZav_c",
+      "url": "https://www.youtube.com/watch?v=-SUrcOZav_c",
+      "title": "Destiny Child let you experience being a \"Whale\" in gacha game now. End of Service 21st Sept 23",
+      "channel": "A Yuu",
+      "date": "2023-09_approx",
+      "duration": "21:30",
+      "orientation": "unknown_capture / portrait_ui_expected",
+      "region": "UNKNOWN_LIKELY_GL",
+      "ui": "EN_UNCONFIRMED",
+      "mode": "UNKNOWN_LATE_MONTAGE",
+      "role": "primary_late_candidate",
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "unknown",
+        "tap": "unknown",
+        "slide": "unknown",
+        "drive": "unknown",
+        "qte": "unknown",
+        "fever": "unknown",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "unknown",
+        "result": "unknown"
+      }
+    },
+    {
+      "id": "YT_VydVl7BtbKk",
+      "url": "https://www.youtube.com/watch?v=VydVl7BtbKk",
+      "title": "Destiny Child - El predecesor de NIKKE - Debes Probarlo! Gameplay mas Lore (Android / IOS)",
+      "channel": "TrickDuck",
+      "date": "2022-03-08",
+      "duration": "12:03",
+      "orientation": "unknown_capture / portrait_ui_expected",
+      "region": "GL_SITE_LINKED",
+      "ui": "EN_UNCONFIRMED_ES_COMMENTARY",
+      "mode": "gameplay_plus_lore",
+      "role": "late_backup",
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "inferred",
+        "tap": "inferred",
+        "slide": "inferred",
+        "drive": "unknown",
+        "qte": "unknown",
+        "fever": "unknown",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "unknown",
+        "result": "unknown"
+      }
+    },
+    {
+      "id": "YT_QIng41LnZN4",
+      "url": "https://www.youtube.com/watch?v=QIng41LnZN4",
+      "title": "WHERE TO LEVEL UNITS! | BEST STAGES FOR LEVELING, FARMING + MORE! - DESTINY CHILD",
+      "channel": "AD",
+      "date": "unknown",
+      "duration": "10:23",
+      "orientation": "unknown_capture / portrait_ui_expected",
+      "region": "GL_LIKELY",
+      "ui": "EN_LIKELY",
+      "mode": "story_or_daily_farm_guide",
+      "role": "late_or_mid_farm_5p",
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "inferred",
+        "tap": "inferred",
+        "slide": "inferred",
+        "drive": "unknown",
+        "qte": "unknown",
+        "fever": "unknown",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "inferred",
+        "result": "unknown"
+      }
+    },
+    {
+      "id": "YT_Ker9A2rkvuA",
+      "url": "https://www.youtube.com/watch?v=Ker9A2rkvuA",
+      "title": "What Happened to ShiftUp's Last Gacha Game: Destiny Child?",
+      "channel": "Pseychie",
+      "date": "2024_approx",
+      "duration": "14:23",
+      "orientation": "unknown",
+      "region": "GL_PLAYED_NEAR_EOS",
+      "ui": "EN_LIKELY_MIXED_CUTS",
+      "mode": "retrospective_mixed",
+      "role": "eos_context_not_clean_gt",
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "unknown",
+        "tap": "unknown",
+        "slide": "unknown",
+        "drive": "unknown",
+        "qte": "unknown",
+        "fever": "unknown",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "unknown",
+        "result": "unknown"
+      }
+    },
+    {
+      "id": "YT_Gv3bkTE18o4",
+      "url": "https://www.youtube.com/watch?v=Gv3bkTE18o4",
+      "title": "Destiny Child (Global) - Devil Formula Full Story (Clotho's Narrative Dungeon)",
+      "channel": "Ryanto F2P",
+      "date": "2021-08-13",
+      "duration": "63:29",
+      "orientation": "landscape_capture_likely / portrait_ui",
+      "region": "GL",
+      "ui": "EN_LIKELY",
+      "mode": "NarrativeDungeon_story_heavy",
+      "role": "ignition_adjacent_en_gl_not_combat_primary",
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "inferred",
+        "tap": "inferred",
+        "slide": "inferred",
+        "drive": "unknown",
+        "qte": "unknown",
+        "fever": "unknown",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "inferred",
+        "result": "unknown"
+      }
+    },
+    {
+      "id": "YT_IRDqNAhKKr4",
+      "url": "https://www.youtube.com/watch?v=IRDqNAhKKr4",
+      "title": "Destiny Child (Global) - Eternal Vow Normal & Hard Full Run (Bathory Narrative Dungeon)",
+      "channel": "Ryanto F2P",
+      "date": "2019-09-14",
+      "duration": "45:56",
+      "orientation": "landscape_capture_likely / portrait_ui",
+      "region": "GL",
+      "ui": "EN",
+      "mode": "NarrativeDungeon_NormalPlusHard_5p",
+      "era": "cross_era_gl",
+      "role": "best_confirmed_en_5p_full_run",
+      "hard_start": "36:36",
+      "has_rewards": true,
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "inferred",
+        "tap": "inferred",
+        "slide": "inferred",
+        "drive": "inferred",
+        "qte": "inferred",
+        "fever": "inferred",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "inferred",
+        "result": "desc"
+      }
+    },
+    {
+      "id": "YT_-jTSXESlRbY",
+      "url": "https://www.youtube.com/watch?v=-jTSXESlRbY",
+      "title": "Destiny Child (Global) - Re : Build Normal / Story Mode Run (Ruffian Midas Narrative Dungeon)",
+      "channel": "Ryanto F2P",
+      "date": "2019-06_approx",
+      "duration": "44:50",
+      "orientation": "landscape_capture_likely / portrait_ui",
+      "region": "GL",
+      "ui": "EN",
+      "mode": "NarrativeDungeon_NormalStory_5p",
+      "era": "cross_era_gl",
+      "role": "cross_same_channel_2019",
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "inferred",
+        "tap": "inferred",
+        "slide": "inferred",
+        "drive": "inferred",
+        "qte": "inferred",
+        "fever": "inferred",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "inferred",
+        "result": "inferred"
+      }
+    },
+    {
+      "id": "YT_JMIsch4Onyc",
+      "url": "https://www.youtube.com/watch?v=JMIsch4Onyc",
+      "title": "Destiny Child (Global) - My Dear Normal / Story Mode Full Run (Bes Narrative Dungeon)",
+      "channel": "Ryanto F2P",
+      "date": "2020-02-14",
+      "duration": "31:34",
+      "orientation": "landscape_capture_likely / portrait_ui",
+      "region": "GL",
+      "ui": "EN",
+      "mode": "NarrativeDungeon_NormalStory_5p",
+      "era": "cross_era_gl",
+      "role": "cross_same_channel_2020",
+      "has_rewards": true,
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "inferred",
+        "tap": "inferred",
+        "slide": "inferred",
+        "drive": "inferred",
+        "qte": "inferred",
+        "fever": "inferred",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "inferred",
+        "result": "desc"
+      }
+    },
+    {
+      "id": "YT_ZresCSCPVp0",
+      "url": "https://www.youtube.com/watch?v=ZresCSCPVp0",
+      "title": "Destiny Child (Global) - Narrative Dungeon : A New Archfiend Normal & Hard Difficulty Gameplay",
+      "channel": "Ryanto F2P",
+      "date": "2019-04-01",
+      "duration": "21:50",
+      "orientation": "landscape_capture_likely / portrait_ui",
+      "region": "GL",
+      "ui": "EN",
+      "mode": "NarrativeDungeon_NormalPlusHard_5p",
+      "era": "cross_era_gl",
+      "role": "cross_same_channel_2019",
+      "normal_start": "02:33",
+      "hard_start": "14:18",
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "inferred",
+        "tap": "inferred",
+        "slide": "inferred",
+        "drive": "inferred",
+        "qte": "inferred",
+        "fever": "inferred",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "inferred",
+        "result": "inferred"
+      }
+    },
+    {
+      "id": "YT_QP72B54xEcA",
+      "url": "https://www.youtube.com/watch?v=QP72B54xEcA",
+      "title": "Destiny Child (Global) - The Revelation Normal Mode Full Run (Dana Narrative Dungeon)",
+      "channel": "Ryanto F2P",
+      "date": "2020_approx",
+      "duration": "35:17",
+      "orientation": "landscape_capture_likely / portrait_ui",
+      "region": "GL",
+      "ui": "EN",
+      "mode": "NarrativeDungeon_Normal_5p",
+      "era": "cross_era_gl",
+      "role": "cross_same_channel",
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "inferred",
+        "tap": "inferred",
+        "slide": "inferred",
+        "drive": "inferred",
+        "qte": "inferred",
+        "fever": "inferred",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "inferred",
+        "result": "inferred"
+      }
+    },
+    {
+      "id": "YT_oOSGryDmibg",
+      "url": "https://www.youtube.com/watch?v=oOSGryDmibg",
+      "title": "Destiny Child (Global) - Light And Dark Normal Mode Full Run (Athena & Pallas Narrative Dungeon)",
+      "channel": "Ryanto F2P",
+      "date": "2019-11_approx",
+      "duration": "24:10",
+      "orientation": "landscape_capture_likely / portrait_ui",
+      "region": "GL",
+      "ui": "EN",
+      "mode": "NarrativeDungeon_Normal_5p",
+      "era": "cross_era_gl",
+      "role": "cross_same_channel",
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "inferred",
+        "tap": "inferred",
+        "slide": "inferred",
+        "drive": "inferred",
+        "qte": "inferred",
+        "fever": "inferred",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "inferred",
+        "result": "inferred"
+      }
+    },
+    {
+      "id": "YT_rVjBLJOWSNc",
+      "url": "https://www.youtube.com/watch?v=rVjBLJOWSNc",
+      "title": "Destiny Child (Global) - Hyperlethal Love Normal / Story Mode Full Run (Brigid Narrative Dungeon)",
+      "channel": "Ryanto F2P",
+      "date": "2019-12_approx",
+      "duration": "25:03",
+      "orientation": "landscape_capture_likely / portrait_ui",
+      "region": "GL",
+      "ui": "EN",
+      "mode": "NarrativeDungeon_NormalStory_5p",
+      "era": "cross_era_gl",
+      "role": "cross_same_channel",
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "inferred",
+        "tap": "inferred",
+        "slide": "inferred",
+        "drive": "inferred",
+        "qte": "inferred",
+        "fever": "inferred",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "inferred",
+        "result": "inferred"
+      }
+    },
+    {
+      "id": "YT_31tUHrW8D6E",
+      "url": "https://www.youtube.com/watch?v=31tUHrW8D6E",
+      "title": "Destiny Child (Global) - My 44 Mins Starter Gameplay",
+      "channel": "Ryanto F2P",
+      "date": "2018-12_approx",
+      "duration": "44:36",
+      "orientation": "landscape_capture_likely / portrait_ui",
+      "region": "GL",
+      "ui": "EN",
+      "mode": "Story_starter_5p",
+      "era": "cross_era_gl",
+      "role": "launch_tutorial_not_late",
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "inferred",
+        "tap": "inferred",
+        "slide": "inferred",
+        "drive": "inferred",
+        "qte": "inferred",
+        "fever": "unknown",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "inferred",
+        "result": "inferred"
+      }
+    },
+    {
+      "id": "YT_l8yxVu9UA_Y",
+      "url": "https://www.youtube.com/watch?v=l8yxVu9UA_Y",
+      "title": "DESTINY CHILD CHAPTER 8 - 8 + ENDING SCENE ANDROID GAMEPLAY",
+      "channel": "Alex's Repo",
+      "date": "2019-08-07",
+      "duration": "23:28",
+      "orientation": "nox_emulator_landscape_likely / portrait_ui",
+      "region": "GL",
+      "ui": "EN_LIKELY",
+      "mode": "StoryChapter_8-8_5p",
+      "era": "cross_era_gl",
+      "role": "main_story_5p_2019",
+      "site": "https://global.destiny-child.com/",
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "inferred",
+        "tap": "inferred",
+        "slide": "inferred",
+        "drive": "inferred",
+        "qte": "inferred",
+        "fever": "unknown",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "inferred",
+        "result": "inferred"
+      }
+    },
+    {
+      "id": "YT_o1vK0xgyxl0",
+      "url": "https://www.youtube.com/watch?v=o1vK0xgyxl0",
+      "title": "DESTINY CHILD CHAPTER 8 - 6 ANDROID GAMEPLAY",
+      "channel": "Alex's Repo",
+      "date": "2019-08_approx",
+      "duration": "06:17",
+      "orientation": "nox_emulator_landscape_likely / portrait_ui",
+      "region": "GL",
+      "ui": "EN_LIKELY",
+      "mode": "StoryChapter_8-6_5p",
+      "era": "cross_era_gl",
+      "role": "main_story_5p_2019",
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "inferred",
+        "tap": "inferred",
+        "slide": "inferred",
+        "drive": "unknown",
+        "qte": "unknown",
+        "fever": "unknown",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "inferred",
+        "result": "inferred"
+      }
+    },
+    {
+      "id": "YT_FocgkwV-lB8",
+      "url": "https://www.youtube.com/watch?v=FocgkwV-lB8",
+      "title": "DESTINY CHILD CHAPTER 8 - 1 ANDROID GAMEPLAY",
+      "channel": "Alex's Repo",
+      "date": "2019-08_approx",
+      "duration": "08:37",
+      "orientation": "nox_emulator_landscape_likely / portrait_ui",
+      "region": "GL",
+      "ui": "EN_LIKELY",
+      "mode": "StoryChapter_8-1_5p",
+      "era": "cross_era_gl",
+      "role": "main_story_5p_2019",
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "inferred",
+        "tap": "inferred",
+        "slide": "inferred",
+        "drive": "unknown",
+        "qte": "unknown",
+        "fever": "unknown",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "inferred",
+        "result": "inferred"
+      }
+    },
+    {
+      "id": "YT_bolHTV8HeiU",
+      "url": "https://www.youtube.com/watch?v=bolHTV8HeiU",
+      "title": "Destiny Child Global - 1st 30 Mins /w Story Reaction",
+      "channel": "VolfKnowsNoBounds",
+      "date": "2018-12_approx",
+      "duration": "29:30",
+      "orientation": "unknown",
+      "region": "GL",
+      "ui": "EN_LIKELY",
+      "mode": "Story_launch_mixed",
+      "role": "launch_not_late",
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "inferred",
+        "tap": "inferred",
+        "slide": "inferred",
+        "drive": "unknown",
+        "qte": "unknown",
+        "fever": "unknown",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "unknown",
+        "result": "unknown"
+      }
+    },
+    {
+      "id": "YT_3UGPbEIPrt4",
+      "url": "https://www.youtube.com/watch?v=3UGPbEIPrt4",
+      "title": "Destiny Child | Gameplay | Global Version | Android Games",
+      "channel": "Asura Play",
+      "date": "2018-12_approx",
+      "duration": "06:51",
+      "orientation": "unknown",
+      "region": "GL",
+      "ui": "EN_LIKELY",
+      "mode": "launch_gameplay_short",
+      "role": "launch_not_late",
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "inferred",
+        "tap": "inferred",
+        "slide": "inferred",
+        "drive": "unknown",
+        "qte": "unknown",
+        "fever": "unknown",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "unknown",
+        "result": "unknown"
+      }
+    },
+    {
+      "id": "YT_7JqrwEd4kHI",
+      "url": "https://www.youtube.com/watch?v=7JqrwEd4kHI",
+      "title": "Destiny Child Gameplay HD (Android) Global Release",
+      "channel": "Freebies Deals Sales Games",
+      "date": "2018-12_approx",
+      "duration": "11:26",
+      "orientation": "unknown",
+      "region": "GL",
+      "ui": "EN_LIKELY",
+      "mode": "launch_gameplay",
+      "role": "launch_not_late",
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "inferred",
+        "tap": "inferred",
+        "slide": "inferred",
+        "drive": "unknown",
+        "qte": "unknown",
+        "fever": "unknown",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "unknown",
+        "result": "unknown"
+      }
+    },
+    {
+      "id": "YT_MJ6FJg61JIE",
+      "url": "https://www.youtube.com/watch?v=MJ6FJg61JIE",
+      "title": "Destiny Child ( ) - English Version Lolita Girl Gameplay (Android/IOS)",
+      "channel": "Titan Games",
+      "date": "unknown_launch_era",
+      "duration": "23:50",
+      "orientation": "unknown",
+      "region": "GL_OR_EN_CLIENT",
+      "ui": "EN_LIKELY",
+      "mode": "gameplay_mixed",
+      "role": "launch_or_mid_unverified",
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "inferred",
+        "tap": "inferred",
+        "slide": "inferred",
+        "drive": "unknown",
+        "qte": "unknown",
+        "fever": "unknown",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "unknown",
+        "result": "unknown"
+      }
+    },
+    {
+      "id": "YT_SHueV93iBAA",
+      "url": "https://www.youtube.com/watch?v=SHueV93iBAA",
+      "title": "Destiny Child Global! Guardian Chang'e and Her New Story Event Game Play.",
+      "channel": "MegChanYT",
+      "date": "2019_early_approx",
+      "duration": "19:20",
+      "orientation": "unknown",
+      "region": "GL",
+      "ui": "EN_LIKELY",
+      "mode": "story_event_5p",
+      "role": "early_event_pve",
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "inferred",
+        "tap": "inferred",
+        "slide": "inferred",
+        "drive": "unknown",
+        "qte": "unknown",
+        "fever": "unknown",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "inferred",
+        "result": "unknown"
+      }
+    },
+    {
+      "id": "YT_USt8YSAkqRI",
+      "url": "https://www.youtube.com/watch?v=USt8YSAkqRI",
+      "title": "[Destiny Child] Story 7-7-4 (HARD) BOSS",
+      "channel": "page",
+      "date": "unknown",
+      "duration": "01:54",
+      "orientation": "unknown",
+      "region": "UNKNOWN_NOT_GL_VERIFIED",
+      "ui": "UNKNOWN",
+      "mode": "StoryHardBoss_5p",
+      "role": "region_unverified_do_not_mark_gl",
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "inferred",
+        "tap": "unknown",
+        "slide": "unknown",
+        "drive": "unknown",
+        "qte": "unknown",
+        "fever": "unknown",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "unknown",
+        "result": "unknown"
+      }
+    },
+    {
+      "id": "YT_MThHs8Gt4ZQ",
+      "url": "https://www.youtube.com/watch?v=MThHs8Gt4ZQ",
+      "title": "Destiny Child (Global) - Battle Royale & Millia, Ramlethal,Sol Awakening Story (Guilty Gear Collab)",
+      "channel": "Ryanto F2P",
+      "date": "2022-10-16",
+      "duration": "51:40",
+      "orientation": "landscape_capture_likely / portrait_ui",
+      "region": "GL",
+      "ui": "EN_LIKELY",
+      "mode": "cutscene_story_not_combat_gt",
+      "role": "late_window_story_only",
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "n/a",
+        "tap": "n/a",
+        "slide": "n/a",
+        "drive": "n/a",
+        "qte": "n/a",
+        "fever": "n/a",
+        "hit": "n/a",
+        "death": "n/a",
+        "wave": "n/a",
+        "result": "n/a"
+      }
+    },
+    {
+      "id": "YT_gLWHd92mByo",
+      "url": "https://www.youtube.com/watch?v=gLWHd92mByo",
+      "title": "Destiny Child (Global) - Ragna Break Season 35 : Demigod - Lv. 30 Raid Boss 1 Ticket Kill",
+      "channel": "Ryanto F2P",
+      "date": "2023-04-29",
+      "duration": "06:18",
+      "orientation": "landscape_capture_likely / portrait_ui",
+      "region": "GL",
+      "ui": "EN_LIKELY",
+      "mode": "Ragna",
+      "role": "ragna_supplement_not_ordinary_pve",
+      "mp4": "NEEDS_FETCH",
+      "coverage": {
+        "charge": "inferred",
+        "tap": "inferred",
+        "slide": "inferred",
+        "drive": "inferred",
+        "qte": "inferred",
+        "fever": "inferred",
+        "hit": "unknown",
+        "death": "n/a",
+        "wave": "n/a",
+        "result": "inferred"
+      }
+    },
+    {
+      "id": "YT_mJrT2conPCI",
+      "url": "https://www.youtube.com/watch?v=mJrT2conPCI",
+      "title": "[DESTINY CHILD Global] Ragna:Break S3",
+      "channel": "Yamashiro",
+      "date": "2019-07-08",
+      "duration": "06:23",
+      "orientation": "landscape_1280x720 / portrait_ui",
+      "region": "GL",
+      "ui": "EN_LIKELY",
+      "mode": "Ragna",
+      "role": "supplement_only",
+      "local_mp4": "docs/reference/gamekee/_combined/battle_vids/mJrT2conPCI.mp4",
+      "mp4": "LOCAL",
+      "coverage": {
+        "charge": "unknown",
+        "tap": "unknown",
+        "slide": "desc",
+        "drive": "desc",
+        "qte": "desc",
+        "fever": "desc",
+        "hit": "desc",
+        "death": "n/a",
+        "wave": "n/a",
+        "result": "desc"
+      },
+      "coverage_scope": "ragna_supplement_only_not_ordinary_5p",
+      "frame_analysis": "M1-G2-SUPP-CUES",
+      "cue_draft": "docs/reference/gl-shutdown-pve/supplementary/ragna_gl/CUES.md",
+      "why_not_primary": "GL Ragna 2019. Drive/QTE/Fever/result seen as supplement only. Not ordinary 5p PVE unique truth."
+    },
+    {
+      "id": "YT_Vdf4V693IcU",
+      "url": "https://www.youtube.com/watch?v=Vdf4V693IcU",
+      "title": "[Destiny Child KR] Raid Season 12 Full auto One kill w/failnaught [데차]",
+      "channel": "Tora Jc",
+      "date": "unknown",
+      "duration": "04:22",
+      "orientation": "landscape_1280x720 / portrait_ui",
+      "region": "KR",
+      "ui": "KR",
+      "mode": "Raid",
+      "role": "kr_raid_contrast_only",
+      "local_mp4": "docs/reference/gamekee/_combined/battle_vids/Vdf4V693IcU.mp4",
+      "mp4": "LOCAL",
+      "coverage": {
+        "charge": "n/a",
+        "tap": "n/a",
+        "slide": "n/a",
+        "drive": "n/a",
+        "qte": "n/a",
+        "fever": "n/a",
+        "hit": "n/a",
+        "death": "n/a",
+        "wave": "n/a",
+        "result": "n/a"
+      },
+      "numeric_baseline_forbidden": true,
+      "mode_contrast_only": true
+    },
+    {
+      "id": "YT_89jpoNqAwa8",
+      "url": "https://www.youtube.com/watch?v=89jpoNqAwa8",
+      "title": "Destiny's Child 命运之子#01 - The100thWB Fight + 20 PremiumSummon 抽 (非洲人 )（ｉДｉ）",
+      "channel": "梨立Aki",
+      "date": "unknown",
+      "duration": "06:34",
+      "orientation": "landscape_1280x720 / portrait_ui",
+      "region": "UNKNOWN_WB",
+      "ui": "UNKNOWN",
+      "mode": "WorldBoss",
+      "role": "wb_contrast_only",
+      "local_mp4": "docs/reference/gamekee/_combined/battle_vids/89jpoNqAwa8.mp4",
+      "mp4": "LOCAL",
+      "coverage": {
+        "charge": "n/a",
+        "tap": "n/a",
+        "slide": "n/a",
+        "drive": "n/a",
+        "qte": "n/a",
+        "fever": "n/a",
+        "hit": "n/a",
+        "death": "n/a",
+        "wave": "n/a",
+        "result": "n/a"
+      },
+      "numeric_baseline_forbidden": true,
+      "mode_contrast_only": true
+    },
+    {
+      "id": "YT_soFepqXgBzA",
+      "url": "https://www.youtube.com/watch?v=soFepqXgBzA",
+      "title": "[ENG trans] 4-8 Wounded Winner pt.3 \"Mitra on the verge of Death?\"",
+      "channel": "Deep Dark Fantasies / DestinyChildTranslations",
+      "date": "2022-04-20",
+      "duration": "2h13+_from_reddit_timestamps",
+      "orientation": "unknown",
+      "region": "NOT_GL_CLIENT",
+      "ui": "ENG_SUB_NOT_GL_UI",
+      "mode": "story_chapter_4-8_translated",
+      "era": "2022_campaign_story",
+      "role": "searched_2022_story_eng_sub_not_gl_ui",
+      "mp4": "NEEDS_FETCH",
+      "oembed_ok": true,
+      "coverage": {
+        "charge": "unknown",
+        "tap": "unknown",
+        "slide": "unknown",
+        "drive": "unknown",
+        "qte": "unknown",
+        "fever": "unknown",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "unknown",
+        "result": "unknown"
+      },
+      "why": "r/DestinyChildGlobal 2022-04 英译剧情长片。标题 ENG trans，不是国际服英文客户端。禁止当 GL 5 人 PVE 基准。未看画面。"
+    },
+    {
+      "id": "YT_EEHJjKFJJvE",
+      "url": "https://www.youtube.com/watch?v=EEHJjKFJJvE",
+      "title": "[Destiny Child translations] ch6-1 Demigod \"Dark Secrets of the Exorcist Order\"",
+      "channel": "Deep Dark Fantasies / DestinyChildTranslations",
+      "date": "2023-03-25",
+      "duration": "unknown",
+      "orientation": "unknown",
+      "region": "NOT_GL_CLIENT",
+      "ui": "ENG_SUB_NOT_GL_UI",
+      "mode": "story_chapter_6-1_translated",
+      "era": "2023_campaign_story",
+      "role": "searched_2023_story_eng_sub_not_gl_ui",
+      "mp4": "NEEDS_FETCH",
+      "oembed_ok": true,
+      "coverage": {
+        "charge": "unknown",
+        "tap": "unknown",
+        "slide": "unknown",
+        "drive": "unknown",
+        "qte": "unknown",
+        "fever": "unknown",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "unknown",
+        "result": "unknown"
+      },
+      "why": "2023-03 同频道英译。GL reddit 当剧情补完，不是 GL 英文 UI。禁止当普通战斗基准。未看画面。"
+    },
+    {
+      "id": "YT_JzXGL_FWgoo",
+      "url": "https://www.youtube.com/watch?v=JzXGL_FWgoo",
+      "title": "[ENG Trans] ch5-7 Assemble!: \"All the Lost Childer\"",
+      "channel": "Deep Dark Fantasies / DestinyChildTranslations",
+      "date": "2022-10-23",
+      "duration": "unknown",
+      "orientation": "unknown",
+      "region": "NOT_GL_CLIENT",
+      "ui": "ENG_SUB_NOT_GL_UI",
+      "mode": "story_chapter_5-7_translated",
+      "era": "2022_campaign_story",
+      "role": "searched_2022_story_eng_sub_not_gl_ui",
+      "mp4": "NEEDS_FETCH",
+      "oembed_ok": true,
+      "coverage": {
+        "charge": "unknown",
+        "tap": "unknown",
+        "slide": "unknown",
+        "drive": "unknown",
+        "qte": "unknown",
+        "fever": "unknown",
+        "hit": "unknown",
+        "death": "unknown",
+        "wave": "unknown",
+        "result": "unknown"
+      }
+    },
+    {
+      "id": "YT_30IY04JOmHs",
+      "url": "https://www.youtube.com/watch?v=30IY04JOmHs",
+      "title": "[Destiny Child: Room of Memories]",
+      "channel": "Destiny Child Global",
+      "date": "2023-09_eos",
+      "duration": "unknown",
+      "orientation": "unknown",
+      "region": "GL_OFFICIAL",
+      "ui": "UNKNOWN_CINEMATIC",
+      "mode": "official_farewell_not_combat",
+      "role": "eos_official_not_pve_gt",
+      "mp4": "NEEDS_FETCH",
+      "oembed_ok": true,
+      "coverage": {
+        "charge": "n/a",
+        "tap": "n/a",
+        "slide": "n/a",
+        "drive": "n/a",
+        "qte": "n/a",
+        "fever": "n/a",
+        "hit": "n/a",
+        "death": "n/a",
+        "wave": "n/a",
+        "result": "n/a"
+      },
+      "why": "官方告别片。不是普通 5 人 PVE。"
+    },
+    {
+      "id": "YT_Cx65Cs7163Q",
+      "url": "https://www.youtube.com/watch?v=Cx65Cs7163Q",
+      "title": "NEW CHANGES! | DESTINY CHILD TIER LIST! | JANUARY/FEBRUARY 2023 - DESTINY CHILD GLOBAL",
+      "channel": "AD",
+      "date": "2023-01_or_02",
+      "duration": "unknown",
+      "orientation": "unknown",
+      "region": "GL_LIKELY",
+      "ui": "EN_LIKELY_GUIDE",
+      "mode": "tier_list_not_combat",
+      "role": "late_window_en_gl_not_combat_gt",
+      "mp4": "NEEDS_FETCH",
+      "oembed_ok": true,
+      "coverage": {
+        "charge": "n/a",
+        "tap": "n/a",
+        "slide": "n/a",
+        "drive": "n/a",
+        "qte": "n/a",
+        "fever": "n/a",
+        "hit": "n/a",
+        "death": "n/a",
+        "wave": "n/a",
+        "result": "n/a"
+      }
+    }
+  ],
+  "rejected_as_gl_verified": [
+    {
+      "url": "https://www.youtube.com/watch?v=ddMW5j9pvx4",
+      "reason": "KR narrative, not GL"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=TskKzDemFEs",
+      "reason": "KR event boss"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=rnki0pH581s",
+      "reason": "KR World Boss"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=S3W9cBWYmuw",
+      "reason": "KR trailer"
+    },
+    {
+      "id": "S17_S18",
+      "reason": "JP official WB guides; contrast only, not GL verified"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=soFepqXgBzA",
+      "reason": "ENG trans / not GL English client UI"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=EEHJjKFJJvE",
+      "reason": "ENG trans ch6-1 / not GL English client UI"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=JzXGL_FWgoo",
+      "reason": "ENG trans ch5-7 / not GL English client UI"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Q59OHumX-fQ",
+      "reason": "AD 2022-07 KR skins/events preview; not GL combat GT"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=30IY04JOmHs",
+      "reason": "Official farewell cinematic; not ordinary 5p PVE"
+    }
+  ],
+  "gaps": [
+    "local battle_vids 无普通 5 人 PVE mp4",
+    "停服窗 2022-09~2023-09 无逐帧确认的英文 UI 普通 5 人 PVE",
+    "2022-2023 同版本交叉集仍空（新检索到的是英译剧情/告别片/tier list，不是 GL 英文客户端战斗）",
+    "受击/死亡/换波/结算在已确认英文全流程里仍是 inferred，未逐帧",
+    "除 3 条本地 Ragna/KR/WB 外全部 NEEDS_FETCH",
+    "M1-G0-GT-RETRY 2026-09-10: yt-dlp legacy/ipv4/android/web/nocheckcert 仍 SSL_EOF; browser tab 起不来; Invidious/Piped/Cobalt 无可用 mp4; docs/reference/gl-shutdown-pve/ still 0 mp4",
+    "M1-G0-GT-LOCAL 2026-09-10: 本地限定扫无可用 GL 普通 5 人 PVE mp4；gl-shutdown-pve 仍 0；未再跑 yt-dlp；未逐帧",
+    "M1-G2-SUPP-CUES 2026-09-10: Ragna cues drafted under supplementary/; primary still NEEDS_FETCH; 0 ordinary 5p PVE mp4",
+    "Ragna supplement covers Drive-ready/cut-in, QTE GREAT/PERFECT, FEVER TIME, Ragna rank result — not ordinary wave/death/star-clear",
+    "battle_refs HUD contours REPORTED + MIXED region; memorial lobby forbidden as combat coords"
+  ],
+  "task_id": "M1-G2-SUPP-CUES",
+  "metadata_only": {
+    "oembed_ok": [
+      "-SUrcOZav_c",
+      "IRDqNAhKKr4",
+      "VydVl7BtbKk",
+      "QIng41LnZN4",
+      "Gv3bkTE18o4",
+      "Ker9A2rkvuA",
+      "soFepqXgBzA",
+      "EEHJjKFJJvE",
+      "JzXGL_FWgoo",
+      "hon6kCdawlo",
+      "Cx65Cs7163Q",
+      "30IY04JOmHs"
+    ],
+    "watch_page_visual": "UNKNOWN",
+    "note": "oembed 只证明片还在且标题/频道。不能当英文 UI / 5 人 PVE / 覆盖状态的逐帧证据。"
+  },
+  "search_2022_2023": {
+    "goal": "GL story/campaign battle with English UI",
+    "added": [
+      "YT_soFepqXgBzA",
+      "YT_EEHJjKFJJvE"
+    ],
+    "also_noted": [
+      "YT_30IY04JOmHs",
+      "YT_Cx65Cs7163Q",
+      "YT_JzXGL_FWgoo"
+    ],
+    "not_gl_english_ui": [
+      "soFepqXgBzA",
+      "EEHJjKFJJvE",
+      "JzXGL_FWgoo"
+    ],
+    "not_ordinary_5p_combat": [
+      "30IY04JOmHs",
+      "Cx65Cs7163Q",
+      "MThHs8Gt4ZQ",
+      "gLWHd92mByo"
+    ],
+    "still_best_late_gl_gameplay_unconfirmed_ui": "VydVl7BtbKk",
+    "note": "2022-2023 公开检索大量是 KR 英文字幕剧情或 Ragna/tier/告别片。没有新的已确认英文 UI 普通 5 人战役 mp4。"
+  },
+  "local_candidates": {
+    "task_id": "M1-G0-GT-LOCAL",
+    "scanned_at": "2026-09-10",
+    "method": "filename_directory_sidecar_only",
+    "frame_analysis": "NOT_DONE",
+    "usable_primary_gt": false,
+    "usable_ordinary_5p_pve_count": 0,
+    "unknown_count": 0,
+    "youtube_retry": "NOT_RUN_THIS_TASK",
+    "remote_fetch": "BLOCKED_YOUTUBE_FAMILY_TLS_EOF",
+    "waiting": "local_ingest_into_docs/reference/gl-shutdown-pve/",
+    "probe": "ffprobe 8.1.1; mediainfo absent",
+    "scopes_scanned": [
+      "docs/",
+      "DC_RECON_KIT/",
+      "天命之子数据/",
+      "art/",
+      "专区/",
+      "reference/",
+      "单机dc1.1整合包/",
+      "dist/",
+      "launch/",
+      "_sandbox/",
+      "F:/Resonance (sibling project, name+ext peek)",
+      "C:/Users/Administrator/Videos (name filter destiny|dcglobal|天命|契灵)",
+      "C:/Users/Administrator/Downloads (same name filter)",
+      "Desktop/Documents/Public Videos+Downloads (same name filter)",
+      "F:/ top-level obvious dirs peeked: Resonance, 1.2, data, SaveGame, 专区, Picture, Netease, TapTap, tmp"
+    ],
+    "empty_of_mp4_webm_mkv_mov": [
+      "DC_RECON_KIT/",
+      "天命之子数据/",
+      "art/",
+      "docs/reference/gl-shutdown-pve/",
+      "docs/reference/mobile-archive/",
+      "docs/reference/ui-lock/",
+      "reference/",
+      "单机dc1.1整合包/",
+      "dist/",
+      "launch/",
+      "_sandbox/",
+      "F:/Resonance",
+      "user Videos/Downloads/Desktop/Documents name-matched"
+    ],
+    "not_full_system_scan": true,
+    "battle_vids_blacklist": {
+      "mJrT2conPCI": "Ragna_supplement_only",
+      "Vdf4V693IcU": "KR_Raid_contrast_only",
+      "89jpoNqAwa8": "WB_contrast_only"
+    },
+    "hits": [
+      {
+        "path": "docs/reference/gamekee/_combined/battle_vids/mJrT2conPCI.mp4",
+        "resolution": "1280x720",
+        "duration_s": 383.054,
+        "size": 103588337,
+        "in_battle_vids_blacklist": true,
+        "blacklist_id": "mJrT2conPCI",
+        "blacklist_role": "Ragna_supplement_only",
+        "gl_5p_pve": "NO",
+        "judgment_basis": "filename_plus_sidecar",
+        "sidecar": [
+          "docs/reference/gamekee/_combined/battle_vids/crops/ragna_*.jpg",
+          "docs/reference/gamekee/_combined/battle_vids/keys/mJrT2conPCI/",
+          "docs/reference/gamekee/_combined/battle_vids/frames/mJrT2conPCI/"
+        ],
+        "why": "已在 battle_vids 黑名单。目录/裁切/keys 均标 Ragna。不得当普通 5 人 PVE 基准。本任务未逐帧。"
+      },
+      {
+        "path": "docs/reference/gamekee/_combined/battle_vids/Vdf4V693IcU.mp4",
+        "resolution": "1280x720",
+        "duration_s": 261.694,
+        "size": 68262777,
+        "in_battle_vids_blacklist": true,
+        "blacklist_id": "Vdf4V693IcU",
+        "blacklist_role": "KR_Raid_contrast_only",
+        "gl_5p_pve": "NO",
+        "judgment_basis": "filename_plus_sidecar",
+        "sidecar": [
+          "docs/reference/gamekee/_combined/battle_vids/crops/kr_*.jpg",
+          "docs/reference/gamekee/_combined/battle_vids/keys/Vdf4V693IcU/",
+          "docs/reference/gamekee/_combined/battle_vids/frames/Vdf4V693IcU/"
+        ],
+        "why": "已在 battle_vids 黑名单。目录/裁切/keys 均标 KR Raid。不得当普通 5 人 PVE 基准。本任务未逐帧。"
+      },
+      {
+        "path": "docs/reference/gamekee/_combined/battle_vids/89jpoNqAwa8.mp4",
+        "resolution": "1280x720",
+        "duration_s": 394.3,
+        "size": 58087970,
+        "in_battle_vids_blacklist": true,
+        "blacklist_id": "89jpoNqAwa8",
+        "blacklist_role": "WB_contrast_only",
+        "gl_5p_pve": "NO",
+        "judgment_basis": "filename_plus_sidecar",
+        "sidecar": [
+          "docs/reference/gamekee/_combined/battle_vids/crops/wb_*.jpg",
+          "docs/reference/gamekee/_combined/battle_vids/keys/89jpoNqAwa8/",
+          "docs/reference/gamekee/_combined/battle_vids/frames/89jpoNqAwa8/"
+        ],
+        "why": "已在 battle_vids 黑名单。目录/裁切/keys 均标 WB。不得当普通 5 人 PVE 基准。本任务未逐帧。"
+      },
+      {
+        "path": "codex专区/inochi2d-proof/verification/parameter-preview.mp4",
+        "resolution": "900x1000",
+        "duration_s": 6,
+        "size": 518105,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/emerald-bunny/automation-v001/foot-closeup.mp4",
+        "resolution": "750x690",
+        "duration_s": 6,
+        "size": 99692,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/emerald-bunny/automation-v001/preview.mp4",
+        "resolution": "756x1344",
+        "duration_s": 6,
+        "size": 1154832,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/emerald-bunny/automation-v001-preflight/foot-closeup.mp4",
+        "resolution": "750x690",
+        "duration_s": 6,
+        "size": 99692,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/emerald-bunny/automation-v001-preflight/preview.mp4",
+        "resolution": "756x1344",
+        "duration_s": 6,
+        "size": 1142112,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/emerald-bunny/inochi-foot-v002/verification/foot-closeup.mp4",
+        "resolution": "750x740",
+        "duration_s": 6,
+        "size": 112639,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/emerald-bunny/inochi-foot-v002/verification/preview.mp4",
+        "resolution": "756x1344",
+        "duration_s": 6,
+        "size": 1090995,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/emerald-bunny/inochi-rig/verification/preview.mp4",
+        "resolution": "756x1344",
+        "duration_s": 6,
+        "size": 833220,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/emerald-bunny/native-rig/verification/preview.mp4",
+        "resolution": "768x1152",
+        "duration_s": 12,
+        "size": 1358932,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/emerald-bunny/native-rig/verification/stretch-preview.mp4",
+        "resolution": "768x1152",
+        "duration_s": 5,
+        "size": 204688,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/midnight-courier/arm-motion-test/verification/arm-stress.mp4",
+        "resolution": "1280x960",
+        "duration_s": 18,
+        "size": 2770344,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/midnight-courier/character-arm-integration/verification/character-arm-v010.mp4",
+        "resolution": "960x1440",
+        "duration_s": 8,
+        "size": 1774375,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/midnight-courier/depth-reach-test/verification/depth-reach.mp4",
+        "resolution": "960x1440",
+        "duration_s": 8,
+        "size": 1630227,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/midnight-courier/full-character/verification/before-coverage-fix.mp4",
+        "resolution": "960x1440",
+        "duration_s": 18,
+        "size": 3274168,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/midnight-courier/full-character/verification/before-smooth-motion.mp4",
+        "resolution": "960x1440",
+        "duration_s": 18,
+        "size": 3293204,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/midnight-courier/full-character/verification/coverage-comparison.mp4",
+        "resolution": "960x630",
+        "duration_s": 18,
+        "size": 3280244,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/midnight-courier/full-character/verification/full-character.mp4",
+        "resolution": "960x1440",
+        "duration_s": 18,
+        "size": 4239635,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/midnight-courier/full-character/verification/hybrid-comparison.mp4",
+        "resolution": "960x630",
+        "duration_s": 18,
+        "size": 3247727,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/midnight-courier/gray-arm-study/verification/gray-arm-v011.mp4",
+        "resolution": "1280x800",
+        "duration_s": 8,
+        "size": 280264,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/midnight-courier/gray-arm-study/verification/gray-arm-v020.mp4",
+        "resolution": "1280x800",
+        "duration_s": 8,
+        "size": 261310,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/midnight-courier/gray-arm-study/verification/gray-arm.mp4",
+        "resolution": "1280x800",
+        "duration_s": 8,
+        "size": 245389,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/midnight-courier/gray-arm-study/verification/v010-gray-arm.mp4",
+        "resolution": "1280x800",
+        "duration_s": 8,
+        "size": 245389,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/midnight-courier/leg-proof/verification/knee-comparison.mp4",
+        "resolution": "1600x1000",
+        "duration_s": 8,
+        "size": 697842,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/midnight-courier/painted-arm-study/verification/painted-arm-v010.mp4",
+        "resolution": "960x1440",
+        "duration_s": 8,
+        "size": 507151,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/midnight-courier/rig-proof/verification/arm-proof-v011.mp4",
+        "resolution": "1024x1536",
+        "duration_s": 8,
+        "size": 531628,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/midnight-courier/rig-proof/verification/arm-proof.mp4",
+        "resolution": "1024x1536",
+        "duration_s": 8,
+        "size": 496010,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/original-character/midnight-courier/rig-proof/verification/layers-before-after.mp4",
+        "resolution": "720x800",
+        "duration_s": 8,
+        "size": 517250,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/puppet-rig-fix/puppet-clasp-v0.4.0.mp4",
+        "resolution": "1024x1536",
+        "duration_s": 5.533333,
+        "size": 1029790,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/puppet-rig-fix/puppet-face-motion-v0.2.0.mp4",
+        "resolution": "768x1152",
+        "duration_s": 8,
+        "size": 219222,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/puppet-rig-fix/puppet-knee-detail-v0.4.2.mp4",
+        "resolution": "480x720",
+        "duration_s": 4.533333,
+        "size": 165759,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/puppet-rig-fix/puppet-knee-v0.4.2.mp4",
+        "resolution": "1024x1536",
+        "duration_s": 4.533333,
+        "size": 430593,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/puppet-rig-fix/puppet-leg-v0.3.0.mp4",
+        "resolution": "1024x1536",
+        "duration_s": 4.533333,
+        "size": 422071,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/puppet-rig-fix/puppet-motion-v0.2.0.mp4",
+        "resolution": "768x1152",
+        "duration_s": 8,
+        "size": 184625,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/puppet-rig-fix/chest-idle/chest-bust.mp4",
+        "resolution": "640x360",
+        "duration_s": 3,
+        "size": 196256,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      },
+      {
+        "path": "codex专区/puppet-rig-fix/chest-idle/chest-idle.mp4",
+        "resolution": "368x368",
+        "duration_s": 1.5,
+        "size": 95665,
+        "in_battle_vids_blacklist": false,
+        "gl_5p_pve": "NO",
+        "judgment_basis": "path_and_filename",
+        "why": "专区 Inochi/自角色/人偶骨骼验证片，不是 Destiny Child 国际服客户端实机。"
+      }
+    ],
+    "excluded_toolchain": [
+      {
+        "path": "专区/inochi2d-proof/Unity/Library/PackageCache/com.unity.render-pipelines.core@*/Documentation~/*.mp4",
+        "gl_5p_pve": "NO",
+        "why": "Unity PackageCache 文档样片，排除。"
+      },
+      {
+        "path": "专区/inochi2d-proof/Unity/Library/PackageCache/com.unity.shadergraph@*/Documentation~/images/*.mp4",
+        "gl_5p_pve": "NO",
+        "why": "Unity PackageCache 文档样片，排除。"
+      }
+    ],
+    "memorial_stills": {
+      "paths": [
+        "docs/reference/mobile-archive/",
+        "docs/reference/ui-lock/"
+      ],
+      "png_jpg_count": {
+        "mobile-archive": 2671,
+        "ui-lock": 69
+      },
+      "has_combat": false,
+      "usable_as_battle_gt": false,
+      "note": "纪念版客户端无战斗。INDEX 写明 Battle HUD 不在纪念版。截图不能当战斗 GT。"
+    },
+    "unmatched_out_of_scope": [
+      {
+        "path": "C:/Users/Administrator/Downloads/QQ20260817-232150-HD.mp4",
+        "note": "文件名不含 destiny/dcglobal/天命/契灵，未纳入候选、未探测。"
+      }
+    ]
+  },
+  "truth_tier": {
+    "primary": "CANDIDATE_NEEDS_FETCH",
+    "supplementary": "RAGNA_CUES_DRAFTED_NOT_PRIMARY",
+    "ordinary_5p_pve_usable": false,
+    "restore_claimed": false,
+    "note": "supplementary (Ragna cues / Raid-WB mode diff / mixed battle_refs HUD contours) is NOT ordinary 5p PVE unique truth. primary still NEEDS_FETCH."
+  },
+  "supplementary": {
+    "task_id": "M1-G2-SUPP-CUES",
+    "accessed": "2026-09-10",
+    "not_primary": true,
+    "not_ordinary_5p_pve_gt": true,
+    "restore_claimed": false,
+    "youtube_retry": "NOT_RUN_THIS_TASK",
+    "unity_code_changed": false,
+    "probe": "ffprobe 8.1.1; ffmpeg 8.1.1",
+    "ragna_gl": {
+      "id": "YT_mJrT2conPCI",
+      "role": "Ragna_supplement_only",
+      "source_mp4": "docs/reference/gamekee/_combined/battle_vids/mJrT2conPCI.mp4",
+      "duration_s": 383.054,
+      "resolution": "1280x720",
+      "fps": 30,
+      "capture": "landscape_3panel_center_portrait_ui",
+      "ui_crop": "406x720@x437 (read HUD only; not layout coords)",
+      "extract_dir": "docs/reference/gl-shutdown-pve/supplementary/ragna_gl/",
+      "cue_draft": "docs/reference/gl-shutdown-pve/supplementary/ragna_gl/CUES.md",
+      "full_dir": "docs/reference/gl-shutdown-pve/supplementary/ragna_gl/full/",
+      "ui_dir": "docs/reference/gl-shutdown-pve/supplementary/ragna_gl/ui/",
+      "frame_count_full": 27,
+      "frame_count_ui": 27,
+      "scene_pts_s": [
+        55.833,
+        91.9,
+        166.6,
+        263.467,
+        297.8,
+        315.133,
+        330.267,
+        364.8
+      ],
+      "states": {
+        "drive": "seen_ready_wings_and_cutin; DriveSelect panel UNKNOWN",
+        "qte": "seen_great_perfect_damage150_to_fever",
+        "fever": "seen_fever_time_banner",
+        "result": "seen_ragna_damage_rank_not_ordinary_clear",
+        "slide": "seen_its_showtime_slide_cutin",
+        "charge": "UNKNOWN",
+        "tap": "UNKNOWN",
+        "hit": "weak_weakpoint_critical_on_ragna_boss",
+        "death": "n/a",
+        "wave": "n/a_ready_to_rumble_is_ragna_phase"
+      },
+      "cues": [
+        {
+          "file": "ui/t000s.jpg",
+          "t": 0.0,
+          "cue": "UNKNOWN",
+          "note": "black"
+        },
+        {
+          "file": "ui/t004s.jpg",
+          "t": 4.0,
+          "cue": "NOT_COMBAT",
+          "note": "character detail Mei; not battle coords"
+        },
+        {
+          "file": "ui/t008s.jpg",
+          "t": 8.0,
+          "cue": "NOT_COMBAT",
+          "note": "character detail Melpomene"
+        },
+        {
+          "file": "ui/t020s.jpg",
+          "t": 20.0,
+          "cue": "NOT_COMBAT",
+          "note": "character detail Shiozuka"
+        },
+        {
+          "file": "ui/t040s.jpg",
+          "t": 40.0,
+          "cue": "SLIDE_CUTIN",
+          "note": "IT IS SHOWTIME + SLIDE SKILL Ambush; not Fever"
+        },
+        {
+          "file": "ui/t056s.jpg",
+          "t": 55.83,
+          "cue": "QTE_DRIVE_CUTIN",
+          "note": "GREAT + True Domination; overexposed HUD UNKNOWN"
+        },
+        {
+          "file": "ui/t092s.jpg",
+          "t": 91.9,
+          "cue": "QTE_DRIVE_CUTIN",
+          "note": "PERFECT + Catastrophe II; overexposed"
+        },
+        {
+          "file": "ui/t100s.jpg",
+          "t": 100.0,
+          "cue": "RAGNA_PHASE",
+          "note": "READY TO RUMBLE; not ordinary wave"
+        },
+        {
+          "file": "ui/t120s.jpg",
+          "t": 120.0,
+          "cue": "HUD",
+          "note": "MANUAL + 5 portraits + Fever bar; charge/tap UNKNOWN"
+        },
+        {
+          "file": "ui/t164s.jpg",
+          "t": 164.0,
+          "cue": "RAGNA_WARN",
+          "note": "WARNING ENEMY DRIVE SKILL"
+        },
+        {
+          "file": "ui/t167s.jpg",
+          "t": 166.6,
+          "cue": "UNKNOWN",
+          "note": "white flash"
+        },
+        {
+          "file": "ui/t168s.jpg",
+          "t": 168.0,
+          "cue": "DRIVE_READY",
+          "note": "wing icons on portraits; Debuff Blast; MANUAL"
+        },
+        {
+          "file": "ui/t176s.jpg",
+          "t": 176.0,
+          "cue": "HUD",
+          "note": "Vampirism; Fever about 40 percent"
+        },
+        {
+          "file": "ui/t200s.jpg",
+          "t": 200.0,
+          "cue": "HIT_FX",
+          "note": "WeakPoint/CRITICAL on Ragna boss; not ordinary minion hit GT"
+        },
+        {
+          "file": "ui/t236s.jpg",
+          "t": 236.0,
+          "cue": "QTE",
+          "note": "PERFECT DAMAGE 150pct 83pct TO FEVER; Fever bar 100pct"
+        },
+        {
+          "file": "ui/t240s.jpg",
+          "t": 240.0,
+          "cue": "FEVER",
+          "note": "FEVER TIME + combo; bar consumed about 0pct"
+        },
+        {
+          "file": "ui/t244s.jpg",
+          "t": 244.0,
+          "cue": "FEVER",
+          "note": "FEVER TIME continues"
+        },
+        {
+          "file": "ui/t263s.jpg",
+          "t": 263.47,
+          "cue": "QTE_DRIVE_CUTIN",
+          "note": "PERFECT + True Domination; overexposed"
+        },
+        {
+          "file": "ui/t280s.jpg",
+          "t": 280.0,
+          "cue": "HUD_SLIDE_TIP",
+          "note": "Fullmoon skill text on field"
+        },
+        {
+          "file": "ui/t296s.jpg",
+          "t": 296.0,
+          "cue": "HUD_DRIVE_READY",
+          "note": "ATK Stack / Regen + wing icons"
+        },
+        {
+          "file": "ui/t308s.jpg",
+          "t": 308.0,
+          "cue": "SLIDE_CUTIN",
+          "note": "IT IS SHOWTIME + SLIDE SKILL Fullmoon"
+        },
+        {
+          "file": "ui/t315s.jpg",
+          "t": 315.13,
+          "cue": "UNKNOWN",
+          "note": "white flash"
+        },
+        {
+          "file": "ui/t330s.jpg",
+          "t": 330.27,
+          "cue": "QTE_DRIVE_CUTIN",
+          "note": "PERFECT + Sounds of the Ring; overexposed"
+        },
+        {
+          "file": "ui/t350s.jpg",
+          "t": 350.0,
+          "cue": "HUD",
+          "note": "late fight; COOL TIME; Fever 0pct"
+        },
+        {
+          "file": "ui/t365s.jpg",
+          "t": 364.8,
+          "cue": "QTE",
+          "note": "PERFECT DAMAGE 150pct 40pct TO FEVER; washed; HUD UNKNOWN"
+        },
+        {
+          "file": "ui/t376s.jpg",
+          "t": 376.0,
+          "cue": "RESULT_RAGNA",
+          "note": "damage rank + Close/Home; not ordinary stage result"
+        },
+        {
+          "file": "ui/t381s.jpg",
+          "t": 381.0,
+          "cue": "RESULT_RAGNA",
+          "note": "full 5-row rank list"
+        }
+      ],
+      "numbers_forbidden_as_ordinary_pve_baseline": true,
+      "coverage": {
+        "charge": "unknown",
+        "tap": "unknown",
+        "slide": "desc",
+        "drive": "desc",
+        "qte": "desc",
+        "fever": "desc",
+        "hit": "desc",
+        "death": "n/a",
+        "wave": "n/a",
+        "result": "desc"
+      }
+    },
+    "raid_wb_contrast": {
+      "numeric_baseline_forbidden": true,
+      "extracted_into_ragna_gl": false,
+      "note": "Mode chrome only. Do not copy KR/WB numbers into ordinary 5p PVE GT.",
+      "Vdf4V693IcU": {
+        "role": "KR_Raid_contrast_only",
+        "local_mp4": "docs/reference/gamekee/_combined/battle_vids/Vdf4V693IcU.mp4",
+        "mode_diff": [
+          "KR UI (Destiny Child for Kakao)",
+          "lobby can show 10-person party / raid room",
+          "COMPLETE medal chrome differs from ordinary stage stars/drops",
+          "in-fight default FULL AUTO vs Ragna GL clip MANUAL"
+        ],
+        "coverage_as_ordinary_pve": {
+          "charge": "n/a",
+          "tap": "n/a",
+          "slide": "n/a",
+          "drive": "n/a",
+          "qte": "n/a",
+          "fever": "n/a",
+          "hit": "n/a",
+          "death": "n/a",
+          "wave": "n/a",
+          "result": "n/a"
+        }
+      },
+      "id_89jpoNqAwa8": {
+        "id": "89jpoNqAwa8",
+        "role": "WB_contrast_only",
+        "local_mp4": "docs/reference/gamekee/_combined/battle_vids/89jpoNqAwa8.mp4",
+        "mode_diff": [
+          "World Boss: bottom slot count far above 5 circular portraits",
+          "FULL AUTO",
+          "result is boss name + aggregate damage, not 5-person stage rank/stars"
+        ],
+        "coverage_as_ordinary_pve": {
+          "charge": "n/a",
+          "tap": "n/a",
+          "slide": "n/a",
+          "drive": "n/a",
+          "qte": "n/a",
+          "fever": "n/a",
+          "hit": "n/a",
+          "death": "n/a",
+          "wave": "n/a",
+          "result": "n/a"
+        }
+      }
+    },
+    "battle_refs_hud": {
+      "path": "docs/reference/gamekee/_combined/battle_refs/",
+      "evidence_class": "REPORTED",
+      "region": "MIXED_JP_KR_CN_TW_ANNOTATED",
+      "region_note": "JP/KR stills plus CN/TW wiki yellow stickers. Not GL-verified. Mixed region must not be treated as one client.",
+      "usable_as_combat_coords": false,
+      "usable_as_ordinary_pve_numeric_baseline": false,
+      "contours": [
+        {
+          "file": "crop_hud.png",
+          "region": "MIXED",
+          "contour": "bottom arc of 5 circular portraits; colored charge rings; name+HP under heads; full-width green FEVER bar; ignore daily-material/library scrap at bottom"
+        },
+        {
+          "file": "crop_inbattle.png",
+          "region": "MIXED_ZH_TW_ANNOTATED",
+          "contour": "top: speed / timer / FULL AUTO; mid: circular stone arena; enemy HP over heads"
+        },
+        {
+          "file": "crop_prebattle.png",
+          "region": "MIXED_ZH_TW_ANNOTATED",
+          "contour": "5-person team + large sword start CTA; pre-battle, not in-fight HUD"
+        },
+        {
+          "file": "crop_livehome.png",
+          "region": "MIXED_HOME",
+          "contour": "lobby/home; FORBIDDEN as battle coords"
+        }
+      ]
+    },
+    "memorial": {
+      "paths": [
+        "docs/reference/mobile-archive/",
+        "docs/reference/ui-lock/"
+      ],
+      "usable_as_combat_coords": false,
+      "has_combat": false,
+      "note": "Memorial client has no battle HUD. Lobby/home stills must not be used as combat coordinates."
+    },
+    "still_missing_ordinary_5p_pve": [
+      "late-window GL English-UI ordinary 5p PVE mp4 (primary still NEEDS_FETCH)",
+      "ordinary-stage isolated charge / tap gesture frames",
+      "ordinary-stage DriveSelect panel (Ragna clip only shows ready wings + cut-in)",
+      "ordinary-stage wave clear / ally death",
+      "ordinary-stage star/drop result",
+      "measurable portrait layout coords (3-panel capture; battle_refs mixed-region)"
+    ]
+  }
+}

@@ -290,4 +290,63 @@ public static class PuppetRigVerification
         File.WriteAllText(Path.Combine(output,"unity-verification.txt"),"PASS: C001 binds; 121 sampled poses; no triangle flips. Minimum area ratio: " + minimumRatio + ". Captured poses 0,24,72. This does not certify layered animation or aesthetic quality.");
         Debug.Log("PUPPET_VERIFICATION_PASS minimum area ratio="+minimumRatio);
     }
+
+    public static void CaptureChestIdleAndExit()
+    {
+        try
+        {
+            CaptureChestIdle();
+            EditorApplication.Exit(0);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError(e);
+            EditorApplication.Exit(1);
+        }
+    }
+
+    public static void CaptureChestIdle()
+    {
+        var output = @"F:\天命之子\codex专区\puppet-rig-fix\chest-idle";
+        var cropDir = Path.Combine(output, "crop");
+        Directory.CreateDirectory(cropDir);
+        var host = new GameObject("ChestIdleCapture", typeof(RectTransform));
+        if (!PuppetRig.TryAttach(host.transform, "C001")) throw new Exception("Bind failed");
+        var rig = host.GetComponent<PuppetRig>();
+        rig.freezePose = false;
+        const BindingFlags flags = BindingFlags.NonPublic | BindingFlags.Instance;
+        var type = typeof(PuppetRig);
+        var motion = (PuppetMotion)type.GetField("_motion", flags).GetValue(rig);
+        var secondary = type.GetMethod("ApplySecondaryMesh", flags);
+        var apply = type.GetMethod("ApplyBones", flags);
+        var camera = (Camera)type.GetField("_cam", flags).GetValue(rig);
+        var idleT = type.GetField("_idleT", flags);
+        for (int frame = 0; frame < 72; frame++)
+        {
+            motion.Step(1.0 / 24);
+            idleT.SetValue(rig, (frame + 1) / 24f);
+            secondary.Invoke(rig, null);
+            apply.Invoke(rig, new object[] { 0f, 0f, 0f, 0f, 0f, -motion.BodySway * 0.55f });
+            camera.Render();
+            var previous = RenderTexture.active;
+            RenderTexture.active = camera.targetTexture;
+            var image = new Texture2D(camera.targetTexture.width, camera.targetTexture.height, TextureFormat.RGBA32, false);
+            image.ReadPixels(new Rect(0, 0, image.width, image.height), 0, 0);
+            image.Apply();
+            int w = image.width, h = image.height;
+            int x0 = Mathf.RoundToInt(w * 0.38f);
+            int x1 = Mathf.RoundToInt(w * 0.74f);
+            int y0 = Mathf.RoundToInt(h * 0.62f);
+            int y1 = Mathf.RoundToInt(h * 0.86f);
+            var crop = new Texture2D(x1 - x0, y1 - y0, TextureFormat.RGBA32, false);
+            crop.SetPixels(image.GetPixels(x0, y0, x1 - x0, y1 - y0));
+            crop.Apply();
+            File.WriteAllBytes(Path.Combine(cropDir, "c-" + frame.ToString("D3") + ".png"), crop.EncodeToPNG());
+            RenderTexture.active = previous;
+            UnityEngine.Object.DestroyImmediate(image);
+            UnityEngine.Object.DestroyImmediate(crop);
+        }
+        File.WriteAllText(Path.Combine(output, "result.txt"), "PASS");
+        Debug.Log("CHEST_IDLE_CAPTURE_PASS");
+    }
 }

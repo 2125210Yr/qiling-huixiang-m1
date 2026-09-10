@@ -1,0 +1,18 @@
+{
+  "module_id": null,
+  "actual_paths": [],
+  "actual_call_chain": [],
+  "baseline_run_evidence": [],
+  "observed_mismatch": null,
+  "reference_id": null,
+  "decision": null,
+  "allowed_decisions": [
+    "REUSE",
+    "REPAIR",
+    "ISOLATE",
+    "REPLACE"
+  ],
+  "proposed_minimal_change": null,
+  "regression_tests": [],
+  "status": "NOT_AUDITED"
+}
