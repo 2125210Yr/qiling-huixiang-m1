@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "archive": "CatMaid_draft_v001.zip",
+  "archiveBytes": 7919633,
+  "archiveSha256": "52aae5fd6300c186cf51758aff01bc2462b6bdb0e533e8dad8f911bc37afcfb7",
+  "files": [
+    "model.cdi3.json",
+    "model.cmo3",
+    "model.moc3",
+    "model.model3.json",
+    "motions/CatMaid_idle.motion3.json",
+    "textures/texture_00.png",
+    "verification.json",
+    "制作说明.md",
+    "verification/native-summary.json",
+    "verification/browser-summary.json",
+    "verification/rgb-preservation.json"
+  ],
+  "allRuntimeReferencesExist": true,
+  "nativeMocAndCmoHashesMatchExport": true,
+  "psdSeparate": "CatMaid_layers_v001.psd"
+}

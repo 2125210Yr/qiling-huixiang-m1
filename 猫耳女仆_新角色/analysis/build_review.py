@@ -45,6 +45,9 @@ def main():
 document.querySelectorAll('[role=tab]').forEach(tab=>tab.addEventListener('click',()=>{document.querySelectorAll('[role=tab]').forEach(t=>t.setAttribute('aria-selected',String(t===tab)));document.querySelectorAll('[role=tabpanel]').forEach((p,i)=>p.hidden=i!==Number(tab.dataset.index));}));
 </script></html>'''
     doc=doc.replace('__TABS__',''.join(tabs)).replace('__PANELS__',''.join(panels)).replace('__CATALOG__',''.join(f'<a href="catalog/catalog-{i:02d}.jpg" target="_blank">图录 {i}</a>' for i in range(1,7)))
+    if (HERE.parent/'production/draft-v001/player.html').is_file():
+        doc=doc.replace('<main>','<div style="max-width:1364px;margin:0 auto 16px;padding:12px 22px;background:#deede4;border-radius:10px"><a style="color:#236f67;text-decoration:none" href="../production/draft-v001/player.html">第二阶段已完成首稿：打开新角色可动预览 →</a><span style="margin-left:16px;color:#697674;font-size:12px">本页保留第一阶段的模板分析记录。</span></div><main>')
+        doc=doc.replace('新角色尚未分层绑定','原图对照，另有可动草稿').replace('02 分层与可动草稿 · 待制作','02 分层与可动草稿 · 已另行完成首稿')
     (HERE/'review.html').write_text(doc,encoding='utf-8')
     print('Review and source binding map written.')
 

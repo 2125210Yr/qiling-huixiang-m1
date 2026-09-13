@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "parameters": 12,
+  "meshes": 16,
+  "vertices": 2596,
+  "sampledPoses": 334,
+  "idleFrames": 241,
+  "randomJointPoses": 32,
+  "nativeExporterSampleCount": 1889,
+  "nativeIndexedWindingPassed": true,
+  "nativeDefaultResetNoDrift": true,
+  "nativeMaxPositionError": 4.529953e-06,
+  "coreVersion": 4,
+  "coreAnchors": 9,
+  "renderer": "NVIDIA GeForce RTX 4060 Ti/PCIe/SSE2",
+  "cmoReread": true,
+  "sourceApprovedHash": "154e70ae1392b7ae85a8c271391f01cea2b9b4ee8a2cc77bd56ee27c8c4f1607",
+  "limitations": [
+    "First motion draft; fine edge cleanup and blink transition need further refinement",
+    "No Cubism Editor 5.3 UI open/save test",
+    "Finite sampled joint states, not exhaustive global combinations"
+  ]
+}

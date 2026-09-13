@@ -1,0 +1,71 @@
+{
+  "duration": 8,
+  "fps": 30,
+  "retargetedTracks": [
+    {
+      "target": "ParamBreath",
+      "sourceFile": "F:\\天命之子\\单机dc1.1整合包\\live2d_extracted\\recovered\\c032_01_full\\motions\\c032_01_idle.motion3.json",
+      "sourceParameter": "BREATH",
+      "sourceRange": [
+        -12.999991666666666,
+        24.99375
+      ],
+      "amplitude": 0.6,
+      "method": "source curve recentered, amplitude limited and retimed to 8 seconds"
+    },
+    {
+      "target": "ParamLegScreenL",
+      "sourceFile": "F:\\天命之子\\单机dc1.1整合包\\live2d_extracted\\recovered\\c020_01_full\\motions\\c020_01_idle.motion3.json",
+      "sourceParameter": "LEG_L_ROTATE",
+      "sourceRange": [
+        -14.998125,
+        7.99875
+      ],
+      "amplitude": 0.55,
+      "method": "source curve recentered, amplitude limited and retimed to 8 seconds"
+    },
+    {
+      "target": "ParamLegScreenR",
+      "sourceFile": "F:\\天命之子\\单机dc1.1整合包\\live2d_extracted\\recovered\\c020_01_full\\motions\\c020_01_idle.motion3.json",
+      "sourceParameter": "LEG_R_ROTATE",
+      "sourceRange": [
+        -11.9989375,
+        0.9974999999999996
+      ],
+      "amplitude": 0.55,
+      "method": "source curve recentered, amplitude limited and retimed to 8 seconds"
+    },
+    {
+      "target": "ParamAnkleScreenL",
+      "sourceFile": "F:\\天命之子\\单机dc1.1整合包\\live2d_extracted\\recovered\\c020_01_full\\motions\\c020_01_idle.motion3.json",
+      "sourceParameter": "FOOT_L_ROTATE",
+      "sourceRange": [
+        -17.999,
+        0.0
+      ],
+      "amplitude": 0.4,
+      "method": "source curve recentered, amplitude limited and retimed to 8 seconds"
+    },
+    {
+      "target": "ParamAnkleScreenR",
+      "sourceFile": "F:\\天命之子\\单机dc1.1整合包\\live2d_extracted\\recovered\\c020_01_full\\motions\\c020_01_idle.motion3.json",
+      "sourceParameter": "FOOT_R_ROTATE",
+      "sourceRange": [
+        -20.0,
+        0.0
+      ],
+      "amplitude": 0.4,
+      "method": "source curve recentered, amplitude limited and retimed to 8 seconds"
+    }
+  ],
+  "newAuthoredTracks": [
+    "ParamHover",
+    "ParamHairScreenL",
+    "ParamHairScreenR",
+    "ParamTailSway",
+    "ParamSkirtSway",
+    "ParamEarTwitch",
+    "ParamBlink"
+  ],
+  "note": "Source motion timing/control structure reused; all target meshes, UVs and keyforms authored for approved image."
+}

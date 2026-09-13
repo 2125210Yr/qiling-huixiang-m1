@@ -1,0 +1,198 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "ParamHover",
+			"GroupId": "",
+			"Name": "悬浮"
+		},
+		{
+			"Id": "ParamBreath",
+			"GroupId": "",
+			"Name": "呼吸"
+		},
+		{
+			"Id": "ParamLegScreenL",
+			"GroupId": "",
+			"Name": "画面左腿轻抬"
+		},
+		{
+			"Id": "ParamLegScreenR",
+			"GroupId": "",
+			"Name": "画面右腿轻抬"
+		},
+		{
+			"Id": "ParamAnkleScreenL",
+			"GroupId": "",
+			"Name": "画面左脚踝"
+		},
+		{
+			"Id": "ParamAnkleScreenR",
+			"GroupId": "",
+			"Name": "画面右脚踝"
+		},
+		{
+			"Id": "ParamHairScreenL",
+			"GroupId": "",
+			"Name": "画面左后发"
+		},
+		{
+			"Id": "ParamHairScreenR",
+			"GroupId": "",
+			"Name": "画面右后发"
+		},
+		{
+			"Id": "ParamTailSway",
+			"GroupId": "",
+			"Name": "尾巴轻摆"
+		},
+		{
+			"Id": "ParamEarTwitch",
+			"GroupId": "",
+			"Name": "猫耳微动"
+		},
+		{
+			"Id": "ParamBlink",
+			"GroupId": "",
+			"Name": "自然眨眼"
+		},
+		{
+			"Id": "ParamSkirtSway",
+			"GroupId": "",
+			"Name": "裙摆余动"
+		}
+	],
+	"ParameterGroups": [],
+	"Parts": [
+		{
+			"Id": "P_GroundShadow",
+			"Name": "地面阴影"
+		},
+		{
+			"Id": "P_TableUnderpaint",
+			"Name": "桌子隐藏区域补绘"
+		},
+		{
+			"Id": "P_ClothUnderpaint",
+			"Name": "双腿后方内裙补绘"
+		},
+		{
+			"Id": "P_Table",
+			"Name": "原画可见桌面与底座"
+		},
+		{
+			"Id": "P_HairScreenL",
+			"Name": "画面左后发"
+		},
+		{
+			"Id": "P_HairScreenR",
+			"Name": "画面右后发"
+		},
+		{
+			"Id": "P_Tail",
+			"Name": "猫尾"
+		},
+		{
+			"Id": "P_LegScreenR",
+			"Name": "画面右后腿"
+		},
+		{
+			"Id": "P_LegScreenL",
+			"Name": "画面左前腿"
+		},
+		{
+			"Id": "P_Skirt",
+			"Name": "裙摆与围裙"
+		},
+		{
+			"Id": "P_Bodice",
+			"Name": "躯干"
+		},
+		{
+			"Id": "P_ArmScreenL",
+			"Name": "画面左臂与手"
+		},
+		{
+			"Id": "P_ArmScreenR",
+			"Name": "画面右臂与手"
+		},
+		{
+			"Id": "P_Head",
+			"Name": "头部与前发"
+		},
+		{
+			"Id": "P_EyeClosedScreenL",
+			"Name": "闭眼端点：画面左"
+		},
+		{
+			"Id": "P_EyeClosedScreenR",
+			"Name": "闭眼端点：画面右"
+		}
+	],
+	"Drawables": [
+		{
+			"Id": "GroundShadow",
+			"Name": "地面阴影"
+		},
+		{
+			"Id": "TableUnderpaint",
+			"Name": "桌子隐藏区域补绘"
+		},
+		{
+			"Id": "ClothUnderpaint",
+			"Name": "双腿后方内裙补绘"
+		},
+		{
+			"Id": "Table",
+			"Name": "原画可见桌面与底座"
+		},
+		{
+			"Id": "HairScreenL",
+			"Name": "画面左后发"
+		},
+		{
+			"Id": "HairScreenR",
+			"Name": "画面右后发"
+		},
+		{
+			"Id": "Tail",
+			"Name": "猫尾"
+		},
+		{
+			"Id": "LegScreenR",
+			"Name": "画面右后腿"
+		},
+		{
+			"Id": "LegScreenL",
+			"Name": "画面左前腿"
+		},
+		{
+			"Id": "Skirt",
+			"Name": "裙摆与围裙"
+		},
+		{
+			"Id": "Bodice",
+			"Name": "躯干"
+		},
+		{
+			"Id": "ArmScreenL",
+			"Name": "画面左臂与手"
+		},
+		{
+			"Id": "ArmScreenR",
+			"Name": "画面右臂与手"
+		},
+		{
+			"Id": "Head",
+			"Name": "头部与前发"
+		},
+		{
+			"Id": "EyeClosedScreenL",
+			"Name": "闭眼端点：画面左"
+		},
+		{
+			"Id": "EyeClosedScreenR",
+			"Name": "闭眼端点：画面右"
+		}
+	]
+}

@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "layers": 16,
+  "psdLayers": 16,
+  "originalRgbLayers": 11,
+  "originalRgbPixelsUnchanged": true,
+  "foregroundSelection": "image_gen authored matte",
+  "partSelection": "image_gen authored label map with semantic cuff fixes",
+  "unlabelledMattePixelsAssignedToNearestRegion": 11811,
+  "tableSourceHadAlpha": false,
+  "tableCheckerboardExcludedByPropSelection": true,
+  "atlas": [
+    4096,
+    4096
+  ],
+  "psdSha256": "0aad1dc32cb713d71364cb22f4fa599edb6835b133329dadfba9930907c6cb9e",
+  "approvedImageSha256": "154e70ae1392b7ae85a8c271391f01cea2b9b4ee8a2cc77bd56ee27c8c4f1607"
+}

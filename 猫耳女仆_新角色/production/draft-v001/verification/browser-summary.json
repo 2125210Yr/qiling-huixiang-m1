@@ -1,0 +1,65 @@
+{
+  "ok": true,
+  "errors": [],
+  "comparison": {
+    "anchors": 9,
+    "coordinateComponents": 46728,
+    "maxPixelError": 0.00023771735322952736,
+    "maxOpacityError": 8.600000001024455e-8
+  },
+  "isolation": {
+    "controls": [
+      {
+        "parameter": "ParamLegScreenL",
+        "affected": [
+          "LegScreenL"
+        ]
+      },
+      {
+        "parameter": "ParamLegScreenR",
+        "affected": [
+          "LegScreenR"
+        ]
+      },
+      {
+        "parameter": "ParamAnkleScreenL",
+        "affected": [
+          "LegScreenL"
+        ]
+      },
+      {
+        "parameter": "ParamTailSway",
+        "affected": [
+          "Tail"
+        ]
+      },
+      {
+        "parameter": "ParamHairScreenL",
+        "affected": [
+          "HairScreenL"
+        ]
+      }
+    ],
+    "handAnchors": [
+      {
+        "id": "ArmScreenL",
+        "nearestVertexDistancePx": 15.620499351813312,
+        "breathDriftPx": 0.017856505102031406
+      },
+      {
+        "id": "ArmScreenR",
+        "nearestVertexDistancePx": 8.246211251235321,
+        "breathDriftPx": 0.016685586734752178
+      }
+    ]
+  },
+  "referenceToggle": true,
+  "transparentToggle": true,
+  "idleAdvanced": true,
+  "performance": {
+    "frames": 1441,
+    "seconds": 8.20289999999702
+  },
+  "mobileOverflow": false,
+  "checkedAt": "2026-09-13T07:19:26.639Z"
+}

@@ -3,3 +3,6 @@ analysis/classes/
 analysis/__pycache__/
 analysis/thumbnails/
 production/*/classes/
+production/**/classes/
+production/**/cache/
+production/**/__pycache__/
