@@ -1,0 +1,340 @@
+{
+  "format": "cubism-layer-manifest",
+  "version": 1,
+  "order": "back-to-front",
+  "canvas": {
+    "width": 1280,
+    "height": 720
+  },
+  "sourceFolder": "F:\\天命之子\\art\\live2d-lab\\elevator-red\\layers",
+  "pivotsFile": "F:\\天命之子\\art\\live2d-lab\\elevator-red\\layers\\pivots.json",
+  "pivots": {
+    "size": [
+      1280,
+      720
+    ],
+    "chest": [
+      0.405,
+      0.4
+    ],
+    "torso": [
+      0.42,
+      0.5
+    ],
+    "dress_body": [
+      0.42,
+      0.48
+    ],
+    "dress_slit_panel": [
+      0.43,
+      0.62
+    ],
+    "leg_stand": [
+      0.44,
+      0.72
+    ],
+    "leg_raise_thigh": [
+      0.36,
+      0.44
+    ],
+    "leg_raise_calf": [
+      0.26,
+      0.56
+    ],
+    "foot_raise": [
+      0.22,
+      0.68
+    ],
+    "arm_hip": [
+      0.462,
+      0.325
+    ],
+    "back_hair": [
+      0.43,
+      0.22
+    ],
+    "front_hair": [
+      0.4,
+      0.2
+    ],
+    "horns": [
+      0.412,
+      0.17
+    ],
+    "eyes": [
+      0.413,
+      0.197
+    ],
+    "face": [
+      0.4,
+      0.24
+    ],
+    "anklet": [
+      0.24,
+      0.64
+    ],
+    "neck": [
+      0.42,
+      0.28
+    ]
+  },
+  "psd": "elevator_red.psd",
+  "layers": [
+    {
+      "index": 0,
+      "name": "back_hair",
+      "sourceFile": "back_hair.png",
+      "orderedFile": "ordered-png/0000_back_hair.png",
+      "width": 1280,
+      "height": 720,
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": [
+        0.43,
+        0.22
+      ]
+    },
+    {
+      "index": 1,
+      "name": "horns",
+      "sourceFile": "horns.png",
+      "orderedFile": "ordered-png/0001_horns.png",
+      "width": 1280,
+      "height": 720,
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": [
+        0.412,
+        0.17
+      ]
+    },
+    {
+      "index": 2,
+      "name": "torso",
+      "sourceFile": "torso.png",
+      "orderedFile": "ordered-png/0002_torso.png",
+      "width": 1280,
+      "height": 720,
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": [
+        0.42,
+        0.5
+      ]
+    },
+    {
+      "index": 3,
+      "name": "chest",
+      "sourceFile": "chest.png",
+      "orderedFile": "ordered-png/0003_chest.png",
+      "width": 1280,
+      "height": 720,
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": [
+        0.405,
+        0.4
+      ]
+    },
+    {
+      "index": 4,
+      "name": "dress_body",
+      "sourceFile": "dress_body.png",
+      "orderedFile": "ordered-png/0004_dress_body.png",
+      "width": 1280,
+      "height": 720,
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": [
+        0.42,
+        0.48
+      ]
+    },
+    {
+      "index": 5,
+      "name": "dress_slit_panel",
+      "sourceFile": "dress_slit_panel.png",
+      "orderedFile": "ordered-png/0005_dress_slit_panel.png",
+      "width": 1280,
+      "height": 720,
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": [
+        0.43,
+        0.62
+      ]
+    },
+    {
+      "index": 6,
+      "name": "leg_stand",
+      "sourceFile": "leg_stand.png",
+      "orderedFile": "ordered-png/0006_leg_stand.png",
+      "width": 1280,
+      "height": 720,
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": [
+        0.44,
+        0.72
+      ]
+    },
+    {
+      "index": 7,
+      "name": "leg_raise_thigh",
+      "sourceFile": "leg_raise_thigh.png",
+      "orderedFile": "ordered-png/0007_leg_raise_thigh.png",
+      "width": 1280,
+      "height": 720,
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": [
+        0.36,
+        0.44
+      ]
+    },
+    {
+      "index": 8,
+      "name": "leg_raise_calf",
+      "sourceFile": "leg_raise_calf.png",
+      "orderedFile": "ordered-png/0008_leg_raise_calf.png",
+      "width": 1280,
+      "height": 720,
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": [
+        0.26,
+        0.56
+      ]
+    },
+    {
+      "index": 9,
+      "name": "foot_raise",
+      "sourceFile": "foot_raise.png",
+      "orderedFile": "ordered-png/0009_foot_raise.png",
+      "width": 1280,
+      "height": 720,
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": [
+        0.22,
+        0.68
+      ]
+    },
+    {
+      "index": 10,
+      "name": "anklet",
+      "sourceFile": "anklet.png",
+      "orderedFile": "ordered-png/0010_anklet.png",
+      "width": 1280,
+      "height": 720,
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": [
+        0.24,
+        0.64
+      ]
+    },
+    {
+      "index": 11,
+      "name": "arm_hip",
+      "sourceFile": "arm_hip.png",
+      "orderedFile": "ordered-png/0011_arm_hip.png",
+      "width": 1280,
+      "height": 720,
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": [
+        0.462,
+        0.325
+      ]
+    },
+    {
+      "index": 12,
+      "name": "neck",
+      "sourceFile": "neck.png",
+      "orderedFile": "ordered-png/0012_neck.png",
+      "width": 1280,
+      "height": 720,
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": [
+        0.42,
+        0.28
+      ]
+    },
+    {
+      "index": 13,
+      "name": "face",
+      "sourceFile": "face.png",
+      "orderedFile": "ordered-png/0013_face.png",
+      "width": 1280,
+      "height": 720,
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": [
+        0.4,
+        0.24
+      ]
+    },
+    {
+      "index": 14,
+      "name": "eyes",
+      "sourceFile": "eyes.png",
+      "orderedFile": "ordered-png/0014_eyes.png",
+      "width": 1280,
+      "height": 720,
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": [
+        0.413,
+        0.197
+      ]
+    },
+    {
+      "index": 15,
+      "name": "front_hair",
+      "sourceFile": "front_hair.png",
+      "orderedFile": "ordered-png/0015_front_hair.png",
+      "width": 1280,
+      "height": 720,
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": [
+        0.4,
+        0.2
+      ]
+    }
+  ]
+}

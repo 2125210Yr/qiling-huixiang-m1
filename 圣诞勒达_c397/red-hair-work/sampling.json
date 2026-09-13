@@ -1,0 +1,25 @@
+{
+  "summary": [
+    {
+      "motion": "idle",
+      "samples": 61,
+      "duration": 7.466666666666667
+    },
+    {
+      "motion": "attack",
+      "samples": 9,
+      "duration": 2.966666666666667
+    },
+    {
+      "motion": "hit",
+      "samples": 9,
+      "duration": 2.2666666666666666
+    },
+    {
+      "motion": "banner",
+      "samples": 9,
+      "duration": 7.466666666666667
+    }
+  ],
+  "total": 135
+}

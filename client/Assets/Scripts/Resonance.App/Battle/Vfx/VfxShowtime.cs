@@ -4,17 +4,18 @@ using UnityEngine.UI;
 namespace Resonance.App
 {
     /// <summary>
-    /// Slide SHOWTIME stamp. Red slash + SHOWTIME + skill name.
+    /// Slide SHOWTIME stamp. Red slash + IT'S SHOWTIME!! + SLIDE SKILL + skill name.
     /// Not Fever (狂热时间), not Drive skill-name cut, not battle-start 开战.
-    /// Ragna GL supplementary identity (`IT'S SHOWTIME!!` / `SLIDE SKILL`);
-    /// not ordinary 5v5 GT. ~1.2s. No portrait window, no memorial art.
+    /// Primary handoff P0 frame (~t360s EN tutorial) matches Ragna identity
+    /// (`IT'S SHOWTIME!!` / `SLIDE SKILL`). Duration = P0 30fps first-on to
+    /// first-off (~1.47s). No portrait window. Not M1 acceptance / not T28.
     /// </summary>
     public sealed class VfxShowtime : MonoBehaviour
     {
-        public const float Duration = 1.20f;
+        public const float Duration = 1.47f;
 
-        const string TitleWord = "SHOWTIME";
-        const string LocWord = "上滑";
+        const string TitleWord = "IT'S SHOWTIME!!";
+        static string LocWord => BattleCueCopy.SlideSkillEn;
 
         static readonly Color VeilCol = new Color(0.42f, 0.04f, 0.08f, 0.12f);
         static readonly Color WipeCol = new Color(0.85f, 0.08f, 0.12f, 0.18f);
@@ -30,6 +31,7 @@ namespace Resonance.App
         Text _title;
         Text _loc;
         Text _skill;
+        Text _rank;
         float _age;
 
         public static bool AnyLive()
@@ -54,7 +56,7 @@ namespace Resonance.App
             }
         }
 
-        public static void Play(Transform parent, Texture portrait, string skillName)
+        public static void Play(Transform parent, Texture portrait, string skillName, string rankLine = null)
         {
             if (parent == null) return;
             // portrait is intentionally ignored: this stamp never shows art.
@@ -75,10 +77,17 @@ namespace Resonance.App
             rt.anchorMax = Vector2.one;
             rt.offsetMin = rt.offsetMax = Vector2.zero;
             rt.SetAsLastSibling();
-            go.GetComponent<VfxShowtime>().Build(skillName);
+            var stamp = go.GetComponent<VfxShowtime>();
+            stamp.Build(skillName, rankLine);
+            CueTimingProbe.On("showtime", stamp.GetInstanceID());
         }
 
-        void Build(string skillName)
+        void OnDestroy()
+        {
+            CueTimingProbe.Off("showtime", GetInstanceID());
+        }
+
+        void Build(string skillName, string rankLine = null)
         {
             _veil = Full("veil", VeilCol);
 
@@ -100,16 +109,17 @@ namespace Resonance.App
             _star = Img("star", UiSprites.Star(), VisualTokens.StarEvolved,
                 new Vector2(0.30f, 0.72f), new Vector2(56f, 56f));
 
-            _titleGhost = MkText("titleGhost", TitleWord, 86, new Color(0.12f, 0.01f, 0.02f, 1f),
-                new Vector2(0.50f, 0.57f), new Vector2(520f, 140f));
+            // Longer GT title needs a wider box / slightly smaller type than bare SHOWTIME.
+            _titleGhost = MkText("titleGhost", TitleWord, 64, new Color(0.12f, 0.01f, 0.02f, 1f),
+                new Vector2(0.50f, 0.57f), new Vector2(720f, 140f));
             _titleGhost.rectTransform.anchoredPosition = new Vector2(8f, -8f);
             _titleGhost.rectTransform.localEulerAngles = new Vector3(0f, 0f, -8f);
-            _titleGhost.transform.localScale = Vector3.one * 3.40f;
+            _titleGhost.transform.localScale = Vector3.one * 3.10f;
 
-            _title = MkText("title", TitleWord, 86, Color.white,
-                new Vector2(0.50f, 0.58f), new Vector2(520f, 140f));
+            _title = MkText("title", TitleWord, 64, Color.white,
+                new Vector2(0.50f, 0.58f), new Vector2(720f, 140f));
             _title.rectTransform.localEulerAngles = new Vector3(0f, 0f, -8f);
-            _title.transform.localScale = Vector3.one * 3.40f;
+            _title.transform.localScale = Vector3.one * 3.10f;
 
             _loc = MkText("loc", LocWord, 28, VisualTokens.StarEvolved,
                 new Vector2(0.50f, 0.46f), new Vector2(240f, 40f));
@@ -117,10 +127,17 @@ namespace Resonance.App
             var skill = skillName ?? "";
             var skillLine = skill.Length == 0 ? "" : skill;
             _skill = MkText("skill", skillLine, 40, VisualTokens.YellowValue,
-                new Vector2(0.50f, 0.38f), new Vector2(560f, 72f));
+                new Vector2(0.50f, 0.40f), new Vector2(560f, 72f));
             _skill.rectTransform.localEulerAngles = new Vector3(0f, 0f, -6f);
             if (skillLine.Length == 0)
                 _skill.enabled = false;
+            // RANK/LV come from skill content. Empty → RANK — LV —/—. Never invent from unit level.
+            var rank = string.IsNullOrEmpty(rankLine) ? BattleCueCopy.SlideRankStub : rankLine;
+            _rank = MkText("rank", rank, 18, VisualTokens.TapWhite,
+                new Vector2(0.50f, 0.34f), new Vector2(420f, 36f));
+            _rank.fontStyle = FontStyle.Normal;
+            if (skillLine.Length == 0)
+                _rank.enabled = false;
 
             CanvasShake.Punch(32f, 0.30f);
         }
@@ -175,6 +192,7 @@ namespace Resonance.App
             var skillU = Mathf.Clamp01((_age - 0.12f) / 0.16f);
             Fade(_loc, a * skillU);
             Fade(_skill, a * skillU);
+            Fade(_rank, a * skillU);
 
             if (_age >= Duration) Destroy(gameObject);
         }

@@ -35,7 +35,7 @@ namespace Resonance.App
     /// <summary>
     /// 关卡波次预览 + 战斗换波/死亡提示（M1-G2-WAVE-UI）。
     /// 预览：宽暗马赛克卡 + 五敌片。金题印章、斜切金痕、半调网点衬底、内圈细金线、
-    /// 四角六角铆钉。确认胶囊在卡下、躲开六页签。首领用中文衔。
+    /// 四角六角铆钉。确认胶囊在卡下、躲开六页签。Boss 衔用 EN <c>BOSS</c>。
     /// 提示：只读 <see cref="BattleEventLog"/> 的 <c>wave</c> / <c>death</c>。
     /// 换波 ≠ 开战 / 开演 / 狂热时间，≠ Ragna <c>READY TO RUMBLE?</c>，≠ 20 人 WB 条。
     /// 布局 <see cref="LayoutStatus"/>。不是 T27。不宣称验收。
@@ -43,11 +43,12 @@ namespace Resonance.App
     public static class WavePreview
     {
         public const int SlotCount = 5;
-        public const string LayoutStatus = "NEEDS_REFERENCE";
-        public const string WaveEnter = "第一波";
-        public const string WaveAdvance = "换波";
-        public const string AllyDown = "倒下";
-        public const string EnemyDown = "击破";
+        public const string LayoutStatus = "PRIMARY_PARTIAL_HANDOFF";
+        public const string WaveEnter = "WAVE START";
+        public const string WaveAdvance = "PHASE";
+        public const string AllyDown = "DOWN";
+        /// <summary>Kept for exclusivity checks. P0 t64–t90 shows no KO word on kill/wave-clear.</summary>
+        public const string EnemyDown = "KO";
         public const string CueRootName = "WavePreviewCue";
 
         const float PanelY = 0.32f;
@@ -55,6 +56,20 @@ namespace Resonance.App
 
         public static string VisibleTitle { get; internal set; }
         public static WaveCueKind VisibleKind { get; internal set; }
+
+        /// <summary>
+        /// Drive select / SHOWTIME / QTE owns the plate. Kill live 击破/倒下 and
+        /// keep them queued so 06d is not double-stamped. Engineering exclusivity,
+        /// not GT fidelity.
+        /// </summary>
+        public static void SuppressDeathCues()
+        {
+            var boards = UnityEngine.Object.FindObjectsByType<WaveCueBoard>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            for (int i = 0; i < boards.Length; i++)
+            {
+                if (boards[i] != null) boards[i].SuppressDeathForExclusive();
+            }
+        }
 
         public static bool CueCopyDistinct
         {
@@ -81,7 +96,7 @@ namespace Resonance.App
             var panel = panelGo.transform;
             GoldWire(panel, new Vector2(1012f, 332f));
 
-            OverlayDraw.Label(panel, null, "本关敌人", 22, VisualTokens.GoldTitle,
+            OverlayDraw.Label(panel, null, "Enemies", 22, VisualTokens.GoldTitle,
                 new Vector2(0.5f, 0.90f), new Vector2(320f, 36f), false, true, 2f, true);
             OverlayDraw.Pic(panel, null, "stampL", new Vector2(0.385f, 0.90f), new Vector2(26f, 26f),
                 VisualTokens.GoldTitle, UiSprites.Stamp(2));
@@ -128,7 +143,7 @@ namespace Resonance.App
                     new Color(VisualTokens.YellowConfirm.r, VisualTokens.YellowConfirm.g, VisualTokens.YellowConfirm.b, 0.75f),
                     UiSprites.Slash());
                 if (slR != null) slR.rectTransform.localEulerAngles = new Vector3(0f, 0f, -16f);
-                var cta = UiChrome.Confirm(root, null, "战斗开始", new Vector2(0.5f, ConfirmY), onFight);
+                var cta = UiChrome.Confirm(root, null, "FIGHT", new Vector2(0.5f, ConfirmY), onFight);
                 if (cta != null) cta.transform.localScale = new Vector3(1.16f, 1.16f, 1f);
             }
         }
@@ -180,15 +195,23 @@ namespace Resonance.App
             {
                 var advance = ev.Opcode == "advance" || ev.Amount > 0;
                 var kind = advance ? WaveCueKind.WaveAdvance : WaveCueKind.WaveEnter;
-                var title = advance ? WaveAdvance : WaveEnter;
-                cue = new WaveCue(kind, title, WaveSub(ev.Amount), StampTint(kind));
+                // Primary P0 t65 / t510: large PHASE n + stage name; heart crest. No 击破.
+                var phaseN = (ev.Amount < 0 ? 0 : ev.Amount) + 1;
+                var phase = "PHASE " + phaseN;
+                var stage = StageLabel();
+                // GT: PHASE is the hero word; stage name sits above as secondary.
+                var title = advance ? phase : WaveEnter;
+                var sub = advance ? stage : WaveSub(ev.Amount);
+                cue = new WaveCue(kind, title, sub, StampTint(kind));
                 return cue.Visible;
             }
             if (IsDeathEvent(ev))
             {
-                var kind = ev.TargetAlly ? WaveCueKind.AllyDown : WaveCueKind.EnemyDown;
-                var title = ev.TargetAlly ? AllyDown : EnemyDown;
-                cue = new WaveCue(kind, title, DeathSub(battle, ev), StampTint(kind));
+                // P0 1fps 60–90s: last-wave clear → PHASE splash; mid-fight kills are
+                // damage + cut-in only. Do not invent 击破. Ally down still engineering.
+                if (!ev.TargetAlly) return false;
+                var kind = WaveCueKind.AllyDown;
+                cue = new WaveCue(kind, AllyDown, DeathSub(battle, ev), StampTint(kind));
                 return cue.Visible;
             }
             return false;
@@ -213,14 +236,35 @@ namespace Resonance.App
         static string WaveSub(int waveIndex)
         {
             var n = waveIndex < 0 ? 0 : waveIndex;
-            return "第" + (n + 1) + "波";
+            return "WAVE " + (n + 1);
+        }
+
+        static string StageLabel()
+        {
+            var g = GameRoot.Live;
+            if (g == null || g.SaveData == null) return "";
+            var hard = g.SaveData.UseHard;
+            var table = Catalog.Chapter(hard);
+            var idx = g.ActiveStageIndex;
+            if (table == null || idx < 0 || idx >= table.Length || table[idx] == null) return "";
+            var raw = table[idx].Name ?? "";
+            var sp = raw.LastIndexOf(' ');
+            var st = sp >= 0 && sp + 1 < raw.Length ? raw.Substring(sp + 1) : raw;
+            if (hard)
+            {
+                if (st.EndsWith("困难"))
+                    st = st.Substring(0, st.Length - 2).TrimEnd() + " (Hard)";
+                else if (!st.EndsWith("(Hard)"))
+                    st = st + " (Hard)";
+            }
+            return st;
         }
 
         static string DeathSub(BattleSim battle, BattleEvent ev)
         {
             var name = UnitName(battle, ev);
             if (!string.IsNullOrEmpty(name)) return name;
-            return ev != null && ev.TargetAlly ? "我方" : "敌方";
+            return ev != null && ev.TargetAlly ? "ALLY" : "ENEMY";
         }
 
         static string UnitName(BattleSim battle, BattleEvent ev)
@@ -321,7 +365,7 @@ namespace Resonance.App
                 new Color(VisualTokens.GoldSelect.r, VisualTokens.GoldSelect.g, VisualTokens.GoldSelect.b, 0.38f),
                 UiSprites.Slash());
             if (bossSlash != null) bossSlash.rectTransform.localEulerAngles = new Vector3(0f, 0f, -7f);
-            OverlayDraw.Label(host, null, "首领", 12, VisualTokens.GoldSelect,
+            OverlayDraw.Label(host, null, "BOSS", 12, VisualTokens.GoldSelect,
                 new Vector2(0.5f, 0.92f), new Vector2(72f, 22f), false, true, 2f, true);
         }
 
@@ -377,17 +421,22 @@ namespace Resonance.App
     /// </summary>
     public sealed class WaveCueBoard : MonoBehaviour
     {
-        // NEEDS_REFERENCE: not measured from primary GT. Not T27. Not Ragna phase.
+        // PhaseLifeSec: P0 30fps PHASE 2 first-on to first-off. AllyDown unmeasured.
+        // Not T27 / T28. Not Ragna phase.
         const float CueY = 0.58f;
-        const float LifeSec = 1.20f; // engineering; GL frame gap UNKNOWN
+        const float LifeSec = 1.20f;
+        const float PhaseLifeSec = 2.00f;
         const float SlamSec = 0.14f;
 
+        bool _phaseHold;
+        int _probeId;
         CanvasGroup _group;
         Image _tone;
         Image _slash;
         Image _slashIn;
         Image _stampL;
         Image _stampR;
+        Image _crest;
         Text _title;
         Text _sub;
         BattleSim _battle;
@@ -396,10 +445,19 @@ namespace Resonance.App
         float _life;
         WaveCueKind _kind;
         float _tilt;
+        WaveCue _held;
 
         public WaveCueKind Kind => _kind;
         public string Title => _title != null ? _title.text : "";
         public bool Showing => _life > 0f && _group != null && _group.alpha > 0.01f;
+
+        public void SuppressDeathForExclusive()
+        {
+            if (IsDeath(_kind) && _life > 0f)
+                Hide();
+            if (IsDeath(_held.Kind))
+                _held = default;
+        }
 
         public void Build()
         {
@@ -432,6 +490,10 @@ namespace Resonance.App
             _stampR = OverlayDraw.Pic(transform, null, "cueStampR", new Vector2(0.70f, CueY),
                 new Vector2(28f, 28f), Color.clear, UiSprites.Stamp(2));
             if (_stampR != null) _stampR.raycastTarget = false;
+            // Primary P0 t65: large heart crest above PHASE splash.
+            _crest = OverlayDraw.Pic(transform, null, "cueCrest", new Vector2(0.5f, CueY + 0.10f),
+                new Vector2(72f, 72f), Color.clear, UiSprites.Heart());
+            if (_crest != null) _crest.raycastTarget = false;
 
             _title = OverlayDraw.Label(transform, null, "", 52, VisualTokens.TextPrimary,
                 new Vector2(0.5f, CueY), new Vector2(520f, 72f), false, true, 3.5f, true);
@@ -463,6 +525,19 @@ namespace Resonance.App
 
         void Update()
         {
+            // DriveSelect / SHOWTIME / QTE already queues new 击破/倒下.
+            // Also kill a stamp that started before the plate opened (06d residual).
+            if (_life > 0f && IsDeath(_kind) && ExclusiveBusy())
+            {
+                Hide();
+                return;
+            }
+            if (_life <= 0f && _held.Visible && !ExclusiveBusy())
+            {
+                var held = _held;
+                _held = default;
+                Play(held);
+            }
             if (_life <= 0f) return;
             _age += Time.unscaledDeltaTime;
             var u = Mathf.Clamp01(_age / _life);
@@ -517,19 +592,45 @@ namespace Resonance.App
             }
 
             if (hasWave) Play(wave);
-            else if (hasAlly) Play(ally);
-            else if (hasEnemy) Play(enemy);
+            else if (hasAlly) MaybePlayDeath(ally);
+            else if (hasEnemy) MaybePlayDeath(enemy);
+        }
+
+        static bool ExclusiveBusy()
+        {
+            if (VfxShowtime.AnyLive() || VfxJudge.AnyLive()) return true;
+            var g = GameRoot.Live;
+            return g != null && g.DriveSelectVisible;
+        }
+
+        static bool IsDeath(WaveCueKind kind)
+        {
+            return kind == WaveCueKind.AllyDown || kind == WaveCueKind.EnemyDown;
+        }
+
+        void MaybePlayDeath(WaveCue cue)
+        {
+            if (!cue.Visible) return;
+            if (ExclusiveBusy())
+            {
+                _held = cue;
+                return;
+            }
+            Play(cue);
         }
 
         void Play(WaveCue cue)
         {
             if (!cue.Visible) return;
             _kind = cue.Kind;
-            _life = LifeSec;
+            _life = cue.Kind == WaveCueKind.WaveAdvance ? PhaseLifeSec : LifeSec;
             _age = 0f;
             _tilt = cue.Kind == WaveCueKind.AllyDown ? 12f
                 : cue.Kind == WaveCueKind.EnemyDown ? -4f
                 : -8f;
+
+            if (cue.Kind == WaveCueKind.WaveAdvance || cue.Kind == WaveCueKind.WaveEnter)
+                VfxFeverOverlay.Hide();
 
             WavePreview.VisibleKind = cue.Kind;
             WavePreview.VisibleTitle = cue.Title;
@@ -538,20 +639,36 @@ namespace Resonance.App
             {
                 _title.text = cue.Title;
                 _title.color = VisualTokens.TextPrimary;
+                // PHASE splash: hero word centered; stage name rides above (P0 t65).
+                var titleY = CueY;
+                _title.rectTransform.anchorMin = _title.rectTransform.anchorMax = new Vector2(0.5f, titleY);
             }
             if (_sub != null)
             {
                 _sub.text = cue.Sub ?? "";
-                _sub.color = cue.Tint;
+                _sub.color = cue.Kind == WaveCueKind.WaveAdvance ? VisualTokens.FeverGold : cue.Tint;
+                var subY = cue.Kind == WaveCueKind.WaveAdvance ? CueY + 0.07f : CueY - 0.055f;
+                _sub.rectTransform.anchorMin = _sub.rectTransform.anchorMax = new Vector2(0.5f, subY);
             }
 
-            Paint(_slash, cue.Tint, 0.92f);
-            Paint(_slashIn, Color.white, 0.55f);
-            Paint(_tone, cue.Tint, cue.Kind == WaveCueKind.WaveAdvance ? 0.16f : 0.10f);
+            var advance = cue.Kind == WaveCueKind.WaveAdvance;
+            // P0 t64–t66: empty red field + heart + PHASE n + stage name. No slash plate.
+            Paint(_slash, cue.Tint, advance ? 0f : 0.92f);
+            Paint(_slashIn, Color.white, advance ? 0f : 0.55f);
+            Paint(_tone, cue.Tint, advance ? 0f : 0.10f);
 
             var wave = cue.Kind == WaveCueKind.WaveAdvance || cue.Kind == WaveCueKind.WaveEnter;
-            Paint(_stampL, cue.Tint, wave ? 0.95f : 0f);
-            Paint(_stampR, cue.Tint, wave ? 0.95f : 0f);
+            Paint(_stampL, cue.Tint, !advance && wave ? 0.95f : 0f);
+            Paint(_stampR, cue.Tint, !advance && wave ? 0.95f : 0f);
+            // Heart crest on PHASE advance only (P0 t65). Large; not T27.
+            if (_crest != null)
+            {
+                var sz = advance ? 260f : 72f;
+                _crest.rectTransform.sizeDelta = new Vector2(sz, sz);
+                var crestY = advance ? CueY + 0.04f : CueY + 0.10f;
+                _crest.rectTransform.anchorMin = _crest.rectTransform.anchorMax = new Vector2(0.5f, crestY);
+            }
+            Paint(_crest, VisualTokens.FeverGold, advance ? 1f : 0f);
 
             Tilt(_slash, _tilt);
             Tilt(_slashIn, _tilt);
@@ -559,10 +676,28 @@ namespace Resonance.App
 
             if (_group != null) _group.alpha = 0f;
             gameObject.SetActive(true);
+            if (cue.Kind == WaveCueKind.WaveAdvance)
+            {
+                // P0 PHASE splash: BATTLE TIME stays put. Not T28. Not Full Auto proof.
+                if (_battle != null)
+                {
+                    _battle.HoldSim = true;
+                    _phaseHold = true;
+                }
+                _probeId++;
+                CueTimingProbe.On("phase", _probeId);
+            }
         }
 
         void Hide()
         {
+            if (_phaseHold && _battle != null)
+            {
+                _battle.HoldSim = false;
+                _phaseHold = false;
+            }
+            if (_kind == WaveCueKind.WaveAdvance && _probeId != 0)
+                CueTimingProbe.Off("phase", _probeId);
             _life = 0f;
             _age = 0f;
             _kind = WaveCueKind.None;

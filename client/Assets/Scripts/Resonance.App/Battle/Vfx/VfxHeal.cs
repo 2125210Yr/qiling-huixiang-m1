@@ -5,7 +5,7 @@ namespace Resonance.App
 {
     /// <summary>
     /// Heal/regen: green cross motes rising from an ally.
-    /// Optional floating +N. Chinese 恢复.
+    /// Optional floating +N. Primary Robin ~t25 tag <c>Recovery</c>.
     /// </summary>
     public sealed class VfxHeal : MonoBehaviour
     {
@@ -69,7 +69,7 @@ namespace Resonance.App
                 _motes[i] = img;
             }
 
-            _tag = MkText(transform, "恢复", 22, new Vector2(0f, 24f), new Vector2(180f, 36f), Heal);
+            _tag = MkText(transform, "Recovery", 22, new Vector2(0f, 24f), new Vector2(180f, 36f), Heal);
             if (amount > 0)
                 _amount = MkText(transform, "+" + amount, 36, new Vector2(0f, 56f), new Vector2(220f, 56f), Heal);
         }

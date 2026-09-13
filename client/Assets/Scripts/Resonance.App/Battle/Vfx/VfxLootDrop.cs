@@ -54,7 +54,7 @@ namespace Resonance.App
         void Build(string itemName)
         {
             var name = itemName ?? "";
-            var word = name.Length == 0 ? "获得" : "获得  " + name;
+            var word = name.Length == 0 ? "GOT" : "GOT  " + name;
             var n = word.Length;
             _pillW = Mathf.Clamp(72f + n * 24f, 160f, 400f);
             _from = new Vector2(Random.Range(-10f, 10f), Random.Range(-22f, -8f));

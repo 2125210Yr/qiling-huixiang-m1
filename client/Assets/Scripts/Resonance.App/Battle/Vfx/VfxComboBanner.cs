@@ -4,26 +4,21 @@ using UnityEngine.UI;
 namespace Resonance.App
 {
     /// <summary>
-    /// Fever combo + total damage at the top of the field.
-    /// HUD copy is 连击 / 伤害, never COMBO / DAMAGE. Gold while shown. Hide is instant.
-    /// Printed charcoal plate + tiled halftone + gold wire. No Soft disc.
+    /// Live Fever combo (P0 t440/t442): floating <c>N COMBO</c> + <c>N DAMAGE</c>.
+    /// Tip field <c>TOTAL n DAMAGE</c> (t444/t445) is a different plate — do not use it here.
+    /// No gold box. Hide is instant.
     /// </summary>
     public sealed class VfxComboBanner : MonoBehaviour
     {
         const float AnchorY = 0.92f;
-        const float PlateW = 520f;
-        const float PlateH = 148f;
         const int ComboNumSize = 56;
         const int ComboLabSize = 24;
         const int DmgNumSize = 44;
         const int DmgLabSize = 22;
 
-        static readonly Color Gold = VisualTokens.FeverGold;
-        static readonly Color GoldHot = VisualTokens.YellowValue;
-        static readonly Color GoldInk = new Color(0.42f, 0.16f, 0.02f, 0.92f);
-        static readonly Color Plate = new Color(0.06f, 0.045f, 0.03f, 0.88f);
-        static readonly Color Tone = new Color(VisualTokens.GoldWire.r, VisualTokens.GoldWire.g, VisualTokens.GoldWire.b, 0.10f);
-        static readonly Color Wire = new Color(VisualTokens.GoldWire.r, VisualTokens.GoldWire.g, VisualTokens.GoldWire.b, 0.92f);
+        static readonly Color Num = Color.white;
+        static readonly Color Ink = new Color(0.06f, 0.04f, 0.04f, 0.80f);
+        const string LabHex = "#EB382E";
 
         CanvasGroup _group;
         Text _comboGhost;
@@ -96,28 +91,22 @@ namespace Resonance.App
             _group.interactable = false;
             _group.blocksRaycasts = false;
 
-            Pic("plate", UiSprites.Pixel(), Plate, new Vector2(PlateW, PlateH), Vector2.zero);
-            var tone = Pic("tone", UiSprites.Halftone(), Tone, new Vector2(PlateW, PlateH), Vector2.zero);
-            tone.type = Image.Type.Tiled;
-            tone.pixelsPerUnitMultiplier = 0.55f;
-            Pic("wire", UiSprites.WireFrame(), Wire, new Vector2(PlateW + 8f, PlateH + 8f), Vector2.zero);
-            Pic("rule", UiSprites.Pixel(), new Color(Wire.r, Wire.g, Wire.b, 0.55f),
-                new Vector2(180f, 1f), new Vector2(0f, 4f));
-
-            _comboGhost = MkText("comboGhost", ComboNumSize, GoldInk, new Vector2(5f, 30f), new Vector2(920f, 72f));
-            _combo = MkText("combo", ComboNumSize, Gold, new Vector2(0f, 36f), new Vector2(920f, 72f));
-            _dmgGhost = MkText("dmgGhost", DmgNumSize, GoldInk, new Vector2(6f, -34f), new Vector2(940f, 64f));
-            _dmg = MkText("dmg", DmgNumSize, GoldHot, new Vector2(0f, -28f), new Vector2(940f, 64f));
+            _comboGhost = MkText("comboGhost", ComboNumSize, Ink, new Vector2(4f, 28f), new Vector2(920f, 72f));
+            _combo = MkText("combo", ComboNumSize, Num, new Vector2(0f, 34f), new Vector2(920f, 72f));
+            _dmgGhost = MkText("dmgGhost", DmgNumSize, Ink, new Vector2(5f, -32f), new Vector2(940f, 64f));
+            _dmg = MkText("dmg", DmgNumSize, Num, new Vector2(0f, -26f), new Vector2(940f, 64f));
         }
 
         void Paint()
         {
-            var combo = Rich(_comboN.ToString(), "连击", ComboNumSize, ComboLabSize);
-            var dmg = Rich(Comma(_totalN), "伤害", DmgNumSize, DmgLabSize);
-            Set(_combo, combo, Gold);
-            Set(_comboGhost, combo, GoldInk);
-            Set(_dmg, dmg, GoldHot);
-            Set(_dmgGhost, dmg, GoldInk);
+            var combo = Rich(_comboN.ToString(), BattleCueCopy.ComboLabel, ComboNumSize, ComboLabSize);
+            // Live P0 t440/t442: N DAMAGE. Tip TOTAL n DAMAGE stays on the tutorial plate.
+            var dmg = "<size=" + DmgNumSize + ">" + Comma(_totalN)
+                + "</size><size=" + DmgLabSize + "><color=" + LabHex + "> DAMAGE</color></size>";
+            Set(_combo, combo, Num);
+            Set(_comboGhost, combo, Ink);
+            Set(_dmg, dmg, Num);
+            Set(_dmgGhost, dmg, Ink);
         }
 
         void LateUpdate()
@@ -133,21 +122,6 @@ namespace Resonance.App
             transform.localScale = Vector3.one * (1f + 0.16f * k);
             var rt = transform as RectTransform;
             if (rt != null) rt.anchoredPosition = new Vector2(0f, 10f * k);
-        }
-
-        Image Pic(string name, Sprite sprite, Color color, Vector2 size, Vector2 pos)
-        {
-            var go = new GameObject(name, typeof(RectTransform), typeof(Image));
-            go.transform.SetParent(transform, false);
-            var rt = go.GetComponent<RectTransform>();
-            rt.anchorMin = rt.anchorMax = new Vector2(0.5f, 0.5f);
-            rt.sizeDelta = size;
-            rt.anchoredPosition = pos;
-            var img = go.GetComponent<Image>();
-            UiSprites.Apply(img, sprite);
-            img.color = color;
-            img.raycastTarget = false;
-            return img;
         }
 
         Text MkText(string name, int size, Color color, Vector2 pos, Vector2 dim)
@@ -184,7 +158,8 @@ namespace Resonance.App
 
         static string Rich(string num, string label, int numSize, int labSize)
         {
-            return "<size=" + numSize + ">" + num + "</size><size=" + labSize + "> " + label + "</size>";
+            return "<size=" + numSize + ">" + num + "</size><size=" + labSize
+                + "><color=" + LabHex + "> " + label + "</color></size>";
         }
 
         static string Comma(int n)

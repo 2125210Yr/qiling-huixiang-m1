@@ -1,0 +1,294 @@
+{
+  "character": "elevator-red",
+  "source_body": "F:\\天命之子\\art\\live2d-lab\\elevator-red\\layers\\body_original.png",
+  "source_layers": "F:\\天命之子\\art\\live2d-lab\\elevator-red\\layers",
+  "not_c026_recolor": true,
+  "canvas": {
+    "width": 1280,
+    "height": 720
+  },
+  "plate_space": "every PNG is full canvas, so parts align by direct overlay — no offsets needed",
+  "draw_order_back_to_front": [
+    "back_hair",
+    "torso",
+    "chest",
+    "dress_body",
+    "leg_stand",
+    "dress_slit_panel",
+    "leg_raise_thigh",
+    "leg_raise_calf",
+    "foot_raise",
+    "arm_upper_hip",
+    "arm_forearm_hip",
+    "hand_hip",
+    "neck",
+    "face",
+    "eyes",
+    "front_hair",
+    "horns"
+  ],
+  "parts": [
+    {
+      "name": "back_hair",
+      "part_id": "PartHairBack",
+      "draw_index": 0,
+      "parent": null,
+      "opaque_px": 55982,
+      "seam_px_added": 27005,
+      "bbox": [
+        261,
+        36,
+        728,
+        450
+      ],
+      "source": "layer back_hair.png"
+    },
+    {
+      "name": "torso",
+      "part_id": "PartTorso",
+      "draw_index": 1,
+      "parent": null,
+      "opaque_px": 5624,
+      "seam_px_added": 67,
+      "bbox": [
+        635,
+        257,
+        746,
+        337
+      ],
+      "source": "layer torso.png"
+    },
+    {
+      "name": "chest",
+      "part_id": "PartChest",
+      "draw_index": 2,
+      "parent": "torso",
+      "opaque_px": 9299,
+      "seam_px_added": 406,
+      "bbox": [
+        626,
+        206,
+        754,
+        312
+      ],
+      "source": "layer chest.png"
+    },
+    {
+      "name": "dress_body",
+      "part_id": "PartDress",
+      "draw_index": 3,
+      "parent": "torso",
+      "opaque_px": 38656,
+      "seam_px_added": 2047,
+      "bbox": [
+        592,
+        219,
+        773,
+        643
+      ],
+      "source": "layer dress_body.png"
+    },
+    {
+      "name": "leg_stand",
+      "part_id": "PartLegStand",
+      "draw_index": 4,
+      "parent": "torso",
+      "opaque_px": 6065,
+      "seam_px_added": 3289,
+      "bbox": [
+        612,
+        561,
+        730,
+        713
+      ],
+      "source": "layer leg_stand.png"
+    },
+    {
+      "name": "dress_slit_panel",
+      "part_id": "PartDressSlitPanelBack",
+      "draw_index": 5,
+      "parent": "dress_body",
+      "opaque_px": 30899,
+      "seam_px_added": 8607,
+      "bbox": [
+        503,
+        346,
+        690,
+        625
+      ],
+      "source": "layer dress_slit_panel.png"
+    },
+    {
+      "name": "leg_raise_thigh",
+      "part_id": "PartLegRaise",
+      "draw_index": 6,
+      "parent": "torso",
+      "opaque_px": 8233,
+      "seam_px_added": 670,
+      "bbox": [
+        664,
+        248,
+        829,
+        332
+      ],
+      "source": "layer leg_raise_thigh.png"
+    },
+    {
+      "name": "leg_raise_calf",
+      "part_id": "PartLegRaise",
+      "draw_index": 7,
+      "parent": "leg_raise_thigh",
+      "opaque_px": 4008,
+      "seam_px_added": 1014,
+      "bbox": [
+        781,
+        255,
+        850,
+        383
+      ],
+      "source": "layer leg_raise_calf.png"
+    },
+    {
+      "name": "foot_raise",
+      "part_id": "PartLegRaise",
+      "draw_index": 8,
+      "parent": "leg_raise_calf",
+      "opaque_px": 6526,
+      "seam_px_added": 5348,
+      "bbox": [
+        809,
+        373,
+        912,
+        531
+      ],
+      "source": "rembg∩envelope"
+    },
+    {
+      "name": "arm_upper_hip",
+      "part_id": "PartArmL",
+      "draw_index": 9,
+      "parent": "chest",
+      "opaque_px": 6205,
+      "seam_px_added": 63,
+      "bbox": [
+        563,
+        236,
+        660,
+        321
+      ],
+      "source": "rembg∩envelope arm_hip + elbow recut"
+    },
+    {
+      "name": "arm_forearm_hip",
+      "part_id": "PartArmL",
+      "draw_index": 10,
+      "parent": "arm_upper_hip",
+      "opaque_px": 4250,
+      "seam_px_added": 37,
+      "bbox": [
+        528,
+        261,
+        623,
+        351
+      ],
+      "source": "rembg∩envelope arm_hip + elbow/wrist recut"
+    },
+    {
+      "name": "hand_hip",
+      "part_id": "PartHandL",
+      "draw_index": 11,
+      "parent": "arm_forearm_hip",
+      "opaque_px": 13308,
+      "seam_px_added": 8251,
+      "bbox": [
+        472,
+        232,
+        666,
+        435
+      ],
+      "source": "rembg∩envelope arm_hip + wrist recut"
+    },
+    {
+      "name": "neck",
+      "part_id": "PartNeck",
+      "draw_index": 12,
+      "parent": "chest",
+      "opaque_px": 1595,
+      "seam_px_added": 133,
+      "bbox": [
+        645,
+        193,
+        710,
+        233
+      ],
+      "source": "rembg∩envelope"
+    },
+    {
+      "name": "face",
+      "part_id": "PartFace",
+      "draw_index": 13,
+      "parent": "neck",
+      "opaque_px": 5524,
+      "seam_px_added": 742,
+      "bbox": [
+        619,
+        130,
+        715,
+        210
+      ],
+      "source": "rembg∩envelope"
+    },
+    {
+      "name": "eyes",
+      "part_id": "PartFace",
+      "draw_index": 14,
+      "parent": "face",
+      "opaque_px": 261,
+      "seam_px_added": 0,
+      "bbox": [
+        644,
+        157,
+        667,
+        172
+      ],
+      "source": "rembg∩envelope"
+    },
+    {
+      "name": "front_hair",
+      "part_id": "PartHairFront",
+      "draw_index": 15,
+      "parent": "face",
+      "opaque_px": 3738,
+      "seam_px_added": 589,
+      "bbox": [
+        606,
+        121,
+        704,
+        171
+      ],
+      "source": "rembg∩envelope"
+    },
+    {
+      "name": "horns",
+      "part_id": "PartHorns",
+      "draw_index": 16,
+      "parent": "face",
+      "opaque_px": 5283,
+      "seam_px_added": 3893,
+      "bbox": [
+        606,
+        37,
+        677,
+        142
+      ],
+      "source": "rembg∩envelope"
+    }
+  ],
+  "qa": {
+    "seam_px_before_close": 62161,
+    "seam_max_fill_distance_px": 156.82,
+    "unowned_opaque_px_after_close": 0,
+    "composite_max_channel_sum_diff": 19,
+    "composite_mean_diff_on_opaque": 0.0
+  }
+}

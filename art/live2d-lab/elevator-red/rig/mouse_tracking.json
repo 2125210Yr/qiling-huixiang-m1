@@ -1,0 +1,158 @@
+{
+  "schema": "dc.live2d.mouse-tracking/1",
+  "rig": "elevator-red",
+  "notes": [
+    "追踪跑在待机之后、物理之前。它写的 ParamAngle* / ParamBodyAngle* 正是物理组的输入，所以顺序反了次级运动会晚一帧。",
+    "核心是三级延迟：眼球领先（无延迟、快弹簧）→ 头跟随 → 身体最后。三条同步就会像整块木板在转。",
+    "这个姿势右肩贴后壁、右手扶栏，所以水平追踪必须不对称限幅，正向（转向画面右）比负向紧。"
+  ],
+  "input": {
+    "space": "canvasNormalized",
+    "origin": "modelHeadAnchor",
+    "originComment": "以头部锚点为原点算偏移，不要用画布中心：模型不居中时会有恒定偏置。",
+    "maxRadiusPx": { "x": 520, "y": 380 },
+    "deadzonePx": 6,
+    "deadzoneComment": "死区防止指针静止时的亚像素抖动被弹簧放大。",
+    "invertX": false,
+    "invertY": false,
+    "responseCurve": "easeOutSine",
+    "responseCurveComment": "中心附近灵敏、边缘收敛，避免指针到边缘还在线性外推。",
+    "pointer": {
+      "sources": ["mousemove", "pointermove", "touchmove"],
+      "touch": {
+        "followWhileDown": true,
+        "releaseBehavior": "holdThenReturn",
+        "holdSec": 0.8
+      },
+      "onPointerLeave": { "behavior": "returnToNeutral", "delaySec": 0.5 },
+      "onWindowBlur": { "behavior": "returnToNeutral", "delaySec": 0.0 }
+    }
+  },
+  "channels": [
+    {
+      "param": "ParamEyeBallX",
+      "axis": "x",
+      "gain": 1.0,
+      "range": [-1.0, 1.0],
+      "clamp": [-1.0, 0.85],
+      "lagSec": 0.0,
+      "spring": { "freqHz": 6.5, "zeta": 0.9 },
+      "comment": "眼球领先，无延迟。正向收到 0.85：再往右眼白会露太多。"
+    },
+    {
+      "param": "ParamEyeBallY",
+      "axis": "y",
+      "gain": 1.0,
+      "range": [-1.0, 1.0],
+      "clamp": [-0.9, 1.0],
+      "lagSec": 0.0,
+      "spring": { "freqHz": 6.5, "zeta": 0.9 }
+    },
+    {
+      "param": "ParamAngleX",
+      "axis": "x",
+      "gain": 0.7,
+      "range": [-30, 30],
+      "clamp": [-30, 22],
+      "clampComment": "右肩贴后壁，正向（转向画面右）有效上限 +22。越过会穿墙。",
+      "lagSec": 0.05,
+      "spring": { "freqHz": 3.2, "zeta": 1.0 }
+    },
+    {
+      "param": "ParamAngleY",
+      "axis": "y",
+      "gain": 0.72,
+      "range": [-30, 30],
+      "clamp": [-26, 30],
+      "lagSec": 0.05,
+      "spring": { "freqHz": 3.2, "zeta": 1.0 }
+    },
+    {
+      "param": "ParamAngleZ",
+      "axis": "x",
+      "gain": -0.22,
+      "range": [-30, 30],
+      "clamp": [-12, 12],
+      "lagSec": 0.09,
+      "spring": { "freqHz": 2.6, "zeta": 1.05 },
+      "additive": true,
+      "comment": "负 gain = 头往指针方向轻微倒头（顺着看，不是拧着看）。additive：叠在 weight_shift 的 -3 常驻偏置上。"
+    },
+    {
+      "param": "ParamBodyAngleX",
+      "axis": "x",
+      "gain": 0.25,
+      "range": [-10, 10],
+      "clamp": [-10, 6],
+      "lagSec": 0.14,
+      "spring": { "freqHz": 1.6, "zeta": 1.1 },
+      "comment": "身体幅度是头的 1/4 左右，且最慢。靠墙不许大幅扭腰。"
+    },
+    {
+      "param": "ParamBodyAngleY",
+      "axis": "y",
+      "gain": 0.18,
+      "range": [-10, 10],
+      "clamp": [-6, 6],
+      "lagSec": 0.16,
+      "spring": { "freqHz": 1.5, "zeta": 1.1 },
+      "additive": true,
+      "comment": "additive：呼吸也在写这条，两者相加。"
+    },
+    {
+      "param": "ParamBodyAngleZ",
+      "axis": "x",
+      "gain": 0.12,
+      "range": [-10, 10],
+      "clamp": [-5, 3],
+      "lagSec": 0.2,
+      "spring": { "freqHz": 1.3, "zeta": 1.15 },
+      "additive": true,
+      "comment": "additive：weight_shift 是这条的主驱动，追踪只加一点点。"
+    }
+  ],
+  "saccade": {
+    "comment": "纯弹簧追踪太顺滑，会像激光笔。眼球叠一层小幅跳视：指针不动时也偶尔挪一下落点。",
+    "enabled": true,
+    "intervalSec": [1.2, 3.4],
+    "amplitude": { "x": 0.09, "y": 0.06 },
+    "transitionSec": 0.05,
+    "params": ["ParamEyeBallX", "ParamEyeBallY"],
+    "emitsGazeShiftEvent": true,
+    "emitsGazeShiftComment": "跨度超过阈值时向 idle_clips.json 的 blink.trigger.onGazeShift 发事件。"
+  },
+  "returnToNeutral": {
+    "comment": "指针长时间不动就交还待机，否则角色会一直死盯一个点。",
+    "idleAfterSec": 4.0,
+    "fadeSec": 1.6,
+    "fadeCurve": "easeInOutSine",
+    "target": "clipNeutral",
+    "targetComment": "回的是待机 clip 当前值，不是硬性 0，否则会和呼吸/重心打一次架。",
+    "resumeOnMoveSec": 0.25,
+    "wanderWhileIdle": {
+      "enabled": true,
+      "amplitude": { "ParamAngleX": 3.5, "ParamAngleY": 2.0 },
+      "periodSec": [7.0, 13.0],
+      "comment": "交还后不是完全静止，做极慢的无向游走，避免'掉线'感。"
+    }
+  },
+  "poseConstraints": {
+    "comment": "这些不是审美偏好，是这个姿势的物理边界。任何 gain 调整之后都要重新验这三条。",
+    "rules": [
+      { "id": "wall_shoulder", "param": "ParamAngleX", "max": 22, "reason": "右肩贴后壁" },
+      { "id": "rail_hand", "param": "ParamBodyAngleX", "max": 6, "reason": "右手不能离扶手" },
+      { "id": "balance", "param": "ParamBodyAngleZ", "range": [-5, 3], "reason": "单腿支撑，向抬腿侧倾会读成要摔" }
+    ],
+    "coupledLimit": {
+      "comment": "头和身体同向叠加时总偏移要限住，单独看每条都合法、加起来会穿墙。",
+      "expression": "ParamAngleX * 0.033 + ParamBodyAngleX * 0.1",
+      "max": 1.35
+    }
+  },
+  "runtime": {
+    "fixedStepHz": 120,
+    "maxCatchUpSteps": 8,
+    "onLargeDeltaTime": "clampAndKeepState",
+    "onLargeDeltaTimeComment": "切标签页回来时 dt 会是几秒。别把弹簧一次积分过去，会甩飞；也别 reset，会跳一帧。"
+  }
+}

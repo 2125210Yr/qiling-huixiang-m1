@@ -1,0 +1,595 @@
+{
+  "character": "elevator-red",
+  "note": "Seam-closed plates and parent-touch pivots, adapted from C026 retarget_live2d.py. Pixels are the elevator-red rembg still, not a C026-to-qipao recolor.",
+  "source": "F:\\天命之子\\art\\live2d-lab\\elevator-red\\layers\\body_original.png",
+  "profile": "wide-original",
+  "canvas": {
+    "width": 1280,
+    "height": 720
+  },
+  "coordinate_space": "pixels, top-left origin, +y down; pivot_uv = [x/width, y/height]",
+  "side_convention": "L/R are character-own (pose_lock.json); raised leg is R, hip-hand is L",
+  "root": "torso",
+  "parts": {
+    "back_hair": {
+      "part_id": "PartHairBack",
+      "draw_index": 0,
+      "parent": null,
+      "pivot_px": [
+        684.9,
+        156.4
+      ],
+      "pivot_uv": [
+        0.53506,
+        0.21721
+      ],
+      "rule": "contact with 'face' (grow 1px, 870px band)",
+      "bbox": [
+        261,
+        36,
+        728,
+        450
+      ],
+      "centroid_px": [
+        499.2,
+        230.7
+      ],
+      "opaque_px": 55982,
+      "source": "layer back_hair.png"
+    },
+    "torso": {
+      "part_id": "PartTorso",
+      "draw_index": 1,
+      "parent": null,
+      "pivot_px": [
+        707.6,
+        294.2
+      ],
+      "pivot_uv": [
+        0.55278,
+        0.40865
+      ],
+      "rule": "contact with leg_stand+leg_raise_thigh (grow 1px, 4204px band)",
+      "bbox": [
+        635,
+        257,
+        746,
+        337
+      ],
+      "centroid_px": [
+        692.7,
+        299.9
+      ],
+      "opaque_px": 5624,
+      "source": "layer torso.png"
+    },
+    "chest": {
+      "part_id": "PartChest",
+      "draw_index": 2,
+      "parent": "torso",
+      "pivot_px": [
+        698.0,
+        289.0
+      ],
+      "pivot_uv": [
+        0.54534,
+        0.40133
+      ],
+      "rule": "contact with 'torso' (grow 1px, 3541px band)",
+      "bbox": [
+        626,
+        206,
+        754,
+        312
+      ],
+      "centroid_px": [
+        680.3,
+        264.2
+      ],
+      "opaque_px": 9299,
+      "source": "layer chest.png"
+    },
+    "dress_body": {
+      "part_id": "PartDress",
+      "draw_index": 3,
+      "parent": "torso",
+      "pivot_px": [
+        684.2,
+        307.5
+      ],
+      "pivot_uv": [
+        0.53454,
+        0.42702
+      ],
+      "rule": "contact with 'torso' (grow 1px, 393px band)",
+      "bbox": [
+        592,
+        219,
+        773,
+        643
+      ],
+      "centroid_px": [
+        667.7,
+        428.0
+      ],
+      "opaque_px": 38656,
+      "source": "layer dress_body.png"
+    },
+    "leg_stand": {
+      "part_id": "PartLegStand",
+      "draw_index": 4,
+      "parent": "torso",
+      "pivot_px": [
+        670.5,
+        561.0
+      ],
+      "pivot_uv": [
+        0.52383,
+        0.77917
+      ],
+      "rule": "fallback bbox top_center (no contact with 'torso')",
+      "bbox": [
+        612,
+        561,
+        730,
+        713
+      ],
+      "centroid_px": [
+        657.2,
+        642.2
+      ],
+      "opaque_px": 6065,
+      "source": "layer leg_stand.png"
+    },
+    "dress_slit_panel": {
+      "part_id": "PartDressSlitPanelBack",
+      "draw_index": 5,
+      "parent": "dress_body",
+      "pivot_px": [
+        647.2,
+        467.5
+      ],
+      "pivot_uv": [
+        0.50565,
+        0.64928
+      ],
+      "rule": "contact with 'dress_body' (grow 1px, 19697px band)",
+      "bbox": [
+        503,
+        346,
+        690,
+        625
+      ],
+      "centroid_px": [
+        618.8,
+        485.1
+      ],
+      "opaque_px": 30899,
+      "source": "layer dress_slit_panel.png"
+    },
+    "leg_raise_thigh": {
+      "part_id": "PartLegRaise",
+      "draw_index": 6,
+      "parent": "torso",
+      "pivot_px": [
+        707.6,
+        294.2
+      ],
+      "pivot_uv": [
+        0.55278,
+        0.40865
+      ],
+      "rule": "contact with 'torso' (grow 1px, 4204px band)",
+      "bbox": [
+        664,
+        248,
+        829,
+        332
+      ],
+      "centroid_px": [
+        747.6,
+        287.0
+      ],
+      "opaque_px": 8233,
+      "source": "layer leg_raise_thigh.png"
+    },
+    "leg_raise_calf": {
+      "part_id": "PartLegRaise",
+      "draw_index": 7,
+      "parent": "leg_raise_thigh",
+      "pivot_px": [
+        811.5,
+        293.8
+      ],
+      "pivot_uv": [
+        0.634,
+        0.40811
+      ],
+      "rule": "contact with 'leg_raise_thigh' (grow 1px, 188px band)",
+      "bbox": [
+        781,
+        255,
+        850,
+        383
+      ],
+      "centroid_px": [
+        817.2,
+        337.8
+      ],
+      "opaque_px": 4008,
+      "source": "layer leg_raise_calf.png"
+    },
+    "foot_raise": {
+      "part_id": "PartLegRaise",
+      "draw_index": 8,
+      "parent": "leg_raise_calf",
+      "pivot_px": [
+        829.0,
+        376.8
+      ],
+      "pivot_uv": [
+        0.64766,
+        0.52338
+      ],
+      "rule": "contact with 'leg_raise_calf' (grow 1px, 84px band)",
+      "bbox": [
+        809,
+        373,
+        912,
+        531
+      ],
+      "centroid_px": [
+        855.0,
+        452.6
+      ],
+      "opaque_px": 6526,
+      "source": "rembg∩envelope"
+    },
+    "arm_upper_hip": {
+      "part_id": "PartArmL",
+      "draw_index": 9,
+      "parent": "chest",
+      "pivot_px": [
+        642.4,
+        274.6
+      ],
+      "pivot_uv": [
+        0.50188,
+        0.38136
+      ],
+      "rule": "contact with 'chest' (grow 1px, 2093px band)",
+      "bbox": [
+        563,
+        236,
+        660,
+        321
+      ],
+      "centroid_px": [
+        614.8,
+        274.9
+      ],
+      "opaque_px": 6205,
+      "source": "rembg∩envelope arm_hip + elbow recut"
+    },
+    "arm_forearm_hip": {
+      "part_id": "PartArmL",
+      "draw_index": 10,
+      "parent": "arm_upper_hip",
+      "pivot_px": [
+        587.4,
+        295.6
+      ],
+      "pivot_uv": [
+        0.45889,
+        0.41058
+      ],
+      "rule": "contact with 'arm_upper_hip' (grow 1px, 167px band)",
+      "bbox": [
+        528,
+        261,
+        623,
+        351
+      ],
+      "centroid_px": [
+        570.6,
+        312.1
+      ],
+      "opaque_px": 4250,
+      "source": "rembg∩envelope arm_hip + elbow/wrist recut"
+    },
+    "hand_hip": {
+      "part_id": "PartHandL",
+      "draw_index": 11,
+      "parent": "arm_forearm_hip",
+      "pivot_px": [
+        567.8,
+        319.0
+      ],
+      "pivot_uv": [
+        0.44361,
+        0.44301
+      ],
+      "rule": "contact with 'arm_forearm_hip' (grow 1px, 322px band)",
+      "bbox": [
+        472,
+        232,
+        666,
+        435
+      ],
+      "centroid_px": [
+        559.1,
+        365.3
+      ],
+      "opaque_px": 13308,
+      "source": "rembg∩envelope arm_hip + wrist recut"
+    },
+    "neck": {
+      "part_id": "PartNeck",
+      "draw_index": 12,
+      "parent": "chest",
+      "pivot_px": [
+        676.3,
+        221.0
+      ],
+      "pivot_uv": [
+        0.52835,
+        0.30692
+      ],
+      "rule": "contact with 'chest' (grow 1px, 817px band)",
+      "bbox": [
+        645,
+        193,
+        710,
+        233
+      ],
+      "centroid_px": [
+        676.3,
+        212.1
+      ],
+      "opaque_px": 1595,
+      "source": "rembg∩envelope"
+    },
+    "face": {
+      "part_id": "PartFace",
+      "draw_index": 13,
+      "parent": "neck",
+      "pivot_px": [
+        675.1,
+        201.3
+      ],
+      "pivot_uv": [
+        0.52741,
+        0.27957
+      ],
+      "rule": "contact with 'neck' (grow 1px, 612px band)",
+      "bbox": [
+        619,
+        130,
+        715,
+        210
+      ],
+      "centroid_px": [
+        667.7,
+        172.7
+      ],
+      "opaque_px": 5524,
+      "source": "rembg∩envelope"
+    },
+    "eyes": {
+      "part_id": "PartFace",
+      "draw_index": 14,
+      "parent": "face",
+      "pivot_px": [
+        655.2,
+        164.2
+      ],
+      "pivot_uv": [
+        0.51191,
+        0.22809
+      ],
+      "rule": "plate centroid",
+      "bbox": [
+        644,
+        157,
+        667,
+        172
+      ],
+      "centroid_px": [
+        655.2,
+        164.2
+      ],
+      "opaque_px": 261,
+      "source": "rembg∩envelope"
+    },
+    "front_hair": {
+      "part_id": "PartHairFront",
+      "draw_index": 15,
+      "parent": "face",
+      "pivot_px": [
+        668.1,
+        151.9
+      ],
+      "pivot_uv": [
+        0.52196,
+        0.21091
+      ],
+      "rule": "contact with 'face' (grow 1px, 2437px band)",
+      "bbox": [
+        606,
+        121,
+        704,
+        171
+      ],
+      "centroid_px": [
+        655.4,
+        148.2
+      ],
+      "opaque_px": 3738,
+      "source": "rembg∩envelope"
+    },
+    "horns": {
+      "part_id": "PartHorns",
+      "draw_index": 16,
+      "parent": "face",
+      "pivot_px": [
+        657.4,
+        135.7
+      ],
+      "pivot_uv": [
+        0.51356,
+        0.18852
+      ],
+      "rule": "contact with 'face' (grow 1px, 196px band)",
+      "bbox": [
+        606,
+        37,
+        677,
+        142
+      ],
+      "centroid_px": [
+        635.6,
+        93.8
+      ],
+      "opaque_px": 5283,
+      "source": "rembg∩envelope"
+    }
+  },
+  "puppet_uv": {
+    "back_hair": [
+      0.53506,
+      0.21721
+    ],
+    "torso": [
+      0.55278,
+      0.40865
+    ],
+    "chest": [
+      0.54534,
+      0.40133
+    ],
+    "dress_body": [
+      0.53454,
+      0.42702
+    ],
+    "leg_stand": [
+      0.52383,
+      0.77917
+    ],
+    "dress_slit_panel": [
+      0.50565,
+      0.64928
+    ],
+    "leg_raise_thigh": [
+      0.55278,
+      0.40865
+    ],
+    "leg_raise_calf": [
+      0.634,
+      0.40811
+    ],
+    "foot_raise": [
+      0.64766,
+      0.52338
+    ],
+    "arm_upper_hip": [
+      0.50188,
+      0.38136
+    ],
+    "arm_forearm_hip": [
+      0.45889,
+      0.41058
+    ],
+    "hand_hip": [
+      0.44361,
+      0.44301
+    ],
+    "neck": [
+      0.52835,
+      0.30692
+    ],
+    "face": [
+      0.52741,
+      0.27957
+    ],
+    "eyes": [
+      0.51191,
+      0.22809
+    ],
+    "front_hair": [
+      0.52196,
+      0.21091
+    ],
+    "horns": [
+      0.51356,
+      0.18852
+    ],
+    "head": [
+      0.52741,
+      0.27957
+    ],
+    "arm_hip": [
+      0.50188,
+      0.38136
+    ]
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "head": [
+    0.52741,
+    0.27957
+  ],
+  "chest": [
+    0.54534,
+    0.40133
+  ],
+  "torso": [
+    0.55278,
+    0.40865
+  ],
+  "dress_body": [
+    0.53454,
+    0.42702
+  ],
+  "dress_slit_panel": [
+    0.50565,
+    0.64928
+  ],
+  "leg_stand": [
+    0.52383,
+    0.77917
+  ],
+  "leg_raise_thigh": [
+    0.55278,
+    0.40865
+  ],
+  "leg_raise_calf": [
+    0.634,
+    0.40811
+  ],
+  "foot_raise": [
+    0.64766,
+    0.52338
+  ],
+  "arm_hip": [
+    0.50188,
+    0.38136
+  ],
+  "back_hair": [
+    0.53506,
+    0.21721
+  ],
+  "front_hair": [
+    0.52196,
+    0.21091
+  ],
+  "horns": [
+    0.51356,
+    0.18852
+  ],
+  "eyes": [
+    0.51191,
+    0.22809
+  ]
+}

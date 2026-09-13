@@ -4,15 +4,15 @@ using UnityEngine.UI;
 namespace Resonance.App
 {
     /// <summary>
-    /// Buff 飘字 above a portrait. Words: 再生 / 吸血 / 攻击叠加 / 减益爆破.
+    /// Buff float above a portrait. Words: Regen / vampirism / ATK Stack / Debuff Blast.
     /// Printed ticket: dark ink body, thin element wire, 12px type with black outline.
     /// </summary>
     public sealed class VfxBuffFloat : MonoBehaviour
     {
-        public const string Regen = "再生";
-        public const string Lifesteal = "吸血";
-        public const string AtkStack = "攻击叠加";
-        public const string DebuffBlast = "减益爆破";
+        public const string Regen = "Regen";
+        public const string Lifesteal = "vampirism";
+        public const string AtkStack = "ATK Stack";
+        public const string DebuffBlast = "Debuff Blast";
 
         static readonly Color RegenInk = new Color(0.45f, 1f, 0.55f, 1f);
         static readonly Color LifestealInk = new Color(0.92f, 0.18f, 0.28f, 1f);
@@ -239,47 +239,90 @@ namespace Resonance.App
         {
             zh = label ?? "";
             if (zh.Length == 0) return Kind.Generic;
-            if (Is(zh, Regen) || Is(zh, "regen") || zh == "回复")
+            if (Is(zh, Regen) || Is(zh, "regen") || zh == "回复" || zh == "再生")
             {
                 zh = Regen;
                 return Kind.Regen;
             }
-            if (Is(zh, Lifesteal) || Is(zh, "vampirism") || Is(zh, "lifesteal"))
+            if (Is(zh, Lifesteal) || Is(zh, "vampirism") || Is(zh, "lifesteal") || zh == "吸血" || zh == "Vampirism")
             {
                 zh = Lifesteal;
                 return Kind.Lifesteal;
             }
             if (zh == AtkStack || Is(zh, "atk stack") || Is(zh, "atkstack") || Is(zh, "attack stack")
-                || zh == "攻击力↑" || zh == "呐喊")
+                || zh == "攻击力↑" || zh == "呐喊" || zh == "攻击叠加")
             {
                 zh = AtkStack;
                 return Kind.AtkStack;
             }
-            if (zh == DebuffBlast || Is(zh, "debuff blast") || Is(zh, "debuffblast"))
+            if (zh == DebuffBlast || Is(zh, "debuff blast") || Is(zh, "debuffblast") || zh == "减益爆破")
             {
                 zh = DebuffBlast;
                 return Kind.Blast;
             }
+            // Primary Robin mid-fight: field "RES".
+            if (Is(zh, "res") || Is(zh, "resist") || Is(zh, "resistance")
+                || zh == BattleCueCopy.ResistFloat || zh == "抵抗")
+            {
+                zh = BattleCueCopy.ResistFloat;
+                return Kind.Generic;
+            }
+            // Hard r61: field "EVA".
+            if (Is(zh, "eva") || Is(zh, "evade") || Is(zh, "evasion") || Is(zh, "dodge")
+                || zh == BattleCueCopy.EvaFloat || zh == "回避")
+            {
+                zh = BattleCueCopy.EvaFloat;
+                return Kind.Generic;
+            }
             if (Is(zh, "critical") || Is(zh, "crit") || zh == "暴击")
             {
-                zh = "暴击";
+                zh = "CRIT";
                 return Kind.Generic;
             }
-            if (Is(zh, "weak") || Is(zh, "weakpoint") || Is(zh, "weak point") || zh == "弱点")
+            if (Is(zh, "slide skill boost") || Is(zh, "slide ↑") || Is(zh, "slide up")
+                || zh == "Slide ↑" || zh == "Slide Skill Boost")
             {
-                zh = "弱点";
+                zh = "Slide Skill Boost";
                 return Kind.Generic;
             }
-            if (Is(zh, "heal") || zh == "恢复" || zh == "治疗")
+            if (Is(zh, "tap skill boost") || Is(zh, "tap ↑") || zh == "Tap ↑" || zh == "Tap Skill Boost")
             {
-                zh = "恢复";
+                zh = "Tap Skill Boost";
                 return Kind.Generic;
             }
+            if (Is(zh, "drive skill boost") || Is(zh, "drive ↑") || zh == "Drive ↑" || zh == "Drive Skill Boost")
+            {
+                zh = "Drive Skill Boost";
+                return Kind.Generic;
+            }
+            if (Is(zh, "weak") || Is(zh, "weakpoint") || Is(zh, "weak point") || zh == "弱点"
+                || zh == BattleCueCopy.WeakPoint || zh == BattleCueCopy.WeakPointPortrait
+                || zh == BattleCueCopy.WeakPointPortraitSpaced)
+            {
+                zh = BattleCueCopy.WeakPoint;
+                return Kind.Generic;
+            }
+            if (Is(zh, "heal") || Is(zh, "recovery") || zh == "恢复" || zh == "治疗" || zh == "Heal")
+            {
+                zh = "Recovery";
+                return Kind.Generic;
+            }
+            if (zh.IndexOf("weak point def", System.StringComparison.OrdinalIgnoreCase) >= 0
+                || zh.IndexOf("weakpoint def", System.StringComparison.OrdinalIgnoreCase) >= 0
+                || zh == "弱点防御↓" || zh == "Weak Point DEF ↓" || zh == "Weak DEF ↓")
+            {
+                zh = "Weak Point DEF ↓";
+                return Kind.Generic;
+            }
+            if (zh.IndexOf("skill def", System.StringComparison.OrdinalIgnoreCase) >= 0
+                || zh == "技能防御↓" || zh == "Skill DEF ↓")
+            {
+                zh = "Skill DEF ↓";
+                return Kind.Generic;
+            }
+            // Keep primary EN floats; only strip unknown CJK leftovers.
             if (!HasCjk(zh))
-            {
-                zh = "";
                 return Kind.Generic;
-            }
             return Kind.Generic;
         }
 

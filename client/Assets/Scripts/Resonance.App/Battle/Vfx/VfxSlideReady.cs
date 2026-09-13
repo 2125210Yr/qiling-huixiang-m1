@@ -10,7 +10,7 @@ namespace Resonance.App
     public sealed class VfxSlideReady : MonoBehaviour
     {
         public const float Duration = 0.70f;
-        const string Word = "上滑就绪";
+        const string Word = "SLIDE READY";
 
         static readonly Color Ink = new Color(0.04f, 0.26f, 0.08f, 1f);
 

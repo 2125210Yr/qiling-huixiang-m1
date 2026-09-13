@@ -1,0 +1,24 @@
+{
+  "locked": "2026-09-11",
+  "source": "reference still (elevator GIF frame), not the earlier handrail design",
+  "pose": {
+    "supportLeg": "L",
+    "raisedLeg": "R",
+    "leftArm": "hand_on_hip",
+    "rightArm": "not_in_frame",
+    "forbidden": ["handrail", "hanging_arm_as_rest"]
+  },
+  "parameters": {
+    "ParamLegRaiseR": { "default": 1, "motion": [0.85, 1.0] },
+    "ParamArmHipPlant": { "default": 1 },
+    "ParamArmRRail": { "default": 0, "status": "retired" },
+    "ParamArmLHang": { "status": "retired-from-rest" }
+  },
+  "layers": ["arm_upper_hip", "arm_forearm_hip", "hand_hip"],
+  "files": [
+    "rig/parameters.md",
+    "psd_cut_plan.json",
+    "layer_plan.json",
+    "elevator_red.pose3.json"
+  ]
+}

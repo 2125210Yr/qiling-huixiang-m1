@@ -1,4 +1,5 @@
 using System.IO;
+using System.Reflection;
 using Resonance.App;
 using Resonance.Battle;
 using UnityEditor;
@@ -51,6 +52,70 @@ namespace Resonance.EditorTools
             }
         }
 
+        /// <summary>
+        /// GT is portrait. Maximized Game view is landscape and cannot be T28-compared.
+        /// Fixed 1080×1920. Not T27 / T28 by itself.
+        /// </summary>
+        static void FocusPortraitGameView()
+        {
+            try
+            {
+                var idx = EnsurePortraitSize(1080, 1920, "M1 Portrait 1080x1920");
+                var t = typeof(Editor).Assembly.GetType("UnityEditor.GameView");
+                if (t == null) return;
+                var w = EditorWindow.GetWindow(t);
+                w.maximized = false;
+                if (idx >= 0)
+                {
+                    var prop = t.GetProperty("selectedSizeIndex",
+                        BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                    if (prop != null && prop.CanWrite)
+                        prop.SetValue(w, idx, null);
+                }
+                w.Focus();
+                Debug.Log("[VS-SMOKE] game view portrait index=" + idx);
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogWarning("[VS-SMOKE] portrait game view: " + e.Message);
+            }
+        }
+
+        static int EnsurePortraitSize(int w, int h, string label)
+        {
+            var asm = typeof(Editor).Assembly;
+            var sizesType = asm.GetType("UnityEditor.GameViewSizes");
+            if (sizesType == null) return -1;
+            var singleton = sizesType.BaseType;
+            if (singleton == null) return -1;
+            var instProp = singleton.GetProperty("instance", BindingFlags.Public | BindingFlags.Static);
+            if (instProp == null) return -1;
+            var instance = instProp.GetValue(null, null);
+            var groupEnum = asm.GetType("UnityEditor.GameViewSizeGroupType");
+            var standalone = System.Enum.Parse(groupEnum, "Standalone");
+            var group = sizesType.GetMethod("GetGroup").Invoke(instance, new object[] { standalone });
+            var groupT = group.GetType();
+            var getTotal = groupT.GetMethod("GetTotalCount");
+            var getSize = groupT.GetMethod("GetGameViewSize");
+            var addCustom = groupT.GetMethod("AddCustomSize");
+            var total = (int)getTotal.Invoke(group, null);
+            for (int i = 0; i < total; i++)
+            {
+                var s = getSize.Invoke(group, new object[] { i });
+                var sw = (int)s.GetType().GetProperty("width").GetValue(s, null);
+                var sh = (int)s.GetType().GetProperty("height").GetValue(s, null);
+                if (sw == w && sh == h) return i;
+            }
+            var sizeType = asm.GetType("UnityEditor.GameViewSize");
+            var sizeKind = asm.GetType("UnityEditor.GameViewSizeType");
+            var fixedRes = System.Enum.Parse(sizeKind, "FixedResolution");
+            var ctor = sizeType.GetConstructor(new[] { sizeKind, typeof(int), typeof(int), typeof(string) });
+            if (ctor == null || addCustom == null) return -1;
+            var custom = ctor.Invoke(new object[] { fixedRes, w, h, label });
+            addCustom.Invoke(group, new object[] { custom });
+            return (int)getTotal.Invoke(group, null) - 1;
+        }
+
         [MenuItem("Resonance/Run Vertical Slice Smoke")]
         public static void MenuRun()
         {
@@ -60,12 +125,21 @@ namespace Resonance.EditorTools
             TryEnterPlay();
         }
 
+        [MenuItem("Resonance/Run Lose Slice Smoke")]
+        public static void MenuRunLose()
+        {
+            Directory.CreateDirectory("Temp");
+            File.WriteAllText(RequestRel, "lose");
+            if (File.Exists(ResultRel)) File.Delete(ResultRel);
+            TryEnterPlay();
+        }
+
         static void OnPlayMode(PlayModeStateChange change)
         {
             if (change == PlayModeStateChange.EnteredPlayMode)
             {
                 if (!File.Exists(RunningRel)) return;
-                FocusGameView();
+                FocusPortraitGameView();
                 IsolateSmokeSave();
                 EditorApplication.delayCall += EnsurePlayRuntime;
                 return;
@@ -78,12 +152,14 @@ namespace Resonance.EditorTools
         {
             if (!Application.isPlaying) return;
             if (!File.Exists(RunningRel)) return;
-            if (Object.FindFirstObjectByType<GameRoot>() == null)
+            if (UnityEngine.Object.FindFirstObjectByType<GameRoot>() == null)
                 new GameObject("GameRoot").AddComponent<GameRoot>();
-            if (Object.FindFirstObjectByType<VerticalSliceSmokeRuntime>() == null)
+            var smokes = UnityEngine.Object.FindObjectsByType<VerticalSliceSmokeRuntime>(
+                FindObjectsInactive.Include, FindObjectsSortMode.None);
+            if (smokes == null || smokes.Length == 0)
             {
                 var go = new GameObject("VerticalSliceSmokeRuntime");
-                Object.DontDestroyOnLoad(go);
+                UnityEngine.Object.DontDestroyOnLoad(go);
                 go.AddComponent<VerticalSliceSmokeRuntime>();
             }
         }
@@ -130,7 +206,7 @@ namespace Resonance.EditorTools
             IsolateSmokeSave();
             File.WriteAllText(QuitRel, "1");
             File.Move(RequestRel, RunningRel);
-            FocusGameView();
+            FocusPortraitGameView();
             Debug.Log("[VS-SMOKE] entering play mode");
             EditorApplication.EnterPlaymode();
             EditorApplication.delayCall += EnsurePlayRuntime;

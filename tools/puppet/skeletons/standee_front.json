@@ -1,0 +1,16 @@
+{
+  "id": "standee_front",
+  "canvas": [1024, 1536],
+  "required": ["body"],
+  "optional": ["hair_back", "hair_front", "hair_side", "head", "mouth_0", "mouth_1", "mouth_2", "hand_r", "hand_l", "foot_r", "foot_l", "sword"],
+  "order": ["hair_back", "body", "head", "mouth_0", "hair_side", "hair_front", "hand_l", "hand_r", "sword", "foot_l", "foot_r"],
+  "landmarks": {
+    "head": [0.508, 0.779],
+    "chest": [0.503, 0.703],
+    "hand_r": [0.425, 0.547],
+    "hand_l": [0.590, 0.620],
+    "foot_r": [0.459, 0.202],
+    "foot_l": [0.542, 0.228]
+  },
+  "meshSlots": ["body"]
+}

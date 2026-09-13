@@ -1,0 +1,24 @@
+=== silver-maid scene inspect ===
+LOAD F:\天命之子\blender\silver-maid\out\maid.blend
+FILE: F:\天命之子\blender\silver-maid\out\maid.blend
+ARMATURES: maid_armature
+BONES (maid_armature): pelvis, spine, chest, neck, head, hair_root, hair_L, hair_R, shoulder_L, upper_arm_L, forearm_L, hand_L, shoulder_R, upper_arm_R, forearm_R, hand_R, thigh_L, calf_L, foot_L, thigh_R, calf_R, foot_R
+OBJECTS_WITH_ARMATURE_MOD: maid_body (mod=Armature, object=maid_armature); maid_clothes (mod=Armature, object=maid_armature)
+ACTIONS: HairSway, IdleBreath, SitStill
+SAMPLE_ARMATURE: maid_armature
+SitStill pelvis world frame 1: (-0.006180, 0.019021, 0.740000)
+IdleBreath chest rotation_euler.x frame 1: 0.000000
+IdleBreath chest matrix_euler.x frame 1: 1.695151
+IdleBreath chest rotation_euler.x frame 24: 0.007483
+IdleBreath chest matrix_euler.x frame 24: 1.702634
+HairSway hair_L rotation_euler.z frame 1: 0.000000
+HairSway hair_L world.z frame 1: 1.620082
+HairSway hair_L rotation_euler.z frame 17: -0.100000
+HairSway hair_L world.z frame 17: 1.620082
+BOX object: maid_box world (0.170262, -0.135685, 1.048303)
+hand_R bone world: (0.233300, -0.135530, 0.959876)
+SCENE box-hand distance: 0.108595 (max 0.25)
+MATH sit_pelvis_world: (0.000000, 0.020000, 0.740000)
+MATH box_hold_world: (0.140000, -0.220000, 0.940000)
+MATH hand_r_world: (0.160000, -0.240000, 0.920000)
+MATH box-hand distance: 0.034641 (max 0.25)

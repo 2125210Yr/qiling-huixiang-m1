@@ -1,0 +1,15 @@
+{
+  "phase": "ready",
+  "allow": true,
+  "edit": true,
+  "documents": {
+    "PhysicsDocuments": [],
+    "ModelingDocuments": [],
+    "AnimationDocuments": []
+  },
+  "model_uid": {
+    "ErrorType": "InvalidModel",
+    "Description": "Model not found."
+  },
+  "ts": "12:20:26"
+}

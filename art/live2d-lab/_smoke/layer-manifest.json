@@ -1,0 +1,99 @@
+{
+  "format": "cubism-layer-manifest",
+  "version": 1,
+  "order": "back-to-front",
+  "canvas": {
+    "width": 1024,
+    "height": 1536
+  },
+  "sourceFolder": "F:\\天命之子\\art\\characters\\C001-焰刃\\cubism-import",
+  "pivotsFile": null,
+  "pivots": null,
+  "psd": null,
+  "layers": [
+    {
+      "index": 0,
+      "name": "hair_back",
+      "sourceFile": "hair_back.png",
+      "orderedFile": "ordered-png/0000_hair_back.png",
+      "width": 1024,
+      "height": 1536,
+      "offset": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "index": 1,
+      "name": "body_base",
+      "sourceFile": "body_base.png",
+      "orderedFile": "ordered-png/0001_body_base.png",
+      "width": 1024,
+      "height": 1536,
+      "offset": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "index": 2,
+      "name": "body",
+      "sourceFile": "body.png",
+      "orderedFile": "ordered-png/0002_body.png",
+      "width": 1024,
+      "height": 1536,
+      "offset": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "index": 3,
+      "name": "bust",
+      "sourceFile": "bust.png",
+      "orderedFile": "ordered-png/0003_bust.png",
+      "width": 1024,
+      "height": 1536,
+      "offset": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "index": 4,
+      "name": "hair_side",
+      "sourceFile": "hair_side.png",
+      "orderedFile": "ordered-png/0004_hair_side.png",
+      "width": 1024,
+      "height": 1536,
+      "offset": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "index": 5,
+      "name": "hair_front",
+      "sourceFile": "hair_front.png",
+      "orderedFile": "ordered-png/0005_hair_front.png",
+      "width": 1024,
+      "height": 1536,
+      "offset": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "index": 6,
+      "name": "sword",
+      "sourceFile": "sword.png",
+      "orderedFile": "ordered-png/0006_sword.png",
+      "width": 1024,
+      "height": 1536,
+      "offset": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ]
+}

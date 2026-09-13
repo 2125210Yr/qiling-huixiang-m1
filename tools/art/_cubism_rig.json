@@ -1,0 +1,362 @@
+{
+  "uid": "1f53aa0dd37143fc9a71e33bdb372a87",
+  "register": {
+    "Token": "0598348ee3d1482e9481dd95462177dd"
+  },
+  "parts": {
+    "PartStructure": {
+      "Children": [
+        {
+          "Id": "sword",
+          "Name": "sword",
+          "Type": "ArtMesh"
+        },
+        {
+          "Id": "hair_front",
+          "Name": "hair_front",
+          "Type": "ArtMesh"
+        },
+        {
+          "Id": "body",
+          "Name": "body",
+          "Type": "ArtMesh"
+        },
+        {
+          "Id": "hair_side",
+          "Name": "hair_side",
+          "Type": "ArtMesh"
+        },
+        {
+          "Id": "hair_back",
+          "Name": "hair_back",
+          "Type": "ArtMesh"
+        }
+      ],
+      "Id": "%Root",
+      "Name": "Root Part",
+      "Type": "Part"
+    }
+  },
+  "deformers": {
+    "DeformerStructure": [
+      {
+        "Name": "root",
+        "Id": "%Root",
+        "Type": null,
+        "Children": [
+          {
+            "Name": "sword",
+            "Id": "sword",
+            "Type": "ArtMesh"
+          },
+          {
+            "Name": "hair_front",
+            "Id": "hair_front",
+            "Type": "ArtMesh"
+          },
+          {
+            "Name": "body",
+            "Id": "body",
+            "Type": "ArtMesh"
+          },
+          {
+            "Name": "hair_side",
+            "Id": "hair_side",
+            "Type": "ArtMesh"
+          },
+          {
+            "Name": "hair_back",
+            "Id": "hair_back",
+            "Type": "ArtMesh"
+          }
+        ]
+      }
+    ]
+  },
+  "params": {
+    "ParameterStructure": {
+      "GroupName": "Root",
+      "Id": "ParamGroupRoot",
+      "Entries": [
+        {
+          "EntryType": "Parameter",
+          "Name": "角度 X",
+          "Id": "ParamAngleX",
+          "Min": -30.0,
+          "Default": 0.0,
+          "Max": 30.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "角度 Y",
+          "Id": "ParamAngleY",
+          "Min": -30.0,
+          "Default": 0.0,
+          "Max": 30.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "角度 Z",
+          "Id": "ParamAngleZ",
+          "Min": -30.0,
+          "Default": 0.0,
+          "Max": 30.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "左眼 开闭",
+          "Id": "ParamEyeLOpen",
+          "Min": 0.0,
+          "Default": 1.0,
+          "Max": 1.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "左眼 微笑",
+          "Id": "ParamEyeLSmile",
+          "Min": 0.0,
+          "Default": 0.0,
+          "Max": 1.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "右眼 开闭",
+          "Id": "ParamEyeROpen",
+          "Min": 0.0,
+          "Default": 1.0,
+          "Max": 1.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "右眼 微笑",
+          "Id": "ParamEyeRSmile",
+          "Min": 0.0,
+          "Default": 0.0,
+          "Max": 1.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "眼珠 X",
+          "Id": "ParamEyeBallX",
+          "Min": -1.0,
+          "Default": 0.0,
+          "Max": 1.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "眼珠 Y",
+          "Id": "ParamEyeBallY",
+          "Min": -1.0,
+          "Default": 0.0,
+          "Max": 1.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "左眉 上下",
+          "Id": "ParamBrowLY",
+          "Min": -1.0,
+          "Default": 0.0,
+          "Max": 1.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "右眉 上下",
+          "Id": "ParamBrowRY",
+          "Min": -1.0,
+          "Default": 0.0,
+          "Max": 1.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "左眉 左右",
+          "Id": "ParamBrowLX",
+          "Min": -1.0,
+          "Default": 0.0,
+          "Max": 1.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "右眉 左右",
+          "Id": "ParamBrowRX",
+          "Min": -1.0,
+          "Default": 0.0,
+          "Max": 1.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "左眉 角度",
+          "Id": "ParamBrowLAngle",
+          "Min": -1.0,
+          "Default": 0.0,
+          "Max": 1.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "右眉 角度",
+          "Id": "ParamBrowRAngle",
+          "Min": -1.0,
+          "Default": 0.0,
+          "Max": 1.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "左眉 変形",
+          "Id": "ParamBrowLForm",
+          "Min": -1.0,
+          "Default": 0.0,
+          "Max": 1.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "右眉 変形",
+          "Id": "ParamBrowRForm",
+          "Min": -1.0,
+          "Default": 0.0,
+          "Max": 1.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "嘴 变形",
+          "Id": "ParamMouthForm",
+          "Min": -1.0,
+          "Default": 0.0,
+          "Max": 1.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "嘴 开闭",
+          "Id": "ParamMouthOpenY",
+          "Min": 0.0,
+          "Default": 0.0,
+          "Max": 1.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "脸颊泛红",
+          "Id": "ParamCheek",
+          "Min": 0.0,
+          "Default": 0.0,
+          "Max": 1.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "身体旋转 X",
+          "Id": "ParamBodyAngleX",
+          "Min": -10.0,
+          "Default": 0.0,
+          "Max": 10.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "身体旋转 Y",
+          "Id": "ParamBodyAngleY",
+          "Min": -10.0,
+          "Default": 0.0,
+          "Max": 10.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "身体旋转 Z",
+          "Id": "ParamBodyAngleZ",
+          "Min": -10.0,
+          "Default": 0.0,
+          "Max": 10.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "呼吸",
+          "Id": "ParamBreath",
+          "Min": 0.0,
+          "Default": 0.0,
+          "Max": 1.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "摇动 前发",
+          "Id": "ParamHairFront",
+          "Min": -1.0,
+          "Default": 0.0,
+          "Max": 1.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "摇动 侧发",
+          "Id": "ParamHairSide",
+          "Min": -1.0,
+          "Default": 0.0,
+          "Max": 1.0,
+          "Repeat": false,
+          "Type": 0
+        },
+        {
+          "EntryType": "Parameter",
+          "Name": "摇动 后发",
+          "Id": "ParamHairBack",
+          "Min": -1.0,
+          "Default": 0.0,
+          "Max": 1.0,
+          "Repeat": false,
+          "Type": 0
+        }
+      ]
+    }
+  },
+  "selected": {
+    "Version": "1.1.0",
+    "Timestamp": 1788671396269,
+    "RequestId": "d4ee38c1cb4a400f9ae2dde5131f7122",
+    "Type": "Response",
+    "Method": "GetSelectedObjects",
+    "Data": []
+  }
+}

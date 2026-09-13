@@ -25,6 +25,7 @@ namespace Resonance.App
         static Sprite _gear;
         static Sprite _hexRing;
         static Sprite _star;
+        static Sprite _heart;
         static Sprite _navMark;
         static Sprite _eye;
         static Sprite _eyeSlash;
@@ -241,6 +242,23 @@ namespace Resonance.App
             if (_star != null) return _star;
             _star = MakeStar(32);
             return _star;
+        }
+
+        /// <summary>Top-bar crest / tip heart mark (primary GT heart-in-gear role).</summary>
+        public static Sprite Heart()
+        {
+            if (_heart != null) return _heart;
+            const int s = 32;
+            var tex = new Texture2D(s, s, TextureFormat.RGBA32, false);
+            tex.filterMode = FilterMode.Bilinear;
+            tex.wrapMode = TextureWrapMode.Clamp;
+            var px = new Color32[s * s];
+            for (int i = 0; i < px.Length; i++) px[i] = new Color32(0, 0, 0, 0);
+            StampHeart(px, s, s, s / 2, s / 2 + 1, 11f, new Color32(255, 255, 255, 255));
+            tex.SetPixels32(px);
+            tex.Apply(false, false);
+            _heart = Sprite.Create(tex, new Rect(0, 0, s, s), new Vector2(0.5f, 0.5f), 32f);
+            return _heart;
         }
 
         public static Sprite NavMark()

@@ -1,0 +1,109 @@
+{
+  "source": "F:\\天命之子\\art\\characters\\C027-红旗袍\\reference-src.jpg",
+  "source_size": [
+    546,
+    292
+  ],
+  "letterbox_crop": [
+    1,
+    0,
+    545,
+    292
+  ],
+  "canvas": [
+    2176,
+    1168
+  ],
+  "scale": 4,
+  "alpha_method": "rembg:u2net+grabcut",
+  "figure_px": 469426,
+  "landmarks": {
+    "fig_bbox": [
+      520,
+      83,
+      1339,
+      1167
+    ],
+    "fig_wh": [
+      820,
+      1085
+    ],
+    "face_bbox": [
+      954,
+      197,
+      1134,
+      370
+    ],
+    "face_band_x": [
+      910,
+      1244
+    ],
+    "face_cx": 1044,
+    "hip_y": 647,
+    "torso_cx": 993,
+    "torso_half": 94,
+    "horns": {
+      "found": 2,
+      "confidence": "low",
+      "note": "geometric spike detection; verify by eye before rigging",
+      "baseline": "parabola",
+      "areas": [
+        1204,
+        4608
+      ],
+      "tips": [
+        [
+          726,
+          859
+        ],
+        [
+          1159,
+          399
+        ]
+      ],
+      "dome_span_px": 131,
+      "lift_px": 35
+    },
+    "leg_seeds": {
+      "kick": [
+        742,
+        803
+      ],
+      "stand": [
+        1074,
+        937
+      ]
+    }
+  },
+  "class_counts": {
+    "skin": 270921,
+    "dress": 144021,
+    "hair": 54867
+  },
+  "plate_counts": {
+    "head": 15760,
+    "horn_l": 1204,
+    "horn_r": 4608,
+    "hair_front": 29756,
+    "hair_back": 18561,
+    "dress": 144021,
+    "arm_hip": 26983,
+    "torso": 31398,
+    "leg_kick": 126859,
+    "leg_stand": 69368
+  },
+  "saved": [
+    "head",
+    "horn_l",
+    "horn_r",
+    "hair_front",
+    "hair_back",
+    "dress",
+    "arm_hip",
+    "torso",
+    "leg_kick",
+    "leg_stand"
+  ],
+  "composite_mean_rgb_diff": 0.79,
+  "figure_px_not_covered": 1997
+}

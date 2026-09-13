@@ -1,0 +1,67 @@
+{
+  "_note": "placeholder pivots, v measured from TOP (pivotOrigin=top-left)",
+  "size": [
+    1098,
+    574
+  ],
+  "head": [
+    0.416,
+    0.258
+  ],
+  "face": [
+    0.416,
+    0.258
+  ],
+  "chest": [
+    0.412,
+    0.33
+  ],
+  "torso": [
+    0.428,
+    0.56
+  ],
+  "dress_body": [
+    0.424,
+    0.33
+  ],
+  "dress_slit_panel": [
+    0.398,
+    0.52
+  ],
+  "leg_stand": [
+    0.455,
+    0.58
+  ],
+  "leg_raise_thigh": [
+    0.418,
+    0.545
+  ],
+  "leg_raise_calf": [
+    0.352,
+    0.366
+  ],
+  "foot_raise": [
+    0.295,
+    0.66
+  ],
+  "arm_hip": [
+    0.462,
+    0.325
+  ],
+  "back_hair": [
+    0.428,
+    0.2
+  ],
+  "front_hair": [
+    0.412,
+    0.15
+  ],
+  "horns": [
+    0.412,
+    0.17
+  ],
+  "eyes": [
+    0.413,
+    0.197
+  ]
+}

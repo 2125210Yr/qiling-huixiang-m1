@@ -1,0 +1,131 @@
+{
+  "source": "presenter.png",
+  "canvas": {
+    "width": 672,
+    "height": 1127
+  },
+  "plate_space": "full canvas RGBA, same convention as live2d-export",
+  "layers": [
+    {
+      "name": "underpaint_scalp_behind_bangs",
+      "kind": "underpaint",
+      "covers": [
+        "hair_front"
+      ],
+      "grow": [
+        -6,
+        -4,
+        6,
+        18
+      ],
+      "pixels": 5387,
+      "note": "刘海后的头皮：刘海一甩，露出的应该是头发不是皮肤"
+    },
+    {
+      "name": "underpaint_forehead_behind_front_hair",
+      "kind": "underpaint",
+      "covers": [
+        "hair_front"
+      ],
+      "grow": [
+        -4,
+        8,
+        4,
+        22
+      ],
+      "pixels": 4255,
+      "note": "刘海后的额头"
+    },
+    {
+      "name": "underpaint_neck_inside_collar",
+      "kind": "underpaint",
+      "covers": [
+        "accessory_choker"
+      ],
+      "grow": [
+        -3,
+        -3,
+        3,
+        6
+      ],
+      "pixels": 1663,
+      "note": "领口内的脖子：项圈移动时不能露洞"
+    },
+    {
+      "name": "underpaint_thigh_inside_slit",
+      "kind": "underpaint",
+      "covers": [
+        "leg_upper_l",
+        "leg_upper_r"
+      ],
+      "grow": [
+        -6,
+        0,
+        6,
+        26
+      ],
+      "pixels": 34503,
+      "note": "开叉内的大腿：高开叉边缘一动就要有大腿接着"
+    },
+    {
+      "name": "underpaint_raised_leg_hip_crease",
+      "kind": "underpaint",
+      "covers": [
+        "leg_upper_l"
+      ],
+      "grow": [
+        -10,
+        -8,
+        10,
+        14
+      ],
+      "pixels": 10679,
+      "note": "抬腿侧胯部折痕"
+    },
+    {
+      "name": "underpaint_standing_leg_hip_under_dress",
+      "kind": "underpaint",
+      "covers": [
+        "leg_upper_r"
+      ],
+      "grow": [
+        -10,
+        -8,
+        10,
+        14
+      ],
+      "pixels": 10935,
+      "note": "支撑腿侧裙下胯部"
+    },
+    {
+      "name": "underpaint_mouth_interior_larger",
+      "kind": "underpaint",
+      "covers": [
+        "head"
+      ],
+      "grow": [
+        -3,
+        -3,
+        3,
+        4
+      ],
+      "pixels": 792,
+      "note": "比静止开口更大的口腔：嘴张开时要有内壁"
+    },
+    {
+      "name": "underpaint_eye_white_behind_iris",
+      "kind": "underpaint",
+      "covers": [
+        "head"
+      ],
+      "grow": [
+        -3,
+        -3,
+        3,
+        3
+      ],
+      "pixels": 2925,
+      "note": "虹膜后的眼白：眼球转动时不能露洞"
+    }
+  ]
+}

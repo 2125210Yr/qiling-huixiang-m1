@@ -1,0 +1,473 @@
+{
+  "character": "C026-白丝",
+  "source_presenter": "F:\\天命之子\\art\\characters\\C026-白丝\\presenter.png",
+  "source_layers": "F:\\天命之子\\art\\characters\\C026-白丝\\layers",
+  "canvas": {
+    "width": 672,
+    "height": 1127
+  },
+  "plate_space": "every PNG is full canvas, so parts align by direct overlay -- no offsets needed",
+  "draw_order_back_to_front": [
+    "hair_back_l",
+    "hair_back_r",
+    "hair_side_l",
+    "hair_side_r",
+    "leg_lower_l",
+    "leg_lower_r",
+    "leg_upper_l",
+    "leg_upper_r",
+    "body",
+    "chest",
+    "arm_upper_r",
+    "arm_lower_r",
+    "arm_upper_l",
+    "arm_lower_l",
+    "prop_clutch",
+    "hand_r",
+    "hand_l",
+    "leg_ornament_l",
+    "leg_ornament_r",
+    "accessory_wrist_r",
+    "accessory_wrist_l",
+    "accessory_choker",
+    "head",
+    "accessory_earring_l",
+    "accessory_earring_r",
+    "hair_front",
+    "accessory_hair_tie_l",
+    "accessory_hair_tie_r"
+  ],
+  "costume_parts_for_recolor": [
+    "chest",
+    "body"
+  ],
+  "parts": [
+    {
+      "name": "hair_back_l",
+      "part_id": "PartHairBackL",
+      "draw_index": 0,
+      "source_plate": "../layers/hair_back_l.png",
+      "parent": "hair_side_l",
+      "opaque_px": 86705,
+      "seam_px_added": 278,
+      "bbox": [
+        0,
+        12,
+        358,
+        965
+      ]
+    },
+    {
+      "name": "hair_back_r",
+      "part_id": "PartHairBackR",
+      "draw_index": 1,
+      "source_plate": "../layers/hair_back_r.png",
+      "parent": "hair_side_r",
+      "opaque_px": 64252,
+      "seam_px_added": 317,
+      "bbox": [
+        357,
+        57,
+        672,
+        697
+      ]
+    },
+    {
+      "name": "hair_side_l",
+      "part_id": "PartHairSideL",
+      "draw_index": 2,
+      "source_plate": "../layers/hair_top_l.png",
+      "parent": "head",
+      "opaque_px": 8159,
+      "seam_px_added": 0,
+      "bbox": [
+        213,
+        13,
+        339,
+        113
+      ]
+    },
+    {
+      "name": "hair_side_r",
+      "part_id": "PartHairSideR",
+      "draw_index": 3,
+      "source_plate": "../layers/hair_top_r.png",
+      "parent": "head",
+      "opaque_px": 3711,
+      "seam_px_added": 0,
+      "bbox": [
+        399,
+        57,
+        494,
+        118
+      ]
+    },
+    {
+      "name": "leg_lower_l",
+      "part_id": "PartLegLowerL",
+      "draw_index": 4,
+      "source_plate": "../layers/boot_l.png",
+      "parent": "leg_upper_l",
+      "opaque_px": 11734,
+      "seam_px_added": 678,
+      "bbox": [
+        307,
+        660,
+        363,
+        1115
+      ]
+    },
+    {
+      "name": "leg_lower_r",
+      "part_id": "PartLegLowerR",
+      "draw_index": 5,
+      "source_plate": "../layers/boot_r.png",
+      "parent": "leg_upper_r",
+      "opaque_px": 12974,
+      "seam_px_added": 697,
+      "bbox": [
+        352,
+        661,
+        426,
+        1067
+      ]
+    },
+    {
+      "name": "leg_upper_l",
+      "part_id": "PartLegUpperL",
+      "draw_index": 6,
+      "source_plate": "../layers/thigh_l.png",
+      "parent": "body",
+      "opaque_px": 17533,
+      "seam_px_added": 301,
+      "bbox": [
+        267,
+        385,
+        362,
+        716
+      ]
+    },
+    {
+      "name": "leg_upper_r",
+      "part_id": "PartLegUpperR",
+      "draw_index": 7,
+      "source_plate": "../layers/thigh_r.png",
+      "parent": "body",
+      "opaque_px": 18319,
+      "seam_px_added": 211,
+      "bbox": [
+        358,
+        391,
+        468,
+        716
+      ]
+    },
+    {
+      "name": "body",
+      "part_id": "PartBody",
+      "draw_index": 8,
+      "source_plate": "../layers/torso.png",
+      "parent": null,
+      "opaque_px": 7833,
+      "seam_px_added": 134,
+      "bbox": [
+        315,
+        350,
+        449,
+        511
+      ]
+    },
+    {
+      "name": "chest",
+      "part_id": "PartChest",
+      "draw_index": 9,
+      "source_plate": "../layers/chest.png",
+      "parent": "body",
+      "opaque_px": 13570,
+      "seam_px_added": 554,
+      "bbox": [
+        318,
+        215,
+        460,
+        371
+      ]
+    },
+    {
+      "name": "arm_upper_r",
+      "part_id": "PartArmUpperR",
+      "draw_index": 10,
+      "source_plate": "../layers/arm_upper_r.png",
+      "parent": "chest",
+      "opaque_px": 8683,
+      "seam_px_added": 704,
+      "bbox": [
+        222,
+        180,
+        355,
+        325
+      ]
+    },
+    {
+      "name": "arm_lower_r",
+      "part_id": "PartArmLowerR",
+      "draw_index": 11,
+      "source_plate": "../layers/arm_forearm_r.png",
+      "parent": "arm_upper_r",
+      "opaque_px": 3145,
+      "seam_px_added": 61,
+      "bbox": [
+        170,
+        257,
+        260,
+        353
+      ]
+    },
+    {
+      "name": "arm_upper_l",
+      "part_id": "PartArmUpperL",
+      "draw_index": 12,
+      "source_plate": "../layers/arm_upper_l.png",
+      "parent": "chest",
+      "opaque_px": 2148,
+      "seam_px_added": 91,
+      "bbox": [
+        428,
+        332,
+        493,
+        396
+      ]
+    },
+    {
+      "name": "arm_lower_l",
+      "part_id": "PartArmLowerL",
+      "draw_index": 13,
+      "source_plate": "../layers/arm_forearm_l.png",
+      "parent": "arm_upper_l",
+      "opaque_px": 973,
+      "seam_px_added": 2,
+      "bbox": [
+        491,
+        369,
+        541,
+        414
+      ]
+    },
+    {
+      "name": "prop_clutch",
+      "part_id": "PartPropClutch",
+      "draw_index": 14,
+      "source_plate": "../layers/clutch.png",
+      "parent": "hand_l",
+      "opaque_px": 5075,
+      "seam_px_added": 853,
+      "bbox": [
+        521,
+        423,
+        628,
+        509
+      ]
+    },
+    {
+      "name": "hand_r",
+      "part_id": "PartHandR",
+      "draw_index": 15,
+      "source_plate": "../layers/hand_r.png",
+      "parent": "arm_lower_r",
+      "opaque_px": 2693,
+      "seam_px_added": 19,
+      "bbox": [
+        166,
+        155,
+        228,
+        259
+      ]
+    },
+    {
+      "name": "hand_l",
+      "part_id": "PartHandL",
+      "draw_index": 16,
+      "source_plate": "../layers/hand_l.png",
+      "parent": "arm_lower_l",
+      "opaque_px": 2017,
+      "seam_px_added": 137,
+      "bbox": [
+        531,
+        392,
+        618,
+        453
+      ]
+    },
+    {
+      "name": "leg_ornament_l",
+      "part_id": "PartLegOrnamentL",
+      "draw_index": 17,
+      "source_plate": "../layers/boot_ornament_l.png",
+      "parent": "leg_lower_l",
+      "opaque_px": 473,
+      "seam_px_added": 37,
+      "bbox": [
+        321,
+        619,
+        353,
+        661
+      ]
+    },
+    {
+      "name": "leg_ornament_r",
+      "part_id": "PartLegOrnamentR",
+      "draw_index": 18,
+      "source_plate": "../layers/boot_ornament_r.png",
+      "parent": "leg_lower_r",
+      "opaque_px": 558,
+      "seam_px_added": 44,
+      "bbox": [
+        379,
+        596,
+        420,
+        661
+      ]
+    },
+    {
+      "name": "accessory_wrist_r",
+      "part_id": "PartWristR",
+      "draw_index": 19,
+      "source_plate": "../layers/jewelry_wrist_r.png",
+      "parent": "hand_r",
+      "opaque_px": 526,
+      "seam_px_added": 6,
+      "bbox": [
+        170,
+        227,
+        203,
+        268
+      ]
+    },
+    {
+      "name": "accessory_wrist_l",
+      "part_id": "PartWristL",
+      "draw_index": 20,
+      "source_plate": "../layers/jewelry_wrist_l.png",
+      "parent": "arm_lower_l",
+      "opaque_px": 496,
+      "seam_px_added": 5,
+      "bbox": [
+        521,
+        387,
+        563,
+        417
+      ]
+    },
+    {
+      "name": "accessory_choker",
+      "part_id": "PartChoker",
+      "draw_index": 21,
+      "source_plate": "../layers/choker.png",
+      "parent": "head",
+      "opaque_px": 442,
+      "seam_px_added": 1,
+      "bbox": [
+        336,
+        166,
+        391,
+        208
+      ]
+    },
+    {
+      "name": "head",
+      "part_id": "PartHead",
+      "draw_index": 22,
+      "source_plate": "../layers/head.png",
+      "parent": "chest",
+      "opaque_px": 6221,
+      "seam_px_added": 217,
+      "bbox": [
+        312,
+        112,
+        398,
+        243
+      ]
+    },
+    {
+      "name": "accessory_earring_l",
+      "part_id": "PartEarringL",
+      "draw_index": 23,
+      "source_plate": "../layers/earring_l.png",
+      "parent": "head",
+      "opaque_px": 75,
+      "seam_px_added": 29,
+      "bbox": [
+        313,
+        207,
+        327,
+        222
+      ]
+    },
+    {
+      "name": "accessory_earring_r",
+      "part_id": "PartEarringR",
+      "draw_index": 24,
+      "source_plate": "../layers/earring_r.png",
+      "parent": "head",
+      "opaque_px": 41,
+      "seam_px_added": 24,
+      "bbox": [
+        392,
+        231,
+        400,
+        241
+      ]
+    },
+    {
+      "name": "hair_front",
+      "part_id": "PartHairFront",
+      "draw_index": 25,
+      "source_plate": "../layers/hair_front.png",
+      "parent": "head",
+      "opaque_px": 2275,
+      "seam_px_added": 0,
+      "bbox": [
+        320,
+        97,
+        409,
+        139
+      ]
+    },
+    {
+      "name": "accessory_hair_tie_l",
+      "part_id": "PartHairTieL",
+      "draw_index": 26,
+      "source_plate": "../layers/hair_tie_l.png",
+      "parent": "hair_side_l",
+      "opaque_px": 403,
+      "seam_px_added": 28,
+      "bbox": [
+        313,
+        72,
+        343,
+        102
+      ]
+    },
+    {
+      "name": "accessory_hair_tie_r",
+      "part_id": "PartHairTieR",
+      "draw_index": 27,
+      "source_plate": "../layers/hair_tie_r.png",
+      "parent": "hair_side_r",
+      "opaque_px": 140,
+      "seam_px_added": 29,
+      "bbox": [
+        404,
+        93,
+        418,
+        116
+      ]
+    }
+  ],
+  "qa": {
+    "seam_px_before_close": 5457,
+    "seam_max_fill_distance_px": 11.66,
+    "unowned_opaque_px_after_close": 0,
+    "composite_max_channel_sum_diff": 0,
+    "composite_mean_diff_on_opaque": 0.0
+  }
+}

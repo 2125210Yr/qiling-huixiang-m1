@@ -4,8 +4,8 @@ using UnityEngine.UI;
 namespace Resonance.App
 {
     /// <summary>
-    /// Bleed: red drip + short slash ticks. Chinese 流血. 0.55s.
-    /// No English Bleed.
+    /// Bleed: red drip + short slash ticks. Primary EN <c>Bleed</c> (Hard r56); CN 流血 routes.
+    /// 0.55s.
     /// </summary>
     public sealed class VfxBleed : MonoBehaviour
     {
@@ -120,7 +120,7 @@ namespace Resonance.App
                 };
             }
 
-            _tag = MkText(transform, "流血", 22, Ink, new Vector2(0f, 28f), new Vector2(160f, 36f));
+            _tag = MkText(transform, "Bleed", 22, Ink, new Vector2(0f, 28f), new Vector2(160f, 36f));
         }
 
         void Update()

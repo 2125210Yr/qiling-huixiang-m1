@@ -25,17 +25,24 @@ namespace Resonance.App
 
         Image _archHp;
         Text _archNum;
+        Text _archDrive;
         Text _archMeta;
         Text _timerLabel;
         Text _speedLabel;
         Text _autoLabel;
         Text _pauseLabel;
+        Text _escapeLabel;
+        Text _repeatLabel;
+        Text _skipLabel;
+        Text _logLabel;
+        Text _archBoss;
         Image _partyHp;
         Text _partyHpLabel;
         Image _driveBar;
         Text _driveLabel;
         Image _feverBar;
         Text _feverLabel;
+        Text _feverToward;
         Image _feverFlash;
         Image _showtime;
         Text _stamp;
@@ -48,8 +55,12 @@ namespace Resonance.App
         Image[] _portraitRim;
         Image[] _feverArc;
         Image[] _tapFlash;
+        Image[] _readyDash;
+        Image[] _hpBar;
         Text[] _hpNum;
         Text[] _nameTag;
+        Text[] _lvTag;
+        Text[] _costumeTag;
         Text[] _readyTag;
         Text[] _slidePip;
         Text[] _drivePip;
@@ -63,7 +74,6 @@ namespace Resonance.App
         int _logCursor;
         int _castCursor;
         int _fieldWave = -1;
-        bool _bossIntroPlayed;
         float _showtimeT;
         float _stampT;
         Color _stampTint = VisualTokens.YellowConfirm;
@@ -75,6 +85,27 @@ namespace Resonance.App
         float _cutHoldT;
         float _feverCueDelay;
         bool _feverCueQueued;
+        bool _tipSlideShown;
+        bool _tipSlideMonaShown;
+        bool _tipSlidePowerShown;
+        bool _tipDriveShown;
+        bool _tipDriveTimingShown;
+        bool _tipDriveTablesShown;
+        bool _tipSpeedShown;
+        bool _tipTapShown;
+        float _tipTapDelay;
+        bool _tipKeepShown;
+        float _tipKeepDelay;
+        bool _tipTeamHpShown;
+        float _tipTeamHpDelay;
+        bool _tipChildsShown;
+        float _tipChildsDelay;
+        bool _tipChildsMoreShown;
+        float _tipChildsMoreDelay;
+        bool _tipSkillReadyShown;
+        bool _tipFeverGaugeShown;
+        bool _feverSessionSeen;
+        float _driveTotalLabelT;
         CanvasGroup _driveSelect;
         Text _driveSelectTitle;
         Text _driveSelectHint;
@@ -109,7 +140,27 @@ namespace Resonance.App
             if (_host == null || _root == null || _built == null) return;
             var battle = _host.Battle;
             if (battle == null) return;
-            _bossIntroPlayed = false;
+            _tipSlideShown = false;
+            _tipSlideMonaShown = false;
+            _tipSlidePowerShown = false;
+            _tipDriveShown = false;
+            _tipDriveTimingShown = false;
+            _tipDriveTablesShown = false;
+            _tipSpeedShown = false;
+            _tipTapShown = false;
+            _tipTapDelay = 0.85f;
+            _tipKeepShown = false;
+            _tipKeepDelay = 0f;
+            _tipTeamHpShown = false;
+            _tipTeamHpDelay = 0f;
+            _tipChildsShown = false;
+            _tipChildsDelay = 0f;
+            _tipChildsMoreShown = false;
+            _tipChildsMoreDelay = 0f;
+            _tipSkillReadyShown = false;
+            _tipFeverGaugeShown = false;
+            _feverSessionSeen = false;
+            _driveTotalLabelT = 0f;
             CharacterPresenter.StageArena(_root, _built, stageIndex, _host.SaveData != null && _host.SaveData.UseHard);
             EnsureField();
             _pix = PixelCombatFx.Ensure(_root);
@@ -208,16 +259,89 @@ namespace Resonance.App
             var archCapR = Img("archCapR", new Vector2(0.5f, 0.990f), new Vector2(3, 20), VisualTokens.GoldMetal);
             archCapR.rectTransform.anchoredPosition = new Vector2(544f, 0f);
 
-            _pauseLabel = Antique("暂停", new Vector2(0.09f, 0.950f), new Vector2(96, 34), () => _host.ToggleBattlePause());
-            _speedLabel = Antique("×1", new Vector2(0.09f, 0.910f), new Vector2(96, 32), () => _host.ToggleBattleSpeed());
-            _autoLabel = Antique("手动", new Vector2(0.91f, 0.950f), new Vector2(148, 34), () => _host.CycleBattleAuto());
+            // Primary GT: heart crest above stage name (P0/Robin top center).
+            var crest = Img("crest", new Vector2(0.5f, 0.992f), new Vector2(26, 26), VisualTokens.GoldSelect);
+            UiSprites.Apply(crest, UiSprites.Heart());
+            crest.raycastTarget = false;
+            crest.rectTransform.anchoredPosition = new Vector2(0f, 18f);
 
-            _archMeta = Label("", 16, VisualTokens.GoldTitle, new Vector2(0.5f, 0.964f), new Vector2(560, 28), true);
+            _pauseLabel = Antique(BattleCueCopy.PauseHud, new Vector2(0.09f, 0.950f), new Vector2(120, 34), () => _host.ToggleBattlePause());
+            // Primary GT: >> Xn SPEED / > FULL AUTO / || PAUSE.
+            _speedLabel = Antique(">> X1 SPEED", new Vector2(0.11f, 0.910f), new Vector2(168, 32), () => _host.ToggleBattleSpeed());
+            _autoLabel = Antique(AutoWord(AutoMode.Manual), new Vector2(0.91f, 0.950f), new Vector2(160, 34), () => _host.CycleBattleAuto());
+            // Primary P0 ~t120 dialogue: stacked >> / SKIP (top-right). Layout stub; no VN wire yet.
+            _skipLabel = Label(BattleCueCopy.BattleSkipLine, 14, VisualTokens.TapWhite, new Vector2(0.92f, 0.880f), new Vector2(100, 28), true);
+            AntiqueType(_skipLabel);
+            if (_skipLabel != null)
+            {
+                _skipLabel.alignment = TextAnchor.UpperCenter;
+                _skipLabel.lineSpacing = 0.75f;
+                _skipLabel.horizontalOverflow = HorizontalWrapMode.Overflow;
+                _skipLabel.verticalOverflow = VerticalWrapMode.Overflow;
+                var col = _skipLabel.color;
+                col.a = 0.55f;
+                _skipLabel.color = col;
+            }
+            // P0 t400 VN: stacked ... / Log under SKIP.
+            _logLabel = Label(BattleCueCopy.BattleLog, 12, VisualTokens.TapWhite, new Vector2(0.92f, 0.825f), new Vector2(64, 36), true);
+            AntiqueType(_logLabel);
+            if (_logLabel != null)
+            {
+                _logLabel.alignment = TextAnchor.UpperCenter;
+                _logLabel.lineSpacing = 0.75f;
+                _logLabel.horizontalOverflow = HorizontalWrapMode.Overflow;
+                _logLabel.verticalOverflow = VerticalWrapMode.Overflow;
+                var col = _logLabel.color;
+                col.a = 0.50f;
+                _logLabel.color = col;
+            }
+            // ESCAPE is Hell Metro / contrast only — primary P0/Robin frames show PAUSE + Repeat, not ESCAPE.
+            _escapeLabel = Antique("ESCAPE", new Vector2(0.5f, 0.832f), new Vector2(88, 26), () => _host.ToggleBattlePause());
+            if (_escapeLabel != null) _escapeLabel.gameObject.SetActive(false);
+            // Repeat is PauseBoard-only (Robin pause). Do not park it on the live field.
+            _repeatLabel = Antique("Repeat", new Vector2(0.5f, 0.800f), new Vector2(100, 26), () => _host.RepeatCurrentBattle());
+            if (_repeatLabel != null) _repeatLabel.gameObject.SetActive(false);
+            if (_skipLabel != null) _skipLabel.gameObject.SetActive(false);
+            if (_logLabel != null) _logLabel.gameObject.SetActive(false);
+
+            _archMeta = Label("", 15, VisualTokens.GoldTitle, new Vector2(0.5f, 0.968f), new Vector2(560, 40), true);
             AntiqueType(_archMeta);
-            _archNum = Label("", 18, VisualTokens.TapWhite, new Vector2(0.5f, 0.910f), new Vector2(220, 26), true);
+            if (_archMeta != null)
+            {
+                _archMeta.horizontalOverflow = HorizontalWrapMode.Wrap;
+                _archMeta.verticalOverflow = VerticalWrapMode.Overflow;
+                _archMeta.alignment = TextAnchor.UpperCenter;
+            }
+            _archNum = Label("", 18, VisualTokens.TapWhite, new Vector2(0.5f, 0.930f), new Vector2(280, 40), true);
             AntiqueType(_archNum);
-            _timerLabel = Label("00:00", 18, Color.white, new Vector2(0.5f, 0.884f), new Vector2(220, 26), true);
+            if (_archNum != null)
+            {
+                _archNum.supportRichText = true;
+                _archNum.lineSpacing = 0.75f;
+                _archNum.horizontalOverflow = HorizontalWrapMode.Overflow;
+                _archNum.verticalOverflow = VerticalWrapMode.Overflow;
+            }
+            _archDrive = Label(BattleCueCopy.PctOverLabel(0, BattleCueCopy.EnemyDrive), 14, VisualTokens.TextMuted, new Vector2(0.5f, 0.900f), new Vector2(280, 36), true);
+            AntiqueType(_archDrive);
+            if (_archDrive != null)
+            {
+                _archDrive.supportRichText = true;
+                _archDrive.lineSpacing = 0.75f;
+                _archDrive.horizontalOverflow = HorizontalWrapMode.Overflow;
+                _archDrive.verticalOverflow = VerticalWrapMode.Overflow;
+            }
+            // Robin ND Hard: boss name under enemy HP % (r25 NEW YEAR'S KRAMPUS role).
+            _archBoss = Label("", 11, VisualTokens.GoldTitle, new Vector2(0.5f, 0.918f), new Vector2(420, 18), true);
+            AntiqueType(_archBoss);
+            _timerLabel = Label("00:00\n" + BattleCueCopy.BattleTime, 16, Color.white, new Vector2(0.5f, 0.870f), new Vector2(280, 40), true);
             AntiqueType(_timerLabel);
+            if (_timerLabel != null)
+            {
+                _timerLabel.supportRichText = true;
+                _timerLabel.lineSpacing = 0.75f;
+                _timerLabel.horizontalOverflow = HorizontalWrapMode.Overflow;
+                _timerLabel.verticalOverflow = VerticalWrapMode.Overflow;
+            }
 
             _enemyPips = new Image[3];
             for (int i = 0; i < 3; i++)
@@ -275,8 +399,15 @@ namespace Resonance.App
             phpCapL.rectTransform.anchoredPosition = new Vector2(-522f, 0f);
             var phpCapR = Img("phpCapR", new Vector2(0.5f, 0.070f), new Vector2(2, 14), VisualTokens.GoldMetal);
             phpCapR.rectTransform.anchoredPosition = new Vector2(522f, 0f);
-            _partyHpLabel = Label("生命 100%", 12, PartyGreen, new Vector2(0.14f, 0.070f), new Vector2(160, 20), true);
-            if (_partyHpLabel != null) _partyHpLabel.alignment = TextAnchor.MiddleLeft;
+            _partyHpLabel = Label("100%\n" + BattleCueCopy.TeamHpTotal, 12, PartyGreen, new Vector2(0.14f, 0.078f), new Vector2(200, 36), true);
+            if (_partyHpLabel != null)
+            {
+                _partyHpLabel.alignment = TextAnchor.MiddleLeft;
+                _partyHpLabel.supportRichText = true;
+                _partyHpLabel.lineSpacing = 0.75f;
+                _partyHpLabel.horizontalOverflow = HorizontalWrapMode.Overflow;
+                _partyHpLabel.verticalOverflow = VerticalWrapMode.Overflow;
+            }
 
             var dBg = Img("dBg", new Vector2(0.5f, 0.0355f), new Vector2(460, 3), new Color(0f, 0f, 0f, 0.60f));
             UiSprites.Apply(dBg, UiSprites.Pixel());
@@ -288,7 +419,14 @@ namespace Resonance.App
             dCapL.rectTransform.anchoredPosition = new Vector2(-231f, 0f);
             var dCapR = Img("dCapR", new Vector2(0.5f, 0.0355f), new Vector2(2, 8), VisualTokens.GoldMetal);
             dCapR.rectTransform.anchoredPosition = new Vector2(231f, 0f);
-            _driveLabel = Label("驱动  0%", 11, VisualTokens.YellowValue, new Vector2(0.5f, 0.0485f), new Vector2(240, 16), true);
+            _driveLabel = Label("0%\n" + BattleCueCopy.SkillGaugeTotal, 11, VisualTokens.YellowValue, new Vector2(0.5f, 0.052f), new Vector2(240, 32), true);
+            if (_driveLabel != null)
+            {
+                _driveLabel.supportRichText = true;
+                _driveLabel.lineSpacing = 0.75f;
+                _driveLabel.horizontalOverflow = HorizontalWrapMode.Overflow;
+                _driveLabel.verticalOverflow = VerticalWrapMode.Overflow;
+            }
 
             var fBg = Img("fBg", new Vector2(0.5f, 0.0110f), new Vector2(460, 3), new Color(0f, 0f, 0f, 0.60f));
             UiSprites.Apply(fBg, UiSprites.Pixel());
@@ -302,6 +440,9 @@ namespace Resonance.App
             fCapR.rectTransform.anchoredPosition = new Vector2(231f, 0f);
             _feverLabel = Label(BattleCueCopy.FeverLine(false, 0), 11, FeverPink, new Vector2(0.5f, 0.0240f), new Vector2(240, 16), true);
             if (_feverLabel != null) _feverLabel.gameObject.name = "feverLabel";
+            // Primary Robin ~t56: large "n% TO FEVER" above the FEVER n% arc.
+            _feverToward = Label("", 13, VisualTokens.SlideGreen, new Vector2(0.5f, 0.058f), new Vector2(280, 20), true);
+            if (_feverToward != null) _feverToward.gameObject.name = "feverToward";
         }
 
         int PartySlots()
@@ -316,12 +457,13 @@ namespace Resonance.App
             var go = new GameObject("driveSelect", typeof(RectTransform), typeof(CanvasGroup), typeof(Image));
             go.transform.SetParent(_root, false);
             var rt = go.GetComponent<RectTransform>();
-            rt.anchorMin = new Vector2(0.08f, 0.40f);
-            rt.anchorMax = new Vector2(0.92f, 0.52f);
+            // Tall plate: title dominates upper half; hint stays below.
+            rt.anchorMin = new Vector2(0.05f, 0.34f);
+            rt.anchorMax = new Vector2(0.95f, 0.58f);
             rt.offsetMin = rt.offsetMax = Vector2.zero;
             var plate = go.GetComponent<Image>();
             UiSprites.Apply(plate, UiSprites.Pixel());
-            plate.color = new Color(0.04f, 0.03f, 0.02f, 0.82f);
+            plate.color = new Color(0.03f, 0.02f, 0.01f, 0.94f);
             plate.raycastTarget = false;
             _driveSelect = go.GetComponent<CanvasGroup>();
             _driveSelect.blocksRaycasts = false;
@@ -330,22 +472,25 @@ namespace Resonance.App
 
             var wire = ChildImg(go.transform, "wire", Vector2.zero, Vector2.one,
                 new Vector2(2f, 2f), new Vector2(-2f, -2f),
-                new Color(VisualTokens.DriveOrange.r, VisualTokens.DriveOrange.g, VisualTokens.DriveOrange.b, 0.88f));
+                new Color(VisualTokens.DriveOrange.r, VisualTokens.DriveOrange.g, VisualTokens.DriveOrange.b, 0.95f));
             UiSprites.Apply(wire, UiSprites.WireFrame());
             wire.raycastTarget = false;
 
-            _driveSelectTitle = ChildLabel(go.transform, BattleCueCopy.DriveSelect, 36, VisualTokens.DriveOrange,
-                new Vector2(0.5f, 0.62f), new Vector2(720f, 48f));
+            _driveSelectTitle = ChildLabel(go.transform, BattleCueCopy.DriveSelect, 52, VisualTokens.DriveOrange,
+                new Vector2(0.5f, 0.70f), new Vector2(820f, 64f));
             _driveSelectTitle.fontStyle = FontStyle.Bold;
             var tOl = _driveSelectTitle.gameObject.AddComponent<Outline>();
             tOl.effectColor = Color.black;
-            tOl.effectDistance = new Vector2(2.4f, -2.4f);
+            tOl.effectDistance = new Vector2(3.5f, -3.5f);
+            var tSh = _driveSelectTitle.gameObject.AddComponent<Shadow>();
+            tSh.effectColor = new Color(0f, 0f, 0f, 0.85f);
+            tSh.effectDistance = new Vector2(2f, -2f);
 
-            _driveSelectHint = ChildLabel(go.transform, "点按一名角色释放驱动", 20, VisualTokens.YellowValue,
-                new Vector2(0.5f, 0.28f), new Vector2(780f, 32f));
+            _driveSelectHint = ChildLabel(go.transform, BattleCueCopy.DriveSelectHint, 22, VisualTokens.YellowValue,
+                new Vector2(0.5f, 0.26f), new Vector2(820f, 36f));
             var hOl = _driveSelectHint.gameObject.AddComponent<Outline>();
             hOl.effectColor = Color.black;
-            hOl.effectDistance = new Vector2(1.6f, -1.6f);
+            hOl.effectDistance = new Vector2(1.8f, -1.8f);
 
             go.SetActive(false);
             _built.Add(go);
@@ -357,24 +502,26 @@ namespace Resonance.App
                 && battle.Outcome == BattleOutcome.InProgress
                 && battle.Drive >= 100f
                 && battle.PendingDriveSlot < 0
-                && !QteOpen;
+                && !QteOpen
+                && !battle.FeverActive
+                && WavePreview.VisibleKind != WaveCueKind.WaveAdvance
+                && WavePreview.VisibleKind != WaveCueKind.WaveEnter;
+            // P0 t365 / t380: Drive is tap-the-ready-icon + DRIVE SKILL READY.
+            // No DRIVE SELECT plate. Keep the flag for QTE / smoke / exclusivity.
             DriveSelectVisible = show;
-            if (_driveSelect == null) return;
+            HideDriveSelectPlate();
             if (show)
-            {
-                VfxShowtime.KillAll();
-                if (_driveSelectTitle != null)
-                    _driveSelectTitle.text = BattleCueCopy.DriveSelect;
-                _driveSelect.gameObject.SetActive(true);
-                _driveSelect.alpha = 1f;
-            }
-            else
-                HideDriveSelect();
+                WavePreview.SuppressDeathCues();
         }
 
         void HideDriveSelect()
         {
             DriveSelectVisible = false;
+            HideDriveSelectPlate();
+        }
+
+        void HideDriveSelectPlate()
+        {
             if (_driveSelect == null) return;
             _driveSelect.alpha = 0f;
             _driveSelect.gameObject.SetActive(false);
@@ -388,8 +535,12 @@ namespace Resonance.App
             _portraitRim = new Image[n];
             _feverArc = new Image[n];
             _tapFlash = new Image[n];
+            _readyDash = new Image[n];
+            _hpBar = new Image[n];
             _hpNum = new Text[n];
             _nameTag = new Text[n];
+            _lvTag = new Text[n];
+            _costumeTag = new Text[n];
             _readyTag = new Text[n];
             _slidePip = new Text[n];
             _drivePip = new Text[n];
@@ -456,10 +607,28 @@ namespace Resonance.App
                 pix.sprite = faceSpr != null ? faceSpr : PixelStandIn.Get(def, "", 0);
                 pix.preserveAspect = true;
                 pix.type = Image.Type.Simple;
+                // Primary P0 t435: costume title inside portrait (Lv.n Eclipse / Dark Water).
+                _costumeTag[i] = ChildLabel(go.transform, "", 11, VisualTokens.TapWhite,
+                    new Vector2(0.5f, 0.42f), new Vector2(PortSize - 8f, 36f));
+                _costumeTag[i].supportRichText = true;
+                _costumeTag[i].alignment = TextAnchor.MiddleCenter;
+                _costumeTag[i].horizontalOverflow = HorizontalWrapMode.Wrap;
+                _costumeTag[i].verticalOverflow = VerticalWrapMode.Overflow;
+                _costumeTag[i].lineSpacing = 0.8f;
+                var costOl = _costumeTag[i].gameObject.AddComponent<Outline>();
+                costOl.effectColor = Color.black;
+                costOl.effectDistance = new Vector2(1.2f, -1.2f);
 
                 var flash = ChildImg(go.transform, "ping", Vector2.zero, Vector2.one, new Vector2(3f, 3f), new Vector2(-3f, -3f), Color.clear);
                 UiSprites.Apply(flash, UiSprites.Soft());
                 _tapFlash[i] = flash;
+
+                // Tip t352/t358: outer yellow ring when skill ready (tap/slide). Dashed circle approx via Circle glow.
+                var dash = ChildImg(go.transform, "readyDash", Vector2.zero, Vector2.one, new Vector2(-12f, -12f), new Vector2(12f, 12f), Color.clear);
+                UiSprites.Apply(dash, UiSprites.Circle());
+                dash.raycastTarget = false;
+                dash.transform.SetAsFirstSibling();
+                _readyDash[i] = dash;
 
                 var g = go.GetComponent<PortraitGesture>();
                 g.OnTap = () => OnPortraitTap(slot);
@@ -469,7 +638,11 @@ namespace Resonance.App
                     if (_host != null && _host.Battle != null) _host.Battle.TrySlide(slot);
                 };
 
-                _slidePip[i] = ChildLabel(go.transform, BattleCueCopy.SlideSkill, 11, VisualTokens.SlideGreen, new Vector2(0.82f, 0.92f), new Vector2(56, 22));
+                // Hard r58: stacked green "+" over red SLIDE when both ready.
+                _slidePip[i] = ChildLabel(go.transform, BattleCueCopy.SlidePipEn, 11, VisualTokens.SlideGreen, new Vector2(0.82f, 0.98f), new Vector2(64, 44));
+                _slidePip[i].supportRichText = true;
+                _slidePip[i].alignment = TextAnchor.LowerCenter;
+                _slidePip[i].lineSpacing = 0.72f;
                 var sOl = _slidePip[i].gameObject.AddComponent<Outline>();
                 sOl.effectColor = Color.black;
                 sOl.effectDistance = new Vector2(1f, -1f);
@@ -481,7 +654,10 @@ namespace Resonance.App
                 dOl.effectDistance = new Vector2(1f, -1f);
                 _drivePip[i].color = Color.clear;
 
-                _readyTag[i] = ChildLabel(go.transform, "", 14, VisualTokens.YellowConfirm, new Vector2(0.5f, 1.14f), new Vector2(PortSize, 24));
+                _readyTag[i] = ChildLabel(go.transform, "", 14, VisualTokens.YellowConfirm, new Vector2(0.5f, 1.18f), new Vector2(PortSize, 52));
+                _readyTag[i].supportRichText = true;
+                _readyTag[i].alignment = TextAnchor.LowerCenter;
+                _readyTag[i].lineSpacing = 0.85f;
                 var rOl = _readyTag[i].gameObject.AddComponent<Outline>();
                 rOl.effectColor = Color.black;
                 rOl.effectDistance = new Vector2(2f, -2f);
@@ -490,11 +666,32 @@ namespace Resonance.App
                 var hpOl = _hpNum[i].gameObject.AddComponent<Outline>();
                 hpOl.effectColor = Color.black;
                 hpOl.effectDistance = new Vector2(2f, -2f);
-                _nameTag[i] = ChildLabel(go.transform, ShortName(def != null ? def.Name : ""), 14, Color.white, new Vector2(0.5f, -0.24f), new Vector2(PortSize, 22));
+                // Primary tray: thin HP fill under portrait (P0/Robin orange/green stub).
+                var hpTrack = ChildImg(go.transform, "hpTrack", new Vector2(0.5f, -0.14f), new Vector2(0.5f, -0.14f),
+                    new Vector2(-PortSize * 0.38f, -3f), new Vector2(PortSize * 0.38f, 3f), new Color(0.08f, 0.06f, 0.05f, 0.85f));
+                UiSprites.Apply(hpTrack, UiSprites.Pixel());
+                hpTrack.raycastTarget = false;
+                var hpFill = ChildImg(go.transform, "hpFill", new Vector2(0.5f, -0.14f), new Vector2(0.5f, -0.14f),
+                    new Vector2(-PortSize * 0.38f, -3f), new Vector2(PortSize * 0.38f, 3f), VisualTokens.YellowValue);
+                UiSprites.Apply(hpFill, UiSprites.Pixel());
+                hpFill.type = Image.Type.Filled;
+                hpFill.fillMethod = Image.FillMethod.Horizontal;
+                hpFill.fillAmount = 1f;
+                hpFill.raycastTarget = false;
+                _hpBar[i] = hpFill;
+                _nameTag[i] = ChildLabel(go.transform, "", 14, Color.white, new Vector2(0.5f, -0.28f), new Vector2(PortSize + 8f, 22));
                 _nameTag[i].fontStyle = FontStyle.Bold;
                 var nameOl = _nameTag[i].gameObject.AddComponent<Outline>();
                 nameOl.effectColor = Color.black;
                 nameOl.effectDistance = new Vector2(2.4f, -2.4f);
+                // Primary P0 t83: "60 Name" + separate MAX badge (costume Lv.n Title inventory).
+                var lvSeed = PortraitMaxBadgeText(def != null ? def.Id : null);
+                _lvTag[i] = ChildLabel(go.transform, lvSeed, 11, VisualTokens.YellowValue, new Vector2(0.82f, -0.46f), new Vector2(56, 18));
+                var lvOl = _lvTag[i].gameObject.AddComponent<Outline>();
+                lvOl.effectColor = Color.black;
+                lvOl.effectDistance = new Vector2(1.6f, -1.6f);
+                if (_nameTag[i] != null)
+                    _nameTag[i].text = PortraitTrayNameText(def != null ? def.Id : null, def != null ? def.Name : "");
                 _built.Add(go);
             }
         }
@@ -563,6 +760,7 @@ namespace Resonance.App
                 if (sk != null) skillName = sk.Name;
             }
             BeginShowtime(caster, BattleCueCopy.DriveReady, skillName, BattleCueCopy.DriveCast, VisualTokens.DriveOrange, 0.70f, CombatCut.Drive, false);
+            // t382 HERE IS A POINT!! is tutorial/inventory. Ordinary-PVE QTE unseen — coin owns PRESS BUTTON.
             VfxGoodButton.Show(_root, hit =>
             {
                 if (!QteOpen) return;
@@ -570,7 +768,7 @@ namespace Resonance.App
             });
             CombatFeel.ScreenTint(_fieldLayer != null ? _fieldLayer : _root, VisualTokens.DriveOrange, 0.18f, 0.20f);
             CanvasShake.Punch(18f, 0.18f);
-            ShowCue(BattleCueCopy.Kind.DriveReady, 0.70f, "点 好");
+            // t382: PRESS BUTTON lives on the QTE coin, not as a second field stamp.
         }
 
         void FinishQte(DriveTiming timing)
@@ -590,36 +788,28 @@ namespace Resonance.App
             VfxGoodButton.Hide();
         }
 
-        static float FeverPct(BattleSim b)
-        {
-            if (b == null) return 0f;
-            if (b.FeverActive) return 100f;
-            return Mathf.Clamp(b.FeverGauge, 0f, 100f);
-        }
-
         void ShowJudge(DriveTiming timing)
         {
-            var b = _host != null ? _host.Battle : null;
-            var feverLine = b != null
-                ? BattleCueCopy.FeverLine(b.FeverActive, Mathf.RoundToInt(b.FeverGauge))
-                : "";
+            var gain = Mathf.RoundToInt(BattleSim.QteFever(timing));
+            var feverGain = BattleCueCopy.QteFeverGainLine(gain);
             switch (timing)
             {
                 case DriveTiming.Perfect:
-                    ShowCue(BattleCueCopy.Kind.QtePerfect, 1.20f, BattleCueCopy.QtePerfectSub + "   " + feverLine);
+                    // Robin ND DAMAGE 150% stays inventory. Ordinary-PVE QTE mul unseen.
+                    ShowCue(BattleCueCopy.Kind.QtePerfect, 1.20f, feverGain);
                     CombatFeel.ScreenTint(_fieldLayer != null ? _fieldLayer : _root, Color.white, 0.55f, 0.10f);
-                    VfxJudge.Play(_root, "perfect", 1.5f, FeverPct(b));
+                    VfxJudge.Play(_root, "perfect", 0f, gain);
                     break;
                 case DriveTiming.Great:
-                    ShowCue(BattleCueCopy.Kind.QteGreat, 0.90f, feverLine);
-                    VfxJudge.Play(_root, "great", 1.2f, FeverPct(b));
+                    ShowCue(BattleCueCopy.Kind.QteGreat, 0.90f, feverGain);
+                    VfxJudge.Play(_root, "great", 1.2f, gain);
                     break;
                 case DriveTiming.Good:
-                    ShowCue(BattleCueCopy.Kind.QteGood, 0.70f, feverLine);
-                    VfxJudge.Play(_root, "good", 1f, FeverPct(b));
+                    ShowCue(BattleCueCopy.Kind.QteGood, 0.70f, feverGain);
+                    VfxJudge.Play(_root, "good", 1f, gain);
                     break;
                 default:
-                    ShowCue(BattleCueCopy.Kind.QteBad, 0.60f, feverLine);
+                    ShowCue(BattleCueCopy.Kind.QteBad, 0.60f, feverGain);
                     break;
             }
         }
@@ -655,45 +845,187 @@ namespace Resonance.App
             if (_archHp != null)
                 _archHp.fillAmount = hpMax <= 0 ? 0f : (float)hpNow / hpMax;
             var pct = hpMax <= 0 ? 0 : Mathf.RoundToInt(100f * hpNow / hpMax);
+            var hard = _host.SaveData != null && _host.SaveData.UseHard;
             if (_archNum != null)
-                _archNum.text = pct + "%";
-            if (_archMeta != null)
             {
-                var table = Catalog.Chapter(_host.SaveData != null && _host.SaveData.UseHard);
-                var stName = "";
-                var idx = _host.ActiveStageIndex;
-                if (table != null && idx >= 0 && idx < table.Length && table[idx] != null)
+                // Primary P0/Robin mid-fight: ENEMY HP TOTAL (r62/r68).
+                // Hard QTE PERFECT window (r55): short ENEMY HP.
+                // P0 t510 PHASE splash: TOTAL + (CURRENT) stack.
+                // P0 t360 SHOWTIME: ENEMY HP LEFT.
+                var phaseSplash = WavePreview.VisibleKind == WaveCueKind.WaveAdvance;
+                var showtime = _showtimeT > 0.05f || VfxShowtime.AnyLive();
+                string hpLab;
+                if (hard && VfxJudge.AnyLive())
+                    hpLab = BattleCueCopy.EnemyHpShort;
+                else if (!hard && phaseSplash)
+                    hpLab = BattleCueCopy.EnemyHpLeft + "\n" + BattleCueCopy.EnemyHpCurrent;
+                else if (!hard && showtime)
+                    hpLab = BattleCueCopy.EnemyHpLeftAlt;
+                else
+                    hpLab = BattleCueCopy.EnemyHpLeft;
+                _archNum.text = BattleCueCopy.PctOverLabel(pct, hpLab);
+            }
+            if (_archBoss != null)
+            {
+                var bossName = "";
+                if (hard && battle.Enemies != null)
                 {
-                    var raw = table[idx].Name ?? "";
-                    var sp = raw.LastIndexOf(' ');
-                    stName = sp >= 0 && sp + 1 < raw.Length ? raw.Substring(sp + 1) : raw;
+                    for (int i = 0; i < battle.Enemies.Count; i++)
+                    {
+                        var foe = battle.Enemies[i];
+                        if (foe == null || !foe.Alive || foe.Def == null || !foe.Def.IsBoss) continue;
+                        bossName = (foe.Def.Name ?? "").ToUpperInvariant();
+                        break;
+                    }
                 }
-                _archMeta.text = stName;
+                _archBoss.text = bossName;
             }
-            VfxPhaseBar.Draw(_root, battle.WaveIndex + 1, 2);
-            VfxDpsPanel.Draw(_root, battle.Stats);
-            if (_timerLabel != null)
-            {
-                var sec = Mathf.Max(0, Mathf.CeilToInt(battle.TimeLeft));
-                _timerLabel.text = (sec / 60).ToString("00") + ":" + (sec % 60).ToString("00");
-            }
-            if (_enemyPips != null && battle.Enemies != null)
+            var enemyDrivePct = 0;
+            if (battle.Enemies != null)
             {
                 var maxCh = 0f;
                 for (int i = 0; i < battle.Enemies.Count; i++)
                     if (battle.Enemies[i] != null && battle.Enemies[i].Alive)
                         maxCh = Mathf.Max(maxCh, battle.Enemies[i].Charge);
+                enemyDrivePct = Mathf.RoundToInt(Mathf.Clamp(maxCh, 0f, 100f));
+            }
+            if (_archDrive != null)
+            {
+                // Ordinary mid-fight: ENEMY DRIVE.
+                // Hard mid: PREPARATION. Hard SHOWTIME: ENEMY DRIVE (r62).
+                // Hard Fever window: DMG OF TOTAL (r67).
+                var driveLab = hard
+                    ? (battle.FeverActive
+                        ? BattleCueCopy.DmgOfTotal
+                        : ((_showtimeT > 0.05f || VfxShowtime.AnyLive())
+                            ? BattleCueCopy.EnemyDrive
+                            : BattleCueCopy.EnemyPreparation))
+                    : BattleCueCopy.EnemyDrive;
+                _archDrive.text = BattleCueCopy.PctOverLabel(enemyDrivePct, driveLab);
+            }
+            if (_archMeta != null)
+            {
+                var table = Catalog.Chapter(hard);
+                var stName = "";
+                var idx = _host.ActiveStageIndex;
+                StageDef stage = null;
+                if (table != null && idx >= 0 && idx < table.Length && table[idx] != null)
+                {
+                    stage = table[idx];
+                    var raw = stage.Name ?? "";
+                    if (hard)
+                    {
+                        // Hard r30/r70: full EN arch "Stage 8 You Won't Get Away! (Hard)".
+                        // Do not take only the last token (breaks multi-word titles).
+                        var stub = BattleCueCopy.HardStageArchStub(idx + 1);
+                        if (!string.IsNullOrEmpty(stub))
+                            stName = stub;
+                        else
+                        {
+                            stName = raw.Trim();
+                            if (stName.EndsWith("困难"))
+                                stName = stName.Substring(0, stName.Length - 2).TrimEnd();
+                            if (!stName.EndsWith("(Hard)"))
+                                stName = stName + " (Hard)";
+                        }
+                    }
+                    else
+                    {
+                        // Prefer name after chapter prefix for ordinary.
+                        var sp = raw.LastIndexOf(' ');
+                        stName = sp >= 0 && sp + 1 < raw.Length ? raw.Substring(sp + 1) : raw;
+                    }
+                }
+                var maxPhase = StagePhaseCount(stage);
+                var phaseN = HudPhaseDuringSplash(battle, maxPhase);
+                // Primary GT: stage name over PHASE n/m (P0 t250/t510; Hard mid r13/r38).
+                // Hard SHOWTIME OCR FINAL/AREA inventory only (r21/r15) — live stays PHASE.
+                // P0 PHASE splash: HUD stays on the previous n/m until first-off.
+                _archMeta.text = string.IsNullOrEmpty(stName)
+                    ? BattleCueCopy.PhaseLine(phaseN, maxPhase)
+                    : (stName + "\n" + BattleCueCopy.PhaseLine(phaseN, maxPhase));
+                VfxPhaseBar.Draw(_root, phaseN, maxPhase);
+            }
+            else
+                VfxPhaseBar.Draw(_root, HudPhaseDuringSplash(battle, 2), 2);
+            // P0 live field has no left TOTAL/DPS/HEAL box. Tip t444 is a different plate.
+            // Fever combo words live on VfxComboBanner (N COMBO / N DAMAGE).
+            VfxDpsPanel.Hide(_root);
+            if (_timerLabel != null)
+            {
+                var sec = Mathf.Max(0, Mathf.CeilToInt(battle.TimeLeft));
+                // Primary GT: stacked mm:ss over BATTLE TIME (P0 t250; Hard r70).
+                // BATTLE NO. n (r55) stays inventory — trigger UNKNOWN.
+                _timerLabel.text = "<size=16><b>" + (sec / 60).ToString("00") + ":" + (sec % 60).ToString("00")
+                    + "</b></size>\n<size=11>" + BattleCueCopy.BattleTime + "</size>";
+            }
+            if (_enemyPips != null && battle.Enemies != null)
+            {
                 for (int i = 0; i < _enemyPips.Length; i++)
                 {
                     if (_enemyPips[i] == null) continue;
-                    var lit = maxCh >= (i + 1) * (100f / _enemyPips.Length);
+                    var lit = enemyDrivePct >= (i + 1) * (100f / _enemyPips.Length);
                     _enemyPips[i].color = lit ? VisualTokens.StarEvolved : new Color(0.26f, 0.19f, 0.08f, 0.75f);
                 }
             }
             if (_partyHp != null)
                 _partyHp.fillAmount = phpMax <= 0 ? 0f : (float)phpNow / phpMax;
             if (_partyHpLabel != null)
-                _partyHpLabel.text = "生命  " + (phpMax <= 0 ? 0 : Mathf.RoundToInt(100f * phpNow / phpMax)) + "%";
+            {
+                // Team HP tip window: SHARED HP TOTAL (t345).
+                // Drive tip after: PARTY HP TOTAL (t380). Pre-Drive low-level: CHILD (t446/t512).
+                // After Fever session on low-level: MY HP TOTAL (t456).
+                // Cap story mid / cap PHASE splash: SKILL HP TOTAL (t452/t065).
+                // Hard mid: MY (r70); Hard SHOWTIME / Drive QTE judge: PARTY (r50/r55).
+                var phpPct = phpMax <= 0 ? 0 : Mathf.RoundToInt(100f * phpNow / phpMax);
+                var maxAllyLv = MaxAllyLevel(battle);
+                var phaseSplash = WavePreview.VisibleKind == WaveCueKind.WaveAdvance;
+                string partyLabel;
+                if (hard && (_showtimeT > 0.05f || VfxJudge.AnyLive() || VfxShowtime.AnyLive()))
+                    partyLabel = BattleCueCopy.PartyHpTotal;
+                else if (hard)
+                    partyLabel = BattleCueCopy.MyHpTotal;
+                // P0 t280/t340 early Tutorial PHASE splash: CHILD HP TOTAL (pre SkillReady tip).
+                // P0 t372 after SkillReady tip / t065 cap: SKILL HP TOTAL.
+                // P0 t510 Stage4 PHASE: TEAM HP TOTAL + (CURRENT) after speed/fever tips.
+                else if (!battle.FeverActive && phaseSplash)
+                    partyLabel = (_tipSpeedShown || _feverSessionSeen)
+                        ? (BattleCueCopy.TeamHpTotalAlt + "\n" + BattleCueCopy.TeamHpCurrent)
+                        : (maxAllyLv < Growth.MaxLevel && !_tipSkillReadyShown
+                            ? BattleCueCopy.ChildHpTotal
+                            : BattleCueCopy.TeamHpTotal);
+                // P0 t80 Slide tip on cap story: MY HP TOTAL over PARTY HP TOTAL stack.
+                else if (!battle.FeverActive && VfxTipPlate.AnyLive() && maxAllyLv >= Growth.MaxLevel)
+                    partyLabel = BattleCueCopy.MyHpTotal + "\n" + BattleCueCopy.PartyHpTotal;
+                // P0 t435 Fever tip: SKILL HP TOTAL on low-level tray.
+                else if (!battle.FeverActive && VfxTipPlate.FeverTipSession())
+                    partyLabel = BattleCueCopy.TeamHpTotal;
+                else if (!battle.FeverActive && _tipTeamHpShown && !_tipChildsShown)
+                    // P0 t345 tip: TOTAL HP TOTAL on the green arc (SHARED stays inventory OCR).
+                    partyLabel = BattleCueCopy.TotalHpTotal;
+                else if (!battle.FeverActive && _tipChildsShown && !_tipSkillReadyShown && !_tipDriveShown)
+                    // P0 t250 Childs tip: arc stays SKILL HP TOTAL (CURRENT HP inventory).
+                    partyLabel = BattleCueCopy.TeamHpTotal;
+                // P0 t352 SkillReady tip: SKILL UP TOTAL on the green arc.
+                else if (!battle.FeverActive && _tipSkillReadyShown && !_tipSlideShown && !_tipDriveShown)
+                    partyLabel = BattleCueCopy.SkillUpTotal;
+                // P0 t358 Slide tip: SKILL HP TOTAL (not CHILD).
+                else if (!battle.FeverActive && maxAllyLv < Growth.MaxLevel
+                    && _tipSlideShown && !_tipDriveShown)
+                    partyLabel = BattleCueCopy.TeamHpTotal;
+                else if (!battle.FeverActive && maxAllyLv < Growth.MaxLevel && _feverSessionSeen)
+                    partyLabel = BattleCueCopy.MyHpTotal;
+                else if (!battle.FeverActive && maxAllyLv < Growth.MaxLevel
+                    && _tipDriveShown && !phaseSplash)
+                    partyLabel = BattleCueCopy.PartyHpTotal;
+                else if (!battle.FeverActive && maxAllyLv < Growth.MaxLevel)
+                    partyLabel = BattleCueCopy.ChildHpTotal;
+                else if (!battle.FeverActive && battle.WaveIndex <= 0 && !phaseSplash)
+                    partyLabel = BattleCueCopy.ChildHpTotal;
+                else
+                    partyLabel = BattleCueCopy.TeamHpTotal;
+                _partyHpLabel.text = BattleCueCopy.PctOverLabel(phpPct, partyLabel);
+            }
             if (_driveBar != null)
             {
                 _driveBar.fillAmount = Mathf.Clamp01(battle.Drive / 100f);
@@ -706,34 +1038,71 @@ namespace Resonance.App
             }
             if (_driveLabel != null)
             {
-                if (battle.Drive >= 100f)
+                // Mid-fight tutorial: SKILL GAUGE TOTAL (P0 t500).
+                // Cap story mid (Heaven's Dust t64/t88): SKILL UP TOTAL on the thin secondary.
+                // SHOWTIME / PHASE splash: DRIVE GAUGE (t096).
+                // Drive Tables tip window / Drive Ready field: DRIVE TOTAL (t388; Hard r48).
+                var phaseSplash = WavePreview.VisibleKind == WaveCueKind.WaveAdvance;
+                var maxAllyLv = MaxAllyLevel(battle);
+                string gauge;
+                if (_driveTotalLabelT > 0.05f
+                    || (battle.Drive >= 100f && !battle.FeverActive && _showtimeT <= 0.05f && !phaseSplash))
+                    gauge = BattleCueCopy.DriveTotal;
+                else if (_showtimeT > 0.05f || phaseSplash)
+                    gauge = BattleCueCopy.DriveGauge;
+                else if (_tipDriveShown && !_tipDriveTablesShown)
+                    // P0 t365 Drive tip: short SKILL GAUGE (not TOTAL).
+                    gauge = BattleCueCopy.SkillGauge;
+                else if (!hard && maxAllyLv >= Growth.MaxLevel
+                    && !battle.FeverActive && battle.Drive < 100f
+                    && !VfxTipPlate.AnyLive())
                 {
-                    _driveLabel.text = "驱动满 · 点按";
-                    _driveLabel.color = VisualTokens.YellowConfirm;
+                    // P0 t64 kill/phase: SKILL UP TOTAL at 0%. P0 t90 mid: short SKILL GAUGE N%.
+                    var enemyEmpty = hpMax > 0 && hpNow <= 0;
+                    gauge = enemyEmpty
+                        ? BattleCueCopy.SkillUpTotal
+                        : BattleCueCopy.SkillGauge;
                 }
                 else
-                {
-                    _driveLabel.text = "驱动  " + Mathf.RoundToInt(battle.Drive) + "%";
-                    _driveLabel.color = VisualTokens.YellowValue;
-                }
+                    gauge = BattleCueCopy.SkillGaugeTotal;
+                // P0 t64: SKILL UP TOTAL reads 0% while the green arc still tracks Drive fill.
+                var gaugePct = gauge == BattleCueCopy.SkillUpTotal
+                    ? 0
+                    : Mathf.RoundToInt(battle.Drive);
+                _driveLabel.text = BattleCueCopy.PctOverLabel(gaugePct, gauge);
+                _driveLabel.color = battle.Drive >= 100f
+                    ? VisualTokens.YellowConfirm
+                    : VisualTokens.YellowValue;
             }
             FeverBannerOn = battle.FeverActive;
             if (_feverBar != null && _feverLabel != null)
             {
-                if (battle.FeverActive)
+                // P0 t440/t442: bottom chrome stays FEVER n% even while the window runs (0% once spent).
+                var g = Mathf.RoundToInt(battle.FeverGauge);
+                _feverBar.fillAmount = Mathf.Clamp01(battle.FeverGauge / 100f);
+                _feverBar.color = FeverPink;
+                _feverLabel.text = BattleCueCopy.FeverLine(false, g);
+                _feverLabel.color = FeverPink;
+                if (_feverToward != null)
                 {
-                    _feverBar.fillAmount = battle.FeverLeft <= 0f ? 0f : Mathf.Clamp01(battle.FeverLeft / 7f);
-                    var rainbow = CombatFeel.FeverHue(Time.unscaledTime * 0.55f);
-                    _feverBar.color = rainbow;
-                    _feverLabel.text = BattleCueCopy.FeverTime;
-                    _feverLabel.color = rainbow;
-                }
-                else
-                {
-                    _feverBar.fillAmount = Mathf.Clamp01(battle.FeverGauge / 100f);
-                    _feverBar.color = FeverPink;
-                    _feverLabel.text = BattleCueCopy.FeverLine(false, Mathf.RoundToInt(battle.FeverGauge));
-                    _feverLabel.color = FeverPink;
+                    if (battle.FeverActive)
+                        _feverToward.text = "";
+                    else
+                    {
+                        // Show fill callout when banking toward Fever (Robin mid-fight).
+                        _feverToward.text = g > 0 && g < 100
+                            ? BattleCueCopy.FeverTowardLine(g)
+                            : "";
+                        _feverToward.color = VisualTokens.SlideGreen;
+                        // P0 tip t420: gauge tip once while banking.
+                        if (!_tipFeverGaugeShown && g >= 40 && g < 100
+                            && !VfxTipPlate.AnyLive())
+                        {
+                            _tipFeverGaugeShown = true;
+                            VfxTipPlate.Show(_root, BattleCueCopy.TipFeverActivate,
+                                BattleCueCopy.TipFeverGaugeBody);
+                        }
+                    }
                 }
             }
             var feverStart = battle.FeverActive && !_feverWas;
@@ -742,11 +1111,14 @@ namespace Resonance.App
             {
                 VfxShowtime.KillAll();
                 _feverBurstT = 0.90f;
+                _feverSessionSeen = true;
                 if (_pix != null) _pix.SetFever(true);
-                if (IsQteStamp(VisibleStamp) && _stampT > 0.12f)
+                // P0 t442: TIP! Activate Fever Time! plate sits with live FEVER TIME field.
+                VfxTipPlate.ShowFeverActivate(_root);
+                if ((IsQteStamp(VisibleStamp) && _showtimeT > 0.12f) || VfxJudge.AnyLive())
                 {
                     _feverCueQueued = true;
-                    _feverCueDelay = _stampT + 0.06f;
+                    _feverCueDelay = Mathf.Max(_showtimeT, 0.90f) + 0.06f;
                 }
                 else
                     BeginFeverBanner();
@@ -757,13 +1129,36 @@ namespace Resonance.App
                 if (_pix != null) _pix.SetFever(false);
                 VfxSpeedLines.Hide();
                 VfxFeverOverlay.Hide();
+                VfxTipPlate.Hide();
                 VfxRouter.EndFever(_root);
             }
             if (_feverBurstT > 0f) _feverBurstT -= Time.unscaledDeltaTime;
             if (_feverFlash != null) _feverFlash.color = Color.clear;
-            if (_speedLabel != null) _speedLabel.text = battle.Speed == 2 ? "×2" : "×1";
-            if (_autoLabel != null) _autoLabel.text = AutoWord(_host.SaveData != null ? _host.SaveData.Auto : AutoMode.Manual);
-            if (_pauseLabel != null) _pauseLabel.text = battle.Paused ? "继续" : "暂停";
+            if (_speedLabel != null)
+            {
+                var sp = battle.Speed < 1 ? 1 : (battle.Speed > 3 ? 3 : battle.Speed);
+                _speedLabel.text = ">> X" + sp + " SPEED";
+            }
+            if (_autoLabel != null) _autoLabel.text = AutoWord(battle.Auto);
+            if (_pauseLabel != null)
+            {
+                // Primary GT: || PAUSE (P0 + Hard r30/r70). II PAUSE stays OCR inventory.
+                _pauseLabel.text = battle.Paused ? BattleCueCopy.ResumeHud : BattleCueCopy.PauseHud;
+            }
+            if (_escapeLabel != null)
+            {
+                // Keep ESCAPE hidden on primary GT path (contrast-only control).
+                _escapeLabel.gameObject.SetActive(false);
+            }
+            // Repeat: PauseBoard always. Hard field Repeat (Robin r55/r70 under PAUSE).
+            // Ordinary P0 t440 live field has no mid Repeat / SKIP / Log.
+            if (_repeatLabel != null)
+            {
+                _repeatLabel.text = "Repeat";
+                _repeatLabel.gameObject.SetActive(hard);
+            }
+            if (_skipLabel != null) _skipLabel.gameObject.SetActive(false);
+            if (_logLabel != null) _logLabel.gameObject.SetActive(false);
 
             if (_fieldAllies != null)
             {
@@ -778,9 +1173,15 @@ namespace Resonance.App
             }
             if (_fieldEnemies != null && battle.Enemies != null)
             {
+                var focus = battle.FocusEnemySlot;
                 for (int i = 0; i < _fieldEnemies.Length && i < battle.Enemies.Count; i++)
-                    if (_fieldEnemies[i] != null) _fieldEnemies[i].Apply(battle.Enemies[i]);
+                {
+                    if (_fieldEnemies[i] == null) continue;
+                    _fieldEnemies[i].Apply(battle.Enemies[i]);
+                    _fieldEnemies[i].SetFocused(i == focus);
+                }
             }
+            SetFieldSplashHidden(WavePreview.VisibleKind == WaveCueKind.WaveAdvance);
 
             TickOverlays();
             DrainCombatLog();
@@ -793,6 +1194,7 @@ namespace Resonance.App
         {
             var battle = _host != null ? _host.Battle : null;
             if (battle == null || battle.Allies == null || _chargeRing == null) return;
+            var hard = _host.SaveData != null && _host.SaveData.UseHard;
             for (int i = 0; i < _chargeRing.Length; i++)
             {
                 var u = i < battle.Allies.Length ? battle.Allies[i] : null;
@@ -803,12 +1205,62 @@ namespace Resonance.App
                 var slideReady = tapReady && u.SlideCd <= 0f;
                 var driveReady = u.Alive && battle.Drive >= 100f;
                 var port = PortAnchor(i);
-                if (tapReady && (_tapWas == null || !_tapWas[i]))
-                    VfxTapReady.Play(_root, port);
-                if (slideReady && (_slideWas == null || !_slideWas[i]))
-                    VfxSlideReady.Play(_root, port);
                 if (driveReady && (_driveWas == null || !_driveWas[i]))
                     VfxDriveReady.Play(_root, port);
+                // Tutorial tip plates (inventory copy). Once each; skip during Fever tip chain.
+                if (!battle.FeverActive && !VfxTipPlate.AnyLive())
+                {
+                    if (tapReady && !_tipSkillReadyShown && _tipChildsShown)
+                    {
+                        _tipSkillReadyShown = true;
+                        // P0 t354: Mona's Tips + full Skill ready stem.
+                        VfxTipPlate.Show(_root, BattleCueCopy.MonaTipsHeader, BattleCueCopy.TipSkillReadyMonaBody);
+                    }
+                    else if (slideReady && !_tipSlideShown)
+                    {
+                        _tipSlideShown = true;
+                        VfxTipPlate.Show(_root, BattleCueCopy.TipSlideSkill, BattleCueCopy.TipSlideSkillBody);
+                    }
+                    else if (slideReady && _tipSlideShown && !_tipSlideMonaShown && !VfxTipPlate.AnyLive())
+                    {
+                        _tipSlideMonaShown = true;
+                        // P0 t355: Mona's Tips + Slide Skills are powerful attacks!
+                        VfxTipPlate.Show(_root, BattleCueCopy.MonaTipsHeader, BattleCueCopy.TipSlideMonaBody);
+                    }
+                    else if (slideReady && _tipSlideMonaShown && !_tipSlidePowerShown && !VfxTipPlate.AnyLive())
+                    {
+                        _tipSlidePowerShown = true;
+                        // P0 t370: TIP! + Use Slide Skills for powerful attacks!
+                        VfxTipPlate.Show(_root, BattleCueCopy.TipSlidePower, BattleCueCopy.TipSlidePowerBody);
+                    }
+                    else if (driveReady && !_tipDriveShown)
+                    {
+                        _tipDriveShown = true;
+                        VfxTipPlate.Show(_root, BattleCueCopy.TipDriveSkill, BattleCueCopy.TipDriveSkillBody);
+                    }
+                    else if (driveReady && _tipDriveShown && !_tipDriveTimingShown)
+                    {
+                        _tipDriveTimingShown = true;
+                        VfxTipPlate.Show(_root, BattleCueCopy.TipDriveTiming, BattleCueCopy.TipDriveTimingBody);
+                    }
+                    else if (driveReady && _tipDriveTimingShown && !_tipDriveTablesShown)
+                    {
+                        _tipDriveTablesShown = true;
+                        _driveTotalLabelT = 5.20f;
+                        VfxTipPlate.Show(_root, BattleCueCopy.TipDriveTables, BattleCueCopy.TipDriveTablesBody);
+                        // P0 t388: "13% Skill Rate" secondary near Drive tip plate.
+                        CombatFeel.NamePopStack(_root, new Vector2(0.50f, 0.12f),
+                            "13% " + BattleCueCopy.SkillRate, VisualTokens.YellowValue);
+                    }
+                    else if (!_tipSpeedShown
+                        && (_tipDriveTablesShown || _tipSlidePowerShown)
+                        && !VfxTipPlate.AnyLive())
+                    {
+                        _tipSpeedShown = true;
+                        // P0 t451: Mona's Tips + X2 SPEED body (X1 SPEED highlight on HUD).
+                        VfxTipPlate.Show(_root, BattleCueCopy.MonaTipsHeader, BattleCueCopy.TipSpeedBody);
+                    }
+                }
                 if (_tapWas != null) _tapWas[i] = tapReady;
                 if (_slideWas != null) _slideWas[i] = slideReady;
                 if (_driveWas != null) _driveWas[i] = driveReady;
@@ -862,14 +1314,25 @@ namespace Resonance.App
                 }
                 if (_slidePip != null && _slidePip[i] != null)
                 {
-                    var c = VisualTokens.SlideGreen;
-                    c.a = tapReady ? 1f : 0f;
-                    _slidePip[i].color = c;
+                    // P0 t446: green "+" when tap-ready. Hard r58: "+" over red SLIDE when slide-ready.
+                    if (slideReady)
+                    {
+                        _slidePip[i].text = BattleCueCopy.SlideReadyPipStack;
+                        _slidePip[i].color = Color.white;
+                    }
+                    else if (tapReady)
+                    {
+                        _slidePip[i].text = BattleCueCopy.PortraitReadyPlus;
+                        var c = VisualTokens.SlideGreen;
+                        c.a = 1f;
+                        _slidePip[i].color = c;
+                    }
+                    else _slidePip[i].color = Color.clear;
                 }
                 if (_drivePip != null && _drivePip[i] != null)
                 {
                     var c = VisualTokens.DriveOrange;
-                    c.a = driveReady ? 1f : 0f;
+                    c.a = (driveReady && !battle.FeverActive) ? 1f : 0f;
                     _drivePip[i].color = c;
                 }
                 if (_readyTag != null && _readyTag[i] != null)
@@ -878,17 +1341,78 @@ namespace Resonance.App
                     {
                         _readyTag[i].text = "";
                     }
+                    else if (QteOpen && battle.PendingDriveSlot == i)
+                    {
+                        // Primary P0 ~t365: portrait "N DRIVE TIME" during Drive window.
+                        var left = Mathf.CeilToInt(Mathf.Max(0.01f, BattleSim.DriveQteTimeoutSec - _qteT));
+                        _readyTag[i].text = BattleCueCopy.DriveTimeLine(left);
+                        _readyTag[i].color = VisualTokens.DriveOrange;
+                    }
+                    else if (battle.FeverActive)
+                    {
+                        // Hard r67 SHOWTIME+Fever: cool portraits show N FEVER TIME.
+                        // P0 t442/t452 ready portraits stay WEAKPOINT.
+                        if (u.SlideCd > 0.05f)
+                        {
+                            var sec = Mathf.CeilToInt(u.SlideCd);
+                            _readyTag[i].text = BattleCueCopy.FeverTimeLine(sec);
+                            _readyTag[i].color = VisualTokens.FeverGold;
+                        }
+                        else
+                        {
+                            _readyTag[i].text = BattleCueCopy.WeakPointPortraitLine;
+                            _readyTag[i].color = VisualTokens.Ember;
+                        }
+                    }
+                    else if (hard
+                        && (_showtimeT > 0.05f || VfxShowtime.AnyLive())
+                        && battle.FeverGauge >= 85f
+                        && u.SlideCd <= 0.05f)
+                    {
+                        // Hard r15: near-Fever SHOWTIME tray WEAKPOINT + SKILL RESERVE.
+                        _readyTag[i].text = BattleCueCopy.WeakPointSkillReserveLine;
+                        _readyTag[i].color = VisualTokens.Ember;
+                    }
                     else if (driveReady)
                     {
-                        _readyTag[i].text = "驱动";
+                        _readyTag[i].text = BattleCueCopy.DriveReadyPortraitLine;
                         _readyTag[i].color = VisualTokens.DriveOrange;
+                    }
+                    else if (u.SlideCd > 0.05f)
+                    {
+                        // Mid-fight: COOL TIME (Hard r28/r56). Hard SHOWTIME: LEAD TIME (r50 FEVER~0).
+                        // Hard SHOWTIME + banked Fever: CLICK TIME (r67 FEVER 40%).
+                        // Ordinary SHOWTIME / Drive tip: SKILL TIME (P0 t365). SLIDE TIME inventory.
+                        var sec = Mathf.CeilToInt(u.SlideCd);
+                        var showtime = _showtimeT > 0.05f || VfxShowtime.AnyLive();
+                        if (hard && showtime)
+                            _readyTag[i].text = battle.FeverGauge >= 35f
+                                ? BattleCueCopy.ClickTimeLine(sec)
+                                : BattleCueCopy.LeadTimeLine(sec);
+                        else if (showtime || _tipDriveShown)
+                            _readyTag[i].text = BattleCueCopy.SkillTimeLine(sec);
+                        else
+                            _readyTag[i].text = BattleCueCopy.CoolTimeLine(sec);
+                        _readyTag[i].color = VisualTokens.TextMuted;
                     }
                     else if (tapReady)
                     {
-                        _readyTag[i].text = "点按";
-                        _readyTag[i].color = VisualTokens.YellowConfirm;
+                        // P0 t446 / PVP5: ready is the green "+" pip, not TAP READY text.
+                        _readyTag[i].text = "";
                     }
                     else _readyTag[i].text = "";
+                }
+                if (_readyDash != null && _readyDash[i] != null)
+                {
+                    var showDash = u.Alive && (tapReady || slideReady);
+                    _readyDash[i].color = showDash
+                        ? new Color(VisualTokens.YellowConfirm.r, VisualTokens.YellowConfirm.g, VisualTokens.YellowConfirm.b, 0.38f)
+                        : Color.clear;
+                    if (showDash)
+                    {
+                        var pulse = 1f + 0.05f * Mathf.Sin(Time.unscaledTime * 7.2f + i);
+                        _readyDash[i].transform.localScale = Vector3.one * pulse;
+                    }
                 }
                 if (_hpNum[i] != null)
                 {
@@ -897,6 +1421,14 @@ namespace Resonance.App
                         ? VisualTokens.TextMuted
                         : (u.Hp >= u.MaxHp ? VisualTokens.YellowValue : Color.white);
                 }
+                if (_hpBar != null && _hpBar[i] != null)
+                {
+                    var frac = u.MaxHp <= 0 ? 0f : Mathf.Clamp01((float)u.Hp / u.MaxHp);
+                    _hpBar[i].fillAmount = frac;
+                    _hpBar[i].color = !u.Alive
+                        ? VisualTokens.TextMuted
+                        : (frac > 0.35f ? VisualTokens.YellowValue : VisualTokens.StarEvolved);
+                }
                 if (_portraitDim[i] != null)
                 {
                     if (!u.Alive) _portraitDim[i].alpha = 0.35f;
@@ -904,8 +1436,48 @@ namespace Resonance.App
                     else _portraitDim[i].alpha = 1f;
                 }
                 if (_nameTag[i] != null)
-                    _nameTag[i].text = u.Def != null ? ShortName(u.Def.Name) : "";
+                    _nameTag[i].text = PortraitTrayNameText(u.Def != null ? u.Def.Id : null,
+                        u.Def != null ? u.Def.Name : "");
+                if (_lvTag[i] != null)
+                {
+                    _lvTag[i].text = PortraitMaxBadgeText(u.Def != null ? u.Def.Id : null);
+                    _lvTag[i].color = !u.Alive ? VisualTokens.TextMuted : VisualTokens.YellowValue;
+                }
+                if (_costumeTag != null && _costumeTag[i] != null)
+                {
+                    var lv = 1;
+                    if (u.Def != null && _host != null && _host.SaveData != null)
+                        lv = _host.SaveData.GetUnit(u.Def.Id).Level;
+                    var line = BattleCueCopy.PortraitInnerCostumeLine(
+                        u.Def != null ? u.Def.Name : "", lv);
+                    _costumeTag[i].text = line ?? "";
+                    _costumeTag[i].color = !u.Alive
+                        ? VisualTokens.TextMuted
+                        : VisualTokens.TapWhite;
+                }
             }
+        }
+
+        string PortraitLevelText(string unitId)
+        {
+            if (string.IsNullOrEmpty(unitId) || _host == null || _host.SaveData == null)
+                return BattleCueCopy.PortraitLevelLine(1);
+            return BattleCueCopy.PortraitLevelLine(_host.SaveData.GetUnit(unitId).Level);
+        }
+
+        string PortraitTrayNameText(string unitId, string unitName)
+        {
+            var lv = 1;
+            if (!string.IsNullOrEmpty(unitId) && _host != null && _host.SaveData != null)
+                lv = _host.SaveData.GetUnit(unitId).Level;
+            return BattleCueCopy.PortraitTrayName(lv, ShortName(unitName));
+        }
+
+        string PortraitMaxBadgeText(string unitId)
+        {
+            if (string.IsNullOrEmpty(unitId) || _host == null || _host.SaveData == null)
+                return BattleCueCopy.PortraitMaxBadge(1);
+            return BattleCueCopy.PortraitMaxBadge(_host.SaveData.GetUnit(unitId).Level);
         }
 
         void TickOverlays()
@@ -921,6 +1493,70 @@ namespace Resonance.App
                         BeginFeverBanner();
                 }
             }
+            // P0 tip t58: Tap skill tip first, then Keep attacking (t60), Team HP (t345), Childs (t250).
+            if (!_tipTapShown && _tipTapDelay > 0f)
+            {
+                _tipTapDelay -= Time.unscaledDeltaTime;
+                if (_tipTapDelay <= 0f
+                    && !VfxTipPlate.AnyLive()
+                    && (_host == null || _host.Battle == null || !_host.Battle.FeverActive))
+                {
+                    _tipTapShown = true;
+                    _tipKeepDelay = 4.40f;
+                    VfxTipPlate.Show(_root, BattleCueCopy.TipTapSkill, BattleCueCopy.TipTapSkillBody);
+                }
+            }
+            if (_tipTapShown && !_tipKeepShown && _tipKeepDelay > 0f)
+            {
+                _tipKeepDelay -= Time.unscaledDeltaTime;
+                if (_tipKeepDelay <= 0f
+                    && !VfxTipPlate.AnyLive()
+                    && (_host == null || _host.Battle == null || !_host.Battle.FeverActive))
+                {
+                    _tipKeepShown = true;
+                    _tipTeamHpDelay = 4.40f;
+                    VfxTipPlate.Show(_root, BattleCueCopy.TipKeepAttacking, "");
+                }
+            }
+            if (_tipKeepShown && !_tipTeamHpShown && _tipTeamHpDelay > 0f)
+            {
+                _tipTeamHpDelay -= Time.unscaledDeltaTime;
+                if (_tipTeamHpDelay <= 0f
+                    && !VfxTipPlate.AnyLive()
+                    && (_host == null || _host.Battle == null || !_host.Battle.FeverActive))
+                {
+                    _tipTeamHpShown = true;
+                    _tipChildsDelay = 4.40f;
+                    VfxTipPlate.Show(_root, BattleCueCopy.TeamHpTip, BattleCueCopy.TipTeamHpBody);
+                }
+            }
+            // P0 cont34 t250: Childs tray tip after Team HP tip.
+            if (_tipTeamHpShown && !_tipChildsShown && _tipChildsDelay > 0f)
+            {
+                _tipChildsDelay -= Time.unscaledDeltaTime;
+                if (_tipChildsDelay <= 0f
+                    && !VfxTipPlate.AnyLive()
+                    && (_host == null || _host.Battle == null || !_host.Battle.FeverActive))
+                {
+                    _tipChildsShown = true;
+                    _tipChildsMoreDelay = 4.40f;
+                    VfxTipPlate.Show(_root, BattleCueCopy.MonaTipsHeader, BattleCueCopy.TipChildsTray);
+                }
+            }
+            // P0 t344: more Childs tip after tray tip.
+            if (_tipChildsShown && !_tipChildsMoreShown && _tipChildsMoreDelay > 0f)
+            {
+                _tipChildsMoreDelay -= Time.unscaledDeltaTime;
+                if (_tipChildsMoreDelay <= 0f
+                    && !VfxTipPlate.AnyLive()
+                    && (_host == null || _host.Battle == null || !_host.Battle.FeverActive))
+                {
+                    _tipChildsMoreShown = true;
+                    VfxTipPlate.Show(_root, BattleCueCopy.MonaTipsHeader, BattleCueCopy.TipChildsMoreBody);
+                }
+            }
+            if (_driveTotalLabelT > 0f)
+                _driveTotalLabelT -= Time.unscaledDeltaTime;
             if (_showtimeT > 0f)
                 _showtimeT -= Time.unscaledDeltaTime;
             else if (VisibleStamp != BattleCueCopy.Kind.None)
@@ -1005,10 +1641,10 @@ namespace Resonance.App
                         (ft.Crit ? "!" : "") + ft.Text, ft.Crit, ft.Heal, ft.Kind, ft.Fever);
                     if (ft.Crit)
                         CombatFeel.NamePopStack(_fieldLayer != null ? _fieldLayer : _root, target.Anchor + new Vector2(0f, 0.12f),
-                            "暴击", VisualTokens.StarEvolved);
+                            "CRIT", VisualTokens.StarEvolved);
                     if (ft.Fever && ft.Crit && !ft.Heal)
                         CombatFeel.NamePopStack(_fieldLayer != null ? _fieldLayer : _root, target.Anchor + new Vector2(0.02f, 0.18f),
-                            "弱点", VisualTokens.Ember);
+                            BattleCueCopy.WeakPoint, VisualTokens.Ember);
                     if (ft.CasterAlly && _portFlashT != null && ft.CasterSlot >= 0 && ft.CasterSlot < _portFlashT.Length)
                         _portFlashT[ft.CasterSlot] = ft.Kind == SkillType.Drive ? 0.40f : 0.28f;
                     int comboDmg;
@@ -1045,7 +1681,7 @@ namespace Resonance.App
                             HitColor(ft, caster), ft.Kind, ft.Fever, ft.Heal);
                     if (_presentation == null)
                         VfxRouter.OnHit(_fieldLayer != null ? _fieldLayer : _root,
-                            from, target.Anchor, ft.Kind, elem, amt, ft.Crit, ft.Heal, ft.Fever);
+                            from, target.Anchor, ft.Kind, elem, amt, ft.Crit, ft.Heal, ft.Fever, ft.Text);
                     var dead = false;
                     if (ft.Ally && battle.Allies != null && ft.UnitSlot >= 0 && ft.UnitSlot < battle.Allies.Length
                         && battle.Allies[ft.UnitSlot] != null)
@@ -1092,7 +1728,8 @@ namespace Resonance.App
                         fx.Type, 0, false, false, fx.Fever, fx.Name, castElem, castAt, castAt));
                 }
                 else
-                    VfxRouter.OnCast(_fieldLayer != null ? _fieldLayer : _root, fx, castAt, castElem);
+                    VfxRouter.OnCast(_fieldLayer != null ? _fieldLayer : _root, fx, castAt, castElem,
+                        caster != null ? caster.UnitName : null);
                 if (fx.Fever)
                 {
                     CanvasShake.Punch(34f, 0.40f);
@@ -1100,24 +1737,18 @@ namespace Resonance.App
                 }
                 if (fx.Fever && fx.Name == "FEVER")
                 {
-                    if (_skillBanner != null)
-                    {
-                        _skillBanner.text = BattleCueCopy.FeverTime;
-                        _skillBanner.color = VisualTokens.FeverGold;
-                    }
+                    // Live word sits on VfxFeverOverlay (P0 t440). Do not park FEVER TIME on the HUD banner.
+                    if (_skillBanner != null) _skillBanner.text = "";
                     CombatFeel.FeverRipple(_fieldLayer != null ? _fieldLayer : _root, new Vector2(0.5f, 0.56f));
                     continue;
                 }
                 var tag = SkillWord(fx.Type) + "  " + fx.Name;
                 if (fx.Type == SkillType.Slide && fx.CasterAlly)
                 {
-                    if (_skillBanner != null)
-                    {
-                        _skillBanner.text = BattleCueCopy.SlideBanner(fx.Name);
-                        _skillBanner.color = VisualTokens.SlideGreen;
-                    }
-                    BeginShowtime(caster, BattleCueCopy.SlideShowtime, fx.Name, BattleCueCopy.SlideSkill, VisualTokens.StarEvolved, 1.15f, CombatCut.Slide, true);
-                    ShowCue(BattleCueCopy.Kind.SlideShowtime, 1.10f, BattleCueCopy.SlideSkill + "  " + fx.Name);
+                    // P0 t360 identity lives on VfxShowtime (IT'S SHOWTIME!!).
+                    // Do not leave HUD 开演 / word-stamp behind for later Drive-ready.
+                    if (_skillBanner != null) _skillBanner.text = "";
+                    BeginShowtime(caster, BattleCueCopy.SlideShowtime, fx.Name, BattleCueCopy.SlideSkill, VisualTokens.StarEvolved, VfxShowtime.Duration, CombatCut.Slide, true);
                 }
                 else if (fx.Type == SkillType.Drive && !fx.CasterAlly)
                 {
@@ -1152,6 +1783,11 @@ namespace Resonance.App
                     var nameCol = Color.Lerp(VisualTokens.TapWhite, VisualTokens.Element(caster.Elem), 0.42f);
                     CombatFeel.NamePopStack(_fieldLayer != null ? _fieldLayer : _root,
                         caster.Anchor + new Vector2(0f, 0.12f), fx.Name, nameCol);
+                    if (_skillBanner != null) _skillBanner.text = "";
+                }
+                else if (fx.Type == SkillType.Leader)
+                {
+                    // P0 t60: no LEADER / skill-name field stamp at fight start.
                     if (_skillBanner != null) _skillBanner.text = "";
                 }
                 else if (_skillBanner != null && fx.Type != SkillType.Auto)
@@ -1208,7 +1844,9 @@ namespace Resonance.App
         {
             if (_pix != null && _pix.Showing) _pix.HideNow();
             var battle = _host != null ? _host.Battle : null;
-            if (hold && battle != null && battle.Auto == AutoMode.Manual)
+            // P0 SHOWTIME: BATTLE TIME frozen for the overlay (tutorial).
+            // Full Auto + speed scale still UNKNOWN; hold is presentation, not a GL clock close.
+            if (hold && battle != null)
             {
                 battle.HoldSim = true;
                 _cutHoldT = Mathf.Max(0.35f, life);
@@ -1237,9 +1875,15 @@ namespace Resonance.App
         {
             VfxShowtime.KillAll();
             VfxJudge.KillAll();
-            VfxFeverOverlay.Show(_root, 7f);
-            VfxSpeedLines.Show(_root, 7f);
-            ShowCue(BattleCueCopy.Kind.FeverTime, 1.20f, "");
+            var battle = _host != null ? _host.Battle : null;
+            var win = BattleSim.UnknownFeverWindowSec;
+            if (battle != null && battle.FeverLeft > 0.05f)
+                win = battle.FeverLeft;
+            else if (battle != null && battle.Clocks != null && battle.Clocks.FeverWindowSec > 0.01f)
+                win = battle.Clocks.FeverWindowSec;
+            // P0 t440: rainbow arc + FEVER TIME + leftover. No 狂热时间 stamp, no edge slash lines.
+            VfxFeverOverlay.Show(_root, win);
+            if (_skillBanner != null) _skillBanner.text = "";
         }
 
         void ShowCue(BattleCueCopy.Kind kind, float life, string sub)
@@ -1336,56 +1980,100 @@ namespace Resonance.App
                     u.Def != null && u.Def.IsBoss);
                 if (fx == null) continue;
                 if (_built != null) _built.Add(fx.gameObject);
+                var slot = i;
+                fx.BindFocus(() => { if (_host != null) _host.TryFocusEnemy(slot); });
                 _fieldEnemies[i] = fx;
             }
             _fieldWave = battle.WaveIndex;
             _presentation = CharacterPresenter.BindExisting(
                 _fieldLayer != null ? _fieldLayer : _root, _fieldAllies, _fieldEnemies);
-            if (!_bossIntroPlayed)
-            {
-                for (int i = 0; i < n; i++)
-                {
-                    var u = battle.Enemies[i];
-                    if (u != null && u.Def != null && u.Def.IsBoss)
-                    {
-                        VfxBossIntro.Play(_root, u.Def.Name);
-                        _bossIntroPlayed = true;
-                        break;
-                    }
-                }
-            }
+            // P0 t65 ordinary PHASE advance is stage name + PHASE n. t100 Loki
+            // "THE MASTER OF DESIRE" is a different encounter — do not stamp it
+            // on every IsBoss (VS wave-2 EBOSS was overlapping 10_wave).
         }
 
         static string AutoWord(AutoMode m)
         {
-            if (m == AutoMode.Full) return "全自动";
-            if (m == AutoMode.Semi) return "半自动";
-            return "手动";
+            // Primary GT: "> FULL AUTO" / SEMI. SPEED already EN; keep mode EN chrome.
+            if (m == AutoMode.Full) return "> FULL AUTO";
+            if (m == AutoMode.Semi) return "> SEMI AUTO";
+            return "> MANUAL";
+        }
+
+        static int HudPhaseDuringSplash(BattleSim battle, int maxPhase)
+        {
+            if (battle == null) return 1;
+            var phaseN = Mathf.Clamp(battle.WaveIndex + 1, 1, maxPhase);
+            // P0 30fps PHASE 2 splash: HUD stays PHASE 1/3 until first-off.
+            if (WavePreview.VisibleKind == WaveCueKind.WaveAdvance)
+                phaseN = Mathf.Clamp(phaseN - 1, 1, maxPhase);
+            return phaseN;
+        }
+
+        int MaxAllyLevel(BattleSim battle)
+        {
+            if (battle == null || battle.Allies == null) return Growth.MaxLevel;
+            var max = 0;
+            for (int i = 0; i < battle.Allies.Length; i++)
+            {
+                var u = battle.Allies[i];
+                if (u == null || !u.Alive || u.Def == null) continue;
+                var lv = 1;
+                if (_host != null && _host.SaveData != null)
+                    lv = _host.SaveData.GetUnit(u.Def.Id).Level;
+                else if (u.Def.BattleLevel > 0)
+                    lv = u.Def.BattleLevel;
+                if (lv > max) max = lv;
+            }
+            return max > 0 ? max : Growth.MaxLevel;
+        }
+
+        void SetFieldSplashHidden(bool hidden)
+        {
+            if (_fieldAllies != null)
+            {
+                for (int i = 0; i < _fieldAllies.Length; i++)
+                    if (_fieldAllies[i] != null) _fieldAllies[i].SetSplashHidden(hidden);
+            }
+            if (_fieldEnemies != null)
+            {
+                for (int i = 0; i < _fieldEnemies.Length; i++)
+                    if (_fieldEnemies[i] != null) _fieldEnemies[i].SetSplashHidden(hidden);
+            }
+        }
+
+        /// <summary>Primary GT PHASE n/m. Wave0+Wave1 ⇒ 2; Wave0 only ⇒ 1.</summary>
+        static int StagePhaseCount(StageDef stage)
+        {
+            if (stage == null) return 2;
+            var w1 = stage.Wave1 != null && stage.Wave1.Length > 0;
+            return w1 ? 2 : 1;
         }
 
         static string SkillWord(SkillType t)
         {
-            if (t == SkillType.Slide) return BattleCueCopy.SlideSkill;
+            if (t == SkillType.Slide) return BattleCueCopy.SlideSkillEn;
             if (t == SkillType.Drive) return BattleCueCopy.DriveCast;
-            if (t == SkillType.Auto) return "普攻";
-            if (t == SkillType.Leader) return "队长";
-            return "点按";
+            if (t == SkillType.Auto) return "AUTO";
+            if (t == SkillType.Leader) return "LEADER";
+            return "TAP";
         }
 
         static string FxWord(string raw)
         {
-            if (string.IsNullOrEmpty(raw)) return "增益";
+            if (string.IsNullOrEmpty(raw)) return "Buff";
             var id = raw.Trim();
             if (id.Length > 3 && id.StartsWith("FX ")) id = id.Substring(3);
-            if (id == "shield") return "护盾";
-            if (id == "taunt") return "嘲讽";
-            if (id == "stun") return "眩晕";
-            if (id == "dot_flame") return "毒";
-            if (id == "atk_up" || id == "burst_atk" || id == "haste") return "增益";
-            if (id == "def_down") return "减益爆破";
+            if (id == "shield") return "Barrier";
+            if (id == "taunt") return "Taunt";
+            if (id == "stun") return "Stun";
+            if (id == "dot_flame") return "Poison";
+            if (id == "atk_up" || id == "burst_atk") return "ATK ↑";
+            if (id == "haste") return "Haste";
+            if (id == "def_down") return "Debuff Blast";
             var b = BuffCatalog.FindId(id);
             if (b != null && !string.IsNullOrEmpty(b.Name)) return b.Name;
-            return "增益";
+            return "Buff";
         }
 
         static string StripPlus(string text)

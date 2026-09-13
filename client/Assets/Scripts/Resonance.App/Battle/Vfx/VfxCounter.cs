@@ -12,7 +12,7 @@ namespace Resonance.App
         const float Life = 0.40f;
         const float TiltDeg = -22f;
         const float TwinOffsetDeg = 28f;
-        const string Word = "反击";
+        const string Word = "Reflect";
 
         public static void Play(Transform parent, Vector2 from01, Vector2 to01, Color color)
         {

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>天命之子 · 游戏开发文本</title>
+<link rel="stylesheet" href="_layout/shell.css">
+<style>
+:root{
+  --void:#050505; --gold:#CF9403; --value:#FFC400; --text:#FBFBFB;
+  --stat:#E8E8E8; --sec:#A0A0A0; --mute:#808080; --line:#2a2418; --max:1180px;
+  --fire:#D02018; --water:#1C8DE1; --wood:#2F900A; --light:#D0B33D; --dark:#9A4DB8;
+  --ok:#7dba6a; --miss:#e07070;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;background:var(--void);color:var(--text);
+  font:16px/1.55 "Noto Sans SC","Microsoft YaHei","PingFang SC",sans-serif}
+a{color:var(--value);text-decoration:none}
+a:hover{color:#fff}
+img{max-width:100%;display:block}
+button,input,select{font:inherit}
+header.top{
+  position:sticky;top:0;z-index:40;background:#0a0a0a;
+  border-bottom:1px solid #2a2208;
+}
+.top-inner{max-width:var(--max);margin:0 auto;padding:10px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.brand{display:flex;flex-direction:column;min-width:140px}
+.brand b{letter-spacing:.18em;font-size:13px;color:var(--value)}
+.brand small{color:var(--mute);font-size:11px;letter-spacing:.08em}
+.page-nav{display:flex;gap:8px 12px;flex-wrap:wrap;font-size:13px}
+.page-nav a{color:#CF9403}
+.page-nav a:hover{color:#fff}
+main{max-width:var(--max);margin:0 auto;padding:28px 20px 100px}
+.kicker{letter-spacing:.28em;color:var(--gold);font-size:11px}
+h1{font-size:clamp(28px,4.6vw,46px);line-height:1.15;margin:8px 0 12px}
+h1 span{display:block}
+.lede{font-size:17px;color:var(--stat);max-width:48em}
+.lede em{color:var(--value);font-style:normal}
+[id]{scroll-margin-top:84px}
+h2.sec{font-size:22px;color:var(--gold);margin:44px 0 12px;letter-spacing:.08em}
+.caption{font-size:12px;color:var(--mute)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.chip{font-size:12px;padding:4px 10px;border:1px solid #3a3010;border-radius:999px;color:var(--gold);background:#120e06}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g5{grid-template-columns:repeat(5,1fr)}
+.g6{grid-template-columns:repeat(6,1fr)}
+@media(max-width:900px){.g2,.g3,.g5,.g6{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.g2,.g3,.g5,.g6{grid-template-columns:1fr}}
+.kpi{
+  background:linear-gradient(180deg,#161111ee,#0c0c0cee);
+  border:1px solid var(--line);border-radius:14px;padding:14px 16px;
+}
+.kpi b{display:block;font-size:28px;color:var(--value);line-height:1.1}
+.kpi span{font-size:12px;color:var(--gold);letter-spacing:.12em}
+.kpi small{display:block;color:var(--mute);font-size:12px;margin-top:4px}
+.card{background:linear-gradient(180deg,#161111ee,#0c0c0cee);border:1px solid var(--line);border-radius:14px;padding:16px}
+.card h3{margin:0 0 10px;font-size:15px;color:var(--value)}
+.bar{display:grid;grid-template-columns:88px 1fr 52px;gap:8px;align-items:center;margin:6px 0;font-size:13px}
+.bar .t{color:var(--sec)}
+.bar .n{color:var(--value);text-align:right;font-variant-numeric:tabular-nums}
+.track{height:8px;background:#1a1408;border-radius:6px;overflow:hidden}
+.track i{display:block;height:100%;background:linear-gradient(90deg,#CF9403,#FFC400)}
+.cov{margin:8px 0}
+.cov-h{display:flex;justify-content:space-between;font-size:13px;color:var(--sec)}
+.cov-h b{color:var(--value);font-weight:600}
+.meter{height:8px;background:#1a1408;border-radius:6px;overflow:hidden;margin-top:4px}
+.meter i{display:block;height:100%;background:#7dba6a}
+.meter i.mid{background:#CF9403}
+.meter i.low{background:#e07070}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{border-bottom:1px dashed #333;padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--gold);font-weight:500}
+.ok{color:var(--ok)} .no{color:var(--miss)}
+.verb{
+  border:1px solid #5a4714;border-radius:12px;padding:12px 14px;
+  background:#0c0a06;
+}
+.verb b{display:block;color:var(--value);font-size:15px}
+.verb small{color:var(--mute);font-size:12px;letter-spacing:.12em}
+.verb p{margin:6px 0 0;font-size:13px;color:var(--sec)}
+.sys td:first-child{color:var(--value);white-space:nowrap}
+code{font:12px/1.4 Consolas,monospace;color:#FFC400}
+pre{margin:0;white-space:pre-wrap;font:13px/1.5 Consolas,monospace;color:#FFC400}
+.prio{display:inline-block;font-size:10px;letter-spacing:.1em;padding:1px 6px;border-radius:999px;border:1px solid #3a3010;color:var(--gold)}
+.prio.p0{background:#2a2208;color:#FFC400}
+.prio.p1{border-color:#3a4a18;color:#7dba6a}
+.prio.p2{border-color:#3a2418;color:#e07070}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.filters input,.filters select{
+  background:#0e0e0e;color:#eee;border:1px solid #3a3018;border-radius:8px;padding:8px 10px;
+}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">
+      <b>DESTINY CHILD</b>
+      <small>游戏开发文本 · 库存</small>
+    </div>
+    <nav class="mods" aria-label="设计模块">
+      <a href="设计手册.html">手册</a>
+      <a href="总看板.html">看板</a>
+      <a href="视觉图鉴.html">UI</a>
+      <a href="战斗与数值.html">数值</a>
+      <a href="战斗动效.html">动效</a>
+      <a href="汇总表.html">图鉴</a>
+      <a href="星云一趟.html">星云</a>
+      <a href="重构数值.html">重构</a>
+      <a href="游戏开发文本.html" class="on" aria-current="page">文本</a>
+    </nav>
+    <nav class="page-nav">
+      <a href="#stock">库存</a>
+      <a href="#kids">天子</a>
+      <a href="#buffs">Buff</a>
+      <a href="#cartas">魂卡</a>
+      <a href="#pups">人偶</a>
+      <a href="#pack">发行包</a>
+      <a href="#tax">词表</a>
+      <a href="#hud">HUD</a>
+      <a href="#ui">界面</a>
+      <a href="#write">写作</a>
+      <a href="#dont">禁写</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <p class="kicker">COPY INVENTORY · RESEARCH ≠ SHIP</p>
+  <h1><span>做成一款完整游戏，要写哪些字。</span><span>研究库存摊开，发行包另起炉灶。</span></h1>
+  <p class="lede">20 路把技能、身份、魂卡、人偶、Buff、战场 HUD、大厅、剧情、道具、经济、模式、系统、三站本地化、客户端 <code>catalog.json</code> 全盘了一遍。结论很硬：<em>纪念版能当句式和量级，不能当发行文案</em>。切片出货大约 <em>2.2k 词条</em>；内容包 1.2–1.8 万；运营期累计 4–7 万，仍低于原作中文 locale ~8.1 万。</p>
+  <div class="chips">
+    <span class="chip">研究用原文只留本目录</span>
+    <span class="chip">发行包 25 契灵 · 禁止 561 原名</span>
+    <span class="chip">P0 ≈ 2.2k keys</span>
+    <span class="chip">切片最大洞：技能描述</span>
+    <a class="chip" href="总看板.html#text">回看板 · 覆盖 KPI</a>
+    <a class="chip" href="汇总表.html">查某一句技能</a>
+  </div>
+
+  <h2 class="sec" id="stock">两本账</h2>
+  <div class="grid g2">
+    <article class="card">
+      <h3>研究库存 · 纪念版 + GameKee</h3>
+      <p class="caption">给人对照，不进 <code>catalog.json</code>。</p>
+      <div class="cov"><div class="cov-h">天子名字 <b>561 / 561</b></div><div class="meter"><i style="width:100%"></i></div></div>
+      <div class="cov"><div class="cov-h">任一技能槽有文 <b>264 / 561</b></div><div class="meter"><i class="mid" style="width:47%"></i></div></div>
+      <div class="cov"><div class="cov-h">五槽齐（普攻/点/滑/驱/队长） <b>258 / 561</b></div><div class="meter"><i class="mid" style="width:46%"></i></div></div>
+      <div class="cov"><div class="cov-h">点火三槽齐 <b>166 / 561</b></div><div class="meter"><i class="low" style="width:30%"></i></div></div>
+      <div class="cov"><div class="cov-h">魂卡特效 <b>153 / 156</b></div><div class="meter"><i style="width:98%"></i></div></div>
+      <div class="cov"><div class="cov-h">人偶名 <b>220 / 220</b></div><div class="meter"><i style="width:100%"></i></div></div>
+      <div class="cov"><div class="cov-h">Buff 名+一句 <b>93</b></div><div class="meter"><i style="width:100%"></i></div></div>
+    </article>
+    <article class="card">
+      <h3>发行包 · 契灵回响切片</h3>
+      <p class="caption">干净种子在 <code>client/Assets/Content/catalog.json</code>。</p>
+      <div class="cov"><div class="cov-h">可玩契灵名 <b>25 / 25</b></div><div class="meter"><i style="width:100%"></i></div></div>
+      <div class="cov"><div class="cov-h">技能<strong>短名</strong> <b>155 / 155</b></div><div class="meter"><i style="width:100%"></i></div></div>
+      <div class="cov"><div class="cov-h">技能<strong>描述</strong> <b>0 / 155</b></div><div class="meter"><i class="low" style="width:2%"></i></div></div>
+      <div class="cov"><div class="cov-h">第 1 章关名 <b>12 / 12</b></div><div class="meter"><i style="width:100%"></i></div></div>
+      <div class="cov"><div class="cov-h">关卡预览句 <b>0 / 12</b></div><div class="meter"><i class="low" style="width:2%"></i></div></div>
+      <div class="cov"><div class="cov-h">首页一句（硬编码 Flavor） <b>25 / 25</b></div><div class="meter"><i style="width:100%"></i></div></div>
+      <div class="cov"><div class="cov-h">图鉴短传 / 称号栏 <b>0 / 25</b></div><div class="meter"><i class="low" style="width:2%"></i></div></div>
+      <div class="cov"><div class="cov-h">法律 / 百科 / 道具说明 <b>缺</b></div><div class="meter"><i class="low" style="width:8%"></i></div></div>
+    </article>
+  </div>
+  <div class="grid g6" style="margin-top:14px">
+    <div class="kpi"><span>研究技能文</span><b>264</b><small>561 里任一槽有字</small></div>
+    <div class="kpi"><span>五槽齐</span><b>258</b><small>3★ 以下几乎全空</small></div>
+    <div class="kpi"><span>点火 U</span><b>166</b><small>5★ 158 · 4★ 9</small></div>
+    <div class="kpi"><span>Buff 名录</span><b>93</b><small>多数无百分比</small></div>
+    <div class="kpi"><span>切片词条</span><b>~2.2k</b><small>P0 出货估计</small></div>
+    <div class="kpi"><span>原作 locale</span><b>~81k</b><small>中文包量级对照</small></div>
+  </div>
+  <p class="caption">数字来自 <code>_layout/game_text/_stats.json</code>（2026-09-03 跑 <code>_stats.py</code>）。20 路细表在同目录 <code>01_skills.md</code> … <code>20_taxonomy.md</code>。</p>
+
+  <h2 class="sec" id="kids">天子技能文本 · 八槽</h2>
+  <p class="lede" style="font-size:16px">GameKee / 纪念版每人理论上 8 句：普攻、点按、点按点火、上滑、上滑点火、驱动、驱动点火、队长。wiki 5★+4★ 有独立页；3★ 以下几乎没有技能原文。技能<strong>名字</strong>（纪念版 DEFAULT/NORMAL 旁那一行）CSV 没收，只收了效果句。</p>
+  <div class="grid g2">
+    <article class="card">
+      <h3>561 总填</h3>
+      <div class="bar"><span class="t">普攻</span><div class="track"><i style="width:46%"></i></div><span class="n">258</span></div>
+      <div class="bar"><span class="t">点按</span><div class="track"><i style="width:46%"></i></div><span class="n">258</span></div>
+      <div class="bar"><span class="t">点按点火</span><div class="track"><i style="width:30%"></i></div><span class="n">167</span></div>
+      <div class="bar"><span class="t">上滑</span><div class="track"><i style="width:46%"></i></div><span class="n">260</span></div>
+      <div class="bar"><span class="t">上滑点火</span><div class="track"><i style="width:30%"></i></div><span class="n">166</span></div>
+      <div class="bar"><span class="t">驱动</span><div class="track"><i style="width:46%"></i></div><span class="n">259</span></div>
+      <div class="bar"><span class="t">驱动点火</span><div class="track"><i style="width:30%"></i></div><span class="n">166</span></div>
+      <div class="bar"><span class="t">队长</span><div class="track"><i style="width:47%"></i></div><span class="n">261</span></div>
+    </article>
+    <article class="card">
+      <h3>按星 · 点按有文</h3>
+      <div class="bar"><span class="t">5★ 282</span><div class="track"><i style="width:71%"></i></div><span class="n">201</span></div>
+      <div class="bar"><span class="t">4★ 77</span><div class="track"><i style="width:74%"></i></div><span class="n">57</span></div>
+      <div class="bar"><span class="t">3★ 99</span><div class="track"><i class="low" style="width:2%"></i></div><span class="n">0</span></div>
+      <div class="bar"><span class="t">2★ 53</span><div class="track"><i class="low" style="width:2%"></i></div><span class="n">0</span></div>
+      <div class="bar"><span class="t">1★ 50</span><div class="track"><i class="low" style="width:2%"></i></div><span class="n">0</span></div>
+      <p class="caption">3★ 只有 2 条 slide / 2 条队长漏进来。低星要技能只能再 OCR 图鉴 <code>330_3s_skills</code> 等截图，或放弃当狗粮不加描述。</p>
+    </article>
+  </div>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="verb"><small>句式</small><b>效果句，不是技能名</b><p>「对 2 名水属性敌人优先造成 725（4036）伤害 1 次 skill 充能加速：16 秒内，3 名盟友（低攻击力）+50（93.5）%」。括号里是满破/点火差分。</p></div>
+    <div class="verb"><small>条件门</small><b>PVP · 5 人巨型 BOSS · 20 人</b><p>队长技常「永远套用」。目标：随机 / 低 HP / 高攻击 / 某属性 / 某职业。完整游戏要把数字抽到系数表，句子用 <code>{dmg} {dur} {n}</code> 模板。</p></div>
+  </div>
+  <article class="card" style="margin-top:14px">
+    <h3>身份字段 · 仍缺的字</h3>
+    <table>
+      <tr><th>字段</th><th>有</th><th>空</th><th>完整游戏还要</th></tr>
+      <tr><td>展示名</td><td class="ok">561</td><td>0</td><td>称号 / 本名拆栏；编队用短名</td></tr>
+      <tr><td>wiki 名</td><td>425</td><td>136</td><td>2★/1★ 无词条；错挂 10+ 条不要盲盖</td></tr>
+      <tr><td>CV</td><td>439</td><td>122</td><td>OCR 脏（佐盒薰、藤田联）；wiki 无 CV</td></tr>
+      <tr><td>属性</td><td>507</td><td>54</td><td>UI 字典：火/水/木/光/暗</td></tr>
+      <tr><td>职业</td><td>293</td><td>268</td><td>攻击/防御/干扰/治疗/辅助</td></tr>
+      <tr><td>简介 / 口头禅 / 开始对话</td><td class="no">0 进表</td><td>561</td><td>纪念版图鉴有：名下短句、底栏「簡介」、3★+「開始對話」。OCR 过 quote 但写出 CSV 时丢掉。生日/身高/好恶格子游戏里就没有。</td></tr>
+    </table>
+    <p class="caption" style="margin-top:8px">拒绝猜的 11 个名：德拉、自睛妃、勇气带给我希望、我可是完全不知道·228、傅教的黛娜、黑炎的赫斯提亚、天子13·水、胡蘸布娃娃、持刀的戟士/屠毅者/暗毅者。GameKee 标题是韩式「称号+名」，局内常只印短名（泽卡提 ≠ 抵抗的泽卡提）。</p>
+  </article>
+
+  <h2 class="sec" id="buffs">Buff / Debuff · 93 句</h2>
+  <p>看板里那份名录是「名字 + 一句效果」。83 条没有百分比；时长多写「一定时间」。同一图标叠层：Drive &gt; Slide &gt; Tap。CSV 的 <code>kind</code> 是 82/11，看板按增益 58 / 减益 35 重分过组——以看板为准。</p>
+  <div class="grid g3">
+    <div class="kpi"><span>增益</span><b>58</b><small>输出 14 · 生存 14 · 技能向 11</small></div>
+    <div class="kpi"><span>减益</span><b>35</b><small>削弱 17 · DOT 10 · 控制 8</small></div>
+    <div class="kpi"><span>切片 effects</span><b>8</b><small>catalog.json 只有 id</small></div>
+  </div>
+  <p class="caption">完整游戏还要：HUD 两字短标、施加/解除 toast、免疫/未命中 log、叠层规则长文。花名（雪球炸弹、乱舞之刃）发行包必须新写或砍掉。wiki 20902 另有「冰冻」，CSV 丢了。</p>
+
+  <h2 class="sec" id="cartas">魂之歌牌 · 156</h2>
+  <div class="grid g2">
+    <article class="card">
+      <h3>特效句几乎齐</h3>
+      <div class="bar"><span class="t">卡名</span><div class="track"><i style="width:100%"></i></div><span class="n">156</span></div>
+      <div class="bar"><span class="t">特效</span><div class="track"><i style="width:98%"></i></div><span class="n">153</span></div>
+      <div class="bar"><span class="t">普卡初始血</span><div class="track"><i class="mid" style="width:47%"></i></div><span class="n">74</span></div>
+      <div class="bar"><span class="t">闪卡初始血</span><div class="track"><i class="mid" style="width:45%"></i></div><span class="n">70</span></div>
+      <p class="caption">5★ 134 · 4★ 13 · 3★ 9。空门那 3 张是灵魂强化素材（银河/巨大/一般的休息处），不是漏抓。</p>
+    </article>
+    <article class="card">
+      <h3>特效怎么开门</h3>
+      <p>属性门：通用 80 · 水/木 17 · 光 15 · 火 13 · 暗 11。职业门：通用 111。模式门：PVP 42 · 通用 37 · rb 29 · wb 22 · 5 人 Boss 10 · 地铁 1。</p>
+      <p class="caption">完整游戏还要：卡背 flavor、获取途径、普/闪差异说明、升级确认。发行包产品名自造（建议「契纹」），禁抄卡面名。</p>
+    </article>
+  </div>
+
+  <h2 class="sec" id="pups">人偶 · 220</h2>
+  <div class="grid g2">
+    <article class="card">
+      <h3>技能槽稀疏</h3>
+      <div class="bar"><span class="t">点按</span><div class="track"><i class="mid" style="width:38%"></i></div><span class="n">83</span></div>
+      <div class="bar"><span class="t">上滑</span><div class="track"><i class="mid" style="width:47%"></i></div><span class="n">104</span></div>
+      <div class="bar"><span class="t">驱动</span><div class="track"><i class="low" style="width:25%"></i></div><span class="n">56</span></div>
+      <div class="bar"><span class="t">队长</span><div class="track"><i class="low" style="width:22%"></i></div><span class="n">49</span></div>
+      <p class="caption">无 AUTO。低稀有度经常只有 1 槽。纪念版图鉴写 232，表少 12；SQL 253。</p>
+    </article>
+    <article class="card">
+      <h3>成长字全空</h3>
+      <p><code>lv1</code> 0 条；<code>lv70</code> 220 格只写了字面 <code>LV70</code>，不是成长描述。没有获取途径、没有场景盒 flavor。句式跟人技一样（永远套用 / 几率 / 持续），但多是挂 Buff 不是打伤害。</p>
+      <p class="caption">P2 再做人偶文案。切片不做。</p>
+    </article>
+  </div>
+
+  <h2 class="sec" id="pack">发行包已经有的字</h2>
+  <p class="lede" style="font-size:16px">Resonance / 契灵回响。C001–C025 = 5 属性 × 5 职业。敌人 E001–E005 + Boss 城门守核。技能有短名无描述。关卡有名无预览句。</p>
+  <div class="grid g2">
+    <article class="card">
+      <h3>25 契灵</h3>
+      <table>
+        <tr><th></th><th>攻击</th><th>防御</th><th>干扰</th><th>治疗</th><th>辅助</th></tr>
+        <tr><td>火</td><td>冰刃</td><td>炉心卫士</td><td>熔渣咒印</td><td>炉灰医师</td><td>灼红侍从</td></tr>
+        <tr><td>水</td><td>裂潮刃</td><td>堰门卫</td><td>深蓝咒师</td><td>潮汐祭司</td><td>冰镜使者</td></tr>
+        <tr><td>木</td><td>荆棘猎手</td><td>根墙守</td><td>毒棘使</td><td>青苔愈</td><td>森语引路者</td></tr>
+        <tr><td>光</td><td>昼锋</td><td>白昼守望</td><td>眩光缚</td><td>晨露愈</td><td>晨星歌者</td></tr>
+        <tr><td>暗</td><td>夜刃</td><td>影壁</td><td>影缚者</td><td>夜幕医师</td><td>低语引</td></tr>
+      </table>
+    </article>
+    <article class="card">
+      <h3>技能短名样例 · 冰刃</h3>
+      <table>
+        <tr><th>槽</th><th>名</th><th>缺</th></tr>
+        <tr><td>连击</td><td>刃息</td><td class="no">描述</td></tr>
+        <tr><td>点按</td><td>直斩</td><td class="no">描述</td></tr>
+        <tr><td>上滑</td><td>裂空</td><td class="no">描述</td></tr>
+        <tr><td>驱动</td><td>焚城</td><td class="no">描述</td></tr>
+        <tr><td>队长</td><td>锋势</td><td class="no">描述</td></tr>
+      </table>
+      <p class="caption">第 1 章：废都入口 → 锈轨巷 → 断桥 → 浊潮井 → 棘林边缘 → 残灯回廊 → 白昼裂口 → 影缚地窟 → 炉心外环 → 城门广场 → 守核下层 → 城门守核。章标题硬编码「第1章  废都裂口」。</p>
+    </article>
+  </div>
+  <article class="card" style="margin-top:14px">
+    <h3>客户端已经写死的按钮</h3>
+    <p>首页 GhostBtn：召唤 · 日常 · 商店 · 邮件 · 成就 · 称号 · 助战 · 休息 · 用餐 · 切磋 · 入门。编队 / 出战。普通 / 困难。确认 / 取消。胜利 / 失败（结算板写「完成」）。战斗层产品词：点按 / 上滑 / 驱动 / 连击 / 队长 · 狂热时间 · 完美/优秀/好/偏了。</p>
+    <p class="caption"><code>ScreenId</code>：Boot Home Characters Team Stage Battle Result Archive Library Deep Settings Summon Daily Shop Mail Achieve Title Friend Rest Food Pvp Tutorial Costume。多数屏只有门板，没有正文。点触台词：冰刃有 5 句，其余共用「嗯？」「……」「别闹。」「干什么。」</p>
+  </article>
+  <article class="card" style="margin-top:14px">
+    <h3 class="no">已经漏进客户端的原作味</h3>
+    <p><code>VfxBossIntro</code> 写了「欲望之主」（Ragna 头衔）。<code>BuffCatalog.marked</code> 文案含 <code>Child</code>。商店包名「魂石」是原作货币。Buff 效果句句法贴 wiki，要重写。这些进发行前必须换掉。</p>
+  </article>
+
+  <h2 class="sec" id="tax">完整游戏词表</h2>
+  <p class="lede" style="font-size:16px">不是「我们已经有什么」，是切片打到 live-ops 必须出货的全部表。每张表一个稳定 <code>id</code>，将来 CSV 用它当文件名。过滤下面这张。</p>
+  <div class="filters">
+    <input id="tq" type="search" placeholder="搜表 id / 内容" aria-label="搜索词表">
+    <select id="tp" aria-label="优先级"><option value="">全部优先级</option><option>P0</option><option>P1</option><option>P2</option></select>
+    <span class="caption" id="tcnt"></span>
+  </div>
+  <div class="card" style="overflow:auto">
+    <table id="tax-table">
+      <thead><tr><th>id</th><th>P</th><th>P0 量</th><th>来源</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr data-p="P0"><td>ui.common</td><td><span class="prio p0">P0</span></td><td>~100</td><td>HAVE+WRITE</td><td>确定 取消 关闭 返回 下一步 跳过 重试</td></tr>
+        <tr data-p="P0"><td>ui.nav</td><td><span class="prio p0">P0</span></td><td>~10</td><td>HAVE</td><td>底栏 DefaultTabs：首页 / 契灵 / 关卡 / 图录 / 书库 / 深途</td></tr>
+        <tr data-p="P0"><td>ui.home</td><td><span class="prio p0">P0</span></td><td>~100</td><td>HAVE+WRITE</td><td>体力/金/晶、快捷入口</td></tr>
+        <tr data-p="P0"><td>ui.filter</td><td><span class="prio p0">P0</span></td><td>~50</td><td>WRITE</td><td>属性 职业 星 持有 可进化</td></tr>
+        <tr data-p="P0"><td>ui.empty</td><td><span class="prio p0">P0</span></td><td>~50</td><td>WRITE</td><td>空背包、无邮件、未解锁</td></tr>
+        <tr data-p="P0"><td>ui.confirm</td><td><span class="prio p0">P0</span></td><td>~50</td><td>WRITE</td><td>高危确认（解散、十连、覆盖编队）</td></tr>
+        <tr data-p="P0"><td>ui.settings</td><td><span class="prio p0">P0</span></td><td>~100</td><td>HAVE+WRITE</td><td>BGM SFX 语言 画质 重置存档</td></tr>
+        <tr data-p="P0"><td>ui.toast</td><td><span class="prio p0">P0</span></td><td>~100</td><td>WRITE</td><td>已保存、体力不足、编队不满</td></tr>
+        <tr data-p="P0"><td>enum.element</td><td><span class="prio p0">P0</span></td><td>~10</td><td>MIX</td><td>火 水 木 光 暗</td></tr>
+        <tr data-p="P0"><td>enum.role</td><td><span class="prio p0">P0</span></td><td>~10</td><td>MIX</td><td>攻击 防御 干扰 治疗 辅助</td></tr>
+        <tr data-p="P0"><td>enum.skill_slot</td><td><span class="prio p0">P0</span></td><td>~10</td><td>WRITE</td><td>连击 / 点按 / 上滑 / 驱动 / 队长</td></tr>
+        <tr data-p="P0"><td>enum.drive_timing</td><td><span class="prio p0">P0</span></td><td>~10</td><td>WRITE</td><td>偏 / 可 / 佳 / 核（禁 GOOD）</td></tr>
+        <tr data-p="P0"><td>battle.hud</td><td><span class="prio p0">P0</span></td><td>~50</td><td>HAVE+WRITE</td><td>暂停 倍速 自动 驱动条 倒计时</td></tr>
+        <tr data-p="P0"><td>battle.banner</td><td><span class="prio p0">P0</span></td><td>~10</td><td>WRITE</td><td>上滑/驱动/狂热全屏词 · 禁 IT'S SHOWTIME</td></tr>
+        <tr data-p="P0"><td>battle.float</td><td><span class="prio p0">P0</span></td><td>~50</td><td>MIX</td><td>暴击 / 弱点 / 抵抗 / 治疗 / 免疫</td></tr>
+        <tr data-p="P0"><td>battle.result</td><td><span class="prio p0">P0</span></td><td>~50</td><td>HAVE+WRITE</td><td>完成/失败、三星、再战</td></tr>
+        <tr data-p="P0"><td>char.name</td><td><span class="prio p0">P0</span></td><td>25</td><td>HAVE</td><td>显示名（已有，扩编必须新写）</td></tr>
+        <tr data-p="P0"><td>char.title</td><td><span class="prio p0">P0</span></td><td>25</td><td>WRITE</td><td>列表副行称号</td></tr>
+        <tr data-p="P0"><td>char.tagline</td><td><span class="prio p0">P0</span></td><td>25</td><td>HAVE</td><td>首页一句 · CharacterPresenter.Flavor 已有，应收进表</td></tr>
+        <tr data-p="P0"><td>skill.name</td><td><span class="prio p0">P0</span></td><td>~150</td><td>HAVE</td><td>技能短名</td></tr>
+        <tr data-p="P0"><td>skill.desc</td><td><span class="prio p0">P0</span></td><td>~150</td><td>WRITE</td><td><strong>切片最大缺口</strong> · 模板展开效果句</td></tr>
+        <tr data-p="P0"><td>skill.desc_short</td><td><span class="prio p0">P0</span></td><td>~150</td><td>WRITE</td><td>预约盘 / 编队一行</td></tr>
+        <tr data-p="P0"><td>fx.name</td><td><span class="prio p0">P0</span></td><td>~30</td><td>MIX</td><td>状态短名（通用「攻击↑」可写）</td></tr>
+        <tr data-p="P0"><td>fx.hud</td><td><span class="prio p0">P0</span></td><td>~30</td><td>WRITE</td><td>战场两字小标</td></tr>
+        <tr data-p="P0"><td>enemy.name</td><td><span class="prio p0">P0</span></td><td>6</td><td>HAVE</td><td>废铁斥候等</td></tr>
+        <tr data-p="P0"><td>boss.name</td><td><span class="prio p0">P0</span></td><td>1</td><td>HAVE</td><td>城门守核</td></tr>
+        <tr data-p="P0"><td>stage.name</td><td><span class="prio p0">P0</span></td><td>12</td><td>HAVE</td><td>第 1 章关名；困难 12 关也要名</td></tr>
+        <tr data-p="P0"><td>stage.blurb</td><td><span class="prio p0">P0</span></td><td>12</td><td>WRITE</td><td>选关预览一句</td></tr>
+        <tr data-p="P0"><td>stage.condition</td><td><span class="prio p0">P0</span></td><td>~10</td><td>WRITE</td><td>90 秒内击破 / 无人倒地</td></tr>
+        <tr data-p="P0"><td>item.currency</td><td><span class="prio p0">P0</span></td><td>~10</td><td>WRITE</td><td>金 / 晶 / 体力 / 好感石 / 进化石</td></tr>
+        <tr data-p="P0"><td>item.material</td><td><span class="prio p0">P0</span></td><td>~20</td><td>WRITE</td><td>强化/进化/突破材料</td></tr>
+        <tr data-p="P0"><td>item.desc</td><td><span class="prio p0">P0</span></td><td>~80</td><td>WRITE</td><td>每件 1 句 + 获取</td></tr>
+        <tr data-p="P0"><td>gear.slot</td><td><span class="prio p0">P0</span></td><td>~10</td><td>WRITE</td><td>武器 防具 饰品（+第四槽）</td></tr>
+        <tr data-p="P0"><td>gear.name</td><td><span class="prio p0">P0</span></td><td>~15</td><td>WRITE</td><td>P0 每槽 5 件</td></tr>
+        <tr data-p="P0"><td>growth.level</td><td><span class="prio p0">P0</span></td><td>~20</td><td>WRITE</td><td>升级、满级、溢出</td></tr>
+        <tr data-p="P0"><td>growth.evolve</td><td><span class="prio p0">P0</span></td><td>~30</td><td>MIX</td><td>进化材料不足、星+1</td></tr>
+        <tr data-p="P0"><td>story.beat</td><td><span class="prio p0">P0</span></td><td>~150</td><td>WRITE</td><td>关前/关后短剧 · 每关约 8 行</td></tr>
+        <tr data-p="P0"><td>help.tutorial</td><td><span class="prio p0">P0</span></td><td>~20</td><td>HAVE+WRITE</td><td>点按/上滑/驱动；补狂热、克制</td></tr>
+        <tr data-p="P0"><td>help.codex</td><td><span class="prio p0">P0</span></td><td>~30</td><td>WRITE</td><td>克制、覆盖规则、Fever</td></tr>
+        <tr data-p="P0"><td>legal.ip</td><td><span class="prio p0">P0</span></td><td>~10</td><td>WRITE</td><td>非官方、无原作资产</td></tr>
+        <tr data-p="P0"><td>sys.error</td><td><span class="prio p0">P0</span></td><td>~30</td><td>WRITE</td><td>存档损坏、磁盘、缺图</td></tr>
+        <tr data-p="P1"><td>char.profile</td><td><span class="prio p1">P1</span></td><td>~80</td><td>WRITE</td><td>图鉴短传 80–160 字</td></tr>
+        <tr data-p="P1"><td>skill.desc_ign</td><td><span class="prio p1">P1</span></td><td>~50</td><td>WRITE</td><td>燃起后差分句</td></tr>
+        <tr data-p="P1"><td>story.affection</td><td><span class="prio p1">P1</span></td><td>~1k</td><td>WRITE</td><td>好感 B/A/S 个人剧</td></tr>
+        <tr data-p="P1"><td>summon.odds</td><td><span class="prio p1">P1</span></td><td>~20</td><td>WRITE</td><td>星级概率表 · 法律级必做</td></tr>
+        <tr data-p="P1"><td>carta.name</td><td><span class="prio p1">P1</span></td><td>~40</td><td>WRITE</td><td>第一批契纹 · 禁抄魂卡名</td></tr>
+        <tr data-p="P1"><td>mission.daily</td><td><span class="prio p1">P1</span></td><td>~20</td><td>WRITE</td><td>日常任务名+条件</td></tr>
+        <tr data-p="P1"><td>vo.home</td><td><span class="prio p1">P1</span></td><td>~100</td><td>WRITE</td><td>首页点击 2–4 句字幕</td></tr>
+        <tr data-p="P2"><td>mode.ragna</td><td><span class="prio p2">P2</span></td><td>~80</td><td>MIX</td><td>级 Boss · 勿用 Ragna 原名</td></tr>
+        <tr data-p="P2"><td>mode.worldboss</td><td><span class="prio p2">P2</span></td><td>~80</td><td>MIX</td><td>约 20 圆头、总量条</td></tr>
+        <tr data-p="P2"><td>mode.nebula</td><td><span class="prio p2">P2</span></td><td>~40</td><td>WRITE</td><td>星云规则；关名用生成器</td></tr>
+        <tr data-p="P2"><td>puppet.name</td><td><span class="prio p2">P2</span></td><td>~20</td><td>WRITE</td><td>禁抄人偶.csv</td></tr>
+        <tr data-p="P2"><td>ops.event_kv</td><td><span class="prio p2">P2</span></td><td>~10/期</td><td>WRITE</td><td>活动标题、倒计时副标</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="caption">全表 55+ 张见 <code>_layout/game_text/20_taxonomy.md</code>。P0 合计 ~2.2k keys；P1 累计 12k–18k；P2 累计 40k–70k。公会、真钱 IAP、联动名：不做。</p>
+
+  <h2 class="sec" id="hud">战场这一分钟要念的字</h2>
+  <div class="grid g2">
+    <article class="card">
+      <h3>原作录像里出现过</h3>
+      <p>TAP FULL · SLIDE/DRIVE READY · FEVER TIME · IT'S SHOWTIME · READY TO RUMBLE · GOOD BUTTON · PERFECT 150% · WARNING · PHASE · SPEED · FULL AUTO · PAUSE · COMBO · WeakPoint · Critical · 戰鬥開始 · 擊滅</p>
+      <p class="caption">Cut-in 英文是原作皮。发行包禁止原样贴。</p>
+    </article>
+    <article class="card">
+      <h3>产品词（已在客户端）</h3>
+      <p>点按 / 上滑 / 驱动 / 连击 / 队长 · 狂热时间 · 完美 / 优秀 / 好 / 偏了 · 开演 / 就绪 / 碾压 · 警告 · 暂停 · 手动 / 半自动 / 全自动 · 完成 / 失败</p>
+      <p class="caption">还要统一：开战 vs 开演、胜利 vs 完成；去掉残留 GOOD / PHASE；补「敌方总血」「冷却 n」「n% 到狂热」。</p>
+    </article>
+  </div>
+
+  <h2 class="sec" id="ui">大厅与系统屏</h2>
+  <div class="grid g2">
+    <article class="card">
+      <h3>三套底栏，不要混</h3>
+      <p class="caption">纪念版只在首页和编队出现六页签。客户端已经换成自造词。</p>
+      <table>
+        <tr><th>页</th><th>可见字</th><th>截图</th></tr>
+        <tr><td>首頁</td><td>設定、選擇Child</td><td>001_home</td></tr>
+        <tr><td>Child</td><td>LEADER、戰鬥力、詳細</td><td>010 / 100</td></tr>
+        <tr><td>魔界溫泉</td><td>溫泉圖鑑、變更檢視</td><td>070–076</td></tr>
+        <tr><td>圖鑑</td><td>Child / 魂之歌牌 / 人偶 / 造型</td><td>080 / 084 / 085</td></tr>
+        <tr><td>圖書館</td><td>主要 / 特別 / 覺醒 / 其他</td><td>090</td></tr>
+        <tr><td>夏娃的冒險</td><td>标题；GAME START 未开</td><td>095</td></tr>
+      </table>
+      <p class="caption">客户端底栏：首页 / 契灵 / 关卡 / 图录 / 书库 / 深途。详情右缘：圖庫模式 · 變更造型 · 詳細能力。装备空态：「未裝備任何物品。」技能槽印刷 DEFAULT / NORMAL / SLIDE / DRIVE / LEADER BUFF。</p>
+    </article>
+    <article class="card">
+      <h3>完整游戏还缺的屏文</h3>
+      <table>
+        <tr><th>块</th><th>研究侧</th><th>发行侧</th></tr>
+        <tr><td>剧情对白</td><td class="no">wiki 几乎没抓正文</td><td>每关 8 行短剧要新写</td></tr>
+        <tr><td>装备名</td><td class="no">图鉴几乎只有图</td><td>P0 每槽 5 件自造</td></tr>
+        <tr><td>召唤/商店</td><td>运营期 Home 有体力钻石</td><td>切片禁付费；P1 要概率公示</td></tr>
+        <tr><td>邮件/成就</td><td>未拆表</td><td>本地假邮件模板</td></tr>
+        <tr><td>点火教程</td><td class="ok">wiki_ignition_*.txt 有长文</td><td>只收规则，专名全换</td></tr>
+        <tr><td>三语</td><td>GameKee 三站都是<strong>简体攻略</strong>，不是日/韩官文。韩文在 SQL / locale.pck，未拆。</td><td>先发 zh-Hans；ja/ko/en 空表占位，不要用 wiki 绰号当官名</td></tr>
+      </table>
+    </article>
+  </div>
+
+  <h2 class="sec" id="write">P0 写作顺序</h2>
+  <div class="card">
+    <ol>
+      <li><strong>枚举 + 通用铬 + 战场 HUD</strong> — 屏幕先能读。产品词用点按/上滑/驱动，不要 TAP 当玩家字。</li>
+      <li><strong>技能模板 + 30 个效果名</strong> — 「对 {target} 造成 {dmg}」「{dur} 秒内 {buff}」。数字走 catalog，禁止把伤害写死在散文里。</li>
+      <li><strong>25 契灵 × 5 槽描述</strong> — 切片最大内容洞。短名已有（刃息/直斩/裂空…）。</li>
+      <li><strong>12 关预览句 + 一章短剧</strong> — 关名已有。每关约 8 行。</li>
+      <li><strong>货币/材料/养成确认</strong> — 金/晶/体力自造；不要 Crystal、Onyx 原名。</li>
+      <li><strong>入门扩到狂热与克制</strong> — TutorialBoard 现在只有三页。</li>
+      <li><strong>法律三句</strong> — 非官方、无原作资产、单机无账号。设置页常驻。</li>
+    </ol>
+    <p class="caption">落盘：<code>key,zh-Hans,en,notes,priority</code>。技能宽表 <code>id,slot,name_key,desc_key</code>，系数留 catalog。P1 再动概率公示、图鉴长传、好感剧、第一批契纹。</p>
+  </div>
+  <article class="card" style="margin-top:14px">
+    <h3>系统句种子（干净中文，可直接进表）</h3>
+<pre>app.title          契灵回响
+app.subtitle       五人同核 · 本机单机
+legal.ip.1         本作为非官方作品，不含原作角色、原画或配音。
+legal.ip.2         研究资料只存在文档目录，不会打进安装包。
+legal.privacy      单机本地存档，不创建账号，不上传数据。
+legal.age          本作品含战斗与奇幻形象。请自行确认适龄。
+sys.save.new       将在本机创建新进度。
+sys.save.broke     存档无法读取。要新建一份吗？
+ui.confirm.retreat 撤退将记为失败，并消耗本次体力。
+battle.ko.party    全队退场
+battle.banner.slide 全场开演
+battle.banner.drive 核击
+battle.banner.fever 狂热窗
+enum.drive.perfect  核
+help.codex.elem     火克木、木克水、水克火。光与暗互为弱点。</pre>
+  </article>
+
+  <h2 class="sec" id="dont">不要写进发行包</h2>
+  <div class="grid g2">
+    <article class="card">
+      <h3 class="no">禁</h3>
+      <ul>
+        <li>561 天子名、技能 OCR、魂卡/人偶卡面名</li>
+        <li><code>IT'S SHOWTIME</code>、<code>S CLASS</code>、Child、Soul Carta、Ragna Break 原口号</li>
+        <li>韩文 SQL 名、locale.pck 任意原文</li>
+        <li>wiki 串行名（哀悲的索卡挂到忍者琪隆那种）</li>
+        <li>真钱、模糊概率、联动角色</li>
+        <li>把伤害数字只写在技能散文里</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3 class="ok">可收</h3>
+      <ul>
+        <li>属性循环、五职业、四技能槽、Drive&gt;Slide&gt;Tap 覆盖</li>
+        <li>Buff 93 的<strong>分类</strong>（输出/生存/控制/DOT）</li>
+        <li>关卡套数、道具 category、locale <strong>条数</strong></li>
+        <li>技能句式骨架（对 n 名、持续 t 秒、永远套用）</li>
+        <li>点火规则（四核、红字 ATK/CRT/AGL）——专名全换</li>
+      </ul>
+    </article>
+  </div>
+
+  <p class="caption" style="margin-top:28px">查某一句原文去 <a href="汇总表.html">图鉴</a>。人数克制 Buff 去 <a href="总看板.html">看板</a>。25 人公式去 <a href="重构数值.html">重构</a>。细表：<code>_layout/game_text/</code>。</p>
+</main>
+<script>
+(function(){
+  const q = document.getElementById('tq');
+  const p = document.getElementById('tp');
+  const cnt = document.getElementById('tcnt');
+  const rows = [...document.querySelectorAll('#tax-table tbody tr')];
+  function draw(){
+    const qq = (q.value||'').trim().toLowerCase();
+    const pp = p.value;
+    let n = 0;
+    rows.forEach(r => {
+      const hitP = !pp || r.getAttribute('data-p') === pp;
+      const hitQ = !qq || r.textContent.toLowerCase().includes(qq);
+      const on = hitP && hitQ;
+      r.classList.toggle('hidden', !on);
+      if (on) n++;
+    });
+    cnt.textContent = n + ' / ' + rows.length;
+  }
+  q.addEventListener('input', draw);
+  p.addEventListener('change', draw);
+  draw();
+})();
+</script>
+</body>
+</html>

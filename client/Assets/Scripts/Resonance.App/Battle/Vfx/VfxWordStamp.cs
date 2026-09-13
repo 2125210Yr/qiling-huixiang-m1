@@ -50,11 +50,18 @@ namespace Resonance.App
 
         static bool OwnedByChannelCue(string title)
         {
-            return title == "上滑" || title == "SHOWTIME"
-                || title == "驱动" || title == "就绪？"
+            return title == "上滑" || title == "SHOWTIME" || title == "IT'S SHOWTIME!!"
+                || title == "SLIDE SKILL" || title == BattleCueCopy.SlideSkillEn
+                || title == "驱动" || title == "就绪？" || title == "驱动就绪"
+                || title == BattleCueCopy.DriveCast || title == BattleCueCopy.DriveReady
+                || title == BattleCueCopy.DriveReadyPortrait || title == BattleCueCopy.DriveSelect
                 || title == "完美" || title == "优秀" || title == "好" || title == "失误"
-                || title == "狂热时间" || title == "警告"
-                || title == "驱动选择";
+                || title == BattleCueCopy.QtePerfect || title == BattleCueCopy.QteGreat
+                || title == BattleCueCopy.QteGood || title == BattleCueCopy.QteBad
+                || title == "狂热时间" || title == BattleCueCopy.FeverTimeEn
+                || title == "警告" || title == BattleCueCopy.EnemyWarn
+                || title == "驱动选择" || title == BattleCueCopy.BattleStart
+                || title == BattleCueCopy.DriveCrushEn;
         }
 
         void Build(string title, string sub, Color ink, float life)

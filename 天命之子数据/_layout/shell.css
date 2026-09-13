@@ -1,0 +1,21 @@
+/* Shared module switcher — 手册 / 看板 / UI / 数值 / 动效 / 图鉴 / 星云 / 重构 / 文本 */
+.mods{
+  display:flex;gap:6px;flex-wrap:wrap;align-items:center;
+}
+.mods a{
+  color:#CF9403;text-decoration:none;font-size:13px;line-height:1;
+  padding:7px 14px;border-radius:999px;border:1px solid #3a3018;
+  background:transparent;white-space:nowrap;
+}
+.mods a:hover{color:#fff;border-color:#5c4a10;background:#1a1408}
+.mods a.on,.mods a[aria-current="page"]{
+  color:#111;background:#FFC400;border-color:#FFC400;font-weight:700
+}
+.mods a.ghost{opacity:.85}
+.page-nav{
+  display:flex;gap:8px 12px;flex-wrap:wrap;align-items:center;
+  font-size:13px;
+}
+.page-nav a{color:#CF9403;text-decoration:none}
+.page-nav a:hover{color:#fff}
+header .mods{flex:1}

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>天命之子 · 设计手册</title>
+<link rel="stylesheet" href="_layout/shell.css">
+<style>
+:root{
+  --void:#050505; --gold:#CF9403; --value:#FFC400; --text:#FBFBFB;
+  --stat:#E8E8E8; --sec:#A0A0A0; --mute:#808080; --line:#2a2418; --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;background:var(--void);color:var(--text);
+  font:16px/1.6 "Noto Sans SC","Microsoft YaHei","PingFang SC",sans-serif}
+a{color:var(--value);text-decoration:none}
+a:hover{color:#fff}
+img{max-width:100%;display:block}
+header.top{
+  position:sticky;top:0;z-index:40;
+  background:linear-gradient(#0a0a0ae8,#0a0a0acc);backdrop-filter:blur(12px);
+  border-bottom:1px solid #2a2208;
+}
+.top-inner{max-width:var(--max);margin:0 auto;padding:10px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.brand{display:flex;flex-direction:column;min-width:140px}
+.brand b{letter-spacing:.18em;font-size:13px;color:var(--value)}
+.brand small{color:var(--mute);font-size:11px;letter-spacing:.08em}
+main{max-width:var(--max);margin:0 auto;padding:36px 20px 100px}
+.kicker{letter-spacing:.28em;color:var(--gold);font-size:11px}
+h1{font-size:clamp(32px,5vw,52px);line-height:1.15;margin:8px 0 16px}
+h1 span{display:block}
+.lede{font-size:18px;color:var(--stat);max-width:38em}
+.lede em{color:var(--value);font-style:normal}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:1fr 1fr}
+.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){
+  .g2,.g4{grid-template-columns:1fr}
+  .mod.wide{grid-template-columns:1fr !important}
+  .mod.wide .shot{height:120px;grid-template-columns:120px 120px 1fr}
+}
+.mod{
+  display:flex;flex-direction:column;gap:12px;
+  background:linear-gradient(180deg,#161111ee,#0c0c0cee);
+  border:1px solid var(--line);border-radius:16px;padding:0;overflow:hidden;
+  color:inherit;
+}
+.mod:hover{border-color:#5a4714}
+.mod.wide{display:grid;grid-template-columns:minmax(220px,1fr) 1.4fr;margin-top:16px}
+.mod .shot{aspect-ratio:16/10;background:#000;overflow:hidden;display:grid;grid-template-columns:1fr 1fr 1fr}
+.mod .shot img{width:100%;height:100%;object-fit:cover;object-position:top}
+.mod.wide .shot{aspect-ratio:auto;height:168px;grid-template-columns:168px 168px 1fr}
+.mod.wide .shot img{height:168px;object-position:center 20%}
+.mod .body{padding:16px 18px 20px}
+.mod h2{margin:0 0 6px;font-size:22px;color:var(--value)}
+.mod .en{display:block;font-size:11px;letter-spacing:.2em;color:var(--gold);margin-bottom:4px}
+.mod p{margin:0 0 10px;color:var(--sec);font-size:14px}
+.mod ul{margin:0;padding:0 0 0 18px;color:var(--stat);font-size:14px}
+.mod .go{
+  display:inline-flex;margin-top:12px;padding:8px 16px;border-radius:999px;
+  background:linear-gradient(#fdda00,#ffb200);color:#111;font-weight:700;font-size:13px
+}
+.mod.gold{border-color:#5a4714}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:12px}
+th,td{border-bottom:1px dashed #333;padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--gold);font-weight:500}
+.card{background:linear-gradient(180deg,#161111ee,#0c0c0cee);border:1px solid var(--line);border-radius:14px;padding:16px;margin:18px 0}
+.caption{font-size:12px;color:var(--mute)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.chip{font-size:12px;padding:4px 10px;border:1px solid #3a3010;border-radius:999px;color:var(--gold);background:#120e06}
+h2.sec{font-size:22px;color:var(--gold);margin:48px 0 12px;letter-spacing:.08em}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">
+      <b>DESTINY CHILD</b>
+      <small>设计手册 · 研究用</small>
+    </div>
+    <nav class="mods" aria-label="设计模块">
+      <a href="设计手册.html" class="on" aria-current="page">手册</a>
+      <a href="总看板.html">看板</a>
+      <a href="视觉图鉴.html">UI</a>
+      <a href="战斗与数值.html">数值</a>
+      <a href="战斗动效.html">动效</a>
+      <a href="汇总表.html">图鉴</a>
+      <a href="星云一趟.html">星云</a>
+      <a href="重构数值.html">重构</a>
+      <a href="游戏开发文本.html">文本</a>
+    </nav>
+    <span class="caption">语法可复用 · 原作造型不进发行包</span>
+  </div>
+</header>
+<main>
+  <p class="kicker">CLEAN-ROOM HANDBOOK</p>
+  <h1><span>看板看齐，模块分工。</span><span>顶栏随时换，不再翻来翻去。</span></h1>
+  <p class="lede">以前视觉、公式、录像帧、561 头像散在好几页。现在收成一本手册：<em>看板先看现有的一切</em>，<em>UI 管长什么样</em>，<em>数值管公式和面板</em>，<em>动效管节奏和全屏词</em>，<em>图鉴管查人</em>，<em>文本管技能和系统要写哪些字</em>。下面的卡就是入口。</p>
+  <div class="chips">
+    <span class="chip">纪念版截图作证据</span>
+    <span class="chip">GameKee 三站作研究</span>
+    <span class="chip">YouTube 三支战斗逐帧</span>
+    <span class="chip">561 天子对齐纪念版图鉴</span>
+    <a class="chip" href="总看板.html">总看板 · 人数克制 Buff</a>
+    <a class="chip" href="游戏开发文本.html">游戏开发文本 · 文案缺口</a>
+  </div>
+
+  <div class="grid g2" style="margin-top:36px">
+    <a class="mod gold" href="视觉图鉴.html">
+      <div class="shot">
+        <img src="../docs/reference/mobile-archive/screenshots/001_home.png" alt="Home">
+        <img src="../docs/reference/mobile-archive/screenshots/010_character_team.png" alt="编队">
+        <img src="../docs/reference/gamekee/_combined/battle_refs/crop_prebattle.png" alt="进战">
+      </div>
+      <div class="body">
+        <span class="en">01 · INTERFACE</span>
+        <h2>UI 设计</h2>
+        <p>色板、六页签、组件铬、Home 和战场各用哪一套皮。学语法，不抄脸。</p>
+        <ul>
+          <li>三档金：古董铬 / 战斗力黄 / 确认柠檬</li>
+          <li>布局：角色是光源，UI 贴右缘和底</li>
+          <li>战斗铬：圆台、拱形血、五圆头像</li>
+          <li>禁区：不要做成胸像圆框或回合菜单</li>
+        </ul>
+        <span class="go">打开 UI 模块</span>
+      </div>
+    </a>
+    <a class="mod gold" href="战斗与数值.html">
+      <div class="shot">
+        <img src="../docs/reference/gamekee/_combined/battle_refs/kr_ign_01.png" alt="点火">
+        <img src="_crop_stats.png" alt="面板">
+        <img src="../docs/reference/gamekee/_combined/battle_refs/crop_hud.png" alt="Fever 条">
+      </div>
+      <div class="body">
+        <span class="en">02 · NUMBERS</span>
+        <h2>数值设计</h2>
+        <p>伤害公式、属性克制、点火石、天子/魂卡/人偶面板。这页是表，不是皮肤。</p>
+        <ul>
+          <li>TS / SS / Fever 实测公式</li>
+          <li>克制 1.4 / 1.0 / 0.7，暴击再加一档</li>
+          <li>点火红字规则，不是每颗石头的完整表</li>
+          <li>覆盖审计：哪些齐、哪些空</li>
+        </ul>
+        <span class="go">打开数值模块</span>
+      </div>
+    </a>
+    <a class="mod gold" href="战斗动效.html">
+      <div class="shot">
+        <img src="../docs/reference/gamekee/_combined/battle_vids/crops/ragna_showtime.jpg" alt="SHOWTIME">
+        <img src="../docs/reference/gamekee/_combined/battle_vids/crops/drive_qte.jpg" alt="Drive QTE">
+        <img src="../docs/reference/gamekee/_combined/battle_vids/crops/ragna_fever.jpg" alt="Fever">
+      </div>
+      <div class="body">
+        <span class="en">03 · MOTION</span>
+        <h2>动效设计</h2>
+        <p>三支 YouTube 的中缝裁切 + 12fps 连拍。写的是节奏和全屏词，不是数值。</p>
+        <ul>
+          <li>TAP 只亮环；Slide 才 SHOWTIME</li>
+          <li>Drive 是底中橙圆 GOOD BUTTON，Perfect = 150%</li>
+          <li>Fever / WARNING / 擊滅 各一张皮</li>
+          <li>主线·困难·星云 / Ragna / 世界王 换皮对照</li>
+        </ul>
+        <span class="go">打开动效模块</span>
+      </div>
+    </a>
+    <a class="mod gold" href="汇总表.html">
+      <div class="shot">
+        <div style="grid-column:1/-1;display:grid;place-items:center;color:#FFC400;letter-spacing:.2em;font-size:18px;background:#0a0a0a">561 · 名 · 属性 · 技能</div>
+      </div>
+      <div class="body">
+        <span class="en">04 · CATALOG</span>
+        <h2>图鉴设计</h2>
+        <p>纪念版 561 人名录。只留名字、属性、职业、面板和技能文本，不放头像。魂卡、人偶数值在 UI 附录和看板。</p>
+        <ul>
+          <li>5★ 282 · 4★ 77 · 3★ 99 · 2★ 53 · 1★ 50</li>
+          <li>按属性 / 稀有度筛，搜名字或技能</li>
+          <li>头像只在 UI / 动效页作语法样本</li>
+          <li>完整可排序表就是这一页</li>
+        </ul>
+        <span class="go">打开图鉴模块</span>
+      </div>
+    </a>
+  </div>
+
+  <a class="mod gold wide" href="星云一趟.html">
+    <div class="shot" style="grid-template-columns:1fr 1fr 1fr;min-height:160px">
+      <img src="../docs/reference/gamekee/_combined/battle_vids/crops/tap_hud.jpg" alt="TAP HUD">
+      <img src="../docs/reference/gamekee/_combined/battle_vids/crops/drive_qte.jpg" alt="Drive">
+      <img src="../docs/reference/gamekee/_combined/battle_vids/crops/kr_fever.jpg" alt="Fever">
+    </div>
+    <div class="body">
+      <span class="en">05 · PROPOSAL</span>
+      <h2>星云一趟</h2>
+      <p>肉鸽怎么进 DC：局外照旧养成五人，局内把星云变成 8～12 个点。打完三选一，只拧 TAP / SLIDE / DRIVE / FEVER。出来词条清零。示意页用名字和战场裁图，不贴角色头像。</p>
+      <ul>
+        <li>不是 12 人、不是拼点、不是换底栏</li>
+        <li>主线 / 日常 / Ragna 都不加这层</li>
+        <li>示意网页，不是可玩客户端</li>
+      </ul>
+      <span class="go">打开星云示意</span>
+    </div>
+  </a>
+
+  <a class="mod gold wide" href="游戏开发文本.html">
+    <div class="shot" style="grid-template-columns:1fr 1fr 1fr;min-height:160px">
+      <div style="display:grid;place-items:center;color:#FFC400;letter-spacing:.16em;font-size:16px;background:#0a0a0a">264 · 技能文</div>
+      <div style="display:grid;place-items:center;color:#FFC400;letter-spacing:.16em;font-size:16px;background:#0a0a0a">93 · Buff</div>
+      <div style="display:grid;place-items:center;color:#FFC400;letter-spacing:.16em;font-size:16px;background:#0a0a0a">2.2k · P0 词条</div>
+    </div>
+    <div class="body">
+      <span class="en">06 · COPY</span>
+      <h2>游戏开发文本</h2>
+      <p>做成一款完整游戏要写哪些字：技能描述、HUD、大厅、剧情、道具、法律。纪念版当句式和量级，发行包另起炉灶。</p>
+      <ul>
+        <li>天子八槽 258 套齐，3★ 以下几乎空</li>
+        <li>切片最大洞：25 人技能描述 0 / 155</li>
+        <li>P0 ≈ 2.2k 词条；P1 1.2–1.8 万</li>
+        <li>561 原名和 IT'S SHOWTIME 不进包</li>
+      </ul>
+      <span class="go">打开文本模块</span>
+    </div>
+  </a>
+
+  <h2 class="sec">哪一页写什么</h2>
+  <div class="card">
+    <table>
+      <tr><th>你要找</th><th>去哪</th><th>不要去</th></tr>
+      <tr><td>颜色、按钮、六页签、Home 布局</td><td><a href="视觉图鉴.html">UI</a></td><td>数值页没有色板</td></tr>
+      <tr><td>公式、克制、点火、HP/ATK 表</td><td><a href="战斗与数值.html">数值</a></td><td>图鉴墙不拿来当公式书</td></tr>
+      <tr><td>SHOWTIME、Drive 圆钮、Fever 叠字、WARNING</td><td><a href="战斗动效.html">动效</a></td><td>UI 页的 HUD 线框只是示意</td></tr>
+      <tr><td>人数、克制、Buff、覆盖缺口一张图</td><td><a href="总看板.html">看板</a></td><td>不要去翻五张表对人数</td></tr>
+      <tr><td>某个人叫什么、长什么样、技能原文</td><td><a href="汇总表.html">图鉴</a></td><td>动效页不按角色检索</td></tr>
+      <tr><td>主线 / 困难 / 星云 / Ragna / 世界王 差在哪</td><td><a href="战斗动效.html#modes">动效 · 模式</a></td><td>困难和星云仍缺录像</td></tr>
+      <tr><td>发行包用哪套公式和 25 人</td><td><a href="重构数值.html">重构</a></td><td>不要把 561 原名写进 catalog.json</td></tr>
+      <tr><td>肉鸽怎么放进星云、词条拧哪四根弦</td><td><a href="星云一趟.html">星云一趟</a></td><td>不要去 Limbus 那套钟；这是提案示意</td></tr>
+      <tr><td>技能原文覆盖、Buff 名、魂卡特效、发行包能写哪句</td><td><a href="游戏开发文本.html">文本</a></td><td>不要把 561 原文粘进 catalog.json；看板只有覆盖率</td></tr>
+      <tr><td>和韩服单机包对没对上</td><td><a href="战斗与数值.html#offline">数值 · 私服核验</a></td><td>不要拿韩文 SQL 名覆盖纪念版名</td></tr>
+    </table>
+    <p class="caption" style="margin-top:12px">攻略原文仍在 <a href="三站攻略目录.html">三站攻略目录.html</a>。那是资料库，不是设计模块。单机包核验笔记：<a href="_extract/offline_pack_crosscheck.md">offline_pack_crosscheck.md</a>。</p>
+  </div>
+
+  <h2 class="sec">建议阅读顺序</h2>
+  <div class="card">
+    <ol>
+      <li><strong>看板</strong> — 先看人数、克制、Buff、哪些齐哪些空。</li>
+      <li><strong>UI</strong> — 先把铬和舞台看懂，避免一上手做成另一款游戏。</li>
+      <li><strong>动效</strong> — 再看战场一分钟里字和切镜怎么跳。Drive 用圆钮，不要用横条。</li>
+      <li><strong>数值</strong> — 对照公式和覆盖表，空的就标空，不要补假数字。</li>
+      <li><strong>图鉴</strong> — 查具体人的名字、属性、技能。头像不在这一页。</li>
+      <li><strong>星云一趟</strong> — 如果在问肉鸽怎么进 DC，点着走一遍。那是提案，不是第五套战斗。</li>
+      <li><strong>文本</strong> — 看板看覆盖率，再打开文本页对槽位、乱码名和 P0 写作顺序。561 原文不进发行包。</li>
+    </ol>
+    <p class="caption">韩服单机 1.1 已对过：561 对纪念版图鉴成立，不是韩服完整表；面板数字对不上 SQL 裸装；<code>wiki_name</code> 有 55 条串行。详见数值模块「私服核验」。</p>
+  </div>
+</main>
+</body>
+</html>

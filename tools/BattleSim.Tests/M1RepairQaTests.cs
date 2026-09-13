@@ -433,6 +433,30 @@ namespace Resonance.Tests
             };
         }
 
+        [Fact]
+        public void CloneSkillKeepsExternalSlideRankSlots()
+        {
+            Catalog.BuildBuiltin();
+            var proto = Catalog.TrySkill("C001_slide");
+            Assert.NotNull(proto);
+            var filled = Catalog.CloneSkill(proto);
+            filled.SlideRank = 7;
+            filled.SlideSkillLv = 10;
+            filled.SlideSkillLvMax = 10;
+            var again = Catalog.CloneSkill(filled);
+            Assert.Equal(7, again.SlideRank);
+            Assert.Equal(10, again.SlideSkillLv);
+            Assert.Equal(10, again.SlideSkillLvMax);
+            Assert.Equal(0, proto.SlideRank);
+
+            var sim = new BattleSim(new[] { "C001" }, 0, 1) { Deterministic = true };
+            sim.OverlaySkill("C001_slide", filled);
+            sim.Allies[0].Charge = 100f;
+            Assert.True(sim.TrySlide(0));
+            Assert.Contains(sim.Casts, fx =>
+                fx.Type == SkillType.Slide && fx.SlideRank == 7 && fx.SlideSkillLv == 10 && fx.SlideSkillLvMax == 10);
+        }
+
         static void ArmFever(BattleSim sim)
         {
             sim.FeverActive = true;

@@ -1,0 +1,40 @@
+{
+ "Version": 3,
+ "FileReferences": {
+  "Moc": "model.moc3",
+  "Textures": [
+   "textures/texture_00.png"
+  ],
+  "DisplayInfo": "model.cdi3.json",
+  "Motions": {
+   "Attack": [
+    {
+     "File": "motions/c397_02_attack.motion3.json",
+     "FadeInTime": 1.0,
+     "FadeOutTime": 1.0
+    }
+   ],
+   "Banner": [
+    {
+     "File": "motions/c397_02_banner.motion3.json",
+     "FadeInTime": 1.0,
+     "FadeOutTime": 1.0
+    }
+   ],
+   "Hit": [
+    {
+     "File": "motions/c397_02_hit.motion3.json",
+     "FadeInTime": 1.0,
+     "FadeOutTime": 1.0
+    }
+   ],
+   "Idle": [
+    {
+     "File": "motions/c397_02_idle.motion3.json",
+     "FadeInTime": 1.0,
+     "FadeOutTime": 1.0
+    }
+   ]
+  }
+ }
+}

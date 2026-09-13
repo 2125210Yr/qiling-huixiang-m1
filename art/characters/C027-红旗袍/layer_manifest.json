@@ -1,0 +1,145 @@
+{
+  "character_id": "C027",
+  "name": "红旗袍",
+  "source": {
+    "reference_png": "reference.png",
+    "reference_src_jpg": "reference-src.jpg",
+    "work_canvas": "reference-work.png",
+    "note": "546x292 elevator screenshot, letterboxed then upscaled 4x to 2176x1168 for splitting"
+  },
+  "composite": {
+    "rest": "layers/composite.png",
+    "method": "rembg:u2net + GrabCut refine + colour/zone plates",
+    "canvas": [2176, 1168]
+  },
+  "draw_order_back_to_front": [
+    "bg_elevator_doors",
+    "bg_elevator_panel",
+    "hair_back",
+    "leg_stand",
+    "torso",
+    "dress",
+    "leg_kick",
+    "anklet",
+    "arm_hip",
+    "head",
+    "hair_front",
+    "horn_l",
+    "horn_r"
+  ],
+  "parts": [
+    {
+      "id": "bg_elevator_doors",
+      "role": "background",
+      "status": "missing",
+      "notes": "Dark red sliding doors behind the figure. Not auto-extracted (stays in work plate)."
+    },
+    {
+      "id": "bg_elevator_panel",
+      "role": "background",
+      "status": "missing",
+      "notes": "Right-side control panel with lit buttons and floor letter R."
+    },
+    {
+      "id": "hair_back",
+      "role": "hair",
+      "file": "layers/hair_back.png",
+      "status": "coarse",
+      "notes": "Long black/purple mass behind torso. Fragmented; needs repaint + underpaint scalp."
+    },
+    {
+      "id": "leg_stand",
+      "role": "leg",
+      "file": "layers/leg_stand.png",
+      "status": "coarse",
+      "notes": "Standing leg visible through high slit. Underpaint thigh under dress panel."
+    },
+    {
+      "id": "torso",
+      "role": "body",
+      "file": "layers/torso.png",
+      "status": "coarse",
+      "notes": "Chest/waist skin column between arms. Breathing mesh target."
+    },
+    {
+      "id": "dress",
+      "role": "clothing",
+      "file": "layers/dress.png",
+      "status": "coarse",
+      "notes": "Red cheongsam silk. Should later split into bodice + hem panels for slit physics."
+    },
+    {
+      "id": "leg_kick",
+      "role": "leg",
+      "file": "layers/leg_kick.png",
+      "status": "coarse",
+      "notes": "Raised barefoot leg + sole toward camera. Strongest foreground plate; anklet currently baked in."
+    },
+    {
+      "id": "anklet",
+      "role": "accessory",
+      "status": "missing",
+      "notes": "Thin string anklet on kicked ankle. Still fused into leg_kick; cut by hand for independent sway."
+    },
+    {
+      "id": "arm_hip",
+      "role": "arm",
+      "file": "layers/arm_hip.png",
+      "status": "coarse",
+      "notes": "Arm with hand on hip (viewer right). May need upper/forearm/hand split for Cubism."
+    },
+    {
+      "id": "head",
+      "role": "face",
+      "file": "layers/head.png",
+      "status": "coarse",
+      "notes": "Face + neck stub only. No separate eye/brow/mouth plates yet."
+    },
+    {
+      "id": "hair_front",
+      "role": "hair",
+      "file": "layers/hair_front.png",
+      "status": "coarse",
+      "notes": "Bangs and face-framing locks. Underpaint forehead behind bangs."
+    },
+    {
+      "id": "horn_l",
+      "role": "headwear",
+      "file": "layers/horn_l.png",
+      "status": "unreliable",
+      "notes": "Auto geometric spike (parabola baseline). VERIFY — left tip may be a false positive; cut by hand if wrong."
+    },
+    {
+      "id": "horn_r",
+      "role": "headwear",
+      "file": "layers/horn_r.png",
+      "status": "unreliable",
+      "notes": "Auto geometric spike. VERIFY before rigging; horns share near-black with hair at this resolution."
+    }
+  ],
+  "underpaint_required": [
+    "scalp behind bangs",
+    "forehead behind front hair",
+    "neck inside cheongsam collar",
+    "thigh inside high-slit dress panels",
+    "shoulder inside dress edge at arm_hip",
+    "mouth interior (larger than rest opening) once face is redrawn"
+  ],
+  "quality": {
+    "source_resolution": "low (video frame ~546x292)",
+    "usable_for": "blocking / Live2D layer plan / paint-over guide",
+    "not_usable_for": "final Cubism import without redraw",
+    "splitter": "split_layers.py",
+    "alpha_method": "rembg:u2net+grabcut",
+    "known_issues": [
+      "Source is heavily compressed; embroidery and edges are soft after 4x LANCZOS.",
+      "Hair class misses long shadow strands that fall into dress/leftover.",
+      "Dress is one plate; slit panels are not separated for physics.",
+      "Anklet not isolated.",
+      "Horns: low-confidence auto cut — verify or redo by hand.",
+      "No elevator background plates extracted.",
+      "No face detail (eyes/mouth/brows) plates.",
+      "Right arm mostly occluded by raised leg — may need underpaint invent."
+    ]
+  }
+}

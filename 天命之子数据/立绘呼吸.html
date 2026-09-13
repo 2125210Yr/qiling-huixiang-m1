@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>焰刃 · 分层呼吸（非 Cubism）</title>
+<style>
+  html,body{margin:0;background:#070606;color:#efe6d6;font:16px/1.45 "Microsoft YaHei",sans-serif;}
+  .wrap{max-width:1080px;margin:0 auto;padding:24px 16px 64px;}
+  h1{font-size:22px;font-weight:700;margin:0 0 8px;}
+  .sub{color:#c9b48a;margin:0 0 20px;}
+  canvas{display:block;width:min(100%,420px);height:auto;background:#000;border-radius:12px;}
+  .row{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start;}
+  .note{max-width:420px;color:#b9ae9a;font-size:14px;}
+  .note b{color:#f0d48a;}
+  a{color:#f0d48a;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>首页立绘 · 网格呼吸</h1>
+  <p class="sub">不是 Cubism 的 .moc3。Unity Home 用同一套权重：头发弹簧、胸腔呼吸、悬停、眨眼、点按。点画布可打一股风。</p>
+  <div class="row">
+    <canvas id="c" width="480" height="720"></canvas>
+    <div class="note">
+      <p>实机挂在 <b>Home / 详情</b> 的 <code>Live2DIdle</code>：18×28 网格，地板锁死，左右发分开跟弹簧。</p>
+      <p>原版 DC 是 Cubism 2 切件。这里只有一张 V3 静帧，所以是 2.5D 网格，不是官方 Live2D。</p>
+      <p><a href="_preview_live2d.gif">GIF 对照</a></p>
+    </div>
+  </div>
+</div>
+<script>
+const COLS=18, ROWS=28;
+function clamp01(x){return x<0?0:x>1?1:x;}
+function smooth01(a,b,x){if(Math.abs(b-a)<1e-4)return x>=b?1:0;const t=clamp01((x-a)/(b-a));return t*t*(3-2*t);}
+function blob(u,v,cx,cy,rx,ry){const dx=(u-cx)/rx, dy=(v-cy)/ry;return smooth01(1.14,0.70,dx*dx+dy*dy);}
+function pulse(x,lo,hi){const m=(lo+hi)*0.5, r=(hi-lo)*0.5; if(r<=1e-4)return 0; return smooth01(1,0.52,Math.abs(x-m)/r);}
+function liveMask(u,v){
+  const floor=smooth01(0.05,0.14,v);
+  return Math.max(
+    blob(u,v,0.53,0.44,0.20,0.42),
+    blob(u,v,0.30,0.62,0.34,0.38),
+    blob(u,v,0.78,0.58,0.24,0.28),
+    blob(u,v,0.40,0.32,0.16,0.24)
+  )*floor;
+}
+function hairMask(u,v){
+  const top=smooth01(0.68,0.86,v);
+  const side=smooth01(0.14,0.26,Math.abs(u-0.52))*smooth01(0.30,0.50,v);
+  return Math.min(1, top*0.90+side);
+}
+function rot(x,y,a){const c=Math.cos(a),s=Math.sin(a);return [x*c-y*s, x*s+y*c];}
+function sample(u,v,p,w,h){
+  const live=liveMask(u,v); if(live<=0.001) return [0,0];
+  const [bx,by]=rot(u-0.52,v-0.40,p.hip*0.030);
+  const bodyX=(bx+0.52-u)*w, bodyY=(by+0.40-v)*h;
+  const chest=pulse(v,0.48,0.68)*pulse(u,0.38,0.64);
+  const cx=(u-0.52)*p.breath*0.014*w*chest;
+  const cy=(v-0.48)*p.breath*0.020*h*chest;
+  const headM=pulse(v,0.66,0.84)*pulse(u,0.38,0.64);
+  const [hx,hy]=rot(u-0.52,v-0.70,p.head*0.040);
+  const headX=(hx+0.52-u)*w*headM, headY=(hy+0.70-v)*h*headM;
+  const hair=hairMask(u,v);
+  const side=u<0.5?p.hairL:p.hairR;
+  const hairX=side*(0.010+0.018*v)*w*hair;
+  const hairY=p.hairY*(0.006+0.010*v)*h*hair;
+  const hover=p.hover*0.0075*h;
+  const lift=smooth01(0.10,0.28,v);
+  return [(bodyX+cx+headX+hairX)*live, (bodyY+cy+headY+hairY+hover*lift)*live];
+}
+class Spring{
+  constructor(){this.x=0;this.v=0;}
+  step(target,freq,zeta,dt){
+    const omega=freq*2*Math.PI;
+    const acc=-2*zeta*omega*this.v - omega*omega*(this.x-target);
+    this.v+=acc*dt; this.x+=this.v*dt; return this.x;
+  }
+}
+const canvas=document.getElementById("c");
+const gl=canvas.getContext("webgl",{premultipliedAlpha:false, alpha:false});
+const vs=`attribute vec2 a_pos; attribute vec2 a_uv; varying vec2 v_uv;
+void main(){ v_uv=a_uv; gl_Position=vec4(a_pos,0.0,1.0); }`;
+const fs=`precision mediump float; varying vec2 v_uv; uniform sampler2D u_tex;
+void main(){ gl_FragColor=texture2D(u_tex,v_uv); }`;
+function compile(type,src){const s=gl.createShader(type); gl.shaderSource(s,src); gl.compileShader(s); return s;}
+const prog=gl.createProgram();
+gl.attachShader(prog, compile(gl.VERTEX_SHADER, vs));
+gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, fs));
+gl.linkProgram(prog); gl.useProgram(prog);
+const aPos=gl.getAttribLocation(prog,"a_pos");
+const aUv=gl.getAttribLocation(prog,"a_uv");
+const posBuf=gl.createBuffer(), uvBuf=gl.createBuffer(), idxBuf=gl.createBuffer();
+const nx=COLS+1, ny=ROWS+1, nVert=nx*ny;
+const uvs=new Float32Array(nVert*2);
+const idx=new Uint16Array(COLS*ROWS*6);
+let k=0;
+for(let iy=0; iy<ny; iy++){
+  for(let ix=0; ix<nx; ix++){
+    const i=iy*nx+ix;
+    uvs[i*2]=ix/COLS; uvs[i*2+1]=iy/ROWS;
+  }
+}
+for(let iy=0; iy<ROWS; iy++){
+  for(let ix=0; ix<COLS; ix++){
+    const i=iy*nx+ix;
+    idx[k++]=i; idx[k++]=i+1; idx[k++]=i+nx+1;
+    idx[k++]=i; idx[k++]=i+nx+1; idx[k++]=i+nx;
+  }
+}
+gl.bindBuffer(gl.ARRAY_BUFFER, uvBuf); gl.bufferData(gl.ARRAY_BUFFER, uvs, gl.STATIC_DRAW);
+gl.enableVertexAttribArray(aUv); gl.vertexAttribPointer(aUv,2,gl.FLOAT,false,0,0);
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, idxBuf); gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, idx, gl.STATIC_DRAW);
+const pos=new Float32Array(nVert*2);
+const hairL=new Spring(), hairR=new Spring(), hairY=new Spring();
+let gust=0, t0=performance.now();
+canvas.addEventListener("pointerdown", ()=>{ gust=1.05; });
+function tick(){
+  const t=(performance.now()-t0)/1000;
+  const dt=1/60;
+  const hip=Math.sin(t*0.70);
+  const wind=Math.sin(t*0.46)+0.38*Math.sin(t*1.08+1.1);
+  gust=Math.max(0, gust-dt*1.15);
+  hairL.step(wind*0.90+hip*0.22+gust, 1.55, 0.30, dt);
+  hairR.step(wind*0.62+Math.sin(t*0.88+2.1)*0.28+gust*0.7, 1.72, 0.34, dt);
+  hairY.step(Math.sin(t*1.32)*0.22+Math.sin(t*0.82)*0.18, 1.40, 0.36, dt);
+  const pose={hip, breath:Math.sin(t*1.32), head:Math.sin(t*0.92+0.55)*0.70+Math.sin(t*1.68)*0.30, hover:Math.sin(t*0.82), hairL:hairL.x, hairR:hairR.x, hairY:hairY.x};
+  const W=2, H=2;
+  for(let iy=0; iy<ny; iy++){
+    const v=iy/ROWS;
+    for(let ix=0; ix<nx; ix++){
+      const u=ix/COLS;
+      const [dx,dy]=sample(u,v,pose,W,H);
+      const x=-1+u*2 + dx;
+      const y=-1+v*2 + dy;
+      const i=iy*nx+ix;
+      pos[i*2]=x; pos[i*2+1]=y;
+    }
+  }
+  gl.bindBuffer(gl.ARRAY_BUFFER, posBuf);
+  gl.bufferData(gl.ARRAY_BUFFER, pos, gl.DYNAMIC_DRAW);
+  gl.enableVertexAttribArray(aPos); gl.vertexAttribPointer(aPos,2,gl.FLOAT,false,0,0);
+  gl.viewport(0,0,canvas.width,canvas.height);
+  gl.drawElements(gl.TRIANGLES, idx.length, gl.UNSIGNED_SHORT, 0);
+  requestAnimationFrame(tick);
+}
+const img=new Image();
+img.onload=()=>{
+  const tex=gl.createTexture();
+  gl.bindTexture(gl.TEXTURE_2D, tex);
+  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,gl.RGB,gl.UNSIGNED_BYTE,img);
+  tick();
+};
+img.src="../art/characters/C001-焰刃/presenter-v3.png";
+</script>
+</body>
+</html>

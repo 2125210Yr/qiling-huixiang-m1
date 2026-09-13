@@ -74,8 +74,10 @@ namespace Resonance.App
         {
             var white = new Color(1f, 1f, 1f, 0.95f);
             _knuckle = Quad(transform, "knuckle", UiSprites.Soft(), _color, 48f);
-            _streak = Quad(transform, "streak", UiSprites.Slash(), _color, 8f);
-            _twin = Quad(transform, "twin", UiSprites.Slash(), Color.Lerp(_color, Color.white, 0.45f), 8f);
+            // No connecting streak — 06b still read as a slash when a long dash was drawn.
+            // Isolated tap VFX is still missing in P0; punch + ring only.
+            _streak = null;
+            _twin = null;
             _flash = Quad(transform, "flash", UiSprites.Soft(), white, 72f);
             _ring = Quad(transform, "ring", UiSprites.Circle(), white, 40f);
             _chips = new Image[5];
@@ -106,9 +108,10 @@ namespace Resonance.App
             var a = new Vector2(_from.x * _canvas.x, _from.y * _canvas.y);
             var b = new Vector2(pos.x * _canvas.x, pos.y * _canvas.y);
             var dist = Mathf.Max(24f, (b - a).magnitude * 0.72f);
-            var thick = Mathf.Lerp(36f, 16f, u);
-            Place(_streak, mid, new Vector2(dist, thick), _ang, Tint(_color, Sample(StreakA, u)));
-            Place(_twin, mid, new Vector2(dist * 0.72f, thick * 0.48f), _ang - 22f, Tint(_color, Sample(StreakA, u) * 0.75f));
+            // Soft dash only — keep thin so Tap never reads as Slide slash ribbon.
+            var thick = Mathf.Lerp(14f, 8f, u);
+            Place(_streak, mid, new Vector2(dist, thick), _ang, Tint(_color, Sample(StreakA, u) * 0.55f));
+            Place(_twin, mid, new Vector2(dist * 0.55f, thick * 0.40f), _ang - 18f, Tint(_color, Sample(StreakA, u) * 0.35f));
 
             var burst = Color.Lerp(_color, Color.white, 0.55f);
             var flash = Mathf.Lerp(96f, 210f, u);

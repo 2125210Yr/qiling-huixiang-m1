@@ -5,7 +5,8 @@ namespace Resonance.App
 {
     /// <summary>
     /// Read-only pause / speed view of <see cref="BattleSim"/> + <see cref="BattleClockPolicy"/>.
-    /// Host persist tiers are ×1 / ×2. Reference speed table is U011 UNKNOWN. Not T04.
+    /// Host persist tiers are ×1 / ×2 / ×3 (primary GT Robin shows 3x SPEED).
+    /// Reference speed table U011 still UNKNOWN. Not T04. Not M1 acceptance.
     /// </summary>
     public readonly struct PauseClockView
     {
@@ -34,17 +35,20 @@ namespace Resonance.App
     {
         public const string LayoutStatus = "NEEDS_REFERENCE";
         public const int SpeedLo = 1;
-        public const int SpeedHi = 2;
+        public const int SpeedMid = 2;
+        public const int SpeedHi = 3;
 
-        public const string Title = "暂停";
-        public const string SpeedSection = "倍速";
-        public const string HomeWarn = "回首页将离开本场战斗";
-        public const string UiIndependent = "UI 不随暂停冻";
-        public const string Unmeasured = "参考档未测";
+        public const string Title = "PAUSE";
+        public const string SpeedSection = "SPEED";
+        /// <summary>Inventory engineering copy. Pause card does not print these.</summary>
+        public const string HomeWarn = "Leaving returns to Home";
+        public const string HomeWarnEn = HomeWarn;
+        public const string UiIndependent = "UI does not freeze with pause";
+        public const string Unmeasured = "reference unmeasured";
 
         public static bool IsHostTier(int speed)
         {
-            return speed == SpeedLo || speed == SpeedHi;
+            return speed == SpeedLo || speed == SpeedMid || speed == SpeedHi;
         }
 
         public static string FormatSpeed(int speed)
@@ -58,7 +62,7 @@ namespace Resonance.App
             if (battle == null)
             {
                 return new PauseClockView(false, false, SpeedLo, BattleSim.TickDt,
-                    FormatSpeed(SpeedLo), "无战斗时钟", "只读对接失败 · " + Unmeasured);
+                    FormatSpeed(SpeedLo), "no battle clock", "read-only bind failed · " + Unmeasured);
             }
 
             var speed = battle.Speed < 1 ? 1 : battle.Speed;
@@ -68,15 +72,15 @@ namespace Resonance.App
 
             var word = FormatSpeed(speed);
             var status = battle.Paused
-                ? "战斗时钟已停  ·  现档 " + word
-                : "战斗时钟在走  ·  现档 " + word;
+                ? "battle clock paused  ·  " + word
+                : "battle clock running  ·  " + word;
             return new PauseClockView(true, battle.Paused, speed, dt, word, status, PolicyLine(clocks, speed));
         }
 
         public static string PolicyLine(BattleClockPolicy clocks, int speed)
         {
             var sb = new StringBuilder(96);
-            sb.Append("战斗步 ").Append(FormatSpeed(speed < 1 ? 1 : speed));
+            sb.Append("step ").Append(FormatSpeed(speed < 1 ? 1 : speed));
             sb.Append("  ·  ").Append(Coupling(clocks));
             sb.Append("  ·  ").Append(UiIndependent);
             sb.Append("  ·  ").Append(Unmeasured);
@@ -85,17 +89,17 @@ namespace Resonance.App
 
         public static string Coupling(BattleClockPolicy clocks)
         {
-            if (clocks == null) return "时钟政策缺省";
+            if (clocks == null) return "clock policy default";
             var sb = new StringBuilder(48);
-            Append(sb, clocks.StageCountdownScalesWithSpeed, "倒计时");
-            Append(sb, clocks.ChargeScalesWithSpeed, "充能");
-            Append(sb, clocks.SlideCdScalesWithSpeed, "滑步冷却");
-            Append(sb, clocks.StatusDurationScalesWithSpeed, "状态");
-            Append(sb, clocks.AutoIntervalScalesWithSpeed, "自动");
-            Append(sb, clocks.FeverWindowScalesWithSpeed, "狂热窗");
-            Append(sb, clocks.DriveQteScalesWithSpeed, "驱动QTE");
-            if (sb.Length == 0) return "各时钟不随倍速";
-            return "随倍速：" + sb;
+            Append(sb, clocks.StageCountdownScalesWithSpeed, "countdown");
+            Append(sb, clocks.ChargeScalesWithSpeed, "charge");
+            Append(sb, clocks.SlideCdScalesWithSpeed, "slide CD");
+            Append(sb, clocks.StatusDurationScalesWithSpeed, "status");
+            Append(sb, clocks.AutoIntervalScalesWithSpeed, "auto");
+            Append(sb, clocks.FeverWindowScalesWithSpeed, "fever win");
+            Append(sb, clocks.DriveQteScalesWithSpeed, "drive QTE");
+            if (sb.Length == 0) return "clocks ignore speed";
+            return "scales with speed: " + sb;
         }
 
         static void Append(StringBuilder sb, bool on, string word)

@@ -4,8 +4,8 @@ using UnityEngine.UI;
 namespace Resonance.App
 {
     /// <summary>
-    /// Enemy drive warning: 低透明绯红压场(0.30) + 细斩线 + 边缘速度线, white 警告, subtitle 敌方全力.
-    /// No English WARNING !!. 无满屏圆盘 / 无满屏色块.
+    /// Enemy drive warning: veil + slash + speed lines.
+    /// Primary EN <c>WARNING!!</c> + <c>ENEMY DRIVE SKILL</c> (Ragna/contrast; ordinary inventory OK).
     /// </summary>
     public sealed class VfxWarning : MonoBehaviour
     {
@@ -96,11 +96,11 @@ namespace Resonance.App
                 _edgeDir[i] = left ? -1f : 1f;
             }
 
-            _title = MkText("title", "警告", 92, Color.white,
+            _title = MkText("title", BattleCueCopy.EnemyWarn, 92, Color.white,
                 new Vector2(0.50f, 0.58f), new Vector2(720f, 140f));
             _title.transform.localScale = Vector3.one * 1.85f;
 
-            _sub = MkText("sub", "敌方全力", 38, VisualTokens.TapWhite,
+            _sub = MkText("sub", BattleCueCopy.EnemyWarnSub, 38, VisualTokens.TapWhite,
                 new Vector2(0.50f, 0.48f), new Vector2(640f, 56f));
 
             var skill = enemySkillName ?? "";

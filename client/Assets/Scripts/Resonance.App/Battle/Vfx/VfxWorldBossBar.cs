@@ -4,9 +4,9 @@ using UnityEngine.UI;
 namespace Resonance.App
 {
     /// <summary>
-    /// 世界王: wide damage-total bar, not an HP kill. Two rows of ~20 round-head slot hints.
-    /// Ranking scrape; no 擊滅 gold ring. Visible copy is 世界王 / 伤害.
-    /// 印刷暗金:细金线框 + 暗漆牌 + 半调网点;无 Soft 圆盘、无圆角金卡。
+    /// World boss: wide damage-total bar, not an HP kill. Two rows of ~20 round-head slot hints.
+    /// Ranking scrape; no kill gold ring. Visible copy is WORLD BOSS / DAMAGE.
+    /// Printed dark-gold: thin gold wire + dark plate + halftone; no Soft disc / rounded gold card.
     /// </summary>
     public sealed class VfxWorldBossBar : MonoBehaviour
     {
@@ -160,14 +160,14 @@ namespace Resonance.App
             if (titleTone != null) titleTone.type = Image.Type.Tiled;
             MkImg(transform, "titleWire", new Vector2(0.12f, 0.948f), new Vector2(158f, 42f), 0f,
                 Wire, UiSprites.WireFrame());
-            _title = MkText(transform, "title", "世界王", 20, new Vector2(0.12f, 0.948f), new Vector2(150f, 30f),
+            _title = MkText(transform, "title", "WORLD BOSS", 20, new Vector2(0.12f, 0.948f), new Vector2(150f, 30f),
                 VisualTokens.GoldTitle, TextAnchor.MiddleCenter);
             if (_title != null) _title.fontStyle = FontStyle.Normal;
             _amountGhost = MkText(transform, "amtGhost", "", 18, new Vector2(0.5f, BarY), new Vector2(720f, 24f),
                 GoldInk, TextAnchor.MiddleCenter);
             _amount = MkText(transform, "amt", "", 18, new Vector2(0.5f, BarY), new Vector2(720f, 24f),
                 VisualTokens.TapWhite, TextAnchor.MiddleCenter);
-            _tag = MkText(transform, "tag", "伤害", 16, new Vector2(0.5f, 0.948f), new Vector2(160f, 28f),
+            _tag = MkText(transform, "tag", "DAMAGE", 16, new Vector2(0.5f, 0.948f), new Vector2(160f, 28f),
                 VisualTokens.YellowValue, TextAnchor.MiddleCenter);
             _pct = MkText(transform, "pct", "0%", 18, new Vector2(0.88f, 0.948f), new Vector2(160f, 32f),
                 VisualTokens.FeverGold, TextAnchor.MiddleRight);
@@ -221,8 +221,8 @@ namespace Resonance.App
                 var line = _goal <= 0L ? Comma(_damage) : Comma(_damage) + " / " + Comma(_goal);
                 Set(_amountGhost, line, GoldInk);
                 Set(_amount, line, VisualTokens.TapWhite);
-                Set(_title, "世界王", VisualTokens.GoldTitle);
-                Set(_tag, "伤害", VisualTokens.YellowValue);
+                Set(_title, "WORLD BOSS", VisualTokens.GoldTitle);
+                Set(_tag, "DAMAGE", VisualTokens.YellowValue);
             }
 
             var pct = Mathf.RoundToInt(100f * t);

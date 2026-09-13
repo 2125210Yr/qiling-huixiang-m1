@@ -4,14 +4,13 @@ using UnityEngine.UI;
 namespace Resonance.App
 {
     /// <summary>
-    /// Red star burst + 突破. Stars 1..6. ~0.9s.
-    /// No English UNCAP.
+    /// Red star burst + UNCAP. Stars 1..6. ~0.9s.
     /// </summary>
     public sealed class VfxUncap : MonoBehaviour
     {
         const float Life = 0.90f;
         const float WordAt = 0.00f;
-        const string Word = "突破";
+        const string Word = "UNCAP";
 
         static readonly Color Red = VisualTokens.StarEvolved;
         static readonly Color Hot = Color.Lerp(Color.white, VisualTokens.StarEvolved, 0.22f);

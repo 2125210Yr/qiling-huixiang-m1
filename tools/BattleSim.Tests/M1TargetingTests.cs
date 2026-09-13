@@ -79,6 +79,19 @@ namespace Resonance.Tests
             Assert.True(absFoes.TryTap(0));
             Assert.Equal(new[] { 1 }, PickedSlots(absFoes, ally: false));
 
+            var focused = NewSim(0, 13);
+            OverlayTap(focused, "C001_tap", TargetRule.LowestHpEnemies);
+            Assert.True(focused.Enemies.Count >= 3);
+            SetHp(focused.Enemies[0], 4000, 400);
+            SetHp(focused.Enemies[1], 1000, 200);
+            SetHp(focused.Enemies[2], 5000, 5000);
+            Assert.True(focused.TryFocusEnemy(2));
+            Assert.Equal(2, focused.FocusEnemySlot);
+            ClearObserve(focused);
+            focused.Allies[0].Charge = 100f;
+            Assert.True(focused.TryTap(0));
+            Assert.Equal(new[] { 2 }, PickedSlots(focused, ally: false));
+
             var ratioFoes = NewSim(0, 13);
             OverlayTap(ratioFoes, "C001_tap", TargetRule.LowestHpRatioEnemies);
             Assert.True(ratioFoes.Enemies.Count >= 3);
@@ -89,6 +102,70 @@ namespace Resonance.Tests
             ratioFoes.Allies[0].Charge = 100f;
             Assert.True(ratioFoes.TryTap(0));
             Assert.Equal(new[] { 0 }, PickedSlots(ratioFoes, ally: false));
+        }
+
+        [Fact]
+        public void FocusClearsWhenEnemyDiesThenNextTapPicksAliveFoe()
+        {
+            // Engineering mid-death focus clear. Not GL retarget opcode (still UNKNOWN).
+            var sim = NewSim(0, 29);
+            OverlayTap(sim, "C001_tap", TargetRule.RandomEnemies);
+            Assert.True(sim.Enemies.Count >= 3);
+            var focus = sim.Enemies[2];
+            SetHp(sim.Enemies[0], 5000, 5000);
+            SetHp(sim.Enemies[1], 5000, 5000);
+            SetHp(focus, 5000, 5000);
+            Assert.True(sim.TryFocusEnemy(2));
+            Assert.Equal(2, sim.FocusEnemySlot);
+            Assert.True(object.ReferenceEquals(focus, sim.Enemies[2]));
+
+            // Fixture kill — GL_UNKNOWN does not settle HP from Tap.
+            focus.Hp = 0;
+            Assert.True(object.ReferenceEquals(focus, sim.Enemies[2]));
+            Assert.Equal(0, focus.Hp);
+            Assert.Equal(0, sim.Enemies[2].Hp);
+            Assert.False(focus.Alive);
+            Assert.False(sim.Enemies[2].Alive);
+            Assert.False(sim.TryFocusEnemy(2));
+
+            ClearObserve(sim);
+            sim.Allies[0].Charge = 100f;
+            Assert.True(sim.TryTap(0));
+            Assert.Equal(-1, sim.FocusEnemySlot);
+            var slots = PickedSlots(sim, ally: false);
+            Assert.DoesNotContain(2, slots);
+            Assert.Contains(slots[0], new[] { 0, 1 });
+        }
+
+        [Fact]
+        public void MultiHitRetargetsAfterFocusedEnemyDiesMidSkill()
+        {
+            // Engineering: each hit re-picks foes; dead focus must not eat later hits.
+            // Uses JP_LEGACY so damage settles. Not GL_FINAL / not retarget opcode.
+            var sim = NewSim(0, 41);
+            sim.Profile = FormulaProfile.JP_LEGACY_EMPIRICAL;
+            OverlayMultiHitTap(sim, "C001_tap", TargetRule.RandomEnemies, hitCount: 3);
+            Assert.True(sim.Enemies.Count >= 3);
+            SetHp(sim.Enemies[0], 8000, 8000);
+            SetHp(sim.Enemies[1], 8000, 8000);
+            SetHp(sim.Enemies[2], 80, 80);
+            Assert.True(sim.TryFocusEnemy(2));
+            ClearObserve(sim);
+            sim.Allies[0].Charge = 100f;
+            Assert.True(sim.TryTap(0));
+            Assert.False(sim.Enemies[2].Alive);
+            Assert.Equal(-1, sim.FocusEnemySlot);
+            var hits = new List<int>();
+            for (int i = 0; i < sim.Events.Events.Count; i++)
+            {
+                var e = sim.Events.Events[i];
+                if (e.Kind != "hit" || e.TargetAlly) continue;
+                hits.Add(e.TargetSlot);
+            }
+            Assert.True(hits.Count >= 2);
+            Assert.Equal(2, hits[0]);
+            for (int i = 1; i < hits.Count; i++)
+                Assert.Contains(hits[i], new[] { 0, 1 });
         }
 
         [Fact]
@@ -185,11 +262,16 @@ namespace Resonance.Tests
 
         static void OverlayTap(BattleSim sim, string skillId, TargetRule rule)
         {
+            OverlayMultiHitTap(sim, skillId, rule, hitCount: 1);
+        }
+
+        static void OverlayMultiHitTap(BattleSim sim, string skillId, TargetRule rule, int hitCount)
+        {
             var clone = Catalog.CloneSkill(Catalog.TrySkill(skillId));
             clone.Target = rule;
             clone.TargetCount = 1;
             if (clone.HealCoef <= 0f && clone.FlatHeal <= 0 && clone.HealMaxHpFrac <= 0f)
-                clone.HitCount = 1;
+                clone.HitCount = Math.Max(1, hitCount);
             sim.OverlaySkill(skillId, clone);
         }
 

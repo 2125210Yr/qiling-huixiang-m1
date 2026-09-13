@@ -5,9 +5,9 @@ using UnityEngine.UI;
 namespace Resonance.App
 {
     /// <summary>
-    /// Live fight ledger at the left edge under 暂停 / 倍速.
-    /// Copy is 伤害 / 秒伤 / 治疗. Never DPS / DAMAGE.
-    /// Printed dark plate + gold wire + halftone wash. No Soft disc, no Material table.
+    /// Inventory tip ledger only. P0 t444/t445 is <c>TOTAL n DAMAGE</c> on the tutorial plate.
+    /// Live Fever (t440/t442) is center <c>N COMBO</c> / <c>N DAMAGE</c>.
+    /// Ordinary mid-fight frames have no left DPS/HEAL box — BattleHud keeps this hidden.
     /// </summary>
     public sealed class VfxDpsPanel : MonoBehaviour
     {
@@ -46,6 +46,14 @@ namespace Resonance.App
             else if (fx.transform.parent != parent)
                 fx.transform.SetParent(parent, false);
             fx.Apply(stats);
+        }
+
+        public static void Hide(Transform parent)
+        {
+            var fx = Find(parent);
+            if (fx == null) return;
+            if (fx._group != null) fx._group.alpha = 0f;
+            fx.gameObject.SetActive(false);
         }
 
         void Build()
@@ -94,13 +102,14 @@ namespace Resonance.App
                 _pulse = 1f;
             }
 
-            Set(_dmg, "伤害  " + Comma(dealt), Hot);
-            Set(_ghost, "伤害  " + Comma(dealt), Ghost);
-            Set(_dps, "秒伤  " + Comma(dps), Gold);
+            var line = Comma(dealt) + " DAMAGE";
+            Set(_dmg, line, Hot);
+            Set(_ghost, line, Ghost);
+            Set(_dps, "DPS  " + Comma(dps), Gold);
             if (heal > 0)
             {
                 _heal.gameObject.SetActive(true);
-                Set(_heal, "治疗  " + Comma(heal), Mute);
+                Set(_heal, "HEAL  " + Comma(heal), Mute);
             }
             else
             {

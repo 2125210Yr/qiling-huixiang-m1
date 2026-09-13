@@ -1,0 +1,24 @@
+{
+  "id": "C001",
+  "skeleton": "standee_front",
+  "canvasW": 1024,
+  "canvasH": 1536,
+  "headU": 0.508,
+  "headV": 0.779,
+  "chestU": 0.503,
+  "chestV": 0.703,
+  "handRU": 0.425,
+  "handRV": 0.547,
+  "footRU": 0.459,
+  "footRV": 0.202,
+  "footLU": 0.542,
+  "footLV": 0.228,
+  "slots": [
+    {
+      "id": "body",
+      "tex": "PuppetLayers/body",
+      "order": 0,
+      "mesh": true
+    }
+  ]
+}

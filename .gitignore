@@ -12,4 +12,54 @@ client/obj/
 .vs/
 *.user
 *.suo
-单机dc1.1整合包/*.downloading
+_sandbox/
+tools/logs/
+client/Builds/
+client/.utmp/
+dist/windows/Temp/
+dist/windows/captures/
+
+# Cannot publish: private-server pack + multi-GB extracted dumps + oversized recordings
+单机dc1.1整合包/
+dc-extract/
+dc-archive/
+dc实际录制视频素材/
+
+# Local agent / IDE
+.cursor/
+.playwright-mcp/
+.pytest_cache/
+
+# Third-party installers
+tools/inochi-creator-0.8.6/
+tools/realesrgan/
+
+# GitHub rejects files >= 100MB
+**/UnityPlayer.dll
+*.psd2live
+*.zip.001
+*.zip.002
+*.zip.003
+DC_Reconstruction_Kit_2026-09-09.zip
+docs/reference/gl-shutdown-pve/rejected_not_primary/
+docs/reference/mobile-archive/
+
+# Local probes / test leftovers
+_mon.b64
+_mon_probe.py
+_mon_probe_out.txt
+_node_procs.csv
+/_ytdlp_api_test.log
+tools/BattleSim.Tests/TestResults/
+
+# Session secrets — never publish
+**/_yt_cookies*
+**/_chrome_Cookies*
+**/_chrome_cdp*
+**/_chrome_profile*
+**/*Cookies.copy
+**/Login Data*
+**/.env
+**/.env.*
+**/credentials.json
+**/secrets.json

@@ -10,7 +10,7 @@ namespace Resonance.App
     public sealed class VfxCleanse : MonoBehaviour
     {
         const float Life = 0.45f;
-        const string Word = "净化";
+        const string Word = "Cleanse";
 
         static readonly Color Gold = VisualTokens.FeverGold;
         static readonly Color White = VisualTokens.TapWhite;

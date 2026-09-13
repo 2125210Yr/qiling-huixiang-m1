@@ -1,0 +1,101 @@
+{
+  "source": "reference-work.png",
+  "plan": "layer_plan.json",
+  "size": [
+    2176,
+    1168
+  ],
+  "quality": "blocking",
+  "method": "figure alpha AND traced envelope AND material gate; front-to-back exclusive claim; no Photoshop",
+  "figure_alpha": "alpha_u2net.png",
+  "draw_order_back_to_front": [
+    "hair_back",
+    "arm_hanging",
+    "standing_leg",
+    "body",
+    "dress",
+    "raised_leg",
+    "arm_hip",
+    "head",
+    "hair_front",
+    "accessory"
+  ],
+  "counts": {
+    "hair_back": 19428,
+    "arm_hanging": 228,
+    "standing_leg": 29990,
+    "body": 15231,
+    "dress": 108070,
+    "raised_leg": 113987,
+    "arm_hip": 19360,
+    "head": 10908,
+    "hair_front": 14847,
+    "accessory": 702
+  },
+  "bboxes": {
+    "hair_back": [
+      795,
+      69,
+      1132,
+      423
+    ],
+    "arm_hanging": [
+      801,
+      390,
+      844,
+      398
+    ],
+    "standing_leg": [
+      1007,
+      753,
+      1155,
+      1165
+    ],
+    "body": [
+      897,
+      322,
+      1158,
+      496
+    ],
+    "dress": [
+      891,
+      321,
+      1219,
+      1165
+    ],
+    "raised_leg": [
+      522,
+      395,
+      1004,
+      1028
+    ],
+    "arm_hip": [
+      1081,
+      326,
+      1338,
+      588
+    ],
+    "head": [
+      900,
+      169,
+      1028,
+      319
+    ],
+    "hair_front": [
+      855,
+      113,
+      1048,
+      249
+    ],
+    "accessory": [
+      664,
+      722,
+      701,
+      768
+    ]
+  },
+  "figure_px": 496329,
+  "claimed_px": 332751,
+  "figure_coverage": 0.6704,
+  "figure_px_not_covered": 163578
+}

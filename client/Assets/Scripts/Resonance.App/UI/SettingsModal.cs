@@ -37,16 +37,16 @@ namespace Resonance.App
             Header(panel, built, hooks.onBack);
             OverlayDraw.DashLine(panel, built, new Vector2(0.5f, 0.84f), RuleW);
 
-            Section(panel, built, "战斗", 0.78f);
-            Row(panel, built, 0.68f, "自动", AutoWord(auto), auto != AutoMode.Manual, hooks.onAuto);
-            Row(panel, built, 0.54f, "倍速", speed == 2 ? "2×" : "1×", speed == 2, hooks.onSpeed);
+            Section(panel, built, "BATTLE", 0.78f);
+            Row(panel, built, 0.68f, "AUTO", AutoWord(auto), auto != AutoMode.Manual, hooks.onAuto);
+            Row(panel, built, 0.54f, "SPEED", SpeedWord(speed), speed > 1, hooks.onSpeed);
 
             OverlayDraw.DashLine(panel, built, new Vector2(0.5f, 0.42f), RuleW);
-            Section(panel, built, "资料", 0.36f);
+            Section(panel, built, "DATA", 0.36f);
             PathLine(panel, built, path, 0.26f);
-            GreyBar(panel, built, 0.12f, "清除本地存档", () => AskWipe(root, built, path, hooks.onWipe));
+            GreyBar(panel, built, 0.12f, "Clear local save", () => AskWipe(root, built, path, hooks.onWipe));
 
-            UiChrome.Confirm(root, built, "确认", new Vector2(0.5f, 0.22f), hooks.onBack);
+            UiChrome.Confirm(root, built, "Confirm", new Vector2(0.5f, 0.22f), hooks.onBack);
         }
 
         static void Header(Transform panel, List<GameObject> built, Action onBack)
@@ -57,9 +57,9 @@ namespace Resonance.App
             wash.raycastTarget = false;
             OverlayDraw.Pic(panel, built, "gear", new Vector2(0.47f, 0.935f), new Vector2(26, 26),
                 VisualTokens.GoldTitle, UiSprites.Gear()).raycastTarget = false;
-            OverlayDraw.Label(panel, built, "设定", 24, VisualTokens.GoldTitle,
+            OverlayDraw.Label(panel, built, "SETTINGS", 24, VisualTokens.GoldTitle,
                 new Vector2(0.495f, 0.935f), new Vector2(160, 44), true, false, 2f, true);
-            OverlayDraw.Label(panel, built, "只改本机  ·  不联网", 15, VisualTokens.TextMuted,
+            OverlayDraw.Label(panel, built, "Local only  ·  offline", 15, VisualTokens.TextMuted,
                 new Vector2(0.5f, 0.888f), new Vector2(600, 28), false, false);
             UiChrome.CloseX(panel, built, new Vector2(0.93f, 0.94f), onBack);
         }
@@ -128,13 +128,13 @@ namespace Resonance.App
             UiChrome.ModalDim(layer, built);
             var card = UiChrome.Panel(layer, built, new Vector2(0.5f, 0.56f), new Vector2(840, 200));
             GoldWire(card.transform, built, new Vector2(812, 172));
-            OverlayDraw.Label(card.transform, built, "注意", 22, VisualTokens.GoldTitle,
+            OverlayDraw.Label(card.transform, built, "NOTICE", 22, VisualTokens.GoldTitle,
                 new Vector2(0.08f, 0.82f), new Vector2(280, 40), true, false, 0f, true);
             OverlayDraw.DashLine(card.transform, built, new Vector2(0.5f, 0.68f), 760f);
             var well = OverlayDraw.Pic(card.transform, built, "well", new Vector2(0.5f, 0.40f), new Vector2(792, 100),
                 VisualTokens.BgVoid, UiSprites.Round());
             well.raycastTarget = false;
-            OverlayDraw.Label(card.transform, built, "(i)  会清掉本机存档。", 22, VisualTokens.TextPrimary,
+            OverlayDraw.Label(card.transform, built, "(i)  This clears the local save.", 22, VisualTokens.TextPrimary,
                 new Vector2(0.5f, 0.48f), new Vector2(720, 48), false, false);
             var sub = OverlayDraw.Label(card.transform, built, path ?? "", 13, VisualTokens.TextMuted,
                 new Vector2(0.5f, 0.22f), new Vector2(760, 40), false, false);
@@ -144,8 +144,8 @@ namespace Resonance.App
             {
                 if (layer != null) UnityEngine.Object.Destroy(layer.gameObject);
             };
-            UiChrome.Cancel(layer, built, "取消", new Vector2(0.32f, 0.36f), close);
-            UiChrome.Confirm(layer, built, "确认", new Vector2(0.68f, 0.36f), () =>
+            UiChrome.Cancel(layer, built, "Cancel", new Vector2(0.32f, 0.36f), close);
+            UiChrome.Confirm(layer, built, "Confirm", new Vector2(0.68f, 0.36f), () =>
             {
                 close();
                 if (onWipe != null) onWipe();
@@ -167,9 +167,16 @@ namespace Resonance.App
 
         static string AutoWord(AutoMode auto)
         {
-            if (auto == AutoMode.Full) return "全自动";
-            if (auto == AutoMode.Semi) return "半自动";
-            return "关";
+            if (auto == AutoMode.Full) return "FULL AUTO";
+            if (auto == AutoMode.Semi) return "SEMI AUTO";
+            return "MANUAL";
+        }
+
+        static string SpeedWord(int speed)
+        {
+            if (speed < 1) speed = 1;
+            if (speed > 3) speed = 3;
+            return "X" + speed;
         }
     }
 }

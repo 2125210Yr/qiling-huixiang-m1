@@ -72,7 +72,7 @@ namespace Resonance.App
                 _motes[i] = img;
             }
 
-            _tag = MkText(transform, "再生", 22, new Vector2(0f, 22f), new Vector2(160f, 36f), Ink);
+            _tag = MkText(transform, "Regen", 22, new Vector2(0f, 22f), new Vector2(160f, 36f), Ink);
         }
 
         void Update()

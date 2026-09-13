@@ -5,7 +5,8 @@ namespace Resonance.App
 {
     /// <summary>
     /// Persistent status ticket copy: kind name + stacks + remaining seconds.
-    /// Chinese only. Shared by portrait chips and field chips.
+    /// Primary ordinary/Robin chips use EN where GT shows EN (DEF ↑ / Barrier).
+    /// Shared by portrait chips and field chips.
     /// </summary>
     public static class StatusChipText
     {
@@ -22,7 +23,7 @@ namespace Resonance.App
             {
                 var st = u.Status[i];
                 if (st == null || st.Def == null) continue;
-                var word = Word(st.Def.Kind);
+                var word = Word(st.Def);
                 if (string.IsNullOrEmpty(word)) continue;
                 if (st.Stacks > 1) word += "×" + st.Stacks;
                 var sec = st.Remaining > 0f ? (int)Math.Ceiling(st.Remaining) : 0;
@@ -36,39 +37,67 @@ namespace Resonance.App
             return trim;
         }
 
+        public static string Word(EffectDef def)
+        {
+            if (def == null) return "";
+            var id = def.Id ?? "";
+            // Primary P0 t510 portrait chip EN "vampirism" (lowercase).
+            if (id.IndexOf("lifesteal", StringComparison.OrdinalIgnoreCase) >= 0
+                || id.IndexOf("vamp", StringComparison.OrdinalIgnoreCase) >= 0)
+                return "vampirism";
+            // Primary Robin ~t48 portrait chip EN "BLIND".
+            if (id.IndexOf("blind", StringComparison.OrdinalIgnoreCase) >= 0
+                || id.IndexOf("失明", StringComparison.Ordinal) >= 0)
+                return "BLIND";
+            // P0 t505 portrait float EN "CRT Rate ↑". Match Id only — EffectDef has no Name.
+            if (id.IndexOf("crit_rate", StringComparison.OrdinalIgnoreCase) >= 0)
+                return "CRT Rate ↑";
+            if (id.IndexOf("crit_atk", StringComparison.OrdinalIgnoreCase) >= 0)
+                return "CRT ATK ↑";
+            if (id.Equals("crit_up", StringComparison.OrdinalIgnoreCase)
+                || id.IndexOf("crit_up", StringComparison.OrdinalIgnoreCase) >= 0)
+                return "CRT ↑";
+            // Hard r61 field float EN "EVA".
+            if (id.IndexOf("evade", StringComparison.OrdinalIgnoreCase) >= 0
+                || id.IndexOf("回避", StringComparison.Ordinal) >= 0)
+                return BattleCueCopy.EvaFloat;
+            return Word(def.Kind);
+        }
+
         public static string Word(EffectKind k)
         {
             switch (k)
             {
-                case EffectKind.Heal: return "回复";
-                case EffectKind.Dot: return "持续";
-                case EffectKind.Shield: return "屏障";
-                case EffectKind.AtkBuff: return "攻击↑";
-                case EffectKind.DefDebuff: return "防御↓";
-                case EffectKind.ChargeHaste: return "加速";
-                case EffectKind.Taunt: return "挑衅";
-                case EffectKind.TsAmp: return "点按↑";
-                case EffectKind.SsAmp: return "上滑↑";
-                case EffectKind.DsAmp: return "驱动↑";
-                case EffectKind.SkillDefDown: return "技防↓";
-                case EffectKind.WeakDefDown: return "弱防↓";
-                case EffectKind.Reflect: return "反射";
-                case EffectKind.Immortal: return "不死";
-                case EffectKind.Silence: return "沉默";
-                case EffectKind.Stun: return "晕眩";
-                case EffectKind.Freeze: return "冻结";
-                case EffectKind.Bleed: return "流血";
-                case EffectKind.Poison: return "中毒";
-                case EffectKind.Burn: return "灼烧";
-                case EffectKind.AntiHeal: return "禁疗";
-                case EffectKind.ChargeAmount: return "充能↑";
-                case EffectKind.ChargeSpeed: return "充速↑";
-                case EffectKind.CooldownDelta: return "冷却";
-                case EffectKind.Barrier: return "屏障";
-                case EffectKind.DebuffBarrier: return "减益盾";
-                case EffectKind.Enrage: return "激怒";
-                case EffectKind.Overload: return "超载";
-                case EffectKind.DualWield: return "双刃";
+                case EffectKind.Heal: return "Recovery";
+                case EffectKind.Dot: return "DoT";
+                case EffectKind.Shield: return "Barrier";
+                case EffectKind.AtkBuff: return "ATK ↑";
+                case EffectKind.DefBuff: return "DEF ↑";
+                case EffectKind.DefDebuff: return "DEF ↓";
+                case EffectKind.ChargeHaste: return "Haste";
+                case EffectKind.Taunt: return "Taunt";
+                case EffectKind.TsAmp: return "Tap Skill Boost";
+                case EffectKind.SsAmp: return "Slide Skill Boost";
+                case EffectKind.DsAmp: return "Drive Skill Boost";
+                case EffectKind.SkillDefDown: return "Skill DEF ↓";
+                case EffectKind.WeakDefDown: return "Weak Point DEF ↓";
+                case EffectKind.Reflect: return "Reflect";
+                case EffectKind.Immortal: return "Immortal";
+                case EffectKind.Silence: return "Silence";
+                case EffectKind.Stun: return "Stun";
+                case EffectKind.Freeze: return "Freeze";
+                case EffectKind.Bleed: return "Bleed";
+                case EffectKind.Poison: return "Poison";
+                case EffectKind.Burn: return "Burn";
+                case EffectKind.AntiHeal: return "Anti-Heal";
+                case EffectKind.ChargeAmount: return "Charge ↑";
+                case EffectKind.ChargeSpeed: return "Charge SPD ↑";
+                case EffectKind.CooldownDelta: return "CD";
+                case EffectKind.Barrier: return "Barrier";
+                case EffectKind.DebuffBarrier: return "Debuff Barrier";
+                case EffectKind.Enrage: return "Enrage";
+                case EffectKind.Overload: return "Overload";
+                case EffectKind.DualWield: return "Dual";
                 default: return "";
             }
         }

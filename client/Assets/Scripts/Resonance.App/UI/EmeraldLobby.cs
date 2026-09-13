@@ -19,6 +19,27 @@ namespace Resonance.App
             return true;
         }
 
+        /// <summary>
+        /// Native Inochi must not be DestroyImmediate'd mid-UI rebuild — that stalls
+        /// Home→Characters long enough for smoke to die on the roster phase.
+        /// </summary>
+        public static void ReleaseFrom(Transform root)
+        {
+            if (root == null) return;
+            var stands = root.GetComponentsInChildren<EmeraldInochi.InochiStandee>(true);
+            if (stands == null || stands.Length == 0) return;
+            for (int i = 0; i < stands.Length; i++)
+            {
+                var standee = stands[i];
+                if (standee == null) continue;
+                var holder = standee.transform.parent != null && standee.transform.parent != root
+                    ? standee.transform.parent.gameObject
+                    : standee.gameObject;
+                holder.transform.SetParent(null, false);
+                UnityEngine.Object.Destroy(holder);
+            }
+        }
+
         public static void DrawIdentity(Transform parent, List<GameObject> built)
         {
             OverlayDraw.Pic(parent, built, "看板名签底", new Vector2(0.12f, 0.375f),

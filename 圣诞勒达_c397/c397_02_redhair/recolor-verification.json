@@ -1,0 +1,184 @@
+{
+  "source": "F:/天命之子/圣诞勒达_c397/c397_02_moc3",
+  "output": "F:/天命之子/圣诞勒达_c397/c397_02_redhair",
+  "method": "Imagegen red palette, warmed to match scarlet clothes. Original per-pixel strand detail retained through a strictly increasing luminance tone curve; alpha retained byte-for-byte.",
+  "generatedReference": "C:/Users/Administrator/.codex/generated_images/01a096a0-fc5b-7c60-824d-0567575b131a/exec-c07ddb23-9a46-4ded-a43a-04078a2eb715.png",
+  "referenceMedianHueDegrees": -7.5,
+  "targetHueDegrees": 3,
+  "midtoneCurve": "Y - 24*sin(pi*Y/255)^2; strictly increasing",
+  "hairMeshCount": 77,
+  "hairMeshIds": [
+    "D_PSD_159",
+    "D_PSD_158",
+    "D_PSD_177",
+    "D_PSD_176",
+    "D_PSD_175",
+    "D_PSD_174",
+    "D_PSD_179",
+    "D_PSD_173",
+    "D_PSD_178",
+    "D_PSD_165",
+    "D_PSD_163",
+    "D_PSD_160",
+    "D_PSD_20",
+    "D_PSD_182",
+    "D_PSD_180",
+    "D_PSD_172",
+    "D_PSD_171",
+    "D_PSD_170",
+    "D_PSD_169",
+    "D_PSD_166",
+    "D_PSD_162",
+    "D_PSD_161",
+    "D_PSD_19",
+    "D_PSD_183",
+    "D_PSD_18",
+    "D_PSD_198",
+    "D_PSD_197",
+    "D_PSD_196",
+    "D_PSD_193",
+    "D_PSD_192",
+    "D_PSD_191",
+    "D_PSD_190",
+    "D_PSD_200",
+    "D_PSD_199",
+    "D_PSD_231",
+    "D_PSD_209",
+    "D_PSD_15",
+    "D_PSD_16",
+    "D_PSD_17",
+    "D_PSD1_01",
+    "D_PSD_189",
+    "D_PSD_188",
+    "D_PSD1_00",
+    "D_PSD_186",
+    "D_PSD_185",
+    "D_PSD_187",
+    "D_PSD_217",
+    "D_PSD_232",
+    "D_PSD_181",
+    "D_PSD_204",
+    "D_PSD_214",
+    "D_PSD_230",
+    "D_PSD_226",
+    "D_PSD_239",
+    "D_PSD_220",
+    "D_PSD_235",
+    "D_PSD_213",
+    "D_PSD_225",
+    "D_PSD_227",
+    "D_PSD_228",
+    "D_PSD_211",
+    "D_PSD_234",
+    "D_PSD_207",
+    "D_PSD_229",
+    "D_PSD_240",
+    "D_PSD_224",
+    "D_PSD_219",
+    "D_PSD_233",
+    "D_PSD_210",
+    "D_PSD_223",
+    "D_PSD_206",
+    "D_PSD_242",
+    "D_PSD_222",
+    "D_PSD_238",
+    "D_PSD_241",
+    "D_PSD_215",
+    "D_PSD_221"
+  ],
+  "excludedAccessories": [
+    "D_PSD_203",
+    "D_PSD_202",
+    "D_PSD_201",
+    "D_PSD_184",
+    "D_PSD_167",
+    "D_PSD_168"
+  ],
+  "dimensions": [
+    4096,
+    4096
+  ],
+  "changedRgbPixels": 232228,
+  "changedAlphaPixels": 0,
+  "changedPixelsOutsideHairMask": 0,
+  "toneCurveMaxRoundingError8bit": 0.48376473421132005,
+  "toneCurveMeanRoundingError8bit": 0.20389472426110922,
+  "mocUnchanged": true,
+  "mocSha256": "48e659052425f48a21b1d3a8a4c553d7495a96ca29ddd8ff6ca708897540304d",
+  "motions": [
+    {
+      "name": "c397_02_attack.motion3.json",
+      "sha256": "ca5227c01ee6c5b521553775b763b15f68faf8b4e0859bbfef03be90df0a2a14",
+      "unchanged": true
+    },
+    {
+      "name": "c397_02_banner.motion3.json",
+      "sha256": "9a02961fc702644a56507169df90346be7fbbde7f0c9d010d10fb74798bf8d5a",
+      "unchanged": true
+    },
+    {
+      "name": "c397_02_hit.motion3.json",
+      "sha256": "1fcd89a6a7ef2b92c5886a156ca631fbc49a97c68a62b211baadc33593844bd0",
+      "unchanged": true
+    },
+    {
+      "name": "c397_02_idle.motion3.json",
+      "sha256": "5b63a10ae5cb6dff91708eccaf8484b545a8f703bc17ca657d4499088a6e998f",
+      "unchanged": true
+    }
+  ],
+  "officialCore": {
+    "mocConsistency": true,
+    "meshes": 296,
+    "parameters": 150,
+    "finitePoses": 135,
+    "sampling": {
+      "summary": [
+        {
+          "motion": "idle",
+          "samples": 61,
+          "duration": 7.466666666666667
+        },
+        {
+          "motion": "attack",
+          "samples": 9,
+          "duration": 2.966666666666667
+        },
+        {
+          "motion": "hit",
+          "samples": 9,
+          "duration": 2.2666666666666666
+        },
+        {
+          "motion": "banner",
+          "samples": 9,
+          "duration": 7.466666666666667
+        }
+      ],
+      "total": 135
+    }
+  },
+  "renderedVerification": {
+    "gpu": "NVIDIA GeForce RTX 4060 Ti",
+    "idleFrames": 61,
+    "contactPoses": 8,
+    "normalBlendOnly": true,
+    "maskedMeshes": 0
+  },
+  "editorProject": {
+    "file": "model-redhair.cmo3",
+    "editorVersion": "5.3.01",
+    "textureImported": true,
+    "atlasAppliedToSourceImages": true,
+    "redHairVisuallyConfirmedInAtlasAndSourceModes": true,
+    "saved": true,
+    "bytes": 6397152,
+    "sha256": "defa585783d4435c49e2d55df5f93052e1634a07f08d202a4c1f36efb7266367",
+    "originalCmo3Unchanged": true,
+    "originalCmo3Sha256": "2f2ecd13c73fb3528979874c95d088e28108dd19318634d8ed3d6e99c9438aa6"
+  },
+  "previewLimits": [
+    "Parameter curve sampling; does not apply PartOpacity curves or game events.",
+    "No physics3 file supplied; no additional physics simulation."
+  ]
+}

@@ -4,24 +4,25 @@ using UnityEngine.UI;
 namespace Resonance.App
 {
     /// <summary>
-    /// Boss-wave printed stamp only. Title 欲望之主, sub 首领, name as outlined type.
-    /// No portrait window, no filled Round block, no gold pill nameplate, no memorial art.
+    /// Boss-wave stamp. Primary P0 t100: <c>THE MASTER OF DESIRE</c> / <c>BOSS</c> /
+    /// <c>WARNING</c> / role / name. No portrait window, no memorial art.
     /// </summary>
     public sealed class VfxBossIntro : MonoBehaviour
     {
         public const float Duration = 1.35f;
 
-        const string TitleWord = "欲望之主";
-        const string SubWord = "首领";
+        const string TitleWord = "BOSS";
 
         Image _veil;
         Image _dots;
         Image _band;
         Image _bandInner;
-        Image _rule;
+        Image _warnPlate;
+        Text _epithet;
         Text _ghost;
         Text _title;
-        Text _sub;
+        Text _warn;
+        Text _role;
         Text _name;
         float _age;
 
@@ -61,6 +62,15 @@ namespace Resonance.App
                 new Vector2(0.50f, 0.58f), new Vector2(1260f, 96f));
             _bandInner.rectTransform.localEulerAngles = new Vector3(0f, 0f, -16f);
 
+            // P0 t100: small red epithet over BOSS.
+            _epithet = MkText("epithet", BattleCueCopy.BossEpithetDesire, 18, Color.white,
+                new Vector2(0.28f, 0.66f), new Vector2(420f, 36f));
+            _epithet.fontStyle = FontStyle.Bold;
+            _epithet.alignment = TextAnchor.MiddleLeft;
+            var epPlate = Img("epithetPlate", UiSprites.Pixel(), new Color(0.72f, 0.08f, 0.10f, 0.92f),
+                new Vector2(0.28f, 0.66f), new Vector2(360f, 28f));
+            epPlate.transform.SetSiblingIndex(_epithet.transform.GetSiblingIndex());
+
             _ghost = MkText("ghost", TitleWord, 88, new Color(0.08f, 0.02f, 0.00f, 0.80f),
                 new Vector2(0.50f, 0.57f), new Vector2(920f, 150f));
             _ghost.rectTransform.anchoredPosition = new Vector2(8f, -8f);
@@ -74,22 +84,30 @@ namespace Resonance.App
             ol.effectColor = Color.black;
             ol.effectDistance = new Vector2(3.2f, -3.2f);
 
-            _sub = MkText("sub", SubWord, 28, VisualTokens.OrangeLeader,
-                new Vector2(0.50f, 0.50f), new Vector2(280f, 40f));
+            // P0 t100 bottom-left warn stack: WARNING / role / name.
+            _warnPlate = Img("warnPlate", UiSprites.Halftone(), new Color(0.55f, 0.04f, 0.06f, 0.78f),
+                new Vector2(0.22f, 0.28f), new Vector2(360f, 140f));
+            _warnPlate.type = Image.Type.Tiled;
+
+            _warn = MkText("warn", BattleCueCopy.BossWarn, 26, Color.white,
+                new Vector2(0.22f, 0.34f), new Vector2(320f, 36f));
+            _warn.fontStyle = FontStyle.Bold;
+            _warn.alignment = TextAnchor.MiddleLeft;
+
+            var role = BattleCueCopy.BossRoleForName(bossName);
+            _role = MkText("role", role ?? "", 20, Color.white,
+                new Vector2(0.22f, 0.28f), new Vector2(320f, 28f));
+            _role.alignment = TextAnchor.MiddleLeft;
+            if (string.IsNullOrEmpty(role))
+                _role.enabled = false;
 
             var name = bossName ?? "";
-            _rule = Img("rule", UiSprites.Dashed(),
-                new Color(VisualTokens.GoldWire.r, VisualTokens.GoldWire.g, VisualTokens.GoldWire.b, 0.70f),
-                new Vector2(0.50f, 0.455f), new Vector2(420f, 8f));
-            _rule.type = Image.Type.Tiled;
-            _name = MkText("name", name, 32, VisualTokens.YellowValue,
-                new Vector2(0.50f, 0.438f), new Vector2(640f, 48f));
+            _name = MkText("name", name, 34, Color.white,
+                new Vector2(0.22f, 0.22f), new Vector2(360f, 44f));
             _name.fontStyle = FontStyle.Bold;
+            _name.alignment = TextAnchor.MiddleLeft;
             if (name.Length == 0)
-            {
-                _rule.enabled = false;
                 _name.enabled = false;
-            }
 
             _band.transform.localScale = new Vector3(0.42f, 1.10f, 1f);
             _title.transform.localScale = Vector3.one * 1.70f;
@@ -109,7 +127,7 @@ namespace Resonance.App
             SetA(_dots, 0.07f * a);
             SetA(_band, 0.88f * a);
             SetA(_bandInner, 0.50f * a);
-            SetA(_rule, 0.70f * a);
+            SetA(_warnPlate, 0.78f * a);
 
             var slam = 1f - (1f - Mathf.Clamp01(_age / 0.14f)) * (1f - Mathf.Clamp01(_age / 0.14f));
             if (_band != null)
@@ -124,7 +142,9 @@ namespace Resonance.App
                 _ghost.transform.localScale = Vector3.one * Mathf.Lerp(1.70f, 1f, slam);
                 Fade(_ghost, a);
             }
-            Fade(_sub, a * Mathf.Clamp01((_age - 0.08f) / 0.10f));
+            Fade(_epithet, a * Mathf.Clamp01((_age - 0.04f) / 0.10f));
+            Fade(_warn, a * Mathf.Clamp01((_age - 0.08f) / 0.10f));
+            Fade(_role, a * Mathf.Clamp01((_age - 0.10f) / 0.10f));
             Fade(_name, a * Mathf.Clamp01((_age - 0.12f) / 0.10f));
 
             if (_age >= Duration) Destroy(gameObject);

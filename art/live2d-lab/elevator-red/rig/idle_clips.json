@@ -1,0 +1,268 @@
+{
+  "schema": "dc.live2d.idle-clips/1",
+  "rig": "elevator-red",
+  "fps": 60,
+  "fixedStepHz": 120,
+  "notes": [
+    "所有 clip 都是 additive，叠在姿势/手K之上，且必须在鼠标追踪之前、物理之后不写任何值。",
+    "clip 只写 constraints.authorable 里的参数。physicsOwned 里的参数由 physics_groups.json 独占，clip 写了会和物理打架并产生抖动。",
+    "相位滞后 phaseLagSec 是刻意的：呼吸带动肩、发量、胸不是同一帧发生的，同相会看出是同一条正弦。"
+  ],
+  "defaults": {
+    "blend": "additive",
+    "weight": 1.0,
+    "loop": true
+  },
+  "clips": [
+    {
+      "id": "breath",
+      "comment": "呼吸 4s 循环。吸气比呼气快（inhaleRatio 0.42），胸腔上抬为主，不做腹部起伏。靠墙站立呼吸幅度略小于常规待机。",
+      "loop": true,
+      "durationSec": 4.0,
+      "blend": "additive",
+      "weight": 1.0,
+      "priority": 0,
+      "tracks": [
+        {
+          "param": "ParamBreath",
+          "mode": "sine",
+          "waveform": "asymmetricSine",
+          "inhaleRatio": 0.42,
+          "center": 0.5,
+          "amplitude": 0.5,
+          "periodSec": 4.0,
+          "phaseSec": 0.0
+        },
+        {
+          "param": "ParamBodyAngleY",
+          "mode": "sine",
+          "waveform": "asymmetricSine",
+          "inhaleRatio": 0.42,
+          "center": 0.0,
+          "amplitude": 0.8,
+          "periodSec": 4.0,
+          "phaseLagSec": 0.06
+        },
+        {
+          "param": "ParamShoulderRY",
+          "mode": "sine",
+          "waveform": "asymmetricSine",
+          "inhaleRatio": 0.42,
+          "center": 0.0,
+          "amplitude": 0.07,
+          "periodSec": 4.0,
+          "phaseLagSec": 0.09,
+          "comment": "扶扶手那侧，幅度砍半"
+        },
+        {
+          "param": "ParamShoulderLY",
+          "mode": "sine",
+          "waveform": "asymmetricSine",
+          "inhaleRatio": 0.42,
+          "center": 0.0,
+          "amplitude": 0.14,
+          "periodSec": 4.0,
+          "phaseLagSec": 0.12
+        },
+        {
+          "param": "ParamHairFluffy",
+          "mode": "sine",
+          "waveform": "sine",
+          "center": 0.0,
+          "amplitude": 0.08,
+          "periodSec": 4.0,
+          "phaseLagSec": 0.22,
+          "comment": "发量随呼吸微涨，滞后最大。非物理，纯联动。"
+        },
+        {
+          "param": "ParamAngleY",
+          "mode": "sine",
+          "waveform": "sine",
+          "center": 0.0,
+          "amplitude": 0.9,
+          "periodSec": 4.0,
+          "phaseLagSec": 0.15,
+          "comment": "呼吸带的头部微动，追踪值之上叠加"
+        }
+      ]
+    },
+    {
+      "id": "blink",
+      "comment": "眨眼。3-6s 随机间隔，单次 0.22s：合 0.06 / 闭 0.04 / 开 0.12。开比合慢是关键，反了会像抽搐。右眼比左眼晚 8ms。15% 概率连眨两次。",
+      "loop": false,
+      "durationSec": 0.22,
+      "blend": "override",
+      "weight": 1.0,
+      "priority": 2,
+      "trigger": {
+        "type": "randomInterval",
+        "minSec": 3.0,
+        "maxSec": 6.0,
+        "distribution": "uniform",
+        "firstDelaySec": 1.4,
+        "doubleBlinkChance": 0.15,
+        "doubleBlinkGapSec": 0.14,
+        "onGazeShift": {
+          "chance": 0.35,
+          "angleThresholdDeg": 12,
+          "comment": "视线大跨度移动时顺带眨一次，和 mouse_tracking.json 的 saccade 联动，是真人行为"
+        },
+        "suppressWhile": [
+          { "param": "ParamEyeLSmile", "above": 0.7 },
+          { "param": "ParamEyeRSmile", "above": 0.7 }
+        ],
+        "suppressComment": "笑眼时眼形已被手K接管，眨眼会打穿。已在播的眨眼不重入由调度器保证，不要在这里读 EyeOpen 自身。"
+      },
+      "tracks": [
+        {
+          "param": "ParamEyeLOpen",
+          "mode": "keys",
+          "keys": [
+            [0.0, 1.0, "easeInQuad"],
+            [0.06, 0.0, "linear"],
+            [0.10, 0.0, "easeOutQuad"],
+            [0.22, 1.0, "linear"]
+          ]
+        },
+        {
+          "param": "ParamEyeROpen",
+          "mode": "keys",
+          "offsetSec": 0.008,
+          "keys": [
+            [0.0, 1.0, "easeInQuad"],
+            [0.06, 0.0, "linear"],
+            [0.10, 0.0, "easeOutQuad"],
+            [0.22, 1.0, "linear"]
+          ]
+        },
+        {
+          "param": "ParamBrowLY",
+          "mode": "keys",
+          "blend": "additive",
+          "keys": [
+            [0.0, 0.0, "easeInOutQuad"],
+            [0.08, -0.12, "easeInOutQuad"],
+            [0.26, 0.0, "linear"]
+          ]
+        },
+        {
+          "param": "ParamBrowRY",
+          "mode": "keys",
+          "blend": "additive",
+          "offsetSec": 0.008,
+          "keys": [
+            [0.0, 0.0, "easeInOutQuad"],
+            [0.08, -0.10, "easeInOutQuad"],
+            [0.26, 0.0, "linear"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "weight_shift",
+      "comment": "重心切换 11s 循环。单腿支撑，所以幅度小、周期长、且强不对称：向抬腿侧只到 +0.35，向支撑腿侧可到 -1.0。不是正弦 —— 压向支撑腿慢（放松），回中快（收力），这个不对称是可信度的来源。",
+      "loop": true,
+      "durationSec": 11.0,
+      "blend": "additive",
+      "weight": 1.0,
+      "priority": 1,
+      "tracks": [
+        {
+          "param": "ParamWeightShift",
+          "mode": "keys",
+          "keys": [
+            [0.0, 0.0, "easeInOutSine"],
+            [3.6, -0.62, "easeInOutSine"],
+            [5.4, -0.78, "easeOutSine"],
+            [6.9, -0.20, "easeInOutSine"],
+            [8.2, 0.26, "easeInOutSine"],
+            [9.6, 0.12, "easeInOutSine"],
+            [11.0, 0.0, "linear"]
+          ],
+          "clamp": [-1.0, 0.35]
+        },
+        {
+          "param": "ParamHipTilt",
+          "mode": "derive",
+          "from": "ParamWeightShift",
+          "gain": 0.55,
+          "lagSec": 0.10,
+          "comment": "骨盆跟重心走，略滞后。静帧已含单腿支撑的倾斜，这里只做增量。"
+        },
+        {
+          "param": "ParamBodyAngleZ",
+          "mode": "derive",
+          "from": "ParamWeightShift",
+          "gain": 2.2,
+          "lagSec": 0.16,
+          "clamp": [-4.0, 2.0]
+        },
+        {
+          "param": "ParamSpineLean",
+          "mode": "keys",
+          "keys": [
+            [0.0, 0.0, "easeInOutSine"],
+            [4.2, 0.22, "easeInOutSine"],
+            [7.5, 0.05, "easeInOutSine"],
+            [11.0, 0.0, "linear"]
+          ],
+          "comment": "越放松越贴后壁"
+        },
+        {
+          "param": "ParamLegSupportL",
+          "mode": "derive",
+          "from": "ParamWeightShift",
+          "gain": -0.45,
+          "lagSec": 0.08,
+          "comment": "反相：重心压过来时支撑腿更屈"
+        },
+        {
+          "param": "ParamAngleZ",
+          "mode": "keys",
+          "blend": "additive",
+          "keys": [
+            [0.0, -3.0, "easeInOutSine"],
+            [5.5, -1.2, "easeInOutSine"],
+            [11.0, -3.0, "linear"]
+          ],
+          "comment": "靠墙姿势的常驻倒头偏置，在 -3 附近呼吸式游走，不回 0"
+        }
+      ]
+    }
+  ],
+  "scheduler": {
+    "alwaysOn": ["breath", "weight_shift"],
+    "triggered": ["blink"],
+    "desyncOnStart": {
+      "breath": { "randomPhase": true },
+      "weight_shift": { "randomPhase": true },
+      "comment": "多角色同屏时必须随机起始相位，否则会集体同步呼吸"
+    },
+    "onMotionOverride": {
+      "comment": "手K动作播放时，待机按 param 粒度让位：动作里出现的 param 由动作接管，其余 param 待机继续跑。",
+      "fadeOutSec": 0.25,
+      "fadeInSec": 0.4
+    }
+  },
+  "constraints": {
+    "authorable": [
+      "ParamBreath", "ParamBodyAngleX", "ParamBodyAngleY", "ParamBodyAngleZ",
+      "ParamAngleX", "ParamAngleY", "ParamAngleZ",
+      "ParamEyeLOpen", "ParamEyeROpen", "ParamBrowLY", "ParamBrowRY",
+      "ParamWeightShift", "ParamHipTilt", "ParamSpineLean",
+      "ParamShoulderLY", "ParamShoulderRY", "ParamLegSupportL", "ParamHairFluffy"
+    ],
+    "physicsOwned": [
+      "ParamHairFront", "ParamHairSideL", "ParamHairSideLSub", "ParamHairSideR", "ParamHairSideRSub",
+      "ParamHairBack01", "ParamHairBack02", "ParamHairBack03",
+      "ParamKneeSwayR", "ParamAnkleR",
+      "ParamSkirtSlitPanel", "ParamSkirtSlitPanelSub", "ParamSkirtPinL",
+      "ParamSkirtBackX", "ParamSkirtHemFlutter",
+      "ParamArmLHang", "ParamArmLHangSub", "ParamHandLSwing",
+      "ParamBustLZ", "ParamBustRZ", "ParamBustLY", "ParamBustRY",
+      "ParamAnkletR", "ParamAnkletRSub"
+    ],
+    "poseLocked": ["ParamLegRaiseR", "ParamArmRRail"],
+    "poseLockedComment": "待机绝不碰这两个。落腿 / 离栏是演出，不是待机。"
+  }
+}

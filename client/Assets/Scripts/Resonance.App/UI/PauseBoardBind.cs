@@ -5,7 +5,7 @@ namespace Resonance.App
 {
     /// <summary>
     /// Live pause overlay: paints <see cref="PauseClockReadout"/> from the host battle.
-    /// Speed clicks go through <see cref="GameRoot.ToggleBattleSpeed"/> — no BattleSim writes,
+    /// Speed clicks go through <see cref="GameRoot.SetBattleSpeed"/> — no BattleSim writes,
     /// no <c>Time.timeScale</c>. Uses unscaled Update so the overlay stays live while paused.
     /// </summary>
     public sealed class PauseBoardBind : MonoBehaviour
@@ -13,19 +13,26 @@ namespace Resonance.App
         Text _status;
         Text _policy;
         Image _chipLo;
+        Image _chipMid;
         Image _chipHi;
         Text _labLo;
+        Text _labMid;
         Text _labHi;
         int _shownSpeed = int.MinValue;
         bool _shownPause;
         bool _shownHas;
 
-        public void Wire(Text status, Text policy, Image chipLo, Text labLo, Image chipHi, Text labHi)
+        public void Wire(Text status, Text policy,
+            Image chipLo, Text labLo,
+            Image chipMid, Text labMid,
+            Image chipHi, Text labHi)
         {
             _status = status;
             _policy = policy;
             _chipLo = chipLo;
             _labLo = labLo;
+            _chipMid = chipMid;
+            _labMid = labMid;
             _chipHi = chipHi;
             _labHi = labHi;
             Paint(PauseClockReadout.Read(Battle()));
@@ -44,10 +51,8 @@ namespace Resonance.App
             var host = GameRoot.Live;
             if (host == null || host.Battle == null) return;
             if (!PauseClockReadout.IsHostTier(speed)) return;
-            var cur = host.Battle.Speed;
-            if (cur == speed) return;
-            if (!PauseClockReadout.IsHostTier(cur)) return;
-            host.ToggleBattleSpeed();
+            if (host.Battle.Speed == speed) return;
+            host.SetBattleSpeed(speed);
         }
 
         static Resonance.Battle.BattleSim Battle()
@@ -64,6 +69,7 @@ namespace Resonance.App
             if (_status != null) _status.text = view.StatusLine;
             if (_policy != null) _policy.text = view.PolicyLine;
             PaintChip(_chipLo, _labLo, view.HasBattle && view.Speed == PauseClockReadout.SpeedLo);
+            PaintChip(_chipMid, _labMid, view.HasBattle && view.Speed == PauseClockReadout.SpeedMid);
             PaintChip(_chipHi, _labHi, view.HasBattle && view.Speed == PauseClockReadout.SpeedHi);
         }
 

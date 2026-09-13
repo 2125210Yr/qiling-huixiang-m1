@@ -4,7 +4,7 @@ using UnityEngine.UI;
 namespace Resonance.App
 {
     /// <summary>
-    /// 主线阶段 chip:印在拱条下方的暗漆牌。Copy is 阶段 n/m (1-based), never PHASE.
+    /// Ordinary stage phase chip under arch. Copy is PHASE n/m (primary GT).
     /// 印刷暗金:暗漆底 + 半调网点 + 细金线框 + 错版墨影;无 Soft 圆盘、无圆角金卡。
     /// Persistent overlay. maxPhase below 1 hides. Does not touch BattleHud.
     /// </summary>
@@ -216,7 +216,7 @@ namespace Resonance.App
 
         static string Rich(int phase, int maxPhase)
         {
-            return "<size=" + LabSize + ">阶段</size><size=" + NumSize + "> <b>" + phase + "/" + maxPhase + "</b></size>";
+            return "<size=" + LabSize + ">PHASE</size><size=" + NumSize + "> <b>" + phase + "/" + maxPhase + "</b></size>";
         }
 
         static VfxPhaseBar Find(Transform parent)

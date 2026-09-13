@@ -3,12 +3,14 @@ using UnityEngine.UI;
 
 namespace Resonance.App
 {
-    /// <summary>
-    /// Drive field crush only. QTE 完美/优秀 is VfxJudge.
-    /// Not SHOWTIME, not Fever banner. 150% is not a PVE number.
-    /// </summary>
-    public sealed class VfxDriveCrush : MonoBehaviour
-    {
+        /// <summary>
+        /// Drive field crush only. QTE 完美/优秀 is VfxJudge.
+        /// Primary Hard r52: EN <c>DRIVE CRUSH</c> + <c>DRIVE SKILL</c> badge + skill name.
+        /// CN <c>碾压</c> stays inventory substamp when no skill name.
+        /// Not SHOWTIME, not Fever. 150% is not a PVE number.
+        /// </summary>
+        public sealed class VfxDriveCrush : MonoBehaviour
+        {
         const float ReadyLen = 0.38f;
         const float CrushAt = 0.28f;
         const float CrushLen = 0.50f;
@@ -21,12 +23,16 @@ namespace Resonance.App
         Image[] _blades;
         Text _ready;
         Text _crush;
+        Text _badge;
+        Text _skill;
+        Text _crushCn;
         Color _color;
         bool _perfect;
+        string _skillName;
         float _age;
         bool _didCrush;
 
-        public static void Play(Transform parent, Vector2 center, Color color, bool perfect)
+        public static void Play(Transform parent, Vector2 center, Color color, bool perfect, string skillName = null)
         {
             if (parent == null) return;
             if (color.a < 0.05f) color.a = 1f;
@@ -57,13 +63,14 @@ namespace Resonance.App
                 Object.Destroy(go);
                 return;
             }
-            fx.Build(color, perfect);
+            fx.Build(color, perfect, skillName);
         }
 
-        void Build(Color color, bool perfect)
+        void Build(Color color, bool perfect, string skillName)
         {
             _color = color;
             _perfect = perfect;
+            _skillName = skillName ?? "";
 
             _flash = Img("flash", UiSprites.Soft(), new Color(color.r, color.g, color.b, 0f), 180f);
             _wipe = Img("wipe", UiSprites.Slash(), new Color(color.r, color.g, color.b, 0f), 0f);
@@ -92,9 +99,35 @@ namespace Resonance.App
                 _blades[i] = blade;
             }
 
-            _ready = MkText("ready", "准备", 64, Color.white, new Vector2(520f, 96f));
-            _crush = MkText("crush", "碾压", 78, color, new Vector2(560f, 110f));
+            _ready = MkText("ready", BattleCueCopy.DrivePrep, 64, Color.white, new Vector2(520f, 96f));
+            _crush = MkText("crush", BattleCueCopy.DriveCrushEn, 78, color, new Vector2(560f, 110f));
+            // Hard r52: DRIVE SKILL badge + skill name under crush (primary EN chrome).
+            _badge = MkText("badge", BattleCueCopy.DriveSkillBadge, 14, Color.white, new Vector2(96f, 48f));
+            if (_badge != null)
+            {
+                _badge.rectTransform.anchoredPosition = new Vector2(-140f, -64f);
+                _badge.fontStyle = FontStyle.Bold;
+                _badge.lineSpacing = 0.78f;
+                _badge.alignment = TextAnchor.MiddleCenter;
+            }
+            _skill = MkText("skill", _skillName, 28, Color.white, new Vector2(360f, 44f));
+            if (_skill != null)
+            {
+                _skill.rectTransform.anchoredPosition = new Vector2(60f, -64f);
+                _skill.fontStyle = FontStyle.Bold;
+                _skill.alignment = TextAnchor.MiddleLeft;
+            }
+            // Inventory CN substamp when skill name unknown.
+            _crushCn = MkText("crushCn", BattleCueCopy.DriveCrush, 22, VisualTokens.FeverGold, new Vector2(420f, 36f));
+            if (_crushCn != null)
+            {
+                _crushCn.rectTransform.anchoredPosition = new Vector2(0f, -48f);
+                _crushCn.fontStyle = FontStyle.Normal;
+            }
             Fade(_crush, 0f);
+            Fade(_badge, 0f);
+            Fade(_skill, 0f);
+            Fade(_crushCn, 0f);
             if (_crush != null) _crush.transform.localScale = Vector3.one * 2.2f;
         }
 
@@ -126,7 +159,7 @@ namespace Resonance.App
             var slam = Mathf.Clamp01(_age / 0.16f);
             if (_ready != null)
             {
-                _ready.text = "准备";
+                _ready.text = BattleCueCopy.DrivePrep;
                 _ready.transform.localScale = Vector3.one * Mathf.Lerp(1.55f, 1f, 1f - (1f - slam) * (1f - slam));
                 Fade(_ready, u < 0.62f ? 1f : 1f - (u - 0.62f) / 0.38f);
             }
@@ -190,9 +223,25 @@ namespace Resonance.App
             var slam = Mathf.Clamp01((_age - CrushAt) / 0.14f);
             if (_crush != null)
             {
-                _crush.text = "碾压";
+                _crush.text = BattleCueCopy.DriveCrushEn;
                 _crush.transform.localScale = Vector3.one * Mathf.Lerp(2.15f, 1.02f, 1f - (1f - slam) * (1f - slam));
                 Fade(_crush, u < 0.62f ? 1f : a);
+            }
+            var showSkill = !string.IsNullOrEmpty(_skillName);
+            if (_badge != null)
+            {
+                _badge.text = BattleCueCopy.DriveSkillBadge;
+                Fade(_badge, showSkill && u < 0.72f ? 1f : 0f);
+            }
+            if (_skill != null)
+            {
+                _skill.text = _skillName;
+                Fade(_skill, showSkill && u < 0.72f ? 1f : 0f);
+            }
+            if (_crushCn != null)
+            {
+                _crushCn.text = BattleCueCopy.DriveCrush;
+                Fade(_crushCn, !showSkill && u < 0.62f ? 1f : 0f);
             }
         }
 

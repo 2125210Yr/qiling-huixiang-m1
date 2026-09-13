@@ -4,8 +4,8 @@ using UnityEngine.UI;
 namespace Resonance.App
 {
     /// <summary>
-    /// 眩晕: gold stars orbit a faint ring above the head.
-    /// Optional floating 眩晕. No English Stun.
+    /// Stun: gold stars orbit a faint ring above the head.
+    /// Optional floating <c>Stun</c> (primary EN chips).
     /// </summary>
     public sealed class VfxStun : MonoBehaviour
     {
@@ -66,7 +66,7 @@ namespace Resonance.App
                 _stars[i] = img;
             }
 
-            _tag = MkText(transform, "眩晕", 22, Head + new Vector2(0f, 30f), new Vector2(180f, 36f), Gold);
+            _tag = MkText(transform, "Stun", 22, Head + new Vector2(0f, 30f), new Vector2(180f, 36f), Gold);
         }
 
         void Update()

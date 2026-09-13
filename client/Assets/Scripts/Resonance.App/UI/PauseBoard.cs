@@ -5,20 +5,21 @@ using UnityEngine.UI;
 namespace Resonance.App
 {
     /// <summary>
-    /// 战斗暂停 overlay：75% 压暗 + 金线卡 + 虚线律。
-    /// 现档 ×1 / ×2 可观察，只读对接 <c>BattleSim.Clocks</c>。取消「回首页」+ 确认「继续」胶囊对脱在卡下。
-    /// 布局未测自 primary GT。不是 T04。无六页签。
+    /// 战斗暂停 overlay：75% 压暗 + 金线卡。
+    /// Primary Robin pause: large <c>PAUSE</c> + red <c>Repeat</c> + speed chips.
+    /// 现档 ×1 / ×2 / ×3。只读对接 <c>BattleSim.Clocks</c>。不是 T04。无六页签。
     /// </summary>
     public static class PauseBoard
     {
-        public const string LayoutStatus = "NEEDS_REFERENCE";
+        public const string LayoutStatus = "PRIMARY_PARTIAL_HANDOFF";
 
-        // NEEDS_REFERENCE: not measured from primary GT. Not T27. Not T04.
-        const float CtaY = 0.30f;
-        const float HomeX = 0.30f;
-        const float ResumeX = 0.70f;
+        // Title/Repeat from primary Robin pause frames; layout coords still engineering.
+        const float CtaY = 0.28f;
+        const float HomeX = 0.22f;
+        const float ResumeX = 0.50f;
+        const float RepeatX = 0.78f;
 
-        public static void Draw(Transform parent, Action onResume, Action onHome)
+        public static void Draw(Transform parent, Action onResume, Action onHome, Action onRepeat = null)
         {
             if (parent == null) return;
             var root = OverlayDraw.Group(parent, null, "PauseBoard");
@@ -43,32 +44,19 @@ namespace Resonance.App
                 VisualTokens.GoldMetal, UiSprites.Spark());
             OverlayDraw.Pic(panel, null, "芒右", new Vector2(0.69f, 0.76f), new Vector2(22, 22),
                 VisualTokens.GoldMetal, UiSprites.Spark());
-            OverlayDraw.Label(panel, null, PauseClockReadout.Title, 48, VisualTokens.GoldSelect,
-                new Vector2(0.5f, 0.76f), new Vector2(420, 64), false, true, 3.5f, true);
-
-            var view = PauseClockReadout.Read(GameRoot.Live != null ? GameRoot.Live.Battle : null);
-            var status = OverlayDraw.Label(panel, null, view.StatusLine, 16, VisualTokens.TextSecondary,
-                new Vector2(0.5f, 0.62f), new Vector2(620, 30), false, false);
-            if (status != null) status.gameObject.name = "暂停状态";
+            OverlayDraw.Label(panel, null, "PAUSE", 48, VisualTokens.GoldSelect,
+                new Vector2(0.5f, 0.78f), new Vector2(420, 64), false, true, 3.5f, true);
+            // Primary GT is EN-only on pause card (Robin); drop CN 暂停 substamp.
+            // Clock-policy / "Leaving returns to Home" essays stay off the card (inventory in PauseClockReadout).
 
             OverlayDraw.Label(panel, null, PauseClockReadout.SpeedSection, 15, VisualTokens.GoldTitle,
                 new Vector2(0.5f, 0.54f), new Vector2(160, 26), false, false);
-            Chip(panel, "倍速×1", PauseClockReadout.FormatSpeed(PauseClockReadout.SpeedLo),
-                new Vector2(0.34f, 0.46f), PauseClockReadout.SpeedLo, out var chipLo, out var labLo);
-            Chip(panel, "倍速×2", PauseClockReadout.FormatSpeed(PauseClockReadout.SpeedHi),
-                new Vector2(0.66f, 0.46f), PauseClockReadout.SpeedHi, out var chipHi, out var labHi);
-
-            var policy = OverlayDraw.Label(panel, null, view.PolicyLine, 13, VisualTokens.TextMuted,
-                new Vector2(0.5f, 0.34f), new Vector2(640, 56), false, false);
-            if (policy != null)
-            {
-                policy.gameObject.name = "时钟政策";
-                policy.horizontalOverflow = HorizontalWrapMode.Wrap;
-                policy.verticalOverflow = VerticalWrapMode.Overflow;
-            }
-
-            OverlayDraw.Label(panel, null, PauseClockReadout.HomeWarn, 15, VisualTokens.TextMuted,
-                new Vector2(0.5f, 0.22f), new Vector2(560, 30), false, false);
+            Chip(panel, "x1", PauseClockReadout.FormatSpeed(PauseClockReadout.SpeedLo),
+                new Vector2(0.22f, 0.46f), PauseClockReadout.SpeedLo, out var chipLo, out var labLo);
+            Chip(panel, "x2", PauseClockReadout.FormatSpeed(PauseClockReadout.SpeedMid),
+                new Vector2(0.50f, 0.46f), PauseClockReadout.SpeedMid, out var chipMid, out var labMid);
+            Chip(panel, "x3", PauseClockReadout.FormatSpeed(PauseClockReadout.SpeedHi),
+                new Vector2(0.78f, 0.46f), PauseClockReadout.SpeedHi, out var chipHi, out var labHi);
 
             OverlayDraw.DashLine(panel, null, new Vector2(0.5f, 0.14f), 620f);
             OverlayDraw.Pic(panel, null, "端左", new Vector2(0.092f, 0.14f), new Vector2(14, 14),
@@ -77,14 +65,19 @@ namespace Resonance.App
                 VisualTokens.GoldMetal, UiSprites.Spark());
 
             var bind = root.gameObject.AddComponent<PauseBoardBind>();
-            bind.Wire(status, policy, chipLo, labLo, chipHi, labHi);
+            bind.Wire(null, null, chipLo, labLo, chipMid, labMid, chipHi, labHi);
 
-            var homeX = onResume != null ? HomeX : 0.5f;
-            var resumeX = onHome != null ? ResumeX : 0.5f;
             if (onHome != null)
-                UiChrome.Cancel(root, null, "回首页", new Vector2(homeX, CtaY), onHome);
+                UiChrome.Cancel(root, null, BattleCueCopy.ResultHome, new Vector2(HomeX, CtaY), onHome);
             if (onResume != null)
-                UiChrome.Confirm(root, null, "继续", new Vector2(resumeX, CtaY), onResume);
+            {
+                UiChrome.Confirm(root, null, BattleCueCopy.ResumeHud, new Vector2(ResumeX, CtaY), onResume);
+            }
+            if (onRepeat != null)
+            {
+                // Primary GT red Repeat — restarts active stage.
+                UiChrome.Confirm(root, null, "Repeat", new Vector2(RepeatX, CtaY), onRepeat);
+            }
         }
 
         static void Chip(Transform panel, string name, string word, Vector2 anchor, int speed,

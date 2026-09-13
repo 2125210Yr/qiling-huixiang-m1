@@ -14,3 +14,11 @@ python tools/puppet/from_masks.py --id C001 --src art/characters/C001-焰刃/pup
 ```
 
 先看 `puppet-src/layers/preview/`，再 `--pack`。
+
+Cubism / 待机预览（见 `CUBISM_EXPORT_v0.1.0.md`）：
+
+```
+python tools/puppet/export_cubism.py --id C001 --src art/characters/C001-焰刃/puppet-src
+```
+
+产物在 `<src>/cubism-export/`。双击 `preview.html`，或在 Cubism Editor 里打开同目录的 `C001.psd`。

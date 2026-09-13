@@ -4,7 +4,7 @@ using UnityEngine.UI;
 namespace Resonance.App
 {
     /// <summary>
-    /// Gold/metal hex shield flash on a fighter (block/guard). Word 格挡.
+    /// Gold/metal hex shield flash on a fighter (block/guard). Primary EN <c>Barrier</c>.
     /// </summary>
     public sealed class VfxShield : MonoBehaviour
     {
@@ -47,7 +47,7 @@ namespace Resonance.App
             _plate = Img("plate", UiSprites.Hex(), WithA(_metal, 0.96f), 118f);
             _inner = Img("inner", UiSprites.Hex(), WithA(_hot, 0.72f), 72f);
             _shine = Img("shine", UiSprites.Soft(), WithA(Color.white, 0.80f), 48f);
-            _tag = MkText("tag", "格挡", 28, _hot, new Vector2(180f, 40f), new Vector2(0f, 58f));
+            _tag = MkText("tag", "Barrier", 28, _hot, new Vector2(180f, 40f), new Vector2(0f, 58f));
 
             _glow.transform.localScale = Vector3.one * 0.70f;
             _ring.transform.localScale = Vector3.one * 0.40f;

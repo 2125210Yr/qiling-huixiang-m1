@@ -9,7 +9,7 @@ namespace Resonance.App
     /// </summary>
     public sealed class VfxTapReady : MonoBehaviour
     {
-        const string Word = "点按已满";
+        const string Word = "TAP READY";
         const float Hold = 0.60f;
         const float FadeLen = 0.18f;
         const float Life = Hold + FadeLen;

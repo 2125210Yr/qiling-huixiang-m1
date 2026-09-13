@@ -19,7 +19,10 @@ namespace Resonance.App
             {
                 var from = caster != null ? caster.Anchor : cue.From;
                 var to = target != null ? target.Anchor : cue.To;
-                OnHit(parent, from, to, cue.Channel, cue.Elem, cue.Amount, cue.Crit, cue.Heal, cue.Fever);
+                var skillName = cue.Label;
+                if (string.IsNullOrEmpty(skillName) && cue.Channel == SkillType.Drive && caster != null)
+                    skillName = BattleCueCopy.DriveSkillStubForName(caster.UnitName);
+                OnHit(parent, from, to, cue.Channel, cue.Elem, cue.Amount, cue.Crit, cue.Heal, cue.Fever, skillName);
             }
             else if (cue.Kind == PresentationCueKind.Cast)
             {
@@ -31,7 +34,12 @@ namespace Resonance.App
                     Name = cue.Label,
                     Fever = cue.Fever
                 };
-                OnCast(parent, fx, caster != null ? caster.Anchor : cue.From, cue.Elem);
+                var casterName = caster != null ? caster.UnitName : null;
+                if (string.IsNullOrEmpty(fx.Name) && cue.Channel == SkillType.Drive)
+                    fx.Name = BattleCueCopy.DriveSkillStubForName(casterName);
+                if (string.IsNullOrEmpty(fx.Name) && cue.Channel == SkillType.Slide)
+                    fx.Name = BattleCueCopy.SlideSkillStubForName(casterName);
+                OnCast(parent, fx, caster != null ? caster.Anchor : cue.From, cue.Elem, casterName);
             }
             else if (cue.Kind == PresentationCueKind.Death && target != null)
                 OnKo(target.transform, cue.Elem);
@@ -44,7 +52,7 @@ namespace Resonance.App
         }
 
         public static void OnHit(Transform parent, Vector2 from, Vector2 to, SkillType kind,
-            Element elem, int amount, bool crit, bool heal, bool fever)
+            Element elem, int amount, bool crit, bool heal, bool fever, string skillName = null)
         {
             if (parent == null) return;
             var color = VisualTokens.Element(elem);
@@ -68,7 +76,9 @@ namespace Resonance.App
             {
                 if (!fever)
                 {
-                    VfxProjectile.Play(parent, from, to, color, null);
+                    // Auto keeps bead fly-in. Tap = punch only (no Slash streak projectile).
+                    if (kind == SkillType.Auto)
+                        VfxProjectile.Play(parent, from, to, color, null);
                     VfxTapSkill.Play(parent, from, to, color);
                 }
             }
@@ -80,7 +90,7 @@ namespace Resonance.App
             else if (kind == SkillType.Drive)
             {
                 VfxAfterimage.Play(parent, from, to, color, 5);
-                VfxDriveCrush.Play(parent, to, color, crit);
+                VfxDriveCrush.Play(parent, to, color, crit, skillName);
             }
             if (fever && !heal && amount > 0)
             {
@@ -109,18 +119,21 @@ namespace Resonance.App
         {
             if (parent == null || string.IsNullOrEmpty(label)) return;
             VfxBuffFloat.Play(parent, anchor, label, VfxBuffFloat.ColorOf(label));
-            if (Has(label, "增益") || Has(label, "已标记")) return;
-            if (label == VfxBuffFloat.Regen) VfxRegen.Play(parent, anchor);
-            else if (Has(label, "沉默")) VfxSilence.Play(parent, anchor);
-            else if (Has(label, "无敌")) VfxInvuln.Play(parent, anchor);
-            else if (Has(label, "嘲讽")) VfxTaunt.Play(parent, anchor);
-            else if (Has(label, "睡眠")) VfxSleep.Play(parent, anchor);
-            else if (Has(label, "净化")) VfxCleanse.Play(parent, anchor);
-            else if (Has(label, "毒")) VfxPoison.Play(parent, anchor);
-            else if (Has(label, "流血")) VfxBleed.Play(parent, anchor);
-            else if (Has(label, "眩晕")) VfxStun.Play(parent, anchor);
-            else if (Has(label, "格挡") || Has(label, "护盾")) VfxShield.Play(parent, anchor, VisualTokens.GoldMetal);
-            else if (Has(label, "反击")) VfxCounter.Play(parent, anchor, anchor, VisualTokens.StarEvolved);
+            if (Has(label, "增益") || Has(label, "已标记") || Has(label, "Buff")) return;
+            if (label == VfxBuffFloat.Regen || Has(label, "Regen") || Has(label, "再生")) VfxRegen.Play(parent, anchor);
+            else if (Has(label, "沉默") || Has(label, "Silence")) VfxSilence.Play(parent, anchor);
+            else if (Has(label, "无敌") || Has(label, "Immortal")) VfxInvuln.Play(parent, anchor);
+            else if (Has(label, "嘲讽") || Has(label, "Taunt")) VfxTaunt.Play(parent, anchor);
+            else if (Has(label, "睡眠") || Has(label, "Sleep")) VfxSleep.Play(parent, anchor);
+            else if (Has(label, "净化") || Has(label, "Cleanse")) VfxCleanse.Play(parent, anchor);
+            else if (Has(label, "毒") || Has(label, "Poison") || Has(label, "DoT") || Has(label, "Burn")) VfxPoison.Play(parent, anchor);
+            else if (Has(label, "流血") || Has(label, "Bleed")) VfxBleed.Play(parent, anchor);
+            else if (Has(label, "眩晕") || Has(label, "晕眩") || Has(label, "Stun")) VfxStun.Play(parent, anchor);
+            else if (Has(label, "格挡") || Has(label, "护盾") || Has(label, "屏障")
+                || Has(label, "Barrier") || Has(label, "Shield"))
+                VfxShield.Play(parent, anchor, VisualTokens.GoldMetal);
+            else if (Has(label, "反击") || Has(label, "反射") || Has(label, "Reflect") || Has(label, "Counter"))
+                VfxCounter.Play(parent, anchor, anchor, VisualTokens.StarEvolved);
         }
 
         static bool Has(string label, string word)
@@ -129,6 +142,9 @@ namespace Resonance.App
         }
 
         public static void OnCast(Transform parent, CastFx fx, Vector2 caster, Element elem)
+            => OnCast(parent, fx, caster, elem, null);
+
+        public static void OnCast(Transform parent, CastFx fx, Vector2 caster, Element elem, string casterName)
         {
             if (parent == null || fx == null) return;
             if (IsFeverCast(fx))
@@ -149,25 +165,64 @@ namespace Resonance.App
 
             // Screen identity follows the cast event. Damage is already in the log;
             // these overlays never gate Resolve / opcode execution.
+            EmitCastIdentity(parent, fx, casterName, caster);
+        }
+
+        static void EmitCastIdentity(Transform parent, CastFx fx, string casterName, Vector2 caster)
+        {
             if (fx.Type == SkillType.Slide && fx.CasterAlly && !VfxFeverOverlay.Active)
-                VfxShowtime.Play(parent, null, fx.Name);
+            {
+                var slideName = fx.Name;
+                if (string.IsNullOrEmpty(slideName))
+                    slideName = BattleCueCopy.SlideSkillStubForName(casterName);
+                var rank = BattleCueCopy.SlideRankFromContent(fx.SlideRank, fx.SlideSkillLv, fx.SlideSkillLvMax);
+                VfxShowtime.Play(parent, null, slideName, rank);
+            }
             else if (fx.Type == SkillType.Drive && fx.CasterAlly && !VfxFeverOverlay.Active)
             {
+                var driveName = fx.Name;
+                if (string.IsNullOrEmpty(driveName))
+                    driveName = BattleCueCopy.DriveSkillStubForName(casterName);
                 var pix = PixelCombatFx.Ensure(parent);
-                if (pix != null) pix.PlayDrive(null, fx.Name, 0.70f, null);
+                if (pix != null) pix.PlayDrive(null, driveName, 0.70f, null);
             }
             else if (fx.Type == SkillType.Drive && !fx.CasterAlly)
                 VfxWarning.Play(parent, fx.Name);
-            if (fx.Type == SkillType.Leader)
-                VfxLeaderBurst.Play(parent, fx.Name);
+            else if ((fx.Type == SkillType.Auto || fx.Type == SkillType.Tap) && fx.CasterAlly)
+            {
+                var autoName = fx.Name;
+                if (string.IsNullOrEmpty(autoName))
+                    autoName = BattleCueCopy.AutoSkillStubForName(casterName);
+                if (fx.Type == SkillType.Auto)
+                {
+                    if (string.IsNullOrEmpty(autoName))
+                    {
+                        // Hard r36: AUTO SKILL when skill stub unknown.
+                        CombatFeel.NamePopStack(parent, caster + new Vector2(0f, 0.12f),
+                            BattleCueCopy.AutoSkillPortraitEn, VisualTokens.YellowConfirm);
+                    }
+                    else
+                    {
+                        // P0 t500: Auto chip + skill name (Eclipse / Dark Water / …).
+                        CombatFeel.NamePopStack(parent, caster + new Vector2(0f, 0.13f),
+                            BattleCueCopy.AutoCastBadge, VisualTokens.YellowConfirm);
+                        CombatFeel.NamePopStack(parent, caster + new Vector2(0f, 0.10f), autoName, Color.white);
+                    }
+                }
+                else if (!string.IsNullOrEmpty(autoName))
+                    CombatFeel.NamePopStack(parent, caster + new Vector2(0f, 0.10f), autoName, Color.white);
+            }
+            // P0 t60 ordinary fight: no LEADER field splash. VfxLeaderBurst was invented.
         }
 
         public static void OnFeverBanner(Transform parent)
         {
             if (parent == null) return;
             VfxShowtime.KillAll();
+            if (VfxJudge.AnyLive())
+                return;
             VfxJudge.KillAll();
-            VfxFeverOverlay.Show(parent, 7f);
+            VfxFeverOverlay.Show(parent, BattleSim.UnknownFeverWindowSec);
             CombatFeel.FeverRipple(parent, new Vector2(0.5f, 0.56f));
         }
 

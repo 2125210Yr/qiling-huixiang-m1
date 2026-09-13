@@ -1,0 +1,149 @@
+﻿     1         1         1         1         2         2         2         2         2         3         3         3         3         3     
+     2         4         6         8         0         2         4         6         8         0         2         4         6         8     
+   0|HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH.... ..          . H   H       H.H H     . H H     H HHHHHHH HHHHHHH HHHHHHHHHHHHHHH
+   2|HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH..HHHHHH... .     . . .        H.     .H  H         H H                    H HHHHHHHHHHHHHHH
+   4|HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH....  ..     .   . .   . .   .    HH .               H H         H H H H H H HHHHHHHHHHHHH.H
+   6|HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH.rHH .  .  .          .   .      .    HH                  HH                  .   HHHHHHHHHHHHHH
+   8|HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH.H H.    .                       H   .   H             H     H H H H   H H HHHHHHHHHHHHHHHHHHHHHHH
+  10|HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH... . r r .   .. .     .  .     .   H H  H                      H          .... HH HHHHHHHHHHHHHHHHHHH
+  12|HHHHHHHHHHHHHHHHHHHHHHHHHHHHHH . . r.. . r r     .   .   . . .   .     H                         H     H H H.H H.H H.HHH HHHHHHHHHHHHHHH
+  14|HHHHHHHHHHHHHHHHHHHHHHH..r.   .  .   .. . r.r   . .   .   .                                           . .H H ..  ..  HHH.  HHHHHHHHHHHHH
+  16|HHHHHHHHHHHHHHH.H.HH.. H.  H . . . r r.r . r r.    .HH             H                           H HHH H H H H H H H H H HHHHHHHHHHHHHHHHH
+  18|HHHHHHHHHHHH.HHr.r....     H.     . r...rrrr..    .              H..H                      H. . H HHH.H H HH    . HH   H HHHHHHHHHHHHHHH
+  20|HHHHHHHHHHHHHH H.      H . HHH H ..r.rrr rrr.r.                HH..HHH               r r   H . H.HHH.HHHHH H.H   H H H HHHHHHHHHHHHHHHHH
+  22|HHHHHHHHHH.  .. . .         H H.H ..rrrrrrr            HHHHHH  HH.HHHHH H ..     . . ..       H H HH         . H. HH . ....HHHHHHHHHHHHH
+  24|HHHHHHHH .     H   HHH     H     . rr.                 HH...++HHH.HHHH HHHH. . r r r H.. r.r H H H         H .  HH H   H H H HHHHHHHHHHH
+  26|HHHHHHH .  ..      H .   ... .  r .                HHHH.++++..+..HHHrr .HHH . H.H  .r.H H .  . .H   . .. .  H H.H H   . rrrrr.HHHHHHHHHH
+  28|HHHHHHHH.H . . H  .H . H H.                       HH......++++++.H rrrr .HH. r.H.r r r..H  r     H.  H H.  . . . . r rrrrrrrrHHHHHHHHHHH
+  30|HHHHHH.H HHH.      . . HHH                       HHH...HHH....++.H rrrr.HHH r rrr.rrr . H   r .  HH  HH     .rrrrrrrrrrrrrrrr.HHHHHHHHHH
+  32|HHHHHH   HHH     r                           . HHHH.HHH...H.......Hr  HHHH.r rrrrrrr.... . . ..r r.r r rrr rrrrrrrrrrrrrrr rrrHHHHHHHHHH
+  34|HHHHH. .r HH. .                              ..HHHHHHH...+.........HHHHHHH.rrr.rrrrrrr....r.rrrr.r.rrrrrrrrrrrrrrrrrrrrrrrrrrrHHHHHHHHHH
+  36|HHHHHH r H.r                     . r   r   HH..+.HHHH.HHH...........HHHHHHrrrrrrrrrrrrrrrrrrrrrr rrrrrrrrrrrrrrrrrrrrrrrrrrrrr HHHHHHHHH
+  38|HHHHH                                   rrrrHHHHHHHHHHHHHHH.........HHHHH.rrrrrrr.rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr.HHHHHHHHH
+  40|HHHHH. . . .       .             r rrrrrrrrHH. HHHHHHHHHHHHHH.....H.HHHHH. rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr HHHHHHHHH
+  42|HHHHH . r                     rrrrrrrrrrrr .H . HHHHHHHHHHHHHH.#...HHHHHHH.rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHHHHHHHHHH
+  44|HHHHH .r ...             . r rrrrrrrrrrrrr.H r  HHHHHHHHHHHHH..###HHHHHHHHrr rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHHHHHHHHH
+  46|HHHH  ..   .        r rrrrr.rrrrrrrrrrrrrr.HrrrrHHHHHHHHHH.H....###.HHHH..rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr HHHHHHHH
+  48|HHHH . . r..         r.r r rrrrrrrrrrrrrrr.Hrr r HHHHHHHH......+###+H.HH.+.Hrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr HHHHHHHH
+  50|HHHH  r .          ...rr.rrrrrrrrrrrrrrrrrr .    HHHHHHH.....+##+.+++HHHH++.rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHHHHHHHH
+  52|HHHH . . ...       r   r rrrrrrrrrrrrrrrrrrr .   HHHHHH.H..+###.+####.HHH.++rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr HHHHHHH
+  54|HHHH .r             . r.rrrrrrrrrrrrrrrr.rHHH   HHHHHH...+####+######.HHH.+++rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHHHHHHHH
+  56|HHHH r . r .   r r r r . r.rrrrrrrrrrrrrr.H..HHHHHHHH...+############+HHH..++.rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHHHHHHH
+  58|HHHH      .     . .   . . rrrrrrrrrrrrrrrrrHHHHHHHHHH.+##############+.HHH.+++rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHHHHHHHH
+  60|HHH  r H . .   r r r r . r rrrrrrrrrrrrrrrrr HHHHHHHH.++.+###########+.HHHH..+.rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHHHHHHH
+  62|HHH   .   .     r r   .  .rrrrrrrrrrrrrrrrrrrr.HHHHHH++##############..HHHHH.+rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr HHHHHH
+  64|HH   r   r r   . r . . r r rrrrrrrrrrrrrrrrrrrr HHHHH.+##############.HHH.HHHHrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHHHHHH
+  66|HH  .  .  .   r   .H .H..rrrrrrrrrrrrrrrrrrrrrrrHHHHHH+#############+.HHHHHHH..rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHHHHHH
+  68|HH   r r r r  .r r r .rrrrrrrrrrrrrrrrrrrrrrrrrrrHHHHH.#############+.HHHHHHHHHHrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHHHHHH
+  70|Hr  HHH   .   r  .rH.rrr.rrrrrrrrrrrrrrrrrrrrrrrrHHHHH.+############+.HHHHHH.HHHrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHHHHHH
+  72|Hr r . H r   r r rrrrrrr.rrrrrrrrrrrrrrrrrrrrrrrrHH.H.H.+###########+.HHHHH...+++.rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr.HHHHH
+  74|H.. H.H r r  rrrrrr.rrrrrrrrrrrrrrrrrrrrrrrrrrrrrHHH.HHH..+#######+++.HHHH..+######+rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr.HHHHH
+  76|H  r.r r rr  rrr rr.HrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHHH.HHH.H...+##++Rrr.HHHH+#########+rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHHHHH
+  78|H .H.rr.r r  rrrrrrrrrrrrrrrrrrrrrrrrrrrrRRRrrrrrrHHHH.HHHHHHH.+++rrrrrHHH.############rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHHHHH
+  80| ..... rrr   rrrrrrrrrrrrrrrrrrRrrrrrrrrrrrRrRrRrr.HHHHHHHHHH.....rrrrrrHHH#############.rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHHHH
+  82| .rH..rrrr  rrr rr r.rrrrrrrrrrrrrrrrrRrRRRRrrRRRrrHHHHHHHHHH.rrrrrrrrrr.HH.##############rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHHHH
+  84| rrHr.rrrr  rrrrrrrrrrrrrrrrrRrrrrrrrrrrrrrRRrRRRRr HHHHHHHHH.rrr.+#+.rrr.H.+##############.rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHHHH
+  86| rrH.rrrrr  rrrrrrrrrrrrrrrrrrrrrrrrrrRrRrRrRrRRRrrrHHH..HHHHrr.+##+#+#+.H...###############.rrrrrrrrrrrrrrrrrrrrrRrrrrrrrrrrrrrrrrrHHHH
+  88| r Hrrrr r  rr rrrrrrrrrrrrrrrrRrRrrrRrRrRRRRRRRRRrrH.H..HHHHr.++#########+...+##############+rrrrrrrrrrrrrrrrrrrRrrrrrrrrrrrrrrrrrr HHH
+  90|.rrHrrrrrr  rr rrrrrrrrrrrrrrrrRRRRRRrRrRRrRRRrrRRrr..H..HHHr+++#############+..+##############.rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHHH
+  92|...Hrrrr r rrr rrrrrrrrrrrrrrrrRrRrRRrrRRRrRRrRRRrr.H.r..HHH.#####+########+###..+##############.rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHHH
+  94|r.rrrrrrr  rrrrrrrrrrrrrrrrrrrrRrRRRRrrRRRRRRRRRRrrH..++.HH+###############R+###+.++#############+rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHHH
+  96|rrr.rrrrr  rrr rrrrrrrrrrrrrrrrrRRRRRRrRrrrrrrrRrrrH.+++H.################RR+####+++.+#############.rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHH
+  98|rrrrrrrr.  rrrrrrrrrrrrrrrrrrrrrrRRRRRrR++###++rRrrr.++..################+RR.#####++.r.#############.rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHH
+ 100|r..r.rrrr  rrrrrrrrrrrrrrrrrrrrrrRRRRR.########+rrr.+++##################RRR++####++..rR+#############rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHH
+ 102|rrrrrrrr  rrr rrrrrrrrrrrrrrrrrrrRRRr+##########+rr.++##################.RRR+######...rRR+#############.rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrHH
+ 104|.rrrrrrr  rrrrrrrrrrrrrrrrrrrrrrrrRrR############.rr+###################RRR..++####+..rrRR.#############+rrRrRrRrRrrrRrrrrrrrrrrrrrrrr H
+ 106|rrrrrrrr  rrr rrrrrrrrrrrrrrrrrrrrrr##############rr###################.RrrR..R####+..+rrrRR+#############.rrrrrrrrrrrrrrrrrrrrrrrrrrrrH
+ 108|rrrrrr r  rrrrrrrrrrrrrrrrrrrrrrrrrR##############..##################+Rrrrrrrr+####...RrRRRRR#############RrRrrrrrrrrrrrrrrrrrrrrrrrrrH
+ 110|.rrrrrrr  rrrrrrrrrrrrrrrrrrrrrrrrr+###############r##################+rrrrrrrrR####...RRrRRRRR+###########+rrrrrrrrrrrrrrrrrrrrrrrrrrr 
+ 112|rrrrrr r rrr rrrrrrrrrrrrrrrrrrrrrr################++#################.rrrrrrrr.####....rRrRR.RRR###########rRrRrrrrrrrrrrrrrrrrrrrrrrrH
+ 114|.rr.rrr  rrrrrrrrrrrrrrrrrrrrrrrrr+#################.################+rrrrrrrrrr+##+...r.rrrRRRrr##########+rrrrrrrrrrrrrrrrrrrrrrrrrrr.
+ 116|.rrrrrr  rrr rrrrrrrrrrrrrrrrrrrr+##################++##########+####+rrrrrrrrrr.##+....RRrRrRR.###########.rrrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 118|..rrr r  rrrrrrrrrrrrrrrrrrrrrrr.####################.##############+rrrrrrrrrrrr##+rH..R.rrrRR###########+rrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 120|.rrrrrr  rrrrrrrrrrrrrrrrrrrrrrr+#####################.#########.###.rrrrrrrrrrrr#+.r...r.rRrr+##########+rrrrrRrRrrrrrrrrrrrrrrrrrrrrrr
+ 122|..r.rr  rrr rrrrrrrrrrrrrrrr.rr.######################..#######+.##+rrrrrrrrrrrrrrrrrH..rr.rr.##########+rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 124|.r.rr.   rrrrrrrrrrrrrrr.r.r.rr########################..######+.++rrrrrrrrrrrrr rrrrHH.rrrrr##########+rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 126|.rrrrr  rrr rrrrrrrrrrrrrrH.rr+########################+rr+####++.rrrrrr  rrrrr  rrrrH...rr.##########+Rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 128|Hrrr r  rrrrrrrrrrrrrrrrrrrrr.##########################rrr...R.Rrrrrrrr r       rrrrHr..rr#########+.rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 130|.rrrrr  rrrrrrrrrrrrrrrrrrrrr############################ rrrrrrrrrrrrr rrrrr   rrrrr.Hr..#########+Rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 132|.r..   .rr rrrrrrrrrrrrrrrrr.############################+.rrrrrrrrrrrrrrrrrr.++##+rrrr..#########+.rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 134|.rrrr  .rr rrrrrrrrrrrrrrrrr#####################+########.rrrrrr rrRrrrrrrr###+###+r.r.########+.RRRrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 136|.rrrr  rrr rrrrrrrrrrrrrrrr.#####################+#########r rrrrrRRRRRrrrr.#.r+####+.+#######++rrrRRRRrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 138|rrr r  rrr rrrrrrrrrrrrrrrr+####################+++########.rrrrrrRRRRRRRrrr..##############++.rrrrrRRRrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 140|Hrrrr  r r rrrrrrrrrrrrrrrr#####################+++#########rrrrrRRRRRRRrrrr++##############.rrrrrrrrRRRrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 142|rrrrr rrrrrrrrrrrrrrrrrrrr.#####################++++########+rrrrRRRRRRRRRRr++#+++#######++.rrrrrrrrrrRRrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 144|rrrr   rrrrrrrrrrrrrrrrrrr######################+++#+########rrrrrrrrRRRRRRR+#..+######+++R.rrrrrrrrrrrRRrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 146|rrrr  rrr rrrrrrrrrrrrrrr.######################+++#+########.rrrrrrrrRRRRRR+++++.RR+##....+.rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 148|Hr r  rrr rrrrrrrrrrrrrrr+#####################++#+++#########rrrrrrrrrrrRR.RRRRRRRRrR.HH.r..Rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 150|.r r  rrr rrrrrrrrrrrrrrr######################+##++##########rrrrrrrrrrrrrrrRRRRRRRRrr.Hr....rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 152|Hr r rrr rrrrrrrrrrrrrrr.#######################.+++##+#######.rrrrrrrrrrrrrrRRRRRRRRRrrrH..RRrrrrrrrrrrrrRRrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 154|rrr  rrrrrrrrrrrrrrrrrrr+########################+##+##########rrrrrrrrrrrrrrRRRRRRRRRRrr.+.RrRrrrrrrrrrrrrRrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 156|rrr  rr. rrrrrrrrrrrrrrr######################++++##+#+########rrrrrrrrrrrrrRRRRRRRRRRRRrrr..+rRrrrrrrrrrrrRRrrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 158|r .  rr. rrrrrrrrrrrrrr.######################+++###++#########.rrrrrrrrrrrrRRRRRRRRRRRRRrrr..rrrrrrrrrrrrrrRRrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 160| r.  r r rrHrrrrrrrrrrr.####################+###+###+++########.rrrrrrrrrrrrrRRRRRRRRRRRRrrrr.r.rrrrrrrrrrrrrRrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 162|rr   rrr rr.rrrrrrrrrrr+###################+#####++#+#########++r rrrrrrrrrrrRRRRRRRRRRRRrrrr..rrrrrrrrrrrrrrr.rrrrrrrrrrrrrrrrrrrrrrrrr
+ 164| r   rrr rrrrrrrrrrrrrr###################+#+#####+#++#++#####+.rr rrRrRrrrrrRRRRRRRRRRRRRrrr.rrrrr.rrrrrrrrrrr+rrrrrrrrrrrrrrrrrrrrrrrr
+ 166| .  rrr rrrrrrrrrrrrrr.#################++#######++++#+#+#####++.rrrrrRrrrrrrrRRRRRRRRRRRRrrr..rrrrRrrrrrrrrrrrR.rrrrrrrrrrrrrrrrrrrrrrr
+ 168| r  rrr rrrrrrrrrrrrrr#################.r#+#######+#++++######+..r r rRRrRrRrrRRRRRRRRRRRRrrr.rrrRr.rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 170| r  r r rrrrrrrrrrrrr.################.rr+#+##++##++###+######+..r  rrrRRRrRRRRRRRRRRR+++Rrrrr.rrrrr.rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 172|    rrr rHHHrrrrrrrrr################.rrr++###+#+#+#+#+++#####...r   rrrrRRRRRRRRRRRRR..RRrrrrrrr.RRRrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+ 174|r   rr  rrrr rrrrrrr.###############.rrrr.#####+++#####+#####++..r   rrrrRRRRRRRRRRRRRRRRRrrrr.rrrrRRrrrrrrrrrrrrrRRrrrrrrrrrrHrHrrrrrrr
+ 176|r  rrr rrrr.rrrrrr.r###############.rrrrrR+#+#####+#+##++++##++...  rrrrrrRRRRRRRRRRRRRRRRRRrrr.rrrRr.rrrrrrrrrrrrr.rrrrrrrrrrrrrrrHrrrH
+ 178|r  rrr rrrrr.rrrrrr.##############+rrrrrrr#########+##+##++##++...  ..RrrrrrRRRRRRRRRRRRRRRRrrrrrrrRRRrrrrrrrrrrrrrr.rrrrrHrrrrrrrHHrHHH
+ 180|r  r r r..rr.rrrrrr+##############rrrrrrrr+#+#+###+###+##+##++++..  ....rrrrrRRRRRRRRRRRRRrrrrr.rrrRR.rrrrrrrrrrrrrrrRrrrrrrrrrrrH.H.HrH
+ 182|   rrr r.r.rrrrrrr+##############.rrrrrrr.+####+#+####++##+#+++... r......rrRRRRRRRRRRRRRRRrrrrrrrrR..RrrrrrrrrrrrrrrR.rrrrrrrHrrrHHHHHH
+ 184|   r r .Hrrrrrrrr.+#############+rrrrrrrr+##+#########+#+++#++.+.. ...R.R..rrRRRRRRRRRRRRRRRrrrrrrrRR.Rrrrrrrrrrrrrrrrr.rrrHrHrHrH.HHHHH
+ 186|  rrr  rHHrr rrrr.##############.rrrrrrrr########+#+#+#+++#++++..rr..R..+.++.rRRRRRRRRRRRRRRrrrrrrrRR+.rrrrrrrrrrrrrrrr.rrHHH.HHH.HHHHHH
+ 188| Hrr.  rHHH..rrrr##############+rrrrrrrr.##+######+#+++#+#+#.++..rr....+++++++rRRRRRRRRRRRRRrrrrrrrrR..RrrrrrrrrrrrHr rrrrrHHHHHHHHHHHHH
+ 190|HHr HH.rHHHr..Hr+##############.rrrrrrrr+########+###++#+++++++..rr...+++######RRRRRRRRRRRRRrrrrrrrrrR.Rrrrrrrrrrr rHrrrHHHrHHHHHHHHHHHH
+ 192|H rrr  rHH .r.Hr###############rrrrrrrrr+##++####++++#++++++++...rr..++++######+RRRRRRRRRRRrrrrrrrrrrR.RrrrrrrrrrrrrrHrrHHHHHHHHrrHHHHHH
+ 194|H r   .HHHHH.rH.###############rrrrrrrr.###+.#####+++++++++++++..r..++++#########+.RRRRRRRRRrrrrrrrrrRR+RrrrrrrrrrrrrrHHHrHHHHHHHHHHHHHH
+ 196|   . .HHHHHHHHr################.rrrrrrr####.r.+#+#++++++++++++.....+.++#+##########.RRRRRRrrrrrrrrrrrRR.rrrrrrrrrrrrrHrH.H.HHHHHHHHHHHHH
+ 198|Hr . HHHHHHHH..################rrrrr.+####+rrr.+++++++++++++++.....++++############RRRRRRRRrrrrrrr..rrRRRrrrrrrrrrrrrrrr.rH.HHHHHHHHHHHH
+ 200|Hr rHHHHHHHH .+################.r+########rrrrr++++#++++++++++.....++#+############.RRRRRRrrrrrrrrrH.rrRRRrrrrrrrrrrrr.HrrrHHHHH.HHHHHHH
+ 202|H   HHHHHHHHHr###########################.rrrrrrR++++++++++++...+..+++#############+RRRRRRrrrrrrrrrHHrrRRrrrrrrrrrrrrrrrHrHHHHHHHHHHHHHH
+ 204|H. HHHHHHHHH .##########################+rrrrrrrrR++++++++++.+.+...+++#############+.RRRRRrrrrrrrrrHHrrrRRrrrrrrrrrrrrrrrHr.HHHHHHHHHHHH
+ 206|H   HHHHHHHHH+##########################rrrrrrrrrrr...+..++....+.r+++++##############+RRRRRrrrrrrrr.HrrrRRrrrrrrrrrrrrrHHrr.HHHHHHHHHHHH
+ 208| r.H HHHHHHHr#########################+rrrrrrrrrrrrrr......+....rr.++#################RRRRrrrrrrrrrrHHrrrRrrrrrrrrrrrrrrrrHHHHHHHHHHHHHH
+ 210|. HHHHHHHHHH.###################.++.+.rrrrrrrrrrrrrrrrrr.....rrrrr+++#++#############RRRRRrrrrrrrrr.HHHrrrRrrrrrrrrrrrrrrrHHHHHHHHHHHHHH
+ 212|   H HHHHHHH+##################++..rrrrrrrrrrrrrrrrr rrrrrrrrrrrrr.#+###############.RRRRRrrrrrrrrrr HrrrrRrrrrrrrrrrrrrrr.HrHrHHHHHHHHH
+ 214|  HHHHHHHHHH###################+.+.rrrrrrrrrrrrrrrrrr rrrrrrrrrrrr+++#+#############+RRRRrrrrrr.rrr.HHrrrr.rrrrrrrrrrrrrrrrHHHHHHHHHHHHH
+ 216| rHHHHHHHHHr##################+++.rrrrrrrrrrrrrRrrrrrr rrrrrrrrrrr++++##############+RRRRRrrrrrrrrr. HHrrrr.rrrrrrrrrrrrrrrrrHHHHHHHHHHH
+ 218|.  HHHHHHH .#################.r++.rrrrrrrrrrrrrRRrrrrrrrrrrrrrrrrr++#+###############+RRRRrrrrrrrrrrHHHrrrrRrrrrrrrrrrrrrrrrHHHHHHHHHHHH
+ 220|  HHHHHHHHH+#################.r...rrrrrrrrrrrrrrRrrr r rrrrrrrrrrr++++###############+RRRRrrrrrrrrr.HHH.rrr.rrrrrrrrrrrrrrrrrHHHHHHHHHHH
+ 222|  HHHHHHHHr##################.r..rrrrrrrrrrrrrrrRRrrrrrrrrrrrrrrrr++++###############+RRRRrrrrr.rr..HHHrrrrrrrrrrrrrrrrrrrrrrHHHHHHHHHHH
+ 224|HHHHHHHHHH.##################.r..rrrrrrrrrrrrrrrRRrr r rrrrrrrrrrr+#+###############++RRRrrrrrrrrrr.HHHrrrrr.rrrrrrrrrrrrrrrrrHHHHHHHHHH
+ 226|  HHHHHHHr###################+.r.rrrrrrrrrrrrrrrRRRrr rrrrrrrrrrrr++###+############+RRRRrrrrrr.rr..HHHrrrrrrrrrrrrrrrrrrrrrrrHHHHHHHHHH
+ 228|HHHHHHHHHr####################.H.rrrrrrrrrrrrrrrrRRrrr r rrrrrrrrr+++#+#############.RRRrrrrrr.r r . ..rrrRrrrrrrrrrrrrrrrrrrrHHHHHHHHHH
+ 230|HHHHHHHHH.####################..rrrrrrrrrrrrrrrrrRRRr r rrrrrrrrrr++++###############+Rrrrrrrr .r.r.HHHrrrRrr.rrrrrrrrrrrrrrrrHHHHHHHHHH
+ 232| HHHHHHHr##########+++########r.rrrrrrrrrrrrrrrrrRRRrr r r r rrrrr+#+#+#############++rrrrrrrr   ..r .rrrrr.r.rrrrrrrrrrrrrHrHHHHHHHHHHH
+ 234|HHHHHHHH+#####################r.rrrrrrrrrrrrrrrrrRRRr   r rrrrrrrr++++#+#############+rrrrrrrr.  r..HHH.rrrrrrrrrrrrrrrrrrrHHHHHHHHHHHHH
+ 236| HHHHHHH##############+######++.rrrrrrrrrrrrrrrrRrRRrr r r r rrrrR+#+#+##############+rrrrrrr..H ..rHH rrRr.rrrrrrrrrrrrrrrHHHHHHHHHHHHH
+ 238| HHHHHH.###############+###++.#rrrrrrrrrrrrrrrrrrrRrr   r r rrrrr.++#################+rrrrrrr.HH .rrHHHHrrrrrrrrrrrrrrrrrrrHHHHHHHHHHHHH
+ 240|HHHHHHH+##############.#+#++...rrrrrrrrrrrrrrrrrRrrrrr   r r rrrr.+#+################.rrrrrrr. H.rrr HHH..rrrrrrrrrrrrrrrrHHrHHHHHHHHHHH
+ 242|HHHHHHH######R.###########+.....rrrrrrrrrrrrrrrrRRrr      rrr rrr.++++#+############+rrrrrrrr HHHH.r. HHr.rrrrrrrrrrrrrrrrHHHHHHHHHHHHHH
+ 244|HHHHHH.######R.#########.rrrr.rrrrrrrrrrrrrrrrrrRRrr   r rrr rrrr.+++###+###########.rrrrrrr H H H.rHHHHr.rrrrrrrrrrrrrrrHHHHH.HHHH.HHHH
+ 246|HHHHHH+######..###.++#+.rrrrrr..rrrrrrrrrrrrrrrRRRrr      rrr rrr.+++##############+rrrrrrrr HHH.H.HHHHrrrrrrrrrrrrrrrrrrHHHHHHHHHHHHHHH
+ 248|HHHHHH############..rrHHrHrrrrrrrrrrrrrrrrrrrrrRRrrr r     rrrrrr++++++#+#+########+rrrrrrrr HHHHHHH H rr.rrrrrrrrrrrrrrrHHHrHHHHHHHHHHH
+ 250|HHHHHH####R######+rrrrHHHrrrrrrrrrrrrrrrrrrrrrrrrrrr  r   rrrrrrr++++##+#+#+#######rrrrrrrr.HHHHH rH..HrrrrrrrrrrrrrrrrrHHHHHHHHHHHHHHHH
+ 252|HHHHHH.+RR.#####+rHrrHHH.rrrrrrrrrrrrrrrrrrrrrrRrrrr  rr   rrr rr++++++###+#+#####+r rrrrrrrHHHH H.H.HHHrrrrrrrrrrrrrrr.rHHHHHHHHHHHHHHH
+ 254|HHHHHH.++.####H..HHHHH...rrrrrrrrrrrrrrrrrrrrrrrrrr   r   r r rrr+++++#+##########.r rrrrrr HHHH H H.HHHrrrrrrrrrrrrrrrrHHHHHHHHHHHHHHHH
+ 256|HHHHHHH.+#+##.HHHHHHHHHHrrrrrrrrrrrrrrrrrrrrrrrrrrrr r     rrr rr++++#+#####+#+###rr rrrrr HHHHHHHHH HHHrrrrrrrrrrrHrrrrHHHHHHHHHHHHHHHH
+ 258|HHHHHHHHHHHHHHHHHHHHHHHrHrHrrrrrrrrrrrrrrrrrrrrrrrr          rrr.+++++#+##++++#+#+rrrrrrrrr HHHHHHHHHHHHHrrrrrrrrrrHrrrrHHHHHHHHHHHHHHHH
+ 260|HHHHHHHHHHHHHHHHHHHHHHHHrHrHrrrrrrrrrrrrrrrrrrrrrrrr   rr  r rrr.+++++####+#++###. rrrrrrr.HHHHH HH... HrrrrrrrrrrrrrrrHrHHHHHHHHHHHH.H.
+ 262|HHHHHHHHHHHHHHHHHHHHH.HrHrH rrrrrrrrrrrrrrrrrrrrrrr   r      rrr.++++##++##++####rrrrrrrrr. HHHHH HHHHH .rrrrrrrrrrrrrHrHHHHHHHHHHHHHHHH
+ 264|HHHHHHHHHHHHHHHHHHHHHHHHrHrrrrrrrrrrrrrrrrrrrrrrrrrr r  rr r rrr.++++#+#+++#+###+rrrrrrrrr HHHHH HH... H.rrrrrrrrrrrrrrHHHHHHHHHHHHHH.H.
+ 266|HHHHHHHHHHHHHHHHHHHHHHHrrrrrrrrrrrrrrrrrrrrrrrrrrrr    r  r  rrr+++++##+++#+++##+rrrrrrrr  HHHHHH .HHHH.rrrrrrrrrrrrrrHHHHHHHHHHHHHHHHHH
+ 268|HHHHHHHHHHHHHHHHHHHHHHHHHHrrrrrrrrrrrrrrrrrrrrrrrrrr r   r r rrr+#++++###++#+###+rrr rrr HHHHHHH.H .HH  .rrRrrrrrrrrrrHHHHHHHHHHHHHHHHHH
+ 270|HHHHHHHHHHHHHHHHHHHHHHHH.rrrHrHrrrrrrrrrrrrrrrrrrrr       r  rrr+++++##+###+++##.rrrrrrrrHHHHHHHHH  HHH..rrrrrrrrr rrrHHHHHHHHHHHHHHHHHH
+ 272|HHHHHHHHHHHHHHHHHHHHHHrHrHrHrrrrrrrrrrrrrrrrrrrrrrrrr    r r   r.#+++#+##++++#+#.rrrrrrr HHHHHHHHHHHHH  .rr.rrrrrrrrrrrHHHHHHHHHHHHHH.H.
+ 274|HHHHHHHHHHHHHHHHHHHHHrHrHrHrrrrrrrrrrrrrrrrrrrrrrrr  r  r    rrr.+++++###+++++##.rr rrrrrHHHHHH H.HH HH..rr.rrrrrrrrrrHHHHHHHHHHHHHHHHHH
+ 276|HHHHHHHHHHHHHHHHHHHHHHHHHHrrrrrrrrrrrrrrrrrrrrrrrrrr r rrr rrrrrr#+++++++++++###.r rrrrr HHHHHHHHHHHHH H rr..rrrrrrrrrHHHHHHHHHHHHHHHHH.
+ 278|HHHHHHHHHHHHHHHHHHr.H.HH.rrrrrrrrrrrrrrrrrrrrrrrRRr      rr  rrrr+++++#+#+++++##+rrrrrrr.HHHHHH H HHHHH .rrr.rrrrr.rrrHHHHHHHHHHHHHHHHHH
+ 280|HHHHHHHHHHHHHHHHHHHHHHHHHHrrrrrrrrrrrrrrrrrrrrrrRRrr r r rrr r rr++++++#+#+#+###+r r rrr HHHHHHHHHHHHHH..rr...rrrrrrrHHHHHHHHHHHHHHHHHH.
+ 282|HHHHHHHHHHHHHHHHHHHHH.Hr.rrrrrrrrrrrrrrrrrrrrrrrrRrr    r r  rrrr+++++#+#+++####+r  rrrr HHHHHH.H.HHHH. .rrrR.rrr.rr.rHHHHHHHHHHHHHHHHHH
+ 284|HHHHHHHHHHHHHHHHHHHHHHrHrHrrrHrrrrrrrrrrrrrrrrrrrrrr r r rrr rrr .+++++#+++++###+r r rrr HHHHHHHHHHHHHH. r.r.+rrrrrrrHHHHHHHHHHHHHHHHHH.
+ 286|HHHHHHHHHHHHHHHHHHHr.rr..rrrrrrrrrrrrrrrrrrrr rrrrr  r  r r  rrrrr#+++#+#+++####+r rrrrr HHHHHHHHHHHHH  ..rr...rrrrrrHHHHHHHHHHHHHHHHHHH
+ 288|HHHHHHHHHHHHHHHHHHHrr.rrrrHrrrrHrrrrrrrrrrrrr  rrrrr r r r r r r r+#+++#+++++###+.rr rrrHHHHHHH  HHHHHH.H.rrr..rrrrrHr.HHHHHHHHHHHHHHHH.
+ 290|HHHHHHHHHHHHHHHHHHHHrHrrrrHrrrrrrrrrrrrrrrrrr rrrrr    r rr  rr rr+#+++++#++#####.  rrrrHHHHHHH  HHH HH H..r.rRrrrrrHr.HHHHHHHHHHHHHHHHH
+

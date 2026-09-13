@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>泳装立绘 · 呼吸预览</title>
+<style>
+  html,body{margin:0;background:#07070a;color:#efe6d6;font:16px/1.45 "Microsoft YaHei",sans-serif;}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px 16px 48px;}
+  h1{font-size:20px;margin:0 0 6px;}
+  .sub{color:#c9b48a;margin:0 0 16px;font-size:14px;}
+  canvas{display:block;background:#000;border-radius:10px;width:min(100%,416px);height:auto;}
+  .row{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start;}
+  .note{max-width:460px;color:#b9ae9a;font-size:14px;}
+  .note b{color:#f0d48a;}
+  button{background:#2a2418;color:#f0d48a;border:1px solid #5a4a28;padding:6px 12px;border-radius:8px;cursor:pointer;margin:4px 6px 0 0;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>立绘呼吸预览</h1>
+  <p class="sub">身体用完整静帧，不再叠那些有洞的切层。摆动是网格：失重漂、呼吸、左右发。点画布吹风。</p>
+  <div class="row">
+    <canvas id="c" width="416" height="624"></canvas>
+    <div class="note">
+      <p>上一张「烂掉的泳衣」是 <b>切层没补满就当 Live2D 拼回去</b>。洞是裁切缺口，不是原画。</p>
+      <p>Cubism 仍没连上，所以还不是官方 .moc3。</p>
+      <p>
+        <button id="pause">暂停</button>
+        <button id="wind">吹风</button>
+      </p>
+    </div>
+  </div>
+</div>
+<script>
+const COLS=16, ROWS=24, W=416, H=624;
+function clamp01(x){return x<0?0:x>1?1:x;}
+function smooth(a,b,x){if(Math.abs(b-a)<1e-4)return x>=b?1:0;const t=clamp01((x-a)/(b-a));return t*t*(3-2*t);}
+function blob(u,v,cx,cy,rx,ry){const dx=(u-cx)/rx,dy=(v-cy)/ry;return smooth(1.12,0.62,dx*dx+dy*dy);}
+function pulse(x,lo,hi){const m=(lo+hi)*0.5,r=(hi-lo)*0.5;if(r<1e-4)return 0;return smooth(1,0.5,Math.abs(x-m)/r);}
+function rot(x,y,a){const c=Math.cos(a),s=Math.sin(a);return [x*c-y*s,x*s+y*c];}
+
+function masks(u,v){
+  const body=Math.max(
+    blob(u,v,0.52,0.42,0.22,0.38),
+    blob(u,v,0.50,0.62,0.16,0.28),
+    blob(u,v,0.48,0.82,0.14,0.22)
+  );
+  const hairL=smooth(0.52,0.28,u)*smooth(0.12,0.28,v)*smooth(0.78,0.55,v);
+  const hairR=smooth(0.48,0.72,u)*smooth(0.28,0.42,v)*smooth(0.78,0.52,v);
+  const hairTop=smooth(0.22,0.12,v)*pulse(u,0.38,0.62);
+  const chest=pulse(v,0.30,0.48)*pulse(u,0.40,0.64);
+  const head=pulse(v,0.12,0.30)*pulse(u,0.42,0.62);
+  return {body,hairL,hairR,hairTop,chest,head};
+}
+
+class Spring{
+  constructor(){this.x=0;this.v=0;}
+  step(t,freq,zeta,dt){const w=freq*Math.PI*2;this.v+=(-2*zeta*w*this.v-w*w*(this.x-t))*dt;this.x+=this.v*dt;return this.x;}
+}
+
+const canvas=document.getElementById("c");
+const ctx=canvas.getContext("2d");
+const img=new Image();
+img.src="still.jpg";
+const off=document.createElement("canvas");
+off.width=W; off.height=H;
+const octx=off.getContext("2d");
+let ready=false;
+img.onload=()=>{octx.drawImage(img,0,0,W,H); ready=true; requestAnimationFrame(loop);};
+
+const sL=new Spring(), sR=new Spring(), sY=new Spring();
+let gust=0, paused=false, t0=performance.now(), last=t0;
+
+function sample(u,v,p){
+  const m=masks(u,v);
+  const live=Math.min(1, m.body+m.hairL+m.hairR+m.hairTop);
+  if(live<0.001) return [u*W, v*H];
+  let dx=0, dy=p.hover;
+  dy += m.chest * p.breath * 3.2;
+  dx += (u-0.52)*m.chest*p.breath*2.0;
+  const [hx,hy]=rot(u-0.52,v-0.22,p.head);
+  dx += (hx-(u-0.52))*W*m.head*0.15;
+  dy += (hy-(v-0.22))*H*m.head*0.15;
+  dx += p.hairL * m.hairL * 14;
+  dx += p.hairR * m.hairR * 14;
+  dy += p.hairY * (m.hairL+m.hairR+m.hairTop) * 6;
+  dx += p.hairL * m.hairTop * 4;
+  return [u*W+dx*live, v*H+dy*live];
+}
+
+function draw(p){
+  if(!ready) return;
+  ctx.fillStyle="#000";
+  ctx.fillRect(0,0,W,H);
+  ctx.save();
+  ctx.translate(W*0.5, H*0.55 + p.hover);
+  ctx.rotate(p.head*0.15);
+  const s=1+p.breath*0.012;
+  ctx.scale(s, s);
+  ctx.translate(p.hairL*4, p.hairY*3);
+  ctx.drawImage(off, -W*0.5, -H*0.55);
+  ctx.restore();
+}
+
+function loop(now){
+  const dt=Math.min(0.033,(now-last)/1000); last=now;
+  const t=(now-t0)/1000;
+  if(!paused){
+    const wind=Math.sin(t*0.7)*0.45+gust;
+    sL.step(wind, 1.1, 0.32, dt);
+    sR.step(-wind*0.8, 1.0, 0.34, dt);
+    sY.step(Math.sin(t*1.15)*0.35, 0.9, 0.36, dt);
+    gust*=0.93;
+  }
+  draw({
+    hover: Math.sin(t*1.35)*5,
+    breath: 0.5+0.5*Math.sin(t*2.15),
+    head: Math.sin(t*0.55)*0.04,
+    hairL: sL.x, hairR: sR.x, hairY: sY.x
+  });
+  requestAnimationFrame(loop);
+}
+document.getElementById("pause").onclick=()=>{paused=!paused; document.getElementById("pause").textContent=paused?"继续":"暂停";};
+document.getElementById("wind").onclick=()=>{gust=2.4;};
+canvas.onclick=()=>{gust=2.4;};
+</script>
+</body>
+</html>

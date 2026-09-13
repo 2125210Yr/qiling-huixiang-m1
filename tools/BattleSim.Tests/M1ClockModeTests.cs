@@ -22,15 +22,19 @@ namespace Resonance.Tests
             ChargeAll(sim);
             sim.Drive = 100f;
             Assert.True(sim.TryBeginDrive(0));
-            Assert.True(sim.ResolveDrive(DriveTiming.Great));
+            Assert.True(sim.ResolveDrive(DriveTiming.Perfect));
             ChargeAll(sim);
             sim.Drive = 100f;
             Assert.True(sim.TryBeginDrive(0));
-            Assert.True(sim.ResolveDrive(DriveTiming.Great));
+            Assert.True(sim.ResolveDrive(DriveTiming.Perfect));
+            ChargeAll(sim);
+            sim.Drive = 100f;
+            Assert.True(sim.TryBeginDrive(0));
+            Assert.True(sim.ResolveDrive(DriveTiming.Perfect));
             Assert.True(sim.FeverActive);
             Assert.Equal(3.5f, sim.FeverLeft);
             Assert.Equal(11, sim.FeverHitsLeft);
-            Assert.NotEqual(7f, sim.FeverLeft);
+            Assert.NotEqual(BattleSim.UnknownFeverWindowSec, sim.FeverLeft);
         }
 
         [Fact]
@@ -78,6 +82,27 @@ namespace Resonance.Tests
             Assert.InRange((cd0 - fast.Allies[0].SlideCd) / (cd0 - slow.Allies[0].SlideCd), 1.8f, 2.2f);
             Assert.InRange((fast.Allies[0].AutoTimer - auto0) / (slow.Allies[0].AutoTimer - auto0), 1.8f, 2.2f);
             Assert.InRange((fever0 - fast.FeverLeft) / (fever0 - slow.FeverLeft), 1.8f, 2.2f);
+        }
+
+        [Fact]
+        public void SpeedThreeScalesNamedBattleClocks()
+        {
+            // Primary GT Robin battle chrome shows >> 3x SPEED.
+            var slow = ArmedClocks(beginDrive: false);
+            var fast = ArmedClocks(beginDrive: false);
+            LockOtherAllies(slow);
+            LockOtherAllies(fast);
+            var time0 = slow.TimeLeft;
+            var charge0 = slow.Allies[0].Charge;
+            fast.Speed = 3;
+            const int n = 12;
+            for (int i = 0; i < n; i++)
+            {
+                slow.Tick();
+                fast.Tick();
+            }
+            Assert.InRange((time0 - fast.TimeLeft) / (time0 - slow.TimeLeft), 2.7f, 3.3f);
+            Assert.InRange((fast.Allies[0].Charge - charge0) / (slow.Allies[0].Charge - charge0), 2.7f, 3.3f);
         }
 
         [Fact]

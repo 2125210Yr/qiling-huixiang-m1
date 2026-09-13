@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Elevator · Red Dress Puppet</title>
+<style>
+  :root { color-scheme: dark; }
+  html, body {
+    margin: 0; height: 100%; background: #08060a; overflow: hidden;
+    font: 12px/1.5 "Consolas", "SF Mono", ui-monospace, monospace;
+    color: #cbb9c4;
+  }
+  #wrap {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  #frame {
+    position: relative; width: 96vw; height: 96vh;
+    display: flex; align-items: center; justify-content: center;
+  }
+  canvas#stage {
+    display: block; image-rendering: auto;
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px #2a1620, 0 0 70px -10px rgba(190, 30, 55, 0.45),
+                0 30px 90px -30px #000;
+    cursor: crosshair;
+  }
+  #hud {
+    position: fixed; left: 14px; bottom: 12px; z-index: 5;
+    pointer-events: none; letter-spacing: .02em;
+    text-shadow: 0 1px 3px #000;
+  }
+  #hud.off { display: none; }
+  #hud b { color: #f0dfe6; font-weight: 600; }
+  #hud .k { color: #ff5c72; }
+  #hud .dim { color: #6c5a66; }
+  #state { color: #8fd8c0; }
+  #warn {
+    display: none; position: fixed; top: 12px; left: 14px; z-index: 6;
+    color: #ffb4b4; background: #2a0d14; padding: 6px 9px; border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+<div id="wrap"><div id="frame"><canvas id="stage"></canvas></div></div>
+<div id="warn"></div>
+<div id="hud">
+  <div><b>elevator · red dress puppet</b> <span class="dim">— move the mouse, she looks back</span></div>
+  <div class="dim">
+    <span class="k">space</span> pause ·
+    <span class="k">d</span> rig ·
+    <span class="k">r</span> reference 50% ·
+    <span class="k">b</span> blink ·
+    <span class="k">1-7</span> solo layer ·
+    <span class="k">0</span> all ·
+    <span class="k">h</span> hide
+  </div>
+  <div id="state"></div>
+</div>
+<script>
+window.__ASSETS__ = /*__ASSETS__*/{}/*__ASSETS_END__*/;
+</script>
+<script>
+/*__APP__*/
+</script>
+</body>
+</html>

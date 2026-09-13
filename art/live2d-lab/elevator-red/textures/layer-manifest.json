@@ -1,0 +1,337 @@
+{
+  "Comment": "Layer slots for the Cubism import PSD. One part per flattened layer (line and fill merged), unique names, same canvas for every layer, no clipping masks or filters left on the import file. Order is back-to-front and matches Drawables in elevator_red.cdi3.json and layers in psd_cut_plan.json. Status auto-cut = a PNG cut from reference.jpg by split_elevator_red.py exists (Proxy points at it); it is preview-grade, not import-grade art, and the slot still needs a redraw before PSD import. Status original = hand-drawn import-grade PNG exists at File. Status todo = not drawn yet; this includes slots whose hidden areas are still missing underpaint: face (scalp behind the bangs), leg_raise_thigh (thigh inside the slit), mouth_inside (interior larger than the rest opening). Status optional = pose3 variant, only needed if slit switching is kept.",
+  "Canvas": {
+    "Note": "same canvas as reference.jpg; do not recenter or recrop"
+  },
+  "Atlas": {
+    "Files": [
+      "texture_00.png"
+    ],
+    "Note": "written by Cubism Editor on texture atlas export; not hand-authored"
+  },
+  "LayerRoot": "layers",
+  "LayerCount": 35,
+  "StatusCounts": {
+    "auto-cut": 21,
+    "original": 0,
+    "todo": 13,
+    "optional": 1
+  },
+  "Layers": [
+    {
+      "Order": 1,
+      "Name": "back_hair",
+      "File": "layers/back_hair.png",
+      "Part": "PartHairBack",
+      "Drawable": "ArtMeshBackHair",
+      "Status": "auto-cut",
+      "Proxy": "../layers/back_hair.png"
+    },
+    {
+      "Order": 2,
+      "Name": "side_hair_l",
+      "File": "layers/side_hair_l.png",
+      "Part": "PartHairSideL",
+      "Drawable": "ArtMeshSideHairL",
+      "Status": "todo"
+    },
+    {
+      "Order": 3,
+      "Name": "side_hair_r",
+      "File": "layers/side_hair_r.png",
+      "Part": "PartHairSideR",
+      "Drawable": "ArtMeshSideHairR",
+      "Status": "todo"
+    },
+    {
+      "Order": 4,
+      "Name": "horn_l",
+      "File": "layers/horn_l.png",
+      "Part": "PartHorns",
+      "Drawable": "ArtMeshHornL",
+      "Status": "auto-cut",
+      "Proxy": "../layers/horns.png"
+    },
+    {
+      "Order": 5,
+      "Name": "horn_r",
+      "File": "layers/horn_r.png",
+      "Part": "PartHorns",
+      "Drawable": "ArtMeshHornR",
+      "Status": "auto-cut",
+      "Proxy": "../layers/horns.png"
+    },
+    {
+      "Order": 6,
+      "Name": "torso",
+      "File": "layers/torso.png",
+      "Part": "PartTorso",
+      "Drawable": "ArtMeshTorso",
+      "Status": "auto-cut",
+      "Proxy": "../layers/torso.png",
+      "Underpaint": "fill what the dress and the left arm cover"
+    },
+    {
+      "Order": 7,
+      "Name": "chest",
+      "File": "layers/chest.png",
+      "Part": "PartChest",
+      "Drawable": "ArtMeshChest",
+      "Status": "auto-cut",
+      "Proxy": "../layers/chest.png",
+      "Underpaint": "fill what the bodice covers; chest painted on the body, no hole"
+    },
+    {
+      "Order": 8,
+      "Name": "dress_body",
+      "File": "layers/dress_body.png",
+      "Part": "PartDress",
+      "Drawable": "ArtMeshDressBody",
+      "Status": "auto-cut",
+      "Proxy": "../layers/dress_body.png",
+      "Underpaint": "fill behind the slit panel"
+    },
+    {
+      "Order": 9,
+      "Name": "dress_slit_panel",
+      "File": "layers/dress_slit_panel.png",
+      "Part": "PartDressSlitPanelBack",
+      "Drawable": "ArtMeshDressSlitPanel",
+      "Status": "auto-cut",
+      "Proxy": "../layers/dress_slit_panel.png"
+    },
+    {
+      "Order": 10,
+      "Name": "dress_slit_panel_front",
+      "File": "layers/dress_slit_panel_front.png",
+      "Part": "PartDressSlitPanelFront",
+      "Drawable": "ArtMeshDressSlitPanelFront",
+      "Status": "optional",
+      "Note": "second variant of dress_slit_panel; only needed if pose3 slit switching is kept"
+    },
+    {
+      "Order": 11,
+      "Name": "leg_stand",
+      "File": "layers/leg_stand.png",
+      "Part": "PartLegStand",
+      "Drawable": "ArtMeshLegStand",
+      "Status": "auto-cut",
+      "Proxy": "../layers/leg_stand.png",
+      "Underpaint": "hip under the dress"
+    },
+    {
+      "Order": 12,
+      "Name": "leg_raise_thigh",
+      "File": "layers/leg_raise_thigh.png",
+      "Part": "PartLegRaise",
+      "Drawable": "ArtMeshLegRaiseThigh",
+      "Status": "auto-cut",
+      "Proxy": "../layers/leg_raise_thigh.png",
+      "Underpaint": "hip crease, the part the hem covers, and the thigh inside the slit - auto-cut pixels exist but the hidden stretch is not drawn, so the slot stays todo"
+    },
+    {
+      "Order": 13,
+      "Name": "leg_raise_calf",
+      "File": "layers/leg_raise_calf.png",
+      "Part": "PartLegRaise",
+      "Drawable": "ArtMeshLegRaiseCalf",
+      "Status": "auto-cut",
+      "Proxy": "../layers/leg_raise_calf.png"
+    },
+    {
+      "Order": 14,
+      "Name": "foot_raise",
+      "File": "layers/foot_raise.png",
+      "Part": "PartLegRaise",
+      "Drawable": "ArtMeshFootRaise",
+      "Status": "auto-cut",
+      "Proxy": "../layers/foot_raise.png"
+    },
+    {
+      "Order": 15,
+      "Name": "anklet",
+      "File": "layers/anklet.png",
+      "Part": "PartAnkletR",
+      "Drawable": "ArtMeshAnklet",
+      "Status": "auto-cut"
+    },
+    {
+      "Order": 16,
+      "Name": "arm_upper_hip",
+      "File": "layers/arm_upper_hip.png",
+      "Part": "PartArmL",
+      "Drawable": "ArtMeshArmUpperHip",
+      "Status": "auto-cut",
+      "Proxy": "../layers/arm_hip.png",
+      "Underpaint": "shoulder inside the sleeve"
+    },
+    {
+      "Order": 17,
+      "Name": "arm_forearm_hip",
+      "File": "layers/arm_forearm_hip.png",
+      "Part": "PartArmL",
+      "Drawable": "ArtMeshArmForearmHip",
+      "Status": "auto-cut",
+      "Proxy": "../layers/arm_hip.png"
+    },
+    {
+      "Order": 18,
+      "Name": "hand_hip",
+      "File": "layers/hand_hip.png",
+      "Part": "PartHandL",
+      "Drawable": "ArtMeshHandHip",
+      "Status": "auto-cut",
+      "Proxy": "../layers/arm_hip.png"
+    },
+    {
+      "Order": 19,
+      "Name": "neck",
+      "File": "layers/neck.png",
+      "Part": "PartNeck",
+      "Drawable": "ArtMeshNeck",
+      "Status": "auto-cut",
+      "Proxy": "../layers/neck.png",
+      "Underpaint": "inside the collar"
+    },
+    {
+      "Order": 20,
+      "Name": "ear_l",
+      "File": "layers/ear_l.png",
+      "Part": "PartHead",
+      "Drawable": "ArtMeshEarL",
+      "Status": "todo"
+    },
+    {
+      "Order": 21,
+      "Name": "ear_r",
+      "File": "layers/ear_r.png",
+      "Part": "PartHead",
+      "Drawable": "ArtMeshEarR",
+      "Status": "todo"
+    },
+    {
+      "Order": 22,
+      "Name": "face",
+      "File": "layers/face.png",
+      "Part": "PartFace",
+      "Drawable": "ArtMeshFace",
+      "Status": "auto-cut",
+      "Proxy": "../layers/face.png",
+      "Underpaint": "scalp behind the bangs and forehead behind the front hair - auto-cut pixels exist but the scalp is not drawn, so the slot stays todo"
+    },
+    {
+      "Order": 23,
+      "Name": "brow_l",
+      "File": "layers/brow_l.png",
+      "Part": "PartFace",
+      "Drawable": "ArtMeshBrowL",
+      "Status": "todo"
+    },
+    {
+      "Order": 24,
+      "Name": "brow_r",
+      "File": "layers/brow_r.png",
+      "Part": "PartFace",
+      "Drawable": "ArtMeshBrowR",
+      "Status": "todo"
+    },
+    {
+      "Order": 25,
+      "Name": "eyewhite_l",
+      "File": "layers/eyewhite_l.png",
+      "Part": "PartFace",
+      "Drawable": "ArtMeshEyewhiteL",
+      "Status": "auto-cut",
+      "Proxy": "../layers/eyes.png",
+      "Underpaint": "full eye white behind the iris"
+    },
+    {
+      "Order": 26,
+      "Name": "iris_l",
+      "File": "layers/iris_l.png",
+      "Part": "PartFace",
+      "Drawable": "ArtMeshIrisL",
+      "Status": "auto-cut",
+      "Proxy": "../layers/eyes.png"
+    },
+    {
+      "Order": 27,
+      "Name": "lash_l",
+      "File": "layers/lash_l.png",
+      "Part": "PartFace",
+      "Drawable": "ArtMeshLashL",
+      "Status": "auto-cut",
+      "Proxy": "../layers/eyes.png"
+    },
+    {
+      "Order": 28,
+      "Name": "eyewhite_r",
+      "File": "layers/eyewhite_r.png",
+      "Part": "PartFace",
+      "Drawable": "ArtMeshEyewhiteR",
+      "Status": "auto-cut",
+      "Proxy": "../layers/eyes.png",
+      "Underpaint": "full eye white behind the iris"
+    },
+    {
+      "Order": 29,
+      "Name": "iris_r",
+      "File": "layers/iris_r.png",
+      "Part": "PartFace",
+      "Drawable": "ArtMeshIrisR",
+      "Status": "auto-cut",
+      "Proxy": "../layers/eyes.png"
+    },
+    {
+      "Order": 30,
+      "Name": "lash_r",
+      "File": "layers/lash_r.png",
+      "Part": "PartFace",
+      "Drawable": "ArtMeshLashR",
+      "Status": "auto-cut",
+      "Proxy": "../layers/eyes.png"
+    },
+    {
+      "Order": 31,
+      "Name": "nose",
+      "File": "layers/nose.png",
+      "Part": "PartFace",
+      "Drawable": "ArtMeshNose",
+      "Status": "todo"
+    },
+    {
+      "Order": 32,
+      "Name": "mouth_upper",
+      "File": "layers/mouth_upper.png",
+      "Part": "PartFace",
+      "Drawable": "ArtMeshMouthUpper",
+      "Status": "todo"
+    },
+    {
+      "Order": 33,
+      "Name": "mouth_lower",
+      "File": "layers/mouth_lower.png",
+      "Part": "PartFace",
+      "Drawable": "ArtMeshMouthLower",
+      "Status": "todo"
+    },
+    {
+      "Order": 34,
+      "Name": "mouth_inside",
+      "File": "layers/mouth_inside.png",
+      "Part": "PartFace",
+      "Drawable": "ArtMeshMouthInside",
+      "Status": "todo",
+      "Underpaint": "interior larger than the rest-pose opening"
+    },
+    {
+      "Order": 35,
+      "Name": "front_hair",
+      "File": "layers/front_hair.png",
+      "Part": "PartHairFront",
+      "Drawable": "ArtMeshFrontHair",
+      "Status": "auto-cut",
+      "Proxy": "../layers/front_hair.png"
+    }
+  ]
+}

@@ -87,6 +87,8 @@ namespace Resonance.Battle
         DebuffBarrier = 26,
         Enrage = 27,
         Overload = 28,
-        DualWield = 29
+        DualWield = 29,
+        /// <summary>DEF up. Primary Robin mid-fight shows DEF ↑. Appended — do not renumber prior kinds.</summary>
+        DefBuff = 30
     }
 }

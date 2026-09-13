@@ -1,0 +1,41 @@
+{
+  "Version": 3,
+  "FileReferences": {
+    "Moc": "elevator_red.moc3",
+    "Textures": ["textures/texture_00.png"],
+    "Physics": "elevator_red.physics3.json",
+    "Pose": "elevator_red.pose3.json",
+    "DisplayInfo": "elevator_red.cdi3.json",
+    "Motions": {
+      "Idle": [
+        {
+          "File": "motions/idle.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ]
+    }
+  },
+  "Groups": [
+    {
+      "Target": "Parameter",
+      "Name": "EyeBlink",
+      "Ids": ["ParamEyeLOpen", "ParamEyeROpen"]
+    },
+    {
+      "Target": "Parameter",
+      "Name": "LipSync",
+      "Ids": ["ParamMouthOpenY"]
+    }
+  ],
+  "HitAreas": [
+    {
+      "Id": "ArtMeshFace",
+      "Name": "Head"
+    },
+    {
+      "Id": "ArtMeshTorso",
+      "Name": "Body"
+    }
+  ]
+}

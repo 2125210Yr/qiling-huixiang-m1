@@ -39,8 +39,10 @@ namespace Resonance.Battle
         public int DefenseAgainst(Element atkEl)
         {
             var v = Def.Def;
+            // Primary Robin mid-fight: DEF ↑. Buff then DefDebuff (not GL_FINAL).
+            var buff = Magnitude(EffectKind.DefBuff);
             var deb = Magnitude(EffectKind.DefDebuff);
-            return (int)Math.Round(v * (1f - deb));
+            return (int)Math.Round(v * (1f + buff) * (1f - deb));
         }
 
         public float ChargeSpeedMul => 1f + Magnitude(EffectKind.ChargeHaste);
@@ -92,6 +94,12 @@ namespace Resonance.Battle
         public SkillType Type;
         public string Name;
         public bool Fever;
+        /// <summary>SHOWTIME RANK from the skill being cast. 0 = unknown.</summary>
+        public int SlideRank;
+        /// <summary>SHOWTIME skill LV current. 0 = unknown.</summary>
+        public int SlideSkillLv;
+        /// <summary>SHOWTIME skill LV max. 0 = unknown.</summary>
+        public int SlideSkillLvMax;
     }
 
     public sealed class BattleMods
@@ -153,14 +161,22 @@ namespace Resonance.Battle
     {
         public const int TickHz = 30;
         public const float TickDt = 1f / TickHz;
-        public const float DriveQteTimeoutSec = 1.2f;
+        /// <summary>
+        /// Primary P0 tutorial portrait shows <c>DRIVE TIME</c> countdown at 7 (t365).
+        /// Prior 1.2s was a placeholder — still not GL_FINAL_VERIFIED.
+        /// </summary>
+        public const float DriveQteTimeoutSec = 7f;
         public const float HoldTimeoutSec = 2f;
         public const float UnknownSlideCdSec = 8f;
-        public const float UnknownFeverWindowSec = 7f;
+        /// <summary>
+        /// Primary P0 tip (~t435): "For 14 seconds tap…". Prior 7s was KR/compat placeholder — not GL_FINAL.
+        /// </summary>
+        public const float UnknownFeverWindowSec = 14f;
         public const int UnknownFeverHitBudget = 70;
 
         public readonly UnitState[] Allies;
         public readonly List<UnitState> Enemies = new List<UnitState>(8);
+        public int FocusEnemySlot { get; private set; } = -1;
         public int WaveIndex;
         public float Drive;
         public float FeverGauge;
@@ -425,6 +441,25 @@ namespace Resonance.Battle
         public bool TryTap(int slot) => UsePlayerSkill(slot, SkillType.Tap);
         public bool TrySlide(int slot) => UsePlayerSkill(slot, SkillType.Slide);
 
+        public bool TryFocusEnemy(int slot)
+        {
+            if (Outcome != BattleOutcome.InProgress) return false;
+            if (slot < 0 || slot >= Enemies.Count) return false;
+            var u = Enemies[slot];
+            if (u == null || !u.Alive) return false;
+            FocusEnemySlot = slot;
+            return true;
+        }
+
+        void ClearDeadFocus()
+        {
+            if (FocusEnemySlot < 0) return;
+            if (FocusEnemySlot >= Enemies.Count
+                || Enemies[FocusEnemySlot] == null
+                || !Enemies[FocusEnemySlot].Alive)
+                FocusEnemySlot = -1;
+        }
+
         public bool CanSlide(int slot)
         {
             if (!CanAct(slot)) return false;
@@ -439,6 +474,8 @@ namespace Resonance.Battle
         }
 
         public static float QteMul(DriveTiming t) => TimingDamage(t);
+        /// <summary>Fever gauge % from Drive QTE. Primary P0 tip (~t445): Perfect 40 / Great 30 / Good 15.</summary>
+        public static float QteFever(DriveTiming t) => TimingFever(t);
 
         static float ExtraDmg(UnitState caster, UnitState target, SkillType type)
         {
@@ -749,13 +786,17 @@ namespace Resonance.Battle
                 CasterSlot = caster.Slot,
                 CasterAlly = casterAlly,
                 Type = skill.Type,
-                Name = skill.Name
+                Name = skill.Name,
+                SlideRank = skill.SlideRank,
+                SlideSkillLv = skill.SlideSkillLv,
+                SlideSkillLvMax = skill.SlideSkillLvMax
             });
 
             var fx = Catalog.TryEffect(skill.EffectId);
             if (fx != null)
             {
                 IEnumerable<UnitState> fxTargets = fx.Kind == EffectKind.AtkBuff
+                    || fx.Kind == EffectKind.DefBuff
                     || fx.Kind == EffectKind.Shield
                     || fx.Kind == EffectKind.ChargeHaste
                     || fx.Kind == EffectKind.Taunt
@@ -883,6 +924,7 @@ namespace Resonance.Battle
             t.Hp -= dmg;
             if (t.Hp < 0) t.Hp = 0;
             NoteDeathOnce(t);
+            if (!t.Alive) ClearDeadFocus();
             if (caster != null) StretchStun(t);
             Stats.NoteDamage(caster, t, dmg);
             NoteEvent("hit", DamageMath.ChannelOpcode(_activeKind), caster, t, dmg, _activeKind);
@@ -1051,7 +1093,18 @@ namespace Resonance.Battle
 
         List<UnitState> PickEnemies(TargetRule rule, int count, UnitState caster = null)
         {
+            ClearDeadFocus();
             var buf = new List<UnitState>(8);
+            if (rule != TargetRule.AllEnemies && count <= 1 && FocusEnemySlot >= 0
+                && FocusEnemySlot < Enemies.Count)
+            {
+                var focus = Enemies[FocusEnemySlot];
+                if (focus != null && focus.Alive)
+                {
+                    buf.Add(focus);
+                    return Select(buf, rule, count, false, caster);
+                }
+            }
             for (int i = 0; i < Enemies.Count; i++)
                 if (Enemies[i] != null && Enemies[i].Alive) buf.Add(Enemies[i]);
             return Select(buf, rule, count, false, caster);
@@ -1162,12 +1215,14 @@ namespace Resonance.Battle
 
         static float TimingFever(DriveTiming t)
         {
+            // Primary GT P0 tip frame (~t445): PERFECT +40 / GREAT +30 / GOOD +15.
+            // Bad not on that tip; keep research placeholder +8 (still not GL_FINAL_VERIFIED).
             switch (t)
             {
-                case DriveTiming.Bad: return 12f;
-                case DriveTiming.Great: return 55f;
-                case DriveTiming.Perfect: return 60f;
-                default: return 28f;
+                case DriveTiming.Bad: return 8f;
+                case DriveTiming.Great: return 30f;
+                case DriveTiming.Perfect: return 40f;
+                default: return 15f; // Good
             }
         }
 
@@ -1201,6 +1256,7 @@ namespace Resonance.Battle
         void LoadWave(int index)
         {
             WaveIndex = index;
+            FocusEnemySlot = -1;
             Enemies.Clear();
             var ids = index == 0 ? _stage.Wave0 : _stage.Wave1;
             if (ids != null)

@@ -1,0 +1,68 @@
+{
+  "isnet-anime": {
+    "frac": 0.0157,
+    "bbox": [
+      519,
+      91,
+      2175,
+      1167
+    ],
+    "n_cc": 37,
+    "largest_frac": 0.0072
+  },
+  "u2net_human_seg": {
+    "frac": 0.1797,
+    "bbox": [
+      517,
+      90,
+      1437,
+      1167
+    ],
+    "n_cc": 13,
+    "largest_frac": 0.1771
+  },
+  "u2net": {
+    "frac": 0.2065,
+    "bbox": [
+      516,
+      72,
+      1341,
+      1167
+    ],
+    "n_cc": 1,
+    "largest_frac": 0.2065
+  },
+  "isnet-general-use": {
+    "frac": 0.1483,
+    "bbox": [
+      519,
+      69,
+      1341,
+      1167
+    ],
+    "n_cc": 45,
+    "largest_frac": 0.1479
+  },
+  "isnet-anime@1x": {
+    "frac": 0.0146,
+    "bbox": [
+      520,
+      92,
+      2175,
+      1167
+    ],
+    "n_cc": 31,
+    "largest_frac": 0.0072
+  },
+  "u2net_human_seg@1x": {
+    "frac": 0.2343,
+    "bbox": [
+      517,
+      90,
+      1725,
+      1167
+    ],
+    "n_cc": 9,
+    "largest_frac": 0.2323
+  }
+}

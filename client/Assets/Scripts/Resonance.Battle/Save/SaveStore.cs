@@ -799,7 +799,7 @@ namespace Resonance.Battle
             if (b.ClearedCount < 0) b.ClearedCount = 0;
             if (b.ClearedHard < 0) b.ClearedHard = 0;
             if (b.Speed < 1) b.Speed = 1;
-            if (b.Speed > 2) b.Speed = 2;
+            if (b.Speed > 3) b.Speed = 3;
             if (b.Gold < 0) b.Gold = 0;
             if (b.Stone < 0) b.Stone = 0;
             if (b.Meal < -1) b.Meal = -1;

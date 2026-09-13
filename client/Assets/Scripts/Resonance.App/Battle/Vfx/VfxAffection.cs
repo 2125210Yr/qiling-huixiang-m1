@@ -84,7 +84,7 @@ namespace Resonance.App
                 _motes[i] = img;
             }
 
-            _tag = MkText(transform, "好感", 22, new Vector2(0f, 26f), new Vector2(180f, 36f), Gold);
+            _tag = MkText(transform, "Bond", 22, new Vector2(0f, 26f), new Vector2(180f, 36f), Gold);
         }
 
         void Update()

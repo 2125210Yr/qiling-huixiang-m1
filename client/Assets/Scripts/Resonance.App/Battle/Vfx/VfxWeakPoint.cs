@@ -4,8 +4,9 @@ using UnityEngine.UI;
 namespace Resonance.App
 {
     /// <summary>
-    /// Dedicated 弱点 overlay: orange-yellow stereo word, bigger number below.
-    /// Bigger and slower than VfxDamagePopup's inline 弱点. No English copy.
+    /// Dedicated WeakPoint overlay: orange-yellow stereo word, bigger number below.
+    /// Bigger and slower than VfxDamagePopup's inline WeakPoint.
+    /// Primary Robin ~t68 EN <c>WeakPoint</c> (stacked).
     /// </summary>
     public sealed class VfxWeakPoint : MonoBehaviour
     {
@@ -92,7 +93,7 @@ namespace Resonance.App
             var n = 0;
             gfx[n++] = glow;
             for (int i = 0; i < WordShift.Length; i++)
-                gfx[n++] = MkText("word" + i, "弱点", WordSize, WordCol[i],
+                gfx[n++] = MkText("word" + i, BattleCueCopy.WeakPoint, WordSize, WordCol[i],
                     new Vector2(280f, 72f), WordShift[i] + new Vector2(0f, wordY), 4f);
 
             gfx[n++] = MkText("numB", digits, NumSize, Darken(Hot),

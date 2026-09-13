@@ -6,8 +6,9 @@ namespace Resonance.App
 {
     /// <summary>
     /// Up to 4 printed status tickets above a portrait: dark ink body,
-    /// thin gold/element wire, 12px Chinese type with black outline.
-    /// Chinese labels only. Empty/null Draw hides until the next Draw.
+    /// thin gold/element wire, 12–14px type with black outline.
+    /// Primary GT chips are EN (DEF ↑ / Barrier); legacy CN still routes.
+    /// Empty/null Draw hides until the next Draw.
     /// </summary>
     public sealed class VfxStatusIcons : MonoBehaviour
     {
@@ -279,23 +280,28 @@ namespace Resonance.App
             if (zh == VfxBuffFloat.Regen || zh == VfxBuffFloat.Lifesteal
                 || zh == VfxBuffFloat.AtkStack || zh == VfxBuffFloat.DebuffBlast)
                 return VfxBuffFloat.ColorOf(zh);
-            if (Has(zh, "攻击") || Has(zh, "点按") || Has(zh, "上滑") || Has(zh, "驱动") || Has(zh, "充能") || Has(zh, "加速"))
+            if (Is(zh, "vampirism") || Is(zh, "lifesteal")) return VfxBuffFloat.ColorOf(VfxBuffFloat.Lifesteal);
+            if (Is(zh, "heal") || Is(zh, "regen")) return VfxBuffFloat.ColorOf(VfxBuffFloat.Regen);
+            if (Has(zh, "攻击") || Has(zh, "点按") || Has(zh, "上滑") || Has(zh, "驱动") || Has(zh, "充能") || Has(zh, "加速")
+                || Has(zh, "ATK") || Has(zh, "Tap") || Has(zh, "Slide") || Has(zh, "Drive") || Has(zh, "Charge") || Has(zh, "Haste"))
                 return VisualTokens.ElemWater;
-            if (Has(zh, "防御") || Has(zh, "技防") || Has(zh, "弱防")) return VisualTokens.ElemDark;
-            if (Has(zh, "回复") || Has(zh, "再生")) return VisualTokens.SlideGreen;
-            if (Has(zh, "沉默")) return VisualTokens.ElemDark;
-            if (Has(zh, "毒") || Has(zh, "中毒")) return VisualTokens.SlideGreen;
-            if (Has(zh, "眩晕") || Has(zh, "晕眩")) return VisualTokens.FeverGold;
-            if (Has(zh, "睡眠") || Has(zh, "冻结")) return VisualTokens.IceShard;
-            if (Has(zh, "嘲讽") || Has(zh, "挑衅") || Has(zh, "流血") || Has(zh, "反击")) return VisualTokens.StarEvolved;
-            if (Has(zh, "无敌") || Has(zh, "不死")) return VisualTokens.FeverGold;
+            if (Has(zh, "防御") || Has(zh, "技防") || Has(zh, "弱防") || Has(zh, "DEF")) return VisualTokens.ElemDark;
+            if (Has(zh, "回复") || Has(zh, "再生") || Has(zh, "Heal") || Has(zh, "Recovery")) return VisualTokens.SlideGreen;
+            if (Has(zh, "沉默") || Has(zh, "Silence")) return VisualTokens.ElemDark;
+            if (Has(zh, "毒") || Has(zh, "中毒") || Has(zh, "Poison") || Has(zh, "DoT")) return VisualTokens.SlideGreen;
+            if (Has(zh, "眩晕") || Has(zh, "晕眩") || Has(zh, "Stun")) return VisualTokens.FeverGold;
+            if (Has(zh, "睡眠") || Has(zh, "冻结") || Has(zh, "Freeze") || Has(zh, "Sleep")) return VisualTokens.IceShard;
+            if (Has(zh, "嘲讽") || Has(zh, "挑衅") || Has(zh, "流血") || Has(zh, "反击")
+                || Has(zh, "Taunt") || Has(zh, "Bleed") || Has(zh, "Reflect")) return VisualTokens.StarEvolved;
+            if (Has(zh, "无敌") || Has(zh, "不死") || Has(zh, "Immortal")) return VisualTokens.FeverGold;
             if (Has(zh, "净化")) return VisualTokens.TapWhite;
-            if (Has(zh, "格挡") || Has(zh, "屏障")) return VisualTokens.GoldMetal;
-            if (Has(zh, "灼烧") || Has(zh, "激怒") || Has(zh, "超载")) return VisualTokens.ElemFire;
+            if (Has(zh, "格挡") || Has(zh, "屏障") || Has(zh, "Barrier")) return VisualTokens.GoldMetal;
+            if (Has(zh, "灼烧") || Has(zh, "激怒") || Has(zh, "超载")
+                || Has(zh, "Burn") || Has(zh, "Enrage") || Has(zh, "Overload")) return VisualTokens.ElemFire;
             if (Has(zh, "石化")) return VisualTokens.IceShard;
-            if (Has(zh, "失明")) return VisualTokens.TextMuted;
+            if (Has(zh, "失明") || Has(zh, "Blind") || Has(zh, "BLIND")) return VisualTokens.TextMuted;
             if (Has(zh, "诅咒")) return VisualTokens.ElemDark;
-            if (Has(zh, "禁疗")) return VisualTokens.OrangeCancel;
+            if (Has(zh, "禁疗") || Has(zh, "Anti")) return VisualTokens.OrangeCancel;
             return VisualTokens.GoldMetal;
         }
 
@@ -305,47 +311,30 @@ namespace Resonance.App
             if (labels == null || dst == null) return 0;
             for (int i = 0; i < labels.Length && n < Cap; i++)
             {
-                var zh = ToZh(labels[i]);
-                if (zh.Length == 0) continue;
+                var word = NormLabel(labels[i]);
+                if (word.Length == 0) continue;
                 var dup = false;
                 for (int j = 0; j < n; j++)
                 {
-                    if (dst[j] == zh)
+                    if (dst[j] == word)
                     {
                         dup = true;
                         break;
                     }
                 }
                 if (dup) continue;
-                dst[n++] = zh;
+                dst[n++] = word;
             }
             return n;
         }
 
-        static string ToZh(string raw)
+        static string NormLabel(string raw)
         {
             if (string.IsNullOrEmpty(raw)) return "";
             var s = raw.Trim();
             if (HasCjk(s)) return ClampReady(s);
-            if (Is(s, VfxBuffFloat.Regen) || Is(s, "regen") || s == "回复") return VfxBuffFloat.Regen;
-            if (Is(s, VfxBuffFloat.Lifesteal) || Is(s, "lifesteal") || Is(s, "vampirism")) return VfxBuffFloat.Lifesteal;
-            if (s == VfxBuffFloat.AtkStack || s == "攻击力↑" || s == "呐喊") return VfxBuffFloat.AtkStack;
-            if (s == VfxBuffFloat.DebuffBlast) return VfxBuffFloat.DebuffBlast;
-            if (Has(s, "沉默") || Is(s, "silence")) return "沉默";
-            if (Has(s, "毒") || Is(s, "poison")) return "毒";
-            if (Has(s, "眩晕") || Has(s, "晕眩") || Is(s, "stun")) return "眩晕";
-            if (Has(s, "睡眠") || Is(s, "sleep")) return "睡眠";
-            if (Has(s, "嘲讽") || Has(s, "挑衅") || Is(s, "taunt")) return "嘲讽";
-            if (Has(s, "流血") || Is(s, "bleed")) return "流血";
-            if (Has(s, "无敌")) return "无敌";
-            if (Has(s, "净化")) return "净化";
-            if (Has(s, "格挡") || Has(s, "屏障")) return "格挡";
-            if (Has(s, "反击")) return "反击";
-            if (Has(s, "灼烧") || Is(s, "burn")) return "灼烧";
-            if (Has(s, "石化") || Has(s, "冻结")) return "石化";
-            if (Has(s, "失明")) return "失明";
-            if (Has(s, "诅咒")) return "诅咒";
-            if (Has(s, "禁疗") || Has(s, "禁止回复")) return "禁疗";
+            // Primary EN chips (Robin DEF ↑ / Barrier / Vampirism) — keep as display.
+            if (s.Length > 0 && !HasCjk(s)) return ClampReady(s);
             return HarvestCjk(s);
         }
 

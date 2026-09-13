@@ -92,7 +92,7 @@ namespace Resonance.App
                 };
             }
 
-            _tag = MkText(transform, "歇", 22, new Vector2(0f, 28f), new Vector2(80f, 36f), Ink);
+            _tag = MkText(transform, "REST", 22, new Vector2(0f, 28f), new Vector2(80f, 36f), Ink);
         }
 
         void Update()

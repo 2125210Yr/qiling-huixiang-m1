@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>天命之子 · 重构数值</title>
+<link rel="stylesheet" href="_layout/shell.css">
+<style>
+:root{
+  --void:#050505; --gold:#CF9403; --value:#FFC400; --text:#FBFBFB;
+  --stat:#E8E8E8; --sec:#A0A0A0; --mute:#808080; --line:#2a2418; --max:1180px;
+  --fire:#D02018; --water:#1C8DE1; --wood:#2F900A; --light:#D0B33D; --dark:#9A4DB8;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--void);color:var(--text);
+  font:16px/1.55 "Noto Sans SC","Microsoft YaHei",sans-serif}
+a{color:var(--value);text-decoration:none}
+a:hover{color:#fff}
+header.top{position:sticky;top:0;z-index:40;background:#0a0a0a;border-bottom:1px solid #2a2208}
+.top-inner{max-width:var(--max);margin:0 auto;padding:10px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.brand{display:flex;flex-direction:column;min-width:140px}
+.brand b{letter-spacing:.18em;font-size:13px;color:var(--value)}
+.brand small{color:var(--mute);font-size:11px}
+main{max-width:var(--max);margin:0 auto;padding:28px 20px 90px}
+.kicker{letter-spacing:.28em;color:var(--gold);font-size:11px}
+h1{font-size:clamp(26px,4.4vw,42px);line-height:1.15;margin:8px 0 12px}
+.lede{color:var(--stat);max-width:44em}
+.lede em{color:var(--value);font-style:normal}
+h2{font-size:22px;color:var(--gold);margin:40px 0 12px}
+.card{background:linear-gradient(180deg,#161111ee,#0c0c0cee);border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0}
+.caption{font-size:12px;color:var(--mute)}
+.grid{display:grid;gap:12px}
+.g2{grid-template-columns:1fr 1fr}
+@media(max-width:800px){.g2{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{border-bottom:1px dashed #333;padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--gold);font-weight:500}
+.el{display:inline-block;width:.7em;height:.7em;border-radius:50%;margin-right:4px;vertical-align:middle}
+.el.火{background:var(--fire)} .el.水{background:var(--water)} .el.木{background:var(--wood)}
+.el.光{background:var(--light)} .el.暗{background:var(--dark)}
+pre{margin:0;white-space:pre-wrap;font:13px/1.5 Consolas,monospace;color:var(--value)}
+.chip{font-size:12px;padding:4px 10px;border:1px solid #3a3010;border-radius:999px;color:var(--gold);background:#120e06;display:inline-block;margin:2px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-inner">
+  <div class="brand"><b>DESTINY CHILD</b><small>重构数值 · clean-room</small></div>
+  <nav class="mods" aria-label="设计模块">
+    <a href="设计手册.html">手册</a>
+    <a href="总看板.html">看板</a>
+    <a href="视觉图鉴.html">UI</a>
+    <a href="战斗与数值.html">数值</a>
+    <a href="战斗动效.html">动效</a>
+    <a href="汇总表.html">图鉴</a>
+    <a href="星云一趟.html">星云</a>
+    <a href="重构数值.html" class="on" aria-current="page">重构</a>
+    <a href="游戏开发文本.html">文本</a>
+  </nav>
+</div></header>
+<main>
+<p class="kicker">RESONANCE PACK · NOT MEMORIAL 561</p>
+<h1>一版能打的数，不抄原作一行。</h1>
+<p class="lede">纪念版 561 和韩服 SQL 对不齐，Drive 公式本来就没有。发行包用这套：<em>TAP / Slide / Fever 锁实测</em>，Drive 按兄弟公式补上，25 人 = 5 属性 × 5 职业，养成沿用现成曲线。原名、原技能原文不进 <code>catalog.json</code>。</p>
+<p><span class="chip">客户端 C001–C025</span><span class="chip">测试 40 通过</span><span class="chip">Drive Perfect 150%</span></p>
+
+<h2>伤害三公式</h2>
+<div class="card">
+<pre>skillDmg = round(atk × coef + flat)
+
+TAP / AUTO / FEVER
+(extraAtk×125 + skillDmg×400) × elemCrit / (0.15×防 + 400)
+Fever 再 × 0.6
+
+SLIDE
+(extraAtk×120 + skillDmg×400) × elemCrit / (0.2×防 + 400)
+
+DRIVE（重构）
+(extraAtk×130 + skillDmg×400) × elemCrit / (0.12×防 + 400)
+QTE：Bad 0.90 · Good 1.00 · Great 1.20 · Perfect 1.50
+
+同例 skillDmg=2707 防=2500 克制1.4：TAP 2182 · DRIVE 2166（防高时 Drive 更不吃亏）</pre>
+<p class="caption">克制 1.4 / 1.0 / 0.7，暴击各 +1.0。火→木→水→火，光↔暗。叠层 Drive &gt; Slide &gt; Tap。</p>
+</div>
+
+<h2>面板曲线（目录里是 5★ 1 级裸装）</h2>
+<div class="card">
+<table>
+<tr><th>职业</th><th>HP</th><th>ATK</th><th>DEF</th><th>AGL</th><th>CRT</th><th>充能秒</th></tr>
+<tr><td>攻击</td><td>2200</td><td>1180</td><td>640</td><td>900</td><td>820</td><td>9.0</td></tr>
+<tr><td>防御</td><td>3300</td><td>740</td><td>1160</td><td>660</td><td>520</td><td>8.5</td></tr>
+<tr><td>干扰</td><td>2500</td><td>880</td><td>740</td><td>1100</td><td>700</td><td>8.0</td></tr>
+<tr><td>治疗</td><td>2900</td><td>900</td><td>800</td><td>800</td><td>660</td><td>9.0</td></tr>
+<tr><td>辅助</td><td>2700</td><td>820</td><td>840</td><td>1040</td><td>600</td><td>7.5</td></tr>
+</table>
+<p class="caption" style="margin-top:8px">每人在基准上抖 ±40，避免克隆。养成：<code>BodyMul = 1 + 0.035×(等级−1) + 0.02×突破 + 0.012×点火</code>。60 级 / 突破 6 / 点火 12 ≈ 3.329。好感 S 再 ×1.18。装备是公式后面加的固定值。</p>
+</div>
+
+<h2>25 人矩阵</h2>
+<div class="card">
+<table>
+<tr><th></th><th>攻击</th><th>防御</th><th>干扰</th><th>治疗</th><th>辅助</th></tr>
+<tr><td><i class="el 火"></i>火</td><td>C001 焰刃</td><td>C002 炉心卫士</td><td>C013 熔渣咒印</td><td>C014 炉灰医师</td><td>C011 灼红侍从</td></tr>
+<tr><td><i class="el 水"></i>水</td><td>C015 裂潮刃</td><td>C016 堰门卫</td><td>C004 深蓝咒师</td><td>C003 潮汐祭司</td><td>C012 冰镜使者</td></tr>
+<tr><td><i class="el 木"></i>木</td><td>C006 荆棘猎手</td><td>C017 根墙守</td><td>C018 毒棘使</td><td>C019 青苔愈</td><td>C005 森语引路者</td></tr>
+<tr><td><i class="el 光"></i>光</td><td>C020 昼锋</td><td>C007 白昼守望</td><td>C021 眩光缚</td><td>C022 晨露愈</td><td>C008 晨星歌者</td></tr>
+<tr><td><i class="el 暗"></i>暗</td><td>C023 夜刃</td><td>C024 影壁</td><td>C010 影缚者</td><td>C009 夜幕医师</td><td>C025 低语引</td></tr>
+</table>
+<p class="caption">默认队 C001 / C007 / C010 / C003 / C005：五色五职。C011 从重复的火攻改成火辅。技能每人一套，不抄纪念版原文。</p>
+</div>
+
+<div class="grid g2">
+<article class="card">
+<h3 style="margin:0 0 8px;color:var(--value)">养成（已在客户端）</h3>
+<ul>
+<li>等级 1–60</li>
+<li>突破 0–6</li>
+<li>点火 0 / 1 / 2 / 5 / 8 / 11 / 12</li>
+<li>好感 E–S（0–100）</li>
+<li>四槽：武器 / 防具 / 饰品 / 残章（魂卡位）</li>
+</ul>
+</article>
+<article class="card">
+<h3 style="margin:0 0 8px;color:var(--value)">明确不做</h3>
+<ul>
+<li>不把 561 原名写进发行包</li>
+<li>不解包私服 jar 填公式</li>
+<li>不另做一套战斗 HUD</li>
+<li>装备 +15 原表、每颗点火石实例：仍空，用曲线代替</li>
+</ul>
+</article>
+</div>
+<p class="caption">规格：<code>docs/superpowers/specs/2026-08-29-combat-growth-rebuild-design.md</code>。运行时表：<code>client/Assets/Content/catalog.json</code>。纪念版体检仍看 <a href="总看板.html">总看板</a>。</p>
+</main>
+</body>
+</html>

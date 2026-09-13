@@ -57,6 +57,7 @@ namespace Resonance.Battle
                 LeaderSkillId = src.LeaderSkillId,
                 IsEnemy = src.IsEnemy,
                 IsBoss = src.IsBoss,
+                BattleLevel = src.BattleLevel,
                 NativeStar = src.NativeStar,
                 MaxStar = src.MaxStar,
                 UncapMax = src.UncapMax,

@@ -34,10 +34,16 @@ namespace Resonance.App
             return null;
         }
 
+        public static bool Busy { get; private set; }
+
         public static IEnumerator Shot(params string[] names)
         {
+            var guard = 0;
+            while (CueStripRecorder.Grabbing && guard++ < 8)
+                yield return null;
             yield return new WaitForEndOfFrame();
             Texture2D tex = null;
+            Busy = true;
             try
             {
                 tex = ScreenCapture.CaptureScreenshotAsTexture();
@@ -50,6 +56,7 @@ namespace Resonance.App
             }
             finally
             {
+                Busy = false;
                 if (tex != null) UnityEngine.Object.Destroy(tex);
             }
             yield return null;

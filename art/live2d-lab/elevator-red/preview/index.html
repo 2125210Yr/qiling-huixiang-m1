@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>电梯红裙 · Live2D 预览</title>
+<style>
+  html,body{margin:0;background:#0a0a10;color:#efe6d6;font:16px/1.45 "Microsoft YaHei",sans-serif;}
+  .wrap{max-width:1200px;margin:0 auto;padding:20px 16px 48px;}
+  h1{font-size:20px;margin:0 0 6px;}
+  .sub{color:#c9b48a;margin:0 0 16px;font-size:14px;}
+  canvas{display:block;background:#050508;border-radius:10px;width:min(100%,960px);height:auto;cursor:crosshair;}
+  .row{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start;}
+  .note{max-width:420px;color:#b9ae9a;font-size:14px;}
+  .note b{color:#f0d48a;}
+  button{background:#2a1818;color:#f0d48a;border:1px solid #5a2828;padding:6px 12px;border-radius:8px;cursor:pointer;margin:4px 6px 0 0;}
+  .bar{height:8px;background:#1a1212;border-radius:99px;margin:8px 0;overflow:hidden;}
+  .bar>i{display:block;height:100%;width:0;background:#c43c3c;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>电梯红裙 · 伪 Live2D 预览</h1>
+  <p class="sub">参考图静帧 + 网格绑定：呼吸、眨眼、头发/裙摆弹簧、抬腿微弹、鼠标转头。移动鼠标看跟随。</p>
+  <div class="row">
+    <canvas id="c" width="720" height="405"></canvas>
+    <div class="note">
+      <p>姿势锁在参考图：<b>单腿高抬、手插腰、红旗袍开衩</b>。这是可播放预览，不是官方 .moc3。</p>
+      <p>状态：<span id="st">读图中…</span></p>
+      <div class="bar"><i id="load"></i></div>
+      <p>
+        <button id="pause">暂停</button>
+        <button id="blink">眨眼</button>
+        <button id="wind">吹风</button>
+      </p>
+    </div>
+  </div>
+</div>
+<script>
+const COLS=24, ROWS=16;
+const canvas=document.getElementById("c");
+const ctx=canvas.getContext("2d",{alpha:false});
+const img=new Image();
+/* Prefer the generated original still; keep the GIF frame as fallback. */
+const CANDIDATES=[
+  "original-still.png",
+  "../original-still.png",
+  "still.png",
+  "still.jpg",
+  "../reference.jpg"
+];
+let cand=0, loadedName="", coverStamp=false, L=null;
+
+function clamp01(x){return x<0?0:x>1?1:x;}
+function smooth(a,b,x){if(Math.abs(b-a)<1e-4)return x>=b?1:0;const t=clamp01((x-a)/(b-a));return t*t*(3-2*t);}
+function blob(u,v,cx,cy,rx,ry){const dx=(u-cx)/rx,dy=(v-cy)/ry;return smooth(1.15,0.55,dx*dx+dy*dy);}
+function pulse(x,lo,hi){const m=(lo+hi)*0.5,r=(hi-lo)*0.5;if(r<1e-4)return 0;return smooth(1,0.45,Math.abs(x-m)/r);}
+function rot(x,y,a){const c=Math.cos(a),s=Math.sin(a);return [x*c-y*s,x*s+y*c];}
+
+class Spring{
+  constructor(){this.x=0;this.v=0;}
+  step(t,freq,zeta,dt){const w=freq*Math.PI*2;this.v+=(-2*zeta*w*this.v-w*w*(this.x-t))*dt;this.x+=this.v*dt;return this.x;}
+}
+
+const LAYOUTS={
+  original:{
+    /* 1280x720 generated still — figure is centered, hair left, raised leg right. */
+    stamp:false,
+    head:[0.50,0.155],
+    chest:[0.50,0.28],
+    raisePivot:[0.58,0.40],
+    eye:[0.50,0.158],
+    eyeRx:6, eyeGap:7,
+    masks(u,v){
+      const head=blob(u,v,0.50,0.155,0.042,0.075);
+      const hair=Math.max(
+        blob(u,v,0.50,0.12,0.08,0.08),
+        blob(u,v,0.38,0.26,0.13,0.13),
+        blob(u,v,0.30,0.30,0.10,0.10)
+      );
+      const chest=blob(u,v,0.50,0.28,0.055,0.075);
+      const dress=Math.max(blob(u,v,0.50,0.46,0.05,0.14), blob(u,v,0.50,0.62,0.038,0.12));
+      const raise=Math.max(
+        blob(u,v,0.56,0.34,0.075,0.08),
+        blob(u,v,0.62,0.42,0.07,0.10),
+        blob(u,v,0.68,0.50,0.05,0.07)
+      );
+      const stand=blob(u,v,0.50,0.84,0.035,0.12);
+      const hipArm=blob(u,v,0.55,0.30,0.05,0.065);
+      const figure=Math.max(head,hair,chest,dress,raise,stand,hipArm);
+      return {head,hair,chest,dress,raise,stand,hipArm,figure};
+    }
+  },
+  gif:{
+    /* Old elevator GIF frame (546x292) with 0:13 timestamp. */
+    stamp:true,
+    head:[0.40,0.24],
+    chest:[0.405,0.40],
+    raisePivot:[0.28,0.50],
+    eye:[0.40,0.235],
+    eyeRx:11, eyeGap:11,
+    masks(u,v){
+      const head=blob(u,v,0.40,0.24,0.075,0.11);
+      const hair=Math.max(
+        blob(u,v,0.40,0.20,0.10,0.10),
+        blob(u,v,0.445,0.38,0.045,0.22)
+      );
+      const chest=blob(u,v,0.405,0.40,0.09,0.10);
+      const dress=Math.max(blob(u,v,0.415,0.52,0.07,0.16), blob(u,v,0.43,0.66,0.045,0.16));
+      const raise=Math.max(
+        blob(u,v,0.30,0.42,0.12,0.10),
+        blob(u,v,0.24,0.58,0.10,0.14),
+        blob(u,v,0.22,0.68,0.07,0.08)
+      );
+      const stand=blob(u,v,0.42,0.78,0.055,0.14);
+      const hipArm=blob(u,v,0.50,0.42,0.07,0.10);
+      const figure=Math.max(head,hair,chest,dress,raise,stand,hipArm);
+      return {head,hair,chest,dress,raise,stand,hipArm,figure};
+    }
+  }
+};
+
+function pickLayout(name, image){
+  const gif=/still\.jpg|reference\.jpg/i.test(name) || image.naturalWidth<800;
+  return gif ? LAYOUTS.gif : LAYOUTS.original;
+}
+
+function masks(u,v){return L.masks(u,v);}
+
+const look={x:0,y:0,tx:0,ty:0};
+const sHair=new Spring(), sHem=new Spring(), sLeg=new Spring(), sY=new Spring();
+let gust=0, forceBlink=0, paused=false, ready=false;
+let t0=performance.now(), last=t0, blinkUntil=0, nextBlink=2.8;
+const st=document.getElementById("st");
+const load=document.getElementById("load");
+
+function tryLoad(){
+  if(cand>=CANDIDATES.length){
+    st.textContent="静帧缺失：需要 original-still.png 或 still.jpg";
+    return;
+  }
+  img.src=CANDIDATES[cand];
+}
+img.onload=()=>{
+  loadedName=CANDIDATES[cand];
+  L=pickLayout(loadedName, img);
+  coverStamp=!!L.stamp;
+  ready=true;
+  load.style.width="100%";
+  st.textContent="已加载 "+loadedName+" "+img.naturalWidth+"×"+img.naturalHeight;
+  canvas.width=img.naturalWidth;
+  canvas.height=img.naturalHeight;
+  requestAnimationFrame(loop);
+};
+img.onerror=()=>{
+  cand+=1;
+  tryLoad();
+};
+tryLoad();
+
+canvas.addEventListener("pointermove",e=>{
+  const r=canvas.getBoundingClientRect();
+  look.tx=((e.clientX-r.left)/r.width)*2-1;
+  look.ty=((e.clientY-r.top)/r.height)*2-1;
+});
+canvas.addEventListener("pointerleave",()=>{look.tx=0;look.ty=0;});
+canvas.addEventListener("click",()=>{gust=2.2;});
+
+document.getElementById("pause").onclick=()=>{
+  paused=!paused;
+  document.getElementById("pause").textContent=paused?"继续":"暂停";
+};
+document.getElementById("blink").onclick=()=>{forceBlink=1; blinkUntil=performance.now()+140;};
+document.getElementById("wind").onclick=()=>{gust=2.6;};
+
+function sample(u,v,p){
+  const m=masks(u,v);
+  if(m.figure<0.002) return [u*canvas.width, v*canvas.height];
+  const W=canvas.width, H=canvas.height;
+  const amp=W/546;
+  const [cx,cy]=L.chest, [hx0,hy0]=L.head, [rx,ry]=L.raisePivot;
+  let dx=0, dy=0;
+  dy += p.breath * (2.4*m.chest + 1.2*m.dress + 0.6*m.head) * amp;
+  dx += (u-cx)*m.chest*p.breath*8*amp;
+  const [hx,hy]=rot(u-hx0,v-hy0,p.head);
+  dx += (hx-(u-hx0))*W*m.head*0.22;
+  dy += (hy-(v-hy0))*H*m.head*0.22;
+  dx += p.lookX * (10*m.head + 4*m.chest + 2*m.dress) * amp;
+  dy += p.lookY * (8*m.head + 2*m.chest) * amp;
+  dx += p.hair * m.hair * 16 * amp;
+  dy += p.hairY * m.hair * 7 * amp;
+  dx += p.hem * m.dress * 10 * amp;
+  dy += Math.abs(p.hem) * m.dress * 3 * amp;
+  const [lx,ly]=rot(u-rx,v-ry,p.leg);
+  dx += (lx-(u-rx))*W*m.raise*0.08;
+  dy += (ly-(v-ry))*H*m.raise*0.08 + p.legBounce*m.raise*10*amp;
+  dx += p.lookX * m.hipArm * 3 * amp;
+  const live=Math.min(1,m.figure);
+  return [u*W+dx*live, v*H+dy*live];
+}
+
+function texturedTri(s0x,s0y,s1x,s1y,s2x,s2y,x0,y0,x1,y1,x2,y2){
+  const det=s0x*(s1y-s2y)+s1x*(s2y-s0y)+s2x*(s0y-s1y);
+  if(Math.abs(det)<1e-6) return;
+  const a=(x0*(s1y-s2y)+x1*(s2y-s0y)+x2*(s0y-s1y))/det;
+  const c=(x0*(s2x-s1x)+x1*(s0x-s2x)+x2*(s1x-s0x))/det;
+  const e=(x0*(s1x*s2y-s2x*s1y)+x1*(s2x*s0y-s0x*s2y)+x2*(s0x*s1y-s1x*s0y))/det;
+  const b=(y0*(s1y-s2y)+y1*(s2y-s0y)+y2*(s0y-s1y))/det;
+  const d=(y0*(s2x-s1x)+y1*(s0x-s2x)+y2*(s1x-s0x))/det;
+  const f=(y0*(s1x*s2y-s2x*s1y)+y1*(s2x*s0y-s0x*s2y)+y2*(s0x*s1y-s1x*s0y))/det;
+  ctx.save();
+  ctx.beginPath();
+  ctx.moveTo(x0,y0); ctx.lineTo(x1,y1); ctx.lineTo(x2,y2); ctx.closePath();
+  ctx.clip();
+  ctx.setTransform(a,b,c,d,e,f);
+  ctx.imageSmoothingEnabled=true;
+  ctx.drawImage(img,0,0);
+  ctx.restore();
+}
+
+function draw(p){
+  const W=canvas.width, H=canvas.height;
+  ctx.setTransform(1,0,0,1,0,0);
+  ctx.fillStyle="#050508";
+  ctx.fillRect(0,0,W,H);
+  if(!ready) return;
+  const pts=[], src=[];
+  for(let j=0;j<=ROWS;j++){
+    const row=[], srow=[];
+    for(let i=0;i<=COLS;i++){
+      const u=i/COLS, v=j/ROWS;
+      row.push(sample(u,v,p));
+      srow.push([u*img.naturalWidth, v*img.naturalHeight]);
+    }
+    pts.push(row); src.push(srow);
+  }
+  for(let j=0;j<ROWS;j++){
+    for(let i=0;i<COLS;i++){
+      const s00=src[j][i], s10=src[j][i+1], s01=src[j+1][i], s11=src[j+1][i+1];
+      const d00=pts[j][i], d10=pts[j][i+1], d01=pts[j+1][i], d11=pts[j+1][i+1];
+      texturedTri(s00[0],s00[1],s10[0],s10[1],s01[0],s01[1], d00[0],d00[1],d10[0],d10[1],d01[0],d01[1]);
+      texturedTri(s10[0],s10[1],s11[0],s11[1],s01[0],s01[1], d10[0],d10[1],d11[0],d11[1],d01[0],d01[1]);
+    }
+  }
+  ctx.setTransform(1,0,0,1,0,0);
+  if(coverStamp){
+    ctx.fillStyle="#050508";
+    ctx.fillRect(0, H-32, 90, 32);
+  }
+  if(p.blink>0.55){
+    ctx.save();
+    ctx.setTransform(1,0,0,1,0,0);
+    ctx.globalAlpha=Math.min(1,(p.blink-0.55)*2.2);
+    ctx.fillStyle="#1a1020";
+    const ex=L.eye[0]*W, ey=L.eye[1]*H, rx=L.eyeRx, gap=L.eyeGap;
+    ctx.beginPath();
+    ctx.ellipse(ex-gap, ey, rx, 2+p.blink, 0, 0, Math.PI*2);
+    ctx.ellipse(ex+gap, ey, rx, 2+p.blink, 0, 0, Math.PI*2);
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+function loop(now){
+  const dt=Math.min(0.033,(now-last)/1000); last=now;
+  const t=(now-t0)/1000;
+  look.x+=(look.tx-look.x)*Math.min(1,dt*8);
+  look.y+=(look.ty-look.y)*Math.min(1,dt*8);
+  if(!paused){
+    if(now>nextBlink){ blinkUntil=now+130; nextBlink=now+2800+Math.random()*3200; }
+    const wind=Math.sin(t*0.65)*0.4+gust;
+    sHair.step(wind, 1.15, 0.30, dt);
+    sHem.step(-wind*0.85, 1.35, 0.28, dt);
+    sLeg.step(Math.sin(t*1.6)*0.25+gust*0.08, 1.7, 0.34, dt);
+    sY.step(Math.sin(t*1.05)*0.3, 0.95, 0.36, dt);
+    gust*=0.92;
+  }
+  const blinking = (now<blinkUntil || forceBlink) ? 1 : 0;
+  if(now>=blinkUntil) forceBlink=0;
+  draw({
+    breath: 0.5+0.5*Math.sin(t*2.05),
+    head: look.x*0.10 + Math.sin(t*0.5)*0.02,
+    lookX: look.x,
+    lookY: look.y,
+    hair: sHair.x,
+    hairY: sY.x,
+    hem: sHem.x,
+    leg: sLeg.x*0.08,
+    legBounce: sLeg.x,
+    blink: blinking
+  });
+  requestAnimationFrame(loop);
+}
+</script>
+</body>
+</html>

@@ -4,13 +4,14 @@ using UnityEngine.UI;
 namespace Resonance.App
 {
     /// <summary>
-    /// Portrait drive-ready mark: orange Slash wings + Star, word 驱动就绪.
-    /// Never DRIVE SKILL READY. ~0.8s.
+    /// Portrait drive-ready mark: orange Slash wings + Star,
+    /// word <see cref="BattleCueCopy.DriveReadyPortraitEn"/> (primary EN burst).
+    /// Persistent tray uses <see cref="BattleCueCopy.DriveReadyPortraitLine"/> (EN+CN).
+    /// ~0.8s.
     /// </summary>
     public sealed class VfxDriveReady : MonoBehaviour
     {
         const float Life = 0.80f;
-        const string Word = "驱动就绪";
 
         static readonly Color Orange = VisualTokens.DriveOrange;
         static readonly Color Ember = VisualTokens.Ember;
@@ -123,8 +124,8 @@ namespace Resonance.App
                 _star.rectTransform.localEulerAngles = new Vector3(0f, 0f, -28f);
             }
 
-            _ghost = MkText("ghost", Word, 28, Ink, new Vector2(240f, 44f), new Vector2(3f, 90f));
-            _label = MkText("label", Word, 28, Orange, new Vector2(240f, 44f), new Vector2(0f, 94f));
+            _ghost = MkText("ghost", BattleCueCopy.DriveReadyPortraitEn, 28, Ink, new Vector2(240f, 44f), new Vector2(3f, 90f));
+            _label = MkText("label", BattleCueCopy.DriveReadyPortraitEn, 28, Orange, new Vector2(240f, 44f), new Vector2(0f, 94f));
             Fade(_ghost, 0f);
             Fade(_label, 0f);
             if (_label != null) _label.transform.localScale = Vector3.one * 1.55f;
@@ -214,14 +215,14 @@ namespace Resonance.App
             var wordY = 94f + 10f * u;
             if (_label != null)
             {
-                _label.text = Word;
+                _label.text = BattleCueCopy.DriveReadyPortraitEn;
                 _label.transform.localScale = Vector3.one * wordS;
                 _label.rectTransform.anchoredPosition = new Vector2(0f, wordY);
                 Fade(_label, fade);
             }
             if (_ghost != null)
             {
-                _ghost.text = Word;
+                _ghost.text = BattleCueCopy.DriveReadyPortraitEn;
                 _ghost.transform.localScale = Vector3.one * wordS;
                 _ghost.rectTransform.anchoredPosition = new Vector2(3f, wordY - 4f);
                 Fade(_ghost, fade);

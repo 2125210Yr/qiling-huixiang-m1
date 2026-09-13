@@ -3,7 +3,7 @@ $ErrorActionPreference = 'Stop'
 [System.Reflection.Assembly]::LoadFrom('D:\Unity\Hub\Editor\6000.3.23f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll') | Out-Null
 $s = Get-Content -LiteralPath $Source -Raw
 $methods = @()
-foreach ($name in @('Falloff','SoftEllipse','SoftBox','PackWeights','AdvanceSpring')) {
+foreach ($name in @('Falloff','SoftEllipse','SoftBox','PackWeights','AdvanceSpring','LeftArmWeight','RightArmWeight')) {
     $m = [regex]::Match($s, '        static [^\r\n]+ ' + $name + '\(')
     if (!$m.Success) { continue }
     $start = $s.IndexOf('{', $m.Index); $depth = 1; $end = $start + 1
@@ -21,6 +21,17 @@ for($i=0;$i -le 200;$i++) {
     if($w -lt 0 -or $w -gt 1){$rangeOK=$false}
     if($w -gt $last+0.00001){$monotone=$false}; $last=$w
 }
+Check ($s -notmatch 'p\.x \+= \(aL - aR\)') 'clasp does not squash the sleeve in X'
+Check ($s -notmatch '_motion\.StartClasp') 'A punch does not start clasp'
+Check ($s -notmatch 'SqueezeLeft') 'A mesh does not read squeeze'
+Check ($s -notmatch 'ArmClosure') 'A bones do not read arm closure'
+Check ($s -notmatch 'p\.y \+= \(bl \* wl') 'chest springs do not lift the waist'
+if ([RigProbe].GetMethod('LeftArmWeight')) {
+    $elbow=[RigProbe]::LeftArmWeight(0.38, 0.63)
+    $upper=[RigProbe]::LeftArmWeight(0.38, 0.72)
+    $hand=[RigProbe]::LeftArmWeight(0.40, 0.53)
+    Check ($elbow -gt 0.85 -and $upper -gt 0.85 -and $hand -gt 0.4) 'left sleeve stays one rigid piece through the elbow'
+} else { Check $false 'left arm weight exists' }
 Check $rangeOK 'ellipse weights stay in [0,1]'
 Check $monotone 'ellipse feather decreases monotonically'
 $a=[RigProbe]::SoftEllipse(.049999,0,0,0,.05,.048,.014)

@@ -42,7 +42,7 @@ namespace Resonance.Battle
             return new[]
             {
                 N("atk_up", "攻击力↑", "输出", "增加攻击力", EffectKind.AtkBuff, true),
-                N("def_up", "防御力↑", "生存", "增加防御力"),
+                N("def_up", "防御力↑", "生存", "增加防御力", EffectKind.DefBuff, true),
                 N("ts_amp", "TS强化", "技能向", "强化Tap Skill", EffectKind.TsAmp),
                 N("ts_amp_2", "TS强化Ⅱ", "技能向", "增加Tap Skill的最终伤害", EffectKind.TsAmp),
                 N("ts_def_up", "TS防御力↑", "技能向", "增加对Tap Skill的防御力"),

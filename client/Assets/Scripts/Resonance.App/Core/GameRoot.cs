@@ -123,9 +123,27 @@ namespace Resonance.App
             DrawInspect();
         }
 
-        public bool Tap(int slot) => _battle != null && _battle.TryTap(slot);
+        public bool Tap(int slot)
+        {
+            if (_battle == null) return false;
+            HitChainProbe.Input("tap");
+            var ok = _battle.TryTap(slot);
+            if (!ok) HitChainProbe.Cancel();
+            return ok;
+        }
 
-        public bool Slide(int slot) => _battle != null && _battle.TrySlide(slot);
+        public bool Slide(int slot)
+        {
+            if (_battle == null) return false;
+            HitChainProbe.Input("slide");
+            var ok = _battle.TrySlide(slot);
+            if (!ok) HitChainProbe.Cancel();
+            return ok;
+        }
+
+        public bool TryFocusEnemy(int slot) => _battle != null && _battle.TryFocusEnemy(slot);
+
+        public int FocusEnemySlot => _battle != null ? _battle.FocusEnemySlot : -1;
 
         public void EnsureAutoOn()
         {
@@ -138,7 +156,7 @@ namespace Resonance.App
         public void EnsureSpeed2()
         {
             if (_battle == null || _battle.Speed == 2) return;
-            ToggleBattleSpeed();
+            SetBattleSpeed(2);
         }
 
         public bool FireDrivePerfect()
@@ -158,8 +176,18 @@ namespace Resonance.App
         public void ToggleBattleSpeed()
         {
             if (_battle == null) return;
-            _battle.Speed = _battle.Speed == 1 ? 2 : 1;
-            _save.Speed = _battle.Speed;
+            // Primary GT (hgq Robin): battle chrome shows >> 3x SPEED. Cycle 1→2→3→1.
+            var next = _battle.Speed >= 3 ? 1 : _battle.Speed + 1;
+            SetBattleSpeed(next);
+        }
+
+        public void SetBattleSpeed(int speed)
+        {
+            if (_battle == null) return;
+            if (speed < 1) speed = 1;
+            if (speed > 3) speed = 3;
+            _battle.Speed = speed;
+            _save.Speed = speed;
             Persist();
         }
 
@@ -174,7 +202,17 @@ namespace Resonance.App
                 return;
             }
             _battle.Paused = true;
-            PauseBoard.Draw(Root(), ToggleBattlePause, () => Show(ScreenId.Home));
+            PauseBoard.Draw(Root(), ToggleBattlePause, () => Show(ScreenId.Home), RepeatCurrentBattle);
+        }
+
+        /// <summary>Primary GT red <c>Repeat</c> chip: restart the active stage (engineering).</summary>
+        public void RepeatCurrentBattle()
+        {
+            if (_screen != ScreenId.Battle) return;
+            if (_battle != null) _battle.Paused = false;
+            var overlay = Root().Find("PauseBoard");
+            if (overlay != null) DestroyImmediate(overlay.gameObject);
+            StartBattleAt(_activeStage);
         }
 
         void Update()
@@ -206,7 +244,9 @@ namespace Resonance.App
                 if (_battle.Outcome == BattleOutcome.Victory)
                     _lootLine = SaveStore.ApplyVictory(_save, _activeStage, _save.UseHard);
                 Persist();
-                _resultTitle = _battle.Outcome == BattleOutcome.Victory ? "胜利" : "失败";
+                _resultTitle = _battle.Outcome == BattleOutcome.Victory
+                    ? "CLEAR!!"
+                    : BattleCueCopy.ResultFail;
                 if (_battle.Outcome != BattleOutcome.Victory) _lootLine = "";
                 Show(ScreenId.Result);
                 return;
@@ -601,7 +641,9 @@ namespace Resonance.App
                 },
                 onSpeed = () =>
                 {
-                    _save.Speed = _save.Speed == 1 ? 2 : 1;
+                    var cur = _save.Speed < 1 ? 1 : _save.Speed;
+                    _save.Speed = cur >= 3 ? 1 : cur + 1;
+                    if (_battle != null) _battle.Speed = _save.Speed;
                     Persist();
                     Show(ScreenId.Settings);
                 },
@@ -1162,17 +1204,29 @@ namespace Resonance.App
         void DrawResult()
         {
             CharacterPresenter.MosaicFloor(Root(), _built);
-            var win = _resultTitle == "胜利";
+            var win = _resultTitle == "CLEAR!!" || _resultTitle == "胜利";
             var cleared = _save.UseHard ? _save.ClearedHard : _save.ClearedCount;
             System.Action next = null;
             if (win && cleared > 0 && cleared < 12)
                 next = () => { _stageIndex = cleared; StartBattleAt(_stageIndex); };
             else
                 next = () => StartBattleAt(_activeStage);
-            ResultBoard.Draw(Root(), win, _battle, _lootLine, () => Show(ScreenId.Home), next);
-            VfxStageClear.Play(Root(), win);
-            if (win && !string.IsNullOrEmpty(_lootLine))
-                VfxLootDrop.Play(Root(), new Vector2(0.5f, 0.44f), _lootLine);
+            var board = ResultBoard.Draw(Root(), win, _battle, _lootLine, () => Show(ScreenId.Home), next, ResultStageName());
+            ResultBoard.HoldUntilSplash(board);
+            VfxStageClear.Play(Root(), win, () =>
+            {
+                ResultBoard.Reveal(board, playLevelUp: win);
+                if (win && !string.IsNullOrEmpty(_lootLine))
+                    VfxLootDrop.Play(Root(), new Vector2(0.5f, 0.44f), _lootLine);
+            });
+        }
+
+        string ResultStageName()
+        {
+            var table = Catalog.Chapter(_save != null && _save.UseHard);
+            if (table == null || _activeStage < 0 || _activeStage >= table.Length) return "";
+            var st = table[_activeStage];
+            return st != null ? (st.Name ?? "") : "";
         }
 
         void DrawStub(string title, string body)
@@ -1369,6 +1423,7 @@ namespace Resonance.App
             if (_canvas != null)
             {
                 var t = _canvas.transform;
+                EmeraldLobby.ReleaseFrom(t);
                 for (int i = t.childCount - 1; i >= 0; i--)
                     DestroyImmediate(t.GetChild(i).gameObject);
             }

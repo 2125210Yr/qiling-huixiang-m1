@@ -1,0 +1,712 @@
+{
+  "source": "F:\\天命之子\\art\\characters\\C026-白丝\\presenter.png",
+  "canvas": {
+    "width": 672,
+    "height": 1127
+  },
+  "coordinate_space": "pixels, top-left origin, +y down; pivot_uv = [x/width, y/height]",
+  "side_convention": "_l/_r are viewer-space (image left/right), inherited from the source split",
+  "root": "body",
+  "parts": {
+    "hair_back_l": {
+      "part_id": "PartHairBackL",
+      "draw_index": 0,
+      "parent": "hair_side_l",
+      "pivot_px": [
+        328.9,
+        86.6
+      ],
+      "pivot_uv": [
+        0.48939,
+        0.0768
+      ],
+      "rule": "centroid of source plate 'hair_tie_l' (tail root)",
+      "bbox": [
+        0,
+        12,
+        358,
+        965
+      ],
+      "centroid_px": [
+        131.1,
+        339.7
+      ],
+      "opaque_px": 86705
+    },
+    "hair_back_r": {
+      "part_id": "PartHairBackR",
+      "draw_index": 1,
+      "parent": "hair_side_r",
+      "pivot_px": [
+        411.0,
+        102.7
+      ],
+      "pivot_uv": [
+        0.61155,
+        0.09111
+      ],
+      "rule": "centroid of source plate 'hair_tie_r' (tail root)",
+      "bbox": [
+        357,
+        57,
+        672,
+        697
+      ],
+      "centroid_px": [
+        552.4,
+        345.2
+      ],
+      "opaque_px": 64252
+    },
+    "hair_side_l": {
+      "part_id": "PartHairSideL",
+      "draw_index": 2,
+      "parent": "head",
+      "pivot_px": [
+        318.4,
+        119.2
+      ],
+      "pivot_uv": [
+        0.47388,
+        0.10579
+      ],
+      "rule": "contact with 'head' (grow 8px, 9px band)",
+      "bbox": [
+        213,
+        13,
+        339,
+        113
+      ],
+      "centroid_px": [
+        282.9,
+        64.2
+      ],
+      "opaque_px": 8159
+    },
+    "hair_side_r": {
+      "part_id": "PartHairSideR",
+      "draw_index": 3,
+      "parent": "head",
+      "pivot_px": [
+        406.4,
+        117.4
+      ],
+      "pivot_uv": [
+        0.60475,
+        0.1042
+      ],
+      "rule": "contact with 'head' (grow 16px, 51px band)",
+      "bbox": [
+        399,
+        57,
+        494,
+        118
+      ],
+      "centroid_px": [
+        443.1,
+        89.9
+      ],
+      "opaque_px": 3711
+    },
+    "leg_lower_l": {
+      "part_id": "PartLegLowerL",
+      "draw_index": 4,
+      "parent": "leg_upper_l",
+      "pivot_px": [
+        332.1,
+        678.8
+      ],
+      "pivot_uv": [
+        0.49426,
+        0.60229
+      ],
+      "rule": "contact with 'leg_upper_l' (grow 1px, 131px band)",
+      "bbox": [
+        307,
+        660,
+        363,
+        1115
+      ],
+      "centroid_px": [
+        336.2,
+        857.9
+      ],
+      "opaque_px": 11734
+    },
+    "leg_lower_r": {
+      "part_id": "PartLegLowerR",
+      "draw_index": 5,
+      "parent": "leg_upper_r",
+      "pivot_px": [
+        380.0,
+        682.5
+      ],
+      "pivot_uv": [
+        0.56543,
+        0.60557
+      ],
+      "rule": "contact with 'leg_upper_r' (grow 1px, 400px band)",
+      "bbox": [
+        352,
+        661,
+        426,
+        1067
+      ],
+      "centroid_px": [
+        378.0,
+        820.5
+      ],
+      "opaque_px": 12974
+    },
+    "leg_upper_l": {
+      "part_id": "PartLegUpperL",
+      "draw_index": 6,
+      "parent": "body",
+      "pivot_px": [
+        341.1,
+        397.0
+      ],
+      "pivot_uv": [
+        0.50756,
+        0.35229
+      ],
+      "rule": "contact with 'body' (grow 1px, 111px band)",
+      "bbox": [
+        267,
+        385,
+        362,
+        716
+      ],
+      "centroid_px": [
+        324.2,
+        526.6
+      ],
+      "opaque_px": 17533
+    },
+    "leg_upper_r": {
+      "part_id": "PartLegUpperR",
+      "draw_index": 7,
+      "parent": "body",
+      "pivot_px": [
+        393.8,
+        450.0
+      ],
+      "pivot_uv": [
+        0.58607,
+        0.39927
+      ],
+      "rule": "contact with 'body' (grow 1px, 521px band)",
+      "bbox": [
+        358,
+        391,
+        468,
+        716
+      ],
+      "centroid_px": [
+        411.5,
+        542.5
+      ],
+      "opaque_px": 18319
+    },
+    "body": {
+      "part_id": "PartBody",
+      "draw_index": 8,
+      "parent": null,
+      "pivot_px": [
+        384.8,
+        441.1
+      ],
+      "pivot_uv": [
+        0.57261,
+        0.39136
+      ],
+      "rule": "contact with leg_upper_l+leg_upper_r (grow 1px, 626px band)",
+      "bbox": [
+        315,
+        350,
+        449,
+        511
+      ],
+      "centroid_px": [
+        390.4,
+        413.8
+      ],
+      "opaque_px": 7833
+    },
+    "chest": {
+      "part_id": "PartChest",
+      "draw_index": 9,
+      "parent": "body",
+      "pivot_px": [
+        383.0,
+        361.5
+      ],
+      "pivot_uv": [
+        0.56999,
+        0.32079
+      ],
+      "rule": "contact with 'body' (grow 1px, 391px band)",
+      "bbox": [
+        318,
+        215,
+        460,
+        371
+      ],
+      "centroid_px": [
+        385.7,
+        299.5
+      ],
+      "opaque_px": 13570
+    },
+    "arm_upper_r": {
+      "part_id": "PartArmUpperR",
+      "draw_index": 10,
+      "parent": "chest",
+      "pivot_px": [
+        331.5,
+        272.5
+      ],
+      "pivot_uv": [
+        0.49323,
+        0.24176
+      ],
+      "rule": "contact with 'chest' (grow 1px, 282px band)",
+      "bbox": [
+        222,
+        180,
+        355,
+        325
+      ],
+      "centroid_px": [
+        290.8,
+        259.8
+      ],
+      "opaque_px": 8683
+    },
+    "arm_lower_r": {
+      "part_id": "PartArmLowerR",
+      "draw_index": 11,
+      "parent": "arm_upper_r",
+      "pivot_px": [
+        236.5,
+        311.4
+      ],
+      "pivot_uv": [
+        0.35191,
+        0.27629
+      ],
+      "rule": "contact with 'arm_upper_r' (grow 1px, 101px band)",
+      "bbox": [
+        170,
+        257,
+        260,
+        353
+      ],
+      "centroid_px": [
+        213.9,
+        306.9
+      ],
+      "opaque_px": 3145
+    },
+    "arm_upper_l": {
+      "part_id": "PartArmUpperL",
+      "draw_index": 12,
+      "parent": "chest",
+      "pivot_px": [
+        434.5,
+        347.6
+      ],
+      "pivot_uv": [
+        0.64663,
+        0.30839
+      ],
+      "rule": "contact with 'chest' (grow 1px, 136px band)",
+      "bbox": [
+        428,
+        332,
+        493,
+        396
+      ],
+      "centroid_px": [
+        459.7,
+        366.6
+      ],
+      "opaque_px": 2148
+    },
+    "arm_lower_l": {
+      "part_id": "PartArmLowerL",
+      "draw_index": 13,
+      "parent": "arm_upper_l",
+      "pivot_px": [
+        492.0,
+        382.3
+      ],
+      "pivot_uv": [
+        0.73207,
+        0.33923
+      ],
+      "rule": "contact with 'arm_upper_l' (grow 1px, 63px band)",
+      "bbox": [
+        491,
+        369,
+        541,
+        414
+      ],
+      "centroid_px": [
+        512.0,
+        391.2
+      ],
+      "opaque_px": 973
+    },
+    "prop_clutch": {
+      "part_id": "PartPropClutch",
+      "draw_index": 14,
+      "parent": "hand_l",
+      "pivot_px": [
+        570.6,
+        442.9
+      ],
+      "pivot_uv": [
+        0.84908,
+        0.39295
+      ],
+      "rule": "contact with 'hand_l' (grow 1px, 338px band)",
+      "bbox": [
+        521,
+        423,
+        628,
+        509
+      ],
+      "centroid_px": [
+        574.7,
+        471.6
+      ],
+      "opaque_px": 5075
+    },
+    "hand_r": {
+      "part_id": "PartHandR",
+      "draw_index": 15,
+      "parent": "arm_lower_r",
+      "pivot_px": [
+        183.2,
+        257.5
+      ],
+      "pivot_uv": [
+        0.27259,
+        0.2285
+      ],
+      "rule": "contact with 'arm_lower_r' (grow 1px, 56px band)",
+      "bbox": [
+        166,
+        155,
+        228,
+        259
+      ],
+      "centroid_px": [
+        191.0,
+        207.6
+      ],
+      "opaque_px": 2693
+    },
+    "hand_l": {
+      "part_id": "PartHandL",
+      "draw_index": 16,
+      "parent": "arm_lower_l",
+      "pivot_px": [
+        535.4,
+        402.1
+      ],
+      "pivot_uv": [
+        0.79674,
+        0.35678
+      ],
+      "rule": "contact with 'arm_lower_l' (grow 1px, 32px band)",
+      "bbox": [
+        531,
+        392,
+        618,
+        453
+      ],
+      "centroid_px": [
+        566.2,
+        426.7
+      ],
+      "opaque_px": 2017
+    },
+    "leg_ornament_l": {
+      "part_id": "PartLegOrnamentL",
+      "draw_index": 17,
+      "parent": "leg_lower_l",
+      "pivot_px": [
+        346.0,
+        660.4
+      ],
+      "pivot_uv": [
+        0.51488,
+        0.58594
+      ],
+      "rule": "contact with 'leg_lower_l' (grow 1px, 14px band)",
+      "bbox": [
+        321,
+        619,
+        353,
+        661
+      ],
+      "centroid_px": [
+        338.5,
+        644.4
+      ],
+      "opaque_px": 473
+    },
+    "leg_ornament_r": {
+      "part_id": "PartLegOrnamentR",
+      "draw_index": 18,
+      "parent": "leg_lower_r",
+      "pivot_px": [
+        403.5,
+        660.5
+      ],
+      "pivot_uv": [
+        0.60045,
+        0.58604
+      ],
+      "rule": "contact with 'leg_lower_r' (grow 1px, 26px band)",
+      "bbox": [
+        379,
+        596,
+        420,
+        661
+      ],
+      "centroid_px": [
+        399.5,
+        641.0
+      ],
+      "opaque_px": 558
+    },
+    "accessory_wrist_r": {
+      "part_id": "PartWristR",
+      "draw_index": 19,
+      "parent": "hand_r",
+      "pivot_px": [
+        183.9,
+        249.2
+      ],
+      "pivot_uv": [
+        0.27369,
+        0.22113
+      ],
+      "rule": "contact with 'hand_r' (grow 1px, 388px band; best of ['hand_r', 'arm_lower_r'])",
+      "bbox": [
+        170,
+        227,
+        203,
+        268
+      ],
+      "centroid_px": [
+        185.2,
+        255.3
+      ],
+      "opaque_px": 526
+    },
+    "accessory_wrist_l": {
+      "part_id": "PartWristL",
+      "draw_index": 20,
+      "parent": "arm_lower_l",
+      "pivot_px": [
+        529.5,
+        399.8
+      ],
+      "pivot_uv": [
+        0.78788,
+        0.35471
+      ],
+      "rule": "contact with 'arm_lower_l' (grow 1px, 325px band; best of ['hand_l', 'arm_lower_l'])",
+      "bbox": [
+        521,
+        387,
+        563,
+        417
+      ],
+      "centroid_px": [
+        535.2,
+        401.9
+      ],
+      "opaque_px": 496
+    },
+    "accessory_choker": {
+      "part_id": "PartChoker",
+      "draw_index": 21,
+      "parent": "head",
+      "pivot_px": [
+        366.6,
+        189.2
+      ],
+      "pivot_uv": [
+        0.54556,
+        0.16791
+      ],
+      "rule": "plate centroid",
+      "bbox": [
+        336,
+        166,
+        391,
+        208
+      ],
+      "centroid_px": [
+        366.6,
+        189.2
+      ],
+      "opaque_px": 442
+    },
+    "head": {
+      "part_id": "PartHead",
+      "draw_index": 22,
+      "parent": "chest",
+      "pivot_px": [
+        363.2,
+        235.5
+      ],
+      "pivot_uv": [
+        0.54048,
+        0.20897
+      ],
+      "rule": "contact with 'chest' (grow 1px, 702px band)",
+      "bbox": [
+        312,
+        112,
+        398,
+        243
+      ],
+      "centroid_px": [
+        357.2,
+        172.4
+      ],
+      "opaque_px": 6221
+    },
+    "accessory_earring_l": {
+      "part_id": "PartEarringL",
+      "draw_index": 23,
+      "parent": "head",
+      "pivot_px": [
+        319.5,
+        207.0
+      ],
+      "pivot_uv": [
+        0.47545,
+        0.18367
+      ],
+      "rule": "bbox top_center",
+      "bbox": [
+        313,
+        207,
+        327,
+        222
+      ],
+      "centroid_px": [
+        320.9,
+        213.5
+      ],
+      "opaque_px": 75
+    },
+    "accessory_earring_r": {
+      "part_id": "PartEarringR",
+      "draw_index": 24,
+      "parent": "head",
+      "pivot_px": [
+        395.5,
+        231.0
+      ],
+      "pivot_uv": [
+        0.58854,
+        0.20497
+      ],
+      "rule": "bbox top_center",
+      "bbox": [
+        392,
+        231,
+        400,
+        241
+      ],
+      "centroid_px": [
+        395.9,
+        235.6
+      ],
+      "opaque_px": 41
+    },
+    "hair_front": {
+      "part_id": "PartHairFront",
+      "draw_index": 25,
+      "parent": "head",
+      "pivot_px": [
+        370.7,
+        124.3
+      ],
+      "pivot_uv": [
+        0.5517,
+        0.11027
+      ],
+      "rule": "contact with 'head' (grow 1px, 188px band)",
+      "bbox": [
+        320,
+        97,
+        409,
+        139
+      ],
+      "centroid_px": [
+        361.8,
+        113.0
+      ],
+      "opaque_px": 2275
+    },
+    "accessory_hair_tie_l": {
+      "part_id": "PartHairTieL",
+      "draw_index": 26,
+      "parent": "hair_side_l",
+      "pivot_px": [
+        328.6,
+        87.0
+      ],
+      "pivot_uv": [
+        0.48905,
+        0.07724
+      ],
+      "rule": "plate centroid",
+      "bbox": [
+        313,
+        72,
+        343,
+        102
+      ],
+      "centroid_px": [
+        328.6,
+        87.0
+      ],
+      "opaque_px": 403
+    },
+    "accessory_hair_tie_r": {
+      "part_id": "PartHairTieR",
+      "draw_index": 27,
+      "parent": "hair_side_r",
+      "pivot_px": [
+        411.2,
+        102.8
+      ],
+      "pivot_uv": [
+        0.61194,
+        0.09122
+      ],
+      "rule": "plate centroid",
+      "bbox": [
+        404,
+        93,
+        418,
+        116
+      ],
+      "centroid_px": [
+        411.2,
+        102.8
+      ],
+      "opaque_px": 140
+    }
+  }
+}

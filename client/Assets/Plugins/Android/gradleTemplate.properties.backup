@@ -1,0 +1,6 @@
+org.gradle.jvmargs=-Xmx4096M
+org.gradle.parallel=true
+org.gradle.user.home=F:/g
+android.useAndroidX=true
+android.enableJetifier=true
+**ADDITIONAL_PROPERTIES**

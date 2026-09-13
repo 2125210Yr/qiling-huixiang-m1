@@ -109,7 +109,7 @@ namespace Resonance.App
                 };
             }
 
-            _tag = MkText(transform, "沉默", 22, Mouth + new Vector2(0f, 36f), new Vector2(160f, 36f), Hot);
+            _tag = MkText(transform, "Silence", 22, Mouth + new Vector2(0f, 36f), new Vector2(160f, 36f), Hot);
 
             _glow.transform.localScale = Vector3.one * 0.55f;
             _ring.transform.localScale = Vector3.one * 1.25f;

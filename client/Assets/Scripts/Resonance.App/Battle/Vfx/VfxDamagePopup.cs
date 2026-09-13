@@ -4,7 +4,8 @@ using UnityEngine.UI;
 namespace Resonance.App
 {
     /// <summary>
-    /// Stacked hit numbers on the 1080x1920 overlay. Words are 弱点 / 暴击.
+    /// Stacked hit numbers on the 1080x1920 overlay. Words are WeakPoint / CRIT.
+    /// WeakPoint EN matches primary Robin ~t68.
     /// </summary>
     public sealed class VfxDamagePopup : MonoBehaviour
     {
@@ -53,6 +54,7 @@ namespace Resonance.App
                 return;
             }
             fx.Build(Mathf.Max(0, amount), weak, crit, elem);
+            HitChainProbe.NumberShown();
         }
 
         void Build(int amount, bool weak, bool crit, Resonance.Battle.Element elem)
@@ -77,7 +79,7 @@ namespace Resonance.App
                 var wordY = crit ? 62f : 44f;
                 var cols = new[] { WeakBack, WeakMid, WeakFront };
                 for (int i = 0; i < WeakShift.Length; i++)
-                    gfx[n++] = MkText("weak" + i, "弱点", 32, cols[i],
+                    gfx[n++] = MkText("weak" + i, BattleCueCopy.WeakPoint, 32, cols[i],
                         new Vector2(0.5f, 0.5f), new Vector2(220f, 48f),
                         WeakShift[i] + new Vector2(0f, wordY), 4f);
             }
@@ -85,10 +87,10 @@ namespace Resonance.App
             if (crit)
             {
                 var wordY = weak ? 28f : 44f;
-                gfx[n++] = MkText("critB", "暴击", 36, CritBack,
+                gfx[n++] = MkText("critB", "CRIT", 36, CritBack,
                     new Vector2(0.5f, 0.5f), new Vector2(220f, 52f),
                     new Vector2(5f, wordY - 4f), 4f);
-                gfx[n++] = MkText("critF", "暴击", 36, CritFront,
+                gfx[n++] = MkText("critF", "CRIT", 36, CritFront,
                     new Vector2(0.5f, 0.5f), new Vector2(220f, 52f),
                     new Vector2(0f, wordY), 4f);
             }
@@ -241,13 +243,14 @@ namespace Resonance.App
 
         static string ElemGlyph(Resonance.Battle.Element e)
         {
+            // Primary EN: element pip letters (not CN 火/水).
             switch (e)
             {
-                case Resonance.Battle.Element.Fire: return "火";
-                case Resonance.Battle.Element.Water: return "水";
-                case Resonance.Battle.Element.Wood: return "木";
-                case Resonance.Battle.Element.Light: return "光";
-                default: return "暗";
+                case Resonance.Battle.Element.Fire: return "F";
+                case Resonance.Battle.Element.Water: return "W";
+                case Resonance.Battle.Element.Wood: return "G";
+                case Resonance.Battle.Element.Light: return "L";
+                default: return "D";
             }
         }
 

@@ -4,13 +4,13 @@ using UnityEngine.UI;
 namespace Resonance.App
 {
     /// <summary>
-    /// Gold leader banner: 队长 + skill. ~0.9s. 细线印章框 + 斩击规线, 无填充名牌 / 无光洗.
-    /// No English LEADER.
+    /// Gold leader banner: LEADER + skill. ~0.9s. 细线印章框 + 斩击规线, 无填充名牌 / 无光洗.
+    /// Primary EN <c>LEADER</c> (HUD SkillWord already LEADER).
     /// </summary>
     public sealed class VfxLeaderBurst : MonoBehaviour
     {
         public const float Duration = 0.90f;
-        const string TitleWord = "队长";
+        const string TitleWord = "LEADER";
 
         static readonly Color Gold = VisualTokens.GoldTitle;
         static readonly Color Hot = VisualTokens.FeverGold;

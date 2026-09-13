@@ -1,18 +1,22 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Resonance.App
 {
     /// <summary>
-    /// Full-field stage stamp: 完成 gold or 失败 red. ~1.1s then destroy.
-    /// No English CLEAR / FAIL.
-    /// </summary>
+            /// Full-field stage stamp. Ordinary win: kanji <c>勝利</c> + lowercase <c>victory</c>
+            /// + <c>Tap the screen.</c> (P0 ~t390–392). Robin ND Hard: English <c>VICTORY</c> (r73).
+            /// ResultBoard CLEAR!! waits. Win holds for tap (8s fallback); fail auto-dismisses.
+            /// </summary>
     public sealed class VfxStageClear : MonoBehaviour
     {
-        public const float Duration = 1.10f;
+        public const float Duration = 1.35f;
+        public const float WinHoldFallbackSec = 8f;
 
-        const string WinWord = "完成";
-        const string FailWord = "失败";
+        const string WinWord = "勝利";
+        const string WinSub = "victory";
+        const string FailWord = "DEFEAT";
 
         static readonly Color WinVeil = new Color(0.16f, 0.08f, 0.00f, 0.86f);
         static readonly Color FailVeil = new Color(0.42f, 0.04f, 0.08f, 0.88f);
@@ -34,6 +38,10 @@ namespace Resonance.App
         Image _star;
         Text _ghost;
         Text _title;
+        Text _sub;
+        Text _hint;
+        Action _onDone;
+        bool _finished;
         Color _veilCol;
         Color _wipeCol;
         Color _bandCol;
@@ -42,15 +50,39 @@ namespace Resonance.App
         bool _win;
         bool _burst;
 
-        public static void Play(Transform parent, bool win)
+        public static bool AnyLive()
         {
-            if (parent == null) return;
+            var live = UnityEngine.Object.FindObjectsByType<VfxStageClear>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+            for (int i = 0; i < live.Length; i++)
+            {
+                if (live[i] != null && live[i].gameObject.activeInHierarchy)
+                    return true;
+            }
+            return false;
+        }
+
+        public static void SkipLive()
+        {
+            var live = UnityEngine.Object.FindObjectsByType<VfxStageClear>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+            for (int i = 0; i < live.Length; i++)
+            {
+                if (live[i] != null) live[i].Finish();
+            }
+        }
+
+        public static void Play(Transform parent, bool win, Action onDone = null)
+        {
+            if (parent == null)
+            {
+                if (onDone != null) onDone();
+                return;
+            }
 
             var live = parent.GetComponentsInChildren<VfxStageClear>(true);
             for (int i = 0; i < live.Length; i++)
             {
                 if (live[i] != null)
-                    Object.Destroy(live[i].gameObject);
+                    UnityEngine.Object.Destroy(live[i].gameObject);
             }
 
             var go = new GameObject("vfxStageClear", typeof(RectTransform), typeof(VfxStageClear));
@@ -60,7 +92,15 @@ namespace Resonance.App
             rt.anchorMax = Vector2.one;
             rt.offsetMin = rt.offsetMax = Vector2.zero;
             rt.SetAsLastSibling();
-            go.GetComponent<VfxStageClear>().Build(win);
+            var fx = go.GetComponent<VfxStageClear>();
+            fx._onDone = onDone;
+            fx.Build(win);
+            CueTimingProbe.On(win ? "victory" : "defeat", fx.GetInstanceID());
+        }
+
+        void OnDestroy()
+        {
+            CueTimingProbe.Off(_win ? "victory" : "defeat", GetInstanceID());
         }
 
         void Build(bool win)
@@ -70,11 +110,20 @@ namespace Resonance.App
             _veilCol = win ? WinVeil : FailVeil;
             _wipeCol = win ? WinWipe : FailWipe;
             _bandCol = win ? WinBand : FailBand;
-            var word = win ? WinWord : FailWord;
+            // Ordinary P0: 勝利 + victory. Robin ND Hard (r73): English Victory primary.
+            var ndWin = win && GameRoot.Live != null && GameRoot.Live.SaveData != null
+                && GameRoot.Live.SaveData.UseHard;
+            var word = win
+                ? (ndWin ? BattleCueCopy.VictoryEnUpper : WinWord)
+                : FailWord;
             var ink = win ? WinInk : FailInk;
             var flashPx = win ? 980f : 860f;
 
             _veil = Full("veil", _veilCol);
+            _veil.raycastTarget = true;
+            var tap = _veil.gameObject.AddComponent<Button>();
+            tap.transition = Selectable.Transition.None;
+            tap.onClick.AddListener(Finish);
 
             _wipe = Full("wipe", Color.clear);
             UiSprites.Apply(_wipe, UiSprites.Soft());
@@ -123,16 +172,32 @@ namespace Resonance.App
             Fade(_ghost, 0f);
             Fade(_title, 0f);
 
+            if (win)
+            {
+                // ND Victory is the hero word; ordinary keeps lowercase victory substamp.
+                if (!ndWin)
+                {
+                    _sub = MkText("sub", WinSub, 28, VisualTokens.FeverGold,
+                        new Vector2(0.50f, 0.46f), new Vector2(420f, 40f));
+                    Fade(_sub, 0f);
+                }
+                _hint = MkText("hint", BattleCueCopy.TapScreenEn, 22, VisualTokens.TapWhite,
+                    new Vector2(0.50f, ndWin ? 0.42f : 0.34f), new Vector2(520f, 32f));
+                Fade(_hint, 0f);
+            }
+
             CanvasShake.Punch(win ? 22f : 16f, win ? 0.28f : 0.22f);
         }
 
         void Update()
         {
+            if (_finished) return;
+
             _age += Time.unscaledDeltaTime;
             var u = Mathf.Clamp01(_age / Duration);
-            var a = u < 0.08f ? u / 0.08f
-                : u < 0.82f ? 1f
-                : 1f - (u - 0.82f) / 0.18f;
+            var a = u < 0.08f ? u / 0.08f : 1f;
+            if (!_win && u > 0.82f)
+                a = 1f - (u - 0.82f) / 0.18f;
             a = Mathf.Clamp01(a);
 
             if (!_burst && _age >= 0.04f)
@@ -191,6 +256,13 @@ namespace Resonance.App
                 _ghost.transform.localScale = Vector3.one * titleScale;
                 Fade(_ghost, a);
             }
+            if (_sub != null)
+                Fade(_sub, a);
+            if (_hint != null)
+            {
+                var hintA = _age < 0.22f ? 0f : a;
+                Fade(_hint, hintA);
+            }
 
             if (_star != null)
             {
@@ -199,7 +271,18 @@ namespace Resonance.App
                 SetA(_star, a);
             }
 
-            if (_age >= Duration) Destroy(gameObject);
+            var hold = _win ? WinHoldFallbackSec : Duration;
+            if (_age >= hold) Finish();
+        }
+
+        void Finish()
+        {
+            if (_finished) return;
+            _finished = true;
+            var cb = _onDone;
+            _onDone = null;
+            if (cb != null) cb();
+            Destroy(gameObject);
         }
 
         Image Full(string name, Color color)

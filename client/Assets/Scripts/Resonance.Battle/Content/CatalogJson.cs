@@ -180,6 +180,7 @@ namespace Resonance.Battle
                 LeaderSkillId = Str(o, "leader"),
                 IsEnemy = Bool(o, "enemy"),
                 IsBoss = Bool(o, "boss"),
+                BattleLevel = Int(o, "battleLv", 1),
                 NativeStar = Int(o, "native", 5),
                 MaxStar = Int(o, "maxStar", 6),
                 UncapMax = Int(o, "uncap", 6),
@@ -206,6 +207,7 @@ namespace Resonance.Battle
             if (HasText(o, "leader")) dst.LeaderSkillId = Str(o, "leader");
             if (HasKey(o, "enemy")) dst.IsEnemy = Bool(o, "enemy");
             if (HasKey(o, "boss")) dst.IsBoss = Bool(o, "boss");
+            if (HasNum(o, "battleLv")) dst.BattleLevel = Int(o, "battleLv", 1);
             if (HasNum(o, "native")) dst.NativeStar = Int(o, "native", 5);
             if (HasNum(o, "maxStar")) dst.MaxStar = Int(o, "maxStar", 6);
             if (HasNum(o, "uncap")) dst.UncapMax = Int(o, "uncap", 6);
@@ -233,7 +235,10 @@ namespace Resonance.Battle
                 PercentAtk = Flt(o, "pct"),
                 IsIgnitedVariant = Bool(o, "ign"),
                 BaseSkillId = Str(o, "base"),
-                Opcode = Str(o, "op")
+                Opcode = Str(o, "op"),
+                SlideRank = Int(o, "slideRank"),
+                SlideSkillLv = Int(o, "slideLv"),
+                SlideSkillLvMax = Int(o, "slideLvMax")
             };
         }
 
@@ -257,6 +262,9 @@ namespace Resonance.Battle
             if (HasKey(o, "ign")) dst.IsIgnitedVariant = Bool(o, "ign");
             if (HasText(o, "base")) dst.BaseSkillId = Str(o, "base");
             if (HasText(o, "op")) dst.Opcode = Str(o, "op");
+            if (HasNum(o, "slideRank")) dst.SlideRank = Int(o, "slideRank");
+            if (HasNum(o, "slideLv")) dst.SlideSkillLv = Int(o, "slideLv");
+            if (HasNum(o, "slideLvMax")) dst.SlideSkillLvMax = Int(o, "slideLvMax");
         }
 
         static EffectDef ReadEffect(Dictionary<string, object> o)
@@ -344,6 +352,7 @@ namespace Resonance.Battle
                 LeaderSkillId = c.LeaderSkillId,
                 IsEnemy = c.IsEnemy,
                 IsBoss = c.IsBoss,
+                BattleLevel = c.BattleLevel,
                 NativeStar = c.NativeStar,
                 MaxStar = c.MaxStar,
                 UncapMax = c.UncapMax,
@@ -433,6 +442,7 @@ namespace Resonance.Battle
                 sb.Append("\"slide\":\"").Append(Esc(c.SlideSkillId)).Append("\",\"drive\":\"").Append(Esc(c.DriveSkillId)).Append("\",");
                 sb.Append("\"leader\":\"").Append(Esc(c.LeaderSkillId)).Append("\",\"enemy\":").Append(c.IsEnemy ? "true" : "false");
                 sb.Append(",\"boss\":").Append(c.IsBoss ? "true" : "false");
+                sb.Append(",\"battleLv\":").Append(c.BattleLevel);
                 sb.Append(",\"native\":").Append(c.NativeStar).Append(",\"maxStar\":").Append(c.MaxStar);
                 sb.Append(",\"uncap\":").Append(c.UncapMax).Append(",\"ign\":").Append(c.IgnitionMax).Append('}');
             }
@@ -452,7 +462,10 @@ namespace Resonance.Battle
                 sb.Append("\"hcoef\":").Append(Num(s.HealCoef)).Append(",\"hflat\":").Append(s.FlatHeal);
                 sb.Append(",\"hfrac\":").Append(Num(s.HealMaxHpFrac)).Append(",\"sflat\":").Append(Num(s.SkillFlat));
                 sb.Append(",\"pct\":").Append(Num(s.PercentAtk)).Append(",\"ign\":").Append(s.IsIgnitedVariant ? "true" : "false");
-                sb.Append(",\"base\":\"").Append(Esc(s.BaseSkillId)).Append("\",\"op\":\"").Append(Esc(s.Opcode)).Append("\"}");
+                sb.Append(",\"base\":\"").Append(Esc(s.BaseSkillId)).Append("\",\"op\":\"").Append(Esc(s.Opcode)).Append("\"");
+                sb.Append(",\"slideRank\":").Append(s.SlideRank);
+                sb.Append(",\"slideLv\":").Append(s.SlideSkillLv);
+                sb.Append(",\"slideLvMax\":").Append(s.SlideSkillLvMax).Append('}');
             }
             sb.Append("]}");
             return sb.ToString();

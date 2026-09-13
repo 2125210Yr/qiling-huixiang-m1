@@ -188,11 +188,12 @@ namespace Resonance.Tests
             }
             Assert.Equal(58, buffs);
             Assert.Equal(35, debuffs);
-            Assert.Equal(6, sim);
+            Assert.Equal(7, sim);
             Assert.Equal("atk_up", BuffCatalog.Find("攻击力↑").Id);
             Assert.Equal("def_down", BuffCatalog.Find("防御力↓").Id);
             Assert.Equal("stun", BuffCatalog.Find("晕眩").Id);
             Assert.True(BuffCatalog.Find("攻击力↑").Simulated);
+            Assert.True(BuffCatalog.Find("防御力↑").Simulated);
             Assert.True(BuffCatalog.Find("防御力↓").Simulated);
             Assert.True(BuffCatalog.Find("晕眩").Simulated);
             Assert.True(BuffCatalog.Find("屏障").Simulated);
@@ -219,6 +220,32 @@ namespace Resonance.Tests
             Assert.True(e.Has(EffectKind.DefDebuff));
             Assert.True(e.Defense < e.Def.Def);
             Assert.Equal((int)System.Math.Round(e.Def.Def * 0.80f), e.Defense);
+        }
+
+        [Fact]
+        public void DefBuffRaisesDefense()
+        {
+            // Primary Robin mid-fight shows DEF ↑. Engineering DefBuff — not GL_FINAL.
+            var sim = new BattleSim(Catalog.DefaultParty, 0, 3) { Deterministic = true, Speed = 1, Profile = FormulaProfile.JP_LEGACY_EMPIRICAL };
+            var u = sim.Allies[0];
+            var before = u.Defense;
+            var fx = new EffectDef
+            {
+                Id = "def_up_fx",
+                Opcode = EffectOpcodes.StatusApply,
+                Kind = EffectKind.DefBuff,
+                Magnitude = 0.18f,
+                DurationSec = 12f,
+                MaxStack = 1,
+                SourceTier = 1,
+                Group = "def"
+            };
+            sim.ApplyStatus(u, fx);
+            Assert.True(u.Has(EffectKind.DefBuff));
+            Assert.True(u.Defense > before);
+            Assert.Equal((int)System.Math.Round(u.Def.Def * 1.18f), u.Defense);
+            Assert.Equal(EffectKind.DefBuff, (EffectKind)30);
+            Assert.True(BuffCatalog.FindId("def_up").Simulated);
         }
 
         [Fact]
@@ -421,10 +448,11 @@ namespace Resonance.Tests
         }
 
         [Fact]
-        public void TwoGreatDrivesTriggerFever()
+        public void FourGreatDrivesTriggerFever()
         {
+            // Primary tip: Great +30 → four Greats = 120.
             var sim = NewSim(13);
-            for (int n = 0; n < 2; n++)
+            for (int n = 0; n < 4; n++)
             {
                 ChargeAll(sim);
                 sim.Drive = 100f;
@@ -438,29 +466,43 @@ namespace Resonance.Tests
         [Fact]
         public void AutoTapReachesFever()
         {
-            Catalog.BuildBuiltin();
-            var sim = new BattleSim(Catalog.DefaultParty, 0, 21, Catalog.Stages[11], null)
+            // Full auto Drive QTE resolves Great (+30 tip) inside AutoFireDrive.
+            var sim = NewSim(21);
+            sim.Auto = AutoMode.Full;
+            sim.TimeLeft = 999f;
+            for (int i = 0; i < sim.Enemies.Count; i++)
             {
-                Deterministic = true,
-                Profile = FormulaProfile.JP_LEGACY_EMPIRICAL,
-                AutoTap = true,
-                Speed = 2
-            };
-            for (int t = 0; t < BattleSim.TickHz * 40 && !sim.FeverEver; t++)
+                if (sim.Enemies[i] == null) continue;
+                sim.Enemies[i].MaxHp = 500000;
+                sim.Enemies[i].Hp = 500000;
+            }
+            float gauge = 0f;
+            for (int n = 0; n < 4; n++)
+            {
+                ChargeAll(sim);
+                sim.Drive = 100f;
+                sim.Outcome = BattleOutcome.InProgress;
+                Assert.True(sim.CanAct(0), "ally0 cannot act before auto drive");
+                var before = sim.FeverGauge;
                 sim.Tick();
-            Assert.True(sim.FeverEver, "auto never reached fever");
+                Assert.True(sim.FeverGauge > before || sim.FeverEver,
+                    "tick n=" + n + " feverG=" + sim.FeverGauge + " event=" + sim.LastEvent + " pending=" + sim.PendingDriveSlot);
+                if (sim.FeverEver) break;
+                gauge = sim.FeverGauge;
+            }
+            Assert.True(sim.FeverEver, "feverG stuck at " + gauge);
         }
 
         [Fact]
         public void FeverKeepsTickingAfterVictory()
         {
             var sim = NewSim(14);
-            for (int n = 0; n < 2; n++)
+            for (int n = 0; n < 3; n++)
             {
                 ChargeAll(sim);
                 sim.Drive = 100f;
                 Assert.True(sim.TryBeginDrive(0));
-                Assert.True(sim.ResolveDrive(DriveTiming.Great));
+                Assert.True(sim.ResolveDrive(DriveTiming.Perfect));
             }
             Assert.True(sim.FeverActive);
             sim.Outcome = BattleOutcome.Victory;
@@ -929,6 +971,18 @@ namespace Resonance.Tests
             Assert.Equal(1.20f, BattleSim.QteMul(DriveTiming.Great));
             Assert.Equal(1.00f, BattleSim.QteMul(DriveTiming.Good));
             Assert.Equal(0.90f, BattleSim.QteMul(DriveTiming.Bad));
+        }
+
+        [Fact]
+        public void QteFeverMatchesPrimaryP0Tip()
+        {
+            // Primary handoff P0 tip ~t445: PERFECT +40 / GREAT +30 / GOOD +15.
+            Assert.Equal(40f, BattleSim.QteFever(DriveTiming.Perfect));
+            Assert.Equal(30f, BattleSim.QteFever(DriveTiming.Great));
+            Assert.Equal(15f, BattleSim.QteFever(DriveTiming.Good));
+            Assert.Equal(8f, BattleSim.QteFever(DriveTiming.Bad));
+            Assert.Equal(14f, BattleSim.UnknownFeverWindowSec);
+            Assert.Equal(7f, BattleSim.DriveQteTimeoutSec);
         }
 
         [Fact]

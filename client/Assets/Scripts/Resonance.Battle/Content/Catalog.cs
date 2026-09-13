@@ -202,6 +202,7 @@ namespace Resonance.Battle
                 ["dot_flame"] = Fx("dot_flame", EffectKind.Dot, 0.18f, 8f, 1, 2, "dot"),
                 ["def_down"] = Fx("def_down", EffectKind.DefDebuff, 0.20f, 10f, 1, 2, "def"),
                 ["atk_up"] = Fx("atk_up", EffectKind.AtkBuff, 0.18f, 12f, 1, 2, "atk"),
+                ["def_up"] = Fx("def_up", EffectKind.DefBuff, 0.18f, 12f, 1, 2, "def"),
                 ["shield"] = Fx("shield", EffectKind.Shield, 0.22f, 8f, 1, 1, "shield"),
                 ["taunt"] = Fx("taunt", EffectKind.Taunt, 1f, 6f, 1, 2, "taunt"),
                 ["haste"] = Fx("haste", EffectKind.ChargeHaste, 0.25f, 8f, 1, 1, "haste"),
@@ -261,7 +262,10 @@ namespace Resonance.Battle
                 IsIgnitedVariant = s.IsIgnitedVariant,
                 BaseSkillId = s.BaseSkillId,
                 RequireTags = s.RequireTags == null ? null : CopyWave(s.RequireTags),
-                Opcode = s.Opcode
+                Opcode = s.Opcode,
+                SlideRank = s.SlideRank,
+                SlideSkillLv = s.SlideSkillLv,
+                SlideSkillLvMax = s.SlideSkillLvMax
             };
         }
         public static EffectDef TryEffect(string id)

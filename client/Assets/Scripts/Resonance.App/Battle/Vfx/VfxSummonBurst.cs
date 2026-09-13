@@ -4,14 +4,13 @@ using UnityEngine.UI;
 namespace Resonance.App
 {
     /// <summary>
-    /// Summon reveal: gold/void burst, 召唤 + name + red stars (1..5). ~1.2s.
-    /// Invented IP. No English gacha copy.
+    /// Summon reveal: gold/void burst, SUMMON + name + red stars (1..5). ~1.2s.
     /// </summary>
     public sealed class VfxSummonBurst : MonoBehaviour
     {
         public const float Duration = 1.20f;
 
-        const string TitleWord = "召唤";
+        const string TitleWord = "SUMMON";
         const int RayN = 8;
 
         static readonly Color VeilCol = new Color(0.02f, 0.02f, 0.03f, 0.90f);

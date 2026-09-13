@@ -117,7 +117,7 @@ namespace Resonance.App
                 };
             }
 
-            _tag = MkText(transform, "毒", 26, new Vector2(0f, -8f), new Vector2(80f, 40f),
+            _tag = MkText(transform, "Poison", 26, new Vector2(0f, -8f), new Vector2(80f, 40f),
                 Color.Lerp(lime, dark, 0.22f));
         }
 

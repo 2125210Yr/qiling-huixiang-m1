@@ -9,14 +9,17 @@ namespace Resonance.App
         public int Slot;
         public bool Ally;
         public Element Elem;
+        public string UnitName;
 
         Image _hp;
         Image _charge;
         Image _flash;
+        Image _focusMark;
         Image _pixel;
         Sprite _pixA;
         Sprite _pixB;
         Text _hpNum;
+        Text _slideTag;
         CanvasGroup _group;
         RectTransform _body;
         Vector2 _rest;
@@ -31,6 +34,7 @@ namespace Resonance.App
         Color _flashColor = Color.white;
         bool _dead;
         float _deadT;
+        bool _splashHidden;
         SkillType _castKind;
 
         public static BattleFighter Create(Transform parent, UnitState unit, Vector2 anchor, bool boss)
@@ -88,6 +92,7 @@ namespace Resonance.App
             fx.Slot = unit.Slot;
             fx.Ally = unit.Ally;
             fx.Elem = unit.Def != null ? unit.Def.Element : Element.Dark;
+            fx.UnitName = unit.Def != null ? unit.Def.Name : "";
             fx._group = go.GetComponent<CanvasGroup>();
             if (fx._group != null) fx._group.alpha = 1f;
             fx._body = brt;
@@ -98,39 +103,165 @@ namespace Resonance.App
             fx._face = unit.Ally ? 1f : -1f;
             fx._hp = Bar(go.transform, "hp", new Vector2(0.5f, 0.08f), new Vector2(height * 0.52f, 10f),
                 unit.Ally ? VisualTokens.YellowValue : VisualTokens.StarEvolved);
+            if (!unit.Ally)
+            {
+                // Primary GT: small skull under enemy HP bar (P0 bloops / Old Skull).
+                var skull = new GameObject("skull", typeof(RectTransform), typeof(Image));
+                skull.transform.SetParent(go.transform, false);
+                var srt = skull.GetComponent<RectTransform>();
+                srt.anchorMin = srt.anchorMax = new Vector2(0.22f, 0.04f);
+                srt.sizeDelta = new Vector2(boss ? 18f : 14f, boss ? 18f : 14f);
+                var simg = skull.GetComponent<Image>();
+                UiSprites.Apply(simg, UiSprites.Spark());
+                simg.color = new Color(0.92f, 0.90f, 0.88f, 0.88f);
+                simg.raycastTarget = false;
+                // Primary Robin ~t48: green SLIDE charge under foe HP.
+                fx._charge = Bar(go.transform, "ch", new Vector2(0.5f, 0.02f), new Vector2(height * 0.52f, 6f), VisualTokens.SlideGreen);
+                fx._slideTag = CharacterPresenter.Label(go.transform, BattleCueCopy.SlidePipEn, 11, VisualTokens.SlideGreen,
+                    new Vector2(0.72f, 0.02f), new Vector2(72f, 18f), true);
+                if (fx._slideTag != null) fx._slideTag.color = Color.clear;
+                // Robin ~t68 ND: "CORE" pip under boss HP (ordinary bloops keep skull only).
+                if (boss)
+                {
+                    var core = CharacterPresenter.Label(go.transform, BattleCueCopy.EnemyCore, 10, VisualTokens.GoldMetal,
+                        new Vector2(0.42f, 0.005f), new Vector2(64f, 16f), true);
+                    if (core != null)
+                    {
+                        var col = core.color;
+                        col.a = 0.92f;
+                        core.color = col;
+                    }
+                }
+            }
             if (unit.Ally)
                 fx._charge = Bar(go.transform, "ch", new Vector2(0.5f, 0.03f), new Vector2(height * 0.52f, 5f), VisualTokens.Ember);
             fx._flash = FlashPlate(go.transform);
             fx._hpNum = CharacterPresenter.Label(go.transform, unit.Hp.ToString(), unit.Ally || boss ? 22 : 18, VisualTokens.YellowValue,
                 new Vector2(0.5f, -0.01f), new Vector2(height * 0.90f, 28f), true);
-            if (!unit.Ally || boss)
             {
-                var nm = CharacterPresenter.Label(go.transform, unit.Def != null ? unit.Def.Name : "", boss ? 26 : 20, Color.white,
-                    new Vector2(0.5f, 0.175f), new Vector2(height * 0.98f, 36f), true);
+                var unitName = unit.Def != null ? unit.Def.Name : "";
+                var unitLv = unit.Def != null && unit.Def.BattleLevel > 0 ? unit.Def.BattleLevel : 1;
+                // Foe: bloops Small/N Name; titled ND Title/N Name (r25/r35); skulls Lv.; else N Name.
+                // Ally: "Hero"/"N Name" (Robin ~t57).
+                var plate = unit.Ally
+                    ? (BattleCueCopy.AllyRoleHero + "\n" + unitLv + " " + unitName)
+                    : BattleCueCopy.FoePlateLine(unitLv, unitName);
+                var tallPlate = unit.Ally || plate.IndexOf('\n') >= 0;
+                var nm = CharacterPresenter.Label(go.transform, plate, boss ? 26 : (unit.Ally ? 16 : 20), Color.white,
+                    new Vector2(0.5f, unit.Ally ? 0.18f : 0.175f), new Vector2(height * 0.98f, tallPlate ? 44f : 36f), true);
+                if (nm != null && tallPlate)
+                {
+                    nm.horizontalOverflow = HorizontalWrapMode.Wrap;
+                    nm.verticalOverflow = VerticalWrapMode.Overflow;
+                    nm.alignment = TextAnchor.LowerCenter;
+                    nm.lineSpacing = 0.85f;
+                }
                 if (nm != null)
                 {
                     var ol2 = nm.gameObject.AddComponent<Outline>();
                     ol2.effectColor = new Color(0f, 0f, 0f, 0.9f);
                     ol2.effectDistance = new Vector2(1f, -1f);
                 }
-                var ul = new GameObject("nameul", typeof(RectTransform), typeof(Image));
-                ul.transform.SetParent(go.transform, false);
-                var urt = ul.GetComponent<RectTransform>();
-                urt.anchorMin = urt.anchorMax = new Vector2(0.5f, 0.148f);
-                urt.sizeDelta = new Vector2(height * (boss ? 0.44f : 0.34f), boss ? 4f : 3f);
-                var uimg = ul.GetComponent<Image>();
-                if (uimg != null)
+                if (!unit.Ally)
                 {
-                    UiSprites.Apply(uimg, boss ? UiSprites.Slash() : UiSprites.Dashed());
-                    uimg.color = new Color(VisualTokens.GoldSelect.r, VisualTokens.GoldSelect.g, VisualTokens.GoldSelect.b, 0.85f);
-                    uimg.raycastTarget = false;
+                    // P0 t70: overhead "The Hanged" on skull hangers (not foot plate).
+                    var banner = BattleCueCopy.FoeBannerForName(unitName);
+                    if (!string.IsNullOrEmpty(banner))
+                    {
+                        var ban = CharacterPresenter.Label(go.transform, banner, boss ? 14 : 12,
+                            VisualTokens.TapWhite, new Vector2(0.5f, 0.92f), new Vector2(height * 0.85f, 22f), true);
+                        if (ban != null)
+                        {
+                            ban.color = new Color(0.92f, 0.92f, 0.94f, 0.92f);
+                            var bol = ban.gameObject.AddComponent<Outline>();
+                            bol.effectColor = new Color(0f, 0f, 0f, 0.85f);
+                            bol.effectDistance = new Vector2(1f, -1f);
+                        }
+                    }
+                }
+                // Element / role pip left of name (water drop / sun / ally leaf-role).
+                var elPip = new GameObject("elPip", typeof(RectTransform), typeof(Image));
+                elPip.transform.SetParent(go.transform, false);
+                var ert = elPip.GetComponent<RectTransform>();
+                ert.anchorMin = ert.anchorMax = new Vector2(unit.Ally ? 0.14f : 0.18f, unit.Ally ? 0.16f : 0.175f);
+                ert.sizeDelta = new Vector2(boss ? 22f : 16f, boss ? 22f : 16f);
+                var eimg = elPip.GetComponent<Image>();
+                UiSprites.Apply(eimg, UiSprites.Circle());
+                if (unit.Ally)
+                    eimg.color = new Color(VisualTokens.SlideGreen.r, VisualTokens.SlideGreen.g, VisualTokens.SlideGreen.b, 0.95f);
+                else
+                {
+                    eimg.color = new Color(el.r, el.g, el.b, 0.95f);
+                }
+                eimg.raycastTarget = false;
+                if (!unit.Ally)
+                {
+                    var ul = new GameObject("nameul", typeof(RectTransform), typeof(Image));
+                    ul.transform.SetParent(go.transform, false);
+                    var urt = ul.GetComponent<RectTransform>();
+                    urt.anchorMin = urt.anchorMax = new Vector2(0.5f, 0.148f);
+                    urt.sizeDelta = new Vector2(height * (boss ? 0.44f : 0.34f), boss ? 4f : 3f);
+                    var uimg = ul.GetComponent<Image>();
+                    if (uimg != null)
+                    {
+                        UiSprites.Apply(uimg, boss ? UiSprites.Slash() : UiSprites.Dashed());
+                        uimg.color = new Color(VisualTokens.GoldSelect.r, VisualTokens.GoldSelect.g, VisualTokens.GoldSelect.b, 0.85f);
+                        uimg.raycastTarget = false;
+                    }
                 }
             }
             if (boss)
-                CharacterPresenter.Label(go.transform, "首领", 16, VisualTokens.GoldSelect,
+                CharacterPresenter.Label(go.transform, "BOSS", 16, VisualTokens.GoldSelect,
                     new Vector2(0.5f, 0.235f), new Vector2(100f, 24f), true);
             fx.Apply(unit, true);
             return fx;
+        }
+
+        public void BindFocus(System.Action onClick)
+        {
+            if (Ally || onClick == null) return;
+            var hit = transform.Find("focusHit");
+            if (hit == null)
+            {
+                var go = new GameObject("focusHit", typeof(RectTransform), typeof(Image), typeof(Button));
+                go.transform.SetParent(transform, false);
+                var rt = go.GetComponent<RectTransform>();
+                rt.anchorMin = Vector2.zero;
+                rt.anchorMax = Vector2.one;
+                rt.offsetMin = Vector2.zero;
+                rt.offsetMax = Vector2.zero;
+                var img = go.GetComponent<Image>();
+                img.color = new Color(1f, 1f, 1f, 0.01f);
+                img.raycastTarget = true;
+                hit = go.transform;
+            }
+            var btn = hit.GetComponent<Button>();
+            if (btn == null) btn = hit.gameObject.AddComponent<Button>();
+            btn.transition = Selectable.Transition.None;
+            btn.onClick.RemoveAllListeners();
+            btn.onClick.AddListener(() => onClick());
+        }
+
+        public void SetFocused(bool on)
+        {
+            if (Ally) return;
+            if (_focusMark == null)
+            {
+                var go = new GameObject("focusMark", typeof(RectTransform), typeof(Image));
+                go.transform.SetParent(transform, false);
+                var rt = go.GetComponent<RectTransform>();
+                rt.anchorMin = new Vector2(0.5f, 0.10f);
+                rt.anchorMax = new Vector2(0.5f, 0.10f);
+                rt.sizeDelta = new Vector2(88f, 18f);
+                rt.anchoredPosition = Vector2.zero;
+                _focusMark = go.GetComponent<Image>();
+                UiSprites.Apply(_focusMark, UiSprites.Round());
+                _focusMark.raycastTarget = false;
+            }
+            _focusMark.color = on
+                ? new Color(VisualTokens.GoldSelect.r, VisualTokens.GoldSelect.g, VisualTokens.GoldSelect.b, 0.95f)
+                : Color.clear;
+            _focusMark.enabled = on;
         }
 
         public void Apply(UnitState u, bool instant = false)
@@ -142,7 +273,37 @@ namespace Resonance.App
             if (_charge != null)
             {
                 _charge.fillAmount = Mathf.Clamp01(u.Charge / 100f);
-                _charge.color = u.Charge >= 100f ? VisualTokens.YellowConfirm : VisualTokens.Ember;
+                if (!Ally)
+                {
+                    // Robin mid-fight: foe SLIDE gauge (green) or COOL when SlideCd ticking.
+                    _charge.color = VisualTokens.SlideGreen;
+                    if (_slideTag != null)
+                    {
+                        // Robin ~t48: foe can show COOL + SLIDE together under HP.
+                        if (u.SlideCd > 0.05f && u.Charge > 8f)
+                        {
+                            _slideTag.text = "COOL  SLIDE";
+                            _slideTag.color = VisualTokens.SlideGreen;
+                        }
+                        else if (u.SlideCd > 0.05f)
+                        {
+                            _slideTag.text = "COOL";
+                            _slideTag.color = new Color(0.45f, 0.72f, 1f, 0.95f);
+                        }
+                        else if (u.Charge > 8f)
+                        {
+                            _slideTag.text = BattleCueCopy.SlidePipEn;
+                            _slideTag.color = VisualTokens.SlideGreen;
+                        }
+                        else
+                        {
+                            _slideTag.text = BattleCueCopy.SlidePipEn;
+                            _slideTag.color = Color.clear;
+                        }
+                    }
+                }
+                else
+                    _charge.color = u.Charge >= 100f ? VisualTokens.YellowConfirm : VisualTokens.Ember;
             }
             VfxStatusIcons.DrawField(transform, StatusChipText.Labels(u), (Ally ? 0 : 20) + Slot);
             if (_lastHp >= 0 && u.Hp < _lastHp && !instant) Hit();
@@ -156,9 +317,21 @@ namespace Resonance.App
             {
                 _dead = false;
                 _deadT = 0f;
-                if (_group != null) _group.alpha = 1f;
+                if (_group != null && !_splashHidden) _group.alpha = 1f;
                 if (_body != null) _body.localEulerAngles = Vector3.zero;
             }
+        }
+
+        /// <summary>
+        /// P0 PHASE splash (t64–t66): field standees gone; portraits stay.
+        /// Presentation hide only. Not T28.
+        /// </summary>
+        public void SetSplashHidden(bool hidden)
+        {
+            _splashHidden = hidden;
+            if (_group == null) return;
+            if (hidden) _group.alpha = 0f;
+            else if (!_dead) _group.alpha = 1f;
         }
 
         public void PlayCue(PresentationCue cue)
@@ -233,6 +406,11 @@ namespace Resonance.App
 
         void LateUpdate()
         {
+            if (_splashHidden)
+            {
+                if (_group != null) _group.alpha = 0f;
+                return;
+            }
             if (_flashT > 0f && _flash != null)
             {
                 _flashT -= Time.unscaledDeltaTime;
@@ -439,8 +617,14 @@ namespace Resonance.App
                 CombatFeel.Impact(parent, to, color, false, false, SkillType.Tap);
                 return;
             }
+            // Tap: punch/impact only — no Slash ribbon (P0 isolated tap ≠ Slide slash).
+            if (!fever && kind == SkillType.Tap)
+            {
+                CombatFeel.Impact(parent, to, color, false, false, kind);
+                return;
+            }
             CombatFeel.Slash(parent, from, to, color, kind, fever);
-            if (!fever && (kind == SkillType.Tap || kind == SkillType.Auto))
+            if (!fever && kind == SkillType.Auto)
             {
                 CombatFeel.Impact(parent, to, color, false, false, kind);
                 return;

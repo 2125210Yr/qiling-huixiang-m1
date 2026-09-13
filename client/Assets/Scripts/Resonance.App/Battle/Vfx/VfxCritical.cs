@@ -4,13 +4,13 @@ using UnityEngine.UI;
 namespace Resonance.App
 {
     /// <summary>
-    /// Printed / additive luxury 暴击 punch: star burst + spark motes + slash lines,
-    /// stacked red word + large red number. Never Critical.
+    /// Printed / additive luxury CRIT punch: star burst + spark motes + slash lines,
+    /// stacked red word + large red number. Primary EN <c>CRIT</c> (not Critical).
     /// </summary>
     public sealed class VfxCritical : MonoBehaviour
     {
         const float Life = 0.52f;
-        const string Word = "暴击";
+        const string Word = "CRIT";
 
         static readonly Color Ink = VisualTokens.StarEvolved;
         static readonly Color Back = new Color(0.42f, 0.02f, 0.04f, 1f);

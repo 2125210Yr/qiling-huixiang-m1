@@ -1,0 +1,44 @@
+{
+  "source": "F:\\天命之子\\art\\live2d-lab\\elevator-red\\original-still.png",
+  "gif_path": false,
+  "canvas": [
+    1280,
+    720
+  ],
+  "scale": 1,
+  "body_original_px": 144300,
+  "figure_recovered_px": 152059,
+  "body_png_preserved": true,
+  "parts": {
+    "back_hair": 58185,
+    "front_hair": 4667,
+    "horns": 197,
+    "face": 2577,
+    "neck": 792,
+    "chest": 16054,
+    "torso": 5702,
+    "dress_body": 53243,
+    "dress_slit_panel": 29965,
+    "leg_stand": 4726,
+    "leg_raise_thigh": 15378,
+    "leg_raise_calf": 4423,
+    "foot_raise": 1828,
+    "arm_hip": 5844,
+    "eyes": 698,
+    "anklet": 60
+  },
+  "meta": {
+    "face_cx": 635,
+    "face_y0": 36,
+    "face_y1": 134,
+    "torso_cx": 690,
+    "hip_y": 312,
+    "fig_bbox": [
+      347,
+      36,
+      910,
+      712
+    ],
+    "raise_side": 1.0
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "id": "C027",
+  "slug": "C027-红旗袍",
+  "working_title": "Red Cheongsam / Elevator",
+  "status": "blocking",
+  "source": {
+    "file": "reference-src.jpg",
+    "kind": "video frame screenshot",
+    "native_size": [546, 292],
+    "letterbox_crop": [1, 0, 545, 292],
+    "work_file": "reference-work.png",
+    "work_scale": 4,
+    "figure_cropped_at": "bottom edge (dress hem and standing foot are outside the frame)",
+    "quality_note": "Heavily compressed 546x292 frame. Layer PNGs derived from it are for pose/z-order blocking review only, never for shipping."
+  },
+  "canvas": {
+    "work_size": [2176, 1168],
+    "target_presenter_size": [1024, 1536],
+    "retarget_note": "Do not resample the blocking plates to 1024x1536. The figure is cut at the bottom, so a presenter canvas needs a repaint that extends the hem and the standing foot."
+  },
+  "pivot_convention": {
+    "space": "normalized on work_size",
+    "origin": "bottom-left, y up",
+    "matches": "art/characters/C001-\u7130\u5203/v3-layers/pivots.json, puppet-src/layers/landmarks.json"
+  },
+  "material_gates": {
+    "comment": "Thresholds measured from _probe/probe.json samples on reference-work.png (0-255).",
+    "skin": "luma > 118 and r >= g - 2 and r > b - 8",
+    "hair": "luma < 100 and b >= r - 2 and chroma < 62",
+    "dress": "r - g > 42 and r - b > 40 and g >= b - 8 and luma < 132",
+    "discriminators": [
+      "Hair vs background wall/panel: both are cool (b>r). Only the traced envelope separates them.",
+      "Dress red (b <= g) vs elevator door red (b > g + 10). This is the one reliable colour split in the frame.",
+      "Skin is the only high-luma material; everything else sits under luma 132."
+    ]
+  },
+  "draw_order_back_to_front": [
+    "hair_back",
+    "arm_hanging",
+    "standing_leg",
+    "body",
+    "dress",
+    "raised_leg",
+    "arm_hip",
+    "head",
+    "hair_front",
+    "accessory"
+  ],
+  "layers": [
+    {
+      "name": "hair_back",
+      "z": 0,
+      "parent": "head",
+      "gate": "hair",
+      "pivot": [0.437, 0.872],
+      "pivot_px": [950, 150],
+      "pivot_meaning": "crown / scalp centre, so head turn drags the whole mass",
+      "envelope_bbox_px": [765, 30, 1140, 500],
+      "deform": "3x5 warp, root row locked at the crown; two sway params (hair_back_x from head angle, hair_back_y from breath)",
+      "notes": "Includes both small horns and the left-pointing hair spikes at y~140 and y~230. Horns should later be promoted to their own rigid plate so they do not stretch with the sway warp.",
+      "polygon": [[770, 40], [880, 30], [1010, 32], [1075, 70], [1110, 130], [1135, 220], [1140, 330], [1125, 420], [1090, 490], [1040, 500], [1015, 430], [1020, 300], [985, 200], [920, 185], [865, 205], [810, 255], [778, 235], [765, 150]]
+    },
+    {
+      "name": "arm_hanging",
+      "z": 1,
+      "parent": "body",
+      "gate": "skin",
+      "pivot": [0.416, 0.700],
+      "pivot_px": [905, 350],
+      "pivot_meaning": "right shoulder joint",
+      "envelope_bbox_px": [792, 315, 940, 455],
+      "deform": "two-bone rotation (upper arm, forearm); no warp needed at this size",
+      "notes": "STUB. Her right arm is occluded by the raised thigh from y~430 down; only the shoulder and a sliver of upper arm are visible. The plate is unusable as-is and must be inpainted (or repainted) before rigging, otherwise any arm rotation reveals a hole.",
+      "polygon": [[800, 330], [870, 315], [930, 330], [940, 400], [915, 450], [860, 455], [810, 420], [792, 370]]
+    },
+    {
+      "name": "standing_leg",
+      "z": 2,
+      "parent": "body",
+      "gate": "skin",
+      "pivot": [0.485, 0.521],
+      "pivot_px": [1055, 560],
+      "pivot_meaning": "left hip joint, inferred under the dress (not a visible landmark)",
+      "envelope_bbox_px": [978, 690, 1160, 1168],
+      "deform": "single rotation at the hip plus a 2x3 warp for weight shift; knee is hidden by the hem so no knee joint is needed",
+      "notes": "Emerges from the dress slit at y~700 and runs off the bottom of the frame. The foot does not exist in the source. Needs a painted extension before it can carry weight in a rig.",
+      "polygon": [[985, 690], [1080, 690], [1160, 760], [1150, 880], [1135, 1000], [1125, 1168], [990, 1168], [978, 1000], [980, 860]]
+    },
+    {
+      "name": "body",
+      "z": 3,
+      "parent": "root",
+      "gate": "skin",
+      "pivot": [0.464, 0.555],
+      "pivot_px": [1010, 520],
+      "pivot_meaning": "hip centre; the whole rig's root",
+      "envelope_bbox_px": [878, 300, 1160, 580],
+      "deform": "3x4 warp for breath and torso lean; separate chest sub-warp for bounce",
+      "notes": "Exposed skin only: shoulders, neck base, cleavage, midriff. The cheongsam silk is a separate plate so the chest can bounce under the cloth. Split chest_l / chest_r out of this plate when the bounce rig goes in.",
+      "polygon": [[890, 320], [960, 300], [1030, 310], [1090, 325], [1150, 345], [1160, 395], [1140, 470], [1105, 530], [1070, 570], [1010, 580], [960, 545], [915, 490], [885, 420], [878, 360]]
+    },
+    {
+      "name": "dress",
+      "z": 4,
+      "parent": "body",
+      "gate": "dress",
+      "pivot": [0.478, 0.598],
+      "pivot_px": [1040, 470],
+      "pivot_meaning": "waist, where the silk is pinned to the torso",
+      "envelope_bbox_px": [925, 320, 1225, 1168],
+      "deform": "4x6 warp, top row locked at the waist, free at the hem; hem sway driven by the same phase as hair_back with a delay",
+      "notes": "One plate covering collar, bodice and the high-slit skirt. The skirt panel behind the raised leg should later be split into dress_front / dress_back_panel so the slit can open when the leg moves.",
+      "polygon": [[940, 330], [1010, 320], [1075, 335], [1125, 375], [1145, 450], [1150, 530], [1180, 620], [1215, 720], [1225, 860], [1210, 1000], [1195, 1168], [985, 1168], [975, 1000], [965, 860], [950, 760], [945, 650], [930, 540], [925, 440], [928, 370]]
+    },
+    {
+      "name": "raised_leg",
+      "z": 5,
+      "parent": "body",
+      "gate": "skin",
+      "pivot": [0.441, 0.623],
+      "pivot_px": [960, 440],
+      "pivot_meaning": "right hip joint",
+      "envelope_bbox_px": [518, 392, 1005, 1030],
+      "deform": "three-bone chain (hip, knee at ~[650,600], ankle at ~[672,730]) plus a foot warp; the foot is strongly foreshortened so keep its mesh dense",
+      "notes": "The hero silhouette of the pose. Thigh runs from the hip leftward, knee at ~[650,600], ankle under the anklet at ~[672,730], sole and toes fill [518,850]-[730,1030]. Keep the foot as its own plate (raised_foot) once the mesh work starts; a single plate cannot flex at the ankle.",
+      "polygon": [[950, 400], [870, 392], [790, 400], [720, 430], [672, 490], [640, 560], [622, 640], [628, 700], [640, 745], [618, 800], [578, 860], [535, 915], [518, 975], [530, 1030], [590, 1030], [640, 985], [700, 930], [730, 870], [745, 800], [790, 760], [850, 730], [905, 690], [950, 640], [985, 580], [1005, 510], [1000, 450]]
+    },
+    {
+      "name": "arm_hip",
+      "z": 6,
+      "parent": "body",
+      "gate": "skin",
+      "pivot": [0.528, 0.696],
+      "pivot_px": [1150, 355],
+      "pivot_meaning": "left shoulder joint",
+      "envelope_bbox_px": [1075, 325, 1390, 595],
+      "deform": "two-bone rotation; elbow at ~[1340,480], wrist at ~[1180,555]",
+      "notes": "Akimbo: shoulder out to the elbow at ~[1340,480], forearm back in to the hand resting on the hip at ~[1100,540]. The triangular negative space between forearm and waist is the pose's read - do not let the dress plate bleed into it.",
+      "polygon": [[1120, 325], [1220, 340], [1320, 410], [1390, 480], [1375, 540], [1290, 585], [1180, 595], [1080, 570], [1075, 510], [1140, 500], [1240, 530], [1300, 480], [1230, 410], [1120, 365]]
+    },
+    {
+      "name": "head",
+      "z": 7,
+      "parent": "body",
+      "gate": "skin",
+      "pivot": [0.445, 0.711],
+      "pivot_px": [968, 338],
+      "pivot_meaning": "neck base, the head rotation centre",
+      "envelope_bbox_px": [875, 160, 1030, 355],
+      "deform": "rigid rotate plus a light 3x3 warp for the tilt; face parts on top",
+      "notes": "Face plus neck. The eyes are half-lidded and the head is tilted ~12 deg to her right. Face parts (eye_l, eye_r, brow_l, brow_r, mouth) are NOT separable at this resolution - the whole eye is about 10 source pixels wide. They have to be repainted at target resolution.",
+      "polygon": [[880, 175], [945, 160], [1005, 175], [1030, 215], [1025, 270], [1000, 310], [1000, 340], [960, 355], [938, 340], [930, 305], [895, 275], [875, 230]]
+    },
+    {
+      "name": "hair_front",
+      "z": 8,
+      "parent": "head",
+      "gate": "hair",
+      "pivot": [0.439, 0.863],
+      "pivot_px": [955, 160],
+      "pivot_meaning": "hairline centre, so bangs follow the head rigidly",
+      "envelope_bbox_px": [845, 100, 1085, 335],
+      "deform": "rigid with the head plus a 3x3 tip warp for the long side strand",
+      "notes": "Bangs over the forehead (y 150-215) plus the long strand falling on the viewer's right down to y~330. Split that strand into hair_side_r when the mesh is built so it can swing independently of the bangs.",
+      "polygon": [[860, 115], [945, 100], [1015, 118], [1045, 165], [1075, 240], [1085, 320], [1050, 335], [1030, 255], [1000, 210], [950, 198], [898, 205], [862, 228], [845, 185], [845, 140]]
+    },
+    {
+      "name": "accessory",
+      "z": 9,
+      "parent": "raised_leg",
+      "gate": "highlight",
+      "pivot": [0.310, 0.375],
+      "pivot_px": [675, 730],
+      "pivot_meaning": "ankle, so the anklet rides the foot bone",
+      "envelope_bbox_px": [605, 695, 748, 768],
+      "deform": "rigid, parented to the ankle bone",
+      "notes": "Pale cord anklet with small beads, crossing the ankle at y~730. Extracted by local-luma threshold inside the envelope because it sits on skin and has no colour separation. About 25 source pixels wide - treat the plate as a position marker, not usable art.",
+      "polygon": [[605, 700], [680, 695], [745, 715], [748, 760], [680, 768], [612, 752]]
+    }
+  ],
+  "known_gaps": [
+    "arm_hanging is occluded below the shoulder; needs inpaint or repaint.",
+    "standing_leg has no foot in frame.",
+    "dress hem is cut off by the frame bottom.",
+    "Face parts (eyes, brows, mouth) are below the resolution needed to separate.",
+    "Background and figure share the same red/violet palette, so plate edges are approximate wherever a traced envelope borders the elevator door."
+  ],
+  "planned_subdivisions": {
+    "comment": "Not produced from this source; listed so the mesh pass has a target plate list.",
+    "hair_back": ["hair_back", "horn_l", "horn_r", "hair_tip_l"],
+    "hair_front": ["hair_front", "hair_side_r"],
+    "head": ["face", "eye_l", "eye_r", "brow_l", "brow_r", "mouth", "neck"],
+    "body": ["torso", "chest_l", "chest_r", "shoulder_l", "shoulder_r"],
+    "dress": ["dress_collar", "dress_bodice", "dress_front", "dress_back_panel"],
+    "raised_leg": ["raised_thigh", "raised_calf", "raised_foot"],
+    "arm_hip": ["arm_upper_l", "arm_forearm_l", "hand_l"],
+    "arm_hanging": ["arm_upper_r", "arm_forearm_r", "hand_r"]
+  }
+}

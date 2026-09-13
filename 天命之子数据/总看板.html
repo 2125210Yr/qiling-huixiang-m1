@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>天命之子 · 总看板</title>
+<link rel="stylesheet" href="_layout/shell.css">
+<style>
+:root{
+  --void:#050505; --gold:#CF9403; --value:#FFC400; --text:#FBFBFB;
+  --stat:#E8E8E8; --sec:#A0A0A0; --mute:#808080; --line:#2a2418; --max:1180px;
+  --fire:#D02018; --water:#1C8DE1; --wood:#2F900A; --light:#D0B33D; --dark:#9A4DB8;
+  --ok:#7dba6a; --miss:#e07070;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;background:var(--void);color:var(--text);
+  font:16px/1.55 "Noto Sans SC","Microsoft YaHei","PingFang SC",sans-serif}
+a{color:var(--value);text-decoration:none}
+a:hover{color:#fff}
+img{max-width:100%;display:block}
+button,input,select{font:inherit}
+header.top{
+  position:sticky;top:0;z-index:40;background:#0a0a0a;
+  border-bottom:1px solid #2a2208;
+}
+.top-inner{max-width:var(--max);margin:0 auto;padding:10px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.brand{display:flex;flex-direction:column;min-width:140px}
+.brand b{letter-spacing:.18em;font-size:13px;color:var(--value)}
+.brand small{color:var(--mute);font-size:11px;letter-spacing:.08em}
+.page-nav{display:flex;gap:8px 12px;flex-wrap:wrap;font-size:13px}
+.page-nav a{color:#CF9403}
+.page-nav a:hover{color:#fff}
+main{max-width:var(--max);margin:0 auto;padding:28px 20px 100px}
+.kicker{letter-spacing:.28em;color:var(--gold);font-size:11px}
+h1{font-size:clamp(28px,4.6vw,46px);line-height:1.15;margin:8px 0 12px}
+h1 span{display:block}
+.lede{font-size:17px;color:var(--stat);max-width:44em}
+.lede em{color:var(--value);font-style:normal}
+[id]{scroll-margin-top:84px}
+h2.sec{font-size:22px;color:var(--gold);margin:44px 0 12px;letter-spacing:.08em}
+.caption{font-size:12px;color:var(--mute)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.chip{font-size:12px;padding:4px 10px;border:1px solid #3a3010;border-radius:999px;color:var(--gold);background:#120e06}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g5{grid-template-columns:repeat(5,1fr)}
+.g6{grid-template-columns:repeat(6,1fr)}
+@media(max-width:900px){.g2,.g3,.g5,.g6{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.g2,.g3,.g5,.g6{grid-template-columns:1fr}}
+.kpi{
+  background:linear-gradient(180deg,#161111ee,#0c0c0cee);
+  border:1px solid var(--line);border-radius:14px;padding:14px 16px;
+}
+.kpi b{display:block;font-size:28px;color:var(--value);line-height:1.1}
+.kpi span{font-size:12px;color:var(--gold);letter-spacing:.12em}
+.kpi small{display:block;color:var(--mute);font-size:12px;margin-top:4px}
+.card{background:linear-gradient(180deg,#161111ee,#0c0c0cee);border:1px solid var(--line);border-radius:14px;padding:16px}
+.card h3{margin:0 0 10px;font-size:15px;color:var(--value)}
+.bar{display:grid;grid-template-columns:72px 1fr 40px;gap:8px;align-items:center;margin:6px 0;font-size:13px}
+.bar .t{color:var(--sec)}
+.bar .n{color:var(--value);text-align:right;font-variant-numeric:tabular-nums}
+.track{height:8px;background:#1a1408;border-radius:6px;overflow:hidden}
+.track i{display:block;height:100%;background:linear-gradient(90deg,#CF9403,#FFC400)}
+.track i.火{background:var(--fire)} .track i.水{background:var(--water)}
+.track i.木{background:var(--wood)} .track i.光{background:var(--light)}
+.track i.暗{background:var(--dark)} .track i.空{background:#444}
+.cov{margin:8px 0}
+.cov-h{display:flex;justify-content:space-between;font-size:13px;color:var(--sec)}
+.cov-h b{color:var(--value);font-weight:600}
+.meter{height:8px;background:#1a1408;border-radius:6px;overflow:hidden;margin-top:4px}
+.meter i{display:block;height:100%;background:#7dba6a}
+.meter i.mid{background:#CF9403}
+.meter i.low{background:#e07070}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{border-bottom:1px dashed #333;padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--gold);font-weight:500}
+.ok{color:var(--ok)} .no{color:var(--miss)}
+.cycle{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;padding:8px 0 16px}
+.elp{
+  width:72px;height:72px;border-radius:50%;display:grid;place-items:center;
+  font-weight:700;color:#fff;border:2px solid #fff3;
+}
+.elp.火{background:var(--fire)} .elp.水{background:var(--water)}
+.elp.木{background:var(--wood)} .elp.光{background:var(--light)}
+.elp.暗{background:var(--dark)}
+.arr{color:var(--gold);font-size:20px}
+.verb{
+  border:1px solid #5a4714;border-radius:12px;padding:12px 14px;
+  background:#0c0a06;
+}
+.verb b{display:block;color:var(--value);font-size:15px}
+.verb small{color:var(--mute);font-size:12px;letter-spacing:.12em}
+.verb p{margin:6px 0 0;font-size:13px;color:var(--sec)}
+.faces{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.faces img{width:48px;height:48px;border-radius:10px;border:1px solid #5a4714;object-fit:cover;object-position:center 18%}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.filters input,.filters select{
+  background:#0e0e0e;color:#eee;border:1px solid #3a3018;border-radius:8px;padding:8px 10px;
+}
+.blist{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:800px){.blist{grid-template-columns:1fr}}
+.bitem{border:1px solid #2a2418;border-radius:10px;padding:8px 10px;font-size:13px}
+.bitem b{color:#fff}
+.bitem .g{font-size:10px;letter-spacing:.12em;color:var(--gold)}
+.bitem p{margin:4px 0 0;color:var(--sec);font-size:12px}
+.bitem.减益{border-color:#5a2418}
+.bitem.减益 .g{color:#e07070}
+.sys{font-size:13px}
+.sys td:first-child{color:var(--value);white-space:nowrap}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">
+      <b>DESTINY CHILD</b>
+      <small>总看板 · 现有的一切</small>
+    </div>
+    <nav class="mods" aria-label="设计模块">
+      <a href="设计手册.html">手册</a>
+      <a href="总看板.html" class="on" aria-current="page">看板</a>
+      <a href="视觉图鉴.html">UI</a>
+      <a href="战斗与数值.html">数值</a>
+      <a href="战斗动效.html">动效</a>
+      <a href="汇总表.html">图鉴</a>
+      <a href="星云一趟.html">星云</a>
+      <a href="重构数值.html">重构</a>
+      <a href="游戏开发文本.html">文本</a>
+    </nav>
+    <nav class="page-nav">
+      <a href="#kpi">盘点</a>
+      <a href="#kids">天子</a>
+      <a href="#elem">克制</a>
+      <a href="#combat">战斗</a>
+      <a href="#buffs">Buff</a>
+      <a href="#gear">魂卡人偶</a>
+      <a href="#cover">覆盖</a>
+      <a href="#text">文本</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <p class="kicker">MEMORIAL SNAPSHOT · NOT A LIVE SERVER</p>
+  <h1><span>DC 现有的一切，摊在一页。</span><span>人、克制、Buff、缺口。</span></h1>
+  <p class="lede">这是纪念版冻结下来的体检单，不是韩服完整私服。<em>561 天子</em>对纪念版图鉴成立；公式是国际服玩家实测。点条可以进图鉴或数值页查原文。</p>
+  <div class="chips">
+    <span class="chip">纪念版 561</span>
+    <span class="chip">韩服 SQL 637（含后期）</span>
+    <span class="chip">克制 1.4 / 1.0 / 0.7</span>
+    <span class="chip">Buff 名录 93</span>
+    <span class="chip">原作造型不进发行包</span>
+  </div>
+
+  <h2 class="sec" id="kpi">一张盘点</h2>
+  <div class="grid g6">
+    <div class="kpi"><span>天子</span><b>561</b><small>5★282 · 4★77 · 3★99 · 2★53 · 1★50</small></div>
+    <div class="kpi"><span>魂之歌牌</span><b>156</b><small>特效 153 · 协作 15</small></div>
+    <div class="kpi"><span>人偶</span><b>220</b><small>纪念版图鉴写 232</small></div>
+    <div class="kpi"><span>Buff 名录</span><b>93</b><small>增益 58 · 减益 35</small></div>
+    <div class="kpi"><span>战场人数</span><b>5</b><small>世界王底栏约 20</small></div>
+    <div class="kpi"><span>战斗弦</span><b>4</b><small>TAP · SLIDE · DRIVE · FEVER</small></div>
+  </div>
+  <p class="caption">点 <a href="汇总表.html">图鉴</a> 查每一个人的名字、属性和技能文本。</p>
+
+  <h2 class="sec" id="kids">天子怎么分布</h2>
+  <div class="grid g3">
+    <article class="card">
+      <h3>稀有度 · 561</h3>
+      <div class="bar"><span class="t">5★</span><div class="track"><i style="width:100%"></i></div><span class="n">282</span></div>
+      <div class="bar"><span class="t">4★</span><div class="track"><i style="width:27%"></i></div><span class="n">77</span></div>
+      <div class="bar"><span class="t">3★</span><div class="track"><i style="width:35%"></i></div><span class="n">99</span></div>
+      <div class="bar"><span class="t">2★</span><div class="track"><i style="width:19%"></i></div><span class="n">53</span></div>
+      <div class="bar"><span class="t">1★</span><div class="track"><i style="width:18%"></i></div><span class="n">50</span></div>
+    </article>
+    <article class="card">
+      <h3>属性 · 空 54</h3>
+      <div class="bar"><span class="t">火</span><div class="track"><i class="火" style="width:100%"></i></div><span class="n">120</span></div>
+      <div class="bar"><span class="t">水</span><div class="track"><i class="水" style="width:98%"></i></div><span class="n">117</span></div>
+      <div class="bar"><span class="t">光</span><div class="track"><i class="光" style="width:96%"></i></div><span class="n">115</span></div>
+      <div class="bar"><span class="t">木</span><div class="track"><i class="木" style="width:74%"></i></div><span class="n">89</span></div>
+      <div class="bar"><span class="t">暗</span><div class="track"><i class="暗" style="width:55%"></i></div><span class="n">66</span></div>
+      <div class="bar"><span class="t">空</span><div class="track"><i class="空" style="width:45%"></i></div><span class="n">54</span></div>
+    </article>
+    <article class="card">
+      <h3>职业 · 空 268</h3>
+      <div class="bar"><span class="t">辅助</span><div class="track"><i style="width:33%"></i></div><span class="n">89</span></div>
+      <div class="bar"><span class="t">干扰</span><div class="track"><i style="width:25%"></i></div><span class="n">66</span></div>
+      <div class="bar"><span class="t">防御</span><div class="track"><i style="width:22%"></i></div><span class="n">58</span></div>
+      <div class="bar"><span class="t">治疗</span><div class="track"><i style="width:17%"></i></div><span class="n">46</span></div>
+      <div class="bar"><span class="t">攻击</span><div class="track"><i style="width:13%"></i></div><span class="n">34</span></div>
+      <div class="bar"><span class="t">空</span><div class="track"><i class="空" style="width:100%"></i></div><span class="n">268</span></div>
+      <p class="caption">空的是纪念版 OCR 没标出来。韩服 SQL 人人都有职业。</p>
+    </article>
+  </div>
+  <p class="caption" style="margin-top:10px">5★ 里职业有标 195 / 282，TAP 文本 201 / 282。低星大多只有脸和名字。</p>
+
+  <h2 class="sec" id="elem">属性克制</h2>
+  <div class="grid g2">
+    <article class="card">
+      <h3>三色循环 · 光暗互克</h3>
+      <div class="cycle">
+        <div class="elp 火">火</div><span class="arr">→</span>
+        <div class="elp 木">木</div><span class="arr">→</span>
+        <div class="elp 水">水</div><span class="arr">→</span>
+        <div class="elp 火">火</div>
+      </div>
+      <div class="cycle">
+        <div class="elp 光">光</div><span class="arr">↔</span>
+        <div class="elp 暗">暗</div>
+      </div>
+      <p class="caption">火克木、木克水、水克火。光和暗互相是弱点。</p>
+    </article>
+    <article class="card">
+      <h3>elemCrit 表（进伤害公式）</h3>
+      <table>
+        <tr><th></th><th>不暴击</th><th>暴击</th></tr>
+        <tr><td>克制</td><td>1.4</td><td>2.4</td></tr>
+        <tr><td>普通</td><td>1.0</td><td>2.0</td></tr>
+        <tr><td>被克</td><td>0.7</td><td>1.7</td></tr>
+      </table>
+      <p class="caption" style="margin-top:8px">国际服实测，不是官方源码。世界王 / Raid 另有场地 +0.4 和设计师 −0.8，Ragna 没有那条场地加成。</p>
+    </article>
+  </div>
+
+  <h2 class="sec" id="combat">战场还是这四根弦</h2>
+  <div class="grid g2">
+    <div class="verb"><small>AUTO</small><b>自动攻击</b><p>每人普攻。Fever 没有单独技能槽。</p></div>
+    <div class="verb"><small>TAP · TS</small><b>点圆头</b><p>只亮环。公式用 125 / (0.15×防+400)。</p></div>
+    <div class="verb"><small>SLIDE · SS</small><b>滑出发 SHOWTIME</b><p>全屏词 IT'S SHOWTIME。公式 120 / (0.2×防+400)。</p></div>
+    <div class="verb"><small>DRIVE · DS</small><b>底中橙圆 GOOD BUTTON</b><p>Perfect = 150%。大招伤害公式<strong>还没收齐</strong>。</p></div>
+    <div class="verb"><small>FEVER · FT</small><b>约 7 秒窗口</b><p>走 TAP 公式，再乘 feverMul 0.6。叠字 COMBO。</p></div>
+    <div class="verb"><small>队长技</small><b>进场就挂</b><p>永远套用。561 里 261 条有文本。</p></div>
+  </div>
+  <p class="caption">技能文本里最常写的事：减益 103 人 · 回复 78 · 暴击 35 · 弱点 32 · 忍耐 12 · 充能 9（只计写进描述的）。</p>
+
+  <h2 class="sec" id="buffs">Buff / Debuff · 93</h2>
+  <p>这是名录，多数只有名字和一句效果，<strong>没有具体百分比</strong>。同一图标叠层：Drive &gt; Slide &gt; Tap。</p>
+  <div class="grid g3" style="margin:12px 0">
+    <div class="kpi"><span>增益</span><b>58</b><small>输出 14 · 生存 14 · 技能向 11 · 回复 6</small></div>
+    <div class="kpi"><span>减益</span><b>35</b><small>削弱 17 · 持续伤害 10 · 控制 8</small></div>
+    <div class="kpi"><span>技能文本里出现最多</span><b>回复 78</b><small>连击 47 · 屏障 40 · 挑衅 26 · 流血 / 晕眩 21</small></div>
+  </div>
+  <div class="filters">
+    <input id="bq" type="search" placeholder="搜 Buff 名 / 效果" aria-label="搜索 Buff">
+    <select id="bk" aria-label="种类"><option value="">全部种类</option><option>增益</option><option>减益</option></select>
+    <select id="bg" aria-label="分组"><option value="">全部分组</option>
+      <option>输出</option><option>生存</option><option>技能向</option><option>回复</option>
+      <option>充能节奏</option><option>其他增益</option><option>削弱</option><option>持续伤害</option><option>控制</option>
+    </select>
+    <span class="caption" id="bcnt"></span>
+  </div>
+  <div class="blist" id="blist"></div>
+
+  <h2 class="sec" id="gear">魂卡 · 人偶 · 养成皮</h2>
+  <div class="grid g2">
+    <article class="card">
+      <h3>魂之歌牌 156</h3>
+      <div class="bar"><span class="t">5★</span><div class="track"><i style="width:100%"></i></div><span class="n">134</span></div>
+      <div class="bar"><span class="t">4★</span><div class="track"><i style="width:10%"></i></div><span class="n">13</span></div>
+      <div class="bar"><span class="t">3★</span><div class="track"><i style="width:7%"></i></div><span class="n">9</span></div>
+      <p class="caption">门：通用 80 · 水/木各 17 · 光 15 · 火 13 · 暗 11。职业门大多是通用 111。模式门：PVP 42 · 通用 37 · Ragna 29 · 世界王 22 · 5 人 Boss 10。</p>
+      <p class="caption">特效 153 / 156。普卡初始 74，闪卡初始 70，满值更少。协作 15 张。SQL 里 category=8 约 316，对得上 156×2（普/闪）。</p>
+    </article>
+    <article class="card">
+      <h3>人偶 220</h3>
+      <div class="bar"><span class="t">传奇</span><div class="track"><i style="width:18%"></i></div><span class="n">12</span></div>
+      <div class="bar"><span class="t">史诗</span><div class="track"><i style="width:83%"></i></div><span class="n">55</span></div>
+      <div class="bar"><span class="t">稀有</span><div class="track"><i style="width:100%"></i></div><span class="n">66</span></div>
+      <div class="bar"><span class="t">罕见</span><div class="track"><i style="width:79%"></i></div><span class="n">52</span></div>
+      <div class="bar"><span class="t">常见</span><div class="track"><i style="width:53%"></i></div><span class="n">35</span></div>
+      <p class="caption">属性几乎五色均分（水 45 火 43 木 44 光 42 暗 44）。技能：Slide 104 · TAP 83 · Drive 56 · 队长 49。没有成长曲线数字。SQL 253，缺约 33 张后期。</p>
+    </article>
+  </div>
+
+  <h2 class="sec" id="formula">伤害公式（进 TAP / FEVER / SLIDE）</h2>
+  <div class="card">
+<pre style="margin:0;white-space:pre-wrap;font:13px/1.5 Consolas,monospace;color:#FFC400">TAP / FEVER
+[(extraAtk×125 + skillDmg×400) × elemCrit / (0.15×防 + 400) + 真穿]
+  × extraDmgMul × feverMul + 附击 + 附魔魂卡
+feverMul：Fever 里 0.6，否则 1。Drive Perfect 另外 ×1.50。
+
+SLIDE：形状相同，系数改 120，分母 0.2×防+400。</pre>
+    <p class="caption" style="margin-top:8px">来源 GameKee 52136，玩家实测。Drive 本体公式、普攻公式、Fever「7 秒 70 hit」没有数值证明。详情 <a href="战斗与数值.html#formula">数值页</a>。</p>
+  </div>
+
+  <h2 class="sec" id="modes">游戏里还有哪些皮</h2>
+  <div class="card">
+    <table class="sys">
+      <tr><th>块</th><th>纪念版 / 录像里长什么样</th><th>我们表里</th></tr>
+      <tr><td>编队</td><td>5 人出战，竖卡 + LEADER</td><td>语法在 UI 页</td></tr>
+      <tr><td>主线 / 困难</td><td>5 人对小体敌人，PHASE 顶条</td><td>SQL area_type 1/2 各 152 套；困难无录像</td></tr>
+      <tr><td>星云</td><td>5 人圆台，换背景。SQL 2048 关</td><td>无战场录像。提案示意见 <a href="星云一趟.html">星云一趟</a></td></tr>
+      <tr><td>Ragna</td><td>5 人打一个大 Boss，百万血</td><td>两支录像</td></tr>
+      <tr><td>世界王</td><td>约 20 圆头，伤害总量不是擊滅</td><td>一支录像</td></tr>
+      <tr><td>点火</td><td>红字 ATK/CRT/AGL 进公式</td><td>有规则，没有每颗石头实例表</td></tr>
+      <tr><td>装备</td><td>武器 / 防具 / 饰品 +15</td><td>几乎空。SQL 2952 + 词缀 4406</td></tr>
+      <tr><td>温泉 / 还魂 / 造型</td><td>好感、狗粮、衣服锁活动</td><td>UI 有截图；数值表空</td></tr>
+      <tr><td>PVP / 地铁</td><td>魂卡门上有 pvp / 地铁</td><td>没有完整倍率表</td></tr>
+    </table>
+  </div>
+
+  <h2 class="sec" id="cover">覆盖 · 和私服对一下</h2>
+  <div class="grid g2">
+    <article class="card">
+      <h3>纪念版 561 填了多少</h3>
+      <div class="cov"><div class="cov-h">名字 <b>561 / 561</b></div><div class="meter"><i style="width:100%"></i></div></div>
+      <div class="cov"><div class="cov-h">头像 <b>560 / 561</b></div><div class="meter"><i style="width:100%"></i></div></div>
+      <div class="cov"><div class="cov-h">属性 <b>507 / 561</b></div><div class="meter"><i style="width:90%"></i></div></div>
+      <div class="cov"><div class="cov-h">HP 面板 <b>345 / 561</b></div><div class="meter"><i class="mid" style="width:61%"></i></div></div>
+      <div class="cov"><div class="cov-h">职业 <b>293 / 561</b></div><div class="meter"><i class="mid" style="width:52%"></i></div></div>
+      <div class="cov"><div class="cov-h">TAP 文本 <b>258 / 561</b></div><div class="meter"><i class="low" style="width:46%"></i></div></div>
+      <div class="cov"><div class="cov-h">点火 U 文本 <b>167 / 561</b></div><div class="meter"><i class="low" style="width:30%"></i></div></div>
+      <div class="cov"><div class="cov-h">CV <b>439 / 561</b></div><div class="meter"><i class="mid" style="width:78%"></i></div></div>
+      <p class="caption">wiki_name 和头像下名字对不上 63 条。5★ 前段合并时串行，私服帮不上。</p>
+    </article>
+    <article class="card">
+      <h3>韩服 SQL 1.1 · 637 行</h3>
+      <table>
+        <tr><th>星</th><th>纪念版</th><th>SQL 全部</th></tr>
+        <tr><td>5★</td><td>282</td><td>336</td></tr>
+        <tr><td>4★</td><td>77</td><td>85</td></tr>
+        <tr><td>3★</td><td>99</td><td>107</td></tr>
+        <tr><td>2★</td><td>53</td><td>57</td></tr>
+        <tr><td>1★</td><td>50</td><td>50</td></tr>
+      </table>
+      <p class="caption" style="margin-top:8px">1★ 对齐。5★ 韩服后期多 54。五维指纹对 SQL 裸装 <strong>0 命中</strong>——我们表上的 HP 是装备后或 OCR，不是 1 级裸体。SQL 没有伤害公式。</p>
+    </article>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h3>这里没有、游戏里有</h3>
+    <p class="no" style="margin:0 0 8px">Drive 伤害公式 · 装备 +15 面板 · 每颗点火石三条数 · 温泉好感表 · 附魔 · Boss / 关卡波次 · Raid / WB / PVP 完整倍率 · 造型数值</p>
+    <p class="caption" style="margin:0">够对照研究，不能当完整数值包。切片 <code>catalog.json</code> 不是这 561 人。</p>
+  </div>
+
+  <h2 class="sec" id="text">游戏开发文本</h2>
+  <p class="lede" style="font-size:16px">技能原文、Buff 名、魂卡特效、人偶技能、发行包能写哪句，摊成覆盖率。全文和词表在独立页，看板只留体检。</p>
+  <div class="chips">
+    <span class="chip">纪念版技能槽</span>
+    <span class="chip">Buff 93</span>
+    <span class="chip">魂卡特效 153</span>
+    <span class="chip">发行包不抄原文</span>
+    <a class="chip" href="游戏开发文本.html">打开文本模块</a>
+  </div>
+  <div class="grid g6" style="margin-top:14px">
+    <div class="kpi"><span>任一技能文</span><b>264</b><small>561 天子里至少一槽有字</small></div>
+    <div class="kpi"><span>五槽齐</span><b>258</b><small>普攻 / 点 / 滑 / 驱 / 队长</small></div>
+    <div class="kpi"><span>点火三槽</span><b>166</b><small>点按 + 上滑 + 驱动 U</small></div>
+    <div class="kpi"><span>魂卡特效</span><b>153</b><small>156 张 · 3 张是狗粮卡</small></div>
+    <div class="kpi"><span>人偶技能槽</span><b>292</b><small>880 格里有字 · 名 220 齐</small></div>
+    <div class="kpi"><span>切片词条</span><b>~2.2k</b><small>P0 估计 · 技能描述仍空</small></div>
+  </div>
+  <div class="grid g2" style="margin-top:14px">
+    <article class="card">
+      <h3>研究库存填了多少句</h3>
+      <div class="cov"><div class="cov-h">点按文本 <b>258 / 561</b></div><div class="meter"><i class="low" style="width:46%"></i></div></div>
+      <div class="cov"><div class="cov-h">点火三槽齐 <b>166 / 561</b></div><div class="meter"><i class="low" style="width:30%"></i></div></div>
+      <div class="cov"><div class="cov-h">队长技 <b>261 / 561</b></div><div class="meter"><i class="mid" style="width:47%"></i></div></div>
+      <div class="cov"><div class="cov-h">3★ 及以下点按 <b>0 / 202</b></div><div class="meter"><i class="low" style="width:2%"></i></div></div>
+      <div class="cov"><div class="cov-h">Buff 名+一句 <b>93 / 93</b></div><div class="meter"><i style="width:100%"></i></div></div>
+      <p class="caption">3★ 以下 wiki 没有独立页。技能<strong>名字</strong>纪念版有、CSV 没收。</p>
+    </article>
+    <article class="card">
+      <h3>发行包另起炉灶</h3>
+      <p>C001–C025 短名齐，首页一句已硬编码。<span class="no">技能描述仍 0 / 155</span>。关名 12 条齐，预览句空。图鉴短传、称号栏、法律声明还没进表。漏进客户端的「欲望之主 / Child / 魂石」要换掉。</p>
+      <p class="caption">可收句式和分类，不可进包：561 原名、IT'S SHOWTIME、韩文 SQL 名、wiki 串行。</p>
+      <p class="caption" style="margin-top:8px">槽位、乱码名、P0 写作顺序：<a href="游戏开发文本.html">游戏开发文本</a>。</p>
+    </article>
+  </div>
+  <p class="caption">点 <a href="游戏开发文本.html">游戏开发文本</a> 看词表、乱码名、catalog 禁写规则。</p>
+
+  <p class="caption" style="margin-top:28px">查脸去 <a href="汇总表.html">图鉴</a>。纪念版公式原文去 <a href="战斗与数值.html">数值</a>。发行包那套数去 <a href="重构数值.html">重构</a>。星云提案在 <a href="星云一趟.html">星云一趟</a>。查文案去 <a href="游戏开发文本.html">游戏开发文本</a>。</p>
+</main>
+<script type="application/json" id="buff-json">[{"kind":"增益","group":"输出","name":"攻击力↑","effect":"增加攻击力"},{"kind":"增益","group":"生存","name":"防御力↑","effect":"增加防御力"},{"kind":"增益","group":"技能向","name":"TS强化","effect":"强化Tap Skill"},{"kind":"增益","group":"技能向","name":"TS强化Ⅱ","effect":"增加Tap Skill的最终伤害"},{"kind":"增益","group":"技能向","name":"TS防御力↑","effect":"增加对Tap Skill的防御力"},{"kind":"增益","group":"技能向","name":"SS强化","effect":"强化Slide Skill"},{"kind":"增益","group":"技能向","name":"SS强化Ⅱ","effect":"增加Slide Skill的最终伤害"},{"kind":"增益","group":"技能向","name":"Skill防御力↑","effect":"增加所有类型的技能防御力"},{"kind":"增益","group":"技能向","name":"DS强化","effect":"强化Drive Skill的效果"},{"kind":"增益","group":"技能向","name":"DS防御力↑","effect":"增加对Drive Skill的防御力"},{"kind":"增益","group":"技能向","name":"自动攻击强化","effect":"强化自动攻击"},{"kind":"增益","group":"生存","name":"屏障","effect":"产生屏障（在HP受影响前吸收伤害），并为其他目标承受伤害"},{"kind":"增益","group":"生存","name":"减益屏障","effect":"施放一个吸收减益伤害的独立护盾（会把屏障顶掉）"},{"kind":"增益","group":"生存","name":"减益挑衅","effect":"代替盟友承受一个减益"},{"kind":"增益","group":"回复","name":"回复","effect":"在一定时间内恢复一定量的HP"},{"kind":"增益","group":"输出","name":"暴击几率↑","effect":"增加暴击率"},{"kind":"增益","group":"输出","name":"暴击↑","effect":"增加暴击"},{"kind":"增益","group":"输出","name":"暴击攻击力↑","effect":"增加暴击的最终伤害"},{"kind":"增益","group":"输出","name":"连击","effect":"击杀敌人后，对剩余敌人造成加成伤害"},{"kind":"增益","group":"输出","name":"觉醒","effect":"增加暴击伤害，并根据增益数量增加SS伤害"},{"kind":"增益","group":"生存","name":"不死","effect":"即使受到致命伤害，HP也不会低于1"},{"kind":"增益","group":"其他增益","name":"耐心","effect":"赋予目前减益数量+1的忍耐"},{"kind":"增益","group":"生存","name":"忍耐","effect":"使伤害无效并减少造成伤害减益的频率"},{"kind":"增益","group":"其他增益","name":"适应痛苦","effect":"提升一定量的防御力。全体盟友每失去2%HP就提升4%防御力（最多160%，只增加适应痛苦所赋予的防御力）"},{"kind":"增益","group":"其他增益","name":"升华痛苦","effect":"提升一定量的攻击力。全体盟友每失去2%HP就提升60%攻击力（最多2400%，只增加升华痛苦所赋予的攻击力）"},{"kind":"增益","group":"回复","name":"即时回复量↑","effect":"增加回复技能的效果"},{"kind":"增益","group":"回复","name":"持续回复量↑","effect":"增加持续回复技能的效果"},{"kind":"增益","group":"回复","name":"秘愈","effect":"每当自身行动或受到伤害时，回复自身HP"},{"kind":"增益","group":"其他增益","name":"减益效果无效","effect":"立即移除所有减益效果"},{"kind":"增益","group":"生存","name":"免疫","effect":"赋予所有减益效果免疫；立即移除所有减益"},{"kind":"增益","group":"回复","name":"重生","effect":"死亡时，以一定量HP复活，同时获得充满的Skill量表和增加攻击力"},{"kind":"增益","group":"输出","name":"弱点攻击力↑","effect":"增加弱点攻击的伤害"},{"kind":"增益","group":"其他增益","name":"支援","effect":"根据增益数增加弱点技能伤害和攻击力"},{"kind":"增益","group":"技能向","name":"Skill充能↑","effect":"增加Skill量表充能量；可与Skill回复加速叠加"},{"kind":"增益","group":"技能向","name":"Skill充能加速","effect":"加速Skill量表充能速度；可与增加Skill量表充能量的效果叠加"},{"kind":"增益","group":"输出","name":"双刃剑","effect":"增加攻击力的同时减少防御力"},{"kind":"增益","group":"输出","name":"超载","effect":"除了DS，所有Skill伤害增加，增加Skill冷却时间，减少Skill充能速度"},{"kind":"增益","group":"输出","name":"呐喊","effect":"百分比增加攻击力（最多叠加3次）"},{"kind":"增益","group":"生存","name":"生命连结","effect":"将一部分受到的伤害（不包含DOT伤害）转为HP，给予HP最低的盟友"},{"kind":"增益","group":"回复","name":"吸血","effect":"攻击所造成伤害的一部分会逐渐回复HP"},{"kind":"增益","group":"其他增益","name":"减益效果持续时间缩短","effect":"减少减益持续时间"},{"kind":"增益","group":"充能节奏","name":"冷却时间减少","effect":"一定时间内减少目标的SS冷却时间"},{"kind":"增益","group":"生存","name":"最大HP↑","effect":"获得额外HP"},{"kind":"增益","group":"输出","name":"激怒","effect":"储存持续时间内受到的伤害，下一次使用技能时以储存的伤害进行攻击"},{"kind":"增益","group":"生存","name":"挑衅","effect":"挑衅敌人并承受所有针对友方的攻击，全体攻击除外"},{"kind":"增益","group":"生存","name":"反射","effect":"向敌人反射部分伤害；不会反射DS或持续伤害"},{"kind":"增益","group":"生存","name":"减益效果回避率↑","effect":"增加减益效果回避率"},{"kind":"增益","group":"生存","name":"增加DOT回避率","effect":"增加持续伤害减益回避率"},{"kind":"减益","group":"控制","name":"沉默无效化","effect":"沉默无效化"},{"kind":"增益","group":"输出","name":"直击","effect":"无视敌人忍耐"},{"kind":"增益","group":"生存","name":"回避率↑","effect":"增加技能回避率"},{"kind":"增益","group":"其他增益","name":"专注","effect":"100%命中率和暴击率：免疫失明和影响暴击的负面效果"},{"kind":"增益","group":"其他增益","name":"敏捷度↑","effect":"增加敏捷度"},{"kind":"增益","group":"输出","name":"狂暴","effect":"增加攻击力且无敌（无视攻击和减益），但效果结束时100%概率5s晕眩"},{"kind":"减益","group":"削弱","name":"雪球炸弹","effect":"当减益持续时间结束时，将造成一定程度的伤害，并重置敌人的Skill量表"},{"kind":"减益","group":"削弱","name":"水球","effect":"每次受到攻击都会受到伤害，并在持续时间结束或用尽回数（被攻击2次）时，重置Skill量表（追加伤害同数值的固伤，SS冷却不受影响）"},{"kind":"减益","group":"削弱","name":"即时回复量↓","effect":"减少回复技能的效果"},{"kind":"减益","group":"削弱","name":"持续回复量↓","effect":"减少持续回复技能的效果"},{"kind":"减益","group":"削弱","name":"致命回复","effect":"将回复和持续回复的HP回复效果反转为立即伤害或持续伤害；吸血效果和吸收效果都无法造成伤害，也无法回复"},{"kind":"减益","group":"削弱","name":"禁止回复","effect":"无法以任何回复技能回复"},{"kind":"增益","group":"输出","name":"弱点攻击力Ⅱ","effect":"减少弱点攻击的伤害"},{"kind":"减益","group":"削弱","name":"弱点防御力↓","effect":"减少弱点攻击防御力"},{"kind":"减益","group":"削弱","name":"Skill防御力↓","effect":"减少对所有技能的防御力"},{"kind":"减益","group":"削弱","name":"TS防御力↓","effect":"减少Tap Skill防御力"},{"kind":"减益","group":"削弱","name":"SS防御力↓","effect":"减少Slide Skill防御力"},{"kind":"减益","group":"持续伤害","name":"烙印","effect":"根据敌人增益数量，造成持续伤害"},{"kind":"减益","group":"削弱","name":"防御力↓","effect":"减少防御力"},{"kind":"减益","group":"削弱","name":"攻击力↓","effect":"减少攻击力"},{"kind":"减益","group":"削弱","name":"DS弱化Ⅱ","effect":"减少Drive Skill的最终伤害"},{"kind":"减益","group":"削弱","name":"敏捷度↓","effect":"减少敏捷度"},{"kind":"减益","group":"控制","name":"已标记","effect":"将伤害技能的目标从敌人改成已标记的Child"},{"kind":"减益","group":"控制","name":"诱惑","effect":"新增益效果无效，无法移除"},{"kind":"减益","group":"控制","name":"混乱","effect":"混乱时攻击队友(Buff转换给敌方，DeBuff转换给我方)，不影响持续DS效果或复活"},{"kind":"减益","group":"控制","name":"失明","effect":"减少技能命中率"},{"kind":"减益","group":"控制","name":"沉默","effect":"无法使用技能并重置Skill量表（SS冷却时间倒数会停止）"},{"kind":"减益","group":"削弱","name":"减益效果回避率↓","effect":"减少对减益效果的回避率"},{"kind":"增益","group":"其他增益","name":"减少减益命中率","effect":"减少目标的减益命中率"},{"kind":"减益","group":"削弱","name":"Skill充能↓","effect":"减少Skill量表充能量；可与Skill量表充能减速叠加"},{"kind":"减益","group":"削弱","name":"Skill充能速度↓","effect":"减少Skill量表充能速度；可与减少Skill量表充能量的效果叠加"},{"kind":"增益","group":"充能节奏","name":"冷却时间增加","effect":"在一定时间内增加目标的SS冷却时间"},{"kind":"增益","group":"其他增益","name":"时间篡改","effect":"移除敌人的一个时间系增益；并减少Skill量表充能速度"},{"kind":"增益","group":"其他增益","name":"延长减益效果","effect":"延长减益持续时间"},{"kind":"减益","group":"持续伤害","name":"流血","effect":"对一名敌人造成持续伤害（随时间），可叠加"},{"kind":"减益","group":"持续伤害","name":"擦伤","effect":"增加流血的持续伤害和时间"},{"kind":"减益","group":"持续伤害","name":"中毒","effect":"受到攻击和每次行动都会受到伤害，不可叠加"},{"kind":"减益","group":"持续伤害","name":"猛毒","effect":"DOT；回复量减少50%；无法缩减或延长减益效果"},{"kind":"减益","group":"持续伤害","name":"猛毒增幅","effect":"增加猛毒持续伤害300，回复量-30%"},{"kind":"减益","group":"持续伤害","name":"乱舞之刃","effect":"减少目标的防御力，并持续造成伤害"},{"kind":"减益","group":"持续伤害","name":"诅咒","effect":"造成持续伤害，并在减益效果结束或移除后，造成额外伤害"},{"kind":"减益","group":"持续伤害","name":"分解","effect":"造成持续伤害（无法缩短或延长减益效果）"},{"kind":"减益","group":"持续伤害","name":"灼烧","effect":"降低Skill伤害防御力，并在每次受到攻击时造成热伤（受攻击时，每2s造成持续伤害）"},{"kind":"减益","group":"控制","name":"晕眩","effect":"效果时间内，使对方无法行动，且充能量表初始化（效果时间内受到攻击时延长1s，5秒上限）"},{"kind":"减益","group":"控制","name":"石化","effect":"效果时间内，在受到一定次数的攻击前无法行动（充能量表不会被初始化）"}]</script>
+<script>
+(function(){
+  const rows = JSON.parse(document.getElementById('buff-json').textContent);
+  const list = document.getElementById('blist');
+  const q = document.getElementById('bq');
+  const k = document.getElementById('bk');
+  const g = document.getElementById('bg');
+  const cnt = document.getElementById('bcnt');
+  function draw(){
+    const qq = (q.value||'').trim().toLowerCase();
+    const kk = k.value, gg = g.value;
+    const show = rows.filter(r => {
+      if (kk && r.kind !== kk) return false;
+      if (gg && r.group !== gg) return false;
+      if (qq && !(r.name+r.effect+r.group).toLowerCase().includes(qq)) return false;
+      return true;
+    });
+    cnt.textContent = show.length + ' / ' + rows.length;
+    list.innerHTML = show.map(r =>
+      `<article class="bitem ${r.kind}"><span class="g">${r.kind} · ${r.group}</span><b>${r.name}</b><p>${r.effect}</p></article>`
+    ).join('');
+  }
+  q.addEventListener('input', draw);
+  k.addEventListener('change', draw);
+  g.addEventListener('change', draw);
+  draw();
+})();
+</script>
+</body>
+</html>

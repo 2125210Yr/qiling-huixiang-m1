@@ -97,7 +97,7 @@ namespace Resonance.App
                 if (i >= 1)
                 {
                     var gsz = Mathf.RoundToInt(Mathf.Lerp(12f, 20f, t));
-                    glyph = MkText(img.transform, "睡", gsz, Vector2.zero, new Vector2(sz + 8f, sz + 8f), ink);
+            glyph = MkText(img.transform, "Z", gsz, Vector2.zero, new Vector2(sz + 8f, sz + 8f), ink);
                     var gc = glyph.color;
                     gc.a = 0f;
                     glyph.color = gc;
@@ -120,7 +120,7 @@ namespace Resonance.App
                 };
             }
 
-            _tag = MkText(transform, "睡眠", 22, Head + new Vector2(0f, 28f), new Vector2(180f, 36f), ink);
+            _tag = MkText(transform, "Sleep", 22, Head + new Vector2(0f, 28f), new Vector2(180f, 36f), ink);
         }
 
         void Update()

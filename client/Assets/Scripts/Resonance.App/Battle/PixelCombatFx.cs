@@ -198,14 +198,14 @@ namespace Resonance.App
         public void PlayDrive(Sprite portrait, string skill, float life, System.Action done)
         {
             VfxShowtime.KillAll();
-            var head = string.IsNullOrEmpty(skill) ? "驱动" : skill;
-            Play(portrait, head, "", "驱动", VisualTokens.DriveOrange, life, CombatCut.Drive, done);
+            var head = string.IsNullOrEmpty(skill) ? BattleCueCopy.DriveCast : skill;
+            Play(portrait, head, "", BattleCueCopy.DriveCast, VisualTokens.DriveOrange, life, CombatCut.Drive, done);
         }
 
         public void PlayWarning()
         {
             var host = transform.parent != null ? transform.parent : transform;
-            VfxWarning.Play(host, "敌方驱动");
+            VfxWarning.Play(host, "");
             ArmTimer(CombatCut.Warn, VisualTokens.StarEvolved, 0.95f, null);
             HideCutin();
         }

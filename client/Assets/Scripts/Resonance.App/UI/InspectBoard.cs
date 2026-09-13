@@ -374,15 +374,15 @@ namespace Resonance.App
         {
             var grown = Growth.Apply(def, prog);
             if (grown == null) return;
-            TallStat(parent, built, y, "生命", OverlayDraw.Comma(grown.Hp));
+            TallStat(parent, built, y, "HP", OverlayDraw.Comma(grown.Hp));
             y -= StatStep;
-            TallStat(parent, built, y, "攻击", OverlayDraw.Comma(grown.Atk));
+            TallStat(parent, built, y, "ATK", OverlayDraw.Comma(grown.Atk));
             y -= StatStep;
-            TallStat(parent, built, y, "防御", OverlayDraw.Comma(grown.Def));
+            TallStat(parent, built, y, "DEF", OverlayDraw.Comma(grown.Def));
             y -= StatStep;
-            TallStat(parent, built, y, "敏捷", OverlayDraw.Comma(grown.Agl));
+            TallStat(parent, built, y, "AGL", OverlayDraw.Comma(grown.Agl));
             y -= StatStep;
-            TallStat(parent, built, y, "暴击", OverlayDraw.Comma(grown.Crt));
+            TallStat(parent, built, y, "CRT", OverlayDraw.Comma(grown.Crt));
         }
 
         static void TallStat(Transform parent, List<GameObject> built, float y, string label, string value)
@@ -402,18 +402,18 @@ namespace Resonance.App
             var ignMax = def != null ? def.IgnitionMax : 12;
             if (hooks != null && hooks.onIgnition != null)
                 OverlayDraw.Hit(parent, built, new Vector2(Left + Col / 2160f, y), new Vector2(Col, 32), hooks.onIgnition);
-            OverlayDraw.StatRow(parent, built, new Vector2(Left, y), Col, "燃起",
+            OverlayDraw.StatRow(parent, built, new Vector2(Left, y), Col, "Ignition",
                 ign + "/" + ignMax, VisualTokens.TextPrimary, null);
             OverlayDraw.DashLine(parent, built, new Vector2(Left + 0.148f, y - 0.016f), 320f);
             y -= 0.028f;
             var grown = Growth.Apply(def, prog);
             if (grown == null) return;
             var br = Growth.BreakDown(def, prog);
-            y = DrawBreak(parent, built, y, "生命", grown.Hp, br.BodyHp, br.AffHp, br.GearHp);
-            y = DrawBreak(parent, built, y, "攻击", grown.Atk, br.BodyAtk, br.AffAtk, br.GearAtk);
-            y = DrawBreak(parent, built, y, "防御", grown.Def, br.BodyDef, br.AffDef, br.GearDef);
-            y = DrawBreak(parent, built, y, "敏捷", grown.Agl, br.BodyAgl, br.AffAgl, br.GearAgl);
-            y = DrawBreak(parent, built, y, "暴击", grown.Crt, br.BodyCrt, br.AffCrt, br.GearCrt);
+            y = DrawBreak(parent, built, y, "HP", grown.Hp, br.BodyHp, br.AffHp, br.GearHp);
+            y = DrawBreak(parent, built, y, "ATK", grown.Atk, br.BodyAtk, br.AffAtk, br.GearAtk);
+            y = DrawBreak(parent, built, y, "DEF", grown.Def, br.BodyDef, br.AffDef, br.GearDef);
+            y = DrawBreak(parent, built, y, "AGL", grown.Agl, br.BodyAgl, br.AffAgl, br.GearAgl);
+            y = DrawBreak(parent, built, y, "CRT", grown.Crt, br.BodyCrt, br.AffCrt, br.GearCrt);
             DrawDetailGear(parent, built, prog, hooks != null ? hooks.onEquipPlus : null, Mathf.Min(y, 0.108f));
         }
 
@@ -421,11 +421,11 @@ namespace Resonance.App
         {
             OverlayDraw.StatRow(parent, built, new Vector2(Left, y), Col, label, OverlayDraw.Comma(total), VisualTokens.TextPrimary, null);
             y -= 0.016f;
-            OverlayDraw.Label(parent, built, "契体  " + OverlayDraw.Comma(body), 13, VisualTokens.TextMuted,
+            OverlayDraw.Label(parent, built, "Body  " + OverlayDraw.Comma(body), 13, VisualTokens.TextMuted,
                 new Vector2(Left + 0.01f, y), new Vector2(160, 24), true, false);
-            OverlayDraw.Label(parent, built, "好感  " + OverlayDraw.Comma(aff), 13, VisualTokens.TextMuted,
+            OverlayDraw.Label(parent, built, "Aff  " + OverlayDraw.Comma(aff), 13, VisualTokens.TextMuted,
                 new Vector2(Left + 0.18f, y), new Vector2(160, 24), true, false);
-            OverlayDraw.Label(parent, built, "装备  " + OverlayDraw.Comma(gear), 13, VisualTokens.TextMuted,
+            OverlayDraw.Label(parent, built, "Gear  " + OverlayDraw.Comma(gear), 13, VisualTokens.TextMuted,
                 new Vector2(Left + 0.34f, y), new Vector2(160, 24), true, false);
             return y - 0.018f;
         }
@@ -701,40 +701,10 @@ namespace Resonance.App
 
         static string EffectWord(EffectKind k)
         {
-            switch (k)
-            {
-                case EffectKind.Damage: return "伤害";
-                case EffectKind.Heal: return "回复";
-                case EffectKind.Dot: return "持续伤害";
-                case EffectKind.Shield: return "屏障";
-                case EffectKind.AtkBuff: return "攻击↑";
-                case EffectKind.DefDebuff: return "防御↓";
-                case EffectKind.ChargeHaste: return "充能加速";
-                case EffectKind.Taunt: return "挑衅";
-                case EffectKind.TsAmp: return "点按强化";
-                case EffectKind.SsAmp: return "上滑强化";
-                case EffectKind.DsAmp: return "驱动强化";
-                case EffectKind.SkillDefDown: return "技能防御↓";
-                case EffectKind.WeakDefDown: return "弱点防御↓";
-                case EffectKind.Reflect: return "反射";
-                case EffectKind.Immortal: return "不死";
-                case EffectKind.Silence: return "沉默";
-                case EffectKind.Stun: return "晕眩";
-                case EffectKind.Freeze: return "冻结";
-                case EffectKind.Bleed: return "流血";
-                case EffectKind.Poison: return "中毒";
-                case EffectKind.Burn: return "灼烧";
-                case EffectKind.AntiHeal: return "禁疗";
-                case EffectKind.ChargeAmount: return "充能↑";
-                case EffectKind.ChargeSpeed: return "充能速度↑";
-                case EffectKind.CooldownDelta: return "冷却";
-                case EffectKind.Barrier: return "屏障";
-                case EffectKind.DebuffBarrier: return "减益屏障";
-                case EffectKind.Enrage: return "激怒";
-                case EffectKind.Overload: return "超载";
-                case EffectKind.DualWield: return "双刃";
-                default: return "";
-            }
+            if (k == EffectKind.Damage) return "Damage";
+            if (k == EffectKind.Dot) return "DoT";
+            var en = StatusChipText.Word(k);
+            return string.IsNullOrEmpty(en) ? "" : en;
         }
 
         static string AffectionLine(UnitProgress prog)

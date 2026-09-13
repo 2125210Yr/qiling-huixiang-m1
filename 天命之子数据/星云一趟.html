@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>天命之子 · 星云一趟</title>
+<link rel="stylesheet" href="_layout/shell.css">
+<style>
+:root{
+  --void:#050505; --gold:#CF9403; --value:#FFC400; --text:#FBFBFB;
+  --stat:#E8E8E8; --sec:#A0A0A0; --mute:#808080; --line:#2a2418; --max:1180px;
+  --fire:#D02018; --water:#1C8DE1; --wood:#2F900A; --light:#D0B33D; --dark:#9A4DB8;
+  --ok:#7dba6a; --miss:#e07070;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;background:var(--void);color:var(--text);
+  font:16px/1.55 "Noto Sans SC","Microsoft YaHei","PingFang SC",sans-serif}
+a{color:var(--value);text-decoration:none}
+a:hover{color:#fff}
+img{max-width:100%;display:block}
+button{font:inherit;cursor:pointer}
+header.top{
+  position:sticky;top:0;z-index:40;
+  background:#0a0a0a;border-bottom:1px solid #2a2208;
+}
+.top-inner{max-width:var(--max);margin:0 auto;padding:10px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.brand{display:flex;flex-direction:column;min-width:140px}
+.brand b{letter-spacing:.18em;font-size:13px;color:var(--value)}
+.brand small{color:var(--mute);font-size:11px;letter-spacing:.08em}
+.page-nav{display:flex;gap:8px 12px;flex-wrap:wrap;font-size:13px}
+.page-nav a{color:#CF9403}
+.page-nav a:hover{color:#fff}
+main{max-width:var(--max);margin:0 auto;padding:20px 20px 100px}
+.kicker{letter-spacing:.28em;color:var(--gold);font-size:11px}
+h1{font-size:clamp(26px,4.4vw,42px);line-height:1.15;margin:6px 0 10px}
+h1 span{display:block}
+.lede{font-size:16px;color:var(--stat);max-width:42em}
+.lede em{color:var(--value);font-style:normal}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.chip{font-size:12px;padding:4px 10px;border:1px solid #3a3010;border-radius:999px;color:var(--gold);background:#120e06}
+h2.sec{font-size:22px;color:var(--gold);margin:36px 0 12px;letter-spacing:.08em}
+[id]{scroll-margin-top:84px}
+.caption{font-size:12px;color:var(--mute)}
+.card{background:linear-gradient(180deg,#161111ee,#0c0c0cee);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+.card.gold{border-color:#5a4714}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:1fr 1fr}
+.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.g2,.g4,.play{grid-template-columns:1fr !important}}
+.el{display:inline-block;width:.7em;height:.7em;border-radius:50%;margin-right:4px;vertical-align:middle}
+.el.火{background:var(--fire)} .el.水{background:var(--water)} .el.木{background:var(--wood)}
+.el.光{background:var(--light)} .el.暗{background:var(--dark)}
+
+/* faces */
+.sq,.circ{overflow:hidden;background:#1a1408;flex-shrink:0;display:grid;place-items:center;text-align:center;padding:4px;line-height:1.15}
+.sq{width:64px;height:64px;border-radius:12px;border:1px solid #5a4714;color:var(--value);font-size:11px;font-weight:700}
+.sq.on{outline:2px solid var(--value);outline-offset:2px}
+.circ{border-radius:50%;border:2px solid #CF9403;color:#fff;font-size:10px;font-weight:700}
+.sq.火,.circ.火{border-color:var(--fire);color:#ff8a80}
+.sq.水,.circ.水{border-color:var(--water);color:#81d4fa}
+.sq.木,.circ.木{border-color:var(--wood);color:#a5d6a7}
+.sq.光,.circ.光{border-color:var(--light);color:#ffe082}
+.sq.暗,.circ.暗{border-color:var(--dark);color:#ce93d8}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+
+/* split metaphor */
+.split-lab{font-size:11px;letter-spacing:.2em;color:var(--gold);margin-bottom:8px}
+.split-box{min-height:280px}
+.split-box .faces{display:flex;gap:8px;margin:12px 0}
+.split-box p{margin:8px 0 0;color:var(--sec);font-size:14px}
+.arrow-col{display:flex;align-items:center;justify-content:center;color:var(--value);font-size:28px;letter-spacing:.2em}
+
+/* mini maps */
+.mode{padding:14px}
+.mode h3{margin:0 0 8px;font-size:15px;color:var(--value)}
+.mode p{margin:0;font-size:13px;color:var(--sec)}
+.dots{display:flex;align-items:center;gap:6px;margin:12px 0;flex-wrap:wrap;min-height:36px}
+.dot{width:14px;height:14px;border-radius:50%;background:#3a3018;border:1px solid #CF9403}
+.dot.boss{background:var(--star,#FF4618);border-color:#FF4618;width:18px;height:18px}
+.dot.pick{border-radius:3px;background:#FFC400;border-color:#FFC400}
+.dot.rest{border-radius:2px;background:#7dba6a;border:0;width:12px;height:12px}
+.dot.shop{background:#1C8DE1;border-color:#1C8DE1;border-radius:2px}
+.dot.line{width:18px;height:2px;background:#5a4714;border:0;border-radius:0}
+.mode.dim h3{text-decoration:line-through;color:var(--mute)}
+
+/* play area */
+.play{display:grid;grid-template-columns:360px 1fr;gap:24px;align-items:start}
+.phone{
+  width:min(340px,100%);
+  height:min(620px, calc(100vh - 130px));
+  border-radius:28px;border:2px solid #5a4714;background:#050505;
+  overflow:hidden;position:relative;box-shadow:0 24px 60px #000c;
+  margin:0 auto;
+}
+.phone .notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:90px;height:8px;border-radius:8px;background:#1a1a1a;z-index:5}
+.screen{position:absolute;inset:0;display:none;flex-direction:column}
+.screen.on{display:flex}
+.screen .bar{
+  padding:22px 14px 8px;display:flex;justify-content:space-between;align-items:center;
+  font-size:11px;color:var(--gold);letter-spacing:.12em;z-index:2;
+}
+.screen .body{flex:1;position:relative;overflow:hidden}
+.screen[data-view="map"] .body,.screen[data-view="pick"] .body,.screen[data-view="shop"] .body,.screen[data-view="lobby"] .body{overflow-y:auto}
+.screen .foot{
+  padding:10px 12px 16px;background:linear-gradient(transparent,#000d 30%);
+  z-index:3;
+}
+
+/* lobby */
+.lobby-bg{position:absolute;inset:0;background:#0a0a0a;
+  background-image:radial-gradient(ellipse 80% 50% at 50% 0%, rgba(207,148,3,.12), transparent 55%)}
+.lobby-fg{position:relative;z-index:1;margin:8px;padding:10px 10px 12px;background:#070707f2;border-radius:12px;border:1px solid #2a2418;min-height:calc(100% - 16px)}
+.lobby-fg h3{margin:0 0 8px;font-size:15px;color:var(--value)}
+.team5{display:flex;gap:6px;justify-content:space-between;margin:8px 0 12px}
+.team5 .slot{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;background:#0000;border:0;color:var(--stat);padding:0}
+.team5 .slot .sq{width:100%;aspect-ratio:1;height:auto;max-height:64px}
+.team5 .slot b{font-size:10px;font-weight:500;color:#fff;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.team5 .slot small{font-size:9px;color:var(--mute)}
+.team5 .slot.sel .sq{outline:2px solid var(--value);outline-offset:1px}
+.bench{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.bench button{border:0;background:transparent;padding:0}
+.bench .sq{width:100%;height:auto;aspect-ratio:1}
+
+/* map */
+.map-bg{position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 40% at 50% 10%, rgba(28,141,225,.18), transparent 50%),
+    radial-gradient(ellipse 60% 50% at 70% 80%, rgba(207,148,3,.12), transparent 50%),
+    #07070c}
+.path{position:relative;z-index:1;padding:8px 18px 20px;display:flex;flex-direction:column;gap:0}
+.node{
+  display:grid;grid-template-columns:36px 1fr;gap:8px;align-items:center;
+  min-height:36px;opacity:.45;transition:opacity .2s;
+}
+.node.now{opacity:1}
+.node.done{opacity:.7}
+.node .mark{
+  width:30px;height:30px;border-radius:50%;border:1px solid #5a4714;
+  display:grid;place-items:center;overflow:hidden;background:#111;position:relative;
+}
+.node.pick .mark{border-radius:6px;background:#FFC400;color:#111;font-size:11px;font-weight:700}
+.node.rest .mark{border-radius:6px;background:#1a3a1a;color:#7dba6a;font-size:11px}
+.node.shop .mark{border-radius:6px;background:#0a2038;color:#1C8DE1;font-size:11px}
+.node.boss .mark{border-color:#FF4618;box-shadow:0 0 12px #FF461866}
+.node.now .mark{box-shadow:0 0 0 2px var(--value)}
+.node .mark img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.node .lab{font-size:12px;color:#ddd}
+.node .lab small{display:block;color:var(--mute);font-size:10px}
+.spine{width:2px;height:6px;background:#3a3018;margin-left:14px}
+
+/* hud */
+.hud{position:absolute;inset:0;background:#000 center/cover no-repeat}
+.hud::after{content:"";position:absolute;inset:0;background:linear-gradient(#0006,#000a 40%,#000c 70%,#000e)}
+.hud-ui{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;justify-content:flex-end;padding:8px 8px 12px}
+.hud-tag{position:absolute;top:28px;left:10px;font-size:10px;letter-spacing:.16em;color:var(--gold);
+  background:#000a;border:1px solid #5a4714;padding:3px 8px;border-radius:999px}
+.hud-foe{position:absolute;top:56px;right:10px;display:flex;align-items:center;gap:8px}
+.hud-foe .circ{width:48px;height:48px;border-color:#FF4618}
+.hud-foe b{font-size:12px;color:#fff;display:block}
+.hud-foe small{color:var(--mute);font-size:10px}
+.fx{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);text-align:center;pointer-events:none;width:90%}
+.fx .word{font-size:28px;font-weight:800;letter-spacing:.08em;color:#FFC400;
+  text-shadow:0 0 18px #FFC40088, 2px 2px 0 #000;line-height:1.1}
+.fx .sub{font-size:13px;color:#fff;margin-top:6px;text-shadow:0 2px 8px #000}
+.fx.fever .word{color:#FF8C00;font-size:22px}
+.fx.drive .word{color:#FDDA00;font-size:20px}
+.good{
+  width:72px;height:72px;border-radius:50%;margin:8px auto;
+  background:radial-gradient(circle at 40% 35%,#ffe56a,#E97400 60%,#8a3a00);
+  border:3px solid #FFC400;box-shadow:0 0 20px #E97400aa;color:#111;font-weight:800;font-size:11px;
+  display:grid;place-items:center;text-align:center;line-height:1.15
+}
+.circles{display:flex;justify-content:space-between;gap:4px;padding:0 4px}
+.circles .u{display:flex;flex-direction:column;align-items:center;gap:2px;width:18%}
+.circles .ring{
+  width:48px;height:48px;border-radius:50%;padding:3px;
+  background:conic-gradient(#FFC400 var(--ch,70%), #2a2418 0);
+}
+.circles .ring > i{display:grid;place-items:center;width:100%;height:100%;border-radius:50%;overflow:hidden;border:2px solid #111;background:#111;font-size:9px;color:#FFC400;text-align:center;line-height:1.1;padding:2px}
+.circles small{font-size:9px;color:#ddd}
+.feverbar{height:10px;border-radius:6px;background:#1a1408;border:1px solid #5a4714;margin:8px 6px 0;overflow:hidden;position:relative}
+.feverbar > i{display:block;height:100%;background:linear-gradient(90deg,#2F900A,#FDDA00);width:var(--fv,20%)}
+.feverbar span{position:absolute;inset:0;font-size:8px;letter-spacing:.2em;color:#111;display:grid;place-items:center;font-weight:700}
+.boon-pills{display:flex;gap:4px;flex-wrap:wrap;justify-content:center;margin:6px 0}
+.boon-pills b{font-size:9px;padding:2px 6px;border-radius:999px;background:#1a1408;border:1px solid #5a4714;color:var(--value);font-weight:500}
+
+/* pick / shop / rest */
+.pick-bg{position:absolute;inset:0;background:
+  radial-gradient(ellipse at 50% 0%, rgba(207,148,3,.2), transparent 50%), #0a0804}
+.pick-fg{position:relative;z-index:1;padding:4px 10px 10px;display:flex;flex-direction:column;gap:8px;height:100%}
+.pick-fg h3{margin:0;font-size:14px;color:var(--value);text-align:center}
+.pcards{display:flex;flex-direction:column;gap:8px;flex:1}
+.pcard{
+  display:grid;grid-template-columns:52px 1fr;gap:10px;align-items:center;
+  background:linear-gradient(180deg,#1a1408,#0c0c0c);border:1px solid #3a3018;
+  border-radius:12px;padding:8px;color:inherit;text-align:left;
+}
+.pcard:hover{border-color:#CF9403}
+.pcard.sel{border-color:#FFC400;box-shadow:0 0 0 1px #FFC400}
+.pcard .sq{width:52px;height:52px}
+.pcard .verb{font-size:10px;letter-spacing:.16em;color:var(--gold)}
+.pcard b{display:block;font-size:13px;color:#fff}
+.pcard p{margin:2px 0 0;font-size:11px;color:var(--sec);line-height:1.35}
+.rest-fg{position:relative;z-index:1;padding:16px}
+.rest-fg h3{color:var(--value);margin:0 0 12px;text-align:center}
+.hp{height:6px;background:#2a1010;border-radius:4px;overflow:hidden;margin-top:4px}
+.hp i{display:block;height:100%;background:#7dba6a;width:70%}
+.result-fg{position:relative;z-index:1;padding:20px 14px;text-align:center}
+.result-fg h3{color:var(--value);font-size:20px;margin:8px 0}
+.result-fg .team5{justify-content:center}
+.gone{opacity:.35;filter:grayscale(1)}
+
+/* side of play */
+.beat-copy h3{margin:0 0 6px;font-size:20px;color:var(--value)}
+.beat-copy p{margin:0 0 12px;color:var(--stat)}
+.ctrls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.ctrls button,.go{
+  border:0;border-radius:999px;padding:8px 16px;font-weight:700;font-size:13px;
+  background:linear-gradient(#fdda00,#ffb200);color:#111;
+}
+.ctrls button.ghost{background:transparent;border:1px solid #5a4714;color:var(--gold);font-weight:500}
+.ctrls button:disabled{opacity:.4;cursor:not-allowed}
+.steps{display:flex;gap:4px;flex-wrap:wrap;margin:8px 0 16px}
+.steps i{width:10px;height:10px;border-radius:50%;background:#2a2418;border:1px solid #5a4714}
+.steps i.on{background:#FFC400;border-color:#FFC400}
+.steps i.done{background:#5a4714}
+.tray h4{margin:16px 0 8px;font-size:12px;letter-spacing:.16em;color:var(--gold);font-weight:500}
+.tray .empty{font-size:13px;color:var(--mute)}
+.tray .got{display:flex;flex-direction:column;gap:6px}
+.got-item{display:flex;gap:8px;align-items:center;font-size:13px}
+.got-item .sq{width:36px;height:36px;border-radius:8px}
+.strike{text-decoration:line-through;color:var(--mute)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{border-bottom:1px dashed #333;padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--gold);font-weight:500}
+.ok{color:var(--ok)} .no{color:var(--miss)}
+.shotrow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.shotrow figure{margin:0;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#000}
+.shotrow img{width:100%;height:120px;object-fit:cover;object-position:top}
+.shotrow figcaption{font-size:11px;color:var(--mute);padding:6px 8px}
+@media(max-width:600px){
+  .shotrow{grid-template-columns:1fr}
+  .phone{height:min(560px, 78vh)}
+  .page-nav{width:100%}
+  .team5 .slot b{font-size:9px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">
+      <b>DESTINY CHILD</b>
+      <small>星云一趟 · 提案示意</small>
+    </div>
+    <nav class="mods" aria-label="设计模块">
+      <a href="设计手册.html">手册</a>
+      <a href="总看板.html">看板</a>
+      <a href="视觉图鉴.html">UI</a>
+      <a href="战斗与数值.html">数值</a>
+      <a href="战斗动效.html">动效</a>
+      <a href="汇总表.html">图鉴</a>
+      <a href="星云一趟.html" class="on" aria-current="page">星云</a>
+      <a href="重构数值.html">重构</a>
+      <a href="游戏开发文本.html">文本</a>
+    </nav>
+    <nav class="page-nav">
+      <a href="#idea">一句话</a>
+      <a href="#demo">走一趟</a>
+      <a href="#verbs">四根弦</a>
+      <a href="#modes">对照</a>
+      <a href="#not">不做</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <p class="kicker">PROPOSAL · NOT A BUILD</p>
+  <h1><span>一头雾水？看这一页。</span><span>局外还是 DC，局内给星云加一层词条。</span></h1>
+  <p class="lede">不是换游戏。五个人、圆台、点 TAP、滑 SLIDE、底中橙圆 Drive、Fever 七秒，<em>全部原样</em>。只把星云从「选关打一遍」改成「一趟 8～12 个点，打完三选一，出来词条清零」。下面用现有头像和战场裁图走一遍。</p>
+  <div class="chips">
+    <span class="chip">示意网页 · 不是可玩客户端</span>
+    <span class="chip">头像来自纪念版图鉴</span>
+    <span class="chip">战场图来自 YouTube 裁帧</span>
+    <span class="chip">原作造型不进发行包</span>
+  </div>
+
+  <h2 class="sec" id="demo" style="margin-top:22px">点着走一趟</h2>
+  <p class="lede" style="font-size:16px">假手机里点。旁边写这一步在干什么。打完会要你选一张牌。</p>
+  <div class="play" id="play">
+    <div class="phone" id="phone" aria-label="星云一趟示意">
+      <div class="notch"></div>
+      <div class="screen" data-view="lobby">
+        <div class="lobby-bg"></div>
+        <div class="bar"><span>PARTY 07</span><span>编队</span></div>
+        <div class="body">
+          <div class="lobby-fg">
+            <h3>出战 5 人</h3>
+            <p class="caption" style="margin:0 0 8px">点下面备选，换当前黄框位。人是局外养成的。</p>
+            <div class="team5" id="team5"></div>
+            <p class="caption">备选</p>
+            <div class="bench" id="bench"></div>
+          </div>
+        </div>
+      </div>
+      <div class="screen" data-view="map">
+        <div class="map-bg"></div>
+        <div class="bar"><span>NEBULA</span><span>一趟 · 8 点</span></div>
+        <div class="body"><div class="path" id="path"></div></div>
+      </div>
+      <div class="screen" data-view="fight">
+        <div class="hud" id="hud-bg"></div>
+        <div class="hud-ui">
+          <div class="hud-tag" id="hud-tag">TAP · 圆台没变</div>
+          <div class="hud-foe" id="hud-foe"></div>
+          <div class="fx" id="hud-fx"></div>
+          <div class="boon-pills" id="hud-pills"></div>
+          <div class="circles" id="hud-circles"></div>
+          <div class="feverbar" id="feverbar"><i></i><span>FEVER</span></div>
+        </div>
+      </div>
+      <div class="screen" data-view="pick">
+        <div class="pick-bg"></div>
+        <div class="bar"><span>STAR CORE</span><span>三选一</span></div>
+        <div class="body">
+          <div class="pick-fg">
+            <h3 id="pick-title">打完了。留一张带上下一场。</h3>
+            <div class="pcards" id="pcards"></div>
+          </div>
+        </div>
+      </div>
+      <div class="screen" data-view="rest">
+        <div class="pick-bg"></div>
+        <div class="bar"><span>REST</span><span>休整</span></div>
+        <div class="body">
+          <div class="rest-fg">
+            <h3>坐下来。人不换。</h3>
+            <p class="caption">回一点血。没有新操作系统。</p>
+            <div id="rest-team"></div>
+          </div>
+        </div>
+      </div>
+      <div class="screen" data-view="shop">
+        <div class="pick-bg"></div>
+        <div class="bar"><span>MERCHANT</span><span>星屑 × 40</span></div>
+        <div class="body">
+          <div class="pick-fg">
+            <h3>行商。买的也是本趟词条。</h3>
+            <div class="pcards" id="shop-cards"></div>
+          </div>
+        </div>
+      </div>
+      <div class="screen" data-view="result">
+        <div class="pick-bg"></div>
+        <div class="bar"><span>CLEAR</span><span>出星云</span></div>
+        <div class="body">
+          <div class="result-fg">
+            <h3>人还在。</h3>
+            <p class="caption">下面五张脸带回局外。词条变灰，下一趟重抽。</p>
+            <div class="team5" id="res-team"></div>
+            <div class="gone" id="res-boons" style="margin-top:16px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="beat-copy">
+      <div class="steps" id="steps" aria-hidden="true"></div>
+      <h3 id="beat-title">局外 · 编队</h3>
+      <p id="beat-hint">这五个人是你养成的。进星云不会变成另一套角色。点备选换人，然后「进入星云」。</p>
+      <div class="ctrls">
+        <button type="button" class="ghost" id="btn-prev">上一步</button>
+        <button type="button" id="btn-next">进入星云</button>
+        <button type="button" class="ghost" id="btn-reset">重来</button>
+      </div>
+      <p class="caption" id="beat-need"></p>
+      <div class="tray">
+        <h4>本趟词条 · 出星云作废</h4>
+        <div id="tray"><p class="empty">还没有。打完第一场才会三选一。</p></div>
+      </div>
+      <div class="tray">
+        <h4>这一步用到的原图</h4>
+        <p class="caption" id="beat-src">编队名 + 属性</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="sec" id="idea">一张图：进门和出门</h2>
+  <div class="grid g2">
+    <article class="card split-box">
+      <div class="split-lab">局外 · 永远在</div>
+      <div class="faces" id="out-faces"></div>
+      <p>抽、养、点火、编 5 人。人是资产，出星云还在。头像不在这一页，语法样本在 UI / 动效。</p>
+    </article>
+    <article class="card gold split-box">
+      <div class="split-lab">局内 · 进星云才有</div>
+      <div class="dots" aria-hidden="true">
+        <span class="dot"></span><span class="dot line"></span>
+        <span class="dot"></span><span class="dot line"></span>
+        <span class="dot pick"></span><span class="dot line"></span>
+        <span class="dot"></span><span class="dot line"></span>
+        <span class="dot rest"></span><span class="dot line"></span>
+        <span class="dot"></span><span class="dot line"></span>
+        <span class="dot shop"></span><span class="dot line"></span>
+        <span class="dot pick"></span><span class="dot line"></span>
+        <span class="dot boss"></span>
+      </div>
+      <p>圆点是战斗，黄块是三选一词条，绿是休整，蓝是行商，红是 Boss。</p>
+      <p>词条只改四件事：<em style="color:var(--value);font-style:normal">TAP / SLIDE / DRIVE / FEVER</em>。出星云，牌清空。</p>
+    </article>
+  </div>
+
+  <h2 class="sec" id="verbs">词条改的是四根弦，不是换乐器</h2>
+  <p>战场上你的手还是这四下。肉鸽只把某一根弦拧紧或拧松。</p>
+  <div class="shotrow">
+    <figure>
+      <img src="../docs/reference/gamekee/_combined/battle_vids/crops/tap_hud.jpg" alt="五圆 TAP HUD">
+      <figcaption>TAP · 底栏五圆。点亮环，不是换技能菜单。</figcaption>
+    </figure>
+    <figure>
+      <img src="../docs/reference/gamekee/_combined/battle_vids/crops/drive_qte.jpg" alt="Drive GOOD BUTTON">
+      <figcaption>DRIVE · 底中橙圆 GOOD BUTTON。Perfect = 150%。</figcaption>
+    </figure>
+    <figure>
+      <img src="../docs/reference/gamekee/_combined/battle_vids/crops/kr_fever.jpg" alt="Fever 叠字">
+      <figcaption>FEVER · 大约 7 秒窗口，数字叠在圆台上。</figcaption>
+    </figure>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <table>
+      <tr><th>弦</th><th>原作现在做什么</th><th>一趟里词条可以拧什么</th><th>拧完战场长什么样</th></tr>
+      <tr><td>TAP</td><td>点圆头发技能，只亮环</td><td>连点回充、打两个、充能更快</td><td>还是点那五个圆</td></tr>
+      <tr><td>SLIDE</td><td>滑开发 SHOWTIME</td><td>伤害 +%、提前充满</td><td>还是全屏 IT'S SHOWTIME</td></tr>
+      <tr><td>DRIVE</td><td>底中橙圆，黄圈 Perfect 150%</td><td>黄窗变宽、Perfect 拉到 180%</td><td>还是那颗 GOOD BUTTON</td></tr>
+      <tr><td>FEVER</td><td>约 7 秒输出窗</td><td>进战预热、窗口 7→9 秒</td><td>还是 FEVER TIME 叠字</td></tr>
+    </table>
+  </div>
+
+  <h2 class="sec" id="modes">和其他模式差在哪</h2>
+  <div class="grid g4">
+    <article class="card mode">
+      <h3>主线</h3>
+      <div class="dots"><span class="dot"></span><span class="dot line"></span><span class="dot"></span><span class="dot line"></span><span class="dot"></span><span class="dot line"></span><span class="dot"></span></div>
+      <p>一条关卡表，打完就过。没有三选一。</p>
+    </article>
+    <article class="card mode">
+      <h3>日常 / 狗粮</h3>
+      <div class="dots"><span class="dot"></span></div>
+      <p>同一关反复刷。FULL AUTO。不要加词条。</p>
+    </article>
+    <article class="card mode">
+      <h3>Ragna</h3>
+      <div class="dots"><span class="dot boss"></span></div>
+      <p>5 人打一个大 Boss。大厅是车列表。不是一趟路。</p>
+    </article>
+    <article class="card mode gold">
+      <h3>星云一趟 · 提案</h3>
+      <div class="dots"><span class="dot"></span><span class="dot line"></span><span class="dot pick"></span><span class="dot line"></span><span class="dot rest"></span><span class="dot line"></span><span class="dot shop"></span><span class="dot line"></span><span class="dot boss"></span></div>
+      <p>8～12 点 + 三选一。战斗核和主线同一套铬。</p>
+    </article>
+  </div>
+  <p class="caption">韩服 SQL 里星云本身就有 2048 关，模式不是我们编的。缺的是「一趟里的分叉和词条」。困难主线 / 星云还没有战场录像，铬按主线 HUD + 换背景。</p>
+
+  <h2 class="sec" id="not">明确不做</h2>
+  <div class="card">
+    <table>
+      <tr><th>不做</th><th>为什么</th></tr>
+      <tr><td class="no">12 人、拼点、Identity、EGO</td><td>那是另一款游戏的钟。DC 的钟是 5 圆充能。</td></tr>
+      <tr><td class="no">给星云另做一套底栏</td><td>主线 / 困难 / 星云共用五圆 + Fever 条。</td></tr>
+      <tr><td class="no">词条永久留在角色身上</td><td>那就变成第二套装备，局外养成会炸。</td></tr>
+      <tr><td class="ok">局外继续抽养点火</td><td>肉鸽只活在星云这一趟里。</td></tr>
+    </table>
+  </div>
+  <p class="caption">这是设计示意，不是能打的关。头像、截图只用来讲语法；发行包里的造型要另画。</p>
+</main>
+<script>
+(function(){
+  const ELC = {火:'#D02018',水:'#1C8DE1',木:'#2F900A',光:'#D0B33D',暗:'#9A4DB8'};
+  const CROP = '../docs/reference/gamekee/_combined/battle_vids/crops/';
+  const CH = [
+    {id:0,  name:'黑暗塞勒涅', short:'塞勒涅', el:'水', role:'辅助', src:'icons/C5f_000.png'},
+    {id:1,  name:'忍者琪隆',   short:'琪隆',   el:'木', role:'辅助', src:'icons/C5f_001.png'},
+    {id:2,  name:'哀悲的索卡', short:'索卡',   el:'水', role:'辅助', src:'icons/C5f_002.png'},
+    {id:4,  name:'全面的俄涅洛伊', short:'俄涅洛伊', el:'火', role:'治疗', src:'icons/C5f_004.png'},
+    {id:8,  name:'混沌的彼列', short:'彼列',   el:'光', role:'治疗', src:'icons/C5f_008.png'},
+    {id:10, name:'大力无双哈索尔', short:'哈索尔', el:'光', role:'攻击', src:'icons/C5f_010.png'},
+    {id:13, name:'守护者荷莫妮雅', short:'荷莫妮雅', el:'木', role:'防御', src:'icons/C5f_013.png'},
+    {id:19, name:'将成神的马尔杜克', short:'马尔杜克', el:'光', role:'攻击', src:'icons/C5f_019.png'},
+    {id:23, name:'螭龙石见',   short:'石见',   el:'水', role:'干扰', src:'icons/C5f_023.png'},
+    {id:25, name:'夜之狄雅努斯', short:'狄雅努斯', el:'暗', role:'攻击', src:'icons/C5f_025.png'},
+    {id:28, name:'看守者艾芮儿', short:'艾芮儿', el:'水', role:'攻击', src:'icons/C5f_028.png'},
+    {id:30, name:'德拉',       short:'德拉',   el:'木', role:'辅助', src:'icons/C5f_030.png'},
+    {id:32, name:'自信的图兰', short:'图兰',   el:'水', role:'治疗', src:'icons/C5f_032.png'},
+    {id:42, name:'希妮',       short:'希妮',   el:'水', role:'攻击', src:'icons/C5f_042.png'},
+    {id:50, name:'急驰的波利亚斯', short:'波利亚斯', el:'光', role:'防御', src:'icons/C5f_050.png'},
+    {id:52, name:'通灵师都桂花', short:'都桂花', el:'火', role:'攻击', src:'icons/C5f_052.png'}
+  ];
+  const byId = Object.fromEntries(CH.map(c => [c.id, c]));
+  const BENCH = [10,28,52,4,2,0,1,8,13,19];
+  const FOE = {
+    lena: {name:'狡猬的列那', src:'icons/C5f_014.png', where:'哨站'},
+    zeka: {name:'抵抗的泽卡提', src:'icons/C5f_018.png', where:'星屑带'},
+    dia:  {name:'夜之狄雅努斯', src:'icons/C5f_025.png', where:'近核'},
+    mard: {name:'将成神的马尔杜克', src:'icons/C5f_019.png', where:'星核'}
+  };
+  const PICKS = [
+    [
+      {id:'tap-echo', verb:'TAP', title:'连点回充', body:'点一次 TAP，该人立刻再充 20%。圆还是那五个。', face:0},
+      {id:'slide-show', verb:'SLIDE', title:'SHOWTIME 加码', body:'Slide 伤害 +30%。全屏词还是 IT\'S SHOWTIME。', face:1},
+      {id:'fever-start', verb:'FEVER', title:'进战预热', body:'开场 Fever 条 35%，更快进窗口。', face:4}
+    ],
+    [
+      {id:'drive-window', verb:'DRIVE', title:'黄窗变宽', body:'底中 GOOD BUTTON 的 Perfect 判定变宽。', face:10},
+      {id:'fever-9', verb:'FEVER', title:'Fever 9 秒', body:'窗口从 7 秒变成 9 秒。叠字还在。', face:52},
+      {id:'perfect-180', verb:'DRIVE', title:'Perfect 180%', body:'黄圈 Perfect 从 150% 拉到 180%。', face:19}
+    ]
+  ];
+  const SHOP = [
+    {id:'hp-pack', verb:'休整', title:'星屑绷带', body:'全队回 30% HP。不出新按键。', face:32},
+    {id:'slide-cd', verb:'SLIDE', title:'Slide 提前', body:'Slide 充能少 2 秒。', face:2},
+    {id:'puppet', verb:'人偶', title:'本趟同行', body:'开场带一只人偶。出星云它回去。', face:'pup'}
+  ];
+  const PUP = {id:'pup', name:'星影灵牛', short:'灵牛', el:'暗', role:'人偶', src:'icons/F1_000.png'};
+
+  const NODES = [
+    {kind:'fight', name:'哨站', sub:'第一场', foe:'lena'},
+    {kind:'pick',  name:'星核碎片', sub:'三选一 ①'},
+    {kind:'fight', name:'星屑带', sub:'第二场', foe:'zeka'},
+    {kind:'rest',  name:'休整', sub:'回血，人不换'},
+    {kind:'fight', name:'近核', sub:'Drive 还是橙圆', foe:'dia'},
+    {kind:'shop',  name:'行商', sub:'星屑换词条'},
+    {kind:'pick',  name:'星核碎片', sub:'三选一 ②'},
+    {kind:'boss',  name:'星核', sub:'Boss · Fever', foe:'mard'}
+  ];
+
+  const BEATS = [
+    {view:'lobby',  title:'局外 · 编队', hint:'这五个人是你养成的。进星云不会变成另一套角色。点备选换当前黄框位，然后进入星云。', next:'进入星云', src:'编队名 + 属性', map:-1, pick:-1},
+    {view:'map',    title:'局内 · 星云路', hint:'一趟大约 8～12 个点。圆是打，黄块是三选一，绿是休整，蓝是行商，红是 Boss。', next:'走进哨站', src:'示意地图（星云没有战场录像，铬按主线）', map:0, pick:-1},
+    {view:'fight',  title:'战场没变', hint:'还是 5 个圆、点 TAP。词条还没叠。底栏语法和录像里那套一样。', next:'打完了', src:'tap_hud.jpg · Ragna 五圆底栏', map:0, pick:-1, fight:{tag:'TAP · 圆台没变', bg:'tap_hud.jpg', fx:'', foe:'lena', fv:18}},
+    {view:'pick',   title:'打完 · 三选一', hint:'选一张带走。改的是 TAP / SLIDE / DRIVE / FEVER，不是换战斗系统。不选不能走。', next:'带走这张', src:'三张牌用的是图鉴头像当「星核碎片」皮', map:1, pick:0, need:'先点一张牌'},
+    {view:'map',    title:'路往前走', hint:'词条挂在这一趟上，人没换。看右边「本趟词条」。', next:'下一场', src:'同一张路，当前点往前挪', map:2, pick:-1},
+    {view:'fight',  title:'第二场 · Slide', hint:'手还是那套。若你拿了 SLIDE 词条，这里只是更痛，镜头词不变。', next:'打完了', src:'ragna_showtime.jpg', map:2, pick:-1, fight:{tag:'SLIDE · IT\'S SHOWTIME', bg:'ragna_showtime.jpg', fx:'show', foe:'zeka', fv:48}},
+    {view:'rest',   title:'休整', hint:'回一点血。没有新操作系统，也不换人。', next:'继续走', src:'休整是绿点，不是另一套 UI', map:3, pick:-1},
+    {view:'map',    title:'靠近核', hint:'再打一场。Drive 仍是底中那颗橙圆。', next:'进近核', src:'地图', map:4, pick:-1},
+    {view:'fight',  title:'Drive 还是橙圆', hint:'GOOD BUTTON 还在。若你拿了「黄窗变宽」或「Perfect 180%」，改的是判定，不是键位。', next:'打完了', src:'drive_qte.jpg · DRIVE CRUSH', map:4, pick:-1, fight:{tag:'DRIVE · GOOD BUTTON', bg:'drive_qte.jpg', fx:'drive', foe:'dia', fv:72}},
+    {view:'shop',   title:'行商', hint:'用本趟掉的星屑买一张。买的也是词条，出星云一样作废。', next:'买下带走', src:'商店三选一，皮还是头像', map:5, pick:-1, shop:true, need:'先买一张（或跳过）'},
+    {view:'pick',   title:'出门前再一张', hint:'Boss 前最后一次拧弦。叠多了 Fever 会更疯，底栏不会变成 12 个头。', next:'带走这张', src:'第二组三选一 · Drive / Fever', map:6, pick:1, need:'先点一张牌'},
+    {view:'boss',   title:'星核 · Fever', hint:'5 人打一个大的。Fever 叠字还是录像里那样。世界王那种 20 头像是另一模式，不要搬过来。', next:'擊滅', src:'kr_fever.jpg', map:7, pick:-1, fight:{tag:'FEVER TIME', bg:'kr_fever.jpg', fx:'fever', foe:'mard', fv:100}},
+    {view:'result', title:'出来了', hint:'词条变灰、清零。五个人回到局外图鉴。下一趟重抽牌，人不重抽。', next:'再走一趟', src:'结算示意', map:7, pick:-1}
+  ];
+
+  const state = {
+    beat: 0,
+    team: [10, 28, 52, 4, 2],
+    slot: 0,
+    boons: [],
+    pendingPick: null,
+    pendingShop: null,
+    shopDone: false
+  };
+
+  const $ = sel => document.querySelector(sel);
+  const faceOf = id => id === 'pup' ? PUP : byId[id];
+
+  function sq(c, cls){
+    const el = c.el || '';
+    return `<div class="sq ${cls||''} ${el}" title="${c.name}">${c.short}</div>`;
+  }
+
+  function renderOutFaces(){
+    $('#out-faces').innerHTML = [10,28,52,4,2].map(id => sq(byId[id])).join('');
+  }
+
+  function renderLobby(){
+    const teamEl = $('#team5');
+    teamEl.innerHTML = state.team.map((id,i) => {
+      const c = byId[id];
+      return `<button type="button" class="slot ${i===state.slot?'sel':''}" data-slot="${i}">
+        ${sq(c)}<b>${c.short}</b><small><i class="el ${c.el}"></i>${c.el} ${c.role}</small>
+      </button>`;
+    }).join('');
+    teamEl.querySelectorAll('.slot').forEach(b => b.onclick = () => {
+      state.slot = +b.dataset.slot; renderLobby();
+    });
+    const bench = $('#bench');
+    bench.innerHTML = BENCH.map(id => {
+      const c = byId[id];
+      const used = state.team.includes(id);
+      return `<button type="button" data-id="${id}" title="${c.name}" ${used?'disabled style="opacity:.35"':''}>${sq(c)}</button>`;
+    }).join('');
+    bench.querySelectorAll('button[data-id]').forEach(b => b.onclick = () => {
+      const id = +b.dataset.id;
+      if (state.team.includes(id)) return;
+      state.team[state.slot] = id;
+      state.slot = (state.slot + 1) % 5;
+      renderLobby();
+    });
+  }
+
+  function renderPath(){
+    const mapIdx = BEATS[state.beat].map;
+    $('#path').innerHTML = NODES.map((n,i) => {
+      const cls = [n.kind, i===mapIdx?'now':'', i<mapIdx?'done':''].join(' ');
+      let mark;
+      if (n.kind==='fight' || n.kind==='boss'){
+        const f = FOE[n.foe];
+        mark = `<div class="mark">${n.name.slice(0,1)}</div>`;
+      } else if (n.kind==='pick') mark = `<div class="mark">三</div>`;
+      else if (n.kind==='rest') mark = `<div class="mark">休</div>`;
+      else mark = `<div class="mark">商</div>`;
+      const spine = i < NODES.length-1 ? '<div class="spine"></div>' : '';
+      return `<div class="node ${cls}">${mark}<div class="lab">${n.name}<small>${n.sub}</small></div></div>${spine}`;
+    }).join('');
+  }
+
+  function pillsHTML(){
+    if (!state.boons.length) return '';
+    return state.boons.map(b => `<b>${b.verb} ${b.title}</b>`).join('');
+  }
+
+  function renderHud(spec, isBoss){
+    const f = FOE[spec.foe];
+    $('#hud-bg').style.backgroundImage = `url('${CROP + spec.bg}')`;
+    $('#hud-tag').textContent = spec.tag;
+    $('#hud-foe').innerHTML = `<div><b>${f.where}</b><small>${f.name}</small></div><div class="circ">${f.name.slice(-2)}</div>`;
+    const fx = $('#hud-fx');
+    fx.className = 'fx';
+    if (spec.fx==='show'){ fx.classList.add('show'); fx.innerHTML = `<div class="word">IT'S SHOWTIME!!</div><div class="sub">Slide 还是这一下</div>`; }
+    else if (spec.fx==='drive'){ fx.classList.add('drive'); fx.innerHTML = `<div class="word">DRIVE CRUSH</div><div class="good">GOOD<br>BUTTON</div><div class="sub">Perfect ${state.boons.some(b=>b.id==='perfect-180')?'180%':'150%'}</div>`; }
+    else if (spec.fx==='fever'){ fx.classList.add('fever'); fx.innerHTML = `<div class="word">FEVER TIME</div><div class="sub">${state.boons.some(b=>b.id==='fever-9')?'9 秒窗口':'7 秒窗口'} · 20 COMBO</div>`; }
+    else { fx.innerHTML = `<div class="sub" style="margin-top:80px">点圆头 TAP · 充能满了才能 Slide</div>`; }
+    let fv = spec.fv;
+    if (state.boons.some(b=>b.id==='fever-start')) fv = Math.max(fv, 35);
+    if (state.boons.some(b=>b.id==='fever-chip')) fv = Math.min(100, fv+15);
+    const bar = $('#feverbar');
+    bar.querySelector('i').style.width = fv + '%';
+    bar.querySelector('span').textContent = fv>=100 ? 'FEVER TIME' : 'FEVER ' + fv + '%';
+    $('#hud-pills').innerHTML = pillsHTML();
+    const chs = [62,78,45,90,55];
+    $('#hud-circles').innerHTML = state.team.map((id,i) => {
+      const c = byId[id];
+      return `<div class="u"><div class="ring" style="--ch:${chs[i]}%"><i>${c.short}</i></div><small>${c.el} ${c.role}</small></div>`;
+    }).join('');
+    /* boss uses same hud */
+    if (isBoss){ /* already fever fx */ }
+  }
+
+  function cardHTML(b, selectedId){
+    const f = b.face==='pup' ? PUP : byId[b.face];
+    return `<button type="button" class="pcard ${selectedId===b.id?'sel':''}" data-id="${b.id}">
+      ${sq(f)}
+      <div><span class="verb">${b.verb}</span><b>${b.title}</b><p>${b.body}</p></div>
+    </button>`;
+  }
+
+  function renderPick(group){
+    const list = PICKS[group];
+    $('#pick-title').textContent = group===0 ? '打完了。留一张带上下一场。' : '再拧一根弦。';
+    $('#pcards').innerHTML = list.map(b => cardHTML(b, state.pendingPick && state.pendingPick.id)).join('');
+    $('#pcards').querySelectorAll('.pcard').forEach(btn => btn.onclick = () => {
+      state.pendingPick = list.find(x => x.id===btn.dataset.id);
+      renderPick(group);
+      renderTray();
+      syncCtrls();
+    });
+  }
+
+  function renderShop(){
+    $('#shop-cards').innerHTML = SHOP.map(b => cardHTML(b, state.pendingShop && state.pendingShop.id)).join('');
+    $('#shop-cards').querySelectorAll('.pcard').forEach(btn => btn.onclick = () => {
+      state.pendingShop = SHOP.find(x => x.id===btn.dataset.id);
+      renderShop();
+      renderTray();
+      syncCtrls();
+    });
+  }
+
+  function renderRest(){
+    $('#rest-team').innerHTML = state.team.map(id => {
+      const c = byId[id];
+      return `<div class="row" style="margin:8px 0">${sq(c)}<div style="flex:1"><b style="font-size:13px">${c.name}</b><div class="hp"><i></i></div></div></div>`;
+    }).join('');
+  }
+
+  function renderResult(){
+    $('#res-team').innerHTML = state.team.map(id => {
+      const c = byId[id];
+      return `<div class="slot">${sq(c)}<b>${c.short}</b></div>`;
+    }).join('');
+    $('#res-boons').innerHTML = state.boons.length
+      ? '<p class="caption">本趟词条作废</p>' + state.boons.map(b => `<div class="got-item">${sq(b.face==='pup'?PUP:byId[b.face],'')} <span class="strike">${b.verb} · ${b.title}</span></div>`).join('')
+      : '<p class="caption">这一趟没拿词条。</p>';
+  }
+
+  function renderTray(){
+    const el = $('#tray');
+    const pending = state.pendingPick || state.pendingShop;
+    const items = state.boons.slice();
+    if (pending && !items.some(x => x.id===pending.id)) items.push(pending);
+    if (!items.length){ el.innerHTML = '<p class="empty">还没有。打完第一场才会三选一。</p>'; return; }
+    el.innerHTML = '<div class="got">' + items.map(b => {
+      const f = b.face==='pup' ? PUP : byId[b.face];
+      const soon = pending && b.id===pending.id && !state.boons.some(x => x.id===b.id);
+      return `<div class="got-item">${sq(f)}<div><b>${b.verb} · ${b.title}</b><div class="caption">${soon?'点「带走这张」才会挂上。 ':''}${b.body}</div></div></div>`;
+    }).join('') + '</div>';
+  }
+
+  function renderSteps(){
+    $('#steps').innerHTML = BEATS.map((_,i) => `<i class="${i===state.beat?'on':i<state.beat?'done':''}"></i>`).join('');
+  }
+
+  function showView(name){
+    document.querySelectorAll('.screen').forEach(s => s.classList.toggle('on', s.dataset.view===name));
+  }
+
+  function syncCtrls(){
+    const b = BEATS[state.beat];
+    const next = $('#btn-next');
+    const prev = $('#btn-prev');
+    const need = $('#beat-need');
+    prev.disabled = state.beat===0;
+    let blocked = false;
+    let label = b.next;
+    if (b.pick>=0 && !state.pendingPick){ blocked = true; label = '先选一张'; }
+    if (b.shop && !state.pendingShop && !state.shopDone){ blocked = false; label = '不买，走开'; }
+    if (b.shop && state.pendingShop){ label = '买下带走'; }
+    if (b.view==='result') label = '再走一趟';
+    next.disabled = blocked;
+    next.textContent = label;
+    need.textContent = blocked ? (b.need||'') : '';
+  }
+
+  function render(){
+    const b = BEATS[state.beat];
+    $('#beat-title').textContent = b.title;
+    $('#beat-hint').textContent = b.hint;
+    $('#beat-src').textContent = b.src;
+    renderSteps();
+    renderTray();
+    if (b.view==='lobby'){ showView('lobby'); renderLobby(); }
+    else if (b.view==='map'){ showView('map'); renderPath(); }
+    else if (b.view==='fight' || b.view==='boss'){ showView('fight'); renderHud(b.fight, b.view==='boss'); }
+    else if (b.view==='pick'){ showView('pick'); renderPick(b.pick); }
+    else if (b.view==='rest'){ showView('rest'); renderRest(); }
+    else if (b.view==='shop'){ showView('shop'); renderShop(); }
+    else if (b.view==='result'){ showView('result'); renderResult(); }
+    syncCtrls();
+  }
+
+  function commitAndNext(){
+    const b = BEATS[state.beat];
+    if (b.view==='result'){ resetAll(); return; }
+    if (b.pick>=0){
+      if (!state.pendingPick) return;
+      if (!state.boons.some(x => x.id===state.pendingPick.id)) state.boons.push(state.pendingPick);
+      state.pendingPick = null;
+    }
+    if (b.shop){
+      if (state.pendingShop && !state.boons.some(x => x.id===state.pendingShop.id)) state.boons.push(state.pendingShop);
+      state.pendingShop = null;
+      state.shopDone = true;
+    }
+    if (state.beat < BEATS.length-1) state.beat++;
+    render();
+  }
+
+  function prev(){
+    if (state.beat===0) return;
+    state.pendingPick = null;
+    state.pendingShop = null;
+    state.beat--;
+    /* rewind boons added by the beat we just left — simpler: rebuild from beats already passed */
+    rebuildBoons();
+    render();
+  }
+
+  function rebuildBoons(){
+    /* Boons are committed when leaving pick/shop. Reconstruct from committed history:
+       any pick/shop beat strictly before current has been committed. */
+    const ids = [];
+    const list = [];
+    for (let i=0;i<state.beat;i++){
+      const b = BEATS[i];
+      if (b.pick>=0){
+        /* we don't store per-beat choice except in state.boons; keep those whose pick group was already passed */
+      }
+    }
+    /* Keep boons that belong to pick groups already passed */
+    const passedPick = new Set();
+    const passedShop = state.beat > BEATS.findIndex(x => x.shop);
+    for (let i=0;i<state.beat;i++){
+      if (BEATS[i].pick>=0) passedPick.add(BEATS[i].pick);
+    }
+    const pickIds = new Set();
+    passedPick.forEach(g => PICKS[g].forEach(p => pickIds.add(p.id)));
+    const shopIds = new Set(SHOP.map(s => s.id));
+    state.boons = state.boons.filter(b => pickIds.has(b.id) || (passedShop && shopIds.has(b.id)));
+    if (!passedShop) state.shopDone = false;
+  }
+
+  function resetAll(){
+    state.beat = 0;
+    state.boons = [];
+    state.pendingPick = null;
+    state.pendingShop = null;
+    state.shopDone = false;
+    state.slot = 0;
+    render();
+  }
+
+  $('#btn-next').onclick = commitAndNext;
+  $('#btn-prev').onclick = prev;
+  $('#btn-reset').onclick = resetAll;
+  document.addEventListener('keydown', e => {
+    if (e.key==='ArrowRight') { e.preventDefault(); if (!$('#btn-next').disabled) commitAndNext(); }
+    if (e.key==='ArrowLeft') { e.preventDefault(); prev(); }
+  });
+
+  renderOutFaces();
+  render();
+})();
+</script>
+</body>
+</html>

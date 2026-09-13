@@ -83,7 +83,7 @@ namespace Resonance.App
                 _veins[i] = img;
             }
 
-            _tag = MkText(transform, "嘲讽", 22, Head + new Vector2(0f, 30f), new Vector2(180f, 36f), Ink);
+            _tag = MkText(transform, "Taunt", 22, Head + new Vector2(0f, 30f), new Vector2(180f, 36f), Ink);
             _tag.transform.localScale = Vector3.one * 1.35f;
         }
 

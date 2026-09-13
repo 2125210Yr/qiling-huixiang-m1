@@ -10,7 +10,7 @@ namespace Resonance.App
     public sealed class VfxInvuln : MonoBehaviour
     {
         const float Life = 0.50f;
-        const string Word = "无敌";
+        const string Word = "Immortal";
 
         static readonly Color Metal = VisualTokens.GoldMetal;
         static readonly Color Gold = VisualTokens.FeverGold;

@@ -4,19 +4,23 @@ using UnityEngine.UI;
 namespace Resonance.App
 {
     /// <summary>
-    /// QTE judge stamp. Slash band + misregistered type; 完美 / 优秀 / 好.
-    /// Perfect also prints 伤害 n% with a dashed rule. Fever is Pixel plate + WireFrame + fill track.
-    /// No English PERFECT / DAMAGE. No Soft disc. No Pill / Round card.
+    /// QTE judge stamp. Slash band + misregistered type; PERFECT! / GREAT! / GOOD.
+    /// Perfect prints DAMAGE n% only when <c>damageMul</c> is known.
+    /// Ordinary-PVE mul is unseen — pass 0 and skip that row (Robin ND 150% stays inventory).
+    /// Fever plate shows QTE <b>gain</b> % TO FEVER (primary Robin), not live gauge.
+    /// Primary EN (Robin t55). No Soft disc. No Pill / Round card.
     /// </summary>
     public sealed class VfxJudge : MonoBehaviour
     {
-        const float LifePerfect = 1.28f;
+        const float LifePerfect = 1.90f; // P1 ND Robin PERFECT first-on to first-off; ordinary PVE unseen
+        const float FeverPlateLife = 2.50f; // P1 TO FEVER still on at window end; off not measured
         const float LifeGreat = 1.12f;
         const float LifeGood = 0.96f;
         const float GradeAt = 0.00f;
         const float DmgAt = 0.10f;
         const float FeverAtPerfect = 0.22f;
         const float FeverAtElse = 0.12f;
+        const float FeverCountSec = 1.30f; // P1: 0% → settle (ease-in). 13% was mid-tween, not a formula.
         const float FlashA = 0.22f;
 
         static readonly Color PerfectCol = new Color(0.78f, 0.55f, 1f, 1f);
@@ -52,6 +56,8 @@ namespace Resonance.App
         float _life = LifePerfect;
         float _feverAt;
         float _feverU;
+        int _feverTarget;
+        int _feverShown = -1;
         float _punch = 1.22f;
         int _kind;
         bool _didGrade;
@@ -100,13 +106,20 @@ namespace Resonance.App
             rt.anchorMax = Vector2.one;
             rt.offsetMin = rt.offsetMax = Vector2.zero;
             rt.SetAsLastSibling();
-            go.GetComponent<VfxJudge>().Build(grade, damageMul, feverPct);
+            var stamp = go.GetComponent<VfxJudge>();
+            stamp.Build(grade, damageMul, feverPct);
+            CueTimingProbe.On("qte", stamp.GetInstanceID());
+        }
+
+        void OnDestroy()
+        {
+            CueTimingProbe.Off("qte", GetInstanceID());
         }
 
         void Build(string grade, float damageMul, float feverPct)
         {
             _kind = Kind(grade);
-            _life = _kind == 2 ? LifePerfect : _kind == 1 ? LifeGreat : LifeGood;
+            _life = _kind == 2 ? FeverPlateLife : _kind == 1 ? LifeGreat : LifeGood;
             _feverAt = _kind == 2 ? FeverAtPerfect : FeverAtElse;
             _punch = _kind == 2 ? 1.28f : _kind == 1 ? 1.18f : 1.10f;
             _feverU = Mathf.Clamp01(feverPct / 100f);
@@ -146,7 +159,7 @@ namespace Resonance.App
                 new Color(1f, 1f, 1f, 0f),
                 new Vector2(0.50f, 0.50f), new Vector2(bw - 140f, _kind == 2 ? 44f : 36f));
             _gradeBandIn.rectTransform.localEulerAngles = new Vector3(0f, 0f, -14f);
-            var gradeWord = _kind == 2 ? "完美 !" : _kind == 1 ? "优秀 !" : "好";
+            var gradeWord = _kind == 2 ? BattleCueCopy.QtePerfect : _kind == 1 ? BattleCueCopy.QteGreat : BattleCueCopy.QteGood;
             var gradeSize = _kind == 2 ? 86 : _kind == 1 ? 74 : 64;
             _gradeGhost = MkText(_gradeRoot, "ghost", gradeWord, gradeSize, _ink,
                 new Vector2(0.50f, 0.50f), new Vector2(720f, 120f), new Vector2(8f, -8f));
@@ -161,11 +174,11 @@ namespace Resonance.App
             Fade(_grade, 0f);
             _gradeRoot.localScale = Vector3.one * 0.50f;
 
-            if (_kind == 2)
+            if (_kind == 2 && damageMul > 0.05f)
             {
                 var dmgPct = Mathf.Max(0, Mathf.RoundToInt(damageMul * 100f));
                 _dmgRoot = Root("dmg", new Vector2(0.50f, 0.56f));
-                _dmgLab = MkText(_dmgRoot, "lab", "伤害", 26, new Color(0.92f, 0.90f, 0.86f, 1f),
+                _dmgLab = MkText(_dmgRoot, "lab", BattleCueCopy.QteDamageWord, 26, new Color(0.92f, 0.90f, 0.86f, 1f),
                     new Vector2(0.50f, 0.50f), new Vector2(280f, 40f), new Vector2(0f, 34f));
                 var dmgWord = dmgPct + "%";
                 _dmgGhost = MkText(_dmgRoot, "ghost", dmgWord, 58, DmgInk,
@@ -184,6 +197,8 @@ namespace Resonance.App
             }
 
             var n = Mathf.Clamp(Mathf.RoundToInt(feverPct), 0, 100);
+            _feverTarget = n;
+            _feverShown = -1;
             _feverRoot = Root("fever", new Vector2(0.50f, 0.38f));
             _feverPlate = Img(_feverRoot, "plate", UiSprites.Pixel(),
                 new Color(Plate.r, Plate.g, Plate.b, 0f),
@@ -204,12 +219,13 @@ namespace Resonance.App
             _feverFill.fillMethod = Image.FillMethod.Horizontal;
             _feverFill.fillOrigin = (int)Image.OriginHorizontal.Left;
             _feverFill.fillAmount = 0f;
-            var feverWord = n + "%";
+            var feverWord = "0%";
             _feverGhost = MkText(_feverRoot, "ghost", feverWord, 48, GreatInk,
                 new Vector2(0.50f, 0.50f), new Vector2(280f, 64f), new Vector2(4f, 14f));
             _feverPct = MkText(_feverRoot, "pct", feverWord, 48, VisualTokens.SlideGreen,
                 new Vector2(0.50f, 0.50f), new Vector2(280f, 64f), new Vector2(0f, 18f));
-            _feverLab = MkText(_feverRoot, "lab", "狂热", 22, VisualTokens.FeverGold,
+            // Primary GT: "N% TO FEVER" under the gain number.
+            _feverLab = MkText(_feverRoot, "lab", "TO FEVER", 22, VisualTokens.FeverGold,
                 new Vector2(0.50f, 0.50f), new Vector2(220f, 32f), new Vector2(0f, -8f));
             Fade(_feverGhost, 0f);
             Fade(_feverPct, 0f);
@@ -222,13 +238,16 @@ namespace Resonance.App
         void Update()
         {
             _age += Time.unscaledDeltaTime;
-            var hold = _life - 0.28f;
-            var fade = _age < hold ? 1f : 1f - Mathf.Clamp01((_age - hold) / 0.28f);
+            var gradeLife = _kind == 2 ? LifePerfect : _life;
+            var gradeHold = gradeLife - 0.28f;
+            var fade = _age < gradeHold ? 1f : 1f - Mathf.Clamp01((_age - gradeHold) / 0.28f);
+            var feverHold = _life - 0.28f;
+            var feverFade = _age < feverHold ? 1f : 1f - Mathf.Clamp01((_age - feverHold) / 0.28f);
 
             TickFlash(fade);
             TickGrade(fade);
             TickDmg(fade);
-            TickFever(fade);
+            TickFever(feverFade);
 
             if (_age >= _life) Destroy(gameObject);
         }
@@ -291,13 +310,22 @@ namespace Resonance.App
             SetA(_feverPlate, Plate.a * a);
             SetA(_feverWire, 0.88f * a);
             SetA(_feverTrack, TrackDim.a * a);
-            var fillT = Mathf.Clamp01(t / 0.28f);
+            var fillT = Mathf.Clamp01(t / FeverCountSec);
+            var eased = fillT * fillT;
             if (_feverFill != null)
             {
-                _feverFill.fillAmount = _feverU * (1f - (1f - fillT) * (1f - fillT));
+                _feverFill.fillAmount = _feverU * eased;
                 var fc = VisualTokens.SlideGreen;
                 fc.a = a;
                 _feverFill.color = fc;
+            }
+            var shown = t < 0f ? 0 : Mathf.RoundToInt(_feverTarget * eased);
+            if (shown != _feverShown)
+            {
+                _feverShown = shown;
+                var word = shown + "%";
+                if (_feverPct != null) _feverPct.text = word;
+                if (_feverGhost != null) _feverGhost.text = word;
             }
             Fade(_feverGhost, a);
             Fade(_feverPct, a);
@@ -335,9 +363,11 @@ namespace Resonance.App
             if (string.IsNullOrEmpty(grade)) return 0;
             var g = grade.Trim();
             if (g.StartsWith("完美", System.StringComparison.Ordinal) ||
+                g.StartsWith("PERFECT", System.StringComparison.OrdinalIgnoreCase) ||
                 string.Equals(g, "perfect", System.StringComparison.OrdinalIgnoreCase))
                 return 2;
             if (g.StartsWith("优秀", System.StringComparison.Ordinal) ||
+                g.StartsWith("GREAT", System.StringComparison.OrdinalIgnoreCase) ||
                 string.Equals(g, "great", System.StringComparison.OrdinalIgnoreCase))
                 return 1;
             return 0;
