@@ -1,0 +1,11 @@
+{
+  "models": 144,
+  "coreSnapshots": 144,
+  "renderer": "NVIDIA GeForce RTX 4060 Ti/PCIe/SSE2",
+  "maskedMeshes": 0,
+  "blendModes": [
+    0
+  ],
+  "pose": "first standard Idle motion at t=0; defaults where no motion",
+  "sourceReadOnly": true
+}

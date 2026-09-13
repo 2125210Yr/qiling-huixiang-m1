@@ -1,0 +1,5 @@
+analysis/cache/
+analysis/classes/
+analysis/__pycache__/
+analysis/thumbnails/
+production/*/classes/

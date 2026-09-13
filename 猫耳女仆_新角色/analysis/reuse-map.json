@@ -1,0 +1,284 @@
+{
+  "status": "preproduction_mapping_not_implemented_rig",
+  "approvedImage": "../concept-v003.png",
+  "coordinateConvention": "All new left/right labels mean screen-left/screen-right; source IDs retain original naming.",
+  "sourcePolicy": "read-only",
+  "groups": [
+    {
+      "target": "knees_and_ankles",
+      "source": "c020_01_full",
+      "parameters": [
+        "LEG_L_ROTATE",
+        "LEG_R_ROTATE",
+        "FOOT_L_ROTATE",
+        "FOOT_R_ROTATE"
+      ],
+      "reuse": "controller hierarchy and 2-axis keyform organization",
+      "rebuild": "new geometry, UVs and bare-foot shape keys",
+      "sourceHashes": {
+        "model.moc3": "d205beb2dab17bfb3232c71489511ea55b93db588bd25224cbb6e5e6ad1c5cf6",
+        "rig-spec-v4.json": "8321dfdf783865859f27ca949995a0ea8089669ae9242f156f3922277d52ace0"
+      },
+      "sourceBindings": [
+        {
+          "id": "B_CENTER_11",
+          "type": "rotation",
+          "parent": "B_CENTER_13",
+          "bindings": [
+            "LEG_R_ROTATE"
+          ],
+          "keyformCount": 3
+        },
+        {
+          "id": "B_CENTER_12",
+          "type": "rotation",
+          "parent": "B_CENTER_10",
+          "bindings": [
+            "LEG_L_ROTATE"
+          ],
+          "keyformCount": 3
+        },
+        {
+          "id": "L_LEG_L_DN",
+          "type": "mesh",
+          "parent": "B_CENTER_12",
+          "bindings": [
+            "LEG_L_ROTATE",
+            "FOOT_L_ROTATE"
+          ],
+          "keyformCount": 9
+        },
+        {
+          "id": "L_LEG_R_DN",
+          "type": "mesh",
+          "parent": "B_CENTER_11",
+          "bindings": [
+            "LEG_R_ROTATE",
+            "FOOT_R_ROTATE"
+          ],
+          "keyformCount": 9
+        }
+      ]
+    },
+    {
+      "target": "breath_face_cloth",
+      "source": "c032_01_full",
+      "parameters": [
+        "BREATH",
+        "FACE_X",
+        "FACE_Y",
+        "EYE_CONTROL",
+        "MOUTH_CONTROL",
+        "HAIR_WAVE"
+      ],
+      "reuse": "timing and control separation",
+      "rebuild": "facial layers, pinned-hand body deformation, skirt and long hair meshes",
+      "sourceHashes": {
+        "model.moc3": "5c9109a1772fc0403a1171086135340ffd37375f9407c3fe09bd262b27e7018d",
+        "rig-spec-v4.json": "a3bf8f1775a4bb134416fb2d798cd3d9fa2c1ecefaec4f12dd467f32d67f38f8"
+      },
+      "sourceBindings": [
+        {
+          "id": "B_CENTER_18",
+          "type": "warp",
+          "parent": "B_CENTER_04",
+          "bindings": [
+            "FACE_Y",
+            "FACE_X"
+          ],
+          "keyformCount": 9
+        },
+        {
+          "id": "B_CENTER_19",
+          "type": "warp",
+          "parent": "B_CENTER_04",
+          "bindings": [
+            "FACE_Y",
+            "FACE_X"
+          ],
+          "keyformCount": 9
+        },
+        {
+          "id": "B_CENTER_20",
+          "type": "warp",
+          "parent": "B_CENTER_04",
+          "bindings": [
+            "FACE_Y",
+            "FACE_X"
+          ],
+          "keyformCount": 9
+        },
+        {
+          "id": "B_CENTER_22",
+          "type": "warp",
+          "parent": "B_CENTER_01",
+          "bindings": [
+            "BREATH"
+          ],
+          "keyformCount": 3
+        },
+        {
+          "id": "B_SKIRT",
+          "type": "mesh",
+          "parent": "B_CENTER_16",
+          "bindings": [
+            "HAIR_WAVE"
+          ],
+          "keyformCount": 9
+        },
+        {
+          "id": "H_HAIR_BK",
+          "type": "mesh",
+          "parent": "B_CENTER_21",
+          "bindings": [
+            "HAIR_WAVE"
+          ],
+          "keyformCount": 9
+        },
+        {
+          "id": "H_HAIR_L",
+          "type": "mesh",
+          "parent": "B_CENTER_20",
+          "bindings": [
+            "HAIR_WAVE"
+          ],
+          "keyformCount": 9
+        },
+        {
+          "id": "H_HAIR_R",
+          "type": "mesh",
+          "parent": "B_CENTER_19",
+          "bindings": [
+            "HAIR_WAVE"
+          ],
+          "keyformCount": 9
+        },
+        {
+          "id": "F_FACE",
+          "type": "mesh",
+          "parent": "B_CENTER_18",
+          "bindings": [
+            "EYE_CONTROL"
+          ],
+          "keyformCount": 3
+        },
+        {
+          "id": "F_EYE_INBLOW_L",
+          "type": "mesh",
+          "parent": "B_CENTER_18",
+          "bindings": [
+            "EYE_CONTROL"
+          ],
+          "keyformCount": 3
+        },
+        {
+          "id": "F_EYE_R",
+          "type": "mesh",
+          "parent": "B_CENTER_18",
+          "bindings": [
+            "EYE_WAVE",
+            "EYE_CONTROL"
+          ],
+          "keyformCount": 18
+        },
+        {
+          "id": "F_EYE_R_IN",
+          "type": "mesh",
+          "parent": "B_CENTER_18",
+          "bindings": [
+            "EYE_CONTROL"
+          ],
+          "keyformCount": 3
+        },
+        {
+          "id": "F_EYE_INBLOW_R",
+          "type": "mesh",
+          "parent": "B_CENTER_18",
+          "bindings": [
+            "EYE_CONTROL"
+          ],
+          "keyformCount": 3
+        },
+        {
+          "id": "F_MOUTH1",
+          "type": "mesh",
+          "parent": "B_CENTER_18",
+          "bindings": [
+            "MOUTH_CONTROL"
+          ],
+          "keyformCount": 3
+        },
+        {
+          "id": "F_MOUTH2",
+          "type": "mesh",
+          "parent": "B_CENTER_18",
+          "bindings": [
+            "MOUTH_CONTROL"
+          ],
+          "keyformCount": 3
+        }
+      ]
+    },
+    {
+      "target": "ears_tail",
+      "source": "c031_02_full",
+      "parameters": [
+        "PARAM_EAR",
+        "PARAM_TAIL_X",
+        "PARAM_TAIL_Y"
+      ],
+      "reuse": "ear/tail isolation and multi-key phase organization",
+      "rebuild": "new ear pivots and fluffy tail silhouette",
+      "sourceHashes": {
+        "model.moc3": "cd7ebe3c8539290dcfa8355f8ec877eeb0ce78f8b99465c60e28911817569eae",
+        "rig-spec-v4.json": "15619d8f9b94217885014ff458eb3329aa0ae5707b0eea5f11d09f5a28548b6a"
+      },
+      "sourceBindings": [
+        {
+          "id": "B_CENTER_14",
+          "type": "rotation",
+          "parent": "B_CENTER_11",
+          "bindings": [
+            "PARAM_TAIL_Y",
+            "PARAM_BODY_UPPER_Y"
+          ],
+          "keyformCount": 9
+        },
+        {
+          "id": "EAR_L",
+          "type": "mesh",
+          "parent": "B_CENTER_18",
+          "bindings": [
+            "PARAM_EAR"
+          ],
+          "keyformCount": 3
+        },
+        {
+          "id": "EAR_R",
+          "type": "mesh",
+          "parent": "B_CENTER_18",
+          "bindings": [
+            "PARAM_EAR"
+          ],
+          "keyformCount": 3
+        },
+        {
+          "id": "TAIL",
+          "type": "mesh",
+          "parent": "B_CENTER_14",
+          "bindings": [
+            "PARAM_TAIL_X"
+          ],
+          "keyformCount": 6
+        }
+      ]
+    },
+    {
+      "target": "table_hover_shadow",
+      "source": null,
+      "parameters": [],
+      "reuse": null,
+      "rebuild": "new shared character/table hover root; ground shadow independent"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "models": 144,
+  "sourceHashesUnchanged": 288,
+  "meshCount": 11141,
+  "candidateModels": 5,
+  "candidateParameters": 220,
+  "candidatePoses": 2001,
+  "sampledIdleFrames": 360,
+  "motionCurvesChecked": 6114,
+  "approvedImageUnchanged": true,
+  "checkedScope": "Core load/finite vertices; all declared scalar keys and interval midpoints for candidates; original idle; static review links; not a new-character rig acceptance test"
+}
