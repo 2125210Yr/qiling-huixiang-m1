@@ -1,0 +1,50 @@
+START
+attach https://www.youtube.com/watch?v=aSbBuFD12HY
+cookies_set_ok=65/65
+=== aSbBuFD12HY ===
+{"status": "OK", "reason": null, "formats": 1, "adaptive": 8, "urlN": 1, "title": "Destiny Child Gameplay - English Version | Part 1 (Android/iOS)"}
+pick itag=18 h=640 mime=video/mp4; codecs="avc1.42001E, mp4a.40.2" clen=None
+urllib fail: HTTPError: HTTP Error 403: Forbidden
+try CDP download
+dl files=[]
+=== hgqXY5M9gFk ===
+FAIL TimeoutError: timed out while closing connection
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\天命之子\DC_RECON_KIT\docs\reference\gl-shutdown-pve\_cdp_inject_fetch.py", line 94, in main
+    await call(
+        "Page.navigate", {"url": f"https://www.youtube.com/watch?v={vid}"}
+    )
+  File "F:\天命之子\DC_RECON_KIT\docs\reference\gl-shutdown-pve\_cdp_inject_fetch.py", line 54, in call
+    await ws.send(json.dumps({"id": mid, "method": method, "params": params or {}}))
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\websockets\asyncio\connection.py", line 478, in send
+    async with self.send_context():
+               ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\websockets\asyncio\connection.py", line 965, in send_context
+    raise self.protocol.close_exc from original_exc
+websockets.exceptions.ConnectionClosedError: sent 1011 (internal error) keepalive ping timeout; no close frame received
+
+=== IRDqNAhKKr4 ===
+FAIL Traceback (most recent call last):
+  File "F:\天命之子\DC_RECON_KIT\docs\reference\gl-shutdown-pve\_cdp_inject_fetch.py", line 94, in main
+    await call(
+        "Page.navigate", {"url": f"https://www.youtube.com/watch?v={vid}"}
+    )
+  File "F:\天命之子\DC_RECON_KIT\docs\reference\gl-shutdown-pve\_cdp_inject_fetch.py", line 54, in call
+    await ws.send(json.dumps({"id": mid, "method": method, "params": params or {}}))
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\websockets\asyncio\connection.py", line 478, in send
+    async with self.send_context():
+               ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\websockets\asyncio\connection.py", line 965, in send_context
+    raise self.protocol.close_exc from original_exc
+websockets.exceptions.ConnectionClosedError: sent 1011 (internal error) keepalive ping timeout; no close frame received
+
+ALL_DONE

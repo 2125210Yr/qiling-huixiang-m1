@@ -1,0 +1,183 @@
+START
+cookies_added=65 contexts=1 pages=1
+=== aSbBuFD12HY ===
+{"status": "OK", "reason": null, "formats": 1, "adaptive": 8, "urlN": 1, "title": "Destiny Child Gameplay - English Version | Part 1 (Android/iOS)"}
+pick itag=18 h=640 mime=video/mp4; codecs="avc1.42001E, mp4a.40.2"
+browser request download...
+FAIL Traceback (most recent call last):
+  File "F:\天命之子\DC_RECON_KIT\docs\reference\gl-shutdown-pve\_pw_cdp_fetch.py", line 129, in main
+    resp = context.request.get(
+        pick["url"],
+    ...<4 lines>...
+        timeout=600000,
+    )
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\sync_api\_generated.py", line 20567, in get
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.get(
+        ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+        )
+        ^
+    )
+    ^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_fetch.py", line 200, in get
+    return await self.fetch(
+           ^^^^^^^^^^^^^^^^^
+    ...<12 lines>...
+    )
+    ^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_fetch.py", line 326, in fetch
+    return await self._inner_fetch(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<13 lines>...
+    )
+    ^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_fetch.py", line 432, in _inner_fetch
+    response = await self._channel.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<18 lines>...
+    )
+    ^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: APIRequestContext.get: connect ETIMEDOUT 2a03:2880:f134:183:face:b00c:0:25de:443
+Call log:
+  - → GET https://rr4---sn-oj3pm5-5i.googlevideo.com/videoplayback?expire=1789172979&ei=k0ikauyoI_qu2roPltuBoAg&ip=2406%3Ada16%3A401%3Aaf00%3A4368%3A5ece%3A415a%3Acc94&id=o-AD4O5A1zDzj33PEIYg4qsl1y9zA8U6r7qLicd9QkV503&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&cps=107&met=1789151379%2C&mh=OX&mm=31%2C29&mn=sn-oj3pm5-5i%2Csn-aj3pm5-5x&ms=au%2Crdu&mv=m&mvi=4&pl=39&rms=au%2Cau&initcwndbps=1807500&siu=1&bui=AR3QkAl4qZtsTz-c3JOHg5tqHDHi0JGjA5eXukS1EmD7jxACzVnGYKa4KiexxyAEjR1xxVwjWg&spc=I-rgIaJvSBVnSJp-z1hxz-GQ4ZHI9MleZF-vlfdsArQH6qcp9WblLuk70Q&vprv=1&svpuc=1&mime=video%2Fmp4&ns=BvnY7E4qNXLwv4uNa0LFkqEY&rqh=1&cnr=14&ratebypass=yes&dur=584.121&lmt=1696819830010367&mt=1789150875&fvip=4&fexp=51565116%2C52135441%2C52178456&c=WEB&sefc=1&txp=6218224&n=FjWAamv5ezhGN3Nv&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Csiu%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cns%2Crqh%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AE0s2JYwRQIhAInSo8nLUim3OSEVJ8IshqyVWTiuv6XCF3gwDbPr5TBVAiA4arxooiNuWVngPc6BnldHsxV2PiAwiUBVjrOzl3oPVg%3D%3D&lsparams=cps%2Cmet%2Cmh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Crms%2Cinitcwndbps&lsig=APaTxxMwRAIgdbV-2A6rANvd60Z51yoH8zZ4jffoQyVZl3vZKXeKcrgCIDjUv42omyRE_oolCwzSHhQ4vZqafU4MZEtAIPGoCsuG
+    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+    - Referer: https://www.youtube.com/
+    - Origin: https://www.youtube.com
+
+
+=== hgqXY5M9gFk ===
+{"status": "OK", "reason": null, "formats": 1, "adaptive": 15, "urlN": 1, "title": "[ DESTINY CHILD GLOBAL ] Final Boss ND stage 8 : ROBIN"}
+pick itag=18 h=360 mime=video/mp4; codecs="avc1.42001E, mp4a.40.2"
+browser request download...
+FAIL Traceback (most recent call last):
+  File "F:\天命之子\DC_RECON_KIT\docs\reference\gl-shutdown-pve\_pw_cdp_fetch.py", line 129, in main
+    resp = context.request.get(
+        pick["url"],
+    ...<4 lines>...
+        timeout=600000,
+    )
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\sync_api\_generated.py", line 20567, in get
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.get(
+        ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+        )
+        ^
+    )
+    ^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_fetch.py", line 200, in get
+    return await self.fetch(
+           ^^^^^^^^^^^^^^^^^
+    ...<12 lines>...
+    )
+    ^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_fetch.py", line 326, in fetch
+    return await self._inner_fetch(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<13 lines>...
+    )
+    ^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_fetch.py", line 432, in _inner_fetch
+    response = await self._channel.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<18 lines>...
+    )
+    ^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: APIRequestContext.get: connect ETIMEDOUT 2a03:2880:f11b:83:face:b00c:0:25de:443
+Call log:
+  - → GET https://rr2---sn-oj3pm5-5u.googlevideo.com/videoplayback?expire=1789173014&ei=tkikauzWF9ODvcAPkbXbwAw&ip=2406%3Ada16%3A401%3Aaf00%3A4368%3A5ece%3A415a%3Acc94&id=o-AEn3-_6mbWGSanQfjcct_QBM4eWJIZVzT0KlZeyi_vhq&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&cps=186&met=1789151414%2C&mh=lo&mm=31%2C29&mn=sn-oj3pm5-5u%2Csn-3pm7dne6&ms=au%2Crdu&mv=m&mvi=2&pl=39&rms=au%2Cau&initcwndbps=1848750&siu=1&bui=AR3QkAkaWhO8nJlGzmae1e8FPcc15l28gXxINQW007Mlw2hYr1KfzWDBhrP03w_3xTTrrJiNjg&spc=I-rgIV708UZYrMonIl8YbUVBLY7l14szRiRPuiI-JkNOpzlWFqk8qHso3w&vprv=1&svpuc=1&mime=video%2Fmp4&ns=NCdwZWQGjk0lec61LsPXbG4Y&rqh=1&cnr=14&ratebypass=yes&dur=74.234&lmt=1644740754931386&mt=1789151096&fvip=1&fexp=51565116%2C52135441%2C52178456&c=WEB&sefc=1&txp=6218224&n=UTBA5de--DyqUP78&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Csiu%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cns%2Crqh%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AE0s2JYwRgIhAO7VJ8_r2P9HE6tavObi6NBQWGcfCK_r1NvkGGK4piMWAiEA6kXDrf7yzDvu7jYsmIXjCmvZUmL0KS07KhM6d50Rz3w%3D&lsparams=cps%2Cmet%2Cmh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Crms%2Cinitcwndbps&lsig=APaTxxMwRAIgNOLawMKlaIjDCr2APDrRbSvn0XyVUnGyHBSZDCfP_sYCIGhcgwuP3hfSO8HeoOLFlUl_60ZW-18bQod6PgewOS7C
+    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+    - Referer: https://www.youtube.com/
+    - Origin: https://www.youtube.com
+
+
+=== IRDqNAhKKr4 ===
+{"status": "OK", "reason": null, "formats": 1, "adaptive": 6, "urlN": 1, "title": "Destiny Child (Global) - Eternal Vow Normal & Hard Full Run (Bathory Narrative Dungeon)"}
+pick itag=18 h=360 mime=video/mp4; codecs="avc1.42001E, mp4a.40.2"
+browser request download...
+FAIL Traceback (most recent call last):
+  File "F:\天命之子\DC_RECON_KIT\docs\reference\gl-shutdown-pve\_pw_cdp_fetch.py", line 129, in main
+    resp = context.request.get(
+        pick["url"],
+    ...<4 lines>...
+        timeout=600000,
+    )
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\sync_api\_generated.py", line 20567, in get
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.get(
+        ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+        )
+        ^
+    )
+    ^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_fetch.py", line 200, in get
+    return await self.fetch(
+           ^^^^^^^^^^^^^^^^^
+    ...<12 lines>...
+    )
+    ^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_fetch.py", line 326, in fetch
+    return await self._inner_fetch(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<13 lines>...
+    )
+    ^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_fetch.py", line 432, in _inner_fetch
+    response = await self._channel.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<18 lines>...
+    )
+    ^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: APIRequestContext.get: connect ETIMEDOUT 2a03:2880:f10e:83:face:b00c:0:25de:443
+Call log:
+  - → GET https://rr2---sn-3pm7kn7r.googlevideo.com/videoplayback?expire=1789173049&ei=2UikasL1FtKw2roPsZqJmQI&ip=2406%3Ada16%3A401%3Aaf00%3A4368%3A5ece%3A415a%3Acc94&id=o-AN4SyeChNKWoX2a_Kfp6qAsnH02ImxCE5lazUEJyjXdQ&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&cps=208&met=1789151449%2C&mh=EW&mm=31%2C26&mn=sn-3pm7kn7r%2Csn-oguesnds&ms=au%2Conr&mv=m&mvi=2&pl=39&rms=au%2Cau&initcwndbps=1848750&siu=1&bui=AR3QkAkn23c1hAFk-CmcV7GvOkbU867Z3Dkh6MTm3ndiRNL5ay7ijgPupQqVB2Q07rRo8pwmbw&spc=I-rgITI0BDrB_ZEwgegfMzo1r-fdrij2LuEZoqm5oMraKKLbGx5RzpbrBQ&vprv=1&svpuc=1&mime=video%2Fmp4&ns=2Yy_FnOM3jIKAcnCo2_36rQY&rqh=1&cnr=14&ratebypass=yes&dur=2755.767&lmt=1712090613433420&mt=1789151096&fvip=3&fexp=51565116%2C52135441%2C52178456&c=WEB&sefc=1&txp=2218224&n=dOpFz2CJXZh-Tsq9&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Csiu%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cns%2Crqh%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AE0s2JYwRgIhALljBP0zTUq7LEwQdN4K6u03_6Gw9Cd4Psq7gGdeUuGOAiEA504kRWeEk35vLpZnaZr4q66cUG3xnwiVQ8zluQ6E8fI%3D&lsparams=cps%2Cmet%2Cmh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Crms%2Cinitcwndbps&lsig=APaTxxMwRAIgTANkImLS-d3ll_eoy8DRXs6CWzH1tdqkVCeFfcfLfa4CIBnIXCok2E3cK_-HTgJNywo26VXlDN5L35PwXJWf8a5Q
+    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+    - Referer: https://www.youtube.com/
+    - Origin: https://www.youtube.com
+
+
+ALL_DONE

@@ -43,5 +43,12 @@
     "unhardcode_party_size_5",
     "execute_poison",
     "fail_unknown_opcode"
-  ]
+  ],
+  "deferred_supplement": {
+    "ref": "DEFERRED_SUPPLEMENT.json",
+    "status": "DEFERRED_NOT_REMOVED",
+    "signed_at": "2026-09-12",
+    "current_work": "G2_PATH_A_IDENTITY_AND_RUNNABLE_SLICE",
+    "fidelity_pass_without_gt": false
+  }
 }

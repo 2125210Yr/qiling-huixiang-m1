@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "aSbBuFD12HY",
+    "Status": "FAILURE",
+    "ExitCode": -1073741502,
+    "Size": 0,
+    "File": "aSbBuFD12HY_GL_EN_Gameplay_Part1_202308.mp4",
+    "LastError": "Agent Shell STATUS_DLL_INIT_FAILED (0xC0000142). yt-dlp never started. Playwright Not connected. Piped API HTTP 526."
+  },
+  {
+    "Id": "hgqXY5M9gFk",
+    "Status": "FAILURE",
+    "ExitCode": -1073741502,
+    "Size": 0,
+    "File": "hgqXY5M9gFk_GL_ND_Robin_Boss.mp4",
+    "LastError": "Agent Shell STATUS_DLL_INIT_FAILED (0xC0000142). yt-dlp never started. Playwright Not connected. Piped API HTTP 526."
+  },
+  {
+    "Id": "IRDqNAhKKr4",
+    "Status": "FAILURE",
+    "ExitCode": -1073741502,
+    "Size": 0,
+    "File": "IRDqNAhKKr4_GL_EternalVow_NormalHard_480p.mp4",
+    "LastError": "Agent Shell STATUS_DLL_INIT_FAILED (0xC0000142). yt-dlp never started. Playwright Not connected. Piped API HTTP 526."
+  }
+]

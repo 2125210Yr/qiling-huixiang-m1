@@ -1,15 +1,64 @@
 {
   "schema_version": "1.0",
   "gate": "G0",
-  "status": "TARGET_FROZEN_GT_SEARCHING",
+  "status": "TARGET_FROZEN_GT_PARTIAL",
   "primary_gt": {
-    "status": "SEARCH_IN_PROGRESS",
+    "status": "LOCAL_PRIMARY_PARTIAL",
     "role": "ordinary_5p_pve_combat_truth",
-    "id": null,
-    "note": "普通 5 人 PVE 唯一真值尚未入库。三份旧录像不得顶替。"
+    "id": "YT_aSbBuFD12HY",
+    "ids": ["YT_aSbBuFD12HY", "YT_hgqXY5M9gFk"],
+    "note": "P0+P1 已落 DC_RECON_KIT/docs/reference/gl-shutdown-pve/ 根目录（MediaRecorder 竖屏）。P2 Eternal Vow bot-gate。帧对齐未完，还原分 0。三份旧录像与 JP/KR 对照仍不得顶替。"
   },
   "legacy_video_policy": "NOT_SOLE_TRUTH_FOR_ORDINARY_COMBAT",
   "entries": [
+    {
+      "id": "REF_YT_aSbBuFD12HY",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=aSbBuFD12HY",
+      "youtube_id": "aSbBuFD12HY",
+      "region": "GL",
+      "mode": "StoryTutorialPve",
+      "role": "primary_partial",
+      "path": "DC_RECON_KIT/docs/reference/gl-shutdown-pve/aSbBuFD12HY_GL_EN_Gameplay_Part1_202308.mp4",
+      "usable_for": [
+        "ordinary_5p_pve_hud_cues",
+        "showtime_slide",
+        "victory_clear_sequence",
+        "fever_tip_rates",
+        "phase_splash",
+        "speed_auto_chrome"
+      ],
+      "not_usable_for": [
+        "gl_damage_formula",
+        "gl_final_verified",
+        "star_grade_math",
+        "live_fever_time_window"
+      ],
+      "note": "2023-08 EN gameplay Part 1. MediaRecorder ~288x640. Tutorial FEVER stayed 0% through CLEAR."
+    },
+    {
+      "id": "REF_YT_hgqXY5M9gFk",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=hgqXY5M9gFk",
+      "youtube_id": "hgqXY5M9gFk",
+      "region": "GL",
+      "mode": "NightMareDungeon",
+      "role": "primary_partial_special_mode",
+      "path": "DC_RECON_KIT/docs/reference/gl-shutdown-pve/hgqXY5M9gFk_GL_ND_Robin_Boss.mp4",
+      "usable_for": [
+        "drive_qte_stamps",
+        "showtime_slide",
+        "fever_gauge_live",
+        "x3_speed_full_auto",
+        "win_splash"
+      ],
+      "not_usable_for": [
+        "ordinary_5p_pve_sole_truth",
+        "gl_damage_formula",
+        "live_fever_time_banner"
+      ],
+      "note": "Global ND Robin. Fever gauge ~40%, no FEVER TIME-!! field banner in samples."
+    },
     {
       "id": "REF_YT_mJrT2conPCI",
       "kind": "video",
@@ -121,5 +170,48 @@
       "id": "S21",
       "role": "ignition_exists_in_late_window"
     }
-  ]
+  ],
+  "bilibili_local": {
+    "primary": [],
+    "contrast_only": [
+      {
+        "id": "REF_BV15W411X7Rk",
+        "path": "docs/reference/gl-shutdown-pve/contrast/jp_battle_screen_2018_BV15W411X7Rk.mp4",
+        "region": "JP",
+        "year": 2018,
+        "role": "contrast_only",
+        "note": "竖屏 5 人战斗 HUD。非停服窗、非 GL。"
+      },
+      {
+        "id": "REF_BV1Zp411o7Aw",
+        "path": "docs/reference/gl-shutdown-pve/contrast/jp_narrative_hard8_eve_BV1Zp411o7Aw.mp4",
+        "region": "JP",
+        "year": 2018,
+        "role": "contrast_only",
+        "note": "Narrative Hard8 五人头像 + Fever 条。"
+      },
+      {
+        "id": "REF_BV1eq4y1i7Sf",
+        "path": "docs/reference/gl-shutdown-pve/contrast/tryout_2022_BV1eq4y1i7Sf.mp4",
+        "region": "KR_OR_UNKNOWN",
+        "year": 2022,
+        "role": "contrast_only",
+        "note": "5 人史莱姆棋盘战。略早于冻结窗。非 GL 主 GT。"
+      },
+      {
+        "id": "REF_BV15p4y1k7oW",
+        "path": "docs/reference/gl-shutdown-pve/contrast/daily_day6_2020_BV15p4y1k7oW.mp4",
+        "region": "KR_OR_UNKNOWN",
+        "year": 2020,
+        "role": "contrast_only",
+        "note": "5 人战 + Fever≈40% + FULL AUTO。"
+      }
+    ],
+    "rejected_not_primary": [
+      "gl_rebirth_maze_2023_BV14v4y1k7Fy",
+      "revive_combat_2024_BV1ow4m1Y7bc",
+      "eos_memorial_2023_BV1mh4y117CW",
+      "eos_recap_2023_BV1614y1z75t"
+    ]
+  }
 }

@@ -1,5 +1,7 @@
 # 我方切片 cue（`M1-G2-OUR-CUES`）
 
+2026-09-12h 补：`our_slice/shots_20260912h/06j_auto_hit.png`（自动普攻伤害数字）与 `06f_kill.png`（敌死无击破章）。仍是我方切片，不是 GT。
+
 日期：2026-09-10。`our_slice/` 与 `client/captures/`。主协调者目视过 `07_drive` / `08_fever` / `09_result`（非黑帧）。
 
 **这是契灵回响 / Resonance 我方 Vertical Slice，不是原作 GT。**  

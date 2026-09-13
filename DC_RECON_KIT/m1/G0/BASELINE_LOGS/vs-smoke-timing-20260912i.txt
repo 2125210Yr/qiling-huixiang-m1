@@ -1,0 +1,76 @@
+PASS
+screens=Boot,Home,Characters,Team,Inspect,Stage,Battle,Result,Home
+captures=01_home.png,ui_home.png,06_battle.png,ui_battle.png,06g_speed.png,06h_auto.png,06i_pause.png,06j_auto_hit.png,06f_kill.png,06a_charge.png,06b_tap.png,06c_slide.png,06e_control.png,06d_drive_select.png,07_drive.png,08_fever.png,10_wave.png,09_victory.png,09_result.png,11_home_return.png
+result=CLEAR!!
+home-return=True
+cleared=True
+tap=True slide=True drive=True fever=True
+wave=True drive-select=True control=True speed=True auto=True pause=True auto-hit=True kill=True
+save=F:\天命之子\client\Temp\vs-smoke-save\save.json
+save-isolated=True
+save-user=C:\Users\Administrator\AppData\LocalLow\Resonance\契灵回响\save.json
+save-json={"party":["C001","C007","C010","C003","C005"],"leader":0,"cleared":true,"clearedN":1,"seed":9975250,"speed":2,"auto":2,"hard":false,"clearedH":0,"gold":12000,"stone":180,"meal":-1,"pvp":false,"daily":0,"mail":0,"roster":["C001","C007","C010","C003","C005"],"skins":["C001:echo"],"puppets":["P001","P002","P003"],"units":[{"id":"C001","lv":2,"uncap":0,"ign":0,"ia":0,"ic":0,"ig":0,"aff":4,"rsv":"TSTEE","skin":"","g0":"EQ_WPN","g1":"","g2":"","g3":"SC006","p0":0,"p1":0,"p2":0,"p3":0},{"id":"C007","lv":2,"uncap":0,"ign":0,"ia":0,"ic":0,"ig":0,"aff":4,"rsv":"TTEEE","skin":"","g0":"","g1":"EQ_ARM","g2":"","g3":"","p0":0,"p1":0,"p2":0,"p3":0},{"id":"C010","lv":2,"uncap":0,"ign":0,"ia":0,"ic":0,"ig":0,"aff":4,"rsv":"SSTEE","skin":"","g0":"","g1":"","g2":"EQ_ACC","g3":"","p0":0,"p1":0,"p2":0,"p3":0},{"id":"C003","lv":2,"uncap":0,"ign":0,"ia":0,"ic":0,"ig":0,"aff":4,"rsv":"TEEEE","skin":"","g0":"","g1":"","g2":"","g3":"SC006","p0":0,"p1":0,"p2":0,"p3":0},{"id":"C005","lv":2,"uncap":0,"ign":0,"ia":0,"ic":0,"ig":0,"aff":4,"rsv":"ESTEE","skin":"","g0":"EQ_WPN","g1":"","g2":"","g3":"","p0":0,"p1":0,"p2":0,"p3":0}]}
+log:smoke start
+log:shot 01_home.png,ui_home.png
+log:home
+log:skip Characters/Team/Inspect; roster draw can stall smoke
+log:phase Stage
+log:phase Battle
+log:shot 06_battle.png,ui_battle.png
+log:focus enemy 2
+log:shot 06g_speed.png
+log:speed 2
+log:shot 06h_auto.png
+log:auto Full
+log:shot 06i_pause.png
+log:pause board
+log:shot 06j_auto_hit.png
+log:focus enemy 1
+log:auto-hit seen=True casts=8
+log:shot 06f_kill.png
+log:enemy death; no KO stamp kind=None
+log:shot 06a_charge.png
+log:tap 0
+log:shot 06b_tap.png
+log:slide 0
+log:focus enemy 0
+log:shot 06c_slide.png
+log:control applied locked=True
+log:shot 06e_control.png
+log:shot 06d_drive_select.png
+log:drive qte slot=0
+log:shot 07_drive.png
+log:drive perfect fever=40 active=False
+log:drive qte slot=0
+log:drive perfect fever=80 active=False
+log:drive qte slot=0
+log:drive perfect fever=0 active=True
+log:shot 08_fever.png
+log:fever drained active=False overlay=False
+log:focus enemy 0
+log:shot 10_wave.png
+log:wave cue PHASE 2
+log:wave cue skip kind=None
+log:result CLEAR!!
+log:phase Result
+log:shot 09_victory.png
+log:shot 09_result.png
+log:result shot ok; going home
+log:phase HomeReturn
+log:result -> home
+log:shot 11_home_return.png
+cue-timing:showtime hold=1.487 on=10.480 off=11.968
+cue-timing:showtime hold=0.037 on=12.442 off=12.480
+cue-timing:showtime hold=0.000 on=13.208 off=13.208
+cue-timing:showtime hold=0.129 on=13.208 off=13.337
+cue-timing:qte hold=2.506 on=13.131 off=15.636
+cue-timing:qte hold=2.501 on=15.654 off=18.155
+cue-timing:qte hold=1.257 on=18.170 off=19.427
+cue-timing:phase hold=2.003 on=19.600 off=21.603
+cue-timing:victory hold=1.491 on=25.609 off=27.099
+hit-chain:tap in→num=0.000
+hit-chain:slide in→num=0.000
+cue-strip:showtime frames=45 drops=0 hold=1.487 dir=F:\天命之子\client\captures\strip\showtime
+cue-strip:qte frames=75 drops=0 hold=2.506 dir=F:\天命之子\client\captures\strip\qte
+cue-strip:phase frames=58 drops=0 hold=2.003 dir=F:\天命之子\client\captures\strip\phase
+cue-strip:victory frames=45 drops=0 hold=1.491 dir=F:\天命之子\client\captures\strip\victory

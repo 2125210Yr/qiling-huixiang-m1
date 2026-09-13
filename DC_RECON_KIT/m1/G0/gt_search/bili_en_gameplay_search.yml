@@ -1,0 +1,460 @@
+- generic [active] [ref=f14e1]:
+  - generic [ref=f14e4]:
+    - list [ref=f14e5]:
+      - listitem [ref=f14e6]:
+        - link "首页" [ref=f14e7] [cursor=pointer]:
+          - /url: //www.bilibili.com
+      - listitem [ref=f14e15]:
+        - link "番剧" [ref=f14e16] [cursor=pointer]:
+          - /url: //www.bilibili.com/anime/
+      - listitem [ref=f14e17]:
+        - link "直播" [ref=f14e18] [cursor=pointer]:
+          - /url: //live.bilibili.com
+      - listitem [ref=f14e19]:
+        - link "游戏中心" [ref=f14e21] [cursor=pointer]:
+          - /url: //game.bilibili.com/platform
+      - listitem [ref=f14e22]:
+        - link "会员购" [ref=f14e23] [cursor=pointer]:
+          - /url: //show.bilibili.com/platform/home.html?msource=pc_web
+      - listitem [ref=f14e24]:
+        - link "漫画" [ref=f14e25] [cursor=pointer]:
+          - /url: //manga.bilibili.com?from=bill_top_mnav
+      - listitem [ref=f14e26]:
+        - link "赛事" [ref=f14e27] [cursor=pointer]:
+          - /url: //www.bilibili.com/match/home/
+      - listitem
+      - listitem
+    - list [ref=f14e28]:
+      - listitem [ref=f14e29] [cursor=pointer]:
+        - listitem [ref=f14e30]:
+          - generic [ref=f14e31]: 登录
+          - generic [ref=f14e35]:
+            - paragraph [ref=f14e36]: 登录后你可以：
+            - generic [ref=f14e37]
+            - generic [ref=f14e62]: 立即登录
+            - generic [ref=f14e63]: 首次使用？ 点我注册
+      - listitem [ref=f14e64] [cursor=pointer]:
+        - listitem [ref=f14e66]:
+          - link [ref=f14e67]:
+            - /url: //account.bilibili.com/big
+      - listitem [ref=f14e72] [cursor=pointer]
+      - listitem [ref=f14e77] [cursor=pointer]
+      - listitem [ref=f14e85] [cursor=pointer]
+      - listitem [ref=f14e90] [cursor=pointer]
+      - listitem [ref=f14e94] [cursor=pointer]
+      - listitem [ref=f14e100] [cursor=pointer]:
+        - listitem [ref=f14e101]
+  - generic [ref=f14e109]:
+    - generic [ref=f14e110]:
+      - generic [ref=f14e114]:
+        - img [ref=f14e118] [cursor=pointer]
+        - textbox "输入关键字搜索" [ref=f14e120]: Destiny Child Gameplay English Version
+        - button "搜索" [ref=f14e121] [cursor=pointer]
+      - navigation [ref=f14e124]:
+        - list [ref=f14e125]:
+          - listitem [ref=f14e126]:
+            - generic [ref=f14e127] [cursor=pointer]: 综合
+          - listitem [ref=f14e129]:
+            - generic [ref=f14e130] [cursor=pointer]
+          - listitem [ref=f14e133]:
+            - generic [ref=f14e134] [cursor=pointer]
+          - listitem [ref=f14e137]:
+            - generic [ref=f14e138] [cursor=pointer]
+          - listitem [ref=f14e141]:
+            - generic [ref=f14e142] [cursor=pointer]
+          - listitem [ref=f14e145]:
+            - generic [ref=f14e146] [cursor=pointer]
+          - listitem [ref=f14e149]:
+            - generic [ref=f14e150] [cursor=pointer]
+      - separator [ref=f14e154]
+      - generic [ref=f14e157]:
+        - generic [ref=f14e158]:
+          - button "综合排序" [ref=f14e159] [cursor=pointer]
+          - button "最多播放" [ref=f14e160] [cursor=pointer]
+          - button "最新发布" [ref=f14e161] [cursor=pointer]
+          - button "最多弹幕" [ref=f14e162] [cursor=pointer]
+          - button "最多收藏" [ref=f14e163] [cursor=pointer]
+        - button "更多筛选" [ref=f14e164] [cursor=pointer]
+    - generic [ref=f14e170]:
+      - generic [ref=f14e172]:
+        - generic [ref=f14e175]:
+          - link "火爆美国的英文启蒙儿歌【Eli Kids】帮孩子培养英语语感 1.3万 3 49:22" [ref=f14e176] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1qY4y1a7td/
+            - generic [ref=f14e177]
+          - generic [ref=f14e182]:
+            - link "火爆美国的英文启蒙儿歌【Eli Kids】帮孩子培养英语语感" [ref=f14e183] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1qY4y1a7td/
+            - link "豆豆爸在学习 · 2022-04-25" [ref=f14e186] [cursor=pointer]:
+              - /url: //space.bilibili.com/601728256
+        - generic [ref=f14e195]:
+          - link "男孩儿女孩儿 Boys and Girls《Genius English 预习课》GE1U1C2 2361 0 03:48" [ref=f14e196] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1h4411U7S9/
+            - generic [ref=f14e197]
+          - generic [ref=f14e202]:
+            - link "男孩儿女孩儿 Boys and Girls《Genius English 预习课》GE1U1C2" [ref=f14e203] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1h4411U7S9/
+            - link "爱乐奇乐园 · 2019-08-15" [ref=f14e207] [cursor=pointer]:
+              - /url: //space.bilibili.com/397433935
+        - generic [ref=f14e216]:
+          - link "Destiny&#x27;s Child - Survivor (Official Video) 1247 0 04:11" [ref=f14e217] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1BDZ8YYEPP/
+            - generic [ref=f14e218]
+          - generic [ref=f14e223]:
+            - link "Destiny's Child - Survivor (Official Video)" [ref=f14e224] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1BDZ8YYEPP/
+            - link "dysgcqsn · 2025-04-01" [ref=f14e229] [cursor=pointer]:
+              - /url: //space.bilibili.com/432346898
+        - generic [ref=f14e238]:
+          - link "[FNaF SFM] 孩子们的命运 Children&#x27;s Destiny Remix by Silent Wall Music 5.5万 149 03:10" [ref=f14e239] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV19p411o7VB/
+            - generic [ref=f14e240]
+          - generic [ref=f14e245]:
+            - link "[FNaF SFM] 孩子们的命运 Children's Destiny Remix by Silent Wall Music" [ref=f14e246] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV19p411o7VB/
+            - link "Rock-Band · 2018-05-12" [ref=f14e250] [cursor=pointer]:
+              - /url: //space.bilibili.com/12775162
+        - generic [ref=f14e259]:
+          - link "美国儿童英语早教儿歌 Dave &amp; Ava 分集合辑 英文字幕（更新中） 4.8万 7 06:03:39" [ref=f14e260] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1A64y1m7iP/
+            - generic [ref=f14e261]
+          - generic [ref=f14e266]:
+            - link "美国儿童英语早教儿歌 Dave & Ava 分集合辑 英文字幕（更新中）" [ref=f14e267] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1A64y1m7iP/
+            - link "暖暖英语启蒙 · 2021-05-14" [ref=f14e270] [cursor=pointer]:
+              - /url: //space.bilibili.com/109336233
+        - generic [ref=f14e279]:
+          - link "【162集】《Dream English Kids Songs》 美国英语启蒙儿童歌曲，视频包含儿童学字母、数字、动物、形状、颜色等 6564 0 42:37" [ref=f14e280] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV12p4y157WR/
+            - generic [ref=f14e281]
+          - generic [ref=f14e286]:
+            - link "【162集】《Dream English Kids Songs》 美国英语启蒙儿童歌曲，视频包含儿童学字母、数字、动物、形状、颜色等" [ref=f14e287] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV12p4y157WR/
+            - link "宸宸妈爱分享 · 2023-07-25" [ref=f14e291] [cursor=pointer]:
+              - /url: //space.bilibili.com/261231750
+        - generic [ref=f14e300]:
+          - link "4399儿歌 英文儿歌系列TenLittleIndians 644 0 01:21" [ref=f14e301] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1B6Y86AETL/
+            - generic [ref=f14e302]
+          - generic [ref=f14e307]:
+            - link "4399儿歌 英文儿歌系列TenLittleIndians" [ref=f14e308] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1B6Y86AETL/
+            - link "兔小美和你在一起 · 昨天" [ref=f14e311] [cursor=pointer]:
+              - /url: //space.bilibili.com/3546912743491590
+        - generic [ref=f14e320]:
+          - link "Destiny&#x27;s Child-Destiny Fulfilled 1061 0 47:53" [ref=f14e321] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1jGz1BJEuA/
+            - generic [ref=f14e322]
+          - generic [ref=f14e327]:
+            - link "Destiny's Child-Destiny Fulfilled" [ref=f14e328] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1jGz1BJEuA/
+            - link "何笑庸的音乐空间 · 01-24" [ref=f14e334] [cursor=pointer]:
+              - /url: //space.bilibili.com/10455477
+        - generic [ref=f14e343]:
+          - link "【110集高清】Dave and Ava 英文儿歌 3.9万 35 06:03:31" [ref=f14e344] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV16R4y1n7Ai/
+            - generic [ref=f14e345]
+          - generic [ref=f14e350]:
+            - link "【110集高清】Dave and Ava 英文儿歌" [ref=f14e351] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV16R4y1n7Ai/
+            - link "桐豆妈妈资源站 · 2021-10-01" [ref=f14e354] [cursor=pointer]:
+              - /url: //space.bilibili.com/7515435
+        - generic [ref=f14e363]:
+          - link "My Destiny (2026 Edit) 1093 0 02:29" [ref=f14e364] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1dy3E65Erh/
+            - generic [ref=f14e365]
+          - generic [ref=f14e370]:
+            - link "My Destiny (2026 Edit)" [ref=f14e371] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1dy3E65Erh/
+            - link "蓝焔_ · 07-26" [ref=f14e375] [cursor=pointer]:
+              - /url: //space.bilibili.com/3546635145579360
+        - generic [ref=f14e384]:
+          - link "【P1P歌词翻译】《Bloody Destiny》/《命定血仇》 13.9万 4 02:04" [ref=f14e385] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1Lr421M7n5/
+            - generic [ref=f14e386]
+          - generic [ref=f14e391]:
+            - link "【P1P歌词翻译】《Bloody Destiny》/《命定血仇》" [ref=f14e392] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1Lr421M7n5/
+            - link "Megalo_PaleWhite · 2024-07-26" [ref=f14e396] [cursor=pointer]:
+              - /url: //space.bilibili.com/6940439
+        - generic [ref=f14e405]:
+          - link "【4K修复 ll中日字】Hey! Say! JUMP - Fate or Destiny [Official Music Video] 2.5万 84 03:43" [ref=f14e406] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1xa411N7WS/
+            - generic [ref=f14e407]
+          - generic [ref=f14e412]:
+            - link "【4K修复 ll中日字】Hey! Say! JUMP - Fate or Destiny [Official Music Video]" [ref=f14e413] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1xa411N7WS/
+            - link "Jiminie망개떡 · 2022-08-03" [ref=f14e417] [cursor=pointer]:
+              - /url: //space.bilibili.com/244049685
+        - generic [ref=f14e426]:
+          - link "Independent Women, Pt. 1 - Destiny&#x27;s Child 4952 3 03:58" [ref=f14e427] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1cJ41177Ve/
+            - generic [ref=f14e428]
+          - generic [ref=f14e433]:
+            - link "Independent Women, Pt. 1 - Destiny's Child" [ref=f14e434] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1cJ41177Ve/
+            - link "索尼音乐中国 · 2020-01-13" [ref=f14e439] [cursor=pointer]:
+              - /url: //space.bilibili.com/486906719
+        - generic [ref=f14e448]:
+          - link "Dream English Kids系列 3.1万 6 10:19:54" [ref=f14e449] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1xL411c7h8/
+            - generic [ref=f14e450]
+          - generic [ref=f14e455]:
+            - link "Dream English Kids系列" [ref=f14e456] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1xL411c7h8/
+            - link "开心妈侃娃 · 2022-01-14" [ref=f14e460] [cursor=pointer]:
+              - /url: //space.bilibili.com/341398788
+        - generic [ref=f14e469]:
+          - link "【Outcome Memories】小银单人Solo/Lms曲Our Destiny-我们的命运 1.6万 4 04:20" [ref=f14e470] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1eQqhBqEYz/
+            - generic [ref=f14e471]
+          - generic [ref=f14e476]:
+            - link "【Outcome Memories】小银单人Solo/Lms曲Our Destiny-我们的命运" [ref=f14e477] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1eQqhBqEYz/
+            - link "兀つまらない撩 · 2025-12-16" [ref=f14e481] [cursor=pointer]:
+              - /url: //space.bilibili.com/1869937398
+        - generic [ref=f14e490]:
+          - 'link "7岁小孩做的英文游戏解说Avatar World: City Life #4 930 0 11:35" [ref=f14e491] [cursor=pointer]':
+            - /url: //www.bilibili.com/video/BV1tM4m1X7Wj/
+            - generic [ref=f14e492]
+          - generic [ref=f14e497]:
+            - 'link "7岁小孩做的英文游戏解说Avatar World: City Life #4" [ref=f14e498] [cursor=pointer]':
+              - /url: //www.bilibili.com/video/BV1tM4m1X7Wj/
+            - link "EP小孩英文游戏解说 · 2024-04-06" [ref=f14e501] [cursor=pointer]:
+              - /url: //space.bilibili.com/594847882
+        - generic [ref=f14e510]:
+          - link "Ten little fingers_腾讯视频 4.6万 23 01:20" [ref=f14e511] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1Cp4y117uQ/
+            - generic [ref=f14e512]
+          - generic [ref=f14e517]:
+            - link "Ten little fingers_腾讯视频" [ref=f14e518] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1Cp4y117uQ/
+            - link "外语万花筒 · 2020-04-04" [ref=f14e521] [cursor=pointer]:
+              - /url: //space.bilibili.com/527584140
+        - generic [ref=f14e530]:
+          - link "Enigma - The Child In Us 2377 1 05:11" [ref=f14e531] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV13V411B7ru/
+            - generic [ref=f14e532]
+          - generic [ref=f14e537]:
+            - link "Enigma - The Child In Us" [ref=f14e538] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV13V411B7ru/
+            - link "老莫的乐道 · 2021-01-31" [ref=f14e542] [cursor=pointer]:
+              - /url: //space.bilibili.com/11070763
+        - generic [ref=f14e551]:
+          - link "第49集｜新世纪经典 Enigma - The Child in Us 1185 0 05:17" [ref=f14e552] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1Fk4y157k2/
+            - generic [ref=f14e553]
+          - generic [ref=f14e558]:
+            - link "第49集｜新世纪经典 Enigma - The Child in Us" [ref=f14e559] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1Fk4y157k2/
+            - link "非流行音乐电台 · 2023-07-16" [ref=f14e563] [cursor=pointer]:
+              - /url: //space.bilibili.com/408252552
+        - generic [ref=f14e572]:
+          - link "05.The Wishing Well（28篇完结） AR 3.1 原版英文动画 配套词汇句型拓展 中高年级英语训练 150 1 02:18:41" [ref=f14e573] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1wVgw6BEFV/
+            - generic [ref=f14e574]
+          - generic [ref=f14e579]:
+            - link "05.The Wishing Well（28篇完结） AR 3.1 原版英文动画 配套词汇句型拓展 中高年级英语训练" [ref=f14e580] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1wVgw6BEFV/
+            - link "平静的心Pro · 08-14" [ref=f14e583] [cursor=pointer]:
+              - /url: //space.bilibili.com/3546380199005008
+        - generic [ref=f14e592]:
+          - link "《Teenage Life》 1.2万 0 03:08" [ref=f14e593] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1G3411n7hP/
+            - generic [ref=f14e594]
+          - generic [ref=f14e599]:
+            - link "《Teenage Life》" [ref=f14e600] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1G3411n7hP/
+            - link "狮子座爱听歌 · 2022-04-13" [ref=f14e603] [cursor=pointer]:
+              - /url: //space.bilibili.com/495470094
+        - generic [ref=f14e612]:
+          - link "Destiny&#x27;s Child《Brown Eyes》Hi-Res无损音质纯享版 4391 0 04:47" [ref=f14e613] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1qVyABjETR/
+            - generic [ref=f14e614]
+          - generic [ref=f14e619]:
+            - link "Destiny's Child《Brown Eyes》Hi-Res无损音质纯享版" [ref=f14e620] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1qVyABjETR/
+            - link "Rhythm-47 · 2025-11-20" [ref=f14e625] [cursor=pointer]:
+              - /url: //space.bilibili.com/3632315039222100
+        - generic [ref=f14e634]:
+          - link "什么叫R&amp;B天团啊？Brown Eyes-Destiny&#x27;s Child【B站最高音质】 7.9万 54 04:39" [ref=f14e635] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1H9orYTEgC/
+            - generic [ref=f14e636]
+          - generic [ref=f14e641]:
+            - link "什么叫R&B天团啊？Brown Eyes-Destiny's Child【B站最高音质】" [ref=f14e642] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1H9orYTEgC/
+            - link "大杨_Jens · 2025-03-24" [ref=f14e647] [cursor=pointer]:
+              - /url: //space.bilibili.com/472192346
+        - generic [ref=f14e656]:
+          - link "Brown Eyes - Destiny&#x27;s Child 4.8万 52 04:35" [ref=f14e657] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1QJ411h742/
+            - generic [ref=f14e658]
+          - generic [ref=f14e663]:
+            - link "Brown Eyes - Destiny's Child" [ref=f14e664] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1QJ411h742/
+            - link "索尼音乐中国 · 2020-01-11" [ref=f14e669] [cursor=pointer]:
+              - /url: //space.bilibili.com/486906719
+        - generic [ref=f14e678]:
+          - link "Dexter Procter《十岁儿科医生德克斯特》是英国前医生、畅销书作家亚当·凯（Adam Kay）创作的儿童爆笑小说，BBC 改编剧 1649 0 58:11" [ref=f14e679] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1qm7A6SEi5/
+            - generic [ref=f14e680]
+          - generic [ref=f14e685]:
+            - link "Dexter Procter《十岁儿科医生德克斯特》是英国前医生、畅销书作家亚当·凯（Adam Kay）创作的儿童爆笑小说，BBC 改编剧" [ref=f14e686] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1qm7A6SEi5/
+            - link "杰克船长爸爸爱学习 · 06-22" [ref=f14e689] [cursor=pointer]:
+              - /url: //space.bilibili.com/35773279
+        - generic [ref=f14e698]:
+          - link "【英语儿歌】戴夫和爱娃 Dave and Ava合集 13.4万 73 61:16:40" [ref=f14e699] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1wU4y1L72L/
+            - generic [ref=f14e700]
+          - generic [ref=f14e705]:
+            - link "【英语儿歌】戴夫和爱娃 Dave and Ava合集" [ref=f14e706] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1wU4y1L72L/
+            - link "暖暖英语启蒙 · 2021-05-18" [ref=f14e709] [cursor=pointer]:
+              - /url: //space.bilibili.com/109336233
+        - generic [ref=f14e718]:
+          - link "【汉化】Switch游戏《混沌之子 Chaos;Child》汉化版发布 1.3万 0 03:52" [ref=f14e719] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1s43E6oEB8/
+            - generic [ref=f14e720]
+          - generic [ref=f14e725]:
+            - link "【汉化】Switch游戏《混沌之子 Chaos;Child》汉化版发布" [ref=f14e726] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1s43E6oEB8/
+            - link "水の仙 · 07-26" [ref=f14e730] [cursor=pointer]:
+              - /url: //space.bilibili.com/2470214
+        - generic [ref=f14e739]:
+          - link "01.Wizard and Cat（72篇完结）AR 2.1 分级低龄儿童沉浸式磨耳朵自主启蒙全套资源 4289 0 03:51:43" [ref=f14e740] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV18zgV6JE6G/
+            - generic [ref=f14e741]
+          - generic [ref=f14e746]:
+            - link "01.Wizard and Cat（72篇完结）AR 2.1 分级低龄儿童沉浸式磨耳朵自主启蒙全套资源" [ref=f14e747] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV18zgV6JE6G/
+            - link "平静的心Pro · 08-12" [ref=f14e750] [cursor=pointer]:
+              - /url: //space.bilibili.com/3546380199005008
+        - generic [ref=f14e759]:
+          - link "瓦尼亚一家 Vania Mania Kids（持续更新4.10） 4799 1 23:00:39" [ref=f14e760] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1Va41147FZ/
+            - generic [ref=f14e761]
+          - generic [ref=f14e766]:
+            - link "瓦尼亚一家 Vania Mania Kids（持续更新4.10）" [ref=f14e767] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1Va41147FZ/
+            - link "咕噜咕噜熊猫 · 2022-03-31" [ref=f14e770] [cursor=pointer]:
+              - /url: //space.bilibili.com/1799034095
+        - generic [ref=f14e779]:
+          - link "全280集【剑桥国际少儿英语 Kid‘S Box教程】L0-L6 剑桥国际少儿英语KET版 视频+PDF教材 23.1万 1173 40:08:48" [ref=f14e780] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1KpidYAEzV/
+            - generic [ref=f14e781]
+          - generic [ref=f14e786]:
+            - link "全280集【剑桥国际少儿英语 Kid‘S Box教程】L0-L6 剑桥国际少儿英语KET版 视频+PDF教材" [ref=f14e787] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1KpidYAEzV/
+            - link "幼小初高学习课堂 · 2024-12-05" [ref=f14e790] [cursor=pointer]:
+              - /url: //space.bilibili.com/491506683
+      - generic [ref=f14e799]:
+        - button "上一页" [disabled] [ref=f14e800]
+        - button "1" [ref=f14e801] [cursor=pointer]
+        - button "2" [ref=f14e802] [cursor=pointer]
+        - button "3" [ref=f14e803] [cursor=pointer]
+        - button "4" [ref=f14e804] [cursor=pointer]
+        - button "5" [ref=f14e805] [cursor=pointer]
+        - button "6" [ref=f14e806] [cursor=pointer]
+        - button "7" [ref=f14e807] [cursor=pointer]
+        - generic [ref=f14e808]: ...
+        - button "34" [ref=f14e809] [cursor=pointer]
+        - button "下一页" [ref=f14e810] [cursor=pointer]
+  - generic [ref=f14e815]:
+    - generic [ref=f14e816]:
+      - generic [ref=f14e817]:
+        - generic [ref=f14e818]: bilibili
+        - generic [ref=f14e819]:
+          - link "关于我们" [ref=f14e820] [cursor=pointer]:
+            - /url: //www.bilibili.com/blackboard/aboutUs.html
+          - link "联系我们" [ref=f14e821] [cursor=pointer]:
+            - /url: //www.bilibili.com/blackboard/contact.html
+          - link "用户协议" [ref=f14e822] [cursor=pointer]:
+            - /url: //www.bilibili.com/protocal/licence.html
+          - link "加入我们" [ref=f14e823] [cursor=pointer]:
+            - /url: //www.bilibili.com/blackboard/join.html
+          - link "隐私协议" [ref=f14e824] [cursor=pointer]:
+            - /url: //www.bilibili.com/blackboard/privacy-pc.html
+          - link "bilibili认证" [ref=f14e825] [cursor=pointer]:
+            - /url: //account.bilibili.com/account/official/home
+          - link "Investor Relations" [ref=f14e826] [cursor=pointer]:
+            - /url: //ir.bilibili.com/
+      - generic [ref=f14e827]:
+        - generic [ref=f14e828]: 传送门
+        - generic [ref=f14e829]:
+          - link "协议汇总" [ref=f14e830] [cursor=pointer]:
+            - /url: //www.bilibili.com/blackboard/topic/activity-cn8bxPLzz.html
+          - link "活动中心" [ref=f14e831] [cursor=pointer]:
+            - /url: //www.bilibili.com/blackboard/activity-list.html
+          - link "活动专题页" [ref=f14e832] [cursor=pointer]:
+            - /url: //www.bilibili.com/blackboard/topic_list.html
+          - link "侵权申诉" [ref=f14e833] [cursor=pointer]:
+            - /url: //www.bilibili.com/v/copyright/intro/
+          - link "帮助中心" [ref=f14e834] [cursor=pointer]:
+            - /url: //www.bilibili.com/blackboard/help.html
+          - link "社区中心" [ref=f14e835] [cursor=pointer]:
+            - /url: https://www.bilibili.com/blackboard/activity-5zJxM3spoS.html
+          - link "壁纸站" [ref=f14e836] [cursor=pointer]:
+            - /url: //space.bilibili.com/6823116#/album
+          - link "广告合作" [ref=f14e837] [cursor=pointer]:
+            - /url: //e.bilibili.com/
+          - link "名人堂" [ref=f14e838] [cursor=pointer]:
+            - /url: //www.bilibili.com/blackboard/activity-S1jfy69Jz.html
+          - link "MCN管理中心" [ref=f14e839] [cursor=pointer]:
+            - /url: //mcn.bilibili.com/studio/mcn/entry
+          - link "高级弹幕" [ref=f14e840] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1Xx411c7cH/
+          - link "品牌号官网" [ref=f14e841] [cursor=pointer]:
+            - /url: //b.bilibili.com/
+      - generic [ref=f14e842]:
+        - link "下载APP" [ref=f14e844] [cursor=pointer]:
+          - /url: //app.bilibili.com/
+          - paragraph [ref=f14e848]: 下载APP
+        - link "公益" [ref=f14e850] [cursor=pointer]:
+          - /url: //love.bilibili.com/
+          - paragraph [ref=f14e857]: 公益
+        - link "官方微博" [ref=f14e859] [cursor=pointer]:
+          - /url: //weibo.com/bilibiliweb
+          - paragraph [ref=f14e863]: 官方微博
+        - paragraph [ref=f14e869]: 官方微信
+    - generic [ref=f14e872]:
+      - generic [ref=f14e873]:
+        - link "营业执照" [ref=f14e874] [cursor=pointer]:
+          - /url: //i0.hdslb.com/bfs/activity-plat/static/20240516/9ccf041718e5d6d6dfaebc91b85c791c/gd85E6tDco.jpg
+        - text: 信息网络传播视听节目许可证：0910417
+        - link "网络文化经营许可证 沪网文【2025】0258-085号" [ref=f14e875] [cursor=pointer]:
+          - /url: //i0.hdslb.com/bfs/activity-plat/static/20260209/3b3c5705bda98d50983f6f47df360fef/K4t52YryBV.jpeg
+        - text: 广播电视节目制作经营许可证：（沪）字第01248号增值电信业务经营许可证 沪B2-20100043
+      - generic [ref=f14e876]:
+        - link "互联网ICP备案：沪ICP备13002172号-3" [ref=f14e877] [cursor=pointer]:
+          - /url: //beian.miit.gov.cn/
+        - link "出版物经营许可证 沪批字第U6699 号" [ref=f14e878] [cursor=pointer]:
+          - /url: //i0.hdslb.com/bfs/activity-plat/static/20240516/9ccf041718e5d6d6dfaebc91b85c791c/4ainzbFKao.jpg
+        - text: 互联网药品信息服务资格证 沪-非经营性-2022-0011营业性演出许可证 沪市文演（经）00-2253 |
+      - generic [ref=f14e879]:
+        - link "不良信息举报邮箱：help@bilibili.com" [ref=f14e880] [cursor=pointer]:
+          - /url: mailto:help@bilibili.com
+        - link "涉未成年举报邮箱：teenprotect@bilibili.com" [ref=f14e881] [cursor=pointer]:
+          - /url: mailto:teenprotect@bilibili.com
+        - text: 不良信息举报电话：4006262233转3
+        - link "上海互联网举报中心 |" [ref=f14e883] [cursor=pointer]:
+          - /url: http://www.shjbzx.cn/
+        - link "12345政务服务便民热线 |" [ref=f14e884] [cursor=pointer]:
+          - /url: http://www.sh12345.gov.cn/
+      - generic [ref=f14e885]:
+        - link "沪公网安备31011002002436号 |" [ref=f14e887] [cursor=pointer]:
+          - /url: http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011002002436
+        - link "儿童色情信息举报专区 |" [ref=f14e888] [cursor=pointer]:
+          - /url: mailto:userreport@bilibili.com
+        - link "扫黄打非举报" [ref=f14e889] [cursor=pointer]:
+          - /url: https://bzpt.shdf.gov.cn/www/shouye/gzfw/wsjb/index.shtml
+      - generic [ref=f14e890]:
+        - link "网信算备310110764385705230011号" [ref=f14e891] [cursor=pointer]:
+          - /url: https://beian.cac.gov.cn/api/static/fileUpload/principalOrithm/additional/user_699bbd78-36f4-459c-aeb0-bf98a2a562d8_6185ea2c-c84c-404a-9280-c5465af05948.pdf
+        - link "网信算备310110764385702230013号" [ref=f14e892] [cursor=pointer]:
+          - /url: https://beian.cac.gov.cn/api/static/fileUpload/principalOrithm/additional/user_699bbd78-36f4-459c-aeb0-bf98a2a562d8_e03e6855-76a6-43fb-b799-d090e7fce25d.pdf
+      - generic [ref=f14e893]:
+        - text: 网上有害信息举报专区：
+        - link "中国互联网违法和不良信息举报中心" [ref=f14e895] [cursor=pointer]:
+          - /url: https://www.12377.cn/
+        - text: 亲爱的市民朋友，上海警方反诈劝阻电话"96110"系专门针对避免您财产被骗受损而设，请您一旦收到来电，立即接听。
+      - generic [ref=f14e896]: 公司名称：上海宽娱数码科技有限公司 |公司地址：上海市杨浦区政立路489号 |电话：021-25099888

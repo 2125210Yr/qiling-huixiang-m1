@@ -1,0 +1,1 @@
+My slice, not GT. Not T27 / T28 / M1.\nFever aligned to P0 t440 identity only.\n

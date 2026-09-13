@@ -1,0 +1,46 @@
+﻿# FETCH_LOG — gl-shutdown-pve ROOT primary GT
+
+Date: 2026-09-12 (overnight)
+Dest (hard): `F:\天命之子\DC_RECON_KIT\docs\reference\gl-shutdown-pve\`
+Source: `GT_SOURCE_HANDOFF.md` direct YT IDs (no keyword search)
+
+## Landed (ROOT)
+
+| Priority | File | Bytes | Duration (ffprobe) | Notes |
+|---|---|---|---|---|
+| P1 | `hgqXY5M9gFk_GL_ND_Robin_Boss.mp4` | 25881280 | 74.25s | Global ND Robin boss |
+| P0 | `aSbBuFD12HY_GL_EN_Gameplay_Part1_202308.mp4` | 103465274 | 584.14s | EN gameplay Part 1 (Aug 2023 window) |
+| P2 | `IRDqNAhKKr4_GL_EternalVow_NormalHard_480p.mp4` | — | — | **deferred** — YT bot-gate again after P0/P1 capture; cookies inject no longer yields `playabilityStatus=OK` |
+
+Also kept sibling `.webm` pre-remux blobs next to the mp4s (same capture).
+
+## Method
+
+1. FlClash `GLOBAL=日本JP-HY2`, `mode=global`, mixed-port `7890`
+2. Chrome CDP on **non-default** `--user-data-dir=...\gl-shutdown-pve\_chrome_cdp_work` (Chrome 155 refuses DevTools on default User Data)
+3. Inject Profile 5 YouTube cookies (incl. `LOGIN_INFO`; decrypt v10 + strip 32-byte ABE prefix)
+4. Player `playabilityStatus=OK` in browser; raw googlevideo / yt-dlp URLs still 403/nsig/UMP — **not** used
+5. Capture via page `MediaRecorder` on `<video>.captureStream()` → webm (vp9+opus) → `ffmpeg -c copy` → mp4
+6. Captured frame size ~288×640 (narrow CDP window). Usable for cue timing; re-capture at 1280×720 if fidelity frames need landscape HUD
+
+## Not primary
+
+- contrast / rejected / Hell Metro / Ragna / Bilibili keyword flood — unchanged, not promoted
+- `dotnet test` / PlayMode smoke — still ≠ M1 acceptance
+
+## Next
+
+1. P2 Eternal Vow when YT session clears bot-gate again (cookies alone currently LOGIN_REQUIRED)
+2. Continue frame pass: Fever **window** (not just 0%), AUTO/×N, result plates — notes in `m1/G0/gt_search/19_primary_handoff_frames.md`
+3. G2 cue stamp aligned to P0 SHOWTIME/SLIDE SKILL (engineering ≠ acceptance)
+4. Fidelity stays **0**; **no G3**
+
+## Update 2026-09-12 15:00
+
+- User Chrome CDP (`127.0.0.1:9222`) watch `IRDqNAhKKr4`: `playabilityStatus=OK`, SID+avatar, native **1280×720**, length **2756s**, paused at 0. Not downloaded (no autonomous pull from the logged-in session). KIT dest still has no real P2 file; repo-root stub 768KB unchanged.
+- P0/P1 on disk remain MediaRecorder **296×640**. T27 still needs ≥720p original in ROOT.
+
+## Update 2026-09-12 03:25
+
+- P2 Eternal Vow: watch-page still LOGIN_REQUIRED even when home shows logged-in (Profile7 cookies, avatar=true on youtube.com/). Session can browse but not play new watch URLs. P0+P1 remain valid ROOT primary.
+- Frame scan: see `m1/G0/gt_search/19_primary_handoff_frames.md` (SHOWTIME/SLIDE at P0 t360; DRIVE/FEVER gauges at t60/t90).

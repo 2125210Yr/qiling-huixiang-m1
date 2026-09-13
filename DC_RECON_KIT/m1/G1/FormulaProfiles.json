@@ -30,5 +30,12 @@
   "slide_uniform_rng_as_truth_forbidden": true,
   "ignition_compose": "UNKNOWN",
   "referencer": "DC_RECON_KIT/tools/candidate_formulas.py",
-  "fidelity_pass_without_gt": false
+  "fidelity_pass_without_gt": false,
+  "deferred_supplement": {
+    "ref": "DEFERRED_SUPPLEMENT.json",
+    "status": "DEFERRED_NOT_REMOVED",
+    "signed_at": "2026-09-12",
+    "items": ["T14-T20"],
+    "note": "GL formulas later; still in M1 denominator; do not invent GL_FINAL_VERIFIED"
+  }
 }

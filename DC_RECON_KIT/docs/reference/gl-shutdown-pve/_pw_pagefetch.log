@@ -1,0 +1,36 @@
+START
+pages=1
+=== hgqXY5M9gFk ===
+{"status": "OK", "reason": null, "formats": 1, "adaptive": 15, "urlN": 1, "title": "[ DESTINY CHILD GLOBAL ] Final Boss ND stage 8 : ROBIN"}
+pick itag=18 h=360
+range probe {'status': 403, 'total': 0, 'cr': '', 'ok': False}
+FAIL Traceback (most recent call last):
+  File "F:\天命之子\DC_RECON_KIT\docs\reference\gl-shutdown-pve\_pw_pagefetch.py", line 193, in main
+    n = page_fetch_to_file(page, pick["url"], out)
+  File "F:\天命之子\DC_RECON_KIT\docs\reference\gl-shutdown-pve\_pw_pagefetch.py", line 63, in page_fetch_to_file
+    raise RuntimeError(f"fetch status {b64['err']}")
+RuntimeError: fetch status 403
+
+=== aSbBuFD12HY ===
+{"status": "OK", "reason": null, "formats": 1, "adaptive": 8, "urlN": 1, "title": "Destiny Child Gameplay - English Version | Part 1 (Android/iOS)"}
+pick itag=18 h=640
+range probe {'status': 403, 'total': 0, 'cr': '', 'ok': False}
+FAIL Traceback (most recent call last):
+  File "F:\天命之子\DC_RECON_KIT\docs\reference\gl-shutdown-pve\_pw_pagefetch.py", line 193, in main
+    n = page_fetch_to_file(page, pick["url"], out)
+  File "F:\天命之子\DC_RECON_KIT\docs\reference\gl-shutdown-pve\_pw_pagefetch.py", line 63, in page_fetch_to_file
+    raise RuntimeError(f"fetch status {b64['err']}")
+RuntimeError: fetch status 403
+
+=== IRDqNAhKKr4 ===
+{"status": "OK", "reason": null, "formats": 1, "adaptive": 6, "urlN": 1, "title": "Destiny Child (Global) - Eternal Vow Normal & Hard Full Run (Bathory Narrative Dungeon)"}
+pick itag=18 h=360
+range probe {'status': 403, 'total': 0, 'cr': '', 'ok': False}
+FAIL Traceback (most recent call last):
+  File "F:\天命之子\DC_RECON_KIT\docs\reference\gl-shutdown-pve\_pw_pagefetch.py", line 193, in main
+    n = page_fetch_to_file(page, pick["url"], out)
+  File "F:\天命之子\DC_RECON_KIT\docs\reference\gl-shutdown-pve\_pw_pagefetch.py", line 63, in page_fetch_to_file
+    raise RuntimeError(f"fetch status {b64['err']}")
+RuntimeError: fetch status 403
+
+ALL_DONE

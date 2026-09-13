@@ -1,0 +1,19 @@
+START
+attach https://www.youtube.com/ YouTube
+home {"title": "YouTube", "avatarLikely": false, "hasSignInText": false, "cookieSID": false}
+=== aSbBuFD12HY ===
+{"title": "Destiny Child Gameplay - English Version | Part 1 (Android/iOS) - YouTube", "status": "LOGIN_REQUIRED", "reason": "请登录，以便我们确认你不是聊天机器人", "formats": 0, "adaptive": 0, "videoSrc": "", "signedInUI": false}
+url_candidates=0 videoSrc=
+gv=0
+NO STREAM shot saved
+=== hgqXY5M9gFk ===
+{"title": "[ DESTINY CHILD GLOBAL ] Final Boss ND stage 8 : ROBIN - YouTube", "status": "LOGIN_REQUIRED", "reason": "请登录，以便我们确认你不是聊天机器人", "formats": 0, "adaptive": 0, "videoSrc": "", "signedInUI": false}
+url_candidates=0 videoSrc=
+gv=0
+NO STREAM shot saved
+=== IRDqNAhKKr4 ===
+{"title": "Destiny Child (Global) - Eternal Vow Normal & Hard Full Run (Bathory Narrative Dungeon) - YouTube", "status": "LOGIN_REQUIRED", "reason": "请登录，以便我们确认你不是聊天机器人", "formats": 0, "adaptive": 0, "videoSrc": "", "signedInUI": false}
+url_candidates=0 videoSrc=
+gv=0
+NO STREAM shot saved
+ALL_DONE

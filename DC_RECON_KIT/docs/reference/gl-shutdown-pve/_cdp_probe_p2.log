@@ -1,0 +1,42 @@
+START
+attach https://www.youtube.com/watch?v=IRDqNAhKKr4 | (3) Destiny Child (Global) - Eternal Vow Normal &amp; Hard Full Run (Bathory Narrative Dungeon) - YouTube
+{
+  "title": "(3) Destiny Child (Global) - Eternal Vow Normal & Hard Full Run (Bathory Narrative Dungeon) - YouTube",
+  "href": "https://www.youtube.com/watch?v=IRDqNAhKKr4",
+  "cookieSID": true,
+  "avatar": true,
+  "signIn": false,
+  "status": "OK",
+  "videoTitle": "Destiny Child (Global) - Eternal Vow Normal & Hard Full Run (Bathory Narrative Dungeon)",
+  "lengthSec": "2756",
+  "videoW": 1280,
+  "videoH": 720,
+  "clientW": 1801,
+  "clientH": 1013,
+  "ready": 4,
+  "paused": true,
+  "current": 0,
+  "dur": 2755.701,
+  "src": "blob:https://www.youtube.com/2f5e9b51-da75-495a-acf0-0fd7df9649f6",
+  "qualities": [
+    "hd720",
+    "medium",
+    "tiny",
+    "auto"
+  ],
+  "formats": [
+    {
+      "itag": 18,
+      "h": 360,
+      "mime": "video/mp4; codecs=\"avc1.42001E, mp4a.40.",
+      "hasUrl": true
+    }
+  ],
+  "adaptiveH": [
+    720,
+    360,
+    144
+  ]
+}
+shot F:\天命之子\DC_RECON_KIT\docs\reference\gl-shutdown-pve\_probe_p2_now.png bytes=1793234
+DONE

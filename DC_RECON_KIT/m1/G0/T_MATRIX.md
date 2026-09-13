@@ -1,8 +1,8 @@
 # T_MATRIX — T01–T32 与 G2 切片（功能 / 还原）
 
 - 任务：`M1-G2-TMATRIX`
-- 日期：2026-09-10
-- 角色：只读 QA 矩阵。**未改** `client/`。**未开** Editor。未重跑 `dotnet test`。未 spawn。未开 G3。
+- 日期：2026-09-10（闸门表 2026-09-12 与 STATUS 对齐：primary PARTIAL；T04 窗注 14s。功能/还原列未宣称升格）
+- 角色：QA 矩阵。还原列仍全 BLOCKED。未开 G3。未声称 M1。
 - 项定义：`DC_RECON_KIT/04_ACCEPTANCE_AND_TESTS.md`
 - G2 切片定义：`DC_RECON_KIT/03_MULTIAGENT_AND_MILESTONES.md` G2、`DC_RECON_KIT/m1/G1/NEXT_WAVE.md`、`UiStateMap.md`（入口/返回不得从分母删）
 
@@ -10,20 +10,23 @@
 
 **M1 未验收。G2 未过。不得报 90%。不得报还原分 / numeric fidelity / T27。**
 
+延期补件（用户 2026-09-12）：T27 / T28 / T14–T20 **`DEFERRED_NOT_REMOVED`**，见 `../G1/DEFERRED_SUPPLEMENT.md`。当前只走路 A。还原列仍全 BLOCKED。
+
 功能 IMPLEMENTED ≠ 还原通过。夹具绿 ≠ 原作回归。PlayMode 启动成功 ≠ 视觉通过。补充 Ragna 帧 ≠ primary GT。
 
 | 闸门 | 值 |
 |---|---|
-| TARGET | `TARGET_FROZEN_GT_SEARCHING` |
+| TARGET | `TARGET_FROZEN_GT_PARTIAL`（STATUS：handoff P0+P1 已落 ROOT；P2 bot-gate。**不是验收**） |
 | CONTRACT | `CONTRACT_FROZEN` |
 | MILESTONE | `M1 IN_PROGRESS`（**未验收**） |
 | G2 | `IN_PROGRESS_CORE_SLICE`（**未过**） |
-| PlayMode | `FAILED`（`FAIL drive never fired`；未重跑） |
-| EditMode | `NOT_RUN` |
-| primary GT | `CANDIDATE_NEEDS_FETCH` / `BLOCKED`（`docs/reference/gl-shutdown-pve/` **0 mp4**） |
+| PlayMode | `PASSED_SLICE_SMOKE`（我方切片，不是 GT。T26–T32 还原仍 BLOCKED） |
+| EditMode | `NOT_RUN`（工程 **0** 个 UTF 测；不要用空 Test Runner 翻成通过） |
+| primary GT | `LOCAL_PRIMARY_PARTIAL`（ROOT 已有 P0+P1 mp4；帧笔记 `gt_search/19_primary_handoff_frames.md`。有片 ≠ 还原 IMPLEMENTED） |
 | `GL_FINAL_VERIFIED` | **forbidden / not created** |
 | 还原 IMPLEMENTED | **0** |
 | 功能 IMPLEMENTED（内部一致性） | T01 / T03 / T10 / T15 / T18 |
+| `dotnet test` | **154** 绿（夹具自洽 ≠ M1；2026-09-12） |
 
 ---
 
@@ -33,7 +36,7 @@
 
 | 文件 | 用途 |
 |---|---|
-| `STATUS.md` | 最新闸门。PlayMode=`FAILED`。还原分 0。功能核 T01/T03/T10/T15/T18。 |
+| `STATUS.md` | 最新闸门。PlayMode=`PASSED_SLICE_SMOKE`（我方切片）。还原分 0。功能核 T01/T03/T10/T15/T18。 |
 | `QA_EXECUTOR.md` | 最新独立 QA 表。T 标签以此为底。当时 PlayMode 仍写 `NOT_RUN`（已被 STATUS 推进为 FAILED）。默认套件记录 **0 失败 / 115**。 |
 | `QA_REPAIR2.md` / `QA_REPAIR.md` / `QA_VERIFY.md` | 前序独立复核。T15/T18 自 VERIFY 的 STUB/MISSING 升为功能 IMPLEMENTED。 |
 | `M1_UNGATE.md` | 硬缺件。T26–T32 仍 `NOT_RUN`/`BLOCKED`。 |
@@ -66,9 +69,13 @@
 | `IgnitionTests.cs` | 6 | T19 通道形（U006 仍 UNKNOWN） |
 | `M1EventLogTests.cs` | 4 | T01 导出哈希（`QA_EXECUTOR` 的 115 清单里还没有此文件） |
 | `M1FormulaIsolationTests.cs` | 4 | T15 通道隔离；文件头写明不是还原 |
+| `M1SaveIdempotencyTests.cs` | 4 | 重复胜利不叠奖；不是 T23 还原 |
+| `M1TargetingTests.cs` | 5 | Self / 绝对HP / 比例；玩家焦点；焦点死后清；多段 mid-hit 重选。不是 T07/T08 还原 |
+| `M1ClockModeTests.cs` | 12 | 暂停/速度/QTE/手自动。秒数仍 UNKNOWN |
+| `M1EffectOrderTests.cs` | 5 | 盾吸收；pierce/reflect 仍失败关闭 |
 | `DC_RECON_KIT/tools/test_candidate_formulas.py` | 候选式，不是 T 回归 | |
 
-STATUS / `QA_EXECUTOR` 记录的默认 `dotnet test`：**0 失败 / 115**（夹具自洽）。本任务未重跑。磁盘上现有 6 个 cs 测文件，方法数合计 126。**不得**把 115 或 126 写成 M1 / 90% / 还原。
+默认 `dotnet test tools/BattleSim.Tests`：夹具自洽（本树曾记 150 绿）。磁盘约 10 个测文件。**不得**把夹具绿写成 M1 / 90% / 还原。T 还原列仍全 BLOCKED。
 
 ---
 
@@ -108,11 +115,11 @@ STATUS / `QA_EXECUTOR` 记录的默认 `dotnet test`：**0 失败 / 115**（夹�
 | T01 | 同 seed、同命令及 tick，事件日志哈希相同 | IMPLEMENTED | BLOCKED | `EventLogHashIsStableForSameSeed`；`M1EventLogTests` 导出哈希。`SameSeedSameLog` 不是事件哈希。无 GT 事件真值。 |
 | T02 | 30/60/120 渲染下逻辑结果相同 | MISSING | BLOCKED | 核锁 30Hz（契约：实现选择 ≠ GL 规格）。无跨渲染帧率测。 |
 | T03 | Auto / 充能 / SlideCd 不共享时钟 | IMPLEMENTED | BLOCKED | `SlideCdIsIndependentOfCharge`；`ControlPausesChargeButSlideCdContinues`。`ClockPolicy.slide_cd_present=true`。秒数 UNKNOWN。 |
-| T04 | 暂停 / 加速 / QTE / Fever 时钟与参考一致 | STUB | BLOCKED | `StayHeldKeepsManualBattleFrozen`；QTE 超时夹具有。窗仍 7s/70 hit。无 GT 分时钟。U011。 |
+| T04 | 暂停 / 加速 / QTE / Fever 时钟与参考一致 | STUB | BLOCKED | 暂停/×1–3/`QteFever` tip 对齐在工程侧。窗默认 **14s**；Drive QTE 默认 **7s**（P0 `DRIVE TIME`）。击数 70 仍占位。无逐帧 GT 分时钟。U011。 |
 | T05 | 采样不重复 Tap；上滑不误触 | STUB | BLOCKED | 手势代码已分。无采样率/双触测。PlayMode `FAILED`，不是手势通过。 |
 | T06 | 预约 / 自动次序 / 取消 | STUB | BLOCKED | `AutoTapFollowsReservation`。Reserve 仍 5 格。取消/无效命令未闭合。 |
 | T07 | 最低 HP 绝对 vs 比例 | STUB | BLOCKED | 仍只比绝对值。比例键在契约 `target_keys`，未测。 |
-| T08 | 多目标 / 多段重选；中途死亡 | STUB | BLOCKED | `retarget` 未实现，执行失败关闭。 |
+| T08 | 多目标 / 多段重选；中途死亡 | STUB | BLOCKED | 焦点死后清 `FocusEnemySlot`（`FocusClearsWhenEnemyDiesThenNextTapPicksAliveFoe`）。多段 mid-skill：`MultiHitRetargetsAfterFocusedEnemyDiesMidSkill`（JP_LEGACY 结算；每 hit 重选，死后不清焦点槽以外的目标）。`retarget` opcode 仍 UNKNOWN→失败关闭。 |
 | T09 | 嘲讽 / 免疫 / 不可选 | STUB | BLOCKED | 嘲讽施加+优先选取在（`KnownOpcodeSettlesShieldStunAndTaunt`）。免疫/不可选无。 |
 | T10 | 毒：行动/受击 ≠ 每秒 DoT | IMPLEMENTED | BLOCKED | `PoisonTriggersOnActionAndHitTakenNotPerSecond`。`EffectSchema.poison.implemented_in_engine=true`。`GL_UNKNOWN` 不改 HP。U014。 |
 | T11 | 护盾/穿防/反射/吸血/死亡触发 | STUB | BLOCKED | 盾施加+吸收在。`dmg.pierce` 仍失败。反射/吸血/死亡触发无体。分母五段都留。 |
@@ -132,7 +139,7 @@ STATUS / `QA_EXECUTOR` 记录的默认 `dotnet test`：**0 失败 / 115**（夹�
 | T25 | 坏档 / schema / 日切 | STUB | BLOCKED | `CorruptPrimaryFallsBackToBak`。日切/活动切换无。 |
 | T26 | 入口→编队→战斗→结算→养成→再战 | NOT_RUN | BLOCKED | PlayMode VS Smoke **FAILED**（开战有图，Drive 未打出，无 Fever/结算图）。全链未过。`our_slice/` 不是 GT。 |
 | T27 | UI 叠图误差 | NOT_RUN | BLOCKED | 布局 `NEEDS_REFERENCE`。U010 `NOT_MEASURED`。禁伪 pass。 |
-| T28 | 输入/命中/数字 ≤2 参考帧 | NOT_RUN | BLOCKED | 无 primary GT，未逐帧。 |
+| T28 | 输入/命中/数字 ≤2 参考帧 | NOT_RUN | BLOCKED | GT 侧草稿 `TIMING_DIFF.md`（叠层时长）。无我方同机位条，输入→命中未测。窄屏不确定度 ≥ 2 帧。**不得升格。** |
 | T29 | 遮挡/层级人工复核 | NOT_RUN | BLOCKED | |
 | T30 | 无原画只验未遮罩区 | NOT_RUN | BLOCKED | |
 | T31 | 真机帧率/内存 | NOT_RUN | BLOCKED | 无真机。不得报真机通过。 |
@@ -159,7 +166,7 @@ STATUS / `QA_EXECUTOR` 记录的默认 `dotnet test`：**0 失败 / 115**（夹�
 | 控制 / 护盾 / 换目标 | STUB | BLOCKED | 盾/Stun/Freeze/嘲讽施加在。无 `retarget` 体。免疫/不可选无。 |
 | 死亡 / 换波 / 结算 | STUB | BLOCKED | `revive` 仍失败。PlayMode 无结算图。迟到事件锁无。 |
 | 暂停 / 加速 / 自动 | STUB | BLOCKED | StayHeld / Full Auto 夹具有。档位 U011 UNKNOWN。 |
-| 基础入口 / 返回 | STUB | BLOCKED | 冒烟截过 Home / 编队 / Inspect / 开战。无闭环返回、无对照视频。 |
+| 基础入口 / 返回 | STUB | BLOCKED | 冒烟截过 Home / 编队 / Inspect / 开战 / Result。工程：结算后 `Go(Home)` + `11_home_return`（`VerticalSliceSmokeRuntime` HomeReturn 阶段）。无对照视频。 |
 
 **G2 还原通过数：0 / 9。不满足「全部关键状态 + 对照视频」。**
 

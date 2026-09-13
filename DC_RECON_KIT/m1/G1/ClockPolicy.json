@@ -45,5 +45,12 @@
     "damage_branch",
     "end_condition"
   ],
-  "command_order": ["tick_index", "phase", "seq"]
+  "command_order": ["tick_index", "phase", "seq"],
+  "deferred_supplement": {
+    "ref": "DEFERRED_SUPPLEMENT.json",
+    "status": "DEFERRED_NOT_REMOVED",
+    "signed_at": "2026-09-12",
+    "items": ["T28"],
+    "t28_claim_allowed": false
+  }
 }

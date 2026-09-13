@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "gate": "G0",
-  "status": "TARGET_FROZEN_GT_SEARCHING",
+  "status": "TARGET_FROZEN_GT_PARTIAL",
   "frozen_at": "2026-09-09",
   "region": "GL",
   "region_label": "国际服",
@@ -16,7 +16,7 @@
     "native_content_rect": null,
     "safe_area": null,
     "measurement_status": "NOT_MEASURED",
-    "blocked_on": "primary_gt"
+    "blocked_on": "narrow_mediacapture_and_unfinished_frame_gt"
   },
   "target_device": "mobile_portrait",
   "reference_speed_mode": "UNKNOWN",
@@ -50,10 +50,18 @@
     "real_network_services"
   ],
   "primary_gt": {
-    "status": "SEARCH_IN_PROGRESS",
-    "id": null,
+    "status": "LOCAL_PRIMARY_PARTIAL",
+    "id": "YT_aSbBuFD12HY",
     "role": "ordinary_5p_pve_combat_truth",
-    "required": true
+    "required": true,
+    "local_files": [
+      "DC_RECON_KIT/docs/reference/gl-shutdown-pve/aSbBuFD12HY_GL_EN_Gameplay_Part1_202308.mp4",
+      "DC_RECON_KIT/docs/reference/gl-shutdown-pve/hgqXY5M9gFk_GL_ND_Robin_Boss.mp4"
+    ],
+    "p2_blocked": "YT_IRDqNAhKKr4 LOGIN_REQUIRED",
+    "capture": "MediaRecorder_vp9_portrait_narrow",
+    "fidelity": 0,
+    "note": "P0 ordinary EN tutorial/story PVE; P1 ND Robin is special-mode supplement. Not M1 acceptance."
   },
   "supplement_refs_not_primary_gt": [
     "REF_YT_mJrT2conPCI",
@@ -116,8 +124,26 @@
       "version_window=PRE_SHUTDOWN_LATE_INCLUDING_IGNITION",
       "platform=mobile_portrait",
       "primary_mode=NormalPve5",
-      "primary_gt=SEARCH_IN_PROGRESS",
+      "primary_gt=SEARCH_IN_PROGRESS_at_freeze",
       "legacy_videos_not_ordinary_combat_sole_truth"
+    ]
+  },
+  "deferred_supplement": {
+    "ref": "DC_RECON_KIT/m1/G1/DEFERRED_SUPPLEMENT.json",
+    "status": "DEFERRED_NOT_REMOVED",
+    "signed_by": "user",
+    "signed_at": "2026-09-12",
+    "gt_hunt": "PAUSED",
+    "current_work": "G2_PATH_A_IDENTITY_AND_RUNNABLE_SLICE",
+    "fidelity": 0,
+    "m1_accepted": false,
+    "items": [
+      "T27",
+      "T28",
+      "T14-T20",
+      "P0_hires",
+      "P2",
+      "user_drop_ordinary_pve_promotion"
     ]
   }
 }

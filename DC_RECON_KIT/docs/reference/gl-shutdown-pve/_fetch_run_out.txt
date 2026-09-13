@@ -1,0 +1,4 @@
+FETCH_SCRIPT_DONE
+FAILURE aSbBuFD12HY exit=1 size=0
+FAILURE hgqXY5M9gFk exit=1 size=0
+FAILURE IRDqNAhKKr4 exit=1 size=0

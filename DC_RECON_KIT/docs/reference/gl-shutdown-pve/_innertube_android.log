@@ -1,0 +1,6 @@
+START
+ANDROID ERR HTTP Error 400: Bad Request
+ANDROID_VR status=LOGIN_REQUIRED formats=0 adaptive=0 urls=0 reason=Sign in to confirm you’re not a bot
+TVHTML5_SIMPLY_EMBEDDED_PLAYER status=ERROR formats=0 adaptive=0 urls=0 reason=YouTube is no longer supported in this application or device.
+MWEB status=LOGIN_REQUIRED formats=0 adaptive=0 urls=0 reason=Sign in to confirm you’re not a bot
+DONE

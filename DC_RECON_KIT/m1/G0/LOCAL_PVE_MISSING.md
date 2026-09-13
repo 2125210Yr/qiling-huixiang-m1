@@ -33,6 +33,6 @@
 仓库：`docs/`、`DC_RECON_KIT/`、`天命之子数据/`、`art/`、`专区/`，以及 `reference/`、`单机dc1.1整合包/`、`dist/`、`launch/`。  
 盘上：`F:\` 顶层明显参考夹浅看；用户 `Videos` / `Downloads`（文件名含 destiny / dcglobal / 天命 / 契灵）。**没有扫整个系统盘。**
 
-命中 38 个视频：3 条黑名单战斗片 + 35 条专区骨骼预览。**0 条普通 5 人 PVE。** `gl-shutdown-pve/` 现在是空的。
+命中 38 个视频：3 条黑名单战斗片 + 35 条专区骨骼预览。**0 条普通 5 人 PVE。** `gl-shutdown-pve/` **根目录仍 0 主 GT**。子目录有 JP/KR 对照片与拒收片，见 `M1_BLOCKER.md` / `gt_search/13_bili_classify.md`。不得把 `contrast/` 升格为 primary。
 
 放进去之后告诉一声，再逐帧做 Ground Truth。

@@ -11,6 +11,8 @@
 
 十态分母保留。坐标一律 **`NEEDS_REFERENCE`**。禁止用大厅立绘、纪念版截图、或「胜利」日志写成状态还原 / T27。
 
+延期补件（用户 2026-09-12）：T27 / 画幅测量 **后面补**，坐标不从分母删除、不得标已测。详见 `DEFERRED_SUPPLEMENT.md`。
+
 | 状态 | 实现路径 | 坐标 |
 |---|---|---|
 | BattleIdle | `client/Assets/Scripts/Resonance.App/Battle/BattleHud.cs` | `NEEDS_REFERENCE` |

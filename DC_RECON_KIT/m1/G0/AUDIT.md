@@ -2,6 +2,20 @@
 
 日期：2026-09-09。范围：只读落盘。未改 Unity。未 commit。未宣称 PlayMode 通过。
 
+## 后续闸门（2026-09-12 对照，不重扫）
+
+下表覆盖本文 §1–§2 已过时的句子。细节以 `STATUS.md` 为准。
+
+| 2026-09-09 原句 | 现在 |
+|---|---|
+| PlayMode `NOT_RUN` | 有图形切片冒烟 **PASS**（胜/负+半自动）。我方切片，不是 GT |
+| SlideCd **无** | 独立时钟已实现；秒数仍 `UNKNOWN` |
+| 编队 **写死 5** | 容量不写死；默认展示仍 5 |
+| 毒 **未执行** | on_action / on_hit_taken；`GL_UNKNOWN` 不改 HP |
+| 未知 opcode **静默** | 失败关闭 |
+| primary GT 未入库 | P0+P1 在 `DC_RECON_KIT/docs/reference/gl-shutdown-pve/`；P2 bot-gate |
+| 不得报还原通过 | **仍成立**。合同分 0。无 `GL_FINAL_VERIFIED` |
+
 本文件写入已确认 TARGET 与既有工程要点，**不**对本仓做第二次全量审计。路径级结论以下列快照为准；细节符号未在本波重核。
 
 ## 1. 工程快照（给定，未复跑）

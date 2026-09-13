@@ -35,3 +35,7 @@ GL 数值 = **UNKNOWN**。接入时必须显式选上述之一做对照，或走
 停服后期含 Ignition。Ignition/增幅与普通属性组合 = `U006` UNKNOWN。不得用 Ignition 前 JP 式关闭该项。
 
 验收门槛（有完整输入的确定性样本时的**项目目标**，不是已达标宣称）：平均相对误差 ≤3%，P95 ≤5%。无 GT、无 GL 输入真值时不得报 numeric pass。
+
+## 延期补件（用户 2026-09-12）
+
+T14–T20 / GL 式 **后面补**，不从合同分母删除。`fidelity_pass_without_gt` **保持 false**。不得用本签字发明 `GL_FINAL_VERIFIED`。详见 `DEFERRED_SUPPLEMENT.md`。

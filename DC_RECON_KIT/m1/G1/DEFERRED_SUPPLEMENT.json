@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "DEFERRED_SUPPLEMENT",
+  "contract_version": "1.0-G1-DEFER-2026-09-12",
+  "status": "DEFERRED_NOT_REMOVED",
+  "signed_by": "user",
+  "signed_at": "2026-09-12",
+  "user_quote": "这些我们暂时待定，我们接着继续推进其他的，合同你写清楚后面补",
+  "defer_means": "pause_work_keep_in_denominator",
+  "delete_from_m1": false,
+  "fidelity_score": 0,
+  "fidelity_pass_without_gt": false,
+  "m1_accepted": false,
+  "g2_passed": false,
+  "g3_allowed": false,
+  "gl_final_verified": false,
+  "current_work": "G2_PATH_A_IDENTITY_AND_RUNNABLE_SLICE",
+  "path_b_contract_90": "DEFERRED",
+  "gt_hunt": "PAUSED",
+  "items": [
+    {
+      "id": "T27",
+      "kind": "overlay_geometry",
+      "contract": "04_ACCEPTANCE_AND_TESTS.md",
+      "status": "DEFERRED_NOT_REMOVED",
+      "blocked_on": "P0_hires_ge_720p"
+    },
+    {
+      "id": "T28",
+      "kind": "timing",
+      "contract": "04_ACCEPTANCE_AND_TESTS.md",
+      "status": "DEFERRED_NOT_REMOVED",
+      "blocked_on": "same_setup_overlay_strip"
+    },
+    {
+      "id": "T14-T20",
+      "kind": "numeric",
+      "contract": "04_ACCEPTANCE_AND_TESTS.md",
+      "status": "DEFERRED_NOT_REMOVED",
+      "blocked_on": "gl_input_output_samples"
+    },
+    {
+      "id": "P0_hires",
+      "kind": "primary_gt",
+      "status": "DEFERRED_NOT_REMOVED",
+      "dest": "DC_RECON_KIT/docs/reference/gl-shutdown-pve/"
+    },
+    {
+      "id": "P2",
+      "kind": "primary_gt",
+      "status": "DEFERRED_NOT_REMOVED",
+      "note": "Eternal Vow not a real file in KIT dest"
+    },
+    {
+      "id": "user_drop_ordinary_pve_promotion",
+      "kind": "promotion",
+      "status": "DEFERRED_NOT_REMOVED",
+      "note": "dc普通战斗关卡 / PVP / Raid / WB stay contrast until per-file resign"
+    },
+    {
+      "id": "emulator_kr_private_client",
+      "kind": "capture",
+      "status": "DEFERRED_NOT_REMOVED",
+      "note": "do not operate 1.1 pack or rewrite server_addr"
+    },
+    {
+      "id": "public_keyword_search",
+      "kind": "hunt",
+      "status": "PAUSED"
+    }
+  ],
+  "not_promoted": [
+    "dc.5人pvp.mp4",
+    "dc.raid.mp4",
+    "dc.wb.mp4",
+    "dc普通战斗关卡.mp4",
+    "BV18c411W7dT",
+    "mJrT2conPCI",
+    "Vdf4V693IcU",
+    "89jpoNqAwa8",
+    "单机dc1.1整合包"
+  ],
+  "ungate": [
+    "user_drops_gl_ordinary_5p_pve_ge_720p_into_kit_root",
+    "user_resigns_one_drop_as_primary",
+    "user_unpauses_hunt_or_emulator",
+    "user_resigns_numeric_domain_out_of_m1_with_weight_change"
+  ],
+  "pointers": {
+    "acceptance": "DC_RECON_KIT/04_ACCEPTANCE_AND_TESTS.md",
+    "target": "DC_RECON_KIT/m1/G0/TARGET.json",
+    "formulas": "DC_RECON_KIT/m1/G1/FormulaProfiles.json",
+    "combat": "DC_RECON_KIT/m1/G1/CombatContract.json",
+    "scorecard": "DC_RECON_KIT/m1/G0/CUE_SCORECARD.md"
+  }
+}

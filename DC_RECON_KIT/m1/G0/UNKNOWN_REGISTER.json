@@ -23,15 +23,15 @@
     "DC_RECON_KIT/04_ACCEPTANCE_AND_TESTS.md"
   ],
   "gates": {
-    "TARGET": "TARGET_FROZEN_GT_SEARCHING",
+    "TARGET": "TARGET_FROZEN_GT_PARTIAL",
     "CONTRACT": "CONTRACT_FROZEN",
     "MILESTONE": "M1_IN_PROGRESS_NOT_ACCEPTED",
     "G0": "PASSED_WITH_GT_OPEN",
     "G1": "PASSED_CONTRACT_FROZEN",
     "G2": "IN_PROGRESS_CORE_SLICE_NOT_PASSED",
-    "PlayMode": "FAILED",
+    "PlayMode": "PASSED_SLICE_SMOKE_NOT_GT",
     "EditMode": "NOT_RUN",
-    "primary_gt": "CANDIDATE_NEEDS_FETCH_BLOCKED",
+    "primary_gt": "LOCAL_PRIMARY_PARTIAL",
     "GL_FINAL_VERIFIED": "forbidden_not_created",
     "fidelity_score": "0_not_claimed"
   },
@@ -126,11 +126,12 @@
     {
       "hole": "shutdown-window GL ordinary 5p PVE mp4",
       "blocked_by": ["U001"],
-      "note": "docs/reference/gl-shutdown-pve/ still 0 mp4"
+      "note": "P0+P1 landed under DC_RECON_KIT/docs/reference/gl-shutdown-pve/ (MediaRecorder). P2 bot-gate. Fidelity still 0. Repo-root docs/reference/gl-shutdown-pve/ still 0 mp4."
     },
     {
       "hole": "ordinary charge / tap isolated gestures",
-      "blocked_by": ["U001", "U002"]
+      "blocked_by": ["U001", "U002"],
+      "note": "P0 t352 tip: one Skill Gauge → tap OR slide. t358: touch icon + slide up. Isolated tap VFX still not in 1fps. Engine keeps separate SlideCd (contract); do not close as one-gauge GL formula."
     },
     {
       "hole": "ordinary Drive select panel",
@@ -139,7 +140,8 @@
     },
     {
       "hole": "ordinary death / wave",
-      "blocked_by": ["U001"]
+      "blocked_by": ["U001"],
+      "note": "P0 t64-t65: wave-clear is PHASE splash + stage name, no 击破. Ally death still unseen. Mid-kill = damage/cut-in only."
     },
     {
       "hole": "ordinary star / drop result",
@@ -163,7 +165,7 @@
       "class": "UNKNOWN",
       "region": "GL",
       "version_window": "PRE_SHUTDOWN_LATE_INCLUDING_IGNITION",
-      "status": "SEARCH_IN_PROGRESS",
+      "status": "PARTIAL_LANDED_FIDELITY_OPEN",
       "blocking": true,
       "blocks": [
         "fidelity_pass",
@@ -175,15 +177,19 @@
         "G2_slice_pass"
       ],
       "evidence": {
-        "shutdown_pve_dir_mp4": 0,
-        "primary_gt": "CANDIDATE_NEEDS_FETCH",
+        "shutdown_pve_dir_mp4": 2,
+        "primary_gt": "LOCAL_PRIMARY_PARTIAL",
+        "p0": "aSbBuFD12HY_GL_EN_Gameplay_Part1_202308.mp4",
+        "p1": "hgqXY5M9gFk_GL_ND_Robin_Boss.mp4",
+        "p2": "IRDqNAhKKr4 LOGIN_REQUIRED",
         "remote_fetch": "BLOCKED_YOUTUBE_FAMILY_TLS_EOF",
-        "local_candidates": "38 hits / 0 usable ordinary 5p PVE (M1-G0-GT-LOCAL)",
+        "capture": "MediaRecorder_vp9_portrait_narrow",
         "supplementary": "ragna_gl stills from mJrT2conPCI; truth_tier supplementary != primary",
-        "our_slice": "Editor VS Smoke FAIL; not GT",
-        "compare": "SLICE_VS_RAGNA.md — both sides cannot fill ordinary 5p holes"
+        "our_slice": "Editor VS Smoke PASS slice only; not GT",
+        "compare": "gt_search/19_primary_handoff_frames.md — inventory started; fidelity 0",
+        "timing_diff": "m1/G0/TIMING_DIFF.md DRAFT_GT_SIDE_ONLY not T28"
       },
-      "note": "2026-09-10 M1-G2-UNKNOWNS-DOC. Primary still missing. Supplementary Ragna and our_slice do not promote. Do not re-run yt-dlp on this machine. Wait for a local drop into docs/reference/gl-shutdown-pve/."
+      "note": "2026-09-12. P0+P1 on disk. Overlay holds drafted (SHOWTIME/PHASE/victory/QTE). No our-slice strip. Do not re-run yt-dlp YouTube. Do not invent GL_FINAL_VERIFIED."
     },
     {
       "id": "U002",
@@ -199,7 +205,7 @@
         "default_sim_profile": "GL_UNKNOWN_does_not_apply_hp",
         "live_client_start": "GameRoot.StartBattleAt still JP_LEGACY_EMPIRICAL (contrast, not GL)",
         "fever_channel": "no longer reads Tap AtkCoef/FlatPower (function only)",
-        "fever_window_impl": "7s / 70 hit is implementation, not GL measured",
+        "fever_window_impl": "UnknownFeverWindowSec=14 from P0 tip t435; hit budget 70 still unmeasured",
         "qa": "QA_DRIVE / QA_EXECUTOR / T_MATRIX: GL formulas remain UNKNOWN"
       },
       "note": "Internal channel split is not a GL formula close. JP live numbers are contrast."
@@ -216,6 +222,7 @@
         "s16": "Drive UI prediction is not enemy damage",
         "playmode": "FAIL drive never fired — no Drive/QTE/Fever frames in our_slice",
         "ragna_qte": "PERFECT DAMAGE 150pct / N% TO FEVER must not enter ordinary numeric baseline",
+        "p1_13pct": "Robin 13% TO FEVER is mid-tween of 0 to 40; not a second formula",
         "impl_multipliers": "0.9 / 1.2 / 1.5 have no GT",
         "qa": "QA_DRIVE BLOCKED table: U003 still UNKNOWN"
       },

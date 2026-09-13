@@ -1,0 +1,24 @@
+PASS
+mode=lose
+semi=True
+screens=Boot,Home,Stage,Battle,Result
+captures=01_home.png,ui_home.png,06_battle.png,ui_battle.png,06i_semi.png,09b_defeat.png
+result=DEFEAT
+outcome=Defeat
+save=F:\天命之子\client\Temp\vs-smoke-save\save.json
+save-isolated=True
+save-user=C:\Users\Administrator\AppData\LocalLow\Resonance\契灵回响\save.json
+log:smoke start lose
+log:shot 01_home.png,ui_home.png
+log:home
+log:skip Characters/Team/Inspect; roster draw can stall smoke
+log:phase Stage
+log:phase Battle
+log:shot 06_battle.png,ui_battle.png
+log:shot 06i_semi.png
+log:semi Semi
+log:force timeout
+log:lose result DEFEAT
+log:phase Result
+log:shot 09b_defeat.png
+cue-timing:defeat hold=1.353 on=7.716 off=9.069

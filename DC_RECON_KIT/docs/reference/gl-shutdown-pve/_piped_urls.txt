@@ -1,0 +1,20 @@
+# Piped stream URL extraction summary (2026-09-12)
+# Shell unavailable (exit -1073741502); parsed via Read/StrReplace/WebFetch.
+#
+# TITLES (from YouTube oEmbed; stream URLs unavailable from Piped responses)
+# aSbBuFD12HY | Destiny Child Gameplay - English Version | Part 1 (Android/iOS)
+# hgqXY5M9gFk | [ DESTINY CHILD GLOBAL ] Final Boss ND stage 8 : ROBIN
+# IRDqNAhKKr4 | Destiny Child (Global) - Eternal Vow Normal & Hard Full Run (Bathory Narrative Dungeon)
+#
+# PARSE STATUS: All three Piped API sources returned HTTP 526 (Invalid SSL certificate)
+# Cloudflare error HTML (~128KB), not JSON. Verified: no "videoStreams", "videoOnly",
+# "pipedproxy", or "videoplayback" substrings in saved files.
+# Sources:
+#   eb9f3d12-38fc-4618-80b6-bcd710fb0fe8.txt  -> aSbBuFD12HY
+#   df4f6d4e-2b4c-4385-aa06-e60c949edf60.txt  -> hgqXY5M9gFk
+#   https://pipedapi.kavin.rocks/streams/IRDqNAhKKr4 -> HTTP 526
+#
+# No <=480p progressive/muxed stream URLs could be extracted.
+aSbBuFD12HY|ERROR:HTTP526|text/html|NO_URL
+hgqXY5M9gFk|ERROR:HTTP526|text/html|NO_URL
+IRDqNAhKKr4|ERROR:HTTP526|text/html|NO_URL

@@ -29,3 +29,7 @@ M1 可观察切片：五人普通 PVE。底层编队**不得**把所有模式写
 
 ## 本波工程约束
 REPAIR：补 SlideCd；编队结构可变人数；毒必须执行；未知 opcode 失败。**勿 REPLACE 整核。**
+
+## 延期补件（用户 2026-09-12）
+
+T27 / T28 / T14–T20、P0 高清、P2 **后面补**，条目不从 M1 分母删除。当前只做路 A（身份 + 可跑切片）。`fidelity_pass_without_gt` 仍 false。详见 `DEFERRED_SUPPLEMENT.md`。

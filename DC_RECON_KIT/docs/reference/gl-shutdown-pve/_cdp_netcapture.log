@@ -1,0 +1,49 @@
+START
+attach https://www.youtube.com/watch?v=IRDqNAhKKr4
+cookies_ok=65/65
+=== hgqXY5M9gFk ===
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr1---sn-3pm7dne6.googlevideo.com/videoplayback?expire=1789173271&ei=t0mkatz4FbSppt8Pq7eJoQs&ip=2406%3Ada16%3A40
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr1---sn-3pm7dne6.googlevideo.com/videoplayback?expire=1789173271&ei=t0mkatz4FbSppt8Pq7eJoQs&ip=2406%3Ada16%3A40
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr1---sn-3pm7dne6.googlevideo.com/videoplayback?expire=1789173271&ei=t0mkatz4FbSppt8Pq7eJoQs&ip=2406%3Ada16%3A40
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr1---sn-3pm7dne6.googlevideo.com/videoplayback?expire=1789173271&ei=t0mkatz4FbSppt8Pq7eJoQs&ip=2406%3Ada16%3A40
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr2---sn-ogul7n7s.googlevideo.com/videoplayback?expire=1789173271&ei=t0mkatz4FbSppt8Pq7eJoQs&ip=2406%3Ada16%3A40
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr2---sn-ogul7n7s.googlevideo.com/videoplayback?expire=1789173271&ei=t0mkatz4FbSppt8Pq7eJoQs&ip=2406%3Ada16%3A40
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr2---sn-ogul7n7s.googlevideo.com/videoplayback?expire=1789173271&ei=t0mkatz4FbSppt8Pq7eJoQs&ip=2406%3Ada16%3A40
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr2---sn-ogul7n7s.googlevideo.com/videoplayback?expire=1789173271&ei=t0mkatz4FbSppt8Pq7eJoQs&ip=2406%3Ada16%3A40
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr2---sn-ogul7n7s.googlevideo.com/videoplayback?expire=1789173271&ei=t0mkatz4FbSppt8Pq7eJoQs&ip=2406%3Ada16%3A40
+gv_requests=9
+capture_url itag18=False len=1053
+getResponseBody bytes=1071
+page fetch captured url
+fetched n=31 body=31
+body too small
+=== aSbBuFD12HY ===
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr4---sn-aj3pm5-5x.googlevideo.com/videoplayback?expire=1789173304&ei=2EmkavHdLseT1d8PnYqiqAo&ip=2406%3Ada16%3A4
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr4---sn-oj3pm5-5i.googlevideo.com/videoplayback?expire=1789173304&ei=2EmkavHdLseT1d8PnYqiqAo&ip=2406%3Ada16%3A4
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr4---sn-oj3pm5-5i.googlevideo.com/videoplayback?expire=1789173304&ei=2EmkavHdLseT1d8PnYqiqAo&ip=2406%3Ada16%3A4
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr4---sn-oj3pm5-5i.googlevideo.com/videoplayback?expire=1789173304&ei=2EmkavHdLseT1d8PnYqiqAo&ip=2406%3Ada16%3A4
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr4---sn-oj3pm5-5i.googlevideo.com/videoplayback?expire=1789173304&ei=2EmkavHdLseT1d8PnYqiqAo&ip=2406%3Ada16%3A4
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr4---sn-oj3pm5-5i.googlevideo.com/videoplayback?expire=1789173304&ei=2EmkavHdLseT1d8PnYqiqAo&ip=2406%3Ada16%3A4
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr4---sn-oj3pm5-5i.googlevideo.com/videoplayback?expire=1789173304&ei=2EmkavHdLseT1d8PnYqiqAo&ip=2406%3Ada16%3A4
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr4---sn-oj3pm5-5i.googlevideo.com/videoplayback?expire=1789173304&ei=2EmkavHdLseT1d8PnYqiqAo&ip=2406%3Ada16%3A4
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr4---sn-oj3pm5-5i.googlevideo.com/videoplayback?expire=1789173304&ei=2EmkavHdLseT1d8PnYqiqAo&ip=2406%3Ada16%3A4
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr4---sn-oj3pm5-5i.googlevideo.com/videoplayback?expire=1789173304&ei=2EmkavHdLseT1d8PnYqiqAo&ip=2406%3Ada16%3A4
+gv_requests=10
+capture_url itag18=False len=1048
+getResponseBody bytes=1061
+page fetch captured url
+fetched n=31 body=31
+body too small
+=== IRDqNAhKKr4 ===
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr4---sn-3pm7dnek.googlevideo.com/videoplayback?expire=1789173338&ei=-kmkavDsCoH1pt8P1a_IyAs&ip=2406%3Ada16%3A40
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr4---sn-3pm7dnek.googlevideo.com/videoplayback?expire=1789173338&ei=-kmkavDsCoH1pt8P1a_IyAs&ip=2406%3Ada16%3A40
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr4---sn-3pm7dnek.googlevideo.com/videoplayback?expire=1789173338&ei=-kmkavDsCoH1pt8P1a_IyAs&ip=2406%3Ada16%3A40
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr4---sn-3pm7dnek.googlevideo.com/videoplayback?expire=1789173338&ei=-kmkavDsCoH1pt8P1a_IyAs&ip=2406%3Ada16%3A40
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr4---sn-3pm7dnek.googlevideo.com/videoplayback?expire=1789173338&ei=-kmkavDsCoH1pt8P1a_IyAs&ip=2406%3Ada16%3A40
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr4---sn-3pm7dnek.googlevideo.com/videoplayback?expire=1789173338&ei=-kmkavDsCoH1pt8P1a_IyAs&ip=2406%3Ada16%3A40
+resp status=200 mime=application/vnd.yt-ump len=None url=https://rr4---sn-3pm7dnek.googlevideo.com/videoplayback?expire=1789173338&ei=-kmkavDsCoH1pt8P1a_IyAs&ip=2406%3Ada16%3A40
+gv_requests=7
+capture_url itag18=False len=1053
+getResponseBody bytes=1113237
+SAVED IRDqNAhKKr4_GL_EternalVow_NormalHard_480p.mp4 size=1113237
+ALL_DONE

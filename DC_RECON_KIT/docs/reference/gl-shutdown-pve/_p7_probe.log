@@ -1,0 +1,4 @@
+START
+cookies_ok=119/119
+home {"avatar": true, "sid": true}
+irdq {"status": "LOGIN_REQUIRED", "reason": "请登录，以便我们确认你不是聊天机器人", "length": 0, "avatar": false}

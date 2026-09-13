@@ -1,0 +1,13 @@
+START
+attach https://www.youtube.com/ | YouTube
+home {"title": "YouTube", "avatar": false, "signIn": false, "sid": false, "cookieLen": 21}
+=== aSbBuFD12HY ===
+{"avatar": false, "status": "LOGIN_REQUIRED", "reason": "请登录，以便我们确认你不是聊天机器人", "formats": 0, "adaptive": 0, "urlN": 0, "title": null, "videoSrc": ""}
+NO STREAM
+=== hgqXY5M9gFk ===
+{"avatar": false, "status": "LOGIN_REQUIRED", "reason": "请登录，以便我们确认你不是聊天机器人", "formats": 0, "adaptive": 0, "urlN": 0, "title": null, "videoSrc": ""}
+NO STREAM
+=== IRDqNAhKKr4 ===
+{"avatar": false, "status": "LOGIN_REQUIRED", "reason": "请登录，以便我们确认你不是聊天机器人", "formats": 0, "adaptive": 0, "urlN": 0, "title": null, "videoSrc": ""}
+NO STREAM
+ALL_DONE

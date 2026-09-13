@@ -1,0 +1,19 @@
+==== FETCH RESULTS (cursor-subagent) 2026-09-12 01:26:00 ====
+
+1. aSbBuFD12HY → aSbBuFD12HY_GL_EN_Gameplay_Part1_202308.mp4
+   Status=FAILURE ExitCode=-1073741502 Size=0
+   LastError: Shell STATUS_DLL_INIT_FAILED; yt-dlp never started
+
+2. hgqXY5M9gFk → hgqXY5M9gFk_GL_ND_Robin_Boss.mp4
+   Status=FAILURE ExitCode=-1073741502 Size=0
+   LastError: Shell STATUS_DLL_INIT_FAILED; yt-dlp never started
+
+3. IRDqNAhKKr4 → IRDqNAhKKr4_GL_EternalVow_NormalHard_480p.mp4
+   Status=FAILURE ExitCode=-1073741502 Size=0
+   LastError: Shell STATUS_DLL_INIT_FAILED; yt-dlp never started
+
+ROOT *.mp4: (none)
+
+Run outside agent Shell:
+  powershell -NoProfile -ExecutionPolicy Bypass -File "F:\天命之子\DC_RECON_KIT\docs\reference\gl-shutdown-pve\_fetch_yt.ps1"
+==== END ====

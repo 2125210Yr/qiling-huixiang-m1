@@ -2,13 +2,15 @@
 
 任务 `M1-G2-RESMOKE` 更新 PlayMode（2026-09-10）。前序 `M1-G2-PLAY-RECORD` / `M1-G2-SMOKE-GATE`。**M1 未验收。G2 未过。不是 G3 入口。**
 
+用户 2026-09-12：硬缺件 **后面补、不从分母删**。补件 `../G1/DEFERRED_SUPPLEMENT.md`。当前工程走路 A（身份 + 可跑切片）。GT 搜暂停。还原分仍 0。
+
 独立 QA 已确认功能核内部一致（默认 115 绿；执行器改盾/控制/毒；Fever 不借 Tap 系数）。这些**不能**升格为验收。
 
 ## 硬缺件（不入库则无法验收）
 
-1. **primary GT 录像：** 把国际服停服前后期、普通 5 人 PVE 的 `.mp4` 放进 `docs/reference/gl-shutdown-pve/`。现在 **0 mp4**（仅 README + FETCH_LOG）。见 `LOCAL_PVE_MISSING.md`。不要等本机 yt-dlp（YouTube 族 TLS EOF，远程拉取 BLOCKED）。
-2. **逐帧对照：** 入库后再做 Drive / QTE / Fever / 受击 / 死亡 / 换波 / 结算。现在未逐帧。无 GT 则还原分保持 0。
-3. **PlayMode / EditMode：** PlayMode 切片冒烟 `M1-G2-RESMOKE` 已读 **PASS**（Drive/Fever 在结果日志里）。有 Home/编队/Inspect/Battle「开战」截图，**仍无** Drive/QTE/Fever/结算图。EditMode 仍 `NOT_RUN`。无 GT 不得伪称视觉还原通过。T26–T32 仍 `NOT_RUN`/`BLOCKED`。我方切片在 `docs/reference/gl-shutdown-pve/our_slice/`，**不是** primary GT。**不是 M1 验收。**
+1. **primary GT 录像：** handoff P0+P1 已落 `DC_RECON_KIT/docs/reference/gl-shutdown-pve/` 根目录（`aSbBuFD12HY` ~584s、`hgqXY5M9gFk` ~74s，MediaRecorder 竖屏）。P2 Eternal Vow 仍 bot-gate。仓库根 `docs/reference/gl-shutdown-pve/` 仍 0 mp4（不要混路径）。`contrast/` / Ragna / Raid / WB 不得顶替。YouTube 族 TLS 仍 BLOCKED，不要再对本机 yt-dlp YouTube。
+2. **逐帧对照：** 我方竖屏条 `strip_20260912g/`（1080×1920 源 / 360×640 JPG）+ GT 并排 `overlay/`。输入→数字我方 **0.000s**，GT 列 UNKNOWN。**仍不是 T27/T28**：几何对不上；无音效；教程 3 人 vs 切片 5 人。还原分保持 **0**。
+3. **PlayMode / EditMode：** PlayMode 切片冒烟 `M1-G2-CLOCK-SMOKE`（`editor-playmode-20260911e`）已读 **PASS**。新增 `06g_speed`（×2）/ `06h_auto`（全自动）；仍有 `06a`–`06e` / `07` / `08` / `10` / `09`。Fever 无选择板。`06d` 仍与「击破」同帧。这是**我方切片**，不是逐帧 GT。EditMode 仍 `NOT_RUN`（工程 0 个 UTF）。无 GT 不得伪称视觉还原通过。T26–T32 仍 `NOT_RUN`/`BLOCKED`。**不是 M1 验收。**
 
 ## 仍 UNKNOWN（有 GT 之前不能闭）
 
