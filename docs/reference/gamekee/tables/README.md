@@ -1,10 +1,11 @@
-# GameKee 整理数据表
+# GameKee wiki 拆表（5★+4★ 原文）
 
 来源：https://www.gamekee.com/dc/ 已抓取的 1227 篇词条。
-这些表在 `docs/reference/gamekee/tables/`，并复制了一份到 `天命之子数据/`。
+**给人看的 561 图鉴不在这里**，在 `天命之子数据/汇总表.html`。
 
 | 文件 | 行数 | 说明 |
 |---|---:|---|
+| avatars/ | 721 | 天子 345 + 魂卡 156 + 人偶 220 头像 |
 | characters.csv | 345 | 5★+4★ 天子：属性、职业、初始/满破面板、技能原文 |
 | skills.csv | 1725 | 每人 普攻/TS/SS/DS/队长，含 MIN/MAX 与点火 U |
 | soul_cartas.csv | 156 | 魂之歌牌：分类、限定、特效、普卡/闪卡初始数值 |

@@ -38,9 +38,9 @@ Same shape with `120` and denominator `0.2 * def + 400`. Agility term is still i
 
 Fire > Wood > Water > Fire. Light ↔ Dark.
 
-## Slice mapping (`DamageMath.Compute`)
+## Slice mapping (`DamageMath.ComputeSkill`)
 
-Vertical-slice skills still store `atk * coef + flat`. That sum is fed in as `skillDmg` with `extraAtk = 0`. Fever hits keep using `coef * 0.60` rather than a second `feverMul`.
+Skills store `atk * coef + flat` as `skillDmg` with `extraAtk = 0`. Tap/Auto/Fever use `ComputeTs`; Slide uses `ComputeSs`; Drive uses reconstructed sibling `ComputeDs` (`extraAtk*130`, def `0.12*def+400`). Fever hits pass `feverMul=0.6`. Drive QTE (Bad/Good/Great/Perfect = 0.90/1.00/1.20/1.50) multiplies `extraDmgMul`. Handbook: `天命之子数据/重构数值.html`.
 
 ## Raid / World Boss extras (not in slice)
 

@@ -1,0 +1,117 @@
+2026-09-10 first pass
+yt-dlp 2026.08.19
+https://www.youtube.com/watch?v=-SUrcOZav_c
+https://www.youtube.com/watch?v=IRDqNAhKKr4
+https://www.youtube.com/watch?v=FocgkwV-lB8
+
+ERROR: [youtube] -SUrcOZav_c: Unable to download API page: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)
+ERROR: [youtube] IRDqNAhKKr4: Unable to download API page: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)
+ERROR: [youtube] FocgkwV-lB8: Unable to download API page: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)
+
+WebFetch youtube watch pages: timed out.
+
+mp4_written: 0
+primary_gt: still CANDIDATE_NEEDS_FETCH
+era_fallback: mark 2019 EN GL 5p list as cross_era_gl (not shutdown-window primary)
+M1: not paused
+
+========
+2026-09-10 M1-G0-GT-RETRY
+yt-dlp 2026.08.19 (CPython 3.13 Scripts). HTTP(S)_PROXY=http://127.0.0.1:7890
+Host baseline: example.com HTTPS OK (proxy and noproxy). YouTube-family TLS not OK.
+
+COMMANDS / ERRORS (any one success would have been enough; all failed)
+
+1) yt-dlp --proxy http://127.0.0.1:7890 --legacy-server-connect --force-ipv4 --extractor-args youtube:player_client=android --socket-timeout 25 --skip-download -- -SUrcOZav_c
+   -> WARNING webpage SSL UNEXPECTED_EOF x3; ERROR API page same SSL EOF
+
+2) yt-dlp --no-check-certificates --proxy http://127.0.0.1:7890 --legacy-server-connect --force-ipv4 --extractor-args youtube:player_client=web --socket-timeout 20 --skip-download --print id,title,duration -- FocgkwV-lB8
+   -> same SSL EOF on webpage + API page
+
+3) curl -x http://127.0.0.1:7890 -sI --http1.1 https://www.youtube.com/
+   -> HTTP/1.1 200 Connection established ; then no TLS HTTP headers (hang)
+
+4) curl --noproxy * -sI --http1.1 https://www.youtube.com/
+   -> empty / hang
+
+5) curl -k --ssl-no-revoke -x http://127.0.0.1:7890 --http1.1 -sI https://www.youtube.com/
+   -> CONNECT 200 then hang
+
+6) curl -x http://127.0.0.1:7890 https://www.youtube.com/oembed?...-SUrcOZav_c
+   -> curl: (35) schannel: failed to receive handshake, SSL/TLS connection failed
+
+7) python ssl.create_default_context wrap_socket www.youtube.com:443
+   -> TimeoutError
+
+8) node 24 fetch https://www.youtube.com/oembed and /watch (proxy env and cleared)
+   -> ERR fetch failed
+
+9) yt-dlp --list-impersonate-targets
+   -> chrome/edge/firefox/safari/tor all curl_cffi unavailable
+
+10) python 3.11 -c "import yt_dlp"
+    -> ModuleNotFoundError (yt-dlp not installed on 3.11)
+
+11) WebFetch https://www.youtube.com/watch?v=-SUrcOZav_c
+    -> timeout
+    WebFetch https://www.youtube.com/embed/-SUrcOZav_c -> timeout
+    WebFetch https://r.jina.ai/https://www.youtube.com/watch?v=-SUrcOZav_c -> timeout
+
+12) WebFetch oembed (SUCCESS, metadata only, not mp4):
+    -SUrcOZav_c A Yuu / EOS 21 Sept 23 title confirmed
+    IRDqNAhKKr4 Ryanto F2P Eternal Vow N+H confirmed
+    VydVl7BtbKk TrickDuck confirmed
+    QIng41LnZN4 AD farm guide confirmed
+    soFepqXgBzA ENG trans 4-8 confirmed
+    EEHJjKFJJvE translations ch6-1 confirmed
+    JzXGL_FWgoo ENG Trans ch5-7 confirmed
+    30IY04JOmHs Destiny Child Global Room of Memories confirmed
+    Cx65Cs7163Q AD Jan/Feb 2023 GL tier list confirmed
+    Ker9A2rkvuA / Gv3bkTE18o4 / hon6kCdawlo titles confirmed
+
+13) Invidious / Piped
+    yewtu.be/api/v1/videos/-SUrcOZav_c -> 403
+    inv.nadeko.net/api/v1/videos/-SUrcOZav_c -> Endpoint disabled
+    invidious.fdn.fr/api/v1/videos/-SUrcOZav_c -> 500
+    invidious.privacyredirect.com/api -> 404
+    invidious.f5.si/watch?v=-SUrcOZav_c -> 403
+    invidious.tiekoetter.com/latest_version?id=-SUrcOZav_c&itag=18 -> 400
+    invidious.tiekoetter.com/latest_version?id=FocgkwV-lB8&itag=18 -> timeout
+    piped.video/api/v1/streams/-SUrcOZav_c -> 422
+    pipedapi.kavin.rocks/streams/-SUrcOZav_c -> Chrome error HTML
+    pipedapi.adminforge.de/streams/-SUrcOZav_c -> timeout
+    yt.chocolatemoo53.com/api/v1/videos/IRDqNAhKKr4 -> timeout / local schannel 35
+    api.invidious.io/instances.json -> published instances api=false
+
+14) Cobalt
+    POST https://api.cobalt.tools/ -> {"status":"error","error":{"code":"error.api.auth.jwt.missing"}}
+    POST https://co.wuk.sh/ --noproxy -> curl 6 could not resolve host
+    POST https://cobalt.api.timelessq.com/ --noproxy -> curl 6 could not resolve host
+
+15) cursor-ide-browser
+    tabs new -> viewId cc9f3f then vanished
+    navigate / lock / newTab youtube watch -> No browser tab available / view not found
+    no visual confirm of EN UI / 5p PVE / coverage states
+
+16) Thumbnails
+    WebFetch img.youtube.com/vi/<id>/sddefault.jpg -> 500
+    WebFetch i.ytimg.com/vi/-SUrcOZav_c/hqdefault.jpg -> 500
+    WebFetch i.ytimg.com/vi/-SUrcOZav_c/maxresdefault.jpg -> 404
+    local curl noproxy thumbs -> files not written
+
+mp4_written: 0
+frame_analysis: NOT_DONE (do not invent)
+primary_gt: CANDIDATE_NEEDS_FETCH / BLOCKED
+2019 EN GL 5p: still cross_era_gl only
+Unity: not modified
+
+========
+2026-09-10 M1-G0-GT-LOCAL
+Read-only local scan. yt-dlp NOT rerun (YouTube-family TLS EOF already proven).
+usable_primary_gt: false
+ordinary_5p_pve_mp4: 0
+gl-shutdown-pve mp4: 0
+hits: 3 battle_vids blacklist + 35 专区 rig/OC previews
+frame_analysis: NOT_DONE
+waiting: user drop GL shutdown-window ordinary 5p PVE into this folder
+Unity: not modified
