@@ -44,9 +44,9 @@ namespace Resonance.Tests
             var sim = new BattleSim(new[] { "C001" }, 0, 1) { Deterministic = true };
             sim.OverlaySkill("C001_tap", empty);
             sim.Allies[0].Charge = 100f;
-            Assert.Throws<UnknownOpcodeException>(() => sim.TryTap(0));
-            Assert.Equal(BattleOutcome.Failed, sim.Outcome);
-            Assert.Contains("UNKNOWN_OPCODE", sim.FailedReason);
+            Assert.False(sim.TryTap(0));
+            Assert.Equal(100f, sim.Allies[0].Charge);
+            Assert.Equal(BattleOutcome.InProgress, sim.Outcome);
             Assert.Equal(shared, Catalog.TrySkill("C001_tap").Opcode);
 
             var unknown = Catalog.CloneSkill(proto);
@@ -54,8 +54,9 @@ namespace Resonance.Tests
             var sim2 = new BattleSim(new[] { "C001" }, 0, 2) { Deterministic = true };
             sim2.OverlaySkill("C001_tap", unknown);
             sim2.Allies[0].Charge = 100f;
-            Assert.Throws<UnknownOpcodeException>(() => sim2.TryTap(0));
-            Assert.Equal(BattleOutcome.Failed, sim2.Outcome);
+            Assert.False(sim2.TryTap(0));
+            Assert.Equal(100f, sim2.Allies[0].Charge);
+            Assert.Equal(BattleOutcome.InProgress, sim2.Outcome);
             Assert.Equal(shared, Catalog.TrySkill("C001_tap").Opcode);
         }
 
@@ -338,11 +339,11 @@ namespace Resonance.Tests
             Assert.Equal(mid, lo);
             Assert.Equal(mid, hi);
 
-            var sim = new BattleSim(Catalog.DefaultParty, 0, 99)
+            var sim = G2ReviewFixtures.BindStripDotFlame(new BattleSim(Catalog.DefaultParty, 0, 99)
             {
                 Deterministic = false,
                 Profile = FormulaProfile.JP_LEGACY_EMPIRICAL
-            };
+            });
             var hp = 0;
             for (int i = 0; i < sim.Enemies.Count; i++)
                 if (sim.Enemies[i] != null) hp += sim.Enemies[i].Hp;
@@ -448,6 +449,7 @@ namespace Resonance.Tests
             Assert.Equal(10, again.SlideSkillLvMax);
             Assert.Equal(0, proto.SlideRank);
 
+            filled.EffectId = null; // A53_SUB_STRIP_DOT_FLAME: keep rank slots, do not implement Dot
             var sim = new BattleSim(new[] { "C001" }, 0, 1) { Deterministic = true };
             sim.OverlaySkill("C001_slide", filled);
             sim.Allies[0].Charge = 100f;

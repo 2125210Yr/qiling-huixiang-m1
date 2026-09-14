@@ -300,11 +300,12 @@ namespace Resonance.Tests
 
         static BattleSim Fresh(int seed)
         {
-            return new BattleSim(Catalog.DefaultParty, 0, seed, Catalog.VerticalSliceStage, null)
-            {
-                Auto = AutoMode.Manual,
-                Speed = 1
-            };
+            return G2ReviewFixtures.BindStripDotFlame(
+                new BattleSim(Catalog.DefaultParty, 0, seed, Catalog.VerticalSliceStage, null)
+                {
+                    Auto = AutoMode.Manual,
+                    Speed = 1
+                });
         }
 
         static BattleSim FreshJp(int seed)

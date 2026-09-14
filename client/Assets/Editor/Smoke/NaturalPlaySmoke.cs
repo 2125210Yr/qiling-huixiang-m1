@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Reflection;
 using Resonance.App;
@@ -7,6 +8,15 @@ using UnityEngine;
 
 namespace Resonance.EditorTools
 {
+    /// <summary>
+    /// Editor/CLI tokens for natural-play. Request body is one token.
+    /// Tokens: np.basic.v1 | np.fever.v1 | np.auto.v1 | np.matrix.v1
+    /// Aliases: basic/n01, fever/n02, auto/n03, matrix/all/1.
+    /// CLI: -executeMethod Resonance.EditorTools.NaturalPlaySmoke.Cli{Basic,Fever,Auto,Matrix,FromArgs}
+    ///      and/or -natural-play [-natural-scenario &lt;token&gt;].
+    /// No -batchmode / -nographics: Poll and TryEnterPlay return immediately in batch mode.
+    /// Do not pass -quit; QuitIfDone exits after Temp/natural-play.result.txt exists.
+    /// </summary>
     [InitializeOnLoad]
     public static class NaturalPlaySmoke
     {
@@ -21,12 +31,19 @@ namespace Resonance.EditorTools
         {
             EditorApplication.update += Poll;
             EditorApplication.playModeStateChanged += OnPlayMode;
+            TryArmFromCommandLine();
         }
 
         [MenuItem("Resonance/Smoke/Natural Play")]
         public static void MenuRun()
         {
             RequestRun("matrix");
+        }
+
+        [MenuItem("Resonance/Smoke/Natural Play Matrix")]
+        public static void MenuRunMatrix()
+        {
+            RequestRun("np.matrix.v1");
         }
 
         [MenuItem("Resonance/Smoke/Natural Play Basic")]
@@ -45,6 +62,59 @@ namespace Resonance.EditorTools
         public static void MenuRunAuto()
         {
             RequestRun("np.auto.v1");
+        }
+
+        /// <summary>Unity.exe -executeMethod Resonance.EditorTools.NaturalPlaySmoke.CliMatrix</summary>
+        public static void CliMatrix() => RequestRun("np.matrix.v1");
+
+        /// <summary>Unity.exe -executeMethod Resonance.EditorTools.NaturalPlaySmoke.CliBasic</summary>
+        public static void CliBasic() => RequestRun("np.basic.v1");
+
+        /// <summary>Unity.exe -executeMethod Resonance.EditorTools.NaturalPlaySmoke.CliFever</summary>
+        public static void CliFever() => RequestRun("np.fever.v1");
+
+        /// <summary>Unity.exe -executeMethod Resonance.EditorTools.NaturalPlaySmoke.CliAuto</summary>
+        public static void CliAuto() => RequestRun("np.auto.v1");
+
+        /// <summary>Unity.exe -natural-scenario TOKEN -executeMethod Resonance.EditorTools.NaturalPlaySmoke.CliFromArgs</summary>
+        public static void CliFromArgs() => RequestRun(ReadCliScenarioToken());
+
+        static void TryArmFromCommandLine()
+        {
+            var args = Environment.GetCommandLineArgs();
+            if (args == null || args.Length == 0) return;
+            var want = false;
+            string scenario = null;
+            for (int i = 0; i < args.Length; i++)
+            {
+                if (string.Equals(args[i], "-natural-play", StringComparison.OrdinalIgnoreCase))
+                    want = true;
+                if (!string.Equals(args[i], "-natural-scenario", StringComparison.OrdinalIgnoreCase))
+                    continue;
+                want = true;
+                if (i + 1 < args.Length && !string.IsNullOrEmpty(args[i + 1]) && args[i + 1][0] != '-')
+                    scenario = args[i + 1];
+            }
+            if (!want) return;
+            if (File.Exists(RequestRel) || File.Exists(RunningRel)) return;
+            if (EditorApplication.isPlaying) return;
+            RequestRun(string.IsNullOrEmpty(scenario) ? "matrix" : scenario);
+        }
+
+        static string ReadCliScenarioToken()
+        {
+            var args = Environment.GetCommandLineArgs();
+            if (args != null)
+            {
+                for (int i = 0; i < args.Length; i++)
+                {
+                    if (!string.Equals(args[i], "-natural-scenario", StringComparison.OrdinalIgnoreCase))
+                        continue;
+                    if (i + 1 < args.Length && !string.IsNullOrEmpty(args[i + 1]) && args[i + 1][0] != '-')
+                        return args[i + 1];
+                }
+            }
+            return "matrix";
         }
 
         static void RequestRun(string scenario)

@@ -227,7 +227,8 @@ namespace Resonance.Tests
 
         static BattleSim NewSim()
         {
-            return new BattleSim(Catalog.DefaultParty, 0, 3) { Deterministic = true, Speed = 1 };
+            return G2ReviewFixtures.BindStripDotFlame(
+                new BattleSim(Catalog.DefaultParty, 0, 3) { Deterministic = true, Speed = 1 });
         }
 
         static void ChargeAll(BattleSim sim)

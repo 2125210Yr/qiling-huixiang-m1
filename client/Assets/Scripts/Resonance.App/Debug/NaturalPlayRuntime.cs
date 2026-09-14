@@ -1537,12 +1537,14 @@ namespace Resonance.App
             if (_current != null && !_current.Persisted)
                 PersistCurrentBattle("late-begin");
             DesignPlaceholderPolicy.Bind(sc);
+            // After GameRoot StartBattleAt Freeze (Speed/Auto/Profile already set).
             _current = NaturalPlayBattleEvidence.Begin(live, _sessionId, _battles.Count + 1, sc);
             _battles.Add(_current);
             _cmdLogSeen = 0;
             _feverShot = false;
-            Record("BattleId", "unique battle_id + frozen RunHeader",
+            Record("BattleId", "unique battle_id + frozen BattleInitialHeader + RunHeader",
                 "id=" + _current.BattleId + " scenario=" + _current.ScenarioName
+                + " frozen=" + (_current.FrozenInitial != null && _current.FrozenInitial.FrozenAtStart)
                 + " header=" + _current.FrozenHeader, true);
         }
 
@@ -1552,17 +1554,24 @@ namespace Resonance.App
             var live = Battle();
             try
             {
-                BattleSim sim;
-                if (live == _current.Sim || live == null)
-                    sim = _current.Sim;
-                else if (!_current.Persisted)
-                    sim = _current.Sim;
-                else
-                    return;
-                _current.Persist(CapturesDir(), sim);
+                var status = _current.Persist(CapturesDir(), live);
+                if (status == NaturalPlayBattleEvidence.RefuseSimMismatch
+                    || status == NaturalPlayBattleEvidence.RefuseBattleIdMismatch)
+                {
+                    if (!_current.Persisted)
+                        status = _current.Persist(CapturesDir(), null);
+                    else
+                    {
+                        Note("persist-refuse " + why + " " + status);
+                        return;
+                    }
+                }
                 Note("persist " + _current.BattleId + " why=" + why
+                    + " status=" + status
                     + " outcome=" + _current.OutcomeAtPersist
-                    + " digest=" + _current.Digest);
+                    + " digest=" + _current.Digest
+                    + " replay=" + (_current.Dir != null
+                        ? Path.Combine(_current.Dir, NaturalPlayBattleEvidence.ReplayFileName) : ""));
             }
             catch (Exception e)
             {

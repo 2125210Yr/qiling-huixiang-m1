@@ -14,15 +14,25 @@ namespace Resonance.Tests
     {
         public const int BigHp = 500000;
 
+        /// <summary>
+        /// Named <see cref="PlayableSubstitutes.StripDotFlame"/> — damage-only slides.
+        /// Does not implement Dot. DefaultParty stays inventory-visible.
+        /// </summary>
+        public static BattleSim BindStripDotFlame(BattleSim sim)
+        {
+            PlayableSubstitutes.Bind(sim, PlayableSubstitutes.StripDotFlame);
+            return sim;
+        }
+
         public static BattleSim NewJp(int seed, AutoMode auto = AutoMode.Manual, bool forceNoCrit = false)
         {
-            return new BattleSim(Catalog.DefaultParty, 0, seed)
+            return BindStripDotFlame(new BattleSim(Catalog.DefaultParty, 0, seed)
             {
                 ForceNoCrit = forceNoCrit,
                 Speed = 1,
                 Auto = auto,
                 Profile = FormulaProfile.JP_LEGACY_EMPIRICAL
-            };
+            });
         }
 
         /// <summary>Keeps the current wave alive for the whole test so wave/result transitions never interfere.</summary>

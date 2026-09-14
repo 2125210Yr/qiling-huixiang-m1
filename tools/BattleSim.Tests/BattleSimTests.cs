@@ -716,7 +716,8 @@ namespace Resonance.Tests
                 Wave1 = new[] { "EBOSS" }
             };
             var party = new[] { "C023", "C002", "C007", "C003", "C011" };
-            var sim = new BattleSim(party, 0, 1, stage, null) { Deterministic = true, Speed = 1, Profile = FormulaProfile.JP_LEGACY_EMPIRICAL };
+            var sim = G2ReviewFixtures.BindStripDotFlame(
+                new BattleSim(party, 0, 1, stage, null) { Deterministic = true, Speed = 1, Profile = FormulaProfile.JP_LEGACY_EMPIRICAL });
             ChargeAll(sim);
             Assert.True(sim.TrySlide(0));
             var caster = sim.Allies[0];
@@ -830,12 +831,13 @@ namespace Resonance.Tests
             Catalog.BuildBuiltin();
             var blob = new SaveBlob();
             blob.GetUnit(Catalog.DefaultParty[0]).Reserve = "STEEE";
-            var sim = new BattleSim(Catalog.DefaultParty, 0, 5, Catalog.Stages[0], blob.ProgressForParty())
-            {
-                Deterministic = true,
-                Profile = FormulaProfile.JP_LEGACY_EMPIRICAL,
-                AutoTap = true
-            };
+            var sim = G2ReviewFixtures.BindStripDotFlame(
+                new BattleSim(Catalog.DefaultParty, 0, 5, Catalog.Stages[0], blob.ProgressForParty())
+                {
+                    Deterministic = true,
+                    Profile = FormulaProfile.JP_LEGACY_EMPIRICAL,
+                    AutoTap = true
+                });
             for (int i = 0; i < 5; i++)
                 sim.Allies[i].Charge = i == 0 ? 100f : 0f;
             sim.Tick();
@@ -1482,12 +1484,12 @@ namespace Resonance.Tests
 
         static BattleSim NewSim(int seed)
         {
-            return new BattleSim(Catalog.DefaultParty, 0, seed)
+            return G2ReviewFixtures.BindStripDotFlame(new BattleSim(Catalog.DefaultParty, 0, seed)
             {
                 Deterministic = true,
                 Speed = 1,
                 Profile = FormulaProfile.JP_LEGACY_EMPIRICAL
-            };
+            });
         }
 
         static void ChargeAll(BattleSim sim)

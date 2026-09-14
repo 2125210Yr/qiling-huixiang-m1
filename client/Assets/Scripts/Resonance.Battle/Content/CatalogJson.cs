@@ -292,11 +292,7 @@ namespace Resonance.Battle
                 SourceTier = Int(o, "tier"),
                 Group = Str(o, "group")
             };
-            if (HasKey(o, "target") || HasKey(o, "hasTarget"))
-            {
-                fx.HasTarget = true;
-                fx.Target = (TargetRule)Int(o, "target");
-            }
+            ApplyEffectTargetJson(fx, o);
             if (HasNum(o, "side")) fx.Side = (TargetSide)Int(o, "side");
             ApplyLifecycleJson(fx, o);
             return fx;
@@ -312,13 +308,62 @@ namespace Resonance.Battle
             if (HasNum(o, "stack")) dst.MaxStack = Int(o, "stack", 1);
             if (HasNum(o, "tier")) dst.SourceTier = Int(o, "tier");
             if (HasText(o, "group")) dst.Group = Str(o, "group");
-            if (HasKey(o, "target") || HasKey(o, "hasTarget"))
-            {
-                dst.HasTarget = true;
-                if (HasNum(o, "target")) dst.Target = (TargetRule)Int(o, "target");
-            }
+            ApplyEffectTargetJson(dst, o);
             if (HasNum(o, "side")) dst.Side = (TargetSide)Int(o, "side");
             ApplyLifecycleJson(dst, o);
+        }
+
+        /// <summary>
+        /// Effect target keys: missing / false / true are distinct.
+        /// hasTarget:false clears HasTarget (overlay can cancel a prior override).
+        /// hasTarget:true requires a defined numeric TargetRule — never silent Self.
+        /// target without hasTarget is compat: HasTarget=true and parse target.
+        /// Both keys absent: leave constructed/cloned HasTarget/Target (inherit skill).
+        /// </summary>
+        static void ApplyEffectTargetJson(EffectDef fx, Dictionary<string, object> o)
+        {
+            if (fx == null || o == null) return;
+            var declaredHasTarget = HasKey(o, "hasTarget");
+            var declaredTarget = HasKey(o, "target");
+            if (!declaredHasTarget && !declaredTarget)
+                return;
+
+            if (declaredHasTarget)
+            {
+                if (!HasBool(o, "hasTarget"))
+                    throw new InvalidDataException("effect hasTarget must be true or false" + EffectIdSuffix(fx, o));
+                if (!Bool(o, "hasTarget"))
+                {
+                    fx.HasTarget = false;
+                    return;
+                }
+                if (!TryReadTargetRule(o, out var rule))
+                    throw new InvalidDataException("effect hasTarget:true requires a valid numeric target" + EffectIdSuffix(fx, o));
+                fx.HasTarget = true;
+                fx.Target = rule;
+                return;
+            }
+
+            if (!TryReadTargetRule(o, out var compat))
+                throw new InvalidDataException("effect target must be a valid numeric TargetRule" + EffectIdSuffix(fx, o));
+            fx.HasTarget = true;
+            fx.Target = compat;
+        }
+
+        static bool TryReadTargetRule(Dictionary<string, object> o, out TargetRule rule)
+        {
+            rule = default;
+            if (!HasNum(o, "target")) return false;
+            var n = Int(o, "target");
+            if (!Enum.IsDefined(typeof(TargetRule), n)) return false;
+            rule = (TargetRule)n;
+            return true;
+        }
+
+        static string EffectIdSuffix(EffectDef fx, Dictionary<string, object> o)
+        {
+            var id = fx != null && !string.IsNullOrEmpty(fx.Id) ? fx.Id : Str(o, "id");
+            return string.IsNullOrEmpty(id) ? "" : " (id=" + id + ")";
         }
 
         static void ApplyLifecycleJson(EffectDef dst, Dictionary<string, object> o)
@@ -487,6 +532,15 @@ namespace Resonance.Battle
             var s = Str(o, k).Trim();
             if (s.Length == 0) return false;
             return double.TryParse(s, NumberStyles.Float, CultureInfo.InvariantCulture, out _);
+        }
+
+        static bool HasBool(Dictionary<string, object> o, string k)
+        {
+            if (!HasKey(o, k)) return false;
+            if (o.TryGetValue(k, out var v) && v is bool) return true;
+            var s = Str(o, k).Trim();
+            return string.Equals(s, "true", StringComparison.OrdinalIgnoreCase)
+                || string.Equals(s, "false", StringComparison.OrdinalIgnoreCase);
         }
 
         static string Str(Dictionary<string, object> o, string k)

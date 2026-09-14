@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 
@@ -331,22 +332,47 @@ namespace Resonance.Battle
     }
 
     /// <summary>
-    /// REGRESSIONS.md R04 — complete combat-data identity.
-    /// Covers character HP/ATK, stage scalars/waves, skill FlatPower/Target, effect Trigger/PeriodSec.
-    /// <see cref="BattleSim.ContentFingerprint"/> is still the incomplete count+partial hash until
-    /// the integrator lands <c>patches/G2R14-REPLAY.md</c>; replay Match uses this identity, not that alias.
+    /// REGRESSIONS.md R04 / A53-02 — combat-data identity for fields the sim consumes.
+    /// <see cref="Fingerprint"/> / <see cref="BattleSim.ContentFingerprint"/> stay catalog-global
+    /// (<c>g2id1-</c>). <see cref="Compute"/> / DataIdentity are fight-complete: catalog + party/stage
+    /// + grown stats + sim skill/effect overlays + bound <see cref="DesignPlaceholderPolicy"/>.
+    /// Overlay maps are private on BattleSim; <see cref="TryReadSimOverlays"/> reads them until
+    /// the integrator lands <c>patches/A53-IDENTITY.md</c>.
     /// </summary>
     public static class BattleContentIdentity
     {
         public const string CanonicalVersion = "g2id1";
+
+        static PropertyInfo _skillOverlayProp;
+        static PropertyInfo _effectOverlayProp;
+        static FieldInfo _skillOverlayField;
+        static FieldInfo _effectOverlayField;
+        static bool _overlayReflectReady;
 
         public static string Fingerprint()
         {
             return BattleEventLog.HashUtf8(CanonicalCatalog());
         }
 
-        /// <summary>Catalog + selected stage + grown ally Def/ExtraAtk. Does not include live HP or Speed/Auto.</summary>
+        /// <summary>
+        /// Catalog + selected stage + grown ally Def/ExtraAtk + overlays + bound policy.
+        /// Does not include live HP or Speed/Auto.
+        /// </summary>
         public static string Compute(BattleSim sim, string[] partyIds, string stageId)
+        {
+            IReadOnlyDictionary<string, SkillDef> skills;
+            IReadOnlyDictionary<string, EffectDef> effects;
+            TryReadSimOverlays(sim, out skills, out effects);
+            return Compute(sim, partyIds, stageId, skills, effects);
+        }
+
+        /// <summary>QA hook: fight identity with explicit overlays (no BattleSim field access required).</summary>
+        public static string Compute(
+            BattleSim sim,
+            string[] partyIds,
+            string stageId,
+            IReadOnlyDictionary<string, SkillDef> skillOverlay,
+            IReadOnlyDictionary<string, EffectDef> effectOverlay)
         {
             var sb = new StringBuilder(2048);
             sb.Append(CanonicalCatalog());
@@ -372,7 +398,37 @@ namespace Resonance.Battle
             }
             var stage = FindStage(stageId);
             if (stage != null) AppendStage(sb, "sel", stage);
+            AppendBoundPolicy(sb);
+            AppendOverlaySkills(sb, skillOverlay);
+            AppendOverlayEffects(sb, effectOverlay);
             return BattleEventLog.HashUtf8(sb.ToString());
+        }
+
+        /// <summary>QA hook: bound DESIGN_PLACEHOLDER values included in Compute / DataIdentity.</summary>
+        public static string PolicyKey()
+        {
+            var sb = new StringBuilder(96);
+            AppendBoundPolicy(sb);
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// QA hook: skill/effect overlays currently on <paramref name="sim"/>.
+        /// Prefers public <c>SkillOverlays</c>/<c>EffectOverlays</c> (patches/A53-IDENTITY.md);
+        /// otherwise reads private <c>_skillOverlay</c>/<c>_effectOverlay</c>.
+        /// </summary>
+        public static bool TryReadSimOverlays(
+            BattleSim sim,
+            out IReadOnlyDictionary<string, SkillDef> skillOverlay,
+            out IReadOnlyDictionary<string, EffectDef> effectOverlay)
+        {
+            skillOverlay = null;
+            effectOverlay = null;
+            if (sim == null) return false;
+            EnsureOverlayReflect();
+            skillOverlay = ReadOverlayMap<SkillDef>(sim, _skillOverlayProp, _skillOverlayField);
+            effectOverlay = ReadOverlayMap<EffectDef>(sim, _effectOverlayProp, _effectOverlayField);
+            return skillOverlay != null || effectOverlay != null;
         }
 
         public static string CanonicalCatalog()
@@ -472,6 +528,8 @@ namespace Resonance.Battle
                 sb.Append(";slide=").Append(c.SlideSkillId ?? "");
                 sb.Append(";drive=").Append(c.DriveSkillId ?? "");
                 sb.Append(";lead=").Append(c.LeaderSkillId ?? "");
+                sb.Append(";el=").Append(c.Element.ToString());
+                sb.Append(";auto=").Append(c.AutoSkillId ?? "");
                 sb.Append('\n');
             }
         }
@@ -482,20 +540,11 @@ namespace Resonance.Battle
             sb.Append("skills=").Append(BattleStateDigest.I(keys.Count)).Append('\n');
             for (int i = 0; i < keys.Count; i++)
             {
-                SkillDef s;
-                map.TryGetValue(keys[i], out s);
+                SkillDef s = null;
+                if (map != null) map.TryGetValue(keys[i], out s);
                 sb.Append("K[").Append(keys[i]).Append("]");
                 if (s == null) { sb.Append("=null\n"); continue; }
-                sb.Append(".op=").Append(s.Opcode ?? "");
-                sb.Append(";tgt=").Append(s.Target.ToString());
-                sb.Append(";tn=").Append(BattleStateDigest.I(s.TargetCount));
-                sb.Append(";hits=").Append(BattleStateDigest.I(s.HitCount));
-                sb.Append(";coef=").Append(FR(s.AtkCoef));
-                sb.Append(";flat=").Append(BattleStateDigest.I(s.FlatPower));
-                sb.Append(";drv=").Append(BattleStateDigest.I(s.DriveGain));
-                sb.Append(";fx=").Append(s.EffectId ?? "");
-                sb.Append(";heal=").Append(FR(s.HealCoef));
-                sb.Append(";pct=").Append(FR(s.PercentAtk));
+                AppendSkillCombatFields(sb, s);
                 sb.Append('\n');
             }
         }
@@ -506,18 +555,112 @@ namespace Resonance.Battle
             sb.Append("effects=").Append(BattleStateDigest.I(keys.Count)).Append('\n');
             for (int i = 0; i < keys.Count; i++)
             {
-                EffectDef e;
-                map.TryGetValue(keys[i], out e);
+                EffectDef e = null;
+                if (map != null) map.TryGetValue(keys[i], out e);
                 sb.Append("E[").Append(keys[i]).Append("]");
                 if (e == null) { sb.Append("=null\n"); continue; }
-                sb.Append(".kind=").Append(e.Kind.ToString());
-                sb.Append(";mag=").Append(FR(e.Magnitude));
-                sb.Append(";dur=").Append(FR(e.DurationSec));
-                sb.Append(";stack=").Append(BattleStateDigest.I(e.MaxStack));
-                sb.Append(";trig=").Append(e.Trigger ?? "");
-                sb.Append(";period=").Append(FR(e.PeriodSec));
+                AppendEffectCombatFields(sb, e);
                 sb.Append('\n');
             }
+        }
+
+        static void AppendSkillCombatFields(StringBuilder sb, SkillDef s)
+        {
+            sb.Append(".op=").Append(s.Opcode ?? "");
+            sb.Append(";tgt=").Append(s.Target.ToString());
+            sb.Append(";tn=").Append(BattleStateDigest.I(s.TargetCount));
+            sb.Append(";hits=").Append(BattleStateDigest.I(s.HitCount));
+            sb.Append(";coef=").Append(FR(s.AtkCoef));
+            sb.Append(";flat=").Append(BattleStateDigest.I(s.FlatPower));
+            sb.Append(";drv=").Append(BattleStateDigest.I(s.DriveGain));
+            sb.Append(";fx=").Append(s.EffectId ?? "");
+            sb.Append(";heal=").Append(FR(s.HealCoef));
+            sb.Append(";pct=").Append(FR(s.PercentAtk));
+            sb.Append(";type=").Append(s.Type.ToString());
+            sb.Append(";hflat=").Append(BattleStateDigest.I(s.FlatHeal));
+            sb.Append(";hfrac=").Append(FR(s.HealMaxHpFrac));
+            sb.Append(";sflat=").Append(FR(s.SkillFlat));
+        }
+
+        static void AppendEffectCombatFields(StringBuilder sb, EffectDef e)
+        {
+            sb.Append(".kind=").Append(e.Kind.ToString());
+            sb.Append(";mag=").Append(FR(e.Magnitude));
+            sb.Append(";dur=").Append(FR(e.DurationSec));
+            sb.Append(";stack=").Append(BattleStateDigest.I(e.MaxStack));
+            sb.Append(";trig=").Append(e.Trigger ?? "");
+            sb.Append(";period=").Append(FR(e.PeriodSec));
+            sb.Append(";op=").Append(e.Opcode ?? "");
+            sb.Append(";grp=").Append(e.Group ?? "");
+            sb.Append(";tier=").Append(BattleStateDigest.I(e.SourceTier));
+            sb.Append(";hasT=").Append(e.HasTarget ? "1" : "0");
+            sb.Append(";tgt=").Append(e.Target.ToString());
+            sb.Append(";side=").Append(e.Side.ToString());
+        }
+
+        static void AppendBoundPolicy(StringBuilder sb)
+        {
+            sb.Append("policy.active=").Append(DesignPlaceholderPolicy.Active ? "1" : "0");
+            sb.Append(";schema=").Append(DesignPlaceholderPolicy.Schema ?? "");
+            sb.Append(";scenario=").Append(DesignPlaceholderPolicy.ScenarioName ?? "");
+            sb.Append(";honor=").Append(DesignPlaceholderPolicy.HonorDeclaredAutoDriveGain ? "1" : "0");
+            sb.Append(";autoDrive=").Append(BattleStateDigest.I(DesignPlaceholderPolicy.DeclaredAutoDriveGain));
+            sb.Append(";charge=").Append(FR(DesignPlaceholderPolicy.ChargeTimeSec));
+            sb.Append('\n');
+        }
+
+        static void AppendOverlaySkills(StringBuilder sb, IReadOnlyDictionary<string, SkillDef> map)
+        {
+            var keys = SortedKeys(map);
+            sb.Append("ovSkills=").Append(BattleStateDigest.I(keys.Count)).Append('\n');
+            for (int i = 0; i < keys.Count; i++)
+            {
+                SkillDef s = null;
+                if (map != null) map.TryGetValue(keys[i], out s);
+                sb.Append("Kov[").Append(keys[i]).Append("]");
+                if (s == null) { sb.Append("=null\n"); continue; }
+                AppendSkillCombatFields(sb, s);
+                sb.Append('\n');
+            }
+        }
+
+        static void AppendOverlayEffects(StringBuilder sb, IReadOnlyDictionary<string, EffectDef> map)
+        {
+            var keys = SortedKeys(map);
+            sb.Append("ovEffects=").Append(BattleStateDigest.I(keys.Count)).Append('\n');
+            for (int i = 0; i < keys.Count; i++)
+            {
+                EffectDef e = null;
+                if (map != null) map.TryGetValue(keys[i], out e);
+                sb.Append("Eov[").Append(keys[i]).Append("]");
+                if (e == null) { sb.Append("=null\n"); continue; }
+                AppendEffectCombatFields(sb, e);
+                sb.Append('\n');
+            }
+        }
+
+        static void EnsureOverlayReflect()
+        {
+            if (_overlayReflectReady) return;
+            var t = typeof(BattleSim);
+            const BindingFlags flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+            _skillOverlayProp = t.GetProperty("SkillOverlays", flags);
+            _effectOverlayProp = t.GetProperty("EffectOverlays", flags);
+            _skillOverlayField = t.GetField("_skillOverlay", flags);
+            _effectOverlayField = t.GetField("_effectOverlay", flags);
+            _overlayReflectReady = true;
+        }
+
+        static IReadOnlyDictionary<string, T> ReadOverlayMap<T>(BattleSim sim, PropertyInfo prop, FieldInfo field)
+        {
+            if (prop != null && prop.CanRead)
+            {
+                var viaProp = prop.GetValue(sim, null) as IReadOnlyDictionary<string, T>;
+                if (viaProp != null) return viaProp;
+            }
+            if (field != null)
+                return field.GetValue(sim) as IReadOnlyDictionary<string, T>;
+            return null;
         }
 
         static void AppendStageArray(StringBuilder sb, string prefix, StageDef[] table)
@@ -1500,6 +1643,16 @@ namespace Resonance.Battle
         }
     }
 
+    /// <summary>
+    /// Per-Verify diagnostic lists owned by <see cref="ReplayReport"/>.
+    /// A later Verify may replace <see cref="BattleReplayer.Divergences"/>; it cannot clear this snapshot.
+    /// </summary>
+    public sealed class ReplayDiagnosticSnapshot
+    {
+        public readonly List<string> Divergences = new List<string>();
+        public readonly List<string> Unconsumed = new List<string>();
+    }
+
     public sealed class ReplayReport
     {
         public BattleStateDigest OriginalDigest;
@@ -1512,6 +1665,8 @@ namespace Resonance.Battle
         public readonly List<string> VersionDiff = new List<string>();
         /// <summary>REGRESSIONS.md R03 — external accepted commands never submitted.</summary>
         public readonly List<string> Unconsumed = new List<string>();
+        /// <summary>Owned copy of this Verify's command rejects / leftover tape rows.</summary>
+        public readonly ReplayDiagnosticSnapshot Diagnostics = new ReplayDiagnosticSnapshot();
         /// <summary>-1 when event sequences match on the summary fields.</summary>
         public int FirstEventDivergence = -1;
         public int ExpectedEventCount;
@@ -1561,12 +1716,24 @@ namespace Resonance.Battle
     public static class BattleReplayer
     {
         /// <summary>
-        /// Filled by the latest <see cref="Run"/> / <see cref="Replay"/>: a replayed
-        /// originally-accepted external command that <see cref="BattleSim.Submit"/> now rejected.
+        /// Last completed Replay/Run/Verify on any thread (last-writer mirror).
+        /// Concurrent tests that read these lists must serialize this assembly
+        /// (<see cref="SharedDiagnosticStaticsRequireSerializedTests"/>). After Verify,
+        /// use <see cref="ReplayReport.CommandDiff"/>, <see cref="ReplayReport.Unconsumed"/>,
+        /// and <see cref="ReplayReport.Diagnostics"/> — those lists belong to the report.
         /// </summary>
         public static readonly List<string> Divergences = new List<string>();
         /// <summary>External accepted commands left on the tape after Replay/Run stopped.</summary>
         public static readonly List<string> Unconsumed = new List<string>();
+        /// <summary>
+        /// Shared static mirrors are last-writer. Hosts that read
+        /// <see cref="Divergences"/> / <see cref="Unconsumed"/> after Verify must run
+        /// this assembly serially. ReplayReport owns its copies after Verify returns.
+        /// </summary>
+        public const bool SharedDiagnosticStaticsRequireSerializedTests = true;
+
+        [ThreadStatic]
+        static ReplayDiagnosticSnapshot t_session;
 
         /// <summary>R01: Player / Fixture / Replay are re-injected. Auto is regenerated by Tick.</summary>
         public static bool IsExternalInput(CommandRecord rec)
@@ -1576,53 +1743,16 @@ namespace Resonance.Battle
 
         public static BattleSim Replay(BattleRunRecord rec, Func<int, BattleSim> factory)
         {
-            if (rec == null) throw new ArgumentNullException(nameof(rec));
-            if (factory == null) throw new ArgumentNullException(nameof(factory));
-            Divergences.Clear();
-            Unconsumed.Clear();
-            var sim = factory(rec.Seed);
-            if (sim == null) throw new InvalidOperationException("Replay factory returned null.");
-            // Seeded crits stay on; factory owns ForceNoCrit. Do not restore ForceNoCrit=true.
-
-            ApplyHeader(sim, rec.Speed, rec.Auto);
-
-            var external = new List<CommandRecord>(rec.Commands.Count);
-            for (int i = 0; i < rec.Commands.Count; i++)
-            {
-                var c = rec.Commands[i];
-                if (IsExternalInput(c)) external.Add(c);
-            }
-
-            var goal = rec.FinalDigest != null ? rec.FinalDigest.TickIndex : LastTick(external);
-            var cursor = 0;
-            var spins = 0;
-            var spinLimit = Math.Max(goal, 0) + external.Count + 16;
-            while (spins++ <= spinLimit)
-            {
-                DrainAt(sim, external, ref cursor, sim.TickIndex);
-                if (sim.TickIndex >= goal)
-                {
-                    DrainAt(sim, external, ref cursor, sim.TickIndex);
-                    break;
-                }
-                var before = sim.TickIndex;
-                sim.Tick();
-                if (sim.TickIndex != before) continue;
-                DrainAt(sim, external, ref cursor, sim.TickIndex);
-                if (sim.TickIndex >= goal) break;
-                if (sim.Outcome != BattleOutcome.InProgress || sim.Paused)
-                    break;
-            }
-            DrainAt(sim, external, ref cursor, sim.TickIndex);
-            CollectUnconsumed(external, cursor);
-            return sim;
+            ReplayDiagnosticSnapshot session;
+            return ReplayCore(rec, factory, out session);
         }
 
         public static ReplayReport Verify(BattleRunRecord rec, Func<int, BattleSim> factory)
         {
             if (rec == null) throw new ArgumentNullException(nameof(rec));
-            var replayed = Replay(rec, factory);
-            var report = Compare(rec, replayed);
+            ReplayDiagnosticSnapshot session;
+            var replayed = ReplayCore(rec, factory, out session);
+            var report = Compare(rec, replayed, session);
             report.Replayed = replayed;
             return report;
         }
@@ -1631,34 +1761,40 @@ namespace Resonance.Battle
         {
             if (factory == null) throw new ArgumentNullException(nameof(factory));
             if (script == null) throw new ArgumentNullException(nameof(script));
-            Divergences.Clear();
-            Unconsumed.Clear();
-            var sim = factory();
-            if (sim == null) throw new InvalidOperationException("Replay factory returned null.");
-
-            var h = script.Header;
-            if (h != null)
-                ApplyHeader(sim, h.Speed, h.Auto);
-
-            var external = new List<CommandRecord>(script.Commands.Count);
-            for (int i = 0; i < script.Commands.Count; i++)
+            var session = BeginSession();
+            try
             {
-                var c = script.Commands[i];
-                if (IsExternalInput(c)) external.Add(c);
-            }
+                var sim = factory();
+                if (sim == null) throw new InvalidOperationException("Replay factory returned null.");
 
-            var cursor = 0;
-            if (maxTicks < 0) maxTicks = 0;
-            for (int step = 0; step < maxTicks; step++)
-            {
-                DrainAt(sim, external, ref cursor, sim.TickIndex);
-                if (sim.Outcome != BattleOutcome.InProgress)
-                    break;
-                sim.Tick();
+                var h = script.Header;
+                if (h != null)
+                    ApplyHeader(sim, h.Speed, h.Auto, session);
+
+                var external = new List<CommandRecord>(script.Commands.Count);
+                for (int i = 0; i < script.Commands.Count; i++)
+                {
+                    var c = script.Commands[i];
+                    if (IsExternalInput(c)) external.Add(c);
+                }
+
+                var cursor = 0;
+                if (maxTicks < 0) maxTicks = 0;
+                for (int step = 0; step < maxTicks; step++)
+                {
+                    DrainAt(sim, external, ref cursor, sim.TickIndex, session);
+                    if (sim.Outcome != BattleOutcome.InProgress)
+                        break;
+                    sim.Tick();
+                }
+                DrainAt(sim, external, ref cursor, sim.TickIndex, session);
+                CollectUnconsumed(external, cursor, session);
+                return sim;
             }
-            DrainAt(sim, external, ref cursor, sim.TickIndex);
-            CollectUnconsumed(external, cursor);
-            return sim;
+            finally
+            {
+                PublishSession(session);
+            }
         }
 
         public static ReplayReport Verify(BattleSim original, BattleSim replayed)
@@ -1666,10 +1802,90 @@ namespace Resonance.Battle
             var rec = original != null
                 ? BattleRunRecord.Capture(original, BattleRunRecord.IdsFromAllies(original), "")
                 : null;
-            return Compare(rec, replayed);
+            return Compare(rec, replayed, null);
         }
 
-        static void ApplyHeader(BattleSim sim, int speed, AutoMode auto)
+        static BattleSim ReplayCore(BattleRunRecord rec, Func<int, BattleSim> factory, out ReplayDiagnosticSnapshot session)
+        {
+            if (rec == null) throw new ArgumentNullException(nameof(rec));
+            if (factory == null) throw new ArgumentNullException(nameof(factory));
+            session = BeginSession();
+            try
+            {
+                var sim = factory(rec.Seed);
+                if (sim == null) throw new InvalidOperationException("Replay factory returned null.");
+                // Seeded crits stay on; factory owns ForceNoCrit. Do not restore ForceNoCrit=true.
+
+                ApplyHeader(sim, rec.Speed, rec.Auto, session);
+
+                var external = new List<CommandRecord>(rec.Commands.Count);
+                for (int i = 0; i < rec.Commands.Count; i++)
+                {
+                    var c = rec.Commands[i];
+                    if (IsExternalInput(c)) external.Add(c);
+                }
+
+                var goal = rec.FinalDigest != null ? rec.FinalDigest.TickIndex : LastTick(external);
+                var cursor = 0;
+                var spins = 0;
+                var spinLimit = Math.Max(goal, 0) + external.Count + 16;
+                while (spins++ <= spinLimit)
+                {
+                    DrainAt(sim, external, ref cursor, sim.TickIndex, session);
+                    if (sim.TickIndex >= goal)
+                    {
+                        DrainAt(sim, external, ref cursor, sim.TickIndex, session);
+                        break;
+                    }
+                    var before = sim.TickIndex;
+                    sim.Tick();
+                    if (sim.TickIndex != before) continue;
+                    DrainAt(sim, external, ref cursor, sim.TickIndex, session);
+                    if (sim.TickIndex >= goal) break;
+                    if (sim.Outcome != BattleOutcome.InProgress || sim.Paused)
+                        break;
+                }
+                DrainAt(sim, external, ref cursor, sim.TickIndex, session);
+                CollectUnconsumed(external, cursor, session);
+                return sim;
+            }
+            finally
+            {
+                PublishSession(session);
+            }
+        }
+
+        static ReplayDiagnosticSnapshot BeginSession()
+        {
+            var session = new ReplayDiagnosticSnapshot();
+            t_session = session;
+            return session;
+        }
+
+        static void PublishSession(ReplayDiagnosticSnapshot session)
+        {
+            Divergences.Clear();
+            Unconsumed.Clear();
+            if (session == null) return;
+            for (int i = 0; i < session.Divergences.Count; i++)
+                Divergences.Add(session.Divergences[i]);
+            for (int i = 0; i < session.Unconsumed.Count; i++)
+                Unconsumed.Add(session.Unconsumed[i]);
+        }
+
+        static ReplayDiagnosticSnapshot ActiveSession(ReplayDiagnosticSnapshot session)
+        {
+            return session ?? t_session;
+        }
+
+        static void NoteDivergence(ReplayDiagnosticSnapshot session, string line)
+        {
+            var dest = ActiveSession(session);
+            if (dest != null) dest.Divergences.Add(line);
+            else Divergences.Add(line);
+        }
+
+        static void ApplyHeader(BattleSim sim, int speed, AutoMode auto, ReplayDiagnosticSnapshot session)
         {
             if (sim == null) return;
             if (speed >= 1)
@@ -1681,7 +1897,7 @@ namespace Resonance.Battle
                     Source = CommandSource.Replay
                 });
                 if (!r.Accepted)
-                    Divergences.Add("seq=" + BattleStateDigest.I(r.Seq)
+                    NoteDivergence(session, "seq=" + BattleStateDigest.I(r.Seq)
                         + ";tick=" + BattleStateDigest.I(r.Tick)
                         + ";kind=" + BattleCommandKind.SetSpeed
                         + ";reject=" + r.Reason);
@@ -1694,14 +1910,14 @@ namespace Resonance.Battle
                     Source = CommandSource.Replay
                 });
                 if (!r.Accepted)
-                    Divergences.Add("seq=" + BattleStateDigest.I(r.Seq)
+                    NoteDivergence(session, "seq=" + BattleStateDigest.I(r.Seq)
                         + ";tick=" + BattleStateDigest.I(r.Tick)
                         + ";kind=" + BattleCommandKind.SetAuto
                         + ";reject=" + r.Reason);
             }
         }
 
-        static ReplayReport Compare(BattleRunRecord rec, BattleSim replayed)
+        static ReplayReport Compare(BattleRunRecord rec, BattleSim replayed, ReplayDiagnosticSnapshot session)
         {
             var report = new ReplayReport();
             report.OriginalDigest = rec != null ? rec.FinalDigest : null;
@@ -1733,13 +1949,25 @@ namespace Resonance.Battle
                 report.EventDiff.Add("Events.Count " + BattleStateDigest.I(na) + " != " + BattleStateDigest.I(nb));
             }
 
-            for (int i = 0; i < Divergences.Count; i++)
-                report.CommandDiff.Add(Divergences[i]);
-            for (int i = 0; i < Unconsumed.Count; i++)
-                report.Unconsumed.Add(Unconsumed[i]);
-
+            CopyDiagnostics(report, session);
             AddVersionDiff(report, rec, replayed);
             return report;
+        }
+
+        static void CopyDiagnostics(ReplayReport report, ReplayDiagnosticSnapshot session)
+        {
+            var div = session != null ? session.Divergences : Divergences;
+            var unc = session != null ? session.Unconsumed : Unconsumed;
+            for (int i = 0; i < div.Count; i++)
+            {
+                report.CommandDiff.Add(div[i]);
+                report.Diagnostics.Divergences.Add(div[i]);
+            }
+            for (int i = 0; i < unc.Count; i++)
+            {
+                report.Unconsumed.Add(unc[i]);
+                report.Diagnostics.Unconsumed.Add(unc[i]);
+            }
         }
 
         static void AddVersionDiff(ReplayReport report, BattleRunRecord rec, BattleSim replayed)
@@ -1770,7 +1998,7 @@ namespace Resonance.Battle
             }
         }
 
-        static void DrainAt(BattleSim sim, List<CommandRecord> cmds, ref int cursor, int tick)
+        static void DrainAt(BattleSim sim, List<CommandRecord> cmds, ref int cursor, int tick, ReplayDiagnosticSnapshot session)
         {
             if (cmds == null || sim == null) return;
             while (cursor < cmds.Count)
@@ -1780,26 +2008,28 @@ namespace Resonance.Battle
                 if (rec.Tick > tick) break;
                 cursor++;
                 if (rec.Tick < tick || !IsExternalInput(rec)) continue;
-                SubmitReplay(sim, rec);
+                SubmitReplay(sim, rec, session);
             }
         }
 
-        static void CollectUnconsumed(List<CommandRecord> cmds, int cursor)
+        static void CollectUnconsumed(List<CommandRecord> cmds, int cursor, ReplayDiagnosticSnapshot session)
         {
             if (cmds == null) return;
             for (int i = cursor; i < cmds.Count; i++)
             {
                 var rec = cmds[i];
                 if (!IsExternalInput(rec)) continue;
-                Unconsumed.Add(
-                    "seq=" + BattleStateDigest.I(rec.Seq)
+                var line = "seq=" + BattleStateDigest.I(rec.Seq)
                     + ";tick=" + BattleStateDigest.I(rec.Tick)
                     + ";kind=" + rec.Kind
-                    + ";unconsumed");
+                    + ";unconsumed";
+                var dest = ActiveSession(session);
+                if (dest != null) dest.Unconsumed.Add(line);
+                else Unconsumed.Add(line);
             }
         }
 
-        static void SubmitReplay(BattleSim sim, CommandRecord rec)
+        static void SubmitReplay(BattleSim sim, CommandRecord rec, ReplayDiagnosticSnapshot session)
         {
             var result = sim.Submit(new BattleCommand
             {
@@ -1811,7 +2041,7 @@ namespace Resonance.Battle
             });
             if (!result.Accepted)
             {
-                Divergences.Add(
+                NoteDivergence(session,
                     "seq=" + BattleStateDigest.I(rec.Seq)
                     + ";tick=" + BattleStateDigest.I(sim.TickIndex)
                     + ";kind=" + rec.Kind

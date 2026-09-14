@@ -15,7 +15,8 @@ namespace Resonance.Battle
     {
         None, NotInProgress, Paused, QtePending, NoQtePending, SlotInvalid, UnitDead,
         ActionLocked, Silenced, NotCharged, SlideOnCooldown, DriveNotReady, FeverNotActive, FeverThrottled,
-        FeverBudgetExhausted, AutoOwnsInput, InvalidValue
+        FeverBudgetExhausted, AutoOwnsInput, InvalidValue,
+        Unplayable
     }
 
     public struct BattleCommand
@@ -142,6 +143,9 @@ namespace Resonance.Battle
                 {
                     if (!CanAcceptSkillInput(cmd.Slot, out var r)) return r;
                     if (Allies[cmd.Slot].Charge < 100f) return CommandReject.NotCharged;
+                    var tapId = Allies[cmd.Slot].Def != null ? Allies[cmd.Slot].Def.TapSkillId : null;
+                    var tap = ResolveSkill(tapId);
+                    if (!FightSkillReady(tap)) return CommandReject.Unplayable;
                     return TryTap(cmd.Slot) ? CommandReject.None : CommandReject.InvalidValue;
                 }
                 case BattleCommandKind.Slide:
@@ -149,12 +153,18 @@ namespace Resonance.Battle
                     if (!CanAcceptSkillInput(cmd.Slot, out var r)) return r;
                     if (Allies[cmd.Slot].Charge < 100f) return CommandReject.NotCharged;
                     if (Allies[cmd.Slot].SlideCd > 0f) return CommandReject.SlideOnCooldown;
+                    var slideId = Allies[cmd.Slot].Def != null ? Allies[cmd.Slot].Def.SlideSkillId : null;
+                    var slide = ResolveSkill(slideId);
+                    if (!FightSkillReady(slide)) return CommandReject.Unplayable;
                     return TrySlide(cmd.Slot) ? CommandReject.None : CommandReject.InvalidValue;
                 }
                 case BattleCommandKind.DriveBegin:
                 {
                     if (!CanAcceptSkillInput(cmd.Slot, out var r)) return r;
                     if (Drive < 100f) return CommandReject.DriveNotReady;
+                    var driveId = Allies[cmd.Slot].Def != null ? Allies[cmd.Slot].Def.DriveSkillId : null;
+                    var drive = ResolveSkill(driveId);
+                    if (!FightSkillReady(drive)) return CommandReject.Unplayable;
                     return TryBeginDrive(cmd.Slot) ? CommandReject.None : CommandReject.InvalidValue;
                 }
                 case BattleCommandKind.DriveResolve:
@@ -164,6 +174,7 @@ namespace Resonance.Battle
                         case DriveResolveResult.Accepted: return CommandReject.None;
                         case DriveResolveResult.NoPending: return CommandReject.NoQtePending;
                         case DriveResolveResult.Paused: return CommandReject.Paused;
+                        case DriveResolveResult.Unplayable: return CommandReject.Unplayable;
                         default: return CommandReject.NotInProgress;
                     }
                 }

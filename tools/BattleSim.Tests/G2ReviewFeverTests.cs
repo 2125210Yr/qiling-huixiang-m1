@@ -7,6 +7,7 @@ namespace Resonance.Tests
     /// <summary>
     /// G2 review F01–F04. Asserts API_CONTRACT Fever / Submit behaviour. Red is acceptable.
     /// </summary>
+    [Collection("G2RecheckCatalog")]
     public sealed class G2ReviewFeverTests
     {
         [Fact]
@@ -184,6 +185,8 @@ namespace Resonance.Tests
 
         static BattleSim ArmedManual()
         {
+            Catalog.BuildBuiltin();
+            DesignPlaceholderPolicy.Bind(null);
             var sim = new BattleSim(Catalog.DefaultParty, 0, 3)
             {
                 ForceNoCrit = true,

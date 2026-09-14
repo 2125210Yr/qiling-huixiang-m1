@@ -1,0 +1,29 @@
+{
+  "repository": "2125210Yr/qiling-huixiang-m1",
+  "branch": "m1-gt6-review",
+  "commit": "1a752532e39560b861c2a661db66c97ca18ffece",
+  "baseline": "2a00445c67dbb2ca9251d81428e3096b71c233fb",
+  "review_verdict": "NEEDS_FIX",
+  "review_method": "GitHub connector pinned source/diff/test-code and submitter-summary inspection",
+  "independently_executed_csharp": false,
+  "independently_executed_unity": false,
+  "remote_modified": false,
+  "repro_cases_status": "NOT_RUN",
+  "new_batch_original_trx_obtained": false,
+  "fidelity_measured": false,
+  "scope": "G2 Path A; existing deferred fidelity conditions unchanged",
+  "files": {
+    "NEXT_TASK.md": {
+      "bytes": 2512,
+      "sha256": "df0211a5887094f9938b869cee9e8c72974322e500358dec4f197aac35dbdb9e"
+    },
+    "REPRO_CASES.md": {
+      "bytes": 2155,
+      "sha256": "8c066bb9b6bd167c60a2f2c107aa4fd262efbdec876e8b75793d5c42f9d0d3bd"
+    },
+    "REVIEW.md": {
+      "bytes": 13514,
+      "sha256": "b87720d2286ee33f6e005f745abef0e28c37e418d1c5c305684d77dd2c3e30f4"
+    }
+  }
+}

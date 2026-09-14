@@ -182,7 +182,7 @@ namespace Resonance.Battle
 
     public enum FeverEndReason { None, TimeUp, BudgetExhausted, BattleEnded }
 
-    public enum DriveResolveResult { Accepted, NoPending, NotInProgress, Paused }
+    public enum DriveResolveResult { Accepted, NoPending, NotInProgress, Paused, Unplayable }
 
     public sealed partial class BattleSim
     {
@@ -304,6 +304,11 @@ namespace Resonance.Battle
             _effectOverlay[id] = fx;
         }
 
+        /// <summary>Per-fight skill replacements consumed by ResolveSkill. Null when none applied.</summary>
+        public IReadOnlyDictionary<string, SkillDef> SkillOverlays => _skillOverlay;
+        /// <summary>Per-fight effect replacements consumed by ResolveEffect. Null when none applied.</summary>
+        public IReadOnlyDictionary<string, EffectDef> EffectOverlays => _effectOverlay;
+
         SkillDef ResolveSkill(string id)
         {
             if (_skillOverlay != null && !string.IsNullOrEmpty(id)
@@ -318,6 +323,16 @@ namespace Resonance.Battle
                 && _effectOverlay.TryGetValue(id, out var over) && over != null)
                 return over;
             return Catalog.TryEffect(id);
+        }
+
+        CapabilityVerdict CheckFightSkill(SkillDef sk)
+        {
+            return EffectCapability.CheckSkill(sk, Catalog.Effects, _effectOverlay);
+        }
+
+        bool FightSkillReady(SkillDef sk)
+        {
+            return sk != null && CheckFightSkill(sk).Ok;
         }
 
         public BattleSim(string[] partyIds, int leaderSlot, int seed)
@@ -590,6 +605,9 @@ namespace Resonance.Battle
         {
             if (!CanAcceptSkillInput(slot, out _)) return false;
             if (Drive < 100f) return false;
+            var unit = Allies[slot];
+            var drive = unit != null && unit.Def != null ? ResolveSkill(unit.Def.DriveSkillId) : null;
+            if (!FightSkillReady(drive)) return false;
             PendingDriveSlot = slot;
             _qteElapsed = 0f;
             LastEvent = Allies[slot].Def.Name + " 准备 Drive";
@@ -605,6 +623,15 @@ namespace Resonance.Battle
             if (Outcome != BattleOutcome.InProgress) return DriveResolveResult.NotInProgress;
             if (Paused) return DriveResolveResult.Paused;
             var slot = PendingDriveSlot;
+            var unit = Allies[slot];
+            var skill = unit != null && unit.Def != null ? ResolveSkill(unit.Def.DriveSkillId) : null;
+            if (!FightSkillReady(skill))
+            {
+                PendingDriveSlot = -1;
+                _qteElapsed = 0f;
+                LastEvent = EffectCapability.FightRejectReason(skill, CheckFightSkill(skill));
+                return DriveResolveResult.Unplayable;
+            }
             PendingDriveSlot = -1;
             _qteElapsed = 0f;
             Drive = 0f;
@@ -613,9 +640,6 @@ namespace Resonance.Battle
             LastDriveResolveSlot = slot;
             var mul = TimingDamage(timing);
             AddFever(TimingFever(timing));
-            var unit = Allies[slot];
-            var skill = unit != null && unit.Def != null ? ResolveSkill(unit.Def.DriveSkillId) : null;
-            if (unit == null || skill == null) return DriveResolveResult.Accepted;
             unit.Charge = 0f;
             Cast(unit, true, skill, mul);
             LastEvent = "DRIVE  " + unit.Def.Name + "  " + skill.Name + "  " + timing;
@@ -656,23 +680,30 @@ namespace Resonance.Battle
             var autoCd = Math.Max(1.1f, 2.4f - u.Def.Agl / 2000f);
             if (u.AutoTimer >= autoCd)
             {
-                u.AutoTimer = 0f;
                 var autoSkill = ResolveSkill(u.Def.AutoSkillId);
-                if (autoSkill != null)
+                if (autoSkill != null && !FightSkillReady(autoSkill))
                 {
-                    Cast(u, ally, autoSkill, 1f);
-                    if (ally)
+                    u.AutoTimer = 0f; // prevent spin; no Cast, no DriveGain
+                }
+                else
+                {
+                    u.AutoTimer = 0f;
+                    if (autoSkill != null)
                     {
-                        // DESIGN_PLACEHOLDER: honor declared auto DriveGain when verification
-                        // policy is bound, or when this auto skill is an explicit overlay (N04).
-                        // Production catalog keeps the engineering floor of 14. Neither number is GL.
-                        var gain = autoSkill.DriveGain;
-                        var overlaid = !string.IsNullOrEmpty(u.Def.AutoSkillId)
-                            && _skillOverlay != null
-                            && _skillOverlay.ContainsKey(u.Def.AutoSkillId);
-                        if (!DesignPlaceholderPolicy.HonorDeclaredAutoDriveGain && !overlaid)
-                            gain = Math.Max(14, gain);
-                        Drive = Math.Min(100f, Drive + gain);
+                        Cast(u, ally, autoSkill, 1f);
+                        if (ally)
+                        {
+                            // DESIGN_PLACEHOLDER: honor declared auto DriveGain when verification
+                            // policy is bound, or when this auto skill is an explicit overlay (N04).
+                            // Production catalog keeps the engineering floor of 14. Neither number is GL.
+                            var gain = autoSkill.DriveGain;
+                            var overlaid = !string.IsNullOrEmpty(u.Def.AutoSkillId)
+                                && _skillOverlay != null
+                                && _skillOverlay.ContainsKey(u.Def.AutoSkillId);
+                            if (!DesignPlaceholderPolicy.HonorDeclaredAutoDriveGain && !overlaid)
+                                gain = Math.Max(14, gain);
+                            Drive = Math.Min(100f, Drive + gain);
+                        }
                     }
                 }
             }
@@ -685,6 +716,7 @@ namespace Resonance.Battle
                 var wantSlide = _rng.NextDouble() >= 0.65 && u.SlideCd <= 0f;
                 var skill = ResolveSkill(wantSlide ? u.Def.SlideSkillId : u.Def.TapSkillId);
                 if (skill == null) return;
+                if (!FightSkillReady(skill)) return; // keep Charge; next tick may pick the other declared skill
                 u.Charge = 0f;
                 if (wantSlide) u.SlideCd = SlideCdDurationSec;
                 Cast(u, false, skill, 1f);
@@ -826,6 +858,7 @@ namespace Resonance.Battle
             var id = type == SkillType.Slide ? u.Def.SlideSkillId : u.Def.TapSkillId;
             var skill = ResolveSkill(id);
             if (skill == null) return false;
+            if (!FightSkillReady(skill)) return false;
             u.Charge = 0f;
             if (type == SkillType.Slide) u.SlideCd = SlideCdDurationSec;
             Drive = Math.Min(100f, Drive + skill.DriveGain);
@@ -924,6 +957,13 @@ namespace Resonance.Battle
                 FailUnknownOpcode("");
                 throw new UnknownOpcodeException("");
             }
+            if (!FightSkillReady(skill))
+            {
+                var msg = EffectCapability.FightRejectReason(skill, CheckFightSkill(skill));
+                NoteEvent("unplayable_skill", skill.Id ?? "", caster, null, 0, skill.Type);
+                LastEvent = msg;
+                return;
+            }
             _activeKind = skill.Type;
             _execSkill = skill;
             _execCaster = caster;
@@ -962,12 +1002,18 @@ namespace Resonance.Battle
             var fx = ResolveEffect(skill.EffectId);
             if (fx == null)
             {
+                Outcome = BattleOutcome.Failed;
+                FailedReason = "UNPLAYABLE_SKILL " + skill.Id + " missing_effect " + skill.EffectId;
+                LastEvent = FailedReason;
                 NoteEvent("missing_effect", skill.EffectId, caster, null, 0, skill.Type);
                 return;
             }
             var verdict = EffectCapability.Check(fx);
             if (!verdict.Ok)
             {
+                Outcome = BattleOutcome.Failed;
+                FailedReason = EffectCapability.FightRejectReason(skill, verdict);
+                LastEvent = FailedReason;
                 NoteEvent("unplayable_effect", fx.Opcode ?? "", caster, null, (int)fx.Kind, skill.Type);
                 return;
             }
@@ -1554,7 +1600,7 @@ namespace Resonance.Battle
             var leader = Allies[LeaderSlot];
             if (leader == null || leader.Def == null) return;
             var skill = ResolveSkill(leader.Def.LeaderSkillId);
-            if (skill == null) return;
+            if (!FightSkillReady(skill)) return;
             Cast(leader, true, skill, 1f);
         }
 

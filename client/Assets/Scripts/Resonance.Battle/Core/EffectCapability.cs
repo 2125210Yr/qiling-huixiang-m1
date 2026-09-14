@@ -402,19 +402,36 @@ namespace Resonance.Battle
 
         public static CapabilityVerdict CheckSkill(SkillDef sk)
         {
-            return CheckSkill(sk, Catalog.Effects);
+            return CheckSkill(sk, Catalog.Effects, null);
         }
 
         /// <summary>
         /// Skill check against an explicit effects snapshot. Does not read live
         /// <see cref="Catalog.Effects"/> — required so candidate import validation
         /// cannot sneak-read the previous activity tables (V03).
+        /// Playable = channel opcode Implemented and, when <see cref="SkillDef.EffectId"/>
+        /// is set, the linked row exists in <paramref name="effects"/> and
+        /// <see cref="Check(EffectDef)"/> is Ok. Missing or unplayable EffectId
+        /// is not playable. Historical inventory presence is ignored.
         /// </summary>
         public static CapabilityVerdict CheckSkill(SkillDef sk, IReadOnlyDictionary<string, EffectDef> effects)
         {
+            return CheckSkill(sk, effects, null);
+        }
+
+        /// <summary>
+        /// Fight-path check. <paramref name="effectOverlays"/> wins on the same
+        /// id; the overlay row is re-validated (a historical name does not
+        /// inherit playable status — atk_up retargeted to Reflect fails).
+        /// </summary>
+        public static CapabilityVerdict CheckSkill(
+            SkillDef sk,
+            IReadOnlyDictionary<string, EffectDef> effects,
+            IReadOnlyDictionary<string, EffectDef> effectOverlays)
+        {
             var v = CheckSkillChannel(sk);
             if (sk == null) return v;
-            BindLinkedEffect(sk, effects, v);
+            BindLinkedEffect(sk, effects, effectOverlays, v);
             return v;
         }
 
@@ -457,12 +474,14 @@ namespace Resonance.Battle
             return v;
         }
 
-        static void BindLinkedEffect(SkillDef sk, IReadOnlyDictionary<string, EffectDef> effects, CapabilityVerdict v)
+        static void BindLinkedEffect(
+            SkillDef sk,
+            IReadOnlyDictionary<string, EffectDef> effects,
+            IReadOnlyDictionary<string, EffectDef> effectOverlays,
+            CapabilityVerdict v)
         {
             if (sk == null || v == null || string.IsNullOrEmpty(sk.EffectId)) return;
-            EffectDef fx = null;
-            if (effects != null)
-                effects.TryGetValue(sk.EffectId, out fx);
+            var fx = LookupEffect(sk.EffectId, effects, effectOverlays);
             if (fx == null)
             {
                 v.ParamErrors.Add("param: missing effect '" + sk.EffectId + "'");
@@ -473,12 +492,51 @@ namespace Resonance.Battle
 
             var ev = Check(fx);
             if (ev.Ok) return;
+            v.Kind = ev.Kind;
             if (ev.State != CapabilityState.Implemented)
                 v.State = ev.State;
             for (int i = 0; i < ev.ParamErrors.Count; i++)
                 v.ParamErrors.Add(ev.ParamErrors[i]);
             if (v.State != CapabilityState.Implemented)
                 v.Reason = "linked effect " + sk.EffectId + ": " + ev.Reason;
+        }
+
+        /// <summary>
+        /// Overlay wins on the same id. Existence of a historical inventory
+        /// name does not make the overlay (or a retargeted kind) playable.
+        /// </summary>
+        public static EffectDef LookupEffect(
+            string id,
+            IReadOnlyDictionary<string, EffectDef> effects,
+            IReadOnlyDictionary<string, EffectDef> overlays)
+        {
+            if (string.IsNullOrEmpty(id)) return null;
+            EffectDef fx;
+            if (overlays != null && overlays.TryGetValue(id, out fx) && fx != null)
+                return fx;
+            if (effects != null && effects.TryGetValue(id, out fx))
+                return fx;
+            return null;
+        }
+
+        public static SkillDef LookupSkill(
+            string id,
+            IReadOnlyDictionary<string, SkillDef> skills,
+            IReadOnlyDictionary<string, SkillDef> overlays)
+        {
+            if (string.IsNullOrEmpty(id)) return null;
+            SkillDef sk;
+            if (overlays != null && overlays.TryGetValue(id, out sk) && sk != null)
+                return sk;
+            if (skills != null && skills.TryGetValue(id, out sk))
+                return sk;
+            return null;
+        }
+
+        public static string FightRejectReason(SkillDef sk, CapabilityVerdict verdict)
+        {
+            var id = sk != null && !string.IsNullOrEmpty(sk.Id) ? sk.Id : "";
+            return "UNPLAYABLE_SKILL " + id + " " + FormatReason(verdict);
         }
 
         public static void RejectUnplayable(EffectDef fx)
@@ -522,7 +580,31 @@ namespace Resonance.Battle
 
         public static bool IsPlayable(SkillDef sk, IReadOnlyDictionary<string, EffectDef> effects)
         {
-            return CheckSkill(sk, effects).Ok;
+            return CheckSkill(sk, effects, null).Ok;
+        }
+
+        public static bool IsPlayable(
+            SkillDef sk,
+            IReadOnlyDictionary<string, EffectDef> effects,
+            IReadOnlyDictionary<string, EffectDef> effectOverlays)
+        {
+            return CheckSkill(sk, effects, effectOverlays).Ok;
+        }
+
+        public static bool IsPlayable(CharacterDef ch)
+        {
+            return IsPlayable(ch, Catalog.Skills, Catalog.Effects, null, null);
+        }
+
+        public static bool IsPlayable(
+            CharacterDef ch,
+            IReadOnlyDictionary<string, SkillDef> skills,
+            IReadOnlyDictionary<string, EffectDef> effects,
+            IReadOnlyDictionary<string, SkillDef> skillOverlays,
+            IReadOnlyDictionary<string, EffectDef> effectOverlays)
+        {
+            var report = EvaluateCharacterPlayable(ch, skills, effects, skillOverlays, effectOverlays);
+            return report != null && report.PlayableRosterViolations().Count == 0;
         }
 
         public static ContentValidationReport ValidateCatalog(
@@ -603,6 +685,9 @@ namespace Resonance.Battle
         /// Overlay import policy (V01/V02): hard errors always block; unimplemented
         /// (opcode, kind) blocks only when the row is not already in the historical
         /// inventory (builtin <c>dot_flame</c> may stay; new Reflect may not).
+        /// This is inventory-tolerance only. It is not a playable grant:
+        /// <see cref="FilterPlayableEffects"/> / <see cref="CheckSkill"/> re-validate
+        /// the current opcode+kind. Same id with a new unsupported kind is not playable.
         /// </summary>
         public static bool OverlayRowBlocksImport(ContentViolation v, bool existedInHistoricalInventory)
         {
@@ -684,6 +769,10 @@ namespace Resonance.Battle
             return report;
         }
 
+        /// <summary>
+        /// Strict playable roster. Re-checks each current row; a historical
+        /// ContainsKey(id) never copies playable status onto a new kind.
+        /// </summary>
         public static Dictionary<string, EffectDef> FilterPlayableEffects(IReadOnlyDictionary<string, EffectDef> effects)
         {
             var d = new Dictionary<string, EffectDef>();
@@ -696,6 +785,11 @@ namespace Resonance.Battle
             return d;
         }
 
+        /// <summary>
+        /// Playable skill = <see cref="CheckSkill(SkillDef, IReadOnlyDictionary{string, EffectDef})"/>.Ok
+        /// including the linked effect. Missing or unplayable EffectId is excluded.
+        /// Inventory may still hold the row.
+        /// </summary>
         public static Dictionary<string, SkillDef> FilterPlayableSkills(
             IReadOnlyDictionary<string, SkillDef> skills,
             IReadOnlyDictionary<string, EffectDef> effects)
@@ -708,6 +802,174 @@ namespace Resonance.Battle
                 d[kv.Key] = kv.Value;
             }
             return d;
+        }
+
+        public static Dictionary<string, CharacterDef> FilterPlayableCharacters(
+            IReadOnlyDictionary<string, CharacterDef> chars,
+            IReadOnlyDictionary<string, SkillDef> skills,
+            IReadOnlyDictionary<string, EffectDef> effects)
+        {
+            return FilterPlayableCharacters(chars, skills, effects, null, null);
+        }
+
+        public static Dictionary<string, CharacterDef> FilterPlayableCharacters(
+            IReadOnlyDictionary<string, CharacterDef> chars,
+            IReadOnlyDictionary<string, SkillDef> skills,
+            IReadOnlyDictionary<string, EffectDef> effects,
+            IReadOnlyDictionary<string, SkillDef> skillOverlays,
+            IReadOnlyDictionary<string, EffectDef> effectOverlays)
+        {
+            var d = new Dictionary<string, CharacterDef>();
+            if (chars == null) return d;
+            foreach (var kv in chars)
+            {
+                if (kv.Value == null) continue;
+                if (!IsPlayable(kv.Value, skills, effects, skillOverlays, effectOverlays))
+                    continue;
+                d[kv.Key] = kv.Value;
+            }
+            return d;
+        }
+
+        public static void CollectDeclaredSkillIds(CharacterDef ch, List<string> dest)
+        {
+            if (ch == null || dest == null) return;
+            AddDeclaredSkillId(dest, ch.AutoSkillId);
+            AddDeclaredSkillId(dest, ch.TapSkillId);
+            AddDeclaredSkillId(dest, ch.SlideSkillId);
+            AddDeclaredSkillId(dest, ch.DriveSkillId);
+            AddDeclaredSkillId(dest, ch.LeaderSkillId);
+        }
+
+        static void AddDeclaredSkillId(List<string> dest, string id)
+        {
+            if (dest == null || string.IsNullOrEmpty(id)) return;
+            for (int i = 0; i < dest.Count; i++)
+            {
+                if (string.Equals(dest[i], id, StringComparison.Ordinal))
+                    return;
+            }
+            dest.Add(id);
+        }
+
+        public static ContentValidationReport EvaluateCharacterPlayable(
+            CharacterDef ch,
+            IReadOnlyDictionary<string, SkillDef> skills,
+            IReadOnlyDictionary<string, EffectDef> effects,
+            IReadOnlyDictionary<string, SkillDef> skillOverlays,
+            IReadOnlyDictionary<string, EffectDef> effectOverlays)
+        {
+            var report = new ContentValidationReport();
+            if (ch == null)
+            {
+                report.Violations.Add(MissingRow("", "missing character"));
+                return report;
+            }
+            AppendCharacterPlayable(report, ch, skills, effects, skillOverlays, effectOverlays);
+            return report;
+        }
+
+        public static ContentValidationReport EvaluatePartyPlayable(
+            IReadOnlyList<string> partyIds,
+            IReadOnlyList<string> enemyIds,
+            IReadOnlyDictionary<string, CharacterDef> chars,
+            IReadOnlyDictionary<string, SkillDef> skills,
+            IReadOnlyDictionary<string, EffectDef> effects,
+            IReadOnlyDictionary<string, SkillDef> skillOverlays,
+            IReadOnlyDictionary<string, EffectDef> effectOverlays)
+        {
+            var report = new ContentValidationReport();
+            AppendSidePlayable(report, partyIds, chars, skills, effects, skillOverlays, effectOverlays);
+            AppendSidePlayable(report, enemyIds, chars, skills, effects, skillOverlays, effectOverlays);
+            return report;
+        }
+
+        public static void EnsurePartyPlayable(
+            IReadOnlyList<string> partyIds,
+            IReadOnlyList<string> enemyIds,
+            IReadOnlyDictionary<string, CharacterDef> chars,
+            IReadOnlyDictionary<string, SkillDef> skills,
+            IReadOnlyDictionary<string, EffectDef> effects,
+            IReadOnlyDictionary<string, SkillDef> skillOverlays,
+            IReadOnlyDictionary<string, EffectDef> effectOverlays)
+        {
+            ThrowPlayableRoster(EvaluatePartyPlayable(
+                partyIds, enemyIds, chars, skills, effects, skillOverlays, effectOverlays));
+        }
+
+        public static void ThrowPlayableRoster(ContentValidationReport report)
+        {
+            if (report == null) return;
+            var blocking = report.PlayableRosterViolations();
+            if (blocking.Count == 0) return;
+            var filtered = new ContentValidationReport();
+            for (int i = 0; i < blocking.Count; i++)
+                filtered.Violations.Add(blocking[i]);
+            throw new ContentValidationException(filtered);
+        }
+
+        static void AppendSidePlayable(
+            ContentValidationReport report,
+            IReadOnlyList<string> unitIds,
+            IReadOnlyDictionary<string, CharacterDef> chars,
+            IReadOnlyDictionary<string, SkillDef> skills,
+            IReadOnlyDictionary<string, EffectDef> effects,
+            IReadOnlyDictionary<string, SkillDef> skillOverlays,
+            IReadOnlyDictionary<string, EffectDef> effectOverlays)
+        {
+            if (report == null || unitIds == null) return;
+            for (int i = 0; i < unitIds.Count; i++)
+            {
+                var id = unitIds[i];
+                if (string.IsNullOrEmpty(id)) continue;
+                CharacterDef ch = null;
+                if (chars != null) chars.TryGetValue(id, out ch);
+                if (ch == null)
+                {
+                    report.Violations.Add(MissingRow(id, "missing character"));
+                    continue;
+                }
+                AppendCharacterPlayable(report, ch, skills, effects, skillOverlays, effectOverlays);
+            }
+        }
+
+        static void AppendCharacterPlayable(
+            ContentValidationReport report,
+            CharacterDef ch,
+            IReadOnlyDictionary<string, SkillDef> skills,
+            IReadOnlyDictionary<string, EffectDef> effects,
+            IReadOnlyDictionary<string, SkillDef> skillOverlays,
+            IReadOnlyDictionary<string, EffectDef> effectOverlays)
+        {
+            if (report == null || ch == null) return;
+            var ids = new List<string>(5);
+            CollectDeclaredSkillIds(ch, ids);
+            for (int i = 0; i < ids.Count; i++)
+            {
+                var sid = ids[i];
+                var sk = LookupSkill(sid, skills, skillOverlays);
+                if (sk == null)
+                {
+                    report.Violations.Add(MissingRow(sid, "missing skill"));
+                    continue;
+                }
+                var verdict = CheckSkill(sk, effects, effectOverlays);
+                if (verdict.Ok) continue;
+                var vid = !string.IsNullOrEmpty(sk.Id) ? sk.Id : sid;
+                report.Violations.Add(ToViolation(vid, verdict));
+            }
+        }
+
+        static ContentViolation MissingRow(string id, string reason)
+        {
+            return new ContentViolation
+            {
+                Id = id ?? "",
+                Reason = reason ?? "",
+                State = CapabilityState.Unknown,
+                BlocksPlayableRoster = true,
+                BlocksExternalImport = false
+            };
         }
 
         static ContentViolation ToViolation(string id, CapabilityVerdict verdict)

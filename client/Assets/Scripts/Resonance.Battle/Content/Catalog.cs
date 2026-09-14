@@ -171,6 +171,10 @@ namespace Resonance.Battle
                 play.Add(kv.Key);
             }
             play.Sort();
+            // Playable* is the opcode+kind+linked-effect closure. PlayableIds stays
+            // the non-enemy inventory roster so Unity/archive UI still lists C001
+            // even when C001_slide → inventory-only dot_flame. Fight entry uses
+            // EnsurePartyPlayable; fight spend uses CheckSkill, not this id list.
             var playableFx = EffectCapability.FilterPlayableEffects(effects);
             var playableSk = EffectCapability.FilterPlayableSkills(skills, effects);
             var fp = ComputeFingerprint(chars, skills, effects, vertical);
@@ -391,11 +395,24 @@ namespace Resonance.Battle
             CharacterDef c;
             return Characters.TryGetValue(id, out c) ? c : null;
         }
+        /// <summary>
+        /// Inventory lookup. Historical / unplayable rows remain visible.
+        /// Fight paths must use <see cref="TryGetPlayableSkill"/> or
+        /// <see cref="EffectCapability.CheckSkill(SkillDef, IReadOnlyDictionary{string, EffectDef}, IReadOnlyDictionary{string, EffectDef})"/>
+        /// after overlay resolve — not this method alone.
+        /// </summary>
         public static SkillDef TrySkill(string id)
         {
             if (string.IsNullOrEmpty(id) || Skills == null) return null;
             SkillDef s;
             return Skills.TryGetValue(id, out s) ? s : null;
+        }
+
+        public static bool TryGetPlayableSkill(string id, out SkillDef sk)
+        {
+            sk = null;
+            if (string.IsNullOrEmpty(id) || PlayableSkills == null) return false;
+            return PlayableSkills.TryGetValue(id, out sk) && sk != null;
         }
 
         public static SkillDef CloneSkill(SkillDef s)
@@ -471,6 +488,27 @@ namespace Resonance.Battle
             return EffectCapability.IsPlayable(sk, effects);
         }
 
+        public static bool IsPlayable(
+            SkillDef sk,
+            IReadOnlyDictionary<string, EffectDef> effects,
+            IReadOnlyDictionary<string, EffectDef> effectOverlays)
+        {
+            return EffectCapability.IsPlayable(sk, effects, effectOverlays);
+        }
+
+        public static bool IsPlayable(CharacterDef ch)
+        {
+            return EffectCapability.IsPlayable(ch, Skills, Effects, null, null);
+        }
+
+        public static bool IsPlayable(
+            CharacterDef ch,
+            IReadOnlyDictionary<string, SkillDef> skillOverlays,
+            IReadOnlyDictionary<string, EffectDef> effectOverlays)
+        {
+            return EffectCapability.IsPlayable(ch, Skills, Effects, skillOverlays, effectOverlays);
+        }
+
         public static bool TryGetPlayableEffect(string id, out EffectDef fx)
         {
             fx = null;
@@ -479,9 +517,9 @@ namespace Resonance.Battle
         }
 
         /// <summary>
-        /// Public Cast/ApplyEffect gate. BattleSim is not hooked — integrator
-        /// must call this before applying an effect, or skip inventory-only rows
-        /// via <see cref="TryGetPlayableEffect"/>.
+        /// Public Cast/ApplyEffect gate. Do not call on Unity startup for builtin
+        /// C001_slide (links inventory-only <c>dot_flame</c>). BattleSim hunks
+        /// reject before spend instead of throwing.
         /// </summary>
         public static void EnsurePlayable(EffectDef fx)
         {
@@ -491,6 +529,74 @@ namespace Resonance.Battle
         public static void EnsurePlayable(SkillDef sk)
         {
             EffectCapability.RejectUnplayable(sk, Effects);
+        }
+
+        public static ContentValidationReport EvaluatePartyPlayable(string[] partyIds, string[] enemyIds)
+        {
+            return EvaluatePartyPlayable(partyIds, enemyIds, null, null);
+        }
+
+        public static ContentValidationReport EvaluatePartyPlayable(
+            string[] partyIds,
+            string[] enemyIds,
+            IReadOnlyDictionary<string, SkillDef> skillOverlays,
+            IReadOnlyDictionary<string, EffectDef> effectOverlays)
+        {
+            return EffectCapability.EvaluatePartyPlayable(
+                partyIds, enemyIds, Characters, Skills, Effects, skillOverlays, effectOverlays);
+        }
+
+        public static ContentValidationReport EvaluatePartyPlayable(
+            string[] partyIds,
+            StageDef stage,
+            IReadOnlyDictionary<string, SkillDef> skillOverlays,
+            IReadOnlyDictionary<string, EffectDef> effectOverlays)
+        {
+            return EvaluatePartyPlayable(partyIds, CollectStageUnitIds(stage), skillOverlays, effectOverlays);
+        }
+
+        /// <summary>
+        /// Strict entry gate: every declared auto/tap/slide/drive/leader skill
+        /// on party and enemies must be <see cref="IsPlayable(SkillDef)"/>
+        /// including linked effects and overlays. Does not run from
+        /// <see cref="BuildBuiltin"/> / Unity startup. Historical inventory
+        /// rows may exist; they are not a playable exemption.
+        /// </summary>
+        public static void EnsurePartyPlayable(string[] partyIds, string[] enemyIds)
+        {
+            EnsurePartyPlayable(partyIds, enemyIds, null, null);
+        }
+
+        public static void EnsurePartyPlayable(
+            string[] partyIds,
+            string[] enemyIds,
+            IReadOnlyDictionary<string, SkillDef> skillOverlays,
+            IReadOnlyDictionary<string, EffectDef> effectOverlays)
+        {
+            EffectCapability.EnsurePartyPlayable(
+                partyIds, enemyIds, Characters, Skills, Effects, skillOverlays, effectOverlays);
+        }
+
+        public static void EnsurePartyPlayable(
+            string[] partyIds,
+            StageDef stage,
+            IReadOnlyDictionary<string, SkillDef> skillOverlays,
+            IReadOnlyDictionary<string, EffectDef> effectOverlays)
+        {
+            EnsurePartyPlayable(partyIds, CollectStageUnitIds(stage), skillOverlays, effectOverlays);
+        }
+
+        static string[] CollectStageUnitIds(StageDef stage)
+        {
+            if (stage == null) return new string[0];
+            var a = CopyWave(stage.Wave0);
+            var b = CopyWave(stage.Wave1);
+            if (a.Length == 0) return b;
+            if (b.Length == 0) return a;
+            var d = new string[a.Length + b.Length];
+            for (int i = 0; i < a.Length; i++) d[i] = a[i];
+            for (int i = 0; i < b.Length; i++) d[a.Length + i] = b[i];
+            return d;
         }
 
         public static void RejectUnplayable(EffectDef fx)
@@ -1052,6 +1158,62 @@ namespace Resonance.Battle
             sk.HealMaxHpFrac = hpFrac;
             sk.HitCount = 0;
             return sk;
+        }
+    }
+
+    /// <summary>
+    /// Explicit developer / verification substitutes for A53 playable closure.
+    /// Never applied by <see cref="Catalog.InstallTables"/> or Unity startup.
+    /// Caller must name the substitute they bind (see patches/A53-GATE.md).
+    /// </summary>
+    public static class PlayableSubstitutes
+    {
+        public const string StripDotFlame = "A53_SUB_STRIP_DOT_FLAME";
+        public const string PlayableParty = "A53_SUB_PLAYABLE_PARTY";
+        public const string PlayableWave = "A53_SUB_PLAYABLE_WAVE";
+
+        /// <summary>C006 / C007 / C003 / C008 / C009 — no declared Dot links.</summary>
+        public static readonly string[] PartyIds = { "C006", "C007", "C003", "C008", "C009" };
+
+        /// <summary>E002 / E004 — defender + healer kits, no declared Dot links.</summary>
+        public static readonly string[] EnemyIds = { "E002", "E004" };
+
+        /// <summary>
+        /// Overlay clones whose EffectId is <c>dot_flame</c> with the link
+        /// cleared. Damage/heal channels stay; Dot is not implemented.
+        /// </summary>
+        public static Dictionary<string, SkillDef> CreateStripDotFlameOverlays(
+            IReadOnlyDictionary<string, SkillDef> skills)
+        {
+            var d = new Dictionary<string, SkillDef>();
+            if (skills == null) return d;
+            foreach (var kv in skills)
+            {
+                var sk = kv.Value;
+                if (sk == null) continue;
+                if (!string.Equals(sk.EffectId, "dot_flame", StringComparison.Ordinal))
+                    continue;
+                var copy = Catalog.CloneSkill(sk);
+                copy.EffectId = null;
+                d[kv.Key] = copy;
+            }
+            return d;
+        }
+
+        /// <summary>
+        /// Bind a named substitute onto <paramref name="sim"/>. Never called from
+        /// Catalog install or Unity boot — the caller must pass the name.
+        /// </summary>
+        public static void Bind(BattleSim sim, string substituteName)
+        {
+            if (sim == null) throw new ArgumentNullException(nameof(sim));
+            if (string.Equals(substituteName, StripDotFlame, StringComparison.Ordinal))
+            {
+                foreach (var kv in CreateStripDotFlameOverlays(Catalog.Skills))
+                    sim.OverlaySkill(kv.Key, kv.Value);
+                return;
+            }
+            throw new ArgumentException("unknown playable substitute: " + substituteName, nameof(substituteName));
         }
     }
 }
