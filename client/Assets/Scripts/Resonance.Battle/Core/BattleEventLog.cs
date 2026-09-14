@@ -21,6 +21,8 @@ namespace Resonance.Battle
         public SkillType Channel;
         public FormulaProfile Profile;
         public FormulaStatus FormulaStatus;
+        /// <summary>R06: evidence class of the numeric branch (never Measured for current branches).</summary>
+        public FormulaEvidence Evidence;
 
         public string Canonical()
         {
@@ -28,7 +30,7 @@ namespace Resonance.Battle
                 + "|" + CasterSlot + "|" + (CasterAlly ? "1" : "0")
                 + "|" + TargetSlot + "|" + (TargetAlly ? "1" : "0")
                 + "|" + Amount + "|" + (int)Channel
-                + "|" + (int)Profile + "|" + (int)FormulaStatus;
+                + "|" + (int)Profile + "|" + (int)FormulaStatus + "|" + (int)Evidence;
         }
     }
 
@@ -63,7 +65,8 @@ namespace Resonance.Battle
                 Amount = amount,
                 Channel = channel,
                 Profile = profile,
-                FormulaStatus = status
+                FormulaStatus = status,
+                Evidence = DamageMath.EvidenceOf(profile, channel)
             };
             Events.Add(ev);
             return ev;

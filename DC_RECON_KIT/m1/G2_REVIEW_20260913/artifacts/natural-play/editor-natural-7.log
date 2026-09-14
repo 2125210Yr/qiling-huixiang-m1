@@ -1,0 +1,739 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.3/staging' branch; Version is '6000.3.23f1 (09d2ecc7fb28) revision 643820'; Using compiler version '194234433'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26200) Professional' Language: 'zh' Physical Memory: 32581 MB
+BatchMode: 0, IsHumanControllingUs: 1, StartBugReporterOnCrash: 1, Is64bit: 1
+System  architecture: x64
+Process architecture: x64
+Date: 2026-09-14T03:43:39Z
+[Licensing::IpcConnector] Channel LicenseClient-Administrator doesn't exist
+[Licensing::Module] Successfully launched the LicensingClient (PId: 36488)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Administrator" at "2026-09-14T03:43:40.9644997Z"
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 36488, path: "D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+
+COMMAND LINE ARGUMENTS:
+D:\Unity\Hub\Editor\6000.3.23f1\Editor\Unity.exe
+-projectPath
+F:\天命之子\client
+-logFile
+F:\天命之子\DC_RECON_KIT\m1\G2_REVIEW_20260913\artifacts\natural-play\editor-natural-7.log
+Successfully changed project path to: F:\天命之子\client
+F:/天命之子/client
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-remapper-allocator-initial-capacity=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+Player connection [24664]  Target information:
+
+Player connection [24664]  * "[IP] 192.168.1.54 [Port] 55504 [Flags] 2 [Guid] 1617763799 [EditorId] 1617763799 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-AKI3LSA) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [24664]  * "[IP] 198.18.0.1 [Port] 55504 [Flags] 2 [Guid] 1617763799 [EditorId] 1617763799 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-AKI3LSA) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [24664] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [24664] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.3+d7ffd15
+  Session Id:              a6719f8b54374a62a6e33b40adab82ea
+  Correlation Id:          893f727879eb5aa1e5410e74bfa664aa
+  External correlation Id: 5213091447477006188
+  Machine Id:              2I/XDZsLcGAfRljEGy76IATF7BI=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-Administrator" (connect: 1.39s, validation: 0.91s, handshake: 0.28s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Administrator-notifications" at "2026-09-14T03:43:42.1570575Z"
+[Licensing::Module] Connected to LicensingClient (PId: 36488, launch time: 0.08, total connection time: 2.58s)
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-99BH-9QMP-CCW5-HN7U-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-09-24T04:39:47Z
+[Licensing::Module] License group:
+  Id: ewogICJzdWJzR3JvdXAiIDogInVuaXR5IGVkaXRvciIsCiAgIm5hbWVzcGFjZSIgOiAidW5pdHlfZWRpdG9yIiwKICAidHlwZSIgOiAiRURJVE9SIiwKICAidGFnIiA6ICJVbml0eVBlcnNvbmFsXXXX
+  Product: Unity Personal Version
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.10
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-99BH-9QMP-CCW5-HN7U-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-09-24T04:39:47Z
+[Licensing::Module] License group:
+  Id: ewogICJzdWJzR3JvdXAiIDogInVuaXR5IGVkaXRvciIsCiAgIm5hbWVzcGFjZSIgOiAidW5pdHlfZWRpdG9yIiwKICAidHlwZSIgOiAiRURJVE9SIiwKICAidGFnIiA6ICJVbml0eVBlcnNvbmFsXXXX
+  Product: Unity Personal Version
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Module] Licensing Background thread has ended after 3.42s
+[Package Manager] Connected to IPC stream "Upm-44892" after 2.3 seconds.
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-99BH-9QMP-CCW5-HN7U-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-09-24T04:43:41Z
+[Licensing::Module] License group:
+  Id: ewogICJzdWJzR3JvdXAiIDogInVuaXR5IGVkaXRvciIsCiAgIm5hbWVzcGFjZSIgOiAidW5pdHlfZWRpdG9yIiwKICAidHlwZSIgOiAiRURJVE9SIiwKICAidGFnIiA6ICJVbml0eVBlcnNvbmFsXXXX
+  Product: Unity Personal Version
+  Type: Assigned
+  Expiration: Unlimited
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 2.65 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.3.23f1 (09d2ecc7fb28)
+[Subsystems] Discovering subsystems at path D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path F:/天命之子/client/Assets
+[D3D12 Device Filter] Vendor Name: NVIDIA
+[D3D12 Device Filter] Device Name: NVIDIA GeForce RTX 4060 Ti
+[D3D12 Device Filter] Driver Version: 32.0.16.1047
+[D3D12 Device Filter] Feature Level: 12.2
+[D3D12 Device Filter] Graphics Memory: 7949 MB
+[D3D12 Device Filter] Processor Count: 16
+[D3D12 Device Filter] Device Type: Discrete
+GfxDevice: creating device client; kGfxThreadingModeSplitJobs
+d3d12: failed to query info queue interface (0x80004002).
+Direct3D:
+    Version:         Direct3D 12 [level 12.2]
+    Renderer:        NVIDIA GeForce RTX 4060 Ti (ID=0x2803)
+    Vendor:          NVIDIA
+    VRAM:            7949 MB
+    App VRAM Budget: 7181 MB
+    Driver:          32.0.16.1047
+Initialize mono
+Mono path[0] = 'D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56892
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-99BH-9QMP-CCW5-HN7U-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-09-24T04:43:41Z
+[Licensing::Module] License group:
+  Id: ewogICJzdWJzR3JvdXAiIDogInVuaXR5IGVkaXRvciIsCiAgIm5hbWVzcGFjZSIgOiAidW5pdHlfZWRpdG9yIiwKICAidHlwZSIgOiAiRURJVE9SIiwKICAidGFnIiA6ICJVbml0eVBlcnNvbmFsXXXX
+  Product: Unity Personal Version
+  Type: Assigned
+  Expiration: Unlimited
+Register platform support module: D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Registered in 0.041889 seconds.
+- Loaded All Assemblies, in  1.582 seconds
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Package Manager log level set to [2]
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.262 seconds
+Domain Reload Profiling: 2844ms
+	BeginReloadAssembly (429ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (13ms)
+	RebuildCommonClasses (161ms)
+	RebuildNativeTypeToScriptingClass (54ms)
+	initialDomainReloadingComplete (214ms)
+	LoadAllAssembliesAndSetupDomain (724ms)
+		LoadAssemblies (417ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (719ms)
+			TypeCache.Refresh (710ms)
+				TypeCache.ScanAssembly (676ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (1263ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1170ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (397ms)
+			SetLoadedEditorAssemblies (23ms)
+			BeforeProcessingInitializeOnLoad (230ms)
+			ProcessInitializeOnLoadAttributes (410ms)
+			ProcessInitializeOnLoadMethodAttributes (108ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-99BH-9QMP-CCW5-HN7U-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-09-24T04:43:41Z
+[Licensing::Module] License group:
+  Id: ewogICJzdWJzR3JvdXAiIDogInVuaXR5IGVkaXRvciIsCiAgIm5hbWVzcGFjZSIgOiAidW5pdHlfZWRpdG9yIiwKICAidHlwZSIgOiAiRURJVE9SIiwKICAidGFnIiA6ICJVbml0eVBlcnNvbmFsXXXX
+  Product: Unity Personal Version
+  Type: Assigned
+  Expiration: Unlimited
+Application.AssetDatabase Initial Refresh Start
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 51 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.ide.visualstudio@2.0.22 (location: F:\天命之子\client\Library\PackageCache\com.unity.ide.visualstudio@8140e851d83e)
+    com.unity.inputsystem@1.14.2 (location: F:\天命之子\client\Library\PackageCache\com.unity.inputsystem@be6c4fd0abf5)
+    com.unity.2d.animation@11.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.2d.animation@a1db3619cb6f)
+    com.unity.2d.common@12.0.4 (location: F:\天命之子\client\Library\PackageCache\com.unity.2d.common@3e42aeccb30d)
+    com.unity.collections@2.6.8 (location: F:\天命之子\client\Library\PackageCache\com.unity.collections@84e8eb3fc12e)
+    com.unity.burst@1.8.30 (location: F:\天命之子\client\Library\PackageCache\com.unity.burst@2f3d916873ea)
+    com.unity.mathematics@1.3.3 (location: F:\天命之子\client\Library\PackageCache\com.unity.mathematics@19a9377c4ffa)
+    com.unity.nuget.mono-cecil@1.11.6 (location: F:\天命之子\client\Library\PackageCache\com.unity.nuget.mono-cecil@ecb9724e46ff)
+    com.unity.test-framework.performance@3.5.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.test-framework.performance@8b56083ec0f0)
+    com.unity.searcher@4.9.5 (location: F:\天命之子\client\Library\PackageCache\com.unity.searcher@a463122f2c00)
+  Built-in packages:
+    com.unity.render-pipelines.universal@17.3.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.render-pipelines.universal@7865b6b91f8a)
+    com.unity.test-framework@1.6.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.test-framework@bd7f943e9647)
+    com.unity.ugui@2.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.ugui@27635d171b1a)
+    com.unity.2d.sprite@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.2d.sprite@5b922524bd83)
+    com.unity.modules.ai@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.ai)
+    com.unity.modules.androidjni@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.androidjni)
+    com.unity.modules.animation@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.animation)
+    com.unity.modules.assetbundle@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.assetbundle)
+    com.unity.modules.audio@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.audio)
+    com.unity.modules.cloth@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.cloth)
+    com.unity.modules.director@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.director)
+    com.unity.modules.imageconversion@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.imageconversion)
+    com.unity.modules.imgui@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.jsonserialize)
+    com.unity.modules.particlesystem@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.particlesystem)
+    com.unity.modules.physics@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.physics)
+    com.unity.modules.physics2d@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.physics2d)
+    com.unity.modules.screencapture@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.screencapture)
+    com.unity.modules.terrain@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.terrain)
+    com.unity.modules.terrainphysics@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.terrainphysics)
+    com.unity.modules.tilemap@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.tilemap)
+    com.unity.modules.ui@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.ui)
+    com.unity.modules.uielements@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.uielements)
+    com.unity.modules.umbra@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.umbra)
+    com.unity.modules.unityanalytics@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.unityanalytics)
+    com.unity.modules.unitywebrequest@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.unitywebrequest)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.unitywebrequestassetbundle)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.unitywebrequestaudio)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.unitywebrequesttexture)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.unitywebrequestwww)
+    com.unity.modules.vehicles@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.vehicles)
+    com.unity.modules.video@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.video)
+    com.unity.modules.vr@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.vr)
+    com.unity.modules.wind@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.wind)
+    com.unity.modules.xr@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.xr)
+    com.unity.modules.subsystems@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.subsystems)
+    com.unity.modules.hierarchycore@1.0.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.modules.hierarchycore)
+    com.unity.ext.nunit@2.0.5 (location: F:\天命之子\client\Library\PackageCache\com.unity.ext.nunit@d8c07649098d)
+    com.unity.render-pipelines.core@17.3.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.render-pipelines.core@0bb36005e9ba)
+    com.unity.shadergraph@17.3.0 (location: F:\天命之子\client\Library\PackageCache\com.unity.shadergraph@b4b75cc00891)
+    com.unity.render-pipelines.universal-config@17.0.3 (location: F:\天命之子\client\Library\PackageCache\com.unity.render-pipelines.universal-config@8dc1aab4af1d)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.40 seconds
+Starting: D:\Unity\Hub\Editor\6000.3.23f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: F:/天命之子/client
+ExitCode: 0 Duration: 2s502ms
+[636/808    1s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+*** Tundra build success (2.12 seconds), 1 items updated, 808 evaluated
+AssetDatabase: script compilation time: 13.184125s
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.311 seconds
+Refreshing native plugins compatible for Editor in 1.88 ms, found 4 plugins.
+Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.PathTracing.Core.WorldRenderPipelineResources, Unity.PathTracing.Runtime (1 object)
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in 23.719 seconds
+Domain Reload Profiling: 25028ms
+	BeginReloadAssembly (530ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (47ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (167ms)
+	RebuildCommonClasses (76ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (41ms)
+	LoadAllAssembliesAndSetupDomain (645ms)
+		LoadAssemblies (602ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (311ms)
+			TypeCache.Refresh (242ms)
+				TypeCache.ScanAssembly (230ms)
+			BuildScriptInfoCaches (51ms)
+			ResolveRequiredComponents (14ms)
+	FinalizeReload (23720ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (23256ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (51ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (257ms)
+			ProcessInitializeOnLoadAttributes (22778ms)
+			ProcessInitializeOnLoadMethodAttributes (162ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (36ms)
+Asset Pipeline Refresh (id=085314cb6777c0e4fa0a906b1b4360ec): Total: 40.570 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=25199 ms
+		Asset DB Callback time: managed=394 ms, native=410 ms
+		Scripting: domain reloads=1, domain reload time=1312 ms, compile time=13186 ms, other=67 ms
+		Project Asset Count: scripts=1008, non-scripts=2764
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.002ms
+	InvokePackagesCallback: 412.809ms
+	ApplyChangesToAssetFolders: 3.012ms
+	Scan: 845.957ms
+	OnSourceAssetsModified: 0.002ms
+	CategorizeAssetsWithTransientArtifact: 112.377ms
+	ProcessAssetsWithTransientArtifactChanges: 69.480ms
+	CategorizeAssets: 87.040ms
+	ImportOutOfDateAssets: 23781.533ms (10557.599ms without children)
+		CompileScripts: 13185.811ms
+		ReloadNativeAssets: 0.029ms
+		UnloadImportedAssets: 0.649ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.678ms
+		InitializingProgressBar: 0.001ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
+		OnDemandSchedulerStart: 36.765ms
+	PostProcessAllAssets: 394.331ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.002ms
+	UnloadStreamsBegin: 3.530ms
+	PersistCurrentRevisions: 0.151ms
+	UnloadStreamsEnd: 0.002ms
+	GenerateScriptTypeHashes: 4.029ms
+	Untracked: 14859.958ms
+
+Application.AssetDatabase Initial Refresh End
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Scanning for USB devices : 2.470ms
+Initializing Unity extensions:
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-契灵回响
+Unloading 19 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 4205 unused Assets / (2.3 MB). Loaded Objects now: 5094.
+Memory consumption went from 199.1 MB to 196.8 MB.
+Total: 36.550100 ms (FindLiveObjects: 1.070400 ms CreateObjectMapping: 2.245300 ms MarkObjects: 31.705700 ms  DeleteObjects: 1.526400 ms)
+
+[LAYOUT] About to load UserSettings\Layouts\default-6000.dwlt, keepMainWindow=False
+[LAYOUT] About to save layout F:\天命之子\client\UserSettings\Layouts\default-6000.dwlt
+[LAYOUT] About to save layout C:/Users/Administrator/AppData/Roaming/Unity/Editor-5.x/Preferences\Layouts\current\default-6000.dwlt
+[MODES] ModeService[default].InitializeCurrentMode
+[MODES] ModeService[default].RaiseModeChanged(default, default)
+This project uses Input Manager, which is marked for deprecation. To manage input in your project, use the <a href="https://docs.unity3d.com/Packages/com.unity.inputsystem@latest">Input System package</a> instead.
+<RI> Initializing input.
+Using Windows.Gaming.Input
+<RI> Input initialized.
+[Project] Loading completed in 55.265 seconds
+	Project init time: 				49.858 seconds
+		Template init time: 		0.000 seconds
+		Package Manager init time: 		2.362 seconds
+		Asset Database init time: 		0.724 seconds
+		Global illumination init time: 	0.003 seconds
+		Assemblies load time: 			2.863 seconds
+		Unity extensions init time: 	0.066 seconds
+		Asset Database refresh time: 	40.570 seconds
+	Scene opening time: 			3.171 seconds
+##utp:{"type":"ProjectInfo","version":2,"phase":"Immediate","time":1789357474742,"processId":44892,"projectLoad":55.265298800000007,"projectInit":49.8583268,"templateInit":0.0,"packageManagerInit":2.3624454,"assetDatabaseInit":0.7243888,"globalIlluminationInit":0.003385,"assembliesLoad":2.8629845,"unityExtensionsInit":0.0657107,"assetDatabaseRefresh":40.5704374,"sceneOpening":3.1708629}
+##utp:{"type":"EditorInfo","version":2,"phase":"Immediate","time":1789357474742,"processId":44892,"editorVersion":"6000.3.23f1 (09d2ecc7fb28)","branch":"6000.3/staging","buildType":"Release","platform":"Windows"}
+Created GICache directory at C:/Users/Administrator/AppData/LocalLow/Unity/Caches/GiCache. Took: 0.644s, timestamps: [56.994 - 57.637]
+[Licensing::Client] Successfully resolved entitlement details
+[NATURAL-PLAY] game view portrait index=7
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Resonance.EditorTools.NaturalPlaySmoke:FocusPortraitGameView () (at Assets/Editor/Smoke/NaturalPlaySmoke.cs:154)
+Resonance.EditorTools.NaturalPlaySmoke:TryEnterPlay () (at Assets/Editor/Smoke/NaturalPlaySmoke.cs:103)
+Resonance.EditorTools.NaturalPlaySmoke:Poll () (at Assets/Editor/Smoke/NaturalPlaySmoke.cs:82)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+(Filename: Assets/Editor/Smoke/NaturalPlaySmoke.cs Line: 154)
+
+[NATURAL-PLAY] entering play mode
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Resonance.EditorTools.NaturalPlaySmoke:TryEnterPlay () (at Assets/Editor/Smoke/NaturalPlaySmoke.cs:104)
+Resonance.EditorTools.NaturalPlaySmoke:Poll () (at Assets/Editor/Smoke/NaturalPlaySmoke.cs:82)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+(Filename: Assets/Editor/Smoke/NaturalPlaySmoke.cs Line: 104)
+
+Reloading assemblies for play mode.
+Reloading assemblies after forced synchronous recompile.
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.988 seconds
+Refreshing native plugins compatible for Editor in 1.42 ms, found 4 plugins.
+Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.PathTracing.Core.WorldRenderPipelineResources, Unity.PathTracing.Runtime (1 object)
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.294 seconds
+Domain Reload Profiling: 3283ms
+	BeginReloadAssembly (693ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (117ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (372ms)
+	RebuildCommonClasses (47ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (25ms)
+	LoadAllAssembliesAndSetupDomain (206ms)
+		LoadAssemblies (165ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (170ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (126ms)
+			ResolveRequiredComponents (33ms)
+	FinalizeReload (2295ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1032ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (46ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (198ms)
+			ProcessInitializeOnLoadAttributes (669ms)
+			ProcessInitializeOnLoadMethodAttributes (112ms)
+			AfterProcessingInitializeOnLoad (2ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (787ms)
+Asset Pipeline Refresh (id=f37b5a44f211bb747b9f12ebed04969e): Total: 3.535 seconds - Initiated by StopAssetImportingV2(ForceSynchronousImport | ForceDomainReload)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=2405 ms
+		Asset DB Callback time: managed=129 ms, native=0 ms
+		Scripting: domain reloads=1, domain reload time=998 ms, compile time=2 ms, other=0 ms
+		Project Asset Count: scripts=1008, non-scripts=2764
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 1.932ms
+	ApplyChangesToAssetFolders: 0.273ms
+	Scan: 0.001ms
+	OnSourceAssetsModified: 0.002ms
+	CategorizeAssetsWithTransientArtifact: 0.004ms
+	ProcessAssetsWithTransientArtifactChanges: 2.518ms
+	CategorizeAssets: 53.910ms
+	ImportOutOfDateAssets: 2305.060ms (2298.134ms without children)
+		CompileScripts: 1.591ms
+		CollectScriptTypesHashes: 1.820ms
+		ReloadNativeAssets: 1.068ms
+		UnloadImportedAssets: 1.246ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.797ms
+		InitializingProgressBar: 0.001ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
+		OnDemandSchedulerStart: 0.403ms
+	PostProcessAllAssets: 129.296ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.185ms
+	UnloadStreamsBegin: 1.427ms
+	PersistCurrentRevisions: 0.144ms
+	UnloadStreamsEnd: 0.002ms
+	GenerateScriptTypeHashes: 4.948ms
+	Untracked: 1040.429ms
+
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-99BH-9QMP-CCW5-HN7U-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-09-24T04:43:41Z
+[Licensing::Module] License group:
+  Id: ewogICJzdWJzR3JvdXAiIDogInVuaXR5IGVkaXRvciIsCiAgIm5hbWVzcGFjZSIgOiAidW5pdHlfZWRpdG9yIiwKICAidHlwZSIgOiAiRURJVE9SIiwKICAidGFnIiA6ICJVbml0eVBlcnNvbmFsXXXX
+  Product: Unity Personal Version
+  Type: Assigned
+  Expiration: Unlimited
+Loaded scene 'Temp/__Backupscenes/0.backup'
+	Deserialize:            0.812 ms
+	Integration:            295.301 ms
+	Integration of assets:  0.003 ms
+	Thread Wait Time:       259.657 ms
+	Total Operation Time:   555.772 ms
+EMERALD_LOADED parts=4 vertices=11873 parameters=6
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+EmeraldInochi.InochiStandee:Initialize () (at Assets/EmeraldInochi/InochiStandee.cs:94)
+EmeraldInochi.InochiStandee:Attach (UnityEngine.Transform) (at Assets/EmeraldInochi/InochiStandee.cs:51)
+Resonance.App.EmeraldLobby:TryAttach (UnityEngine.Transform,System.Collections.Generic.List`1<UnityEngine.GameObject>) (at Assets/Scripts/Resonance.App/UI/EmeraldLobby.cs:16)
+Resonance.App.GameRoot:DrawHome () (at Assets/Scripts/Resonance.App/Core/GameRoot.cs:442)
+Resonance.App.GameRoot:Show (Resonance.App.GameRoot/ScreenId) (at Assets/Scripts/Resonance.App/Core/GameRoot.cs:402)
+Resonance.App.GameRoot:<DrawBoot>b__80_0 () (at Assets/Scripts/Resonance.App/Core/GameRoot.cs:432)
+Resonance.App.BootSplash/Hold:Update () (at Assets/Scripts/Resonance.App/UI/BootSplash.cs:83)
+
+(Filename: Assets/EmeraldInochi/InochiStandee.cs Line: 94)
+
+[NATURAL-PLAY] game view portrait index=7
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Resonance.EditorTools.NaturalPlaySmoke:FocusPortraitGameView () (at Assets/Editor/Smoke/NaturalPlaySmoke.cs:154)
+Resonance.EditorTools.NaturalPlaySmoke:OnPlayMode (UnityEditor.PlayModeStateChange) (at Assets/Editor/Smoke/NaturalPlaySmoke.cs:48)
+UnityEditor.EditorApplication:Internal_PlayModeStateChanged (UnityEditor.PlayModeStateChange)
+
+(Filename: Assets/Editor/Smoke/NaturalPlaySmoke.cs Line: 154)
+
+Start Indexing on Editor startup
+[Indexing] Starting Initial Indexing for Assets
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Client] Successfully resolved entitlement details
+EMERALD_LOADED parts=4 vertices=11873 parameters=6
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+EmeraldInochi.InochiStandee:Initialize () (at Assets/EmeraldInochi/InochiStandee.cs:94)
+EmeraldInochi.InochiStandee:Attach (UnityEngine.Transform) (at Assets/EmeraldInochi/InochiStandee.cs:51)
+Resonance.App.EmeraldLobby:TryAttach (UnityEngine.Transform,System.Collections.Generic.List`1<UnityEngine.GameObject>) (at Assets/Scripts/Resonance.App/UI/EmeraldLobby.cs:16)
+Resonance.App.GameRoot:DrawHome () (at Assets/Scripts/Resonance.App/Core/GameRoot.cs:442)
+Resonance.App.GameRoot:Show (Resonance.App.GameRoot/ScreenId) (at Assets/Scripts/Resonance.App/Core/GameRoot.cs:402)
+Resonance.App.GameRoot:<ToggleBattlePause>b__67_0 () (at Assets/Scripts/Resonance.App/Core/GameRoot.cs:208)
+Resonance.App.UiChrome/<>c__DisplayClass18_0:<Hit>b__0 () (at Assets/Scripts/Resonance.App/UI/UiChrome.cs:554)
+UnityEngine.Events.InvokableCall:Invoke ()
+UnityEngine.Events.UnityEvent:Invoke ()
+UnityEngine.UI.Button:Press () (at ./Library/PackageCache/com.unity.ugui@27635d171b1a/Runtime/UGUI/UI/Core/Button.cs:71)
+UnityEngine.UI.Button:OnPointerClick (UnityEngine.EventSystems.PointerEventData) (at ./Library/PackageCache/com.unity.ugui@27635d171b1a/Runtime/UGUI/UI/Core/Button.cs:115)
+UnityEngine.EventSystems.ExecuteEvents:Execute (UnityEngine.EventSystems.IPointerClickHandler,UnityEngine.EventSystems.BaseEventData) (at ./Library/PackageCache/com.unity.ugui@27635d171b1a/Runtime/UGUI/EventSystem/ExecuteEvents.cs:57)
+UnityEngine.EventSystems.ExecuteEvents:Execute<UnityEngine.EventSystems.IPointerClickHandler> (UnityEngine.GameObject,UnityEngine.EventSystems.BaseEventData,UnityEngine.EventSystems.ExecuteEvents/EventFunction`1<UnityEngine.EventSystems.IPointerClickHandler>) (at ./Library/PackageCache/com.unity.ugui@27635d171b1a/Runtime/UGUI/EventSystem/ExecuteEvents.cs:272)
+Resonance.App.NaturalPlayRuntime/<PointerAt>d__60:MoveNext () (at Assets/Scripts/Resonance.App/Debug/NaturalPlayRuntime.cs:965)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/EmeraldInochi/InochiStandee.cs Line: 94)
+
+[NATURAL-PLAY]
+FAIL BattlePlay
+captures=np_01_battle.png,np_06_pause.png,np_07_speed.png,np_04_qte.png,np_05_judge.png,np_09_result.png,np_10_rematch.png,np_11_home.png
+screen=Home
+title=CLEAR!!
+drive=0 fever=False ever=False speed=2 auto=Manual outcome=InProgress wave=0
+
+phase	expected	observed	frame	ms
+HomeVisible	screen=Home	screen=Home	2	6342
+TapToStage	tap 关卡	tapped GameRoot/Canvas/首页/关卡	3	6915
+StageVisible	screen=Stage	screen=Stage	4	7656
+TapStart	tap FIGHT	tapped GameRoot/Canvas/StageBoard/WavePreview/FIGHT	6	8158
+BattleVisible	screen=Battle hud=p0	screen=Battle hud=p0 wave=0	20	8284
+TapPause	tap || PAUSE	tapped GameRoot/Canvas/|| PAUSE	23	8709
+PauseVisible	PauseBoard + Paused	PauseBoard Paused=true	34	8834
+Resume	tap CONTINUE	tapped GameRoot/Canvas/PauseBoard/CONTINUE	37	9053
+Resume	no PauseBoard + !Paused	resumed	47	9222
+SpeedToggle	tap >> X1 SPEED	tapped GameRoot/Canvas/>> X1 SPEED	49	9297
+SpeedToggle	Speed!=1	Speed=2	59	9419
+OpenQte	tap p0	tapped GameRoot/Canvas/p0	99	11134
+OpenQte	QteOpen or PendingDrive	QteOpen=True pending=0	105	11267
+JudgeQte	QTE resolved via vfxGood tap	screen=Battle last=首领出现 drive=14 qte=-1 fever=False paused=False speed=2 auto=Manual wave=1 outcome=InProgress cmd=seq=5 kind=DriveResolve slot=0 ok=True reason=None	108	11716
+OpenQte#2	tap p0	tapped GameRoot/Canvas/p0	251	14492
+OpenQte#2	QteOpen or PendingDrive	QteOpen=True pending=0	259	14619
+JudgeQte#2	QTE resolved via vfxGood tap	screen=Battle last=DRIVE  冰刃  焚城  Good drive=0 qte=-1 fever=False paused=False speed=2 auto=Manual wave=1 outcome=InProgress cmd=seq=7 kind=DriveResolve slot=0 ok=True reason=None	261	14659
+BattlePlay	QTE+Tap+Slide+Pause+Speed before battle end	missing=Tap,Slide battleSec=6.2 screen=Result last=胜利 drive=0 qte=-1 fever=False paused=False speed=2 auto=Manual wave=1 outcome=Victory cmd=seq=7 kind=DriveResolve slot=0 ok=True reason=None	262	14799
+ResultVisible	screen=Result	screen=Result title=CLEAR!!	262	14799
+ResultVisible	ResultBoard interactable	board=True interactable=True	265	14895
+Rematch	tap NEXT	tapped GameRoot/Canvas/ResultBoard/NEXT	267	15230
+RematchBattle	screen=Battle hud=p0	screen=Battle hud=p0 wave=0	281	15353
+ExitPause	tap || PAUSE	tapped GameRoot/Canvas/|| PAUSE	284	15541
+ExitPause	PauseBoard + Paused	PauseBoard Paused=true	295	15667
+ExitHome	tap HOME	tapped GameRoot/Canvas/PauseBoard/HOME	297	15971
+HomeReturn	screen=Home	screen=Home	311	16097
+
+--- inputs ---
+note natural-play start
+note ok HomeVisible screen=Home
+frame=2 t=6.343 kind=tap pos=289,438 target=none after=battle=null screen=Stage
+note ok TapToStage tapped GameRoot/Canvas/首页/关卡
+note ok StageVisible screen=Stage
+frame=5 t=7.682 kind=tap pos=540,250 target=none after=screen=Battle last=第一波 drive=0 qte=-1 fever=False paused=False speed=1 auto=Manual wave=0 outcome=InProgress
+note ok TapStart tapped GameRoot/Canvas/StageBoard/WavePreview/FIGHT
+note ok BattleVisible screen=Battle hud=p0 wave=0
+note shot np_01_battle.png
+frame=22 t=8.611 kind=tap pos=97,1824 target=GameRoot/Canvas/|| PAUSE after=screen=Battle last=第一波 drive=0 qte=-1 fever=False paused=True speed=1 auto=Manual wave=0 outcome=InProgress cmd=seq=1 kind=Pause slot=0 ok=True reason=None
+note ok TapPause tapped GameRoot/Canvas/|| PAUSE
+note ok PauseVisible PauseBoard Paused=true
+note shot np_06_pause.png
+frame=36 t=9.041 kind=tap pos=540,538 target=none after=screen=Battle last=第一波 drive=0 qte=-1 fever=False paused=False speed=1 auto=Manual wave=0 outcome=InProgress cmd=seq=2 kind=Resume slot=0 ok=True reason=None
+note ok Resume tapped GameRoot/Canvas/PauseBoard/CONTINUE
+note ok Resume resumed
+frame=48 t=9.273 kind=tap pos=119,1747 target=GameRoot/Canvas/>> X1 SPEED after=screen=Battle last=第一波 drive=0 qte=-1 fever=False paused=False speed=2 auto=Manual wave=0 outcome=InProgress cmd=seq=3 kind=SetSpeed slot=0 ok=True reason=None
+note ok SpeedToggle tapped GameRoot/Canvas/>> X1 SPEED
+note ok SpeedToggle Speed=2
+note shot np_07_speed.png
+frame=98 t=10.974 kind=tap pos=119,307 target=GameRoot/Canvas/p0 after=screen=Battle last=冰刃 准备 Drive drive=100 qte=0 fever=False paused=False speed=2 auto=Manual wave=0 outcome=InProgress cmd=seq=4 kind=DriveBegin slot=0 ok=True reason=None
+note ok OpenQte tapped GameRoot/Canvas/p0
+note ok OpenQte QteOpen=True pending=0
+note shot np_04_qte.png
+frame=107 t=11.583 kind=tap pos=540,515 target=GameRoot/Canvas/vfxGood/face after=screen=Battle last=DRIVE  冰刃  焚城  Perfect drive=0 qte=-1 fever=False paused=False speed=2 auto=Manual wave=0 outcome=InProgress cmd=seq=5 kind=DriveResolve slot=0 ok=True reason=None
+note ok JudgeQte screen=Battle last=首领出现 drive=14 qte=-1 fever=False paused=False speed=2 auto=Manual wave=1 outcome=InProgress cmd=seq=5 kind=DriveResolve slot=0 ok=True reason=None
+note shot np_05_judge.png
+frame=250 t=14.452 kind=tap pos=119,307 target=GameRoot/Canvas/p0 after=screen=Battle last=冰刃 准备 Drive drive=100 qte=0 fever=False paused=False speed=2 auto=Manual wave=1 outcome=InProgress cmd=seq=6 kind=DriveBegin slot=0 ok=True reason=None
+note ok OpenQte#2 tapped GameRoot/Canvas/p0
+note ok OpenQte#2 QteOpen=True pending=0
+frame=260 t=14.638 kind=tap pos=540,515 target=GameRoot/Canvas/vfxGood/face after=screen=Battle last=DRIVE  冰刃  焚城  Good drive=0 qte=-1 fever=False paused=False speed=2 auto=Manual wave=1 outcome=InProgress cmd=seq=7 kind=DriveResolve slot=0 ok=True reason=None
+note ok JudgeQte#2 screen=Battle last=DRIVE  冰刃  焚城  Good drive=0 qte=-1 fever=False paused=False speed=2 auto=Manual wave=1 outcome=InProgress cmd=seq=7 kind=DriveResolve slot=0 ok=True reason=None
+note fail BattlePlay missing=Tap,Slide battleSec=6.2 screen=Result last=胜利 drive=0 qte=-1 fever=False paused=False speed=2 auto=Manual wave=1 outcome=Victory cmd=seq=7 kind=DriveResolve slot=0 ok=True reason=None
+note ok ResultVisible screen=Result title=CLEAR!!
+frame=263 t=14.871 kind=tap pos=540,960 target=GameRoot/Canvas/vfxStageClear/veil after=screen=Result last=胜利 drive=0 qte=-1 fever=False paused=False speed=2 auto=Manual wave=1 outcome=Victory cmd=seq=7 kind=DriveResolve slot=0 ok=True reason=None
+note ok ResultVisible board=True interactable=True
+note shot np_09_result.png
+frame=266 t=15.026 kind=tap pos=756,576 target=none after=screen=Battle last=第一波 drive=0 qte=-1 fever=False paused=False speed=2 auto=Manual wave=0 outcome=InProgress
+note ok Rematch tapped GameRoot/Canvas/ResultBoard/NEXT
+note ok RematchBattle screen=Battle hud=p0 wave=0
+note shot np_10_rematch.png
+frame=283 t=15.523 kind=tap pos=97,1824 target=GameRoot/Canvas/|| PAUSE after=screen=Battle last=第一波 drive=0 qte=-1 fever=False paused=True speed=2 auto=Manual wave=0 outcome=InProgress cmd=seq=1 kind=Pause slot=0 ok=True reason=None
+note ok ExitPause tapped GameRoot/Canvas/|| PAUSE
+note ok ExitPause PauseBoard Paused=true
+frame=296 t=15.676 kind=tap pos=238,538 target=none after=screen=Home last=第一波 drive=0 qte=-1 fever=False paused=True speed=2 auto=Manual wave=0 outcome=InProgress cmd=seq=1 kind=Pause slot=0 ok=True reason=None
+note ok ExitHome tapped GameRoot/Canvas/PauseBoard/HOME
+note ok HomeReturn screen=Home
+note shot np_11_home.png
+
+--- RunHeader ---
+seed=55282312;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=2;forceNoCrit=0;stage=CH1-2;data=builtin-c31-s155-e9-1524b9b9;party=C001,C007,C010,C003,C005
+
+--- CommandLog ---
+seq=1 kind=Pause slot=0 ok=True reason=None
+
+--- reflection (read-only) ---
+BattleSim.CommandLog field (read-only)
+BattleSim.RunHeader() (read-only)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Resonance.App.NaturalPlayRuntime:WriteAndQuit (bool) (at Assets/Scripts/Resonance.App/Debug/NaturalPlayRuntime.cs:1248)
+Resonance.App.NaturalPlayRuntime:Pass () (at Assets/Scripts/Resonance.App/Debug/NaturalPlayRuntime.cs:1226)
+Resonance.App.NaturalPlayRuntime/<Run>d__34:MoveNext () (at Assets/Scripts/Resonance.App/Debug/NaturalPlayRuntime.cs:195)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Resonance.App/Debug/NaturalPlayRuntime.cs Line: 1248)
+
+Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
+Loaded scene 'Temp/__Backupscenes/0.backup'
+	Deserialize:            0.657 ms
+	Integration:            412.094 ms
+	Integration of assets:  0.002 ms
+	Thread Wait Time:       0.018 ms
+	Total Operation Time:   412.771 ms
+Unloading 73 unused Assets / (17.5 MB). Loaded Objects now: 6041.
+Memory consumption went from 349.2 MB to 331.7 MB.
+Total: 47.354200 ms (FindLiveObjects: 0.332300 ms CreateObjectMapping: 0.230800 ms MarkObjects: 41.834300 ms  DeleteObjects: 4.954800 ms)
+
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-99BH-9QMP-CCW5-HN7U-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-09-24T04:43:41Z
+[Licensing::Module] License group:
+  Id: ewogICJzdWJzR3JvdXAiIDogInVuaXR5IGVkaXRvciIsCiAgIm5hbWVzcGFjZSIgOiAidW5pdHlfZWRpdG9yIiwKICAidHlwZSIgOiAiRURJVE9SIiwKICAidGFnIiA6ICJVbml0eVBlcnNvbmFsXXXX
+  Product: Unity Personal Version
+  Type: Assigned
+  Expiration: Unlimited
+Starting new worker id: 0 with log in F:/天命之子/client/Logs/AssetImportWorker0.log
+Starting new worker id: 1 with log in F:/天命之子/client/Logs/AssetImportWorker1.log
+[NATURAL-PLAY] quitting editor after result pass=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Resonance.EditorTools.NaturalPlaySmoke:QuitIfDone () (at Assets/Editor/Smoke/NaturalPlaySmoke.cs:133)
+Resonance.EditorTools.NaturalPlaySmoke:Poll () (at Assets/Editor/Smoke/NaturalPlaySmoke.cs:78)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+(Filename: Assets/Editor/Smoke/NaturalPlaySmoke.cs Line: 133)
+
+[LAYOUT] About to save layout F:\天命之子\client\UserSettings\Layouts\default-6000.dwlt
+[LAYOUT] About to save layout C:/Users/Administrator/AppData/Roaming/Unity/Editor-5.x/Preferences\Layouts\current\default-6000.dwlt
+Killing ADB server in 3.2049728 seconds.
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+[Licensing::IpcConnector] LicenseClient-Administrator-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-Administrator channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+Cleanup mono
+Checking for leaked weakptr:
+  Found no leaked weakptrs.
+[Package Manager] Server process was shutdown
+Internal: There are remaining Allocations on the JobTempAlloc. This is a leak, and will impact performance
+To Debug, run app with -diag-job-temp-memory-leak-validation cmd line argument. This will output the callstacks of the leaked allocations.
+Internal: There are remaining Allocations on the JobTempAlloc. This is a leak, and will impact performance
+To Debug, run app with -diag-job-temp-memory-leak-validation cmd line argument. This will output the callstacks of the leaked allocations.
+##utp:{"type":"MemoryLeaks","version":2,"phase":"Immediate","time":1789357505032,"processId":44892,"allocatedMemory":16351631,"memoryLabels":[{"Default":29313},{"Permanent":15236},{"NewDelete":441665},{"Thread":4237960},{"Manager":821728},{"VertexData":8},{"Geometry":816},{"Texture":296},{"Shader":89593},{"Material":24},{"GfxDevice":57928},{"Animation":392},{"Audio":2664},{"FreeType":8},{"FontEngine":736},{"Physics":2146},{"Physics2D":16},{"Serialization":223679},{"Input":14984},{"JobScheduler":33024},{"TextLib":16120},{"Mono":32},{"MonoCode":184},{"ScriptingNativeRuntime":155060},{"BaseObject":1641616},{"Resource":1336},{"Renderer":3000},{"Transform":4685},{"File":33167},{"WebCam":616},{"Culling":32},{"Terrain":11394},{"Wind":24},{"STL":40},{"String":30306},{"DynamicArray":109937},{"HashMap":130646},{"Utility":2660962},{"Curl":48},{"PoolAlloc":2296},{"AI":80},{"TypeTree":5341},{"ScriptManager":512},{"RuntimeInitializeOnLoadManager":64},{"SpriteAtlas":112},{"GI":7792},{"Director":8240},{"CloudService":12928},{"WebRequest":552},{"VR":47994},{"SceneManager":504},{"Video":208},{"LazyScriptCache":32},{"NativeArray":9768},{"Camera":17},{"Secure":2377},{"SerializationCache":1576},{"APIUpdating":10320},{"Subsystems":336},{"VirtualTexturing":57888},{"StaticSafetyDebugInfo":278528},{"Analytics":640},{"Hierarchy":608},{"CoreStats":13112},{"Identifiers":6480},{"Gui":237},{"EditorUtility":187581},{"VersionControl":4},{"Undo":947},{"AssetDatabase":4876611},{"EditorGi":328},{"UnityConnect":29344},{"Upm":1896},{"AssetCompliance":64},{"DrivenProperties":72},{"LocalIPC":219},{"ProfilerEditor":9746},{"CoreBusinessMetrics":3504},{"Licensing":1392},{"AssetReference":32},{"IPCStream":32}]}

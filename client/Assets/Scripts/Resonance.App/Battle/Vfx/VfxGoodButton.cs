@@ -114,6 +114,10 @@ namespace Resonance.App
             _btn.transition = Selectable.Transition.None;
             _btn.navigation = new Navigation { mode = Navigation.Mode.None };
             _btn.targetGraphic = _face;
+            // G2 N01/R01: the coin must be hittable by a real pointer raycast. Previously every child
+            // had raycastTarget=false and the root had no Graphic, so only the fixture path could "press" it.
+            _rim.raycastTarget = true;
+            _face.raycastTarget = true;
             _btn.onClick.AddListener(OnClick);
 
             gameObject.SetActive(false);

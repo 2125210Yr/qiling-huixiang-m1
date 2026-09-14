@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Resonance.Battle
@@ -273,6 +274,30 @@ namespace Resonance.Battle
             if (string.IsNullOrEmpty(id) || Effects == null) return null;
             EffectDef e;
             return Effects.TryGetValue(id, out e) ? e : null;
+        }
+
+        /// <summary>
+        /// Capability + parameter report for the currently installed catalog.
+        /// Does not throw; builtin load must stay start-safe for Unity.
+        /// </summary>
+        public static ContentValidationReport ValidateContent()
+        {
+            return EffectCapability.ValidateCatalog(Effects, Skills);
+        }
+
+        public static void RejectUnplayable(EffectDef fx)
+        {
+            EffectCapability.RejectUnplayable(fx);
+        }
+
+        public static void RejectUnplayable(SkillDef sk)
+        {
+            EffectCapability.RejectUnplayable(sk);
+        }
+
+        internal static void ThrowIfExternalImportInvalid()
+        {
+            EffectCapability.ThrowIfExternalImportInvalid(ValidateContent());
         }
 
         static void AddParty(Dictionary<string, CharacterDef> c)

@@ -125,9 +125,10 @@ namespace Resonance.App
 
         public bool Tap(int slot)
         {
+            // Smoke/fixture entry (R07): same command path as the HUD gestures, tagged Fixture.
             if (_battle == null) return false;
             HitChainProbe.Input("tap");
-            var ok = _battle.TryTap(slot);
+            var ok = _battle.Submit(BattleCommand.Tap(slot, CommandSource.Fixture)).Accepted;
             if (!ok) HitChainProbe.Cancel();
             return ok;
         }
@@ -136,7 +137,7 @@ namespace Resonance.App
         {
             if (_battle == null) return false;
             HitChainProbe.Input("slide");
-            var ok = _battle.TrySlide(slot);
+            var ok = _battle.Submit(BattleCommand.Slide(slot, CommandSource.Fixture)).Accepted;
             if (!ok) HitChainProbe.Cancel();
             return ok;
         }
@@ -169,7 +170,8 @@ namespace Resonance.App
         {
             var n = ((int)_save.Auto + 1) % 3;
             _save.Auto = (AutoMode)n;
-            if (_battle != null) _battle.Auto = _save.Auto;
+            if (_battle != null)
+                _battle.Submit(new BattleCommand { Kind = BattleCommandKind.SetAuto, Value = n, Source = CommandSource.Player });
             Persist();
         }
 
@@ -186,8 +188,8 @@ namespace Resonance.App
             if (_battle == null) return;
             if (speed < 1) speed = 1;
             if (speed > 3) speed = 3;
-            _battle.Speed = speed;
-            _save.Speed = speed;
+            _battle.Submit(new BattleCommand { Kind = BattleCommandKind.SetSpeed, Value = speed, Source = CommandSource.Player });
+            _save.Speed = _battle.Speed;
             Persist();
         }
 
@@ -196,12 +198,13 @@ namespace Resonance.App
             if (_battle == null || _screen != ScreenId.Battle) return;
             if (_battle.Paused)
             {
-                _battle.Paused = false;
+                _battle.Submit(new BattleCommand { Kind = BattleCommandKind.Resume, Source = CommandSource.Player });
                 var overlay = Root().Find("PauseBoard");
                 if (overlay != null) DestroyImmediate(overlay.gameObject);
                 return;
             }
-            _battle.Paused = true;
+            var res = _battle.Submit(new BattleCommand { Kind = BattleCommandKind.Pause, Source = CommandSource.Player });
+            if (!res.Accepted) return; // terminal battle: no pause board over the result
             PauseBoard.Draw(Root(), ToggleBattlePause, () => Show(ScreenId.Home), RepeatCurrentBattle);
         }
 
@@ -1183,7 +1186,8 @@ namespace Resonance.App
             {
                 Speed = _save.Speed,
                 Auto = _save.Auto,
-                Deterministic = true,
+                // R04: seeded RNG is already reproducible; ForceNoCrit stays a fixture-only switch.
+                ForceNoCrit = false,
                 Profile = FormulaProfile.JP_LEGACY_EMPIRICAL
             };
             _simAcc = 0f;

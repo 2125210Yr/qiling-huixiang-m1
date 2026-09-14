@@ -1,0 +1,35 @@
+FAIL ChargeReady
+captures=np_01_battle.png
+screen=Result
+title=CLEAR!!
+drive=100 fever=False ever=False speed=1 auto=Manual outcome=Victory wave=1
+
+phase	expected	observed	frame	ms
+HomeVisible	screen=Home	screen=Home	2	5713
+TapToStage	tap 关卡	tapped GameRoot/Canvas/首页/关卡	3	5948
+StageVisible	screen=Stage	screen=Stage	5	6420
+TapStart	tap FIGHT	tapped GameRoot/Canvas/StageBoard/WavePreview/FIGHT	7	6899
+BattleVisible	screen=Battle hud=p0	screen=Battle hud=p0 wave=0	22	7029
+ChargeReady	p0 Charge>=100	screen=Result (battle ended)	1862	31341
+
+--- inputs ---
+note natural-play start
+note ok HomeVisible screen=Home
+frame=2 t=5.713 kind=tap pos=289,438 target=none after=battle=null screen=Stage
+note ok TapToStage tapped GameRoot/Canvas/首页/关卡
+note ok StageVisible screen=Stage
+frame=6 t=6.450 kind=tap pos=540,250 target=none after=screen=Battle last=第一波 drive=0 qte=-1 fever=False paused=False speed=1 auto=Manual wave=0 outcome=InProgress
+note ok TapStart tapped GameRoot/Canvas/StageBoard/WavePreview/FIGHT
+note ok BattleVisible screen=Battle hud=p0 wave=0
+note shot np_01_battle.png
+note fail ChargeReady screen=Result (battle ended)
+
+--- RunHeader ---
+seed=52804500;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=1;forceNoCrit=0;stage=VS-1;data=builtin-c31-s155-e9-1524b9b9;party=C001,C007,C010,C003,C005
+
+--- CommandLog ---
+(unavailable or empty)
+
+--- reflection (read-only) ---
+BattleSim.CommandLog field (read-only)
+BattleSim.RunHeader() (read-only)

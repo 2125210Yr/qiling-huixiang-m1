@@ -1,3 +1,7 @@
+> **SUPERSEDED IN PART** by `m1/G1/DEFERRED_SUPPLEMENT.md` (2026-09-12) and `m1/G2_REVIEW_20260913/NEXT_GOAL.md`
+> — GT hunting/stream capture/emulator paused; concurrency cap is environment max;
+> see `G2_ENTRY.md`。正文未重写，冲突以新决定为准。
+
 # GT6 审核说明（M1 切片，未验收）
 
 仓库：`2125210Yr/qiling-huixiang-m1`（私有）。本包只含审核用源码与契约，**没有**立绘、录像、纪念版静帧、构建包、`client/Library`。

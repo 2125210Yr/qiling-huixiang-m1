@@ -1,0 +1,19 @@
+FAIL TapToStage
+captures=
+screen=Home
+title=
+
+phase	expected	observed	frame	ms
+HomeVisible	screen=Home	screen=Home	2	5534
+TapToStage	raycast hits 关卡	raycast=C001_PuppetCanvas/C001_PuppetPreview/view	2	5534
+
+--- inputs ---
+note natural-play start
+note ok HomeVisible screen=Home
+note fail TapToStage raycast=C001_PuppetCanvas/C001_PuppetPreview/view
+
+--- RunHeader ---
+(unavailable)
+
+--- CommandLog ---
+(unavailable or empty)

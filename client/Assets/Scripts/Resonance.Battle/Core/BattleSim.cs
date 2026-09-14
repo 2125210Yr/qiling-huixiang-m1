@@ -16,6 +16,12 @@ namespace Resonance.Battle
         public EffectDef Def;
         public float Remaining;
         public int Stacks = 1;
+        /// <summary>Shield points still held by this instance; released on expiry/dispel.</summary>
+        public int ShieldLeft;
+        /// <summary>Accumulator for <c>periodic</c> DoT triggers.</summary>
+        public float PeriodAcc;
+        /// <summary>DurationSec &lt;= 0 → lives until consumed or dispelled.</summary>
+        public bool Permanent => Def != null && Def.DurationSec <= 0f;
     }
 
     public sealed class UnitState
@@ -25,7 +31,16 @@ namespace Resonance.Battle
         public bool Ally;
         public int MaxHp;
         public int Hp;
-        public int Shield;
+        /// <summary>Total shield = sum of live shield-status instances (lifetime follows the status).</summary>
+        public int Shield
+        {
+            get
+            {
+                int s = 0;
+                for (int i = 0; i < Status.Count; i++) s += Status[i].ShieldLeft;
+                return s;
+            }
+        }
         public float Charge;
         public float SlideCd;
         public float AutoTimer;
@@ -45,7 +60,8 @@ namespace Resonance.Battle
             return (int)Math.Round(v * (1f + buff) * (1f - deb));
         }
 
-        public float ChargeSpeedMul => 1f + Magnitude(EffectKind.ChargeHaste);
+        /// <summary>ChargeHaste and ChargeSpeed both feed the charge rate (R05: ChargeSpeed used to be inert).</summary>
+        public float ChargeSpeedMul => 1f + Magnitude(EffectKind.ChargeHaste) + Magnitude(EffectKind.ChargeSpeed);
 
         int Scaled(int baseV, EffectKind kind) => (int)Math.Round(baseV * (1f + Magnitude(kind)));
 
@@ -67,6 +83,8 @@ namespace Resonance.Battle
         }
 
         public bool ActionLocked => Has(EffectKind.Stun) || Has(EffectKind.Freeze);
+        /// <summary>Silence blocks Tap/Slide/Drive/FeverTap; auto attacks continue (design placeholder).</summary>
+        public bool SkillLocked => Has(EffectKind.Silence);
 
         public int ExtraAtk;
         public float IgnCrtAdd;
@@ -127,6 +145,11 @@ namespace Resonance.Battle
         public bool FeverWindowScalesWithSpeed = true;
         public bool DriveQteScalesWithSpeed = true;
         public bool HoldWatchdogScalesWithSpeed = true;
+        /// <summary>Fever input throttle. Design value = window / budget so budget lasts the declared window.</summary>
+        public float FeverMinHitIntervalSec = BattleSim.UnknownFeverWindowSec / BattleSim.UnknownFeverHitBudget;
+        /// <summary>Auto-policy Fever taps per second (design placeholder, not GL).</summary>
+        public float FeverAutoTapsPerSec = BattleSim.UnknownFeverHitBudget / BattleSim.UnknownFeverWindowSec;
+        public int FeverBudget => FeverHitBudget;
         public FormulaStatus NumericStatus = FormulaStatus.NotMeasured;
         public string NumericCode = DamageMath.DesignPlaceholderCode;
 
@@ -157,8 +180,13 @@ namespace Resonance.Battle
         }
     }
 
-    public sealed class BattleSim
+    public enum FeverEndReason { None, TimeUp, BudgetExhausted, BattleEnded }
+
+    public enum DriveResolveResult { Accepted, NoPending, NotInProgress, Paused }
+
+    public sealed partial class BattleSim
     {
+        public const string RulesVersion = "g2-patha-2026-09-13";
         public const int TickHz = 30;
         public const float TickDt = 1f / TickHz;
         /// <summary>
@@ -209,9 +237,20 @@ namespace Resonance.Battle
             get => Auto != AutoMode.Manual;
             set => Auto = value ? AutoMode.Full : AutoMode.Manual;
         }
-        public bool Deterministic = true;
+        /// <summary>Fixture-only: suppress critical rolls. Seeding alone already makes runs reproducible (R04).</summary>
+        public bool ForceNoCrit;
+        /// <summary>Legacy alias kept for old fixtures. New code: use <see cref="ForceNoCrit"/>.</summary>
+        public bool Deterministic { get => ForceNoCrit; set => ForceNoCrit = value; }
         public BattleOutcome Outcome = BattleOutcome.InProgress;
         public int PendingDriveSlot = -1;
+        public FeverEndReason LastFeverEnd = FeverEndReason.None;
+        public DriveTiming LastDriveTiming = DriveTiming.Good;
+        public int LastDriveResolveTick = -1;
+        public int LastDriveResolveSlot = -1;
+        public int Seed { get; private set; }
+        public float QteElapsed => PendingDriveSlot >= 0 ? _qteElapsed : 0f;
+        public float QteLimitSec => Clocks != null ? Clocks.DriveQteTimeoutSec : DriveQteTimeoutSec;
+        public float QteRemaining => PendingDriveSlot >= 0 ? Math.Max(0f, QteLimitSec - _qteElapsed) : 0f;
         public readonly List<FloatText> Log = new List<FloatText>(64);
         public readonly List<CastFx> Casts = new List<CastFx>(64);
         public readonly BattleEventLog Events = new BattleEventLog();
@@ -231,6 +270,9 @@ namespace Resonance.Battle
         readonly StageDef _stage;
         readonly UnitProgress[] _growth;
         float _feverAcc;
+        float _feverSinceHit;
+        bool _feverEverHit;
+        int _feverAutoCursor;
         float _qteElapsed;
         float _holdElapsed;
         SkillType _activeKind;
@@ -267,6 +309,7 @@ namespace Resonance.Battle
 
         public BattleSim(string[] partyIds, int leaderSlot, int seed, StageDef stage, UnitProgress[] growth, BattleMods mods = null)
         {
+            Seed = seed;
             _rng = new Random(seed);
             _stage = stage ?? Catalog.VerticalSliceStage;
             _growth = growth;
@@ -390,10 +433,12 @@ namespace Resonance.Battle
                     ResolveDrive(DriveTiming.Great);
                 else
                 {
+                    // Q01/Q02: QTE clock and stage countdown follow their own scaling policies.
                     var qteDt = ScaleClock(dt, Clocks != null && Clocks.DriveQteScalesWithSpeed);
+                    var stageDtQ = ScaleClock(dt, Clocks != null && Clocks.StageCountdownScalesWithSpeed);
                     _qteElapsed += qteDt;
-                    TimeLeft -= qteDt;
-                    Stats.Tick(qteDt);
+                    TimeLeft -= stageDtQ;
+                    Stats.Tick(stageDtQ);
                     if (TimeLeft <= 0f)
                     {
                         TimeLeft = 0f;
@@ -402,17 +447,32 @@ namespace Resonance.Battle
                             Outcome = BattleOutcome.Defeat;
                             LastEvent = "时间耗尽";
                             NoteResult("timeout");
+                            PendingDriveSlot = -1;
+                            _qteElapsed = 0f;
                         }
                         return false;
                     }
-                    var qteLimit = Clocks != null ? Clocks.DriveQteTimeoutSec : DriveQteTimeoutSec;
-                    if (_qteElapsed < qteLimit)
+                    if (_qteElapsed < QteLimitSec)
                         return false;
                     ResolveDrive(DriveTiming.Good);
                 }
             }
 
             return Outcome == BattleOutcome.InProgress;
+        }
+
+        public bool CanAcceptSkillInput(int slot, out CommandReject reason)
+        {
+            reason = CommandReject.None;
+            if (Outcome != BattleOutcome.InProgress) { reason = CommandReject.NotInProgress; return false; }
+            if (Paused) { reason = CommandReject.Paused; return false; }
+            if (PendingDriveSlot >= 0) { reason = CommandReject.QtePending; return false; }
+            if (slot < 0 || slot >= Allies.Length || Allies[slot] == null) { reason = CommandReject.SlotInvalid; return false; }
+            var u = Allies[slot];
+            if (!u.Alive) { reason = CommandReject.UnitDead; return false; }
+            if (u.ActionLocked) { reason = CommandReject.ActionLocked; return false; }
+            if (u.SkillLocked) { reason = CommandReject.Silenced; return false; }
+            return true;
         }
 
         void AutoFireDrive()
@@ -469,6 +529,7 @@ namespace Resonance.Battle
 
         public bool TryPortraitTap(int slot)
         {
+            if (FeverActive) return TryFeverTap(slot);
             if (Drive >= 100f && TryBeginDrive(slot)) return true;
             return TryTap(slot);
         }
@@ -500,9 +561,8 @@ namespace Resonance.Battle
 
         public bool TryBeginDrive(int slot)
         {
-            if (Outcome != BattleOutcome.InProgress || Paused || PendingDriveSlot >= 0) return false;
+            if (!CanAcceptSkillInput(slot, out _)) return false;
             if (Drive < 100f) return false;
-            if (slot < 0 || slot >= Allies.Length || Allies[slot] == null || !Allies[slot].Alive || Allies[slot].ActionLocked) return false;
             PendingDriveSlot = slot;
             _qteElapsed = 0f;
             LastEvent = Allies[slot].Def.Name + " 准备 Drive";
@@ -511,34 +571,35 @@ namespace Resonance.Battle
             return true;
         }
 
-        public bool ResolveDrive(DriveTiming timing)
+        /// <summary>Q03/Q04: late or terminal callbacks are rejected without side effects.</summary>
+        public DriveResolveResult ResolveDriveChecked(DriveTiming timing)
         {
-            if (PendingDriveSlot < 0) return false;
+            if (PendingDriveSlot < 0) return DriveResolveResult.NoPending;
+            if (Outcome != BattleOutcome.InProgress) return DriveResolveResult.NotInProgress;
+            if (Paused) return DriveResolveResult.Paused;
             var slot = PendingDriveSlot;
             PendingDriveSlot = -1;
             _qteElapsed = 0f;
             Drive = 0f;
+            LastDriveTiming = timing;
+            LastDriveResolveTick = TickIndex;
+            LastDriveResolveSlot = slot;
             var mul = TimingDamage(timing);
             AddFever(TimingFever(timing));
             var unit = Allies[slot];
             var skill = unit != null && unit.Def != null ? ResolveSkill(unit.Def.DriveSkillId) : null;
-            if (unit == null || skill == null) return false;
+            if (unit == null || skill == null) return DriveResolveResult.Accepted;
             unit.Charge = 0f;
             Cast(unit, true, skill, mul);
             LastEvent = "DRIVE  " + unit.Def.Name + "  " + skill.Name + "  " + timing;
-            return true;
+            return DriveResolveResult.Accepted;
         }
+
+        public bool ResolveDrive(DriveTiming timing) => ResolveDriveChecked(timing) == DriveResolveResult.Accepted;
 
         public bool CanAct(int slot)
         {
-            return Outcome == BattleOutcome.InProgress
-                && !Paused
-                && PendingDriveSlot < 0
-                && slot >= 0 && slot < Allies.Length
-                && Allies[slot] != null
-                && Allies[slot].Alive
-                && !Allies[slot].ActionLocked
-                && Allies[slot].Charge >= 100f;
+            return CanAcceptSkillInput(slot, out _) && Allies[slot].Charge >= 100f;
         }
 
         void TickSlideClocks(float dt)
@@ -589,46 +650,101 @@ namespace Resonance.Battle
             }
         }
 
+        /// <summary>
+        /// R02: Fever window only advances the clock. Hits come from <see cref="TryFeverTap"/> —
+        /// player taps in Manual, or the auto policy submitting the same command in Semi/Full.
+        /// </summary>
         void TickFever(float dt)
         {
             FeverLeft -= dt;
-            var step = TickDt > 0f ? dt / TickDt : 1f;
-            if (step < 0f) step = 0f;
-            _feverAcc += step;
-            var ticksPerHit = Math.Max(1, TickHz / 10);
-            while (_feverAcc >= ticksPerHit && FeverHitsLeft > 0)
+            _feverSinceHit += dt;
+            if (Auto != AutoMode.Manual && FeverHitsLeft > 0)
             {
-                _feverAcc -= ticksPerHit;
-                FeverHitsLeft--;
-                var caster = FirstAlive(Allies);
-                var target = PickEnemy(TargetRule.LowestHpEnemies);
-                if (caster != null && caster.Def != null && target != null)
+                var rate = Clocks != null ? Clocks.FeverAutoTapsPerSec : 5f;
+                if (rate > 0f)
                 {
-                    _feverHit = true;
-                    _activeKind = SkillType.Fever;
-                    _execFever = true;
-                    _execCaster = caster;
-                    _execTarget = target;
-                    try
+                    _feverAcc += dt * rate;
+                    while (_feverAcc >= 1f && FeverActive && FeverHitsLeft > 0)
                     {
-                        ExecuteOpcode(EffectOpcodes.DmgFeverParts);
-                    }
-                    finally
-                    {
-                        _execFever = false;
-                        _execCaster = null;
-                        _execTarget = null;
-                        _feverHit = false;
+                        _feverAcc -= 1f;
+                        var slot = NextFeverAutoSlot();
+                        if (slot < 0) break;
+                        Submit(new BattleCommand { Kind = BattleCommandKind.FeverTap, Slot = slot, Source = CommandSource.Auto });
                     }
                 }
             }
-            if (FeverLeft <= 0f || FeverHitsLeft <= 0)
+            if (FeverActive && FeverLeft <= 0f)
+                EndFever(FeverEndReason.TimeUp);
+        }
+
+        int NextFeverAutoSlot()
+        {
+            if (Allies == null || Allies.Length == 0) return -1;
+            for (int k = 0; k < Allies.Length; k++)
             {
-                FeverActive = false;
-                FeverLeft = 0f;
-                FeverHitsLeft = 0;
-                LastEvent = "Fever 结束";
+                var i = (_feverAutoCursor + k) % Allies.Length;
+                var u = Allies[i];
+                if (u != null && u.Alive && !u.ActionLocked && !u.SkillLocked)
+                {
+                    _feverAutoCursor = (i + 1) % Allies.Length;
+                    return i;
+                }
             }
+            return -1;
+        }
+
+        void EndFever(FeverEndReason reason)
+        {
+            FeverActive = false;
+            FeverLeft = 0f;
+            FeverHitsLeft = 0;
+            _feverAcc = 0f;
+            LastFeverEnd = reason;
+            LastEvent = "Fever 结束";
+            NoteEvent("fever_end", reason.ToString(), null, null, 0, SkillType.Fever);
+        }
+
+        public bool TryFeverTap(int slot) => TryFeverTap(slot, out _);
+
+        public bool TryFeverTap(int slot, out CommandReject reason)
+        {
+            reason = CommandReject.None;
+            if (Outcome != BattleOutcome.InProgress) { reason = CommandReject.NotInProgress; return false; }
+            if (Paused) { reason = CommandReject.Paused; return false; }
+            if (!FeverActive) { reason = CommandReject.FeverNotActive; return false; }
+            if (FeverHitsLeft <= 0) { reason = CommandReject.FeverBudgetExhausted; return false; }
+            if (slot < 0 || slot >= Allies.Length || Allies[slot] == null) { reason = CommandReject.SlotInvalid; return false; }
+            var caster = Allies[slot];
+            if (!caster.Alive) { reason = CommandReject.UnitDead; return false; }
+            if (caster.ActionLocked) { reason = CommandReject.ActionLocked; return false; }
+            if (caster.SkillLocked) { reason = CommandReject.Silenced; return false; }
+            var minGap = Clocks != null ? Clocks.FeverMinHitIntervalSec : 0.2f;
+            if (_feverEverHit && _feverSinceHit + 1e-4f < minGap) { reason = CommandReject.FeverThrottled; return false; }
+            var target = PickEnemy(TargetRule.LowestHpEnemies);
+            if (target == null || caster.Def == null) { reason = CommandReject.InvalidValue; return false; }
+
+            FeverHitsLeft--;
+            _feverSinceHit = 0f;
+            _feverEverHit = true;
+            _feverHit = true;
+            _activeKind = SkillType.Fever;
+            _execFever = true;
+            _execCaster = caster;
+            _execTarget = target;
+            try
+            {
+                ExecuteOpcode(EffectOpcodes.DmgFeverParts);
+            }
+            finally
+            {
+                _execFever = false;
+                _execCaster = null;
+                _execTarget = null;
+                _feverHit = false;
+            }
+            if (FeverHitsLeft <= 0 && FeverActive)
+                EndFever(FeverEndReason.BudgetExhausted);
+            return true;
         }
 
         void TickStatus(float dt)
@@ -645,11 +761,15 @@ namespace Resonance.Battle
         void TickOne(UnitState u, float dt)
         {
             if (u == null || !u.Alive) return;
+            TickPeriodicDots(u, dt);
+            if (!u.Alive) return;
             for (int i = u.Status.Count - 1; i >= 0; i--)
             {
                 var st = u.Status[i];
+                if (st == null) { u.Status.RemoveAt(i); continue; }
+                if (st.Permanent) continue; // until consumed / dispelled
                 st.Remaining -= dt;
-                if (st.Remaining <= 0f) u.Status.RemoveAt(i);
+                if (st.Remaining <= 0f) ReleaseStatus(u, i, "expire");
             }
         }
 
@@ -830,8 +950,8 @@ namespace Resonance.Battle
             {
                 foreach (var t in PickFoes(_execCasterAlly, skill.Target, skill.TargetCount, caster))
                 {
-                    var crit = !Deterministic && _rng.NextDouble() < DamageMath.CritChance(caster.Def.Crt);
-                    if (Deterministic) crit = false;
+                    var roll = _rng.NextDouble();
+                    var crit = !ForceNoCrit && roll < DamageMath.CritChance(caster.Def.Crt);
                     var extraMul = DamageMath.ExtraDmgMul(ExtraDmg(caster, t, skill.Type)) * _execMul;
                     extraMul *= IgnitionExtraMul(caster, t, crit);
                     if (TryResolveCombat(
@@ -878,7 +998,9 @@ namespace Resonance.Battle
             var result = DamageMath.Resolve(
                 Profile, type, atk, coef, flat, defense, atkEl, defEl,
                 crit, extraMul, 1f, feverMul, percentAtk, skillFlat, extraAtk: extraAtk);
-            if (!result.Measured)
+            // R06: settle on "computed" (a value exists); evidence class is logged separately and is never
+            // 'Measured' for any current branch.
+            if (!result.Computed)
             {
                 NoteEvent("unresolved", DamageMath.ChannelOpcode(type), caster, t, 0, type);
                 return false;
@@ -914,11 +1036,23 @@ namespace Resonance.Battle
         void ApplyDamage(UnitState caster, UnitState t, int dmg, bool crit)
         {
             if (t == null || !t.Alive) return;
-            if (t.Shield > 0)
+            if (dmg > 0 && t.Shield > 0)
             {
-                var absorb = Math.Min(t.Shield, dmg);
-                t.Shield -= absorb;
-                dmg -= absorb;
+                // Consume shield instances in application order; drained permanent shields are released.
+                for (int i = 0; i < t.Status.Count && dmg > 0; i++)
+                {
+                    var st = t.Status[i];
+                    if (st == null || st.ShieldLeft <= 0) continue;
+                    var absorb = Math.Min(st.ShieldLeft, dmg);
+                    st.ShieldLeft -= absorb;
+                    dmg -= absorb;
+                    NoteEvent("absorb", EffectOpcodes.ShieldApply, caster, t, absorb, _activeKind);
+                    if (st.ShieldLeft <= 0 && st.Permanent)
+                    {
+                        ReleaseStatus(t, i, "consumed");
+                        i--;
+                    }
+                }
             }
             if (dmg <= 0) return;
             t.Hp -= dmg;
@@ -953,6 +1087,11 @@ namespace Resonance.Battle
             ApplyPoisonTriggers(victim, "on_hit_taken");
         }
 
+        /// <summary>
+        /// E04: each DoT status carries its own trigger policy (<see cref="EffectDef.Trigger"/>).
+        /// Empty policy defaults: Poison → on_action|on_hit_taken (legacy), Bleed → on_hit_taken (design).
+        /// Periodic ticks are driven from <see cref="TickOne"/>. None of these are GL-verified.
+        /// </summary>
         void ApplyPoisonTriggers(UnitState u, string trigger)
         {
             if (u == null || !u.Alive || _poisonResolving) return;
@@ -963,21 +1102,91 @@ namespace Resonance.Battle
                 {
                     var st = u.Status[i];
                     if (st == null || st.Def == null || !EffectOpcodes.IsDotTriggerKind(st.Def.Kind)) continue;
-                    if (Profile != FormulaProfile.JP_LEGACY_EMPIRICAL
-                        && Profile != FormulaProfile.KR_LEGACY_REPORTED)
-                    {
-                        NoteEvent("unresolved", EffectOpcodes.PoisonApply, u, u, 0, _activeKind);
-                        continue;
-                    }
-                    var tick = Math.Max(1, (int)Math.Round(u.MaxHp * st.Def.Magnitude * st.Stacks));
-                    ApplyDamage(null, u, tick, false);
-                    NoteEvent(trigger, EffectOpcodes.PoisonApply, u, u, tick, _activeKind);
+                    if (!DotFiresOn(st.Def, trigger)) continue;
+                    FireDot(u, st, trigger);
+                    if (!u.Alive) break;
                 }
             }
             finally
             {
                 _poisonResolving = false;
             }
+        }
+
+        static bool DotFiresOn(EffectDef fx, string trigger)
+        {
+            var policy = fx.Trigger;
+            if (string.IsNullOrEmpty(policy))
+                policy = fx.Kind == EffectKind.Bleed ? EffectDef.TriggerOnHitTaken
+                    : EffectDef.TriggerOnAction + "|" + EffectDef.TriggerOnHitTaken;
+            var parts = policy.Split('|');
+            for (int i = 0; i < parts.Length; i++)
+                if (string.Equals(parts[i].Trim(), trigger, StringComparison.Ordinal)) return true;
+            return false;
+        }
+
+        void FireDot(UnitState u, StatusInst st, string trigger)
+        {
+            if (Profile != FormulaProfile.JP_LEGACY_EMPIRICAL
+                && Profile != FormulaProfile.KR_LEGACY_REPORTED)
+            {
+                NoteEvent("unresolved", EffectOpcodes.PoisonApply, u, u, 0, _activeKind);
+                return;
+            }
+            var tick = Math.Max(1, (int)Math.Round(u.MaxHp * st.Def.Magnitude * st.Stacks));
+            ApplyDamage(null, u, tick, false);
+            NoteEvent(trigger, EffectOpcodes.PoisonApply, u, u, tick, _activeKind);
+        }
+
+        void TickPeriodicDots(UnitState u, float dt)
+        {
+            if (u == null || !u.Alive || _poisonResolving) return;
+            _poisonResolving = true;
+            try
+            {
+                for (int i = 0; i < u.Status.Count; i++)
+                {
+                    var st = u.Status[i];
+                    if (st == null || st.Def == null || !EffectOpcodes.IsDotTriggerKind(st.Def.Kind)) continue;
+                    if (!DotFiresOn(st.Def, EffectDef.TriggerPeriodic) || st.Def.PeriodSec <= 0f) continue;
+                    st.PeriodAcc += dt;
+                    while (st.PeriodAcc >= st.Def.PeriodSec && u.Alive)
+                    {
+                        st.PeriodAcc -= st.Def.PeriodSec;
+                        FireDot(u, st, EffectDef.TriggerPeriodic);
+                    }
+                    if (!u.Alive) break;
+                }
+            }
+            finally
+            {
+                _poisonResolving = false;
+            }
+        }
+
+        /// <summary>Remove a status instance and release side effects it still holds (shield points).</summary>
+        void ReleaseStatus(UnitState u, int index, string why)
+        {
+            var st = u.Status[index];
+            u.Status.RemoveAt(index);
+            if (st == null || st.Def == null) return;
+            if (st.ShieldLeft > 0)
+                NoteEvent("shield_release", why, null, u, st.ShieldLeft, _activeKind);
+            st.ShieldLeft = 0;
+            NoteEvent("status_" + why, st.Def.Opcode ?? "", null, u, st.Stacks, _activeKind);
+        }
+
+        /// <summary>status.dispel: remove statuses on the target by Group (empty Group = every non-permanent status).</summary>
+        void Dispel(UnitState t, EffectDef fx)
+        {
+            for (int i = t.Status.Count - 1; i >= 0; i--)
+            {
+                var st = t.Status[i];
+                if (st == null || st.Def == null) continue;
+                var match = string.IsNullOrEmpty(fx.Group) ? !st.Permanent : string.Equals(st.Def.Group, fx.Group, StringComparison.Ordinal);
+                if (match) ReleaseStatus(t, i, "dispel");
+            }
+            LogFx(t, fx);
         }
 
         public void ApplyStatus(UnitState t, EffectDef fx) => ApplyEffect(t, fx);
@@ -1023,34 +1232,66 @@ namespace Resonance.Battle
                 LogFx(t, fx);
                 return;
             }
+            if (string.Equals(opcode, EffectOpcodes.StatusDispel, StringComparison.Ordinal))
+            {
+                Dispel(t, fx);
+                return;
+            }
+            var lifetime = fx.DurationSec > 0f ? fx.DurationSec : float.PositiveInfinity;
             for (int i = 0; i < t.Status.Count; i++)
             {
                 var cur = t.Status[i];
+                if (cur.Def == null) continue;
+                var sameId = !string.IsNullOrEmpty(fx.Id) && string.Equals(cur.Def.Id, fx.Id, StringComparison.Ordinal);
+                if (sameId && fx.MaxStack > 1)
+                {
+                    // E03: declared stackable → stack up to MaxStack and refresh lifetime.
+                    if (cur.Stacks < fx.MaxStack) cur.Stacks++;
+                    else NoteEvent("stack_capped", opcode, null, t, cur.Stacks, _activeKind);
+                    cur.Def = fx;
+                    cur.Remaining = lifetime;
+                    ApplyControlAndShield(t, cur, fx, opcode);
+                    LogFx(t, fx);
+                    return;
+                }
                 if (cur.Def.Group == fx.Group)
                 {
+                    // Same group, different (or non-stackable) source: higher/equal tier replaces, lower is ignored.
                     if (fx.SourceTier >= cur.Def.SourceTier)
                     {
+                        if (cur.ShieldLeft > 0)
+                            NoteEvent("shield_release", "replace", null, t, cur.ShieldLeft, _activeKind);
+                        cur.ShieldLeft = 0;
                         cur.Def = fx;
-                        cur.Remaining = fx.DurationSec;
-                        ApplyControlAndShield(t, fx, opcode);
+                        cur.Stacks = 1;
+                        cur.Remaining = lifetime;
+                        cur.PeriodAcc = 0f;
+                        ApplyControlAndShield(t, cur, fx, opcode);
                         LogFx(t, fx);
                     }
+                    else
+                        NoteEvent("status_ignored_lower_tier", opcode, null, t, fx.SourceTier, _activeKind);
                     return;
                 }
             }
-            t.Status.Add(new StatusInst { Def = fx, Remaining = fx.DurationSec });
-            ApplyControlAndShield(t, fx, opcode);
+            var inst = new StatusInst { Def = fx, Remaining = lifetime };
+            t.Status.Add(inst);
+            ApplyControlAndShield(t, inst, fx, opcode);
             LogFx(t, fx);
         }
 
-        void ApplyControlAndShield(UnitState t, EffectDef fx, string opcode)
+        void ApplyControlAndShield(UnitState t, StatusInst inst, EffectDef fx, string opcode)
         {
             if (t == null || fx == null) return;
             var shield = string.Equals(opcode, EffectOpcodes.ShieldApply, StringComparison.Ordinal)
                 || fx.Kind == EffectKind.Shield
                 || fx.Kind == EffectKind.Barrier;
-            if (shield)
-                t.Shield = Math.Max(t.Shield, (int)Math.Round(t.MaxHp * fx.Magnitude));
+            if (shield && inst != null)
+            {
+                // E02: shield points live on the status instance; lifetime follows the status.
+                var pts = (int)Math.Round(t.MaxHp * fx.Magnitude) * Math.Max(1, inst.Stacks);
+                inst.ShieldLeft = Math.Max(inst.ShieldLeft, pts);
+            }
             var lockCharge = string.Equals(opcode, EffectOpcodes.ControlApply, StringComparison.Ordinal)
                 && (fx.Kind == EffectKind.Stun || fx.Kind == EffectKind.Freeze);
             if (lockCharge || fx.Kind == EffectKind.Stun || fx.Kind == EffectKind.Freeze)
@@ -1238,6 +1479,9 @@ namespace Resonance.Battle
                 FeverLeft = Clocks != null ? Clocks.FeverWindowSec : UnknownFeverWindowSec;
                 FeverHitsLeft = Clocks != null ? Clocks.FeverHitBudget : UnknownFeverHitBudget;
                 _feverAcc = 0;
+                _feverSinceHit = 0f;
+                _feverEverHit = false;
+                LastFeverEnd = FeverEndReason.None;
                 LastEvent = "FEVER";
                 Casts.Add(new CastFx { CasterSlot = 0, CasterAlly = true, Type = SkillType.Fever, Name = "FEVER", Fever = true });
             }

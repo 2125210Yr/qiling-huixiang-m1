@@ -94,8 +94,8 @@ namespace Resonance.Tests
                 FormulaProfile.JP_LEGACY_EMPIRICAL, SkillType.Fever, Atk,
                 sharedCoef, sharedFlat, Def,
                 Element.Fire, Element.Wood, false, 1f, 1f, DamageMath.FeverMul);
-            Assert.True(viaFeverChannel.Measured);
-            Assert.True(viaTapCoef.Measured);
+            Assert.True(viaFeverChannel.Computed);
+            Assert.True(viaTapCoef.Computed);
             Assert.NotEqual(viaTapCoef.RequireInt(), viaFeverChannel.RequireInt());
 
             var inflated = Catalog.CloneSkill(proto);
@@ -194,8 +194,12 @@ namespace Resonance.Tests
                 FormulaProfile.KR_LEGACY_REPORTED, SkillType.Tap, Atk, Coef, Flat, Def,
                 Element.Fire, Element.Wood, false, 1f, 1f);
 
-            Assert.True(jpTap.Measured && jpSlide.Measured && jpAuto.Measured && jpDrive.Measured && jpFever.Measured);
-            Assert.True(krTap.Measured);
+            // G2 R06: JP/KR branches are computable contrast values, never Measured against GL.
+            Assert.True(jpTap.Computed && jpSlide.Computed && jpAuto.Computed && jpDrive.Computed && jpFever.Computed);
+            Assert.True(krTap.Computed);
+            Assert.Equal(FormulaEvidence.HistoricalCandidate, jpTap.Evidence);
+            Assert.Equal(FormulaEvidence.DesignPlaceholder, jpDrive.Evidence);
+            Assert.NotEqual(FormulaEvidence.Measured, jpDrive.Evidence);
             Assert.True(jpTap.RequireInt() > 0);
             Assert.True(jpSlide.RequireInt() > 0);
             Assert.True(jpAuto.RequireInt() > 0);
@@ -245,10 +249,19 @@ namespace Resonance.Tests
             sim.FeverHitsLeft = 70;
         }
 
+        // G2 R02: Fever hits no longer come from the timer in Manual mode; the fixture taps the
+        // first alive ally through the same command path a player would use.
         static void RunFeverHits(BattleSim sim)
         {
-            for (int i = 0; i < BattleSim.TickHz && sim.FeverHitsLeft > 60; i++)
+            sim.Clocks.FeverMinHitIntervalSec = 0f;
+            var slot = 0;
+            for (int i = 0; i < sim.Allies.Length; i++)
+                if (sim.Allies[i] != null && sim.Allies[i].Alive) { slot = i; break; }
+            for (int i = 0; i < BattleSim.TickHz && sim.FeverHitsLeft > 60 && sim.FeverActive; i++)
+            {
                 sim.TickFeverOnly();
+                sim.Submit(BattleCommand.FeverTap(slot));
+            }
         }
     }
 }

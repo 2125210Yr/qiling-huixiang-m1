@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Resonance.Battle
 {
@@ -29,12 +30,7 @@ namespace Resonance.Battle
             ChargeAdd, ChargeRate, SlideCd, Retarget, Revive
         };
 
-        static readonly string[] Implemented =
-        {
-            DmgTap, DmgSlide, DmgAuto, DmgDriveActual, DmgFeverParts,
-            StatusApply, PoisonApply, ShieldApply, ControlApply,
-            ChargeAdd, ChargeRate, SlideCd
-        };
+        public static IReadOnlyList<string> KnownList => Known;
 
         public static string ForKind(EffectKind kind)
         {
@@ -52,7 +48,11 @@ namespace Resonance.Battle
 
         public static bool IsKnown(string opcode) => InSet(Known, opcode);
 
-        public static bool IsImplemented(string opcode) => InSet(Implemented, opcode);
+        /// <summary>
+        /// True when the opcode has at least one Implemented (opcode, kind) row.
+        /// Kind-level gaps still fail <see cref="EffectCapability.Check"/>.
+        /// </summary>
+        public static bool IsImplemented(string opcode) => EffectCapability.OpcodeHasImplementation(opcode);
 
         public static bool IsDamageChannel(string opcode)
         {

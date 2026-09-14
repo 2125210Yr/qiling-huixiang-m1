@@ -15,6 +15,8 @@ namespace Resonance.EditorTools
         {
             SceneView.duringSceneGui -= OnScene;
             SceneView.duringSceneGui += OnScene;
+            EditorApplication.playModeStateChanged -= OnPlayMode;
+            EditorApplication.playModeStateChanged += OnPlayMode;
             EditorApplication.delayCall += AutoOpenOnce;
         }
 
@@ -23,8 +25,29 @@ namespace Resonance.EditorTools
             if (_didAuto) return;
             _didAuto = true;
             if (EditorApplication.isPlayingOrWillChangePlaymode) return;
+            if (Application.isBatchMode || SmokePending()) return;
             if (GameObject.Find(HostName) != null) return;
             Open(false);
+        }
+
+        // G2 natural-play finding: this editor-only preview canvas (0.15..0.85 x 0.08..0.92, raycastTarget=true)
+        // leaked into play mode and swallowed the Home "关卡" tap. It is a bone-authoring aid, never a game object.
+        static void OnPlayMode(PlayModeStateChange change)
+        {
+            if (change != PlayModeStateChange.ExitingEditMode) return;
+            var canvasGo = GameObject.Find("C001_PuppetCanvas");
+            if (canvasGo != null) Object.DestroyImmediate(canvasGo);
+            var rig = Object.FindFirstObjectByType<PuppetRig>();
+            if (rig != null && rig.WorldRoot != null && rig.WorldRoot.name == "Puppet_C001")
+                Object.DestroyImmediate(rig.WorldRoot.gameObject);
+        }
+
+        static bool SmokePending()
+        {
+            return System.IO.File.Exists("Temp/natural-play.request")
+                || System.IO.File.Exists("Temp/natural-play.running")
+                || System.IO.File.Exists("Temp/vs-smoke.request")
+                || System.IO.File.Exists("Temp/vs-smoke.running");
         }
 
         static void OnScene(SceneView view)

@@ -37,6 +37,15 @@ namespace Resonance.Battle
             return null;
         }
 
+        /// <summary>
+        /// Validation hook only: maps each buff to ForKind(Kind) and runs the capability table.
+        /// Does not mutate <see cref="All"/>.
+        /// </summary>
+        public static ContentValidationReport Validate()
+        {
+            return EffectCapability.ValidateBuffs(All);
+        }
+
         static BuffDef[] Build()
         {
             return new[]
@@ -145,6 +154,15 @@ namespace Resonance.Battle
         static BuffDef D(string id, string name, string group, string effect, EffectKind kind = EffectKind.Damage, bool sim = false)
         {
             return new BuffDef { Id = id, Name = name, IsDebuff = true, Group = group, Effect = effect, Kind = kind, Simulated = sim };
+        }
+
+        /// <summary>
+        /// Validation hook only. Maps each buff through <see cref="EffectOpcodes.ForKind"/>
+        /// and reports capability gaps. Does not throw and does not change <see cref="All"/>.
+        /// </summary>
+        public static ContentValidationReport ValidateCapability()
+        {
+            return EffectCapability.ValidateBuffs(All);
         }
     }
 }

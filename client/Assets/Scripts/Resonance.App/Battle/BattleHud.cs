@@ -77,7 +77,9 @@ namespace Resonance.App
         float _showtimeT;
         float _stampT;
         Color _stampTint = VisualTokens.YellowConfirm;
+        /// <summary>Display mirror of the core QTE elapsed time; never authoritative (Q01).</summary>
         float _qteT;
+        int _judgeShownForTick = -1;
         float _warnT;
         float _feverBurstT;
         bool _feverWas;
@@ -225,11 +227,18 @@ namespace Resonance.App
             {
                 var n = b.Allies != null ? b.Allies.Length : 0;
                 for (int i = 0; i < n; i++)
-                    if (b.TryBeginDrive(i)) break;
+                    if (b.Submit(BattleCommand.DriveBegin(i, CommandSource.Fixture)).Accepted) break;
             }
             if (b.PendingDriveSlot >= 0)
             {
-                FinishQte(DriveTiming.Perfect);
+                QteOpen = false;
+                HideGood();
+                if (_pix != null && _pix.Showing) _pix.HideNow();
+                var res = b.Submit(BattleCommand.DriveResolve(DriveTiming.Perfect, CommandSource.Fixture));
+                if (!res.Accepted) return false;
+                _judgeShownForTick = b.LastDriveResolveTick;
+                _judgeFromQte = true;
+                ShowJudge(b.LastDriveTiming);
                 return true;
             }
             if (b.Casts == null) return false;
@@ -635,7 +644,12 @@ namespace Resonance.App
                 g.OnSlide = () =>
                 {
                     if (QteOpen) return;
-                    if (_host != null && _host.Battle != null) _host.Battle.TrySlide(slot);
+                    var battle = _host != null ? _host.Battle : null;
+                    if (battle == null) return;
+                    // R07: gesture → one command through the shared entry (probe follows accept/reject).
+                    HitChainProbe.Input("slide");
+                    var res = battle.Submit(BattleCommand.Slide(slot, CommandSource.Player));
+                    if (!res.Accepted) HitChainProbe.Cancel();
                 };
 
                 // Hard r58: stacked green "+" over red SLIDE when both ready.
@@ -696,35 +710,54 @@ namespace Resonance.App
             }
         }
 
+        /// <summary>
+        /// Portrait tap resolves to exactly one command (R07): FeverTap while Fever is active,
+        /// DriveBegin when the Drive gauge is full, otherwise Tap. Rejections are logged in the core CommandLog.
+        /// </summary>
         void OnPortraitTap(int slot)
         {
             var b = _host != null ? _host.Battle : null;
             if (b == null || QteOpen) return;
-            if (b.TryPortraitTap(slot) && b.PendingDriveSlot == slot)
+            BattleCommand cmd;
+            if (b.FeverActive) cmd = BattleCommand.FeverTap(slot, CommandSource.Player);
+            else if (b.Drive >= 100f && b.PendingDriveSlot < 0) cmd = BattleCommand.DriveBegin(slot, CommandSource.Player);
+            else cmd = BattleCommand.Tap(slot, CommandSource.Player);
+            if (cmd.Kind == BattleCommandKind.Tap) HitChainProbe.Input("tap");
+            var res = b.Submit(cmd);
+            if (!res.Accepted)
             {
-                if (b.Auto == AutoMode.Full) FinishQte(DriveTiming.Great);
-                else OpenQte();
+                if (cmd.Kind == BattleCommandKind.Tap) HitChainProbe.Cancel();
+                return;
             }
+            if (cmd.Kind == BattleCommandKind.DriveBegin && b.PendingDriveSlot == slot)
+                OpenQte();
         }
 
+        /// <summary>
+        /// Q01: the core owns the QTE clock. The HUD only mirrors <see cref="BattleSim.QteRemaining"/> and,
+        /// when the core has already resolved (timeout / auto), shows the judge for that resolution once.
+        /// </summary>
         void TickQte(BattleSim battle)
         {
             if (battle == null || battle.Paused) return;
-            _qteT += Time.unscaledDeltaTime;
             TickOverlays();
             if (battle.PendingDriveSlot < 0)
             {
+                if (QteOpen && battle.LastDriveResolveTick >= 0 && battle.LastDriveResolveTick != _judgeShownForTick)
+                {
+                    QteOpen = false;
+                    HideGood();
+                    if (_pix != null && _pix.Showing) _pix.HideNow();
+                    _judgeShownForTick = battle.LastDriveResolveTick;
+                    _judgeFromQte = true;
+                    ShowJudge(battle.LastDriveTiming);
+                    return;
+                }
                 QteOpen = false;
                 HideGood();
                 return;
             }
-            if (battle.Auto == AutoMode.Full)
-            {
-                FinishQte(DriveTiming.Great);
-                return;
-            }
-            if (_qteT >= BattleSim.DriveQteTimeoutSec)
-                FinishQte(DriveTiming.Good);
+            _qteT = battle.QteElapsed;
         }
 
         void OpenOrAutoQte(BattleSim battle)
@@ -771,6 +804,7 @@ namespace Resonance.App
             // t382: PRESS BUTTON lives on the QTE coin, not as a second field stamp.
         }
 
+        /// <summary>Q03/Q04: only an accepted core resolution produces a judge; late/paused/terminal callbacks are no-ops.</summary>
         void FinishQte(DriveTiming timing)
         {
             var b = _host != null ? _host.Battle : null;
@@ -778,9 +812,11 @@ namespace Resonance.App
             HideGood();
             if (_pix != null && _pix.Showing) _pix.HideNow();
             if (b == null) return;
-            b.ResolveDrive(timing);
+            var res = b.Submit(BattleCommand.DriveResolve(timing, CommandSource.Player));
+            if (!res.Accepted) return;
+            _judgeShownForTick = b.LastDriveResolveTick;
             _judgeFromQte = true;
-            ShowJudge(timing);
+            ShowJudge(b.LastDriveTiming);
         }
 
         void HideGood()
@@ -1344,7 +1380,7 @@ namespace Resonance.App
                     else if (QteOpen && battle.PendingDriveSlot == i)
                     {
                         // Primary P0 ~t365: portrait "N DRIVE TIME" during Drive window.
-                        var left = Mathf.CeilToInt(Mathf.Max(0.01f, BattleSim.DriveQteTimeoutSec - _qteT));
+                        var left = Mathf.CeilToInt(Mathf.Max(0.01f, battle.QteRemaining));
                         _readyTag[i].text = BattleCueCopy.DriveTimeLine(left);
                         _readyTag[i].color = VisualTokens.DriveOrange;
                     }

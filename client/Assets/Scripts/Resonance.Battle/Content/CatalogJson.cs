@@ -115,6 +115,7 @@ namespace Resonance.Battle
             if (stage == null)
                 throw new InvalidDataException("catalog stage");
             Catalog.Install(chars, skills, effects, stage, stages);
+            Catalog.ThrowIfExternalImportInvalid();
         }
 
         static void FillPlayableSlice(
@@ -269,7 +270,7 @@ namespace Resonance.Battle
 
         static EffectDef ReadEffect(Dictionary<string, object> o)
         {
-            return new EffectDef
+            var fx = new EffectDef
             {
                 Id = Str(o, "id"),
                 Opcode = Str(o, "op"),
@@ -280,6 +281,8 @@ namespace Resonance.Battle
                 SourceTier = Int(o, "tier"),
                 Group = Str(o, "group")
             };
+            ApplyLifecycleJson(fx, o);
+            return fx;
         }
 
         static void OverlayEffect(EffectDef dst, Dictionary<string, object> o)
@@ -292,6 +295,14 @@ namespace Resonance.Battle
             if (HasNum(o, "stack")) dst.MaxStack = Int(o, "stack", 1);
             if (HasNum(o, "tier")) dst.SourceTier = Int(o, "tier");
             if (HasText(o, "group")) dst.Group = Str(o, "group");
+            ApplyLifecycleJson(dst, o);
+        }
+
+        static void ApplyLifecycleJson(EffectDef dst, Dictionary<string, object> o)
+        {
+            if (dst == null || o == null || !EffectCapability.HasLifecycleFields) return;
+            if (HasText(o, "trigger")) EffectCapability.WriteTrigger(dst, Str(o, "trigger"));
+            if (HasNum(o, "period")) EffectCapability.WritePeriodSec(dst, Flt(o, "period"));
         }
 
         static Dictionary<string, CharacterDef> CloneChars()
@@ -363,7 +374,7 @@ namespace Resonance.Battle
         static EffectDef CloneEffect(EffectDef e)
         {
             if (e == null) return null;
-            return new EffectDef
+            var copy = new EffectDef
             {
                 Id = e.Id,
                 Opcode = e.Opcode,
@@ -374,6 +385,8 @@ namespace Resonance.Battle
                 SourceTier = e.SourceTier,
                 Group = e.Group
             };
+            EffectCapability.CopyLifecycle(e, copy);
+            return copy;
         }
 
         static StageDef ReadStage(Dictionary<string, object> so)
@@ -423,7 +436,12 @@ namespace Resonance.Battle
                 sb.Append("{\"id\":\"").Append(Esc(e.Id)).Append("\",\"op\":\"").Append(Esc(e.Opcode)).Append("\",\"kind\":").Append((int)e.Kind);
                 sb.Append(",\"mag\":").Append(Num(e.Magnitude)).Append(",\"dur\":").Append(Num(e.DurationSec));
                 sb.Append(",\"stack\":").Append(e.MaxStack).Append(",\"tier\":").Append(e.SourceTier);
-                sb.Append(",\"group\":\"").Append(Esc(e.Group)).Append("\"}");
+                sb.Append(",\"group\":\"").Append(Esc(e.Group)).Append("\"");
+                if (EffectCapability.HasTriggerField)
+                    sb.Append(",\"trigger\":\"").Append(Esc(EffectCapability.ReadTrigger(e))).Append("\"");
+                if (EffectCapability.HasPeriodField)
+                    sb.Append(",\"period\":").Append(Num(EffectCapability.ReadPeriodSec(e)));
+                sb.Append('}');
             }
             sb.Append("],\"chars\":[");
             first = true;

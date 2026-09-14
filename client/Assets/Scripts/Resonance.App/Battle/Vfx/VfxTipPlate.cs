@@ -254,7 +254,9 @@ namespace Resonance.App
             rt.offsetMin = Vector2.zero;
             rt.offsetMax = Vector2.zero;
             var tx = go.GetComponent<Text>();
-            tx.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            // G2 natural-play finding: "Arial.ttf" throws on Unity 6 (LegacyRuntime.ttf), which aborted Build()
+            // and left the tip plate as a blank grey card over the enemy row during every Drive QTE.
+            tx.font = CharacterPresenter.UiFont();
             tx.fontSize = size;
             tx.fontStyle = style;
             tx.alignment = align;

@@ -61,14 +61,26 @@ namespace Resonance.Battle
 
     public sealed class EffectDef
     {
+        public const string TriggerOnAction = "on_action";
+        public const string TriggerOnHitTaken = "on_hit_taken";
+        public const string TriggerPeriodic = "periodic";
+
         public string Id;
         public string Opcode;
         public EffectKind Kind;
         public float Magnitude;
+        /// <summary>&lt;= 0 → lives until consumed (shield) or dispelled; never expires by time.</summary>
         public float DurationSec;
         public int MaxStack;
         public int SourceTier;
         public string Group;
+        /// <summary>
+        /// DoT trigger policy: <c>on_action</c> / <c>on_hit_taken</c> / <c>periodic</c>, joined by <c>|</c>.
+        /// Empty → Poison defaults to <c>on_action|on_hit_taken</c>, Bleed to <c>on_hit_taken</c> (design, not GL).
+        /// </summary>
+        public string Trigger;
+        /// <summary>Seconds between <c>periodic</c> ticks; required when Trigger contains <c>periodic</c>.</summary>
+        public float PeriodSec;
     }
 
     public sealed class StageDef

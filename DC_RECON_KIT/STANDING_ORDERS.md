@@ -1,3 +1,7 @@
+> **SUPERSEDED IN PART** by `m1/G1/DEFERRED_SUPPLEMENT.md` (2026-09-12) and `m1/G2_REVIEW_20260913/NEXT_GOAL.md`
+> — GT hunting/stream capture/emulator paused; concurrency cap is environment max;
+> see `G2_ENTRY.md`。正文未重写，冲突以新决定为准。
+
 # STANDING ORDERS — 不停机（2026-09-11 主人确认）
 
 ## 目标（钉死）

@@ -1,0 +1,76 @@
+FAIL BattlePlay
+captures=np_01_battle.png,np_06_pause.png,np_07_speed.png,np_04_qte.png,np_05_judge.png
+screen=Result
+title=CLEAR!!
+drive=0 fever=False ever=False speed=2 auto=Manual outcome=Victory wave=1
+
+phase	expected	observed	frame	ms
+HomeVisible	screen=Home	screen=Home	2	5459
+TapToStage	tap 关卡	tapped GameRoot/Canvas/首页/关卡	3	5699
+StageVisible	screen=Stage	screen=Stage	4	5874
+TapStart	tap FIGHT	tapped GameRoot/Canvas/StageBoard/WavePreview/FIGHT	6	6485
+BattleVisible	screen=Battle hud=p0	screen=Battle hud=p0 wave=0	21	6611
+TapPause	tap || PAUSE	tapped GameRoot/Canvas/|| PAUSE	24	6819
+PauseVisible	PauseBoard + Paused	PauseBoard Paused=true	39	6940
+Resume	tap CONTINUE	tapped GameRoot/Canvas/PauseBoard/CONTINUE	42	7063
+Resume	no PauseBoard + !Paused	resumed	59	7187
+SpeedToggle	tap >> X1 SPEED	tapped GameRoot/Canvas/>> X1 SPEED	61	7213
+SpeedToggle	Speed!=1	Speed=2	76	7338
+OpenQte	tap p0	tapped GameRoot/Canvas/p0	178	8923
+OpenQte	QteOpen or PendingDrive	QteOpen=True pending=0	186	9054
+JudgeQte	QTE resolved via vfxGood tap	screen=Battle last=首领出现 drive=0 qte=-1 fever=False paused=False speed=2 auto=Manual wave=1 outcome=InProgress cmd=seq=5 kind=DriveResolve slot=0 ok=True reason=None	189	9261
+OpenQte#2	tap p0	tapped GameRoot/Canvas/p0	430	12087
+OpenQte#2	QteOpen or PendingDrive	QteOpen=True pending=0	441	12217
+JudgeQte#2	QTE resolved via vfxGood tap	screen=Battle last=DRIVE  冰刃  焚城  Good drive=0 qte=-1 fever=False paused=False speed=2 auto=Manual wave=1 outcome=InProgress cmd=seq=7 kind=DriveResolve slot=0 ok=True reason=None	443	12245
+BattlePlay	QTE+Tap+Slide+Pause+Speed before battle end	missing=Tap,Slide screen=Result last=胜利 drive=0 qte=-1 fever=False paused=False speed=2 auto=Manual wave=1 outcome=Victory cmd=seq=7 kind=DriveResolve slot=0 ok=True reason=None	444	12288
+
+--- inputs ---
+note natural-play start
+note ok HomeVisible screen=Home
+frame=2 t=5.459 kind=tap pos=289,438 target=none after=battle=null screen=Stage
+note ok TapToStage tapped GameRoot/Canvas/首页/关卡
+note ok StageVisible screen=Stage
+frame=5 t=6.027 kind=tap pos=540,250 target=none after=screen=Battle last=第一波 drive=0 qte=-1 fever=False paused=False speed=1 auto=Manual wave=0 outcome=InProgress
+note ok TapStart tapped GameRoot/Canvas/StageBoard/WavePreview/FIGHT
+note ok BattleVisible screen=Battle hud=p0 wave=0
+note shot np_01_battle.png
+frame=23 t=6.758 kind=tap pos=97,1824 target=GameRoot/Canvas/|| PAUSE after=screen=Battle last=第一波 drive=0 qte=-1 fever=False paused=True speed=1 auto=Manual wave=0 outcome=InProgress cmd=seq=1 kind=Pause slot=0 ok=True reason=None
+note ok TapPause tapped GameRoot/Canvas/|| PAUSE
+note ok PauseVisible PauseBoard Paused=true
+note shot np_06_pause.png
+frame=41 t=7.055 kind=tap pos=540,538 target=none after=screen=Battle last=第一波 drive=0 qte=-1 fever=False paused=False speed=1 auto=Manual wave=0 outcome=InProgress cmd=seq=2 kind=Resume slot=0 ok=True reason=None
+note ok Resume tapped GameRoot/Canvas/PauseBoard/CONTINUE
+note ok Resume resumed
+frame=60 t=7.197 kind=tap pos=119,1747 target=GameRoot/Canvas/>> X1 SPEED after=screen=Battle last=第一波 drive=0 qte=-1 fever=False paused=False speed=2 auto=Manual wave=0 outcome=InProgress cmd=seq=3 kind=SetSpeed slot=0 ok=True reason=None
+note ok SpeedToggle tapped GameRoot/Canvas/>> X1 SPEED
+note ok SpeedToggle Speed=2
+note shot np_07_speed.png
+frame=177 t=8.827 kind=tap pos=119,307 target=GameRoot/Canvas/p0 after=screen=Battle last=冰刃 准备 Drive drive=100 qte=0 fever=False paused=False speed=2 auto=Manual wave=0 outcome=InProgress cmd=seq=4 kind=DriveBegin slot=0 ok=True reason=None
+note ok OpenQte tapped GameRoot/Canvas/p0
+note ok OpenQte QteOpen=True pending=0
+note shot np_04_qte.png
+frame=188 t=9.228 kind=tap pos=540,515 target=GameRoot/Canvas/vfxGood/face after=screen=Battle last=DRIVE  冰刃  焚城  Good drive=0 qte=-1 fever=False paused=False speed=2 auto=Manual wave=0 outcome=InProgress cmd=seq=5 kind=DriveResolve slot=0 ok=True reason=None
+note ok JudgeQte screen=Battle last=首领出现 drive=0 qte=-1 fever=False paused=False speed=2 auto=Manual wave=1 outcome=InProgress cmd=seq=5 kind=DriveResolve slot=0 ok=True reason=None
+note shot np_05_judge.png
+frame=429 t=12.054 kind=tap pos=119,307 target=GameRoot/Canvas/p0 after=screen=Battle last=冰刃 准备 Drive drive=100 qte=0 fever=False paused=False speed=2 auto=Manual wave=1 outcome=InProgress cmd=seq=6 kind=DriveBegin slot=0 ok=True reason=None
+note ok OpenQte#2 tapped GameRoot/Canvas/p0
+note ok OpenQte#2 QteOpen=True pending=0
+frame=442 t=12.229 kind=tap pos=540,515 target=GameRoot/Canvas/vfxGood/face after=screen=Battle last=DRIVE  冰刃  焚城  Good drive=0 qte=-1 fever=False paused=False speed=2 auto=Manual wave=1 outcome=InProgress cmd=seq=7 kind=DriveResolve slot=0 ok=True reason=None
+note ok JudgeQte#2 screen=Battle last=DRIVE  冰刃  焚城  Good drive=0 qte=-1 fever=False paused=False speed=2 auto=Manual wave=1 outcome=InProgress cmd=seq=7 kind=DriveResolve slot=0 ok=True reason=None
+note fail BattlePlay missing=Tap,Slide screen=Result last=胜利 drive=0 qte=-1 fever=False paused=False speed=2 auto=Manual wave=1 outcome=Victory cmd=seq=7 kind=DriveResolve slot=0 ok=True reason=None
+
+--- RunHeader ---
+seed=53317421;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=2;forceNoCrit=0;stage=VS-1;data=builtin-c31-s155-e9-1524b9b9;party=C001,C007,C010,C003,C005
+
+--- CommandLog ---
+seq=1 kind=Pause slot=0 ok=True reason=None
+seq=2 kind=Resume slot=0 ok=True reason=None
+seq=3 kind=SetSpeed slot=0 ok=True reason=None
+seq=4 kind=DriveBegin slot=0 ok=True reason=None
+seq=5 kind=DriveResolve slot=0 ok=True reason=None
+seq=6 kind=DriveBegin slot=0 ok=True reason=None
+seq=7 kind=DriveResolve slot=0 ok=True reason=None
+
+--- reflection (read-only) ---
+BattleSim.CommandLog field (read-only)
+BattleSim.RunHeader() (read-only)

@@ -2,4 +2,5 @@
 # Checked against official documentation on 2026-09-09; verify installed Codex support.
 [agents]
 enabled = true
+# 下列 4 是模板样例，不是当前环境的有效并发上限。
 max_concurrent_threads_per_session = 4

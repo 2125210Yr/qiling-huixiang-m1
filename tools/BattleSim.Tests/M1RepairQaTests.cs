@@ -146,8 +146,7 @@ namespace Resonance.Tests
             sim.FeverLeft = 7f;
             sim.FeverHitsLeft = 70;
             var before = sim.Enemies[0].Hp;
-            for (int i = 0; i < BattleSim.TickHz && sim.FeverHitsLeft > 60; i++)
-                sim.TickFeverOnly();
+            RunFeverHits(sim);
             Assert.True(sim.Enemies[0].Hp < before);
             Assert.Contains(sim.Events.Events, e => e.Channel == SkillType.Fever && e.Opcode == EffectOpcodes.DmgFeverParts);
             Assert.DoesNotContain(sim.Events.Events, e =>
@@ -359,7 +358,7 @@ namespace Resonance.Tests
             var viaOne = DamageMath.Resolve(
                 FormulaProfile.JP_LEGACY_EMPIRICAL, SkillType.Slide, 1000, 1f, 707, 2500,
                 Element.Fire, Element.Wood, false, 1f, 1.05f);
-            Assert.True(viaRange.Measured && viaOne.Measured);
+            Assert.True(viaRange.Computed && viaOne.Computed);
             Assert.Equal(viaOne.RequireInt(), viaRange.RequireInt());
         }
 
@@ -465,10 +464,19 @@ namespace Resonance.Tests
             sim.FeverHitsLeft = 70;
         }
 
+        // G2 R02: Fever hits no longer come from the timer in Manual mode; the fixture taps the
+        // first alive ally through the same command path a player would use.
         static void RunFeverHits(BattleSim sim)
         {
-            for (int i = 0; i < BattleSim.TickHz && sim.FeverHitsLeft > 60; i++)
+            sim.Clocks.FeverMinHitIntervalSec = 0f;
+            var slot = 0;
+            for (int i = 0; i < sim.Allies.Length; i++)
+                if (sim.Allies[i] != null && sim.Allies[i].Alive) { slot = i; break; }
+            for (int i = 0; i < BattleSim.TickHz && sim.FeverHitsLeft > 60 && sim.FeverActive; i++)
+            {
                 sim.TickFeverOnly();
+                sim.Submit(BattleCommand.FeverTap(slot));
+            }
         }
     }
 }
