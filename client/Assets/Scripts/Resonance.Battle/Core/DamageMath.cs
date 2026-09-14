@@ -7,6 +7,11 @@ namespace Resonance.Battle
         public const string NotMeasuredCode = "NOT_MEASURED";
         public const string DesignPlaceholderCode = "DESIGN_PLACEHOLDER";
         public const string OutOfCandidateDomainCode = "OUT_OF_CANDIDATE_DOMAIN";
+        /// <summary>
+        /// <see cref="FormulaResult.RequireInt()"/> on a bounds-only result without an explicit
+        /// <see cref="FormulaBoundsPolicy"/>. Not a missing number: <see cref="FormulaResult.Computed"/> stays true.
+        /// </summary>
+        public const string BoundsNeedPolicyCode = "BOUNDS_NEED_POLICY";
         public const float ExtraDmgMulFloor = 0.1f;
         public const float FeverMul = 0.6f;
         public const float FeverHitTapFraction = FeverMul;
@@ -307,6 +312,8 @@ namespace Resonance.Battle
             int enchantPlusCarta = 0,
             int agiTerm = 0)
         {
+            // Strict GL_UNKNOWN path still produces no value. JP/KR DesignPlaceholder
+            // previews (Drive, Fever, percent-ATK) keep returning Computed numbers.
             if (profile == FormulaProfile.GL_UNKNOWN)
                 return FormulaResult.NotMeasured(profile);
             if (profile != FormulaProfile.JP_LEGACY_EMPIRICAL && profile != FormulaProfile.KR_LEGACY_REPORTED)

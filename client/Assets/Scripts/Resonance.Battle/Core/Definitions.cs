@@ -68,6 +68,15 @@ namespace Resonance.Battle
         public string Id;
         public string Opcode;
         public EffectKind Kind;
+        /// <summary>
+        /// When true, <see cref="Target"/> is this effect's picker.
+        /// When false, Cast inherits <see cref="SkillDef.Target"/>.
+        /// TargetRule.Self == 0, so absence cannot be encoded as default Target.
+        /// </summary>
+        public bool HasTarget;
+        public TargetRule Target;
+        /// <summary>FromRule = SideOf(resolved rule). Ally/Foe/Self force the pool (mixed builtins).</summary>
+        public TargetSide Side;
         public float Magnitude;
         /// <summary>&lt;= 0 → lives until consumed (shield) or dispelled; never expires by time.</summary>
         public float DurationSec;

@@ -28,6 +28,7 @@ namespace Resonance.Tests
             // Actual Drive: the plan (02_NUMERICS §C.6) has no actual-Drive formula; ComputeDs coefficients are ours.
             var jpDrive = R(FormulaProfile.JP_LEGACY_EMPIRICAL, SkillType.Drive);
             Assert.True(jpDrive.Computed);
+            Assert.False(jpDrive.Measured);
             Assert.True(jpDrive.RequireInt() > 0);
             Assert.Equal(FormulaEvidence.DesignPlaceholder, jpDrive.Evidence);
             Assert.NotEqual(FormulaEvidence.Measured, jpDrive.Evidence);
@@ -37,6 +38,7 @@ namespace Resonance.Tests
             // Historical Tap candidate: computable AND carries a historical (not measured) evidence class.
             var jpTap = R(FormulaProfile.JP_LEGACY_EMPIRICAL, SkillType.Tap);
             Assert.True(jpTap.Computed);
+            Assert.False(jpTap.Measured);
             Assert.Equal(FormulaEvidence.HistoricalCandidate, jpTap.Evidence);
             Assert.Equal(FormulaEvidence.HistoricalCandidate, R(FormulaProfile.KR_LEGACY_REPORTED, SkillType.Tap).Evidence);
             Assert.Equal(FormulaEvidence.HistoricalCandidate, R(FormulaProfile.JP_LEGACY_EMPIRICAL, SkillType.Slide).Evidence);
@@ -48,11 +50,13 @@ namespace Resonance.Tests
                 DamageMath.FeverChannelAtkCoef, DamageMath.FeverChannelFlat, Def,
                 Element.Fire, Element.Wood, false, 1f, 1f, DamageMath.FeverMul);
             Assert.True(jpFever.Computed);
+            Assert.False(jpFever.Measured);
             Assert.Equal(FormulaEvidence.DesignPlaceholder, jpFever.Evidence);
 
             // Percent-ATK Tap/Slide variants are not in the candidate set: computable, design placeholder.
             var pctTap = R(FormulaProfile.JP_LEGACY_EMPIRICAL, SkillType.Tap, percentAtk: 1f);
             Assert.True(pctTap.Computed);
+            Assert.False(pctTap.Measured);
             Assert.Equal(FormulaEvidence.DesignPlaceholder, pctTap.Evidence);
 
             // GL_UNKNOWN strict path: no value, no evidence.
@@ -73,8 +77,12 @@ namespace Resonance.Tests
                     var r = R(p, t);
                     Assert.NotEqual(FormulaEvidence.Measured, r.Evidence);
                     Assert.False(string.IsNullOrEmpty(DamageMath.BranchSource(p, t)));
-                    // Transitional: legacy Measured alias equals Computed until BattleSim.TryResolveCombat migrates.
-                    Assert.Equal(r.Computed, r.Measured);
+                    // Frozen: Measured := Evidence==Measured. Design/historical numbers stay Computed.
+                    Assert.False(r.Measured);
+                    if (p == FormulaProfile.GL_UNKNOWN)
+                        Assert.False(r.Computed);
+                    else
+                        Assert.True(r.Computed);
                 }
 
             // The factories refuse to mint Measured evidence.
@@ -82,10 +90,39 @@ namespace Resonance.Tests
             Assert.Throws<InvalidOperationException>(() => FormulaResult.Bounds(FormulaProfile.JP_LEGACY_EMPIRICAL, 1, 2, FormulaEvidence.Measured));
 
             // Untagged factories default to DesignPlaceholder, never Measured; bounds count as Computed.
-            Assert.Equal(FormulaEvidence.DesignPlaceholder, FormulaResult.Ok(FormulaProfile.JP_LEGACY_EMPIRICAL, 5).Evidence);
+            var untagged = FormulaResult.Ok(FormulaProfile.JP_LEGACY_EMPIRICAL, 5);
+            Assert.Equal(FormulaEvidence.DesignPlaceholder, untagged.Evidence);
+            Assert.True(untagged.Computed);
+            Assert.False(untagged.Measured);
             var bounds = FormulaResult.Bounds(FormulaProfile.JP_LEGACY_EMPIRICAL, 10, 20, FormulaEvidence.HistoricalCandidate);
             Assert.True(bounds.Computed && bounds.HasBounds);
+            Assert.False(bounds.Measured);
+            Assert.Equal(10d, bounds.Min);
+            Assert.Equal(20d, bounds.Max);
+            Assert.Equal(DamageMath.BoundsNeedPolicyCode, Assert.Throws<InvalidOperationException>(() => bounds.RequireInt()).Message);
+            Assert.Equal(10, bounds.RequireInt(FormulaBoundsPolicy.Min));
+            Assert.Equal(20, bounds.RequireInt(FormulaBoundsPolicy.Max));
+            Assert.Equal(15, bounds.RequireInt(FormulaBoundsPolicy.Midpoint));
             Assert.False(FormulaResult.DesignPlaceholder(FormulaProfile.JP_LEGACY_EMPIRICAL).Computed);
+        }
+
+        /// <summary>
+        /// REGRESSIONS P02: interval results stay readable; RequireInt cannot silently return Value=0.
+        /// </summary>
+        [Fact]
+        public void P02_BoundsRequireInt_RejectsSilentZero()
+        {
+            var bounds = FormulaResult.Bounds(FormulaProfile.JP_LEGACY_EMPIRICAL, 10, 20);
+            Assert.True(bounds.Computed);
+            Assert.True(bounds.HasBounds);
+            Assert.Equal(10d, bounds.Min);
+            Assert.Equal(20d, bounds.Max);
+            Assert.False(bounds.Measured);
+            Assert.Equal(FormulaEvidence.DesignPlaceholder, bounds.Evidence);
+            Assert.Equal(DamageMath.BoundsNeedPolicyCode, Assert.Throws<InvalidOperationException>(() => bounds.RequireInt()).Message);
+            Assert.Equal(10, bounds.RequireInt(FormulaBoundsPolicy.Min));
+            Assert.Equal(20, bounds.RequireInt(FormulaBoundsPolicy.Max));
+            Assert.Equal(15, bounds.RequireInt(FormulaBoundsPolicy.Midpoint));
         }
 
         // P02 -----------------------------------------------------------------------------------

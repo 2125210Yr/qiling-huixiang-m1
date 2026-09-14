@@ -1,0 +1,33 @@
+{
+  "_note": "DESIGN_PLACEHOLDER. G2R14 E02 ChargeAmount fragment. Overlay + Submit(Tap). Magnitude is charge points, clamp [0,100].",
+  "effects": [
+    {
+      "id": "g2r14_charge_amount",
+      "op": "charge.add",
+      "kind": 22,
+      "hasTarget": true,
+      "target": 2,
+      "side": 0,
+      "mag": 30,
+      "dur": 0,
+      "stack": 1,
+      "tier": 1,
+      "group": "g2r14_ca"
+    }
+  ],
+  "skills": [
+    {
+      "id": "g2r14_charge_amount_tap",
+      "name": "G2R14 ChargeAmount AllAllies",
+      "type": 1,
+      "target": 2,
+      "n": 5,
+      "hits": 1,
+      "coef": 0,
+      "flat": 0,
+      "drive": 0,
+      "fx": "g2r14_charge_amount",
+      "op": "dmg.tap"
+    }
+  ]
+}

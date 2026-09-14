@@ -56,6 +56,18 @@ namespace Resonance.Battle
         LowestHpRatioEnemies = 8
     }
 
+    /// <summary>
+    /// Pool for an effect. FromRule = derive from the resolved TargetRule.
+    /// Self=0 on TargetRule is a real picker, so this enum is the unset/override channel.
+    /// </summary>
+    public enum TargetSide
+    {
+        FromRule = 0,
+        Ally = 1,
+        Foe = 2,
+        Self = 3
+    }
+
     public enum EffectKind
     {
         Damage = 0,

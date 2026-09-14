@@ -1,0 +1,33 @@
+{
+  "_note": "DESIGN_PLACEHOLDER. G2R14 E01 fragment — not a full CatalogJson document. OverlayEffect + OverlaySkill + Submit(Tap). Not original-game numbers.",
+  "effects": [
+    {
+      "id": "g2r14_charge_speed",
+      "op": "charge.rate",
+      "kind": 23,
+      "hasTarget": true,
+      "target": 2,
+      "side": 0,
+      "mag": 0.25,
+      "dur": 10,
+      "stack": 1,
+      "tier": 1,
+      "group": "g2r14_cs"
+    }
+  ],
+  "skills": [
+    {
+      "id": "g2r14_charge_speed_tap",
+      "name": "G2R14 ChargeSpeed AllAllies",
+      "type": 1,
+      "target": 2,
+      "n": 5,
+      "hits": 1,
+      "coef": 0,
+      "flat": 0,
+      "drive": 0,
+      "fx": "g2r14_charge_speed",
+      "op": "dmg.tap"
+    }
+  ]
+}

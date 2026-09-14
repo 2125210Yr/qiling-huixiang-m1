@@ -72,7 +72,15 @@ namespace Resonance.Battle
     public sealed partial class BattleSim
     {
         public readonly List<CommandRecord> CommandLog = new List<CommandRecord>(256);
+        /// <summary>REGRESSIONS.md R02. Set by <see cref="FreezeInitialHeader"/> after Speed/Auto/Profile/Clocks.</summary>
+        public BattleInitialHeader InitialHeader { get; set; }
         int _cmdSeq;
+
+        public BattleInitialHeader FreezeInitialHeader(string[] partyIds = null, string stageId = null)
+        {
+            InitialHeader = BattleInitialHeader.Freeze(this, partyIds, stageId);
+            return InitialHeader;
+        }
 
         public string RunHeader()
         {
@@ -94,51 +102,10 @@ namespace Resonance.Battle
             return sb.ToString();
         }
 
-        /// <summary>Cheap content identity for logs: counts + stable hash of skill/effect ids and numeric fields.</summary>
+        /// <summary>REGRESSIONS.md R04 — full catalog identity (HP/ATK, stage, FlatPower/Target, Trigger/PeriodSec).</summary>
         public static string ContentFingerprint()
         {
-            var chars = Catalog.Characters;
-            var skills = Catalog.Skills;
-            var effects = Catalog.Effects;
-            unchecked
-            {
-                int h = 17;
-                if (skills != null)
-                    foreach (var kv in skills)
-                    {
-                        var s = kv.Value;
-                        h = h * 31 + Fnv(kv.Key);
-                        if (s == null) continue;
-                        h = h * 31 + Fnv(s.Opcode);
-                        h = h * 31 + s.AtkCoef.GetHashCode();
-                        h = h * 31 + s.HitCount;
-                        h = h * 31 + s.DriveGain;
-                    }
-                if (effects != null)
-                    foreach (var kv in effects)
-                    {
-                        var e = kv.Value;
-                        h = h * 31 + Fnv(kv.Key);
-                        if (e == null) continue;
-                        h = h * 31 + (int)e.Kind;
-                        h = h * 31 + e.Magnitude.GetHashCode();
-                        h = h * 31 + e.DurationSec.GetHashCode();
-                    }
-                return "builtin-c" + (chars != null ? chars.Count : 0) + "-s" + (skills != null ? skills.Count : 0)
-                    + "-e" + (effects != null ? effects.Count : 0) + "-" + (h & 0x7fffffff).ToString("x8");
-            }
-        }
-
-        /// <summary>Process-stable string hash (string.GetHashCode is randomized per process on .NET Core).</summary>
-        static int Fnv(string s)
-        {
-            unchecked
-            {
-                int h = (int)2166136261;
-                if (s == null) return h;
-                for (int i = 0; i < s.Length; i++) h = (h ^ s[i]) * 16777619;
-                return h;
-            }
+            return "g2id1-" + BattleContentIdentity.Fingerprint();
         }
 
         public CommandResult Submit(BattleCommand cmd)

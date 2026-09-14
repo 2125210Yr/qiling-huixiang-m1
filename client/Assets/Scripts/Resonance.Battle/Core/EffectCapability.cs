@@ -50,9 +50,25 @@ namespace Resonance.Battle
         public bool OpcodeNotImplemented;
 
         /// <summary>
-        /// Import-blocking: unknown opcode/combo is not enough to reject a
-        /// round-trip of builtin JSON; only unknown opcodes, param errors,
-        /// and opcodes with no Implemented kind are blocking.
+        /// Known opcode whose (opcode, kind) row is missing or
+        /// <see cref="CapabilityState.Registered_NotImplemented"/>.
+        /// Distinct from <see cref="OpcodeNotImplemented"/> (no Implemented kind at all).
+        /// </summary>
+        public bool KindNotImplemented;
+
+        /// <summary>
+        /// Strict playable-roster gate: any non-Ok verdict (unknown opcode,
+        /// unimplemented opcode, unimplemented kind, or param error).
+        /// Inventory may still store the row; battle ApplyEffect must not.
+        /// </summary>
+        public bool BlocksPlayableRoster;
+
+        /// <summary>
+        /// Fresh external import of this row is blocked: unknown/empty opcode,
+        /// param errors, opcode with zero Implemented kinds, or unimplemented
+        /// (opcode, kind). Historical builtin inventory kind-gaps are downgraded
+        /// by <see cref="EffectCapability.DowngradeHistoricalImportBlocks"/> so
+        /// installed builtin <c>ValidateContent</c> stays start-safe.
         /// </summary>
         public bool BlocksExternalImport;
     }
@@ -68,6 +84,17 @@ namespace Resonance.Battle
             for (int i = 0; i < Violations.Count; i++)
             {
                 if (Violations[i] != null && Violations[i].BlocksExternalImport)
+                    list.Add(Violations[i]);
+            }
+            return list;
+        }
+
+        public List<ContentViolation> PlayableRosterViolations()
+        {
+            var list = new List<ContentViolation>();
+            for (int i = 0; i < Violations.Count; i++)
+            {
+                if (Violations[i] != null && Violations[i].BlocksPlayableRoster)
                     list.Add(Violations[i]);
             }
             return list;
@@ -375,6 +402,24 @@ namespace Resonance.Battle
 
         public static CapabilityVerdict CheckSkill(SkillDef sk)
         {
+            return CheckSkill(sk, Catalog.Effects);
+        }
+
+        /// <summary>
+        /// Skill check against an explicit effects snapshot. Does not read live
+        /// <see cref="Catalog.Effects"/> — required so candidate import validation
+        /// cannot sneak-read the previous activity tables (V03).
+        /// </summary>
+        public static CapabilityVerdict CheckSkill(SkillDef sk, IReadOnlyDictionary<string, EffectDef> effects)
+        {
+            var v = CheckSkillChannel(sk);
+            if (sk == null) return v;
+            BindLinkedEffect(sk, effects, v);
+            return v;
+        }
+
+        static CapabilityVerdict CheckSkillChannel(SkillDef sk)
+        {
             var v = new CapabilityVerdict();
             if (sk == null)
             {
@@ -398,7 +443,6 @@ namespace Resonance.Battle
                 return v;
             }
 
-            // Skill opcodes are channel-level; EffectKind lives on the linked effect.
             if (OpcodeHasImplementation(sk.Opcode))
             {
                 v.State = CapabilityState.Implemented;
@@ -410,31 +454,31 @@ namespace Resonance.Battle
                 v.Reason = "skill opcode has no Implemented (opcode, kind) row";
             }
 
-            if (!string.IsNullOrEmpty(sk.EffectId))
+            return v;
+        }
+
+        static void BindLinkedEffect(SkillDef sk, IReadOnlyDictionary<string, EffectDef> effects, CapabilityVerdict v)
+        {
+            if (sk == null || v == null || string.IsNullOrEmpty(sk.EffectId)) return;
+            EffectDef fx = null;
+            if (effects != null)
+                effects.TryGetValue(sk.EffectId, out fx);
+            if (fx == null)
             {
-                var fx = Catalog.TryEffect(sk.EffectId);
-                if (fx == null)
-                {
-                    v.ParamErrors.Add("param: missing effect '" + sk.EffectId + "'");
-                    if (v.State == CapabilityState.Implemented)
-                        v.Reason = "linked effect not in catalog";
-                }
-                else
-                {
-                    var ev = Check(fx);
-                    if (!ev.Ok)
-                    {
-                        if (ev.State != CapabilityState.Implemented)
-                            v.State = ev.State;
-                        for (int i = 0; i < ev.ParamErrors.Count; i++)
-                            v.ParamErrors.Add(ev.ParamErrors[i]);
-                        if (v.State != CapabilityState.Implemented)
-                            v.Reason = "linked effect " + sk.EffectId + ": " + ev.Reason;
-                    }
-                }
+                v.ParamErrors.Add("param: missing effect '" + sk.EffectId + "'");
+                if (v.State == CapabilityState.Implemented)
+                    v.Reason = "linked effect not in catalog";
+                return;
             }
 
-            return v;
+            var ev = Check(fx);
+            if (ev.Ok) return;
+            if (ev.State != CapabilityState.Implemented)
+                v.State = ev.State;
+            for (int i = 0; i < ev.ParamErrors.Count; i++)
+                v.ParamErrors.Add(ev.ParamErrors[i]);
+            if (v.State != CapabilityState.Implemented)
+                v.Reason = "linked effect " + sk.EffectId + ": " + ev.Reason;
         }
 
         public static void RejectUnplayable(EffectDef fx)
@@ -448,11 +492,37 @@ namespace Resonance.Battle
 
         public static void RejectUnplayable(SkillDef sk)
         {
-            var verdict = CheckSkill(sk);
+            RejectUnplayable(sk, Catalog.Effects);
+        }
+
+        /// <summary>
+        /// Public Cast/ApplyEffect gate. Throws when the skill channel or its
+        /// linked effect in <paramref name="effects"/> is not playable.
+        /// BattleSim.Cast is not wired yet — integrator must call this (or
+        /// <see cref="IsPlayable(EffectDef)"/>) on the apply path.
+        /// </summary>
+        public static void RejectUnplayable(SkillDef sk, IReadOnlyDictionary<string, EffectDef> effects)
+        {
+            var verdict = CheckSkill(sk, effects);
             if (verdict.Ok) return;
             var report = new ContentValidationReport();
             report.Violations.Add(ToViolation(sk != null ? sk.Id : "", verdict));
             throw new ContentValidationException(report);
+        }
+
+        public static bool IsPlayable(EffectDef fx)
+        {
+            return Check(fx).Ok;
+        }
+
+        public static bool IsPlayable(SkillDef sk)
+        {
+            return CheckSkill(sk).Ok;
+        }
+
+        public static bool IsPlayable(SkillDef sk, IReadOnlyDictionary<string, EffectDef> effects)
+        {
+            return CheckSkill(sk, effects).Ok;
         }
 
         public static ContentValidationReport ValidateCatalog(
@@ -479,7 +549,7 @@ namespace Resonance.Battle
                 {
                     var sk = kv.Value;
                     if (sk == null) continue;
-                    var verdict = CheckSkill(sk);
+                    var verdict = CheckSkill(sk, effects);
                     if (verdict.Ok) continue;
                     var id = string.IsNullOrEmpty(sk.Id) ? kv.Key : sk.Id;
                     report.Violations.Add(ToViolation(id, verdict));
@@ -524,9 +594,126 @@ namespace Resonance.Battle
             throw new ContentValidationException(filtered);
         }
 
+        public static ContentViolation Describe(string id, CapabilityVerdict verdict)
+        {
+            return ToViolation(id, verdict);
+        }
+
+        /// <summary>
+        /// Overlay import policy (V01/V02): hard errors always block; unimplemented
+        /// (opcode, kind) blocks only when the row is not already in the historical
+        /// inventory (builtin <c>dot_flame</c> may stay; new Reflect may not).
+        /// </summary>
+        public static bool OverlayRowBlocksImport(ContentViolation v, bool existedInHistoricalInventory)
+        {
+            if (v == null) return false;
+            if (v.IsParamError) return true;
+            if (string.IsNullOrEmpty(v.Opcode)) return true;
+            if (v.State == CapabilityState.Unknown && !EffectOpcodes.IsKnown(v.Opcode))
+                return true;
+            if (v.OpcodeNotImplemented) return true;
+            if (!v.BlocksPlayableRoster && !v.KindNotImplemented && !v.BlocksExternalImport)
+                return false;
+            return !existedInHistoricalInventory;
+        }
+
+        /// <summary>
+        /// Start-safe installed catalog: historical builtin kind-gaps stay in
+        /// diagnostic inventory and are not treated as import-blocking.
+        /// </summary>
+        public static void DowngradeHistoricalImportBlocks(
+            ContentValidationReport report,
+            ISet<string> historicalEffectIds,
+            ISet<string> historicalSkillIds)
+        {
+            if (report == null) return;
+            for (int i = 0; i < report.Violations.Count; i++)
+            {
+                var v = report.Violations[i];
+                if (v == null || !v.BlocksExternalImport) continue;
+                if (v.IsParamError || v.OpcodeNotImplemented || string.IsNullOrEmpty(v.Opcode))
+                    continue;
+                if (v.State == CapabilityState.Unknown && !EffectOpcodes.IsKnown(v.Opcode))
+                    continue;
+                if (!v.KindNotImplemented) continue;
+                var hist = (historicalEffectIds != null && historicalEffectIds.Contains(v.Id))
+                    || (historicalSkillIds != null && historicalSkillIds.Contains(v.Id));
+                if (hist) v.BlocksExternalImport = false;
+            }
+        }
+
+        public static ContentValidationReport CollectOverlayImportViolations(
+            IReadOnlyDictionary<string, EffectDef> candidateEffects,
+            IReadOnlyDictionary<string, SkillDef> candidateSkills,
+            IReadOnlyDictionary<string, EffectDef> baselineEffects,
+            IReadOnlyDictionary<string, SkillDef> baselineSkills)
+        {
+            var report = new ContentValidationReport();
+            if (candidateEffects != null)
+            {
+                foreach (var kv in candidateEffects)
+                {
+                    var fx = kv.Value;
+                    if (fx == null) continue;
+                    var verdict = Check(fx);
+                    if (verdict.Ok) continue;
+                    var id = string.IsNullOrEmpty(fx.Id) ? kv.Key : fx.Id;
+                    var viol = ToViolation(id, verdict);
+                    var existed = baselineEffects != null && baselineEffects.ContainsKey(kv.Key);
+                    if (OverlayRowBlocksImport(viol, existed))
+                        report.Violations.Add(viol);
+                }
+            }
+
+            if (candidateSkills != null)
+            {
+                foreach (var kv in candidateSkills)
+                {
+                    var sk = kv.Value;
+                    if (sk == null) continue;
+                    var verdict = CheckSkill(sk, candidateEffects);
+                    if (verdict.Ok) continue;
+                    var id = string.IsNullOrEmpty(sk.Id) ? kv.Key : sk.Id;
+                    var viol = ToViolation(id, verdict);
+                    var existed = baselineSkills != null && baselineSkills.ContainsKey(kv.Key);
+                    if (OverlayRowBlocksImport(viol, existed))
+                        report.Violations.Add(viol);
+                }
+            }
+
+            return report;
+        }
+
+        public static Dictionary<string, EffectDef> FilterPlayableEffects(IReadOnlyDictionary<string, EffectDef> effects)
+        {
+            var d = new Dictionary<string, EffectDef>();
+            if (effects == null) return d;
+            foreach (var kv in effects)
+            {
+                if (kv.Value == null || !Check(kv.Value).Ok) continue;
+                d[kv.Key] = kv.Value;
+            }
+            return d;
+        }
+
+        public static Dictionary<string, SkillDef> FilterPlayableSkills(
+            IReadOnlyDictionary<string, SkillDef> skills,
+            IReadOnlyDictionary<string, EffectDef> effects)
+        {
+            var d = new Dictionary<string, SkillDef>();
+            if (skills == null) return d;
+            foreach (var kv in skills)
+            {
+                if (kv.Value == null || !CheckSkill(kv.Value, effects).Ok) continue;
+                d[kv.Key] = kv.Value;
+            }
+            return d;
+        }
+
         static ContentViolation ToViolation(string id, CapabilityVerdict verdict)
         {
             var opcode = verdict != null ? verdict.Opcode : "";
+            var known = !string.IsNullOrEmpty(opcode) && EffectOpcodes.IsKnown(opcode);
             var v = new ContentViolation
             {
                 Id = id ?? "",
@@ -535,14 +722,17 @@ namespace Resonance.Battle
                 Reason = FormatReason(verdict),
                 State = verdict != null ? verdict.State : CapabilityState.Unknown,
                 IsParamError = verdict != null && verdict.IsParamError,
-                OpcodeNotImplemented = !string.IsNullOrEmpty(opcode)
-                    && EffectOpcodes.IsKnown(opcode)
-                    && !OpcodeHasImplementation(opcode)
+                OpcodeNotImplemented = known && !OpcodeHasImplementation(opcode)
             };
+            v.KindNotImplemented = verdict != null
+                && (verdict.State == CapabilityState.Registered_NotImplemented
+                    || (verdict.State == CapabilityState.Unknown && known));
+            v.BlocksPlayableRoster = verdict == null || !verdict.Ok;
             v.BlocksExternalImport = v.IsParamError
-                || v.State == CapabilityState.Unknown && !EffectOpcodes.IsKnown(v.Opcode)
+                || string.IsNullOrEmpty(v.Opcode)
+                || (v.State == CapabilityState.Unknown && !known)
                 || v.OpcodeNotImplemented
-                || string.IsNullOrEmpty(v.Opcode);
+                || v.KindNotImplemented;
             return v;
         }
 

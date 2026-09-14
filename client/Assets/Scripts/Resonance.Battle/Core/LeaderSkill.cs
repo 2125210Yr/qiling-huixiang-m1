@@ -167,13 +167,7 @@ namespace Resonance.Battle
 
         static bool IsFoeRule(SkillDef skill)
         {
-            if (skill == null) return false;
-            var r = skill.Target;
-            return r == TargetRule.AllEnemies
-                || r == TargetRule.RandomEnemies
-                || r == TargetRule.LowestHpEnemies
-                || r == TargetRule.LowestHpRatioEnemies
-                || r == TargetRule.HighestAtkEnemies;
+            return skill != null && TargetSemantics.IsFoeSide(skill.Target);
         }
 
         static UnitState FindCaster(BattleSim sim, CharacterDef ch)

@@ -39,6 +39,14 @@ namespace Resonance.App
         int _waveAtBattle;
         bool _feverShot;
         int _cmdLogSeen;
+        VerificationRunPlan _plan;
+        string _sessionId;
+        string _catalogNote;
+        readonly List<NaturalPlayBattleEvidence> _battles = new List<NaturalPlayBattleEvidence>(8);
+        NaturalPlayBattleEvidence _current;
+        int _fightIndex;
+        readonly List<int> _feverSlots = new List<int>(4);
+        bool _catalogApplied;
 
         struct PhaseRow
         {
@@ -97,6 +105,25 @@ namespace Resonance.App
             return File.Exists(RequestPath()) || File.Exists(RunningPath()) || _armed;
         }
 
+        static string ReadScenarioToken()
+        {
+            try
+            {
+                if (File.Exists(RunningPath()))
+                {
+                    var t = File.ReadAllText(RunningPath()).Trim();
+                    if (!string.IsNullOrEmpty(t)) return t;
+                }
+                if (File.Exists(RequestPath()))
+                {
+                    var t = File.ReadAllText(RequestPath()).Trim();
+                    if (!string.IsNullOrEmpty(t)) return t;
+                }
+            }
+            catch { }
+            return "matrix";
+        }
+
         static string TempDir()
         {
             return Path.GetFullPath(Path.Combine(Application.dataPath, "..", "Temp"));
@@ -136,6 +163,16 @@ namespace Resonance.App
         IEnumerator Run()
         {
             Note("natural-play start");
+            Note("historical_baseline=" + NaturalPlayBattleEvidence.HistoricalRun7Rel
+                + " verdict=FAIL BattlePlay missing=Tap,Slide (kept; not rewritten)");
+            Note("pointer=" + NaturalPlayBattleEvidence.PointerPath + " os_touch=NOT_CLAIMED");
+            _sessionId = NaturalPlayBattleEvidence.NewSessionId();
+            _plan = VerificationRunPlan.Resolve(ReadScenarioToken(), Environment.GetCommandLineArgs());
+            Note("plan mode=" + _plan.Mode
+                + " fights=" + (_plan.Fights != null ? _plan.Fights.Length : 0)
+                + " provenance=" + DesignPlaceholderPolicy.Provenance
+                + " schema=" + DesignPlaceholderPolicy.SchemaVersion);
+
             var until = Time.unscaledTime + LimitSec;
             while (GameRoot.Live == null)
             {
@@ -147,6 +184,19 @@ namespace Resonance.App
                 yield return null;
             }
 
+            try
+            {
+                _catalogNote = VerificationCatalog.Apply(_plan);
+                _catalogApplied = true;
+                Note("catalog " + _catalogNote);
+                Record("VerificationCatalog", "DESIGN_PLACEHOLDER before FIGHT", _catalogNote, true);
+            }
+            catch (Exception e)
+            {
+                Fail("VerificationCatalog", "apply before start", e.Message);
+                yield break;
+            }
+
             yield return WaitScreen("HomeVisible", "Home", "screen=Home", 20f);
             if (_done) yield break;
             yield return TapNamed("TapToStage", 8f, "关卡");
@@ -155,36 +205,68 @@ namespace Resonance.App
             if (_done) yield break;
             yield return TapNamed("TapStart", 8f, "FIGHT");
             if (_done) yield break;
-            yield return WaitBattleBuilt("BattleVisible", 15f);
-            if (_done) yield break;
-            yield return Shot("np_01_battle.png");
-            if (_done) yield break;
 
-            // Natural pacing (observed 2026-09-13 run 4): five allies' auto attacks fill Drive in ~3.5 s, long
-            // before p0's Charge (~9 s), and the HUD maps a portrait tap to DriveBegin whenever Drive>=100.
-            // A real player therefore judges the QTE first and only gets a Tap window while Drive is refilling.
-            // VS-1 also self-resolves in ~24 s with no input. So the battle segment is state-driven, not scripted.
-            yield return PlayBattleNaturally();
-            if (_done) yield break;
+            _fightIndex = 0;
+            while (!_done)
+            {
+                var sc = _plan.FightAt(_fightIndex) ?? VerificationScenario.Basic;
+                var lastFight = _plan.Fights == null || _fightIndex >= _plan.Fights.Length - 1;
+                yield return WaitBattleBuilt(_fightIndex == 0 ? "BattleVisible" : "BattleVisible#" + (_fightIndex + 1), 15f);
+                if (_done) yield break;
+                BeginBattleCapture(sc);
+                if (_fightIndex == 0) yield return Shot("np_01_battle.png");
+                if (_done) yield break;
 
-            yield return WaitResult("ResultVisible", ResultTimeoutSec());
-            if (_done) yield break;
-            yield return DismissSplash("ResultVisible", 12f);
-            if (_done) yield break;
-            yield return Shot("np_09_result.png");
-            if (_done) yield break;
+                yield return PlayBattleNaturally();
+                if (_done) yield break;
 
-            yield return TapNamed("Rematch", 12f, "RETRY", "NEXT");
-            if (_done) yield break;
-            yield return WaitBattleBuilt("RematchBattle", 15f);
-            if (_done) yield break;
-            yield return Shot("np_10_rematch.png");
-            if (_done) yield break;
+                var autoExit = lastFight && sc.Name == VerificationScenario.Auto.Name && !_plan.RematchExitAfterLastWin;
+                if (autoExit)
+                {
+                    PersistCurrentBattle("auto-exit");
+                    break;
+                }
 
+                if (ScreenOf() != "Result")
+                    yield return WaitResult("ResultVisible", ResultTimeoutSec());
+                else
+                    Record("ResultVisible", "screen=Result", "screen=Result title=" + ResultTitle(), true);
+                if (_done) yield break;
+
+                PersistCurrentBattle("pre-next");
+                yield return DismissSplash("ResultVisible", 12f);
+                if (_done) yield break;
+                if (_fightIndex == 0) yield return Shot("np_09_result.png");
+                if (_done) yield break;
+
+                if (!lastFight)
+                {
+                    yield return TapNamed("Rematch", 12f, "RETRY", "NEXT");
+                    if (_done) yield break;
+                    _fightIndex++;
+                    continue;
+                }
+
+                if (_plan.RematchExitAfterLastWin)
+                {
+                    yield return TapNamed("Rematch", 12f, "RETRY", "NEXT");
+                    if (_done) yield break;
+                    yield return WaitBattleBuilt("RematchBattle", 15f);
+                    if (_done) yield break;
+                    BeginBattleCapture(sc);
+                    yield return Shot("np_10_rematch.png");
+                    if (_done) yield break;
+                    PersistCurrentBattle("rematch-enter");
+                }
+                break;
+            }
+
+            if (_done) yield break;
             yield return TapNamed("ExitPause", 8f, "|| PAUSE");
             if (_done) yield break;
             yield return WaitPauseBoard("ExitPause", true, 8f);
             if (_done) yield break;
+            PersistCurrentBattle("pre-home");
             yield return TapNamed("ExitHome", 8f, "HOME");
             if (_done) yield break;
             yield return WaitScreen("HomeReturn", "Home", "screen=Home", 12f);
@@ -251,14 +333,30 @@ namespace Resonance.App
         }
 
         /// <summary>
-        /// State-driven battle play through real pointer events only. Goals that a Manual player can reach in
-        /// one VS-1 run: judge a QTE, fire p0 Tap, fire p0 Slide, pause+resume, toggle speed. Fever is played
-        /// when it happens but is not required (it depends on QTE grade / gauge). Ends when every goal is met
-        /// or the battle ends; missing goals are reported honestly as the failure reason.
+        /// State-driven battle play through EventSystem pointers only. HUD Drive&gt;=100 → DriveBegin
+        /// is not remapped. TickUnit still floors auto DriveGain at 14 until the integrator hunk.
+        /// Fever is required only in np.fever.v1.
         /// </summary>
         IEnumerator PlayBattleNaturally()
         {
-            bool qteDone = false, tapDone = false, slideDone = false, pauseDone = false, speedDone = false;
+            var sc = _plan != null ? _plan.FightAt(_fightIndex) : null;
+            var name = sc != null ? sc.Name : VerificationScenario.Basic.Name;
+            if (name == VerificationScenario.Fever.Name)
+            {
+                yield return PlayFeverNaturally();
+                yield break;
+            }
+            if (name == VerificationScenario.Auto.Name)
+            {
+                yield return PlayAutoNaturally();
+                yield break;
+            }
+            yield return PlayBasicNaturally();
+        }
+
+        IEnumerator PlayBasicNaturally()
+        {
+            bool tapDone = false, slideDone = false, pauseDone = false, speedDone = false, goalsNoted = false;
             var t0 = Time.unscaledTime;
             var qteCount = 0;
             while (true)
@@ -271,57 +369,39 @@ namespace Resonance.App
                     Fail("BattlePlay", "battle alive", "GameRoot/Battle null " + ObserveBattle());
                     yield break;
                 }
-                var missing = MissingGoals(qteDone, tapDone, slideDone, pauseDone, speedDone);
-                if (missing.Length == 0)
-                {
-                    Record("BattlePlay", "QTE+Tap+Slide+Pause+Speed via pointer", "all reached qte=" + qteCount + " " + ObserveBattle(), true);
-                    yield break;
-                }
+                if (!tapDone && NaturalPlayBattleEvidence.HasAccepted(b, BattleCommandKind.Tap, 0, CommandSource.Player))
+                    tapDone = true;
+                if (!slideDone && NaturalPlayBattleEvidence.HasAccepted(b, BattleCommandKind.Slide, 0, CommandSource.Player))
+                    slideDone = true;
+                var missing = MissingPair(tapDone, slideDone, "Tap", "Slide");
                 var ended = g.CurrentScreen == "Result" || b.Outcome != BattleOutcome.InProgress;
+                if (missing.Length == 0 && !goalsNoted)
+                {
+                    goalsNoted = true;
+                    Record("BattlePlay", "Tap+Slide via pointer before Drive remap",
+                        "reached " + ObserveBattle(), true);
+                }
                 if (ended)
                 {
-                    // Pacing finding, not a crash: keep going so Result/Rematch/Home still get exercised.
-                    SoftFail("BattlePlay", "QTE+Tap+Slide+Pause+Speed before battle end",
-                        "missing=" + missing + " battleSec=" + (Time.unscaledTime - t0).ToString("0.0") + " " + ObserveBattle());
+                    if (missing.Length != 0)
+                        SoftFail("BattlePlay", "Tap+Slide before battle end",
+                            "missing=" + missing + " battleSec=" + (Time.unscaledTime - t0).ToString("0.0") + " " + ObserveBattle());
                     yield break;
                 }
                 if (TimedOut(t0, 150f) || OverLimit())
                 {
-                    Fail("BattlePlay", "QTE+Tap+Slide+Pause+Speed within 150s", "missing=" + missing + " " + ObserveBattle());
+                    Fail("BattlePlay", "Tap+Slide within 150s", "missing=" + missing + " " + ObserveBattle());
                     yield break;
                 }
 
-                // 1. QTE window open: judge it (the coin is the only sensible target now).
                 if (g.QteOpen || b.PendingDriveSlot >= 0)
                 {
-                    if (!qteDone) yield return Shot("np_04_qte.png");
-                    if (_done) yield break;
-                    yield return TapQte(qteDone ? "JudgeQte#" + (qteCount + 1) : "JudgeQte", 8f);
+                    yield return TapQte("JudgeQte#" + (qteCount + 1), 8f, true);
                     if (_done) yield break;
                     qteCount++;
-                    if (!qteDone)
-                    {
-                        qteDone = true;
-                        yield return Shot("np_05_judge.png");
-                    }
                     continue;
                 }
 
-                // 2. Fever running: mash portraits like a player would.
-                if (b.FeverActive)
-                {
-                    if (!_feverShot)
-                    {
-                        yield return Shot("np_08_fever.png");
-                        _feverShot = true;
-                        Record("FeverPlay", "Fever reached via QTE", ObserveBattle(), true);
-                    }
-                    yield return TapReadyPortraits();
-                    yield return new WaitForSecondsRealtime(0.22f);
-                    continue;
-                }
-
-                // 3. Pause/resume once, early (does not advance the sim).
                 if (!pauseDone && !b.Paused)
                 {
                     yield return TapNamed("TapPause", 8f, "|| PAUSE");
@@ -338,7 +418,6 @@ namespace Resonance.App
                     continue;
                 }
 
-                // 4. Speed toggle once, early (a player sets speed up front).
                 if (!speedDone)
                 {
                     var speedBefore = ReadSpeed();
@@ -355,43 +434,54 @@ namespace Resonance.App
                 var u0 = b.Allies != null && b.Allies.Length > 0 ? b.Allies[0] : null;
                 var charged = u0 != null && u0.Alive && u0.Charge >= 100f;
 
-                // 5. Slide is a drag gesture and is not remapped by Drive; take it whenever p0 is charged.
+                // Slide is not remapped by Drive. Take it on the first charged window.
                 if (!slideDone && charged && u0.SlideCd <= 0f)
                 {
                     yield return SlideNamed("SlidePortrait", 10f, "p0", SlideDragPx);
                     if (_done) yield break;
-                    slideDone = true;
-                    yield return Shot("np_03_slide.png");
+                    slideDone = NaturalPlayBattleEvidence.HasAccepted(b, BattleCommandKind.Slide, 0, CommandSource.Player);
+                    if (slideDone) yield return Shot("np_03_slide.png");
                     continue;
                 }
 
-                // 6. Drive full: a portrait tap opens the QTE (HUD contract), so open it and loop back to judge.
-                if (b.Drive >= 100f)
+                // HUD contract: Drive>=100 remaps portrait tap to DriveBegin. Dump Drive if Tap is still missing.
+                if (b.Drive >= 100f && !tapDone)
                 {
-                    yield return TapNamed(qteDone ? "OpenQte#" + (qteCount + 1) : "OpenQte", 8f, "p0");
+                    yield return TapNamed("OpenQte#" + (qteCount + 1), 8f, "p0");
                     if (_done) yield break;
-                    yield return WaitQteOpen(qteDone ? "OpenQte#" + (qteCount + 1) : "OpenQte", 4f);
+                    yield return WaitQteOpen("OpenQte#" + (qteCount + 1), 4f);
                     if (_done) yield break;
                     continue;
                 }
 
-                // 7. Drive refilling and p0 charged: this is the only window where a tap is a Tap skill.
-                if (!tapDone && charged)
+                if (b.Drive >= 100f && tapDone && slideDone)
+                {
+                    yield return TapNamed("OpenQte#" + (qteCount + 1), 8f, "p0");
+                    if (_done) yield break;
+                    yield return WaitQteOpen("OpenQte#" + (qteCount + 1), 4f);
+                    if (_done) yield break;
+                    continue;
+                }
+
+                if (!tapDone && charged && b.Drive < 100f)
                 {
                     var chargeBefore = u0.Charge;
                     yield return TapNamed("TapPortrait", 8f, "p0");
                     if (_done) yield break;
                     yield return null;
                     var after = b.Allies[0];
-                    if (after != null && after.Charge < chargeBefore)
+                    var accepted = NaturalPlayBattleEvidence.HasAccepted(b, BattleCommandKind.Tap, 0, CommandSource.Player);
+                    if (accepted && after != null && after.Charge < chargeBefore)
                     {
                         tapDone = true;
-                        Record("TapSkill", "p0 Charge consumed by Tap", "charge " + chargeBefore.ToString("0.#") + "->" + after.Charge.ToString("0.#"), true);
+                        Record("TapSkill", "p0 Tap Submit + Charge consumed",
+                            "charge " + chargeBefore.ToString("0.#") + "->" + after.Charge.ToString("0.#"), true);
                         yield return Shot("np_02_tap.png");
                     }
                     else
                     {
-                        Record("TapSkill", "p0 Charge consumed by Tap", "not consumed " + ObserveBattle(), true);
+                        Record("TapSkill", "p0 Tap Submit + Charge consumed",
+                            "accepted=" + accepted + " " + ObserveBattle(), true);
                     }
                     continue;
                 }
@@ -400,14 +490,210 @@ namespace Resonance.App
             }
         }
 
-        static string MissingGoals(bool qte, bool tap, bool slide, bool pause, bool speed)
+        IEnumerator PlayFeverNaturally()
+        {
+            bool qteDone = false, feverDone = false, tapA = false, tapB = false;
+            var t0 = Time.unscaledTime;
+            var qteCount = 0;
+            while (true)
+            {
+                if (_done) yield break;
+                var g = GameRoot.Live;
+                var b = Battle();
+                if (g == null || b == null)
+                {
+                    Fail("FeverPlay", "battle alive", "GameRoot/Battle null " + ObserveBattle());
+                    yield break;
+                }
+                if (b.FeverActive || b.FeverEver) feverDone = true;
+                NaturalPlayBattleEvidence.DistinctAcceptedFeverSlots(b, _feverSlots);
+                if (_feverSlots.Count >= 1) tapA = true;
+                if (_feverSlots.Count >= 2) tapB = true;
+                var missing = "";
+                if (!qteDone) missing += "QTE,";
+                if (!feverDone) missing += "Fever,";
+                if (!tapA) missing += "FeverTapA,";
+                if (!tapB) missing += "FeverTapB,";
+                missing = missing.TrimEnd(',');
+                var ended = g.CurrentScreen == "Result" || b.Outcome != BattleOutcome.InProgress;
+                if (missing.Length == 0)
+                {
+                    Record("FeverPlay", "Fever required + two slot FeverTap",
+                        "slots=" + string.Join(",", _feverSlots.ConvertAll(x => x.ToString()).ToArray())
+                        + " " + ObserveBattle(), true);
+                    if (ended) yield break;
+                }
+                if (ended)
+                {
+                    SoftFail("FeverPlay", "Fever + two FeverTap slots before end",
+                        "missing=" + missing + " " + ObserveBattle());
+                    yield break;
+                }
+                if (TimedOut(t0, 160f) || OverLimit())
+                {
+                    Fail("FeverPlay", "Fever required within 160s", "missing=" + missing + " " + ObserveBattle());
+                    yield break;
+                }
+
+                if (g.QteOpen || b.PendingDriveSlot >= 0)
+                {
+                    if (!qteDone) yield return Shot("np_04_qte.png");
+                    if (_done) yield break;
+                    yield return TapQte("JudgeQte#" + (qteCount + 1), 8f, true);
+                    if (_done) yield break;
+                    qteCount++;
+                    qteDone = true;
+                    if (qteCount == 1) yield return Shot("np_05_judge.png");
+                    continue;
+                }
+
+                if (b.FeverActive)
+                {
+                    if (!_feverShot)
+                    {
+                        yield return Shot("np_08_fever.png");
+                        _feverShot = true;
+                        Record("FeverReached", "Fever via QTE Submit (not injected)", ObserveBattle(), true);
+                    }
+                    if (!tapB)
+                    {
+                        yield return TapDistinctFeverSlots();
+                        yield return new WaitForSecondsRealtime(0.25f);
+                        continue;
+                    }
+                }
+
+                if (b.Drive >= 100f)
+                {
+                    yield return TapNamed("OpenQte#" + (qteCount + 1), 8f, "p0");
+                    if (_done) yield break;
+                    yield return WaitQteOpen("OpenQte#" + (qteCount + 1), 4f);
+                    if (_done) yield break;
+                    continue;
+                }
+
+                if (missing.Length == 0)
+                {
+                    yield return null;
+                    continue;
+                }
+
+                yield return null;
+            }
+        }
+
+        IEnumerator PlayAutoNaturally()
+        {
+            var t0 = Time.unscaledTime;
+            yield return ToggleAutoTo("AutoFull", AutoMode.Full, 10f);
+            if (_done) yield break;
+            var b = Battle();
+            if (b == null)
+            {
+                Fail("AutoPlay", "battle alive", ObserveBattle());
+                yield break;
+            }
+            var evFrom = b.Events != null && b.Events.Events != null ? b.Events.Events.Count : 0;
+            var chargeSnap = SnapshotAllyCharge(b);
+            var sawCast = false;
+            var sawSubmit = false;
+            while (!sawSubmit || !sawCast)
+            {
+                if (_done) yield break;
+                b = Battle();
+                if (b == null || ScreenOf() == "Result" || b.Outcome != BattleOutcome.InProgress)
+                {
+                    SoftFail("AutoPlay", "Submit Auto skills + observed auto casts",
+                        "ended early submit=" + sawSubmit + " cast=" + sawCast + " " + ObserveBattle());
+                    yield break;
+                }
+                if (TimedOut(t0, 55f) || OverLimit())
+                    break;
+                sawSubmit = NaturalPlayBattleEvidence.HasAutoSkillSubmit(b);
+                var casts = NaturalPlayBattleEvidence.AllyCastsSince(b, evFrom);
+                if (casts > 0 || ChargeDropped(b, chargeSnap)) sawCast = true;
+                yield return new WaitForSecondsRealtime(0.25f);
+            }
+            if (sawCast)
+                Record("AutoSkillObserved", "auto policy fired (cast/charge)", ObserveBattle(), true);
+            else
+                SoftFail("AutoSkillObserved", "auto cast or charge drop", ObserveBattle());
+            if (sawSubmit)
+                Record("AutoSubmit", "CommandLog Source=Auto skill", ObserveBattle(), true);
+            else
+                SoftFail("AutoSubmit", "CommandLog Source=Auto Tap/Slide/Drive/FeverTap",
+                    "AutoFire still bypasses Submit (X05). TickFever FeverTap is the Submit path. " + ObserveBattle());
+            yield return ToggleAutoTo("AutoManual", AutoMode.Manual, 10f);
+        }
+
+        IEnumerator TapDistinctFeverSlots()
+        {
+            var b = Battle();
+            if (b == null || b.Allies == null || !b.FeverActive) yield break;
+            NaturalPlayBattleEvidence.DistinctAcceptedFeverSlots(b, _feverSlots);
+            for (int i = 0; i < b.Allies.Length; i++)
+            {
+                var u = b.Allies[i];
+                if (u == null || !u.Alive) continue;
+                if (_feverSlots.Contains(i)) continue;
+                var go = FindActive("p" + i);
+                if (go == null) continue;
+                yield return PointerAt(ScreenCenter(go), "tap");
+                yield return new WaitForSecondsRealtime(0.22f);
+                yield break;
+            }
+            yield return TapReadyPortraits();
+        }
+
+        IEnumerator ToggleAutoTo(string phase, AutoMode want, float timeout)
+        {
+            var t0 = Time.unscaledTime;
+            while (true)
+            {
+                var b = Battle();
+                if (b != null && b.Auto == want)
+                {
+                    Record(phase, "Auto=" + want + " via HUD", "Auto=" + b.Auto, true);
+                    yield break;
+                }
+                if (TimedOut(t0, timeout) || OverLimit())
+                {
+                    Fail(phase, "Auto=" + want + " via HUD", "Auto=" + (b != null ? b.Auto.ToString() : "null"));
+                    yield break;
+                }
+                yield return TapNamed(phase + "Tap", 6f, "> MANUAL", "> SEMI AUTO", "> FULL AUTO");
+                if (_done) yield break;
+                yield return new WaitForSecondsRealtime(0.15f);
+            }
+        }
+
+        static float[] SnapshotAllyCharge(BattleSim b)
+        {
+            if (b == null || b.Allies == null) return new float[0];
+            var a = new float[b.Allies.Length];
+            for (int i = 0; i < b.Allies.Length; i++)
+                a[i] = b.Allies[i] != null ? b.Allies[i].Charge : -1f;
+            return a;
+        }
+
+        static bool ChargeDropped(BattleSim b, float[] snap)
+        {
+            if (b == null || b.Allies == null || snap == null) return false;
+            var n = Math.Min(snap.Length, b.Allies.Length);
+            for (int i = 0; i < n; i++)
+            {
+                var u = b.Allies[i];
+                if (u == null) continue;
+                if (snap[i] >= 90f && u.Charge < snap[i] - 5f) return true;
+            }
+            return false;
+        }
+
+        static string MissingPair(bool a, bool b, string nameA, string nameB)
         {
             var s = "";
-            if (!qte) s += "QTE,";
-            if (!tap) s += "Tap,";
-            if (!slide) s += "Slide,";
-            if (!pause) s += "Pause,";
-            if (!speed) s += "Speed,";
+            if (!a) s += nameA + ",";
+            if (!b) s += nameB + ",";
             return s.TrimEnd(',');
         }
 
@@ -542,7 +828,7 @@ namespace Resonance.App
             }
         }
 
-        IEnumerator TapQte(string phase, float timeout)
+        IEnumerator TapQte(string phase, float timeout, bool waitWindow = false)
         {
             var t0 = Time.unscaledTime;
             while (FindQteButton() == null)
@@ -553,6 +839,13 @@ namespace Resonance.App
                     yield break;
                 }
                 yield return null;
+            }
+            // Real coin pulse (VfxGoodButton WindowAt=0.60). Wait, then tap. Not FirePerfect.
+            if (waitWindow)
+            {
+                var until = Time.unscaledTime + 0.60f;
+                while (Time.unscaledTime < until && FindQteButton() != null)
+                    yield return null;
             }
             var go = FindQteButton();
             var pos = ScreenCenter(go);
@@ -1043,6 +1336,11 @@ namespace Resonance.App
         IList ReadCommandLog(BattleSim b)
         {
             if (b == null) return null;
+            if (b.CommandLog != null)
+            {
+                NoteReflect("BattleSim.CommandLog (public, read-only)");
+                return b.CommandLog;
+            }
             const BindingFlags flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
             var t = b.GetType();
             var prop = t.GetProperty("CommandLog", flags);
@@ -1078,6 +1376,8 @@ namespace Resonance.App
 
         static string FormatCommand(object rec)
         {
+            var typed = rec as CommandRecord;
+            if (typed != null) return NaturalPlayBattleEvidence.FormatCommand(typed);
             if (rec == null) return "";
             var t = rec.GetType();
             const BindingFlags flags = BindingFlags.Instance | BindingFlags.Public;
@@ -1086,7 +1386,10 @@ namespace Resonance.App
             object Reason() => t.GetField("Reason", flags)?.GetValue(rec) ?? t.GetProperty("Reason", flags)?.GetValue(rec, null);
             object Slot() => t.GetField("Slot", flags)?.GetValue(rec) ?? t.GetProperty("Slot", flags)?.GetValue(rec, null);
             object Seq() => t.GetField("Seq", flags)?.GetValue(rec) ?? t.GetProperty("Seq", flags)?.GetValue(rec, null);
-            return "seq=" + Seq() + " kind=" + Kind() + " slot=" + Slot() + " ok=" + Acc() + " reason=" + Reason();
+            object Src() => t.GetField("Source", flags)?.GetValue(rec) ?? t.GetProperty("Source", flags)?.GetValue(rec, null);
+            object Tick() => t.GetField("Tick", flags)?.GetValue(rec) ?? t.GetProperty("Tick", flags)?.GetValue(rec, null);
+            return "seq=" + Seq() + " tick=" + Tick() + " kind=" + Kind() + " slot=" + Slot()
+                + " source=" + Src() + " accepted=" + Acc() + " reason=" + Reason();
         }
 
         void NoteReflect(string msg)
@@ -1226,10 +1529,58 @@ namespace Resonance.App
             WriteAndQuit(string.IsNullOrEmpty(_failPhase));
         }
 
+        void BeginBattleCapture(VerificationScenario sc)
+        {
+            var live = Battle();
+            if (live == null) return;
+            if (_current != null && _current.Sim == live) return;
+            if (_current != null && !_current.Persisted)
+                PersistCurrentBattle("late-begin");
+            DesignPlaceholderPolicy.Bind(sc);
+            _current = NaturalPlayBattleEvidence.Begin(live, _sessionId, _battles.Count + 1, sc);
+            _battles.Add(_current);
+            _cmdLogSeen = 0;
+            _feverShot = false;
+            Record("BattleId", "unique battle_id + frozen RunHeader",
+                "id=" + _current.BattleId + " scenario=" + _current.ScenarioName
+                + " header=" + _current.FrozenHeader, true);
+        }
+
+        void PersistCurrentBattle(string why)
+        {
+            if (_current == null) return;
+            var live = Battle();
+            try
+            {
+                BattleSim sim;
+                if (live == _current.Sim || live == null)
+                    sim = _current.Sim;
+                else if (!_current.Persisted)
+                    sim = _current.Sim;
+                else
+                    return;
+                _current.Persist(CapturesDir(), sim);
+                Note("persist " + _current.BattleId + " why=" + why
+                    + " outcome=" + _current.OutcomeAtPersist
+                    + " digest=" + _current.Digest);
+            }
+            catch (Exception e)
+            {
+                Note("persist-fail " + why + " " + e.Message);
+            }
+        }
+
         void WriteAndQuit(bool pass)
         {
             _done = true;
+            PersistCurrentBattle("quit");
             WriteEvents();
+            if (_catalogApplied)
+            {
+                try { VerificationCatalog.RestoreBuiltin(); }
+                catch (Exception e) { Debug.LogWarning("[NATURAL-PLAY] restore catalog: " + e.Message); }
+                _catalogApplied = false;
+            }
             var body = BuildResult(pass);
             try
             {
@@ -1254,16 +1605,11 @@ namespace Resonance.App
         {
             try
             {
-                Directory.CreateDirectory(CapturesDir());
-                var b = Battle();
-                var text = "";
-                if (b != null && b.Events != null)
-                    text = b.Events.ExportCanonical();
-                File.WriteAllText(EventsPath(), text ?? "");
+                NaturalPlayBattleEvidence.WriteSessionIndex(CapturesDir(), _battles);
             }
             catch (Exception e)
             {
-                Debug.LogWarning("[NATURAL-PLAY] events: " + e.Message);
+                Debug.LogWarning("[NATURAL-PLAY] events index: " + e.Message);
             }
         }
 
@@ -1272,6 +1618,36 @@ namespace Resonance.App
             var sb = new StringBuilder(4096);
             if (pass) sb.AppendLine("PASS");
             else sb.AppendLine("FAIL " + (_failPhase ?? "unknown"));
+            sb.AppendLine("historical_baseline=" + NaturalPlayBattleEvidence.HistoricalRun7Rel);
+            sb.AppendLine("historical_verdict=FAIL BattlePlay missing=Tap,Slide");
+            sb.AppendLine("historical_note=run7 kept as FAIL; this session does not rewrite it to PASS");
+            sb.AppendLine("pointer=" + NaturalPlayBattleEvidence.PointerPath);
+            sb.AppendLine("os_touch=NOT_CLAIMED");
+            sb.AppendLine("provenance=" + DesignPlaceholderPolicy.Provenance);
+            sb.AppendLine("schema=" + DesignPlaceholderPolicy.SchemaVersion);
+            sb.AppendLine("plan=" + (_plan != null ? _plan.Mode : ""));
+            sb.AppendLine("session=" + _sessionId);
+            var ids = new StringBuilder();
+            for (int i = 0; i < _battles.Count; i++)
+            {
+                if (i > 0) ids.Append(',');
+                ids.Append(_battles[i].BattleId);
+            }
+            sb.AppendLine("battle_ids=" + ids);
+            for (int i = 0; i < _battles.Count; i++)
+            {
+                var ev = _battles[i];
+                sb.Append("battle_").Append(i + 1).Append('=')
+                    .Append(ev.BattleId)
+                    .Append(" scenario=").Append(ev.ScenarioName)
+                    .Append(" stage=").Append(ev.StageId)
+                    .Append(" persisted=").Append(ev.Persisted ? "1" : "0")
+                    .Append(" outcome=").Append(ev.OutcomeAtPersist)
+                    .Append(" digest=").Append(ev.Digest)
+                    .Append(" dir=").Append(ev.Dir)
+                    .Append('\n');
+            }
+            sb.AppendLine("catalog=" + (_catalogNote ?? ""));
             sb.AppendLine("captures=" + string.Join(",", _shots));
             sb.AppendLine("screen=" + ScreenOf());
             sb.AppendLine("title=" + ResultTitle());
@@ -1299,11 +1675,19 @@ namespace Resonance.App
             for (int i = 0; i < _inputs.Count; i++)
                 sb.AppendLine(_inputs[i]);
             sb.AppendLine();
-            sb.AppendLine("--- RunHeader ---");
+            sb.AppendLine("--- frozen battle headers (authoritative) ---");
+            if (_battles.Count == 0) sb.AppendLine("(none)");
+            for (int i = 0; i < _battles.Count; i++)
+            {
+                var ev = _battles[i];
+                sb.Append(ev.BattleId).Append('\t').Append(ev.FrozenHeader).Append('\n');
+            }
+            sb.AppendLine();
+            sb.AppendLine("--- live RunHeader (current GameRoot.Battle; may be fight 2) ---");
             var header = ReadRunHeader(b);
             sb.AppendLine(string.IsNullOrEmpty(header) ? "(unavailable)" : header);
             sb.AppendLine();
-            sb.AppendLine("--- CommandLog ---");
+            sb.AppendLine("--- live CommandLog (current GameRoot.Battle; per-fight files are authoritative) ---");
             var log = ReadCommandLog(b);
             if (log == null || log.Count == 0) sb.AppendLine("(unavailable or empty)");
             else

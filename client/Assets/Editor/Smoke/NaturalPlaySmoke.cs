@@ -26,8 +26,31 @@ namespace Resonance.EditorTools
         [MenuItem("Resonance/Smoke/Natural Play")]
         public static void MenuRun()
         {
+            RequestRun("matrix");
+        }
+
+        [MenuItem("Resonance/Smoke/Natural Play Basic")]
+        public static void MenuRunBasic()
+        {
+            RequestRun("np.basic.v1");
+        }
+
+        [MenuItem("Resonance/Smoke/Natural Play Fever")]
+        public static void MenuRunFever()
+        {
+            RequestRun("np.fever.v1");
+        }
+
+        [MenuItem("Resonance/Smoke/Natural Play Auto")]
+        public static void MenuRunAuto()
+        {
+            RequestRun("np.auto.v1");
+        }
+
+        static void RequestRun(string scenario)
+        {
             Directory.CreateDirectory("Temp");
-            File.WriteAllText(RequestRel, "1");
+            File.WriteAllText(RequestRel, string.IsNullOrEmpty(scenario) ? "matrix" : scenario);
             if (File.Exists(ResultRel)) File.Delete(ResultRel);
             if (EditorApplication.isPlaying)
             {

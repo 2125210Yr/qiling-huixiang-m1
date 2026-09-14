@@ -18,7 +18,8 @@ namespace Resonance.Battle
             }
             catch
             {
-                Catalog.BuildBuiltin();
+                // Keep the last good live snapshot (builtin or custom A).
+                // Rebuilding builtin here would discard A (X04 / V02).
             }
         }
 
@@ -51,10 +52,11 @@ namespace Resonance.Battle
             var root = MiniJson.Parse(json) as Dictionary<string, object>;
             if (root == null) throw new InvalidDataException("catalog root");
 
-            Catalog.BuildBuiltin();
-            var chars = CloneChars();
-            var skills = CloneSkills();
-            var effects = CloneEffects();
+            var baseline = Catalog.CreateBuiltinTables();
+            var candidate = Catalog.CloneTables(baseline);
+            var chars = candidate.Characters;
+            var skills = candidate.Skills;
+            var effects = candidate.Effects;
 
             foreach (var item in AsList(root, "chars"))
             {
@@ -90,7 +92,7 @@ namespace Resonance.Battle
                     effects[id] = ReadEffect(o);
             }
 
-            FillPlayableSlice(chars, skills);
+            FillPlayableSlice(chars, skills, baseline.Skills);
 
             StageDef[] stages = null;
             var stageList = AsList(root, "stages");
@@ -111,23 +113,29 @@ namespace Resonance.Battle
             if (stage == null && stages != null && stages.Length > 0)
                 stage = stages[0];
             if (stage == null)
-                stage = Catalog.VerticalSliceStage;
+                stage = Catalog.CloneStage(baseline.Stage);
             if (stage == null)
                 throw new InvalidDataException("catalog stage");
-            Catalog.Install(chars, skills, effects, stage, stages);
-            Catalog.ThrowIfExternalImportInvalid();
+            candidate.Stage = stage;
+            candidate.Stages = stages;
+            Catalog.ActivateCandidate(candidate, baseline);
         }
 
         static void FillPlayableSlice(
             Dictionary<string, CharacterDef> chars,
-            Dictionary<string, SkillDef> skills)
+            Dictionary<string, SkillDef> skills,
+            Dictionary<string, SkillDef> baselineSkills)
         {
             if (chars == null || skills == null) return;
             if (chars.TryGetValue("C001", out var c001) && c001 != null)
             {
-                c001.Name = "冰刃";
-                c001.Element = Element.Fire;
-                c001.Role = Role.Attacker;
+                // Do not clobber a JSON overlay name (V02 custom A). Only fill a blank slice.
+                if (string.IsNullOrEmpty(c001.Name)) c001.Name = "冰刃";
+                if (c001.Element == 0 && c001.Role == 0)
+                {
+                    c001.Element = Element.Fire;
+                    c001.Role = Role.Attacker;
+                }
             }
             foreach (var kv in chars)
             {
@@ -141,18 +149,21 @@ namespace Resonance.Battle
                 if (string.IsNullOrEmpty(c.SlideSkillId)) c.SlideSkillId = id + "_slide";
                 if (string.IsNullOrEmpty(c.DriveSkillId)) c.DriveSkillId = id + "_drive";
                 if (string.IsNullOrEmpty(c.LeaderSkillId)) c.LeaderSkillId = id + "_leader";
-                EnsureSkill(skills, c.AutoSkillId);
-                EnsureSkill(skills, c.TapSkillId);
-                EnsureSkill(skills, c.SlideSkillId);
-                EnsureSkill(skills, c.DriveSkillId);
-                EnsureSkill(skills, c.LeaderSkillId);
+                EnsureSkill(skills, c.AutoSkillId, baselineSkills);
+                EnsureSkill(skills, c.TapSkillId, baselineSkills);
+                EnsureSkill(skills, c.SlideSkillId, baselineSkills);
+                EnsureSkill(skills, c.DriveSkillId, baselineSkills);
+                EnsureSkill(skills, c.LeaderSkillId, baselineSkills);
             }
         }
 
-        static void EnsureSkill(Dictionary<string, SkillDef> skills, string id)
+        static void EnsureSkill(
+            Dictionary<string, SkillDef> skills,
+            string id,
+            Dictionary<string, SkillDef> baselineSkills)
         {
             if (string.IsNullOrEmpty(id) || skills == null || skills.ContainsKey(id)) return;
-            if (Catalog.Skills != null && Catalog.Skills.TryGetValue(id, out var src) && src != null)
+            if (baselineSkills != null && baselineSkills.TryGetValue(id, out var src) && src != null)
             {
                 skills[id] = Catalog.CloneSkill(src);
                 return;
@@ -281,6 +292,12 @@ namespace Resonance.Battle
                 SourceTier = Int(o, "tier"),
                 Group = Str(o, "group")
             };
+            if (HasKey(o, "target") || HasKey(o, "hasTarget"))
+            {
+                fx.HasTarget = true;
+                fx.Target = (TargetRule)Int(o, "target");
+            }
+            if (HasNum(o, "side")) fx.Side = (TargetSide)Int(o, "side");
             ApplyLifecycleJson(fx, o);
             return fx;
         }
@@ -295,6 +312,12 @@ namespace Resonance.Battle
             if (HasNum(o, "stack")) dst.MaxStack = Int(o, "stack", 1);
             if (HasNum(o, "tier")) dst.SourceTier = Int(o, "tier");
             if (HasText(o, "group")) dst.Group = Str(o, "group");
+            if (HasKey(o, "target") || HasKey(o, "hasTarget"))
+            {
+                dst.HasTarget = true;
+                if (HasNum(o, "target")) dst.Target = (TargetRule)Int(o, "target");
+            }
+            if (HasNum(o, "side")) dst.Side = (TargetSide)Int(o, "side");
             ApplyLifecycleJson(dst, o);
         }
 
@@ -303,90 +326,6 @@ namespace Resonance.Battle
             if (dst == null || o == null || !EffectCapability.HasLifecycleFields) return;
             if (HasText(o, "trigger")) EffectCapability.WriteTrigger(dst, Str(o, "trigger"));
             if (HasNum(o, "period")) EffectCapability.WritePeriodSec(dst, Flt(o, "period"));
-        }
-
-        static Dictionary<string, CharacterDef> CloneChars()
-        {
-            var d = new Dictionary<string, CharacterDef>();
-            if (Catalog.Characters == null) return d;
-            foreach (var kv in Catalog.Characters)
-            {
-                if (kv.Value == null) continue;
-                d[kv.Key] = CloneChar(kv.Value);
-            }
-            return d;
-        }
-
-        static Dictionary<string, SkillDef> CloneSkills()
-        {
-            var d = new Dictionary<string, SkillDef>();
-            if (Catalog.Skills == null) return d;
-            foreach (var kv in Catalog.Skills)
-            {
-                if (kv.Value == null) continue;
-                d[kv.Key] = Catalog.CloneSkill(kv.Value);
-            }
-            return d;
-        }
-
-        static Dictionary<string, EffectDef> CloneEffects()
-        {
-            var d = new Dictionary<string, EffectDef>();
-            if (Catalog.Effects == null) return d;
-            foreach (var kv in Catalog.Effects)
-            {
-                if (kv.Value == null) continue;
-                d[kv.Key] = CloneEffect(kv.Value);
-            }
-            return d;
-        }
-
-        static CharacterDef CloneChar(CharacterDef c)
-        {
-            if (c == null) return null;
-            return new CharacterDef
-            {
-                Id = c.Id,
-                Name = c.Name,
-                Element = c.Element,
-                Role = c.Role,
-                Hp = c.Hp,
-                Atk = c.Atk,
-                Def = c.Def,
-                Agl = c.Agl,
-                Crt = c.Crt,
-                ChargeTimeSec = c.ChargeTimeSec,
-                AutoSkillId = c.AutoSkillId,
-                TapSkillId = c.TapSkillId,
-                SlideSkillId = c.SlideSkillId,
-                DriveSkillId = c.DriveSkillId,
-                LeaderSkillId = c.LeaderSkillId,
-                IsEnemy = c.IsEnemy,
-                IsBoss = c.IsBoss,
-                BattleLevel = c.BattleLevel,
-                NativeStar = c.NativeStar,
-                MaxStar = c.MaxStar,
-                UncapMax = c.UncapMax,
-                IgnitionMax = c.IgnitionMax
-            };
-        }
-
-        static EffectDef CloneEffect(EffectDef e)
-        {
-            if (e == null) return null;
-            var copy = new EffectDef
-            {
-                Id = e.Id,
-                Opcode = e.Opcode,
-                Kind = e.Kind,
-                Magnitude = e.Magnitude,
-                DurationSec = e.DurationSec,
-                MaxStack = e.MaxStack,
-                SourceTier = e.SourceTier,
-                Group = e.Group
-            };
-            EffectCapability.CopyLifecycle(e, copy);
-            return copy;
         }
 
         static StageDef ReadStage(Dictionary<string, object> so)
@@ -437,6 +376,10 @@ namespace Resonance.Battle
                 sb.Append(",\"mag\":").Append(Num(e.Magnitude)).Append(",\"dur\":").Append(Num(e.DurationSec));
                 sb.Append(",\"stack\":").Append(e.MaxStack).Append(",\"tier\":").Append(e.SourceTier);
                 sb.Append(",\"group\":\"").Append(Esc(e.Group)).Append("\"");
+                if (e.HasTarget)
+                    sb.Append(",\"hasTarget\":true,\"target\":").Append((int)e.Target);
+                if (e.Side != TargetSide.FromRule)
+                    sb.Append(",\"side\":").Append((int)e.Side);
                 if (EffectCapability.HasTriggerField)
                     sb.Append(",\"trigger\":\"").Append(Esc(EffectCapability.ReadTrigger(e))).Append("\"");
                 if (EffectCapability.HasPeriodField)

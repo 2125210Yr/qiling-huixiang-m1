@@ -20,6 +20,7 @@ namespace Resonance.Tests
             var unresolved = DamageMath.Resolve(
                 FormulaProfile.GL_UNKNOWN, SkillType.Tap, 1000, 1f, 707, 2500,
                 Element.Fire, Element.Wood, false, 1f, 1f);
+            Assert.False(unresolved.Computed);
             Assert.False(unresolved.Measured);
             Assert.Equal(DamageMath.NotMeasuredCode, unresolved.Code);
         }
@@ -38,8 +39,10 @@ namespace Resonance.Tests
             var krTap = DamageMath.Resolve(
                 FormulaProfile.KR_LEGACY_REPORTED, SkillType.Tap, 1000, 1f, 707, 2500,
                 Element.Fire, Element.Wood, false, 1f, 1f);
-            Assert.True(jpTap.Measured);
-            Assert.True(krTap.Measured);
+            Assert.True(jpTap.Computed);
+            Assert.True(krTap.Computed);
+            Assert.False(jpTap.Measured);
+            Assert.False(krTap.Measured);
             Assert.True(krTap.Value < jpTap.Value);
         }
 

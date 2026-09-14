@@ -279,6 +279,7 @@ namespace Resonance.Battle
         bool _feverHit;
         bool _poisonResolving;
         Dictionary<string, SkillDef> _skillOverlay;
+        Dictionary<string, EffectDef> _effectOverlay;
         SkillDef _execSkill;
         UnitState _execCaster;
         bool _execCasterAlly;
@@ -296,12 +297,27 @@ namespace Resonance.Battle
             _skillOverlay[id] = skill;
         }
 
+        public void OverlayEffect(string id, EffectDef fx)
+        {
+            if (string.IsNullOrEmpty(id) || fx == null) return;
+            if (_effectOverlay == null) _effectOverlay = new Dictionary<string, EffectDef>();
+            _effectOverlay[id] = fx;
+        }
+
         SkillDef ResolveSkill(string id)
         {
             if (_skillOverlay != null && !string.IsNullOrEmpty(id)
                 && _skillOverlay.TryGetValue(id, out var over) && over != null)
                 return over;
             return Catalog.TrySkill(id);
+        }
+
+        EffectDef ResolveEffect(string id)
+        {
+            if (_effectOverlay != null && !string.IsNullOrEmpty(id)
+                && _effectOverlay.TryGetValue(id, out var over) && over != null)
+                return over;
+            return Catalog.TryEffect(id);
         }
 
         public BattleSim(string[] partyIds, int leaderSlot, int seed)
@@ -351,25 +367,16 @@ namespace Resonance.Battle
         public void Tick()
         {
             if (Outcome != BattleOutcome.InProgress || Paused) return;
+            // R02: first real tick freezes opening Speed/Auto/clocks after object initializers.
+            // GameRoot already freezes before Tick; first-call-wins. Tests that never call
+            // Freeze still keep the configured start instead of Infer 1/Manual.
+            if (InitialHeader == null)
+                FreezeInitialHeader(null, _stage != null ? _stage.Id : "");
             TickIndex++;
             var dt = Clocks != null ? Clocks.BattleDt(Speed) : TickDt * (Speed < 1 ? 1 : Speed);
             if (dt <= 0f) dt = TickDt;
-            if (!ReleaseBlocks(dt)) return;
-
             var stageDt = ScaleClock(dt, Clocks != null && Clocks.StageCountdownScalesWithSpeed);
-            TimeLeft -= stageDt;
-            Stats.Tick(stageDt);
-            if (TimeLeft <= 0f)
-            {
-                TimeLeft = 0f;
-                if (Outcome == BattleOutcome.InProgress)
-                {
-                    Outcome = BattleOutcome.Defeat;
-                    LastEvent = "时间耗尽";
-                    NoteResult("timeout");
-                }
-                return;
-            }
+            if (!ReleaseBlocks(dt, stageDt)) return;
 
             TickStatus(ScaleClock(dt, Clocks != null && Clocks.StatusDurationScalesWithSpeed));
             TickSlideClocks(ScaleClock(dt, Clocks != null && Clocks.SlideCdScalesWithSpeed));
@@ -411,7 +418,7 @@ namespace Resonance.Battle
             return battleDt > 0f ? battleDt : TickDt;
         }
 
-        bool ReleaseBlocks(float dt)
+        bool ReleaseBlocks(float dt, float stageDt)
         {
             if (_holdSim)
             {
@@ -427,31 +434,32 @@ namespace Resonance.Battle
             else
                 _holdElapsed = 0f;
 
+            // X06: single TimeLeft / Stats budget for this Tick (wait, restore, or free).
+            TimeLeft -= stageDt;
+            Stats.Tick(stageDt);
+            if (TimeLeft <= 0f)
+            {
+                TimeLeft = 0f;
+                if (Outcome == BattleOutcome.InProgress)
+                {
+                    Outcome = BattleOutcome.Defeat;
+                    LastEvent = "时间耗尽";
+                    NoteResult("timeout");
+                    PendingDriveSlot = -1;
+                    _qteElapsed = 0f;
+                }
+                return false;
+            }
+
             if (PendingDriveSlot >= 0)
             {
                 if (Auto == AutoMode.Full)
-                    ResolveDrive(DriveTiming.Great);
+                    Submit(BattleCommand.DriveResolve(DriveTiming.Great, CommandSource.Auto));
                 else
                 {
-                    // Q01/Q02: QTE clock and stage countdown follow their own scaling policies.
+                    // Q01/Q02: QTE clock follows DriveQteScalesWithSpeed; stage already spent above.
                     var qteDt = ScaleClock(dt, Clocks != null && Clocks.DriveQteScalesWithSpeed);
-                    var stageDtQ = ScaleClock(dt, Clocks != null && Clocks.StageCountdownScalesWithSpeed);
                     _qteElapsed += qteDt;
-                    TimeLeft -= stageDtQ;
-                    Stats.Tick(stageDtQ);
-                    if (TimeLeft <= 0f)
-                    {
-                        TimeLeft = 0f;
-                        if (Outcome == BattleOutcome.InProgress)
-                        {
-                            Outcome = BattleOutcome.Defeat;
-                            LastEvent = "时间耗尽";
-                            NoteResult("timeout");
-                            PendingDriveSlot = -1;
-                            _qteElapsed = 0f;
-                        }
-                        return false;
-                    }
                     if (_qteElapsed < QteLimitSec)
                         return false;
                     ResolveDrive(DriveTiming.Good);
@@ -463,16 +471,32 @@ namespace Resonance.Battle
 
         public bool CanAcceptSkillInput(int slot, out CommandReject reason)
         {
+            return CanAcceptSkillInput(true, slot, out reason);
+        }
+
+        public bool CanAcceptSkillInput(bool ally, int slot, out CommandReject reason)
+        {
             reason = CommandReject.None;
             if (Outcome != BattleOutcome.InProgress) { reason = CommandReject.NotInProgress; return false; }
             if (Paused) { reason = CommandReject.Paused; return false; }
             if (PendingDriveSlot >= 0) { reason = CommandReject.QtePending; return false; }
-            if (slot < 0 || slot >= Allies.Length || Allies[slot] == null) { reason = CommandReject.SlotInvalid; return false; }
-            var u = Allies[slot];
+            var u = UnitAt(ally, slot);
+            if (u == null) { reason = CommandReject.SlotInvalid; return false; }
             if (!u.Alive) { reason = CommandReject.UnitDead; return false; }
             if (u.ActionLocked) { reason = CommandReject.ActionLocked; return false; }
             if (u.SkillLocked) { reason = CommandReject.Silenced; return false; }
             return true;
+        }
+
+        UnitState UnitAt(bool ally, int slot)
+        {
+            if (ally)
+            {
+                if (slot < 0 || Allies == null || slot >= Allies.Length) return null;
+                return Allies[slot];
+            }
+            if (slot < 0 || Enemies == null || slot >= Enemies.Count) return null;
+            return Enemies[slot];
         }
 
         void AutoFireDrive()
@@ -480,9 +504,10 @@ namespace Resonance.Battle
             if (Auto != AutoMode.Full || Drive < 100f) return;
             for (int i = 0; i < Allies.Length; i++)
             {
-                if (!TryBeginDrive(i)) continue;
+                var begin = Submit(BattleCommand.DriveBegin(i, CommandSource.Auto));
+                if (!begin.Accepted) continue;
                 if (PendingDriveSlot >= 0)
-                    ResolveDrive(DriveTiming.Great);
+                    Submit(BattleCommand.DriveResolve(DriveTiming.Great, CommandSource.Auto));
                 break;
             }
         }
@@ -493,8 +518,10 @@ namespace Resonance.Battle
             for (int i = 0; i < Allies.Length; i++)
             {
                 if (Allies[i] == null || !Allies[i].Alive || Allies[i].Charge < 100f) continue;
-                if (NextAutoType(i) == SkillType.Slide && Allies[i].SlideCd <= 0f) TrySlide(i);
-                else TryTap(i);
+                if (NextAutoType(i) == SkillType.Slide && Allies[i].SlideCd <= 0f)
+                    Submit(BattleCommand.Slide(i, CommandSource.Auto));
+                else
+                    Submit(BattleCommand.Tap(i, CommandSource.Auto));
             }
         }
 
@@ -635,18 +662,32 @@ namespace Resonance.Battle
                 {
                     Cast(u, ally, autoSkill, 1f);
                     if (ally)
-                        Drive = Math.Min(100f, Drive + Math.Max(14f, autoSkill.DriveGain));
+                    {
+                        // DESIGN_PLACEHOLDER: honor declared auto DriveGain when verification
+                        // policy is bound, or when this auto skill is an explicit overlay (N04).
+                        // Production catalog keeps the engineering floor of 14. Neither number is GL.
+                        var gain = autoSkill.DriveGain;
+                        var overlaid = !string.IsNullOrEmpty(u.Def.AutoSkillId)
+                            && _skillOverlay != null
+                            && _skillOverlay.ContainsKey(u.Def.AutoSkillId);
+                        if (!DesignPlaceholderPolicy.HonorDeclaredAutoDriveGain && !overlaid)
+                            gain = Math.Max(14, gain);
+                        Drive = Math.Min(100f, Drive + gain);
+                    }
                 }
             }
 
             if (!ally && u.Charge >= 100f)
             {
+                // Same declared-skill gate as ally Submit. Silence keeps Charge; auto already ran.
+                if (!CanAcceptSkillInput(false, u.Slot, out _))
+                    return;
                 var wantSlide = _rng.NextDouble() >= 0.65 && u.SlideCd <= 0f;
                 var skill = ResolveSkill(wantSlide ? u.Def.SlideSkillId : u.Def.TapSkillId);
+                if (skill == null) return;
                 u.Charge = 0f;
                 if (wantSlide) u.SlideCd = SlideCdDurationSec;
-                if (skill != null)
-                    Cast(u, false, skill, 1f);
+                Cast(u, false, skill, 1f);
             }
         }
 
@@ -912,21 +953,41 @@ namespace Resonance.Battle
                 SlideSkillLvMax = skill.SlideSkillLvMax
             });
 
-            var fx = Catalog.TryEffect(skill.EffectId);
-            if (fx != null)
+            ApplyLinkedEffect(skill, caster, casterAlly);
+        }
+
+        void ApplyLinkedEffect(SkillDef skill, UnitState caster, bool casterAlly)
+        {
+            if (skill == null || string.IsNullOrEmpty(skill.EffectId)) return;
+            var fx = ResolveEffect(skill.EffectId);
+            if (fx == null)
             {
-                IEnumerable<UnitState> fxTargets = fx.Kind == EffectKind.AtkBuff
-                    || fx.Kind == EffectKind.DefBuff
-                    || fx.Kind == EffectKind.Shield
-                    || fx.Kind == EffectKind.ChargeHaste
-                    || fx.Kind == EffectKind.Taunt
-                    ? PickAllies(fx.Kind == EffectKind.Taunt ? TargetRule.Self : skill.Target, skill.TargetCount, casterAlly, caster)
-                    : PickFoes(casterAlly, skill.Target, skill.TargetCount, caster);
-                if (fx.Kind == EffectKind.Taunt)
-                    fxTargets = new[] { caster };
-                foreach (var t in fxTargets)
-                    ApplyEffect(t, fx);
+                NoteEvent("missing_effect", skill.EffectId, caster, null, 0, skill.Type);
+                return;
             }
+            var verdict = EffectCapability.Check(fx);
+            if (!verdict.Ok)
+            {
+                NoteEvent("unplayable_effect", fx.Opcode ?? "", caster, null, (int)fx.Kind, skill.Type);
+                return;
+            }
+            foreach (var t in PickEffectTargets(skill, fx, caster, casterAlly))
+                ApplyEffect(t, fx);
+        }
+
+        IEnumerable<UnitState> PickEffectTargets(SkillDef skill, EffectDef fx, UnitState caster, bool casterAlly)
+        {
+            var side = TargetSemantics.Side(skill, fx);
+            if (side == TargetSide.Self)
+            {
+                if (caster != null && caster.Alive) return new[] { caster };
+                return new UnitState[0];
+            }
+            var rule = TargetSemantics.Rule(skill, fx);
+            var count = skill != null ? skill.TargetCount : 1;
+            if (side == TargetSide.Ally)
+                return PickAllies(rule, count, casterAlly, caster);
+            return PickFoes(casterAlly, rule, count, caster);
         }
 
         void SettleSkill(string opcode)

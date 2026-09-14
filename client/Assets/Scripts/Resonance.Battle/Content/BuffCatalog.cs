@@ -38,10 +38,21 @@ namespace Resonance.Battle
         }
 
         /// <summary>
-        /// Validation hook only: maps each buff to ForKind(Kind) and runs the capability table.
-        /// Does not mutate <see cref="All"/>.
+        /// Diagnostic inventory validation. Maps each buff to ForKind(Kind).
+        /// Does not mutate <see cref="All"/>. Kind-gaps stay in this report;
+        /// they are not an activity roster.
         /// </summary>
         public static ContentValidationReport Validate()
+        {
+            return EffectCapability.ValidateBuffs(All);
+        }
+
+        /// <summary>
+        /// Playable-roster view of <see cref="Validate"/>: same rows, callers
+        /// should treat <see cref="ContentViolation.BlocksPlayableRoster"/> as
+        /// the activation gate. Does not mutate <see cref="All"/>.
+        /// </summary>
+        public static ContentValidationReport ValidatePlayable()
         {
             return EffectCapability.ValidateBuffs(All);
         }

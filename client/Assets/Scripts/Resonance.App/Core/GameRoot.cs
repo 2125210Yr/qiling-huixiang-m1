@@ -1190,6 +1190,8 @@ namespace Resonance.App
                 ForceNoCrit = false,
                 Profile = FormulaProfile.JP_LEGACY_EMPIRICAL
             };
+            // R02: freeze real opening seed/party/growth/gear/leader/clocks/profile/auto/speed/data identity.
+            BattleInitialHeader.Freeze(_battle, _save.PartyIds, stage != null ? stage.Id : "");
             _simAcc = 0f;
             Show(ScreenId.Battle);
         }

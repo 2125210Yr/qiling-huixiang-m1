@@ -1,20 +1,99 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Text;
 
 namespace Resonance.Battle
 {
+    /// <summary>
+    /// Mutable candidate container. Parse/overlay/validate here; swap into
+    /// <see cref="Catalog.Current"/> only after the overlay import gate passes.
+    /// </summary>
+    public sealed class CatalogTables
+    {
+        public Dictionary<string, CharacterDef> Characters = new Dictionary<string, CharacterDef>();
+        public Dictionary<string, SkillDef> Skills = new Dictionary<string, SkillDef>();
+        public Dictionary<string, EffectDef> Effects = new Dictionary<string, EffectDef>();
+        public StageDef Stage;
+        public StageDef[] Stages;
+    }
+
+    /// <summary>
+    /// Immutable live snapshot. Inventory dictionaries keep historical
+    /// unplayable rows; Playable* is the strict opcode+kind+params roster.
+    /// </summary>
+    public sealed class CatalogSnapshot
+    {
+        public static readonly CatalogSnapshot Empty = new CatalogSnapshot(
+            new Dictionary<string, CharacterDef>(),
+            new Dictionary<string, SkillDef>(),
+            new Dictionary<string, EffectDef>(),
+            new Dictionary<string, EffectDef>(),
+            new Dictionary<string, SkillDef>(),
+            null,
+            new StageDef[0],
+            new StageDef[0],
+            new string[0],
+            "");
+
+        public readonly IReadOnlyDictionary<string, CharacterDef> Characters;
+        public readonly IReadOnlyDictionary<string, SkillDef> Skills;
+        public readonly IReadOnlyDictionary<string, EffectDef> Effects;
+        public readonly IReadOnlyDictionary<string, EffectDef> PlayableEffects;
+        public readonly IReadOnlyDictionary<string, SkillDef> PlayableSkills;
+        public readonly StageDef VerticalSliceStage;
+        public readonly StageDef[] Stages;
+        public readonly StageDef[] HardStages;
+        public readonly string[] PlayableIds;
+        public readonly string Fingerprint;
+
+        public CatalogSnapshot(
+            IReadOnlyDictionary<string, CharacterDef> characters,
+            IReadOnlyDictionary<string, SkillDef> skills,
+            IReadOnlyDictionary<string, EffectDef> effects,
+            IReadOnlyDictionary<string, EffectDef> playableEffects,
+            IReadOnlyDictionary<string, SkillDef> playableSkills,
+            StageDef verticalSliceStage,
+            StageDef[] stages,
+            StageDef[] hardStages,
+            string[] playableIds,
+            string fingerprint)
+        {
+            Characters = characters ?? new Dictionary<string, CharacterDef>();
+            Skills = skills ?? new Dictionary<string, SkillDef>();
+            Effects = effects ?? new Dictionary<string, EffectDef>();
+            PlayableEffects = playableEffects ?? new Dictionary<string, EffectDef>();
+            PlayableSkills = playableSkills ?? new Dictionary<string, SkillDef>();
+            VerticalSliceStage = verticalSliceStage;
+            Stages = stages ?? new StageDef[0];
+            HardStages = hardStages ?? new StageDef[0];
+            PlayableIds = playableIds ?? new string[0];
+            Fingerprint = fingerprint ?? "";
+        }
+    }
+
     public static class Catalog
     {
-        public static IReadOnlyDictionary<string, CharacterDef> Characters { get; private set; }
-        public static IReadOnlyDictionary<string, SkillDef> Skills { get; private set; }
-        public static IReadOnlyDictionary<string, EffectDef> Effects { get; private set; }
-        public static StageDef VerticalSliceStage { get; private set; }
-        public static StageDef[] Stages { get; private set; } = new StageDef[0];
-        public static StageDef[] HardStages { get; private set; } = new StageDef[0];
-        public static string[] PlayableIds { get; private set; } = new string[0];
+        public static CatalogSnapshot Current { get; private set; } = CatalogSnapshot.Empty;
+
+        public static IReadOnlyDictionary<string, CharacterDef> Characters => Current.Characters;
+        public static IReadOnlyDictionary<string, SkillDef> Skills => Current.Skills;
+        public static IReadOnlyDictionary<string, EffectDef> Effects => Current.Effects;
+        public static IReadOnlyDictionary<string, CharacterDef> InventoryCharacters => Current.Characters;
+        public static IReadOnlyDictionary<string, SkillDef> InventorySkills => Current.Skills;
+        public static IReadOnlyDictionary<string, EffectDef> InventoryEffects => Current.Effects;
+        public static IReadOnlyDictionary<string, EffectDef> PlayableEffects => Current.PlayableEffects;
+        public static IReadOnlyDictionary<string, SkillDef> PlayableSkills => Current.PlayableSkills;
+        public static StageDef VerticalSliceStage => Current.VerticalSliceStage;
+        public static StageDef[] Stages => Current.Stages;
+        public static StageDef[] HardStages => Current.HardStages;
+        public static string[] PlayableIds => Current.PlayableIds;
         static readonly string[] DefaultPartyCore = { "C001", "C007", "C010", "C003", "C005" };
         public static string[] DefaultParty => CopyWave(DefaultPartyCore);
         public static GearDef[] Cartas => GearCatalog.Cartas;
+
+        static readonly HashSet<string> HistoricalEffectIds = new HashSet<string>(StringComparer.Ordinal);
+        static readonly HashSet<string> HistoricalSkillIds = new HashSet<string>(StringComparer.Ordinal);
 
         public static CharacterDef PlayableAt(Element element, Role role)
         {
@@ -58,18 +137,33 @@ namespace Resonance.Battle
             StageDef stage,
             StageDef[] stages = null)
         {
-            if (chars == null) chars = new Dictionary<string, CharacterDef>();
-            if (skills == null) skills = new Dictionary<string, SkillDef>();
-            if (effects == null) effects = new Dictionary<string, EffectDef>();
-            Characters = chars;
-            Skills = skills;
-            Effects = effects;
-            stages = CompactStages(stages);
+            InstallTables(new CatalogTables
+            {
+                Characters = chars,
+                Skills = skills,
+                Effects = effects,
+                Stage = stage,
+                Stages = stages
+            });
+        }
+
+        /// <summary>
+        /// Publish a fully-built candidate as the live snapshot. Computes the
+        /// playable roster first, then swaps <see cref="Current"/> once.
+        /// Does not run the overlay import gate — callers that parsed JSON must
+        /// use <see cref="ActivateCandidate"/>.
+        /// </summary>
+        public static void InstallTables(CatalogTables tables)
+        {
+            if (tables == null) tables = new CatalogTables();
+            var chars = tables.Characters ?? new Dictionary<string, CharacterDef>();
+            var skills = tables.Skills ?? new Dictionary<string, SkillDef>();
+            var effects = tables.Effects ?? new Dictionary<string, EffectDef>();
+            var stages = CompactStages(tables.Stages);
             if (stages == null || stages.Length == 0)
-                stages = MakeChapter(stage);
-            Stages = stages;
-            HardStages = MakeHardChapter(stages);
-            VerticalSliceStage = stages.Length > 0 ? stages[0] : stage;
+                stages = MakeChapter(tables.Stage);
+            var hard = MakeHardChapter(stages);
+            var vertical = stages.Length > 0 ? stages[0] : tables.Stage;
             var play = new List<string>();
             foreach (var kv in chars)
             {
@@ -77,7 +171,36 @@ namespace Resonance.Battle
                 play.Add(kv.Key);
             }
             play.Sort();
-            PlayableIds = play.ToArray();
+            var playableFx = EffectCapability.FilterPlayableEffects(effects);
+            var playableSk = EffectCapability.FilterPlayableSkills(skills, effects);
+            var fp = ComputeFingerprint(chars, skills, effects, vertical);
+            Current = new CatalogSnapshot(
+                chars, skills, effects, playableFx, playableSk,
+                vertical, stages, hard, play.ToArray(), fp);
+        }
+
+        /// <summary>
+        /// V01–V03 import gate: validate the candidate against a historical
+        /// baseline (usually builtin tables that were never installed), then
+        /// swap once. Failure leaves <see cref="Current"/> unchanged.
+        /// </summary>
+        public static void ActivateCandidate(CatalogTables candidate, CatalogTables baseline)
+        {
+            if (candidate == null) throw new InvalidOperationException("catalog candidate");
+            if (baseline == null) baseline = CreateBuiltinTables();
+            ThrowIfOverlayImportInvalid(candidate, baseline);
+            InstallTables(candidate);
+        }
+
+        public static void ThrowIfOverlayImportInvalid(CatalogTables candidate, CatalogTables baseline)
+        {
+            if (candidate == null) throw new InvalidOperationException("catalog candidate");
+            if (baseline == null) baseline = CreateBuiltinTables();
+            var report = EffectCapability.CollectOverlayImportViolations(
+                candidate.Effects, candidate.Skills,
+                baseline.Effects, baseline.Skills);
+            if (report.Violations.Count == 0) return;
+            throw new ContentValidationException(report);
         }
 
         public static StageDef[] MakeChapter(StageDef first = null)
@@ -193,22 +316,27 @@ namespace Resonance.Battle
             return d;
         }
 
-        internal static void BuildBuiltin()
+        /// <summary>
+        /// Builtin tables in a detached candidate. Does not touch live
+        /// <see cref="Current"/>. Used as the overlay baseline so Load can
+        /// fail without replacing custom A with builtin.
+        /// </summary>
+        public static CatalogTables CreateBuiltinTables()
         {
             var skills = new Dictionary<string, SkillDef>();
             AddSkills(skills);
 
             var effects = new Dictionary<string, EffectDef>
             {
-                ["dot_flame"] = Fx("dot_flame", EffectKind.Dot, 0.18f, 8f, 1, 2, "dot"),
-                ["def_down"] = Fx("def_down", EffectKind.DefDebuff, 0.20f, 10f, 1, 2, "def"),
-                ["atk_up"] = Fx("atk_up", EffectKind.AtkBuff, 0.18f, 12f, 1, 2, "atk"),
-                ["def_up"] = Fx("def_up", EffectKind.DefBuff, 0.18f, 12f, 1, 2, "def"),
-                ["shield"] = Fx("shield", EffectKind.Shield, 0.22f, 8f, 1, 1, "shield"),
-                ["taunt"] = Fx("taunt", EffectKind.Taunt, 1f, 6f, 1, 2, "taunt"),
-                ["haste"] = Fx("haste", EffectKind.ChargeHaste, 0.25f, 8f, 1, 1, "haste"),
-                ["burst_atk"] = Fx("burst_atk", EffectKind.AtkBuff, 0.35f, 10f, 1, 3, "atk"),
-                ["stun"] = Fx("stun", EffectKind.Stun, 1f, 3f, 1, 2, "stun")
+                ["dot_flame"] = Fx("dot_flame", EffectKind.Dot, 0.18f, 8f, 1, 2, "dot", TargetSide.Foe),
+                ["def_down"] = Fx("def_down", EffectKind.DefDebuff, 0.20f, 10f, 1, 2, "def", TargetSide.Foe),
+                ["atk_up"] = Fx("atk_up", EffectKind.AtkBuff, 0.18f, 12f, 1, 2, "atk", TargetSide.Ally),
+                ["def_up"] = Fx("def_up", EffectKind.DefBuff, 0.18f, 12f, 1, 2, "def", TargetSide.Ally),
+                ["shield"] = Fx("shield", EffectKind.Shield, 0.22f, 8f, 1, 1, "shield", TargetSide.Ally),
+                ["taunt"] = Fx("taunt", EffectKind.Taunt, 1f, 6f, 1, 2, "taunt", TargetSide.Self),
+                ["haste"] = Fx("haste", EffectKind.ChargeHaste, 0.25f, 8f, 1, 1, "haste", TargetSide.Ally),
+                ["burst_atk"] = Fx("burst_atk", EffectKind.AtkBuff, 0.35f, 10f, 1, 3, "atk", TargetSide.Ally),
+                ["stun"] = Fx("stun", EffectKind.Stun, 1f, 3f, 1, 2, "stun", TargetSide.Foe)
             };
             var chars = new Dictionary<string, CharacterDef>();
             AddParty(chars);
@@ -222,7 +350,37 @@ namespace Resonance.Battle
                 Wave0 = new[] { "E001", "E002", "E003" },
                 Wave1 = new[] { "EBOSS" }
             };
-            Install(chars, skills, effects, stage, MakeChapter(stage));
+            RememberHistorical(skills, effects);
+            return new CatalogTables
+            {
+                Characters = chars,
+                Skills = skills,
+                Effects = effects,
+                Stage = stage,
+                Stages = MakeChapter(stage)
+            };
+        }
+
+        internal static void BuildBuiltin()
+        {
+            InstallTables(CreateBuiltinTables());
+        }
+
+        static void RememberHistorical(
+            Dictionary<string, SkillDef> skills,
+            Dictionary<string, EffectDef> effects)
+        {
+            if (HistoricalEffectIds.Count > 0 || HistoricalSkillIds.Count > 0) return;
+            if (effects != null)
+            {
+                foreach (var kv in effects)
+                    if (!string.IsNullOrEmpty(kv.Key)) HistoricalEffectIds.Add(kv.Key);
+            }
+            if (skills != null)
+            {
+                foreach (var kv in skills)
+                    if (!string.IsNullOrEmpty(kv.Key)) HistoricalSkillIds.Add(kv.Key);
+            }
         }
 
         public static CharacterDef MustChar(string id) => Characters[id];
@@ -279,10 +437,60 @@ namespace Resonance.Battle
         /// <summary>
         /// Capability + parameter report for the currently installed catalog.
         /// Does not throw; builtin load must stay start-safe for Unity.
+        /// Historical kind-gaps stay in inventory and are not import-blocking.
         /// </summary>
         public static ContentValidationReport ValidateContent()
         {
-            return EffectCapability.ValidateCatalog(Effects, Skills);
+            var report = EffectCapability.ValidateCatalog(Effects, Skills);
+            EffectCapability.DowngradeHistoricalImportBlocks(report, HistoricalEffectIds, HistoricalSkillIds);
+            return report;
+        }
+
+        /// <summary>
+        /// Raw candidate validation against the supplied tables only (V03).
+        /// Does not read or write the live snapshot.
+        /// </summary>
+        public static ContentValidationReport ValidateCandidate(CatalogTables candidate)
+        {
+            if (candidate == null) return new ContentValidationReport();
+            return EffectCapability.ValidateCatalog(candidate.Effects, candidate.Skills);
+        }
+
+        public static bool IsPlayable(EffectDef fx)
+        {
+            return EffectCapability.IsPlayable(fx);
+        }
+
+        public static bool IsPlayable(SkillDef sk)
+        {
+            return EffectCapability.IsPlayable(sk, Effects);
+        }
+
+        public static bool IsPlayable(SkillDef sk, IReadOnlyDictionary<string, EffectDef> effects)
+        {
+            return EffectCapability.IsPlayable(sk, effects);
+        }
+
+        public static bool TryGetPlayableEffect(string id, out EffectDef fx)
+        {
+            fx = null;
+            if (string.IsNullOrEmpty(id) || PlayableEffects == null) return false;
+            return PlayableEffects.TryGetValue(id, out fx) && fx != null;
+        }
+
+        /// <summary>
+        /// Public Cast/ApplyEffect gate. BattleSim is not hooked — integrator
+        /// must call this before applying an effect, or skip inventory-only rows
+        /// via <see cref="TryGetPlayableEffect"/>.
+        /// </summary>
+        public static void EnsurePlayable(EffectDef fx)
+        {
+            EffectCapability.RejectUnplayable(fx);
+        }
+
+        public static void EnsurePlayable(SkillDef sk)
+        {
+            EffectCapability.RejectUnplayable(sk, Effects);
         }
 
         public static void RejectUnplayable(EffectDef fx)
@@ -292,12 +500,252 @@ namespace Resonance.Battle
 
         public static void RejectUnplayable(SkillDef sk)
         {
-            EffectCapability.RejectUnplayable(sk);
+            EffectCapability.RejectUnplayable(sk, Effects);
+        }
+
+        public static string LiveFingerprint()
+        {
+            return Current != null ? Current.Fingerprint : "";
         }
 
         internal static void ThrowIfExternalImportInvalid()
         {
             EffectCapability.ThrowIfExternalImportInvalid(ValidateContent());
+        }
+
+        public static CatalogTables CloneTables(CatalogTables src)
+        {
+            var d = new CatalogTables();
+            if (src == null) return d;
+            d.Characters = CloneCharMap(src.Characters);
+            d.Skills = CloneSkillMap(src.Skills);
+            d.Effects = CloneEffectMap(src.Effects);
+            d.Stage = CloneStage(src.Stage);
+            if (src.Stages != null)
+            {
+                d.Stages = new StageDef[src.Stages.Length];
+                for (int i = 0; i < src.Stages.Length; i++)
+                    d.Stages[i] = CloneStage(src.Stages[i]);
+            }
+            return d;
+        }
+
+        public static Dictionary<string, CharacterDef> CloneCharMap(IReadOnlyDictionary<string, CharacterDef> src)
+        {
+            var d = new Dictionary<string, CharacterDef>();
+            if (src == null) return d;
+            foreach (var kv in src)
+            {
+                if (kv.Value == null) continue;
+                d[kv.Key] = CloneChar(kv.Value);
+            }
+            return d;
+        }
+
+        public static Dictionary<string, SkillDef> CloneSkillMap(IReadOnlyDictionary<string, SkillDef> src)
+        {
+            var d = new Dictionary<string, SkillDef>();
+            if (src == null) return d;
+            foreach (var kv in src)
+            {
+                if (kv.Value == null) continue;
+                d[kv.Key] = CloneSkill(kv.Value);
+            }
+            return d;
+        }
+
+        public static Dictionary<string, EffectDef> CloneEffectMap(IReadOnlyDictionary<string, EffectDef> src)
+        {
+            var d = new Dictionary<string, EffectDef>();
+            if (src == null) return d;
+            foreach (var kv in src)
+            {
+                if (kv.Value == null) continue;
+                d[kv.Key] = CloneEffect(kv.Value);
+            }
+            return d;
+        }
+
+        public static CharacterDef CloneChar(CharacterDef c)
+        {
+            if (c == null) return null;
+            return new CharacterDef
+            {
+                Id = c.Id,
+                Name = c.Name,
+                Element = c.Element,
+                Role = c.Role,
+                Hp = c.Hp,
+                Atk = c.Atk,
+                Def = c.Def,
+                Agl = c.Agl,
+                Crt = c.Crt,
+                ChargeTimeSec = c.ChargeTimeSec,
+                AutoSkillId = c.AutoSkillId,
+                TapSkillId = c.TapSkillId,
+                SlideSkillId = c.SlideSkillId,
+                DriveSkillId = c.DriveSkillId,
+                LeaderSkillId = c.LeaderSkillId,
+                IsEnemy = c.IsEnemy,
+                IsBoss = c.IsBoss,
+                BattleLevel = c.BattleLevel,
+                NativeStar = c.NativeStar,
+                MaxStar = c.MaxStar,
+                UncapMax = c.UncapMax,
+                IgnitionMax = c.IgnitionMax
+            };
+        }
+
+        public static EffectDef CloneEffect(EffectDef e)
+        {
+            if (e == null) return null;
+            var copy = new EffectDef
+            {
+                Id = e.Id,
+                Opcode = e.Opcode,
+                Kind = e.Kind,
+                HasTarget = e.HasTarget,
+                Target = e.Target,
+                Side = e.Side,
+                Magnitude = e.Magnitude,
+                DurationSec = e.DurationSec,
+                MaxStack = e.MaxStack,
+                SourceTier = e.SourceTier,
+                Group = e.Group
+            };
+            EffectCapability.CopyLifecycle(e, copy);
+            return copy;
+        }
+
+        public static StageDef CloneStage(StageDef s)
+        {
+            if (s == null) return null;
+            return new StageDef
+            {
+                Id = s.Id,
+                Name = s.Name,
+                TimeLimitSec = s.TimeLimitSec,
+                Wave0 = CopyWave(s.Wave0),
+                Wave1 = CopyWave(s.Wave1),
+                EnemyHpMul = s.EnemyHpMul,
+                EnemyAtkMul = s.EnemyAtkMul,
+                EnemyDefMul = s.EnemyDefMul,
+                Difficulty = s.Difficulty,
+                NeedStageId = s.NeedStageId
+            };
+        }
+
+        static string ComputeFingerprint(
+            IReadOnlyDictionary<string, CharacterDef> chars,
+            IReadOnlyDictionary<string, SkillDef> skills,
+            IReadOnlyDictionary<string, EffectDef> effects,
+            StageDef stage)
+        {
+            unchecked
+            {
+                int h = 17;
+                h = MixMap(h, chars, MixChar);
+                h = MixMap(h, skills, MixSkill);
+                h = MixMap(h, effects, MixEffect);
+                if (stage != null)
+                {
+                    h = h * 31 + Fnv(stage.Id);
+                    h = h * 31 + stage.TimeLimitSec.GetHashCode();
+                    h = h * 31 + stage.EnemyHpMul.GetHashCode();
+                }
+                return "live-c" + (chars != null ? chars.Count : 0)
+                    + "-s" + (skills != null ? skills.Count : 0)
+                    + "-e" + (effects != null ? effects.Count : 0)
+                    + "-p" + (PlayableCount(effects, skills))
+                    + "-" + (h & 0x7fffffff).ToString("x8", CultureInfo.InvariantCulture);
+            }
+        }
+
+        static int PlayableCount(
+            IReadOnlyDictionary<string, EffectDef> effects,
+            IReadOnlyDictionary<string, SkillDef> skills)
+        {
+            var n = 0;
+            if (effects != null)
+            {
+                foreach (var kv in effects)
+                    if (kv.Value != null && EffectCapability.IsPlayable(kv.Value)) n++;
+            }
+            if (skills != null)
+            {
+                foreach (var kv in skills)
+                    if (kv.Value != null && EffectCapability.IsPlayable(kv.Value, effects)) n++;
+            }
+            return n;
+        }
+
+        static int MixMap<T>(int h, IReadOnlyDictionary<string, T> map, Func<int, string, T, int> mix)
+        {
+            if (map == null) return h;
+            var keys = new List<string>(map.Count);
+            foreach (var kv in map)
+                if (!string.IsNullOrEmpty(kv.Key)) keys.Add(kv.Key);
+            keys.Sort(StringComparer.Ordinal);
+            for (int i = 0; i < keys.Count; i++)
+            {
+                T value;
+                if (!map.TryGetValue(keys[i], out value)) continue;
+                h = mix(h, keys[i], value);
+            }
+            return h;
+        }
+
+        static int MixChar(int h, string key, CharacterDef c)
+        {
+            h = h * 31 + Fnv(key);
+            if (c == null) return h;
+            h = h * 31 + Fnv(c.Id);
+            h = h * 31 + c.Hp;
+            h = h * 31 + c.Atk;
+            h = h * 31 + c.Def;
+            h = h * 31 + Fnv(c.AutoSkillId);
+            h = h * 31 + Fnv(c.TapSkillId);
+            h = h * 31 + Fnv(c.SlideSkillId);
+            h = h * 31 + Fnv(c.DriveSkillId);
+            return h;
+        }
+
+        static int MixSkill(int h, string key, SkillDef s)
+        {
+            h = h * 31 + Fnv(key);
+            if (s == null) return h;
+            h = h * 31 + Fnv(s.Opcode);
+            h = h * 31 + Fnv(s.EffectId);
+            h = h * 31 + (int)s.Target;
+            h = h * 31 + s.TargetCount;
+            h = h * 31 + s.FlatPower;
+            h = h * 31 + s.AtkCoef.GetHashCode();
+            h = h * 31 + s.HitCount;
+            return h;
+        }
+
+        static int MixEffect(int h, string key, EffectDef e)
+        {
+            h = h * 31 + Fnv(key);
+            if (e == null) return h;
+            h = h * 31 + Fnv(e.Opcode);
+            h = h * 31 + (int)e.Kind;
+            h = h * 31 + e.Magnitude.GetHashCode();
+            h = h * 31 + e.DurationSec.GetHashCode();
+            h = h * 31 + Fnv(EffectCapability.ReadTrigger(e));
+            h = h * 31 + EffectCapability.ReadPeriodSec(e).GetHashCode();
+            return h;
+        }
+
+        static int Fnv(string s)
+        {
+            unchecked
+            {
+                int h = (int)2166136261;
+                if (s == null) return h;
+                for (int i = 0; i < s.Length; i++) h = (h ^ s[i]) * 16777619;
+                return h;
+            }
         }
 
         static void AddParty(Dictionary<string, CharacterDef> c)
@@ -568,6 +1016,9 @@ namespace Resonance.Battle
         }
 
         static EffectDef Fx(string id, EffectKind kind, float mag, float dur, int stack, int tier, string group)
+            => Fx(id, kind, mag, dur, stack, tier, group, TargetSide.FromRule);
+
+        static EffectDef Fx(string id, EffectKind kind, float mag, float dur, int stack, int tier, string group, TargetSide side)
         {
             return new EffectDef
             {
@@ -578,7 +1029,8 @@ namespace Resonance.Battle
                 DurationSec = dur,
                 MaxStack = stack,
                 SourceTier = tier,
-                Group = group
+                Group = group,
+                Side = side
             };
         }
 

@@ -32,6 +32,18 @@ namespace Resonance.Battle
         Measured = 3
     }
 
+    /// <summary>
+    /// How <see cref="FormulaResult.RequireInt"/> reads a <see cref="FormulaResult.Bounds"/> interval.
+    /// The parameterless overload rejects; it must not collapse Min/Max onto the dummy scalar Value.
+    /// </summary>
+    public enum FormulaBoundsPolicy
+    {
+        Reject = 0,
+        Min = 1,
+        Max = 2,
+        Midpoint = 3
+    }
+
     public readonly struct FormulaResult
     {
         public readonly FormulaProfile Profile;
@@ -58,13 +70,11 @@ namespace Resonance.Battle
         }
 
         /// <summary>
-        /// LEGACY ALIAS for <see cref="Computed"/> (Status == Ok &amp;&amp; Code != NOT_MEASURED). It does NOT mean
-        /// the value was measured against the GL original; use <see cref="Evidence"/> for that.
-        /// Kept unchanged only because <c>BattleSim.TryResolveCombat</c> still gates on it; once BattleSim
-        /// migrates to <c>if (!result.Computed)</c> this becomes <c>Evidence == FormulaEvidence.Measured</c>
-        /// per API_CONTRACT §6.
+        /// True only when <see cref="Evidence"/> is <see cref="FormulaEvidence.Measured"/> (GL original).
+        /// Callers that mean "has a number" must use <see cref="Computed"/>. BattleSim.TryResolveCombat
+        /// already does. No current factory or Resolve branch can mint Measured evidence.
         /// </summary>
-        public bool Measured => Status == FormulaStatus.Ok && Code != DamageMath.NotMeasuredCode;
+        public bool Measured => Evidence == FormulaEvidence.Measured;
 
         FormulaResult(FormulaProfile profile, FormulaStatus status, string code, double value, double min, double max, bool hasBounds, FormulaEvidence evidence)
         {
@@ -96,7 +106,8 @@ namespace Resonance.Battle
 
         public static FormulaResult Bounds(FormulaProfile profile, double min, double max, FormulaEvidence evidence)
         {
-            return new FormulaResult(profile, FormulaStatus.Ok, "OK", 0, min, max, true, GuardEvidence(evidence));
+            // Scalar Value is absent on an interval. RequireInt() must not treat this as 0.
+            return new FormulaResult(profile, FormulaStatus.Ok, "OK", double.NaN, min, max, true, GuardEvidence(evidence));
         }
 
         public static FormulaResult NotMeasured(FormulaProfile profile)
@@ -121,9 +132,24 @@ namespace Resonance.Battle
 
         public int RequireInt()
         {
+            return RequireInt(FormulaBoundsPolicy.Reject);
+        }
+
+        public int RequireInt(FormulaBoundsPolicy bounds)
+        {
             if (!Computed)
                 throw new InvalidOperationException(Code);
-            return (int)Math.Round(Value, MidpointRounding.AwayFromZero);
+            if (HasBounds)
+            {
+                if (bounds == FormulaBoundsPolicy.Min)
+                    return RoundInt(Min);
+                if (bounds == FormulaBoundsPolicy.Max)
+                    return RoundInt(Max);
+                if (bounds == FormulaBoundsPolicy.Midpoint)
+                    return RoundInt((Min + Max) * 0.5);
+                throw new InvalidOperationException(DamageMath.BoundsNeedPolicyCode);
+            }
+            return RoundInt(Value);
         }
 
         static FormulaEvidence GuardEvidence(FormulaEvidence evidence)
@@ -132,6 +158,11 @@ namespace Resonance.Battle
             if (evidence == FormulaEvidence.Measured)
                 throw new InvalidOperationException("No formula branch is measured against the GL original; tag as HistoricalCandidate or DesignPlaceholder.");
             return evidence;
+        }
+
+        static int RoundInt(double v)
+        {
+            return (int)Math.Round(v, MidpointRounding.AwayFromZero);
         }
 
         static bool IsFinite(double v)
