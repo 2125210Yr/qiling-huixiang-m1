@@ -1,0 +1,8 @@
+0|resolve|0|wave|enter|-1|0|-1|0|0|0|0|1|0
+0|resolve|1|opcode|status.apply|0|1|-1|0|0|4|0|1|0
+0|resolve|2|cast|status.apply|0|1|-1|0|0|4|0|1|0
+0|resolve|3|opcode|status.apply|-1|0|0|1|0|4|0|1|0
+0|resolve|4|opcode|status.apply|-1|0|1|1|0|4|0|1|0
+0|resolve|5|opcode|status.apply|-1|0|2|1|0|4|0|1|0
+0|resolve|6|opcode|status.apply|-1|0|3|1|0|4|0|1|0
+0|resolve|7|opcode|status.apply|-1|0|4|1|0|4|0|1|0

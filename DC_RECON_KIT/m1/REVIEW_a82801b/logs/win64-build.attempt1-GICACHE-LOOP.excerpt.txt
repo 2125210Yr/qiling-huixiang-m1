@@ -1,0 +1,106 @@
+# C4 Win64 build attempt 1 �� 2026-09-16 13:20:31..14:09 +08 �� killed by operator (own process 56184) after 49 min in GICache CreateDirectory loop
+# full log: win64-build.attempt1-GICACHE-LOOP.log.zip (118682127 bytes raw, 885008 lines, 'GICache' lines=73749)
+# cause: junction C:\Users\Administrator\AppData\LocalLow\Unity -> f:\��ɽ���԰��Ŀ¼\����\Unity\Unity����(��Ϸ)����\10020\Unity\  target missing (f:\��ɽ���԰��Ŀ¼\����\Unity does not exist)
+
+--- first 80 lines ---
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.3/staging' branch; Version is '6000.3.23f1 (09d2ecc7fb28) revision 643820'; Using compiler version '194234433'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26200) Professional' Language: 'zh' Physical Memory: 32581 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+System  architecture: x64
+Process architecture: x64
+Date: 2026-09-16T05:39:13Z
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Administrator" at "2026-09-16T05:39:13.9368939Z"
+
+COMMAND LINE ARGUMENTS:
+D:\Unity\Hub\Editor\6000.3.23f1\Editor\Unity.exe
+-batchMode
+-nographics
+-projectPath
+F:\天命之子\client
+-executeMethod
+Resonance.EditorTools.WindowsBuild.BuildAndExit
+-logFile
+F:\天命之子\DC_RECON_KIT\m1\REVIEW_a82801b\logs\win64-build.log
+Successfully changed project path to: F:\天命之子\client
+F:/天命之子/client
+<<line of 30624977 chars, mostly NUL bytes (log file sparse gap) �� omitted>>
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.BuildPipeline:BuildPlayerInternalNoCheck (string[],string,string,UnityEditor.BuildTargetGroup,UnityEditor.BuildTarget,int,UnityEditor.BuildOptions,string[],bool)
+UnityEditor.BuildPipeline:BuildPlayerInternal (string[],string,string,UnityEditor.BuildTargetGroup,UnityEditor.BuildTarget,int,UnityEditor.BuildOptions,string[])
+UnityEditor.BuildPipeline:BuildPlayer (string[],string,string,UnityEditor.BuildTargetGroup,UnityEditor.BuildTarget,int,UnityEditor.BuildOptions,string[])
+UnityEditor.BuildPipeline:BuildPlayer (UnityEditor.BuildPlayerOptions)
+Resonance.EditorTools.WindowsBuild:Build () (at Assets/Editor/Build/WindowsBuild.cs:30)
+Resonance.EditorTools.WindowsBuild:BuildAndExit () (at Assets/Editor/Build/WindowsBuild.cs:73)
+
+[Assets/Editor/Build/WindowsBuild.cs line 30]
+
+CreateDirectory 'C:/Users/Administrator/AppData/LocalLow/Unity/Caches' failed: 系统找不到指定的路径�?
+ (current dir: F:/天命之子/client)
+Failed to create GICache directory at the default location: C:/Users/Administrator/AppData/LocalLow/Unity/Caches/GiCache.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.BuildPipeline:BuildPlayerInternalNoCheck (string[],string,string,UnityEditor.BuildTargetGroup,UnityEditor.BuildTarget,int,UnityEditor.BuildOptions,string[],bool)
+UnityEditor.BuildPipeline:BuildPlayerInternal (string[],string,string,UnityEditor.BuildTargetGroup,UnityEditor.BuildTarget,int,UnityEditor.BuildOptions,string[])
+UnityEditor.BuildPipeline:BuildPlayer (string[],string,string,UnityEditor.BuildTargetGroup,UnityEditor.BuildTarget,int,UnityEditor.BuildOptions,string[])
+UnityEditor.BuildPipeline:BuildPlayer (UnityEditor.BuildPlayerOptions)
+Resonance.EditorTools.WindowsBuild:Build () (at Assets/Editor/Build/WindowsBuild.cs:30)
+Resonance.EditorTools.WindowsBuild:BuildAndExit () (at Assets/Editor/Build/WindowsBuild.cs:73)
+
+[Assets/Editor/Build/WindowsBuild.cs line 30]
+
+CreateDirectory 'C:/Users/Administrator/AppData/LocalLow/Unity/Caches' failed: 系统找不到指定的路径�?
+ (current dir: F:/天命之子/client)
+Failed to create GICache directory at the default location: C:/Users/Administrator/AppData/LocalLow/Unity/Caches/GiCache.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.BuildPipeline:BuildPlayerInternalNoCheck (string[],string,string,UnityEditor.BuildTargetGroup,UnityEditor.BuildTarget,int,UnityEditor.BuildOptions,string[],bool)
+UnityEditor.BuildPipeline:BuildPlayerInternal (string[],string,string,UnityEditor.BuildTargetGroup,UnityEditor.BuildTarget,int,UnityEditor.BuildOptions,string[])
+UnityEditor.BuildPipeline:BuildPlayer (string[],string,string,UnityEditor.BuildTargetGroup,UnityEditor.BuildTarget,int,UnityEditor.BuildOptions,string[])
+UnityEditor.BuildPipeline:BuildPlayer (UnityEditor.BuildPlayerOptions)
+Resonance.EditorTools.WindowsBuild:Build () (at Assets/Editor/Build/WindowsBuild.cs:30)
+Resonance.EditorTools.WindowsBuild:BuildAndExit () (at Assets/Editor/Build/WindowsBuild.cs:73)
+
+[Assets/Editor/Build/WindowsBuild.cs line 30]
+
+CreateDirectory 'C:/Users/Administrator/AppData/LocalLow/Unity/Caches' failed: 系统找不到指定的路径�?
+ (current dir: F:/天命之子/client)
+Failed to create GICache directory at the default location: C:/Users/Administrator/AppData/LocalLow/Unity/Caches/GiCache.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.BuildPipeline:BuildPlayerInternalNoCheck (string[],string,string,UnityEditor.BuildTargetGroup,UnityEditor.BuildTarget,int,UnityEditor.BuildOptions,string[],bool)
+UnityEditor.BuildPipeline:BuildPlayerInternal (string[],string,string,UnityEditor.BuildTargetGroup,UnityEditor.BuildTarget,int,UnityEditor.BuildOptions,string[])
+UnityEditor.BuildPipeline:BuildPlayer (string[],string,string,UnityEditor.BuildTargetGroup,UnityEditor.BuildTarget,int,UnityEditor.BuildOptions,string[])
+UnityEditor.BuildPipeline:BuildPlayer (UnityEditor.BuildPlayerOptions)
+Resonance.EditorTools.WindowsBuild:Build () (at Assets/Editor/Build/WindowsBuild.cs:30)
+Resonance.EditorTools.WindowsBuild:BuildAndExit () (at Assets/Editor/Build/WindowsBuild.cs:73)
+
+[Assets/Editor/Build/WindowsBuild.cs line 30]
+
+CreateDirectory 'C:/Users/Administrator/AppData/LocalLow/Unity/Caches' failed: 系统找不到指定的路径�?
+ (current dir: F:/天命之子/client)
+Failed to create GICache directory at the default location: C:/Users/Administrator/AppData/LocalLow/Unity/Caches/GiCache.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+--- last 20 lines ---
+Resonance.EditorTools.WindowsBuild:BuildAndExit () (at Assets/Editor/Build/WindowsBuild.cs:73)
+
+[Assets/Editor/Build/WindowsBuild.cs line 30]
+
+CreateDirectory 'C:/Users/Administrator/AppData/LocalLow/Unity/Caches' failed: 系统找不到指定的路径�?
+ (current dir: F:/天命之子/client)
+Failed to create GICache directory at the default location: C:/Users/Administrator/AppData/LocalLow/Unity/Caches/GiCache.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.BuildPipeline:BuildPlayerInternalNoCheck (string[],string,string,UnityEditor.BuildTargetGroup,UnityEditor.BuildTarget,int,UnityEditor.BuildOptions,string[],bool)
+UnityEditor.BuildPipeline:BuildPlayerInternal (string[],string,string,UnityEditor.BuildTargetGroup,UnityEditor.BuildTarget,int,UnityEditor.BuildOptions,string[])
+UnityEditor.BuildPipeline:BuildPlayer (string[],string,string,UnityEditor.BuildTargetGroup,UnityEditor.BuildTarget,int,UnityEditor.BuildOptions,string[])
+UnityEditor.BuildPipeline:BuildPlayer (UnityEditor.BuildPlayerOptions)
+Resonance.EditorTools.WindowsBuild:Build () (at Assets/Editor/Build/WindowsBuild.cs:30)
+Resonance.EditorTools.WindowsBuild:BuildAndExit () (at Assets/Editor/Build/WindowsBuild.cs:73)
+
+[Assets/Editor/Build/WindowsBuild.cs line 30]
+
+CreateDirectory 'C:/Users/Administrator/AppData/LocalLow/Unity/Caches' failed: 系统找不到指定的路径�?
+ (current dir: F:/天命之子/client)

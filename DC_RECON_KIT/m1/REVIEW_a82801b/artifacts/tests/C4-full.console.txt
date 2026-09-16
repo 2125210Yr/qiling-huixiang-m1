@@ -1,0 +1,11 @@
+﻿  正在确定要还原的项目…
+  所有项目均是最新的，无法还原。
+  BattleSim.Tests -> F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll
+F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll (.NETCoreApp,Version=v6.0)的测试运行
+正在启动测试执行，请稍候...
+总共 1 个测试文件与指定模式相匹配。
+[xUnit.net 00:00:07.73]     Resonance.Tests.G2RecheckNaturalContractTests.N01_N02_N03_NaturalPlayContract_DocumentedNotFaked [SKIP]
+  已跳过 Resonance.Tests.G2RecheckNaturalContractTests.N01_N02_N03_NaturalPlayContract_DocumentedNotFaked [1 ms]
+结果文件: F:\天命之子\tools\BattleSim.Tests\TestResults\C4-full.trx
+
+已通过! - 失败:     0，通过:   271，已跳过:     1，总计:   272，持续时间: 6 s - BattleSim.Tests.dll (net6.0)

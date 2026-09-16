@@ -1,0 +1,43 @@
+battle_id=np-20260916T050211-002
+scenario=np.basic.v1
+regression=N01
+provenance=DESIGN_PLACEHOLDER
+schema=G2R14-NP-1
+stage=NP-BASIC
+seed=7035406
+outcome=InProgress
+drive=0
+fever=False
+feverEver=False
+auto=Manual
+speed=2
+wave=0
+event_count=8
+command_count=1
+pointer=UnityEngine.EventSystem
+os_touch=NOT_CLAIMED
+replay=replay.jsonl
+dataIdentity=0ccded9f7e07ca992178b993cc55a7cedf221d48fa5ce787c9d82fbe203e9922
+growth=C001:2553/1600+0|C007:3899/793+0|C010:2745/1028+0|C003:3283/1088+0|C005:2814/1075+0
+openingInputs=C001:lv=2;a=4;g0=EQ_WPN;g3=SC006;r=TSTEE|C007:lv=2;a=4;g1=EQ_ARM;r=TTEEE|C010:lv=2;a=4;g2=EQ_ACC;r=SSTEE|C003:lv=2;a=4;g3=SC006;r=TEEEE|C005:lv=2;a=4;g0=EQ_WPN;r=ESTEE#m=food=1.000;carta=1.000
+clock=8.000|14.000|70|7.000|2.000|1|1|1|1|1|1|1|1|0.200|5.000|1.470|0.700|2.000
+policy=schema=G2R14-NP-1;name=np.basic.v1;active=1;honor=1;gain=2;charge=1.25
+
+--- frozen RunHeader ---
+seed=7035406;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=2;forceNoCrit=0;stage=NP-BASIC;data=g2id1-c99b2d37d756087b199c7f5f9d7ecbd099de010140483cde37e8736584802cb9;party=C001,C007,C010,C003,C005
+
+--- frozen BattleInitialHeader ---
+seed=7035406;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=2;forceNoCrit=0;leader=0;stage=NP-BASIC;party=C001,C007,C010,C003,C005;growth=C001:2553/1600+0|C007:3899/793+0|C010:2745/1028+0|C003:3283/1088+0|C005:2814/1075+0;openingInputs=C001:lv=2;a=4;g0=EQ_WPN;g3=SC006;r=TSTEE|C007:lv=2;a=4;g1=EQ_ARM;r=TTEEE|C010:lv=2;a=4;g2=EQ_ACC;r=SSTEE|C003:lv=2;a=4;g3=SC006;r=TEEEE|C005:lv=2;a=4;g0=EQ_WPN;r=ESTEE#m=food=1.000;carta=1.000;clock=8.000|14.000|70|7.000|2.000|1|1|1|1|1|1|1|1|0.200|5.000|1.470|0.700|2.000;data=0ccded9f7e07ca992178b993cc55a7cedf221d48fa5ce787c9d82fbe203e9922;content=g2id1-c99b2d37d756087b199c7f5f9d7ecbd099de010140483cde37e8736584802cb9;frozen=1
+
+--- CommandLog ---
+seq=1 tick=10 kind=Pause slot=0 source=Player accepted=True reason=None timing=Bad value=0
+
+--- Events ---
+0|resolve|0|wave|enter|-1|0|-1|0|0|0|0|1|0
+0|resolve|1|opcode|status.apply|0|1|-1|0|0|4|0|1|0
+0|resolve|2|cast|status.apply|0|1|-1|0|0|4|0|1|0
+0|resolve|3|opcode|status.apply|-1|0|0|1|0|4|0|1|0
+0|resolve|4|opcode|status.apply|-1|0|1|1|0|4|0|1|0
+0|resolve|5|opcode|status.apply|-1|0|2|1|0|4|0|1|0
+0|resolve|6|opcode|status.apply|-1|0|3|1|0|4|0|1|0
+0|resolve|7|opcode|status.apply|-1|0|4|1|0|4|0|1|0

@@ -1,0 +1,117 @@
+PASS
+historical_baseline=DC_RECON_KIT/m1/G2_REVIEW_20260913/artifacts/natural-play/run7
+historical_verdict=FAIL BattlePlay missing=Tap,Slide
+historical_note=run7 kept as FAIL; this session does not rewrite it to PASS
+pointer=UnityEngine.EventSystem
+os_touch=NOT_CLAIMED
+provenance=DESIGN_PLACEHOLDER
+schema=G2R14-NP-1
+plan=np.basic.v1
+session=np-20260916T085931
+battle_ids=np-20260916T085931-001,np-20260916T085931-002
+battle_1=np-20260916T085931-001 scenario=np.basic.v1 stage=NP-BASIC persisted=1 outcome=Victory digest=3c025de2494ba1ff99baf0d5a2634c257b8fb15868d3b763bc3ade7d3abb6f19 dir=F:\天命之子\client\captures\natural-play\battles\np-20260916T085931-001
+battle_2=np-20260916T085931-002 scenario=np.basic.v1 stage=NP-BASIC persisted=1 outcome=InProgress digest=f58b3caa68275aab3ca820e029b15a842998274d5bee526da38ea54088babd0b dir=F:\天命之子\client\captures\natural-play\battles\np-20260916T085931-002
+catalog=DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.basic.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok
+captures=np_01_battle.png,np_06_pause.png,np_07_speed.png,np_03_slide.png,np_02_tap.png,np_09_result.png,np_10_rematch.png,np_11_home.png
+screen=Home
+title=CLEAR!!
+drive=0 fever=False ever=False speed=2 auto=Manual outcome=InProgress wave=0
+
+phase	expected	observed	frame	ms
+VerificationCatalog	DESIGN_PLACEHOLDER before FIGHT	DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.basic.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok	1	0
+HomeVisible	screen=Home	screen=Home	2	6232
+TapToStage	tap 关卡	tapped GameRoot/Canvas/首页/关卡	3	6517
+StageVisible	screen=Stage	screen=Stage	7	6955
+TapStart	tap FIGHT	tapped GameRoot/Canvas/StageBoard/WavePreview/FIGHT	9	8049
+BattleVisible	screen=Battle hud=p0	screen=Battle hud=p0 wave=0	18	8174
+BattleId	unique battle_id + frozen BattleInitialHeader + RunHeader	id=np-20260916T085931-001 scenario=np.basic.v1 frozen=True header=seed=21262640;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=1;forceNoCrit=0;stage=NP-BASIC;data=g2id1-c99b2d37d756087b199c7f5f9d7ecbd099de010140483cde37e8736584802cb9;party=C001,C007,C010,C003,C005	19	8190
+TapPause	tap || PAUSE	tapped GameRoot/Canvas/|| PAUSE	21	8398
+PauseVisible	PauseBoard + Paused	PauseBoard Paused=true	33	8526
+Resume	tap CONTINUE	tapped GameRoot/Canvas/PauseBoard/CONTINUE	36	8661
+Resume	no PauseBoard + !Paused	resumed	52	8782
+SpeedToggle	tap >> X1 SPEED	tapped GameRoot/Canvas/>> X1 SPEED	54	8806
+SpeedToggle	Speed!=1	Speed=2	70	8930
+SlidePortrait	slideUp p0 dy>80	SlideCd=8	89	9329
+TapPortrait	tap p0	tapped GameRoot/Canvas/p0	218	11297
+TapSkill	p0 Tap Submit + Charge consumed	charge 100->48	221	11498
+BattlePlay	Tap+Slide via pointer before Drive remap	reached screen=Battle last=TAP  冰刃  直斩 drive=34 qte=-1 fever=False feverEver=False feverGauge=0 paused=False speed=2 auto=Manual wave=0 outcome=InProgress cmd=seq=5 tick=94 kind=Tap slot=0 source=Player accepted=True reason=None timing=Bad value=0	222	11827
+ResultVisible	screen=Result	screen=Result title=CLEAR!!	698	19920
+ResultVisible	ResultBoard interactable	board=True interactable=True	702	20132
+Rematch	tap NEXT	tapped GameRoot/Canvas/ResultBoard/NEXT	704	20657
+RematchBattle	screen=Battle hud=p0	screen=Battle hud=p0 wave=0	710	20794
+BattleId	unique battle_id + frozen BattleInitialHeader + RunHeader	id=np-20260916T085931-002 scenario=np.basic.v1 frozen=True header=seed=21275421;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=2;forceNoCrit=0;stage=NP-BASIC;data=g2id1-c99b2d37d756087b199c7f5f9d7ecbd099de010140483cde37e8736584802cb9;party=C001,C007,C010,C003,C005	711	20803
+ExitPause	tap || PAUSE	tapped GameRoot/Canvas/|| PAUSE	713	21209
+ExitPause	PauseBoard + Paused	PauseBoard Paused=true	718	21328
+ExitHome	tap HOME	tapped GameRoot/Canvas/PauseBoard/HOME	720	22111
+HomeReturn	screen=Home	screen=Home	725	22257
+
+--- inputs ---
+note natural-play start
+note historical_baseline=DC_RECON_KIT/m1/G2_REVIEW_20260913/artifacts/natural-play/run7 verdict=FAIL BattlePlay missing=Tap,Slide (kept; not rewritten)
+note pointer=UnityEngine.EventSystem os_touch=NOT_CLAIMED
+note plan mode=np.basic.v1 fights=1 provenance=DESIGN_PLACEHOLDER schema=G2R14-NP-1
+note catalog DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.basic.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok
+note ok VerificationCatalog DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.basic.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok
+note ok HomeVisible screen=Home
+frame=2 t=6.233 kind=tap pos=289,438 target=none after=battle=null screen=Stage
+note ok TapToStage tapped GameRoot/Canvas/首页/关卡
+note ok StageVisible screen=Stage
+frame=8 t=7.543 kind=tap pos=540,250 target=none after=screen=Battle last=第一波 drive=0 qte=-1 fever=False feverEver=False feverGauge=0 paused=False speed=1 auto=Manual wave=0 outcome=InProgress
+note ok TapStart tapped GameRoot/Canvas/StageBoard/WavePreview/FIGHT
+note ok BattleVisible screen=Battle hud=p0 wave=0
+note ok BattleId id=np-20260916T085931-001 scenario=np.basic.v1 frozen=True header=seed=21262640;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=1;forceNoCrit=0;stage=NP-BASIC;data=g2id1-c99b2d37d756087b199c7f5f9d7ecbd099de010140483cde37e8736584802cb9;party=C001,C007,C010,C003,C005
+note shot np_01_battle.png
+frame=20 t=8.340 kind=tap pos=97,1824 target=GameRoot/Canvas/|| PAUSE after=screen=Battle last=第一波 drive=0 qte=-1 fever=False feverEver=False feverGauge=0 paused=True speed=1 auto=Manual wave=0 outcome=InProgress cmd=seq=1 tick=18 kind=Pause slot=0 source=Player accepted=True reason=None timing=Bad value=0
+note ok TapPause tapped GameRoot/Canvas/|| PAUSE
+note ok PauseVisible PauseBoard Paused=true
+note shot np_06_pause.png
+frame=35 t=8.652 kind=tap pos=540,538 target=none after=screen=Battle last=第一波 drive=0 qte=-1 fever=False feverEver=False feverGauge=0 paused=False speed=1 auto=Manual wave=0 outcome=InProgress cmd=seq=2 tick=18 kind=Resume slot=0 source=Player accepted=True reason=None timing=Bad value=0
+note ok Resume tapped GameRoot/Canvas/PauseBoard/CONTINUE
+note ok Resume resumed
+frame=53 t=8.790 kind=tap pos=119,1747 target=GameRoot/Canvas/>> X1 SPEED after=screen=Battle last=第一波 drive=0 qte=-1 fever=False feverEver=False feverGauge=0 paused=False speed=2 auto=Manual wave=0 outcome=InProgress cmd=seq=3 tick=22 kind=SetSpeed slot=0 source=Player accepted=True reason=None timing=Bad value=2
+note ok SpeedToggle tapped GameRoot/Canvas/>> X1 SPEED
+note ok SpeedToggle Speed=2
+note shot np_07_speed.png
+frame=78 t=9.116 kind=slide pos=119,307 target=GameRoot/Canvas/p0 after=screen=Battle last=SLIDE  冰刃  裂空 drive=14 qte=-1 fever=False feverEver=False feverGauge=0 paused=False speed=2 auto=Manual wave=0 outcome=InProgress cmd=seq=4 tick=31 kind=Slide slot=0 source=Player accepted=True reason=None timing=Bad value=0
+note ok SlidePortrait SlideCd=8
+note shot np_03_slide.png
+frame=217 t=11.198 kind=tap pos=119,307 target=GameRoot/Canvas/p0 after=screen=Battle last=TAP  冰刃  直斩 drive=30 qte=-1 fever=False feverEver=False feverGauge=0 paused=False speed=2 auto=Manual wave=0 outcome=InProgress cmd=seq=5 tick=94 kind=Tap slot=0 source=Player accepted=True reason=None timing=Bad value=0
+note ok TapPortrait tapped GameRoot/Canvas/p0
+note ok TapSkill charge 100->48
+note shot np_02_tap.png
+note ok BattlePlay reached screen=Battle last=TAP  冰刃  直斩 drive=34 qte=-1 fever=False feverEver=False feverGauge=0 paused=False speed=2 auto=Manual wave=0 outcome=InProgress cmd=seq=5 tick=94 kind=Tap slot=0 source=Player accepted=True reason=None timing=Bad value=0
+note ok ResultVisible screen=Result title=CLEAR!!
+note persist np-20260916T085931-001 why=pre-next status=F:\天命之子\client\captures\natural-play\battles\np-20260916T085931-001 outcome=Victory digest=3c025de2494ba1ff99baf0d5a2634c257b8fb15868d3b763bc3ade7d3abb6f19 replay=F:\天命之子\client\captures\natural-play\battles\np-20260916T085931-001\replay.jsonl
+frame=698 t=19.921 kind=tap pos=540,960 target=none after=screen=Result last=胜利 drive=98 qte=-1 fever=False feverEver=False feverGauge=0 paused=False speed=2 auto=Manual wave=1 outcome=Victory cmd=seq=5 tick=94 kind=Tap slot=0 source=Player accepted=True reason=None timing=Bad value=0
+frame=700 t=20.065 kind=tap pos=540,960 target=GameRoot/Canvas/vfxStageClear/veil after=screen=Result last=胜利 drive=98 qte=-1 fever=False feverEver=False feverGauge=0 paused=False speed=2 auto=Manual wave=1 outcome=Victory cmd=seq=5 tick=94 kind=Tap slot=0 source=Player accepted=True reason=None timing=Bad value=0
+note ok ResultVisible board=True interactable=True
+note shot np_09_result.png
+frame=703 t=20.330 kind=tap pos=756,576 target=none after=screen=Battle last=第一波 drive=0 qte=-1 fever=False feverEver=False feverGauge=0 paused=False speed=2 auto=Manual wave=0 outcome=InProgress
+note ok Rematch tapped GameRoot/Canvas/ResultBoard/NEXT
+note ok RematchBattle screen=Battle hud=p0 wave=0
+note ok BattleId id=np-20260916T085931-002 scenario=np.basic.v1 frozen=True header=seed=21275421;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=2;forceNoCrit=0;stage=NP-BASIC;data=g2id1-c99b2d37d756087b199c7f5f9d7ecbd099de010140483cde37e8736584802cb9;party=C001,C007,C010,C003,C005
+note shot np_10_rematch.png
+note persist np-20260916T085931-002 why=rematch-enter status=F:\天命之子\client\captures\natural-play\battles\np-20260916T085931-002 outcome=InProgress digest=451d48a5167016ed5b4cdc0c2b0be2b66f00941acafc61665debd8d7aa76c322 replay=F:\天命之子\client\captures\natural-play\battles\np-20260916T085931-002\replay.jsonl
+frame=712 t=21.177 kind=tap pos=97,1824 target=GameRoot/Canvas/|| PAUSE after=screen=Battle last=第一波 drive=0 qte=-1 fever=False feverEver=False feverGauge=0 paused=True speed=2 auto=Manual wave=0 outcome=InProgress cmd=seq=1 tick=24 kind=Pause slot=0 source=Player accepted=True reason=None timing=Bad value=0
+note ok ExitPause tapped GameRoot/Canvas/|| PAUSE
+note ok ExitPause PauseBoard Paused=true
+note persist np-20260916T085931-002 why=pre-home status=F:\天命之子\client\captures\natural-play\battles\np-20260916T085931-002 outcome=InProgress digest=f58b3caa68275aab3ca820e029b15a842998274d5bee526da38ea54088babd0b replay=F:\天命之子\client\captures\natural-play\battles\np-20260916T085931-002\replay.jsonl
+frame=719 t=21.339 kind=tap pos=238,538 target=none after=screen=Home last=第一波 drive=0 qte=-1 fever=False feverEver=False feverGauge=0 paused=True speed=2 auto=Manual wave=0 outcome=InProgress cmd=seq=1 tick=24 kind=Pause slot=0 source=Player accepted=True reason=None timing=Bad value=0
+note ok ExitHome tapped GameRoot/Canvas/PauseBoard/HOME
+note ok HomeReturn screen=Home
+note shot np_11_home.png
+note persist np-20260916T085931-002 why=quit status=F:\天命之子\client\captures\natural-play\battles\np-20260916T085931-002 outcome=InProgress digest=f58b3caa68275aab3ca820e029b15a842998274d5bee526da38ea54088babd0b replay=F:\天命之子\client\captures\natural-play\battles\np-20260916T085931-002\replay.jsonl
+
+--- frozen battle headers (authoritative) ---
+np-20260916T085931-001	seed=21262640;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=1;forceNoCrit=0;stage=NP-BASIC;data=g2id1-c99b2d37d756087b199c7f5f9d7ecbd099de010140483cde37e8736584802cb9;party=C001,C007,C010,C003,C005
+np-20260916T085931-002	seed=21275421;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=2;forceNoCrit=0;stage=NP-BASIC;data=g2id1-c99b2d37d756087b199c7f5f9d7ecbd099de010140483cde37e8736584802cb9;party=C001,C007,C010,C003,C005
+
+--- live RunHeader (current GameRoot.Battle; may be fight 2) ---
+seed=21275421;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=2;forceNoCrit=0;stage=NP-BASIC;data=g2id1-739d8b44874327aba5cc7bbf1de521bdd7e524983b1452f749fcacbf4d40f054;party=C001,C007,C010,C003,C005
+
+--- live CommandLog (current GameRoot.Battle; per-fight files are authoritative) ---
+seq=1 tick=24 kind=Pause slot=0 source=Player accepted=True reason=None timing=Bad value=0
+
+--- reflection (read-only) ---
+BattleSim.CommandLog (public, read-only)
+BattleSim.RunHeader() (read-only)

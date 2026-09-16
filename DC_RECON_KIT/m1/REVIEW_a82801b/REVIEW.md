@@ -1,5 +1,7 @@
 # a82801b 固定提交复审：G2 路 A
 
+> 本文件是来件复审（对 `a82801b` 判 NEEDS_FIX）。C 批落地结果不改写上文判定，见 `artifacts/CURRENT_STATE.md`（冻结 HEAD `3d2d1e6`）。
+
 审查日期：2026-09-16  
 仓库：2125210Yr/qiling-huixiang-m1  
 分支：m1-gt6-review  

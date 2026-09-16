@@ -18,10 +18,10 @@ Keep: strict Unplayable gate, named substitutes, instance `ActiveStage`, existin
 | task_id | Sole writer of | Must not write |
 |---|---|---|
 | C-C1 | **closed as executed** `f7184820` — `CloneEffects` → `Catalog.CloneEffect`; `G2C1CloneTargetTests` 2/2 (red 0/2 on old copy); A53+B1 26/26. Patch `patches/C1-CLONE.md` | do not respawn |
-| C-C2 | **closed as executed** `689c42ef` — core tick-budget holds (slide 1.47s / drive 0.70s non-QTE / wave 2.00s, DESIGN_PLACEHOLDER), `HoldSim` setter internal, HUD/WavePreview read `HoldLeftSec`, `GameRoot.TryFocusEnemy` → `Submit(FocusEnemy, Player)`; `G2C2*` 7/7; neighbours 97/1 skip. Patch `patches/C2-HOLD-FOCUS.md`. **Coordinator pending:** `ClockKey` += 3 hold fields in `BattleReplay.cs` after C3 lease closes | do not respawn |
+| C-C2 | **closed as executed** `689c42ef` — core tick-budget holds (slide 1.47s / drive 0.70s non-QTE / wave 2.00s, DESIGN_PLACEHOLDER), `HoldSim` setter internal, HUD/WavePreview read `HoldLeftSec`, `GameRoot.TryFocusEnemy` → `Submit(FocusEnemy, Player)`; `G2C2*` 7/7; neighbours 97/1 skip. Patch `patches/C2-HOLD-FOCUS.md`. ClockKey hunk later applied in `C-MERGE`. | do not respawn |
 | C-C3 | **closed as executed** `a31c3745` — Capture copies `OpeningGrowthInput`/`OpeningMods`; JSON `openingProgress` (`;r=` Reserve, `;sk=`), `openingMods`, `openingSource` (`input`/`legacy-recovered`/`incomplete`), `openingInputsIdentity`; factory passes recorded mods; `G2C3` 2/2; B1/A53/replay 39/39. Patch `patches/C3-OPENING.md` | do not respawn |
-| coordinator | **done** — `ClockKey` += 3 hold fields; 3 pre-C2 tests updated to drain policy hold. Full unfiltered: 271/0/1 skip. Patch `patches/C-MERGE.md`. **Tree frozen at the C-merge commit.** | — |
-| C-C4 | on the frozen commit: Unity natural play basic/fever/auto, unfiltered TRX, readback (new tapes Match=True, legacy stays FAIL), build, recording, `artifacts/**` | any source file under `client/Assets/Scripts` or `tools/BattleSim.Tests` |
+| coordinator | **done** — `ClockKey` += 3 hold fields; 3 pre-C2 tests updated to drain policy hold. Full unfiltered: 271/0/1 skip. Patch `patches/C-MERGE.md`. **Tree frozen at `3d2d1e6`** (Land C1-C3). | — |
+| C-C4 | **closed as executed** `e35f8c5e` + coordinator follow-up. TRX 271/0/1; first-session readbacks Match=True; legacy FAIL kept. Win64 **PASS** after GICache dir recreate + clean rebuild (`BUILD_HASHES.txt`). First recording unfinalized; playable re-run `recordings/np-continuous-20260916T085721.mp4` (451.97s). Do not respawn. | do not edit `client/Assets/Scripts` or `tools/BattleSim.Tests` |
 
 Shared test fixtures (`G2ReviewFixtures.cs`, `G2RecheckFixtures.cs`, existing test files) are read-only in this batch. Add new test files only.
 

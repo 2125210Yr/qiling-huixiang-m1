@@ -1,0 +1,42 @@
+battle_id=np-20260914T183818-002
+scenario=np.fever.v1
+regression=N02
+provenance=DESIGN_PLACEHOLDER
+schema=G2R14-NP-1
+stage=NP-FEVER
+seed=108968781
+outcome=InProgress
+drive=0
+fever=False
+feverEver=False
+auto=Manual
+speed=1
+wave=0
+event_count=8
+command_count=1
+pointer=UnityEngine.EventSystem
+os_touch=NOT_CLAIMED
+replay=replay.jsonl
+dataIdentity=80f0ecf7b328c5eeeb993bac43d1c2c5c2e70f4ac23a68820cd1b7c60aa11680
+growth=C001:2553/1600+0|C007:3899/793+0|C010:2745/1028+0|C003:3283/1088+0|C005:2814/1075+0
+clock=8.000|14.000|70|7.000|2.000|1|1|1|1|1|1|1|1|0.200|5.000
+policy=schema=G2R14-NP-1;name=np.fever.v1;active=1;honor=1;gain=2;charge=1.25
+
+--- frozen RunHeader ---
+seed=108968781;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=1;forceNoCrit=0;stage=NP-FEVER;data=g2id1-b078632c5f28a3727180f69f48398c62aad1a435fbf9a2ddebf731e382227388;party=C001,C007,C010,C003,C005
+
+--- frozen BattleInitialHeader ---
+seed=108968781;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=1;forceNoCrit=0;leader=0;stage=NP-FEVER;party=C001,C007,C010,C003,C005;growth=C001:2553/1600+0|C007:3899/793+0|C010:2745/1028+0|C003:3283/1088+0|C005:2814/1075+0;clock=8.000|14.000|70|7.000|2.000|1|1|1|1|1|1|1|1|0.200|5.000;data=80f0ecf7b328c5eeeb993bac43d1c2c5c2e70f4ac23a68820cd1b7c60aa11680;content=g2id1-b078632c5f28a3727180f69f48398c62aad1a435fbf9a2ddebf731e382227388;frozen=1
+
+--- CommandLog ---
+seq=1 tick=9 kind=Pause slot=0 source=Player accepted=True reason=None timing=Bad value=0
+
+--- Events ---
+0|resolve|0|wave|enter|-1|0|-1|0|0|0|0|1|0
+0|resolve|1|opcode|status.apply|0|1|-1|0|0|4|0|1|0
+0|resolve|2|cast|status.apply|0|1|-1|0|0|4|0|1|0
+0|resolve|3|opcode|status.apply|-1|0|0|1|0|4|0|1|0
+0|resolve|4|opcode|status.apply|-1|0|1|1|0|4|0|1|0
+0|resolve|5|opcode|status.apply|-1|0|2|1|0|4|0|1|0
+0|resolve|6|opcode|status.apply|-1|0|3|1|0|4|0|1|0
+0|resolve|7|opcode|status.apply|-1|0|4|1|0|4|0|1|0

@@ -1,0 +1,7 @@
+HEAD=3d2d1e67554251b77d05ad732dc06390a114de05
+scenario=np.auto.v1 stamp=20260916T090337
+Microsoft.PowerShell.Commands.Internal.Format.FormatStartData
+Microsoft.PowerShell.Commands.Internal.Format.GroupStartData
+Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData
+Microsoft.PowerShell.Commands.Internal.Format.GroupEndData
+Microsoft.PowerShell.Commands.Internal.Format.FormatEndData

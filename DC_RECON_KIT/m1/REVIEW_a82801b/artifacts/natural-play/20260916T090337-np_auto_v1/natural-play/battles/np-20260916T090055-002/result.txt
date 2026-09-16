@@ -1,0 +1,43 @@
+battle_id=np-20260916T090055-002
+scenario=np.fever.v1
+regression=N02
+provenance=DESIGN_PLACEHOLDER
+schema=G2R14-NP-1
+stage=NP-FEVER
+seed=21493109
+outcome=InProgress
+drive=0
+fever=False
+feverEver=False
+auto=Manual
+speed=1
+wave=0
+event_count=8
+command_count=1
+pointer=UnityEngine.EventSystem
+os_touch=NOT_CLAIMED
+replay=replay.jsonl
+dataIdentity=0989e270c91cb44bcde507d9756a29b76dfac39bddcd97ca157906d158883204
+growth=C001:2460/1550+0|C007:3760/760+0|C010:2640/990+0|C003:3160/1050+0|C005:2700/1040+0
+openingInputs=C001:lv=1;g0=EQ_WPN;g3=SC006;r=TSTEE|C007:lv=1;g1=EQ_ARM;r=TTEEE|C010:lv=1;g2=EQ_ACC;r=SSTEE|C003:lv=1;g3=SC006;r=TEEEE|C005:lv=1;g0=EQ_WPN;r=ESTEE#m=food=1.000;carta=1.000
+clock=8.000|14.000|70|7.000|2.000|1|1|1|1|1|1|1|1|0.200|5.000|1.470|0.700|2.000
+policy=schema=G2R14-NP-1;name=np.fever.v1;active=1;honor=1;gain=2;charge=1.25
+
+--- frozen RunHeader ---
+seed=21493109;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=1;forceNoCrit=0;stage=NP-FEVER;data=g2id1-869625c6622a11efdacdd9172cb2226768752ec8d0cdc7c7acd2cfef0123b904;party=C001,C007,C010,C003,C005
+
+--- frozen BattleInitialHeader ---
+seed=21493109;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=1;forceNoCrit=0;leader=0;stage=NP-FEVER;party=C001,C007,C010,C003,C005;growth=C001:2460/1550+0|C007:3760/760+0|C010:2640/990+0|C003:3160/1050+0|C005:2700/1040+0;openingInputs=C001:lv=1;g0=EQ_WPN;g3=SC006;r=TSTEE|C007:lv=1;g1=EQ_ARM;r=TTEEE|C010:lv=1;g2=EQ_ACC;r=SSTEE|C003:lv=1;g3=SC006;r=TEEEE|C005:lv=1;g0=EQ_WPN;r=ESTEE#m=food=1.000;carta=1.000;clock=8.000|14.000|70|7.000|2.000|1|1|1|1|1|1|1|1|0.200|5.000|1.470|0.700|2.000;data=0989e270c91cb44bcde507d9756a29b76dfac39bddcd97ca157906d158883204;content=g2id1-869625c6622a11efdacdd9172cb2226768752ec8d0cdc7c7acd2cfef0123b904;frozen=1
+
+--- CommandLog ---
+seq=1 tick=17 kind=Pause slot=0 source=Player accepted=True reason=None timing=Bad value=0
+
+--- Events ---
+0|resolve|0|wave|enter|-1|0|-1|0|0|0|0|1|0
+0|resolve|1|opcode|status.apply|0|1|-1|0|0|4|0|1|0
+0|resolve|2|cast|status.apply|0|1|-1|0|0|4|0|1|0
+0|resolve|3|opcode|status.apply|-1|0|0|1|0|4|0|1|0
+0|resolve|4|opcode|status.apply|-1|0|1|1|0|4|0|1|0
+0|resolve|5|opcode|status.apply|-1|0|2|1|0|4|0|1|0
+0|resolve|6|opcode|status.apply|-1|0|3|1|0|4|0|1|0
+0|resolve|7|opcode|status.apply|-1|0|4|1|0|4|0|1|0

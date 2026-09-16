@@ -1,0 +1,22 @@
+﻿C-C4 helper (REVIEW_a82801b)  scenario=np.fever.v1  Run=True  Record=False
+Kit:    F:\天命之子\DC_RECON_KIT\m1\REVIEW_a82801b
+Unity:  D:\Unity\Hub\Editor\6000.3.23f1\Editor\Unity.exe  exists=True
+HEAD:   3d2d1e67554251b77d05ad732dc06390a114de05
+Command (no -batchmode / -nographics / -quit):
+  D:\Unity\Hub\Editor\6000.3.23f1\Editor\Unity.exe -projectPath F:\天命之子\client -natural-play -natural-scenario np.fever.v1 -executeMethod Resonance.EditorTools.NaturalPlaySmoke.CliFever -logFile F:\天命之子\DC_RECON_KIT\m1\REVIEW_a82801b\logs\editor-np-fever-v1-20260916T090011.log
+Result: F:\天命之子\client\captures\natural-play.result.txt
+Battles: F:\天命之子\client\captures\natural-play\battles\<id>\
+Archive: F:\天命之子\DC_RECON_KIT\m1\REVIEW_a82801b\artifacts\natural-play\20260916T090011-np_fever_v1
+Pointer: UnityEngine.EventSystem  historical run7 + 1b2ca8e tapes stay FAIL
+A2 bind StripDotFlame in VerificationCatalog.cs: True
+Launching Unity Play Mode (graphics required)...
+Unity exit=still-running
+Artifacts: F:\天命之子\DC_RECON_KIT\m1\REVIEW_a82801b\artifacts\natural-play\20260916T090011-np_fever_v1
+PASS
+historical_baseline=DC_RECON_KIT/m1/G2_REVIEW_20260913/artifacts/natural-play/run7
+historical_verdict=FAIL BattlePlay missing=Tap,Slide
+historical_note=run7 kept as FAIL; this session does not rewrite it to PASS
+pointer=UnityEngine.EventSystem
+os_touch=NOT_CLAIMED
+provenance=DESIGN_PLACEHOLDER
+schema=G2R14-NP-1

@@ -1,0 +1,31 @@
+HEAD=3d2d1e67554251b77d05ad732dc06390a114de05
+batch=C  task=C-C4  date=2026-09-16 +08
+unity=D:\Unity\Hub\Editor\6000.3.23f1\Editor\Unity.exe 6000.3.23f1
+
+# attempt 1 (C-C4) BLOCKED — GICache junction target missing. Log: logs/win64-build.attempt1-GICACHE-LOOP.log.zip
+# attempt 2 (coordinator) GICache dir recreated; incremental Build Successful but exe mtime still 2026-09-14 — discarded
+# attempt 3 (coordinator) clean delete Builds/Win64 then rebuild — PASS. Log: logs/win64-build.clean.log
+
+player_build=PASS
+command=deleted client/Builds/Win64 then Unity -batchMode -nographics -projectPath F:\天命之子\client -executeMethod Resonance.EditorTools.WindowsBuild.BuildAndExit -logFile DC_RECON_KIT/m1/REVIEW_a82801b/logs/win64-build.clean.log
+GICache_fix=recreated f:\金山毒霸搬家目录\软件\Unity\Unity引擎(游戏)数据\10020\Unity\Caches
+Temp/win.build.result.txt=MISSING after EditorApplication.Exit; log has "Build Successful" and WIN path
+dist/windows=NOT_HASHED
+
+client/Builds/Win64/Resonance.exe
+  bytes=667136
+  mtime=2026-09-16T16:52:37.4977709+08:00
+  sha256=82EFD5A8C297A5046F6BB72C240DAB8972E64003851935EBA0A46AD121CE0305
+  note=Unity player stub; same SHA as 1b2ca8e engine wrapper. Scripts identified by managed DLLs below.
+
+client/Builds/Win64/Resonance_Data/Managed/Resonance.App.dll
+  bytes=771072
+  mtime=2026-09-16T16:52:38.3716138+08:00
+  sha256=42DABD5AA0CD3D5441247A50957BD507BFC55986FCD30829A9189F241C220D39
+
+client/Builds/Win64/Resonance_Data/Managed/Resonance.Battle.dll
+  bytes=225792
+  mtime=2026-09-16T16:52:38.3331242+08:00
+  sha256=353240ABC188842C3CD266146F45D1AF9D7C996FD73214EBEAF61DEBDD9A6CF1
+
+exit_code=0
