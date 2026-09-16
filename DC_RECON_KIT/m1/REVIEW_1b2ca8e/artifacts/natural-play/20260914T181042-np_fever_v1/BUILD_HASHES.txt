@@ -1,0 +1,7 @@
+HEAD=1b2ca8e4ff56d9f0986e158fc97b50498f735cb3
+scenario=np.fever.v1 stamp=20260914T181042
+Microsoft.PowerShell.Commands.Internal.Format.FormatStartData
+Microsoft.PowerShell.Commands.Internal.Format.GroupStartData
+Microsoft.PowerShell.Commands.Internal.Format.FormatEntryData
+Microsoft.PowerShell.Commands.Internal.Format.GroupEndData
+Microsoft.PowerShell.Commands.Internal.Format.FormatEndData

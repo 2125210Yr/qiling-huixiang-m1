@@ -348,6 +348,9 @@ namespace Resonance.Battle
         static FieldInfo _skillOverlayField;
         static FieldInfo _effectOverlayField;
         static bool _overlayReflectReady;
+        static PropertyInfo _activeStageProp;
+        static FieldInfo _stageField;
+        static bool _stageReflectReady;
 
         public static string Fingerprint()
         {
@@ -355,8 +358,8 @@ namespace Resonance.Battle
         }
 
         /// <summary>
-        /// Catalog + selected stage + grown ally Def/ExtraAtk + overlays + bound policy.
-        /// Does not include live HP or Speed/Auto.
+        /// Catalog + the sim's actual StageDef (else FindStage) + grown ally Def/ExtraAtk + overlays + bound policy.
+        /// Does not include live HP or Speed/Auto. ContentFingerprint stays catalog-global.
         /// </summary>
         public static string Compute(BattleSim sim, string[] partyIds, string stageId)
         {
@@ -396,7 +399,7 @@ namespace Resonance.Battle
                 for (int i = 0; i < sim.Allies.Length; i++)
                     AppendGrownAlly(sb, sim.Allies[i], i);
             }
-            var stage = FindStage(stageId);
+            var stage = ResolveSelectedStage(sim, stageId);
             if (stage != null) AppendStage(sb, "sel", stage);
             AppendBoundPolicy(sb);
             AppendOverlaySkills(sb, skillOverlay);
@@ -429,6 +432,22 @@ namespace Resonance.Battle
             skillOverlay = ReadOverlayMap<SkillDef>(sim, _skillOverlayProp, _skillOverlayField);
             effectOverlay = ReadOverlayMap<EffectDef>(sim, _effectOverlayProp, _effectOverlayField);
             return skillOverlay != null || effectOverlay != null;
+        }
+
+        /// <summary>
+        /// QA hook: the StageDef this sim actually runs (TimeLeft/waves).
+        /// Prefers public <c>ActiveStage</c> (patches/A3-STAGE.md); otherwise reads private <c>_stage</c>.
+        /// </summary>
+        public static bool TryReadSimStage(BattleSim sim, out StageDef stage)
+        {
+            stage = null;
+            if (sim == null) return false;
+            EnsureStageReflect();
+            if (_activeStageProp != null && _activeStageProp.CanRead)
+                stage = _activeStageProp.GetValue(sim, null) as StageDef;
+            if (stage == null && _stageField != null)
+                stage = _stageField.GetValue(sim) as StageDef;
+            return stage != null;
         }
 
         public static string CanonicalCatalog()
@@ -474,6 +493,24 @@ namespace Resonance.Battle
             var found = FindIn(Catalog.Stages, id);
             if (found != null) return found;
             return FindIn(Catalog.HardStages, id);
+        }
+
+        static StageDef ResolveSelectedStage(BattleSim sim, string stageId)
+        {
+            StageDef instance;
+            if (TryReadSimStage(sim, out instance) && instance != null)
+                return instance;
+            return FindStage(stageId);
+        }
+
+        static void EnsureStageReflect()
+        {
+            if (_stageReflectReady) return;
+            var t = typeof(BattleSim);
+            const BindingFlags flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+            _activeStageProp = t.GetProperty("ActiveStage", flags);
+            _stageField = t.GetField("_stage", flags);
+            _stageReflectReady = true;
         }
 
         static StageDef FindIn(StageDef[] table, string id)
@@ -946,6 +983,11 @@ namespace Resonance.Battle
         public string ContentFingerprint;
         public bool HeaderFrozen;
         public BattleInitialHeader Initial;
+        /// <summary>
+        /// Opening <see cref="UnitProgress"/> copied at Capture, or recovered from
+        /// <see cref="BattleInitialHeader.GrowthIdentity"/>. Null on historical tapes.
+        /// </summary>
+        public UnitProgress[] OpeningProgress;
         public readonly List<CommandRecord> Commands = new List<CommandRecord>(64);
         public BattleStateDigest FinalDigest;
         public readonly List<EventSummary> EventSummaries = new List<EventSummary>(256);
@@ -968,6 +1010,7 @@ namespace Resonance.Battle
             rec.DataIdentity = initial.DataIdentity;
             rec.ContentFingerprint = initial.ContentFingerprint;
             rec.HeaderFrozen = initial.FrozenAtStart;
+            rec.OpeningProgress = OpeningGrowth.FromSim(sim, rec.PartyIds);
             if (sim.CommandLog != null)
             {
                 for (int i = 0; i < sim.CommandLog.Count; i++)
@@ -1005,6 +1048,7 @@ namespace Resonance.Battle
             J(sb, "forceNoCrit", Initial != null && Initial.ForceNoCrit);
             J(sb, "clockIdentity", Initial != null ? Initial.ClockIdentity : "");
             J(sb, "growthIdentity", Initial != null ? Initial.GrowthIdentity : "");
+            J(sb, "openingProgress", OpeningGrowth.Format(OpeningProgress));
             sb.Append(",\"partyIds\":[");
             var ids = PartyIds ?? new string[0];
             for (int i = 0; i < ids.Length; i++)
@@ -1164,6 +1208,7 @@ namespace Resonance.Battle
             rec.Initial.ForceNoCrit = map.GetBool("forceNoCrit");
             rec.Initial.ClockIdentity = map.Get("clockIdentity", rec.Initial.ClockIdentity ?? "");
             rec.Initial.GrowthIdentity = map.Get("growthIdentity", rec.Initial.GrowthIdentity ?? "");
+            rec.OpeningProgress = OpeningGrowth.Parse(map.Get("openingProgress", ""));
         }
 
         static void ReadDigestScalars(BattleStateDigest d, JsonMap map)
@@ -1335,6 +1380,597 @@ namespace Resonance.Battle
                 && Enum.IsDefined(typeof(T), n))
                 return (T)(object)n;
             return fallback;
+        }
+    }
+
+    /// <summary>
+    /// Rebuild opening <see cref="UnitProgress"/> so a factory can open the same
+    /// grown party the tape recorded. Does not write live HP/Drive/Charge/Fever.
+    /// Prefer an explicit array, then <see cref="BattleRunRecord.OpeningProgress"/>,
+    /// then a Growth.Apply search of <c>id:hp/atk+extra</c>.
+    /// </summary>
+    public static class OpeningGrowth
+    {
+        // Nested types first: Unity CS0246 if FiveStat/GearCombo are only declared
+        // after field use (Roslyn accepts the forward reference; Editor does not).
+        struct FiveStat : IEquatable<FiveStat>
+        {
+            public readonly int Hp, Atk, Def, Agl, Crt;
+            public FiveStat(int hp, int atk, int def, int agl, int crt)
+            {
+                Hp = hp;
+                Atk = atk;
+                Def = def;
+                Agl = agl;
+                Crt = crt;
+            }
+
+            public bool Equals(FiveStat other)
+            {
+                return Hp == other.Hp && Atk == other.Atk && Def == other.Def
+                    && Agl == other.Agl && Crt == other.Crt;
+            }
+
+            public override bool Equals(object obj)
+            {
+                return obj is FiveStat && Equals((FiveStat)obj);
+            }
+
+            public override int GetHashCode()
+            {
+                unchecked
+                {
+                    var h = Hp;
+                    h = (h * 397) ^ Atk;
+                    h = (h * 397) ^ Def;
+                    h = (h * 397) ^ Agl;
+                    h = (h * 397) ^ Crt;
+                    return h;
+                }
+            }
+        }
+
+        sealed class GearCombo
+        {
+            public string G0, G1, G2, G3;
+            public int Hp, Atk, Def, Agl, Crt, Slots;
+        }
+
+        static GearCombo[] _combos;
+        static Dictionary<long, List<GearCombo>> _byHpAtk;
+        static Dictionary<FiveStat, GearCombo> _byFive;
+
+        public static UnitProgress[] Recover(BattleRunRecord rec)
+        {
+            if (rec == null) return null;
+            if (HasRows(rec.OpeningProgress)) return Copy(rec.OpeningProgress);
+            var identity = rec.Initial != null ? rec.Initial.GrowthIdentity : null;
+            return FromIdentity(identity, rec.PartyIds);
+        }
+
+        public static UnitProgress[] FromSim(BattleSim sim, string[] partyIds)
+        {
+            var ids = partyIds ?? BattleRunRecord.IdsFromAllies(sim);
+            if (sim == null || sim.Allies == null) return FromIdentity(null, ids);
+            var n = sim.Allies.Length;
+            var rows = new UnitProgress[n];
+            for (int i = 0; i < n; i++)
+            {
+                var u = sim.Allies[i];
+                var id = ids != null && i < ids.Length && !string.IsNullOrEmpty(ids[i])
+                    ? ids[i]
+                    : (u != null && u.Def != null ? u.Def.Id : "");
+                if (u == null || u.Def == null)
+                {
+                    rows[i] = new UnitProgress { Id = id ?? "", Level = 1 };
+                    continue;
+                }
+                var found = Search(id, u.Def.Hp, u.Def.Atk, u.ExtraAtk, u.Def.Def, u.Def.Agl, u.Def.Crt, i);
+                rows[i] = found != null ? found : new UnitProgress { Id = id ?? "", Level = 1 };
+                if (found != null)
+                {
+                    rows[i].IgnCrt = InvertIgnAdd(u.IgnCrtAdd, Ignition.CrtPerRed);
+                    rows[i].IgnAgl = InvertIgnAdd(u.IgnAglAdd, Ignition.AglPerRed);
+                }
+            }
+            return rows;
+        }
+
+        public static UnitProgress[] FromIdentity(string growthIdentity, string[] partyIds)
+        {
+            var tokens = ParseIdentity(growthIdentity);
+            var n = tokens != null ? tokens.Length : (partyIds != null ? partyIds.Length : 0);
+            if (n <= 0) return null;
+            var rows = new UnitProgress[n];
+            for (int i = 0; i < n; i++)
+            {
+                var id = tokens != null && i < tokens.Length && !string.IsNullOrEmpty(tokens[i].Id)
+                    ? tokens[i].Id
+                    : (partyIds != null && i < partyIds.Length ? partyIds[i] : "");
+                if (tokens == null || i >= tokens.Length)
+                {
+                    rows[i] = new UnitProgress { Id = id ?? "", Level = 1 };
+                    continue;
+                }
+                var t = tokens[i];
+                if (!string.IsNullOrEmpty(id)) t.Id = id;
+                var found = Search(t.Id, t.Hp, t.Atk, t.Extra, -1, -1, -1, i);
+                rows[i] = found != null ? found : new UnitProgress { Id = t.Id ?? "", Level = 1 };
+            }
+            return rows;
+        }
+
+        public static string Format(UnitProgress[] rows)
+        {
+            if (rows == null || rows.Length == 0) return "";
+            var sb = new StringBuilder(rows.Length * 48);
+            for (int i = 0; i < rows.Length; i++)
+            {
+                if (i > 0) sb.Append('|');
+                var p = rows[i];
+                if (p == null)
+                {
+                    sb.Append('-');
+                    continue;
+                }
+                sb.Append(p.Id ?? "");
+                sb.Append(":lv=").Append(BattleStateDigest.I(p.Level < 1 ? 1 : p.Level));
+                if (p.Uncap != 0) sb.Append(";u=").Append(BattleStateDigest.I(p.Uncap));
+                if (p.Ignition != 0) sb.Append(";i=").Append(BattleStateDigest.I(p.Ignition));
+                if (p.Affection != 0) sb.Append(";a=").Append(BattleStateDigest.I(p.Affection));
+                if (!string.IsNullOrEmpty(p.Gear0)) sb.Append(";g0=").Append(p.Gear0);
+                if (!string.IsNullOrEmpty(p.Gear1)) sb.Append(";g1=").Append(p.Gear1);
+                if (!string.IsNullOrEmpty(p.Gear2)) sb.Append(";g2=").Append(p.Gear2);
+                if (!string.IsNullOrEmpty(p.Gear3)) sb.Append(";g3=").Append(p.Gear3);
+                if (p.Plus0 != 0) sb.Append(";p0=").Append(BattleStateDigest.I(p.Plus0));
+                if (p.Plus1 != 0) sb.Append(";p1=").Append(BattleStateDigest.I(p.Plus1));
+                if (p.Plus2 != 0) sb.Append(";p2=").Append(BattleStateDigest.I(p.Plus2));
+                if (p.Plus3 != 0) sb.Append(";p3=").Append(BattleStateDigest.I(p.Plus3));
+                if (p.IgnAtk != 0) sb.Append(";ia=").Append(BattleStateDigest.I(p.IgnAtk));
+                if (p.IgnCrt != 0) sb.Append(";ic=").Append(BattleStateDigest.I(p.IgnCrt));
+                if (p.IgnAgl != 0) sb.Append(";il=").Append(BattleStateDigest.I(p.IgnAgl));
+            }
+            return sb.ToString();
+        }
+
+        public static UnitProgress[] Parse(string raw)
+        {
+            if (string.IsNullOrEmpty(raw)) return null;
+            var parts = raw.Split('|');
+            var rows = new UnitProgress[parts.Length];
+            for (int i = 0; i < parts.Length; i++)
+            {
+                var part = parts[i];
+                if (string.IsNullOrEmpty(part) || part == "-")
+                {
+                    rows[i] = new UnitProgress { Level = 1 };
+                    continue;
+                }
+                var colon = part.IndexOf(':');
+                var p = new UnitProgress { Level = 1 };
+                if (colon < 0)
+                {
+                    p.Id = part;
+                    rows[i] = p;
+                    continue;
+                }
+                p.Id = part.Substring(0, colon);
+                var rest = part.Substring(colon + 1);
+                if (!string.IsNullOrEmpty(rest))
+                {
+                    var kvs = rest.Split(';');
+                    for (int k = 0; k < kvs.Length; k++)
+                    {
+                        var kv = kvs[k];
+                        if (string.IsNullOrEmpty(kv)) continue;
+                        var eq = kv.IndexOf('=');
+                        if (eq <= 0) continue;
+                        var key = kv.Substring(0, eq);
+                        var val = kv.Substring(eq + 1);
+                        if (key == "lv") p.Level = ParseInt(val, 1);
+                        else if (key == "u") p.Uncap = ParseInt(val, 0);
+                        else if (key == "i") p.Ignition = ParseInt(val, 0);
+                        else if (key == "a") p.Affection = ParseInt(val, 0);
+                        else if (key == "g0") p.Gear0 = val ?? "";
+                        else if (key == "g1") p.Gear1 = val ?? "";
+                        else if (key == "g2") p.Gear2 = val ?? "";
+                        else if (key == "g3") p.Gear3 = val ?? "";
+                        else if (key == "p0") p.Plus0 = ParseInt(val, 0);
+                        else if (key == "p1") p.Plus1 = ParseInt(val, 0);
+                        else if (key == "p2") p.Plus2 = ParseInt(val, 0);
+                        else if (key == "p3") p.Plus3 = ParseInt(val, 0);
+                        else if (key == "ia") p.IgnAtk = ParseInt(val, 0);
+                        else if (key == "ic") p.IgnCrt = ParseInt(val, 0);
+                        else if (key == "il") p.IgnAgl = ParseInt(val, 0);
+                    }
+                }
+                if (p.Level < 1) p.Level = 1;
+                rows[i] = p;
+            }
+            return rows;
+        }
+
+        public static UnitProgress[] Copy(UnitProgress[] src)
+        {
+            if (src == null) return null;
+            var d = new UnitProgress[src.Length];
+            for (int i = 0; i < src.Length; i++)
+                d[i] = CopyOne(src[i]);
+            return d;
+        }
+
+        public static UnitProgress CopyOne(UnitProgress p)
+        {
+            if (p == null) return null;
+            return new UnitProgress
+            {
+                Id = p.Id ?? "",
+                Level = p.Level,
+                Uncap = p.Uncap,
+                Ignition = p.Ignition,
+                IgnAtk = p.IgnAtk,
+                IgnCrt = p.IgnCrt,
+                IgnAgl = p.IgnAgl,
+                Affection = p.Affection,
+                SkinId = p.SkinId ?? "",
+                Gear0 = p.Gear0 ?? "",
+                Gear1 = p.Gear1 ?? "",
+                Gear2 = p.Gear2 ?? "",
+                Gear3 = p.Gear3 ?? "",
+                Plus0 = p.Plus0,
+                Plus1 = p.Plus1,
+                Plus2 = p.Plus2,
+                Plus3 = p.Plus3,
+                Reserve = p.Reserve ?? "EEEEE"
+            };
+        }
+
+        public static bool HasRows(UnitProgress[] rows)
+        {
+            if (rows == null || rows.Length == 0) return false;
+            for (int i = 0; i < rows.Length; i++)
+                if (rows[i] != null) return true;
+            return false;
+        }
+
+        static UnitProgress Search(string id, int hp, int atk, int extra, int def, int agl, int crt, int slot)
+        {
+            var src = Catalog.TryChar(id);
+            if (src == null) return new UnitProgress { Id = id ?? "", Level = 1 };
+
+            UnitProgress hit;
+            hit = new UnitProgress { Id = id ?? "", Level = 1 };
+            if (Matches(src, hit, hp, atk, extra, def, agl, crt)) return hit;
+
+            hit = StarterAt(id, slot);
+            if (Matches(src, hit, hp, atk, extra, def, agl, crt)) return hit;
+
+            EnsureCombos();
+            UnitProgress best = null;
+            var bestScore = int.MaxValue;
+            var uncapMax = src.UncapMax < 0 ? 0 : src.UncapMax;
+            var ignMax = src.IgnitionMax < 0 ? 0 : src.IgnitionMax;
+            var bare = new UnitProgress { Id = id ?? "" };
+            for (int lv = 1; lv <= Growth.MaxLevel; lv++)
+            {
+                bare.Level = lv;
+                for (int un = 0; un <= uncapMax; un++)
+                {
+                    bare.Uncap = un;
+                    for (int ign = 0; ign <= ignMax; ign++)
+                    {
+                        bare.Ignition = ign;
+                        for (int aff = 0; aff <= Bond.PointCap; aff++)
+                        {
+                            bare.Affection = aff;
+                            var body = Growth.BreakDown(src, bare);
+                            var needHp = hp - body.TotalHp;
+                            var needAtk = atk - body.TotalAtk;
+                            if (needHp < 0 || needAtk < 0) continue;
+                            if (def >= 0)
+                            {
+                                var needDef = def - body.TotalDef;
+                                var needAgl = agl - body.TotalAgl;
+                                var needCrt = crt - body.TotalCrt;
+                                if (needDef < 0 || needAgl < 0 || needCrt < 0) continue;
+                                GearCombo one;
+                                if (!_byFive.TryGetValue(new FiveStat(needHp, needAtk, needDef, needAgl, needCrt), out one)
+                                    || one == null)
+                                    continue;
+                                Consider(bare, one, body.TotalAtk + one.Atk, extra, ref best, ref bestScore);
+                                continue;
+                            }
+                            List<GearCombo> list;
+                            if (!_byHpAtk.TryGetValue(HpAtkKey(needHp, needAtk), out list) || list == null)
+                                continue;
+                            for (int c = 0; c < list.Count; c++)
+                            {
+                                var combo = list[c];
+                                if (combo == null) continue;
+                                Consider(bare, combo, body.TotalAtk + combo.Atk, extra, ref best, ref bestScore);
+                            }
+                        }
+                    }
+                }
+            }
+            return best;
+        }
+
+        static void Consider(
+            UnitProgress bare,
+            GearCombo combo,
+            int grownAtk,
+            int extra,
+            ref UnitProgress best,
+            ref int bestScore)
+        {
+            var cand = AttachCombo(bare, combo);
+            if (!TrySetExtra(cand, grownAtk, extra)) return;
+            var score = Score(cand);
+            if (score >= bestScore) return;
+            bestScore = score;
+            best = cand;
+        }
+
+        static bool Matches(CharacterDef src, UnitProgress p, int hp, int atk, int extra, int def, int agl, int crt)
+        {
+            if (p == null) return false;
+            var grown = Growth.Apply(src, p);
+            if (grown.Hp != hp || grown.Atk != atk) return false;
+            if (def >= 0 && grown.Def != def) return false;
+            if (agl >= 0 && grown.Agl != agl) return false;
+            if (crt >= 0 && grown.Crt != crt) return false;
+            return TrySetExtra(p, grown.Atk, extra);
+        }
+
+        static bool TrySetExtra(UnitProgress p, int grownAtk, int extra)
+        {
+            if (p == null) return false;
+            if (extra == 0)
+            {
+                p.IgnAtk = 0;
+                return true;
+            }
+            for (int s = 1; s <= Ignition.StoneCap; s++)
+            {
+                if (Ignition.Of(s, 0, 0).ExtraAtk(0, grownAtk) != extra) continue;
+                p.IgnAtk = s;
+                return true;
+            }
+            return false;
+        }
+
+        static int InvertIgnAdd(float add, float perRed)
+        {
+            if (add == 0f) return 0;
+            for (int s = 1; s <= Ignition.StoneCap; s++)
+            {
+                var red = Ignition.MainRed + Ignition.ExtraRed * (s - 1);
+                if (Math.Abs(perRed * red - add) < 0.0001f) return s;
+            }
+            return 0;
+        }
+
+        static int Score(UnitProgress p)
+        {
+            var slots = 0;
+            if (p != null && !string.IsNullOrEmpty(p.Gear0)) slots++;
+            if (p != null && !string.IsNullOrEmpty(p.Gear1)) slots++;
+            if (p != null && !string.IsNullOrEmpty(p.Gear2)) slots++;
+            if (p != null && !string.IsNullOrEmpty(p.Gear3)) slots++;
+            var plus = p != null ? p.Plus0 + p.Plus1 + p.Plus2 + p.Plus3 : 0;
+            var lv = p != null ? p.Level : 0;
+            var un = p != null ? p.Uncap : 0;
+            var ign = p != null ? p.Ignition : 0;
+            var aff = p != null ? p.Affection : 0;
+            return slots * 10000000 + plus * 100000 + lv * 1000 + un * 40 + ign * 2 + aff;
+        }
+
+        static UnitProgress StarterAt(string id, int slot)
+        {
+            var p = new UnitProgress { Id = id ?? "", Level = 1 };
+            var s = slot % 4;
+            if (s < 0) s = 0;
+            if (s == 0) p.Gear0 = GearCatalog.ForSlot(0);
+            else if (s == 1) p.Gear1 = GearCatalog.ForSlot(1);
+            else if (s == 2) p.Gear2 = GearCatalog.ForSlot(2);
+            else p.Gear3 = GearCatalog.ForSlot(3);
+            if (string.Equals(id, "C001", StringComparison.Ordinal) && string.IsNullOrEmpty(p.Gear3))
+                p.Gear3 = GearCatalog.DefaultCartaId ?? "";
+            return p;
+        }
+
+        static UnitProgress AttachCombo(UnitProgress bare, GearCombo combo)
+        {
+            var p = CopyOne(bare);
+            if (combo == null) return p;
+            p.Gear0 = combo.G0 ?? "";
+            p.Gear1 = combo.G1 ?? "";
+            p.Gear2 = combo.G2 ?? "";
+            p.Gear3 = combo.G3 ?? "";
+            p.Plus0 = 0;
+            p.Plus1 = 0;
+            p.Plus2 = 0;
+            p.Plus3 = 0;
+            return p;
+        }
+
+        static IdentityTok[] ParseIdentity(string raw)
+        {
+            if (string.IsNullOrEmpty(raw)) return null;
+            var parts = raw.Split('|');
+            var toks = new IdentityTok[parts.Length];
+            for (int i = 0; i < parts.Length; i++)
+            {
+                var t = new IdentityTok();
+                var part = parts[i];
+                if (string.IsNullOrEmpty(part) || part == "-")
+                {
+                    toks[i] = t;
+                    continue;
+                }
+                var colon = part.IndexOf(':');
+                if (colon < 0)
+                {
+                    t.Id = part;
+                    toks[i] = t;
+                    continue;
+                }
+                t.Id = part.Substring(0, colon);
+                var rest = part.Substring(colon + 1);
+                var slash = rest.IndexOf('/');
+                var plus = rest.IndexOf('+');
+                if (slash > 0)
+                {
+                    t.Hp = ParseInt(rest.Substring(0, slash), 0);
+                    var atkEnd = plus > slash ? plus : rest.Length;
+                    t.Atk = ParseInt(rest.Substring(slash + 1, atkEnd - slash - 1), 0);
+                }
+                if (plus >= 0)
+                    t.Extra = ParseInt(rest.Substring(plus + 1), 0);
+                toks[i] = t;
+            }
+            return toks;
+        }
+
+        static void EnsureCombos()
+        {
+            if (_combos != null) return;
+            var g0s = new[] { "", GearCatalog.ForSlot(0) };
+            var g1s = new[] { "", GearCatalog.ForSlot(1) };
+            var g2s = new[] { "", GearCatalog.ForSlot(2) };
+            var g3s = CartaChoices();
+            var list = new List<GearCombo>(g0s.Length * g1s.Length * g2s.Length * g3s.Length);
+            for (int a = 0; a < g0s.Length; a++)
+            for (int b = 0; b < g1s.Length; b++)
+            for (int c = 0; c < g2s.Length; c++)
+            for (int d = 0; d < g3s.Length; d++)
+            {
+                var combo = new GearCombo
+                {
+                    G0 = g0s[a] ?? "",
+                    G1 = g1s[b] ?? "",
+                    G2 = g2s[c] ?? "",
+                    G3 = g3s[d] ?? ""
+                };
+                AddFlats(combo);
+                list.Add(combo);
+            }
+            list.Sort(CompareCombo);
+            _combos = list.ToArray();
+            _byHpAtk = new Dictionary<long, List<GearCombo>>();
+            _byFive = new Dictionary<FiveStat, GearCombo>();
+            for (int i = 0; i < _combos.Length; i++)
+            {
+                var combo = _combos[i];
+                var key = HpAtkKey(combo.Hp, combo.Atk);
+                List<GearCombo> bucket;
+                if (!_byHpAtk.TryGetValue(key, out bucket))
+                {
+                    bucket = new List<GearCombo>(2);
+                    _byHpAtk[key] = bucket;
+                }
+                bucket.Add(combo);
+                var five = new FiveStat(combo.Hp, combo.Atk, combo.Def, combo.Agl, combo.Crt);
+                if (!_byFive.ContainsKey(five))
+                    _byFive[five] = combo;
+            }
+        }
+
+        static string[] CartaChoices()
+        {
+            var seen = new Dictionary<string, string>(StringComparer.Ordinal);
+            var ids = new List<string> { "" };
+            var def = GearCatalog.DefaultCartaId;
+            if (!string.IsNullOrEmpty(def))
+            {
+                ids.Add(def);
+                var g = GearCatalog.Try(def);
+                if (g != null) seen[FlatKey(g)] = def;
+            }
+            var cartas = GearCatalog.Cartas;
+            if (cartas != null)
+            {
+                for (int i = 0; i < cartas.Length; i++)
+                {
+                    var g = cartas[i];
+                    if (g == null || string.IsNullOrEmpty(g.Id)) continue;
+                    var k = FlatKey(g);
+                    if (seen.ContainsKey(k)) continue;
+                    seen[k] = g.Id;
+                    ids.Add(g.Id);
+                }
+            }
+            return ids.ToArray();
+        }
+
+        static void AddFlats(GearCombo combo)
+        {
+            int hp, atk, def, agl, crt;
+            hp = atk = def = agl = crt = 0;
+            AddOne(combo.G0, ref hp, ref atk, ref def, ref agl, ref crt);
+            AddOne(combo.G1, ref hp, ref atk, ref def, ref agl, ref crt);
+            AddOne(combo.G2, ref hp, ref atk, ref def, ref agl, ref crt);
+            AddOne(combo.G3, ref hp, ref atk, ref def, ref agl, ref crt);
+            combo.Hp = hp;
+            combo.Atk = atk;
+            combo.Def = def;
+            combo.Agl = agl;
+            combo.Crt = crt;
+            combo.Slots = CountGear(combo.G0) + CountGear(combo.G1) + CountGear(combo.G2) + CountGear(combo.G3);
+        }
+
+        static void AddOne(string gearId, ref int hp, ref int atk, ref int def, ref int agl, ref int crt)
+        {
+            var g = GearCatalog.Try(gearId);
+            if (g == null) return;
+            hp += g.Hp;
+            atk += g.Atk;
+            def += g.Def;
+            agl += g.Agl;
+            crt += g.Crt;
+        }
+
+        static int CountGear(string id) => string.IsNullOrEmpty(id) ? 0 : 1;
+
+        static int CompareCombo(GearCombo a, GearCombo b)
+        {
+            if (a == null && b == null) return 0;
+            if (a == null) return 1;
+            if (b == null) return -1;
+            var slots = a.Slots.CompareTo(b.Slots);
+            if (slots != 0) return slots;
+            var g0 = string.CompareOrdinal(a.G0, b.G0);
+            if (g0 != 0) return g0;
+            var g1 = string.CompareOrdinal(a.G1, b.G1);
+            if (g1 != 0) return g1;
+            var g2 = string.CompareOrdinal(a.G2, b.G2);
+            if (g2 != 0) return g2;
+            return string.CompareOrdinal(a.G3, b.G3);
+        }
+
+        static long HpAtkKey(int hp, int atk) => ((long)hp << 32) ^ (uint)atk;
+
+        static string FlatKey(GearDef g)
+        {
+            if (g == null) return "0/0/0/0/0";
+            return BattleStateDigest.I(g.Hp) + "/" + BattleStateDigest.I(g.Atk)
+                + "/" + BattleStateDigest.I(g.Def) + "/" + BattleStateDigest.I(g.Agl)
+                + "/" + BattleStateDigest.I(g.Crt);
+        }
+
+        static int ParseInt(string raw, int fallback)
+        {
+            int n;
+            return int.TryParse(raw, NumberStyles.Integer, CultureInfo.InvariantCulture, out n) ? n : fallback;
+        }
+
+        struct IdentityTok
+        {
+            public string Id;
+            public int Hp;
+            public int Atk;
+            public int Extra;
         }
     }
 

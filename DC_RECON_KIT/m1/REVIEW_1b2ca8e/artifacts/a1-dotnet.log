@@ -1,0 +1,20 @@
+﻿B1-A1 unfiltered run
+cwd=F:\天命之子
+started=2026-09-14T22:00:30.1894842+08:00
+command=dotnet test tools/BattleSim.Tests/BattleSim.Tests.csproj --nologo --logger "trx;LogFileName=a1-1b2ca8e.trx" --results-directory DC_RECON_KIT/m1/REVIEW_1b2ca8e/artifacts/tests
+HEAD=1b2ca8e4ff56d9f0986e158fc97b50498f735cb3
+
+  正在确定要还原的项目…
+  所有项目均是最新的，无法还原。
+  BattleSim.Tests -> F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll
+F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll (.NETCoreApp,Version=v6.0)的测试运行
+正在启动测试执行，请稍候...
+总共 1 个测试文件与指定模式相匹配。
+[xUnit.net 00:00:01.13]     Resonance.Tests.G2RecheckNaturalContractTests.N01_N02_N03_NaturalPlayContract_DocumentedNotFaked [SKIP]
+  已跳过 Resonance.Tests.G2RecheckNaturalContractTests.N01_N02_N03_NaturalPlayContract_DocumentedNotFaked [1 ms]
+结果文件: F:\天命之子\DC_RECON_KIT\m1\REVIEW_1b2ca8e\artifacts\tests\a1-1b2ca8e.trx
+
+已通过! - 失败:     0，通过:   244，已跳过:     1，总计:   245，持续时间: 1 s - BattleSim.Tests.dll (net6.0)
+
+finished=2026-09-14T22:00:44.1600608+08:00
+EXIT_CODE=0

@@ -1,3 +1,4 @@
+using Resonance.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,12 +8,13 @@ namespace Resonance.App
     /// Drive QTE coin. Primary P0 t382: gold rim + cream face + <c>PRESS BUTTON</c>.
     /// Tutorial finger / HERE IS A POINT stay off this widget.
     /// Timing window is engineering (pulse the rim); ordinary-PVE QTE still unseen.
+    /// Read-only pulse query for natural-play; do not widen to hide a late tap.
     /// </summary>
     public sealed class VfxGoodButton : MonoBehaviour
     {
-        const float Cycle = 1.2f;
-        const float WindowAt = 0.60f;
-        const float WindowHalf = 0.08f;
+        public const float Cycle = VfxGoodWindow.Cycle;
+        public const float WindowAt = VfxGoodWindow.WindowAt;
+        public const float WindowHalf = VfxGoodWindow.WindowHalf;
         const float HitLen = 0.16f;
         const float CoinPx = 220f;
         static readonly Vector2 Anchor = new Vector2(0.5f, 0.268f);
@@ -38,6 +40,18 @@ namespace Resonance.App
         bool _open;
         bool _pressed;
         bool _hideQueued;
+
+        public static VfxGoodButton Live => _live;
+
+        /// <summary>Unscaled seconds since <see cref="Begin"/>.</summary>
+        public float Age => _age;
+
+        public bool IsInWindow => VfxGoodWindow.IsInWindow(_age);
+
+        public bool IsEarlyInWindow => VfxGoodWindow.IsEarlyInWindow(_age);
+
+        /// <summary>Seconds until the next early-in-window pulse. Zero if already ready.</summary>
+        public float SecondsUntilWindow => VfxGoodWindow.SecondsUntilWindow(_age);
 
         public static void Show(Transform parent, System.Action<bool> onPressed)
         {
@@ -212,7 +226,7 @@ namespace Resonance.App
 
         bool InWindow()
         {
-            return Mathf.Abs(Mathf.PingPong(_age, Cycle) - WindowAt) <= WindowHalf;
+            return VfxGoodWindow.IsInWindow(_age);
         }
 
         void PaintIdle(float t)

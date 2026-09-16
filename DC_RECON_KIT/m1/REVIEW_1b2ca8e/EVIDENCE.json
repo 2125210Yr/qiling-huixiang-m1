@@ -1,0 +1,13 @@
+{
+  "batch_id": "B1",
+  "baseline": "1b2ca8e4ff56d9f0986e158fc97b50498f735cb3",
+  "source_review": "DC_RECON_KIT/m1/DC_REVIEW_1b2ca8e/EVIDENCE.json",
+  "historical_a53_gate_trx": {
+    "path": "DC_RECON_KIT/m1/REVIEW_1a75253/artifacts/tests/a53-gate.trx",
+    "blob_sha": "987ffbe9ebfd493370fe20ff4258847819270cd2",
+    "result_summary_outcome": "Failed",
+    "passed": 234,
+    "failed": 10,
+    "note": "HISTORICAL. Do not rewrite counters. A1 writes a new TRX under REVIEW_1b2ca8e/artifacts/tests/."
+  }
+}

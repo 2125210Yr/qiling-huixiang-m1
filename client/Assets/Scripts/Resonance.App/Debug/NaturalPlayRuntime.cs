@@ -492,7 +492,7 @@ namespace Resonance.App
 
         IEnumerator PlayFeverNaturally()
         {
-            bool qteDone = false, feverDone = false, tapA = false, tapB = false;
+            bool qteDone = false, feverDone = false, tapA = false, tapB = false, goalsNoted = false;
             var t0 = Time.unscaledTime;
             var qteCount = 0;
             while (true)
@@ -518,10 +518,14 @@ namespace Resonance.App
                 var ended = g.CurrentScreen == "Result" || b.Outcome != BattleOutcome.InProgress;
                 if (missing.Length == 0)
                 {
-                    Record("FeverPlay", "Fever required + two slot FeverTap",
-                        "slots=" + string.Join(",", _feverSlots.ConvertAll(x => x.ToString()).ToArray())
-                        + " " + ObserveBattle(), true);
-                    if (ended) yield break;
+                    if (!goalsNoted)
+                    {
+                        goalsNoted = true;
+                        Record("FeverPlay", "Fever required + two slot FeverTap",
+                            "slots=" + string.Join(",", _feverSlots.ConvertAll(x => x.ToString()).ToArray())
+                            + " " + ObserveBattle(), true);
+                    }
+                    yield break;
                 }
                 if (ended)
                 {
@@ -565,16 +569,8 @@ namespace Resonance.App
 
                 if (b.Drive >= 100f)
                 {
-                    yield return TapNamed("OpenQte#" + (qteCount + 1), 8f, "p0");
+                    yield return OpenFeverDriveQte("OpenQte#" + (qteCount + 1));
                     if (_done) yield break;
-                    yield return WaitQteOpen("OpenQte#" + (qteCount + 1), 4f);
-                    if (_done) yield break;
-                    continue;
-                }
-
-                if (missing.Length == 0)
-                {
-                    yield return null;
                     continue;
                 }
 
@@ -624,6 +620,79 @@ namespace Resonance.App
                 SoftFail("AutoSubmit", "CommandLog Source=Auto Tap/Slide/Drive/FeverTap",
                     "AutoFire still bypasses Submit (X05). TickFever FeverTap is the Submit path. " + ObserveBattle());
             yield return ToggleAutoTo("AutoManual", AutoMode.Manual, 10f);
+        }
+
+        /// <summary>
+        /// Fever Drive-open only: EventSystem tap on a living, Drive-ready portrait.
+        /// Does not Submit DriveBegin / DriveResolve from this runtime.
+        /// </summary>
+        IEnumerator OpenFeverDriveQte(string phase)
+        {
+            int slot;
+            string obs;
+            if (!TryLivingDrivePortrait(out slot, out obs))
+            {
+                Fail(phase, "living Drive portrait p0..p4", obs);
+                yield break;
+            }
+            var name = "p" + slot;
+            Note("fever-drive-open phase=" + phase + " slot=" + slot + " " + name + " " + obs);
+            yield return TapNamed(phase, 8f, name);
+            if (_done) yield break;
+            yield return WaitQteOpen(phase, 4f);
+        }
+
+        bool TryLivingDrivePortrait(out int slot, out string observed)
+        {
+            slot = -1;
+            var b = Battle();
+            if (b == null || b.Allies == null)
+            {
+                observed = "no-allies " + ObserveBattle();
+                return false;
+            }
+            var skip = new StringBuilder(64);
+            for (int i = 0; i < b.Allies.Length; i++)
+            {
+                var u = b.Allies[i];
+                var name = "p" + i;
+                if (u == null)
+                {
+                    skip.Append(name).Append("=null,");
+                    continue;
+                }
+                if (!u.Alive)
+                {
+                    skip.Append(name).Append("=dead,");
+                    continue;
+                }
+                CommandReject reason;
+                if (!b.CanAcceptSkillInput(i, out reason))
+                {
+                    skip.Append(name).Append('=').Append(reason).Append(',');
+                    continue;
+                }
+                var go = FindActive(name);
+                if (go == null)
+                {
+                    skip.Append(name).Append("=no-portrait,");
+                    continue;
+                }
+                var driveId = u.Def != null ? u.Def.DriveSkillId : null;
+                var sk = Catalog.TrySkill(driveId);
+                if (sk != null && !Catalog.IsPlayable(sk))
+                {
+                    skip.Append(name).Append("=unplayable,");
+                    continue;
+                }
+                slot = i;
+                observed = "slot=" + i + " " + name
+                    + " alive DriveBegin-ready skipped=" + skip.ToString().TrimEnd(',');
+                return true;
+            }
+            observed = "none living Drive-ready skipped=" + skip.ToString().TrimEnd(',')
+                + " " + ObserveBattle();
+            return false;
         }
 
         IEnumerator TapDistinctFeverSlots()
@@ -840,12 +909,33 @@ namespace Resonance.App
                 }
                 yield return null;
             }
-            // Real coin pulse (VfxGoodButton WindowAt=0.60). Wait, then tap. Not FirePerfect.
+            // Poll the live coin until early-in-window, then EventSystem tap. Not FirePerfect.
             if (waitWindow)
             {
-                var until = Time.unscaledTime + 0.60f;
-                while (Time.unscaledTime < until && FindQteButton() != null)
+                while (true)
+                {
+                    var coin = FindLiveCoin();
+                    if (coin != null && coin.IsEarlyInWindow)
+                    {
+                        Note("qte-window phase=" + phase
+                            + " age=" + coin.Age.ToString("0.000")
+                            + " until=" + coin.SecondsUntilWindow.ToString("0.000")
+                            + " in=" + coin.IsInWindow);
+                        break;
+                    }
+                    if (TimedOut(t0, timeout) || OverLimit())
+                    {
+                        var obs = coin == null
+                            ? "missing coin after find"
+                            : "age=" + coin.Age.ToString("0.000")
+                              + " in=" + coin.IsInWindow
+                              + " early=" + coin.IsEarlyInWindow
+                              + " until=" + coin.SecondsUntilWindow.ToString("0.000");
+                        Fail(phase, "vfxGood early Perfect window (not widened)", obs);
+                        yield break;
+                    }
                     yield return null;
+                }
             }
             var go = FindQteButton();
             var pos = ScreenCenter(go);
@@ -868,12 +958,12 @@ namespace Resonance.App
                 var closed = (g == null || !g.QteOpen) && (b == null || b.PendingDriveSlot < 0);
                 if (closed)
                 {
-                    Record(phase, "QTE resolved via vfxGood tap", ObserveBattle(), true);
+                    Record(phase, "QTE resolved via vfxGood tap", ObserveQteResolve(b), true);
                     yield break;
                 }
                 if (Time.unscaledTime - t1 > 4f || OverLimit())
                 {
-                    Fail(phase, "QTE resolved via vfxGood tap", ObserveBattle());
+                    Fail(phase, "QTE resolved via vfxGood tap", ObserveQteResolve(b));
                     yield break;
                 }
                 yield return null;
@@ -882,18 +972,37 @@ namespace Resonance.App
 
         static GameObject FindQteButton()
         {
+            var coin = FindLiveCoin();
+            return coin != null ? coin.gameObject : null;
+        }
+
+        static VfxGoodButton FindLiveCoin()
+        {
+            var live = VfxGoodButton.Live;
+            if (live != null && live.gameObject.activeInHierarchy) return live;
             var named = FindActive("vfxGood");
-            if (named != null && named.activeInHierarchy) return named;
+            if (named != null && named.activeInHierarchy)
+            {
+                var onNamed = named.GetComponent<VfxGoodButton>();
+                if (onNamed != null) return onNamed;
+            }
             var fx = UnityEngine.Object.FindObjectsByType<VfxGoodButton>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
             if (fx != null)
             {
                 for (int i = 0; i < fx.Length; i++)
                 {
                     if (fx[i] != null && fx[i].gameObject.activeInHierarchy)
-                        return fx[i].gameObject;
+                        return fx[i];
                 }
             }
             return null;
+        }
+
+        string ObserveQteResolve(BattleSim b)
+        {
+            var timing = b != null ? b.LastDriveTiming.ToString() : "null";
+            var gauge = b != null ? b.FeverGauge.ToString("0.#") : "?";
+            return ObserveBattle() + " lastDrive=" + timing + " feverGauge=" + gauge;
         }
 
         IEnumerator WaitPauseBoard(string phase, bool want, float timeout)
@@ -1315,6 +1424,8 @@ namespace Resonance.App
             _line.Append(" drive=").Append(b.Drive.ToString("0.#"));
             _line.Append(" qte=").Append(b.PendingDriveSlot);
             _line.Append(" fever=").Append(b.FeverActive);
+            _line.Append(" feverEver=").Append(b.FeverEver);
+            _line.Append(" feverGauge=").Append(b.FeverGauge.ToString("0.#"));
             _line.Append(" paused=").Append(b.Paused);
             _line.Append(" speed=").Append(b.Speed);
             _line.Append(" auto=").Append(b.Auto);

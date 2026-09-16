@@ -229,16 +229,24 @@ namespace Resonance.App
 
         /// <summary>
         /// New sim from the tape's opening party/stage/profile/leader/seed.
-        /// Growth/gear are Catalog defaults unless <paramref name="growth"/> is supplied.
-        /// Bind the recorded policy before calling if the fight used a verification catalog.
+        /// When <paramref name="growth"/> is null and <paramref name="recoverOpeningGrowth"/>
+        /// is true (default), rebuild the tape's opening <see cref="UnitProgress"/> —
+        /// explicit snapshot on the record, else a Growth.Apply search of
+        /// <c>id:hp/atk+extra</c>. Catalog defaults only when recovery is off
+        /// or the caller passes an empty/default array. Bind the recorded policy
+        /// before calling if the fight used a verification catalog.
         /// Mismatched growth/gear/policy/data identity fails
         /// <see cref="BattleReplayer.Verify"/> with a named Diff (not a same-object compare).
         /// </summary>
-        public static BattleSim NewSim(BattleRunRecord rec, UnitProgress[] growth = null)
+        public static BattleSim NewSim(
+            BattleRunRecord rec,
+            UnitProgress[] growth = null,
+            bool recoverOpeningGrowth = true)
         {
             if (rec == null) throw new ArgumentNullException(nameof(rec));
+            var resolved = ResolveOpeningGrowth(rec, growth, recoverOpeningGrowth);
             var stage = BattleContentIdentity.FindStage(rec.StageId);
-            var sim = new BattleSim(rec.PartyIds, rec.LeaderSlot, rec.Seed, stage, growth)
+            var sim = new BattleSim(rec.PartyIds, rec.LeaderSlot, rec.Seed, stage, resolved)
             {
                 Profile = rec.Profile
             };
@@ -248,13 +256,17 @@ namespace Resonance.App
             return sim;
         }
 
-        public static Func<int, BattleSim> ReplayFactory(BattleRunRecord rec, UnitProgress[] growth = null)
+        public static Func<int, BattleSim> ReplayFactory(
+            BattleRunRecord rec,
+            UnitProgress[] growth = null,
+            bool recoverOpeningGrowth = true)
         {
             if (rec == null) throw new ArgumentNullException(nameof(rec));
+            var resolved = ResolveOpeningGrowth(rec, growth, recoverOpeningGrowth);
             return seed =>
             {
                 var stage = BattleContentIdentity.FindStage(rec.StageId);
-                var sim = new BattleSim(rec.PartyIds, rec.LeaderSlot, seed, stage, growth)
+                var sim = new BattleSim(rec.PartyIds, rec.LeaderSlot, seed, stage, resolved)
                 {
                     Profile = rec.Profile
                 };
@@ -262,6 +274,26 @@ namespace Resonance.App
                     sim.ForceNoCrit = rec.Initial.ForceNoCrit;
                 return sim;
             };
+        }
+
+        /// <summary>
+        /// Recovery is on by default. A non-null <paramref name="growth"/> wins
+        /// (empty array = catalog defaults). Null + recover uses the tape snapshot
+        /// or <see cref="BattleInitialHeader.GrowthIdentity"/>.
+        /// </summary>
+        public static UnitProgress[] ResolveOpeningGrowth(
+            BattleRunRecord rec,
+            UnitProgress[] growth,
+            bool recoverOpeningGrowth = true)
+        {
+            if (growth != null) return growth;
+            if (!recoverOpeningGrowth) return null;
+            return RecoverOpeningGrowth(rec);
+        }
+
+        public static UnitProgress[] RecoverOpeningGrowth(BattleRunRecord rec)
+        {
+            return OpeningGrowth.Recover(rec);
         }
 
         /// <summary>

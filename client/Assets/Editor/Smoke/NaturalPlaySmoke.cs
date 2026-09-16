@@ -151,7 +151,7 @@ namespace Resonance.EditorTools
         {
             if (!Application.isPlaying) return;
             if (!File.Exists(RunningRel) && !File.Exists(RequestRel)) return;
-            if (Object.FindFirstObjectByType<GameRoot>() == null)
+            if (UnityEngine.Object.FindFirstObjectByType<GameRoot>() == null)
                 new GameObject("GameRoot").AddComponent<GameRoot>();
             NaturalPlayRuntime.Arm();
         }

@@ -1,0 +1,6 @@
+seq=1 tick=617 kind=DriveBegin slot=0 source=Player accepted=True reason=None timing=Bad value=0
+seq=2 tick=656 kind=DriveResolve slot=0 source=Player accepted=True reason=None timing=Good value=0
+seq=3 tick=1236 kind=DriveBegin slot=0 source=Player accepted=True reason=None timing=Bad value=0
+seq=4 tick=1262 kind=DriveResolve slot=0 source=Player accepted=True reason=None timing=Good value=0
+seq=5 tick=1863 kind=DriveBegin slot=0 source=Player accepted=True reason=None timing=Bad value=0
+seq=6 tick=1886 kind=DriveResolve slot=0 source=Player accepted=True reason=None timing=Good value=0

@@ -1182,6 +1182,19 @@ namespace Resonance.App
                 FoodAtkMul = Food.AtkMulOf(_save.Meal),
                 CartaMul = PvpRules.CartaMulIfPvp(_save.PvpDoor)
             };
+
+            // B1-A2: verification catalog already has A53_SUB_STRIP_DOT_FLAME.
+            // Normal path: report roster holes before fight. Do not bind substitutes.
+            // Do not inject HP/Drive/Charge. Do not skip Slide/Fever.
+            string playableNote = null;
+            if (!VerificationCatalog.Installed)
+            {
+                var gate = Catalog.EvaluatePartyPlayable(_save.PartyIds, stage, null, null);
+                var blocking = gate != null ? gate.PlayableRosterViolations() : null;
+                if (blocking != null && blocking.Count > 0)
+                    playableNote = gate.Summary();
+            }
+
             _battle = new BattleSim(_save.PartyIds, _save.LeaderSlot, _save.LastSeed, stage, _save.ProgressForParty(), mods)
             {
                 Speed = _save.Speed,
@@ -1190,6 +1203,11 @@ namespace Resonance.App
                 ForceNoCrit = false,
                 Profile = FormulaProfile.JP_LEGACY_EMPIRICAL
             };
+            if (!string.IsNullOrEmpty(playableNote))
+            {
+                _battle.FailedReason = playableNote;
+                _battle.LastEvent = playableNote;
+            }
             // R02: freeze real opening seed/party/growth/gear/leader/clocks/profile/auto/speed/data identity.
             BattleInitialHeader.Freeze(_battle, _save.PartyIds, stage != null ? stage.Id : "");
             _simAcc = 0f;

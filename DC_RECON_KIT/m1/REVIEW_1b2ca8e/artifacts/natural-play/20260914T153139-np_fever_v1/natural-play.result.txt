@@ -1,0 +1,116 @@
+FAIL FeverPlay
+historical_baseline=DC_RECON_KIT/m1/G2_REVIEW_20260913/artifacts/natural-play/run7
+historical_verdict=FAIL BattlePlay missing=Tap,Slide
+historical_note=run7 kept as FAIL; this session does not rewrite it to PASS
+pointer=UnityEngine.EventSystem
+os_touch=NOT_CLAIMED
+provenance=DESIGN_PLACEHOLDER
+schema=G2R14-NP-1
+plan=np.fever.v1
+session=np-20260914T153202
+battle_ids=np-20260914T153202-001,np-20260914T153202-002
+battle_1=np-20260914T153202-001 scenario=np.fever.v1 stage=NP-FEVER persisted=1 outcome=Defeat digest=0641ef1d5751f919dec6bb2cb7409e2ecf22711155d993915b2e423ea2f609aa dir=F:\天命之子\client\captures\natural-play\battles\np-20260914T153202-001
+battle_2=np-20260914T153202-002 scenario=np.fever.v1 stage=NP-FEVER persisted=1 outcome=InProgress digest=3aea78ae9de8cdc4062d85fa6efdb7af05dfed2a19c73f5f38329d759d5db900 dir=F:\天命之子\client\captures\natural-play\battles\np-20260914T153202-002
+catalog=DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.fever.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok
+captures=np_01_battle.png,np_04_qte.png,np_05_judge.png,np_09_result.png,np_10_rematch.png,np_11_home.png
+screen=Home
+title=DEFEAT
+drive=0 fever=False ever=False speed=1 auto=Manual outcome=InProgress wave=0
+
+phase	expected	observed	frame	ms
+VerificationCatalog	DESIGN_PLACEHOLDER before FIGHT	DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.fever.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok	1	0
+HomeVisible	screen=Home	screen=Home	2	6442
+TapToStage	tap 关卡	tapped GameRoot/Canvas/首页/关卡	3	7797
+StageVisible	screen=Stage	screen=Stage	4	7947
+TapStart	tap FIGHT	tapped GameRoot/Canvas/StageBoard/WavePreview/FIGHT	6	8868
+BattleVisible	screen=Battle hud=p0	screen=Battle hud=p0 wave=0	20	9003
+BattleId	unique battle_id + frozen BattleInitialHeader + RunHeader	id=np-20260914T153202-001 scenario=np.fever.v1 frozen=True header=seed=97714718;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=1;forceNoCrit=0;stage=NP-FEVER;data=g2id1-b078632c5f28a3727180f69f48398c62aad1a435fbf9a2ddebf731e382227388;party=C001,C007,C010,C003,C005	21	9015
+OpenQte#1	tap p0	tapped GameRoot/Canvas/p0	1271	29244
+OpenQte#1	QteOpen or PendingDrive	QteOpen=True pending=0	1275	29381
+JudgeQte#1	QTE resolved via vfxGood tap	screen=Battle last=DRIVE  冰刃  焚城  Good drive=0 qte=-1 fever=False paused=False speed=1 auto=Manual wave=0 outcome=InProgress cmd=seq=2 tick=656 kind=DriveResolve slot=0 source=Player accepted=True reason=None timing=Good value=0	1330	30447
+OpenQte#2	tap p0	tapped GameRoot/Canvas/p0	2210	49821
+OpenQte#2	QteOpen or PendingDrive	QteOpen=True pending=0	2218	49951
+JudgeQte#2	QTE resolved via vfxGood tap	screen=Battle last=DRIVE  冰刃  焚城  Good drive=0 qte=-1 fever=False paused=False speed=1 auto=Manual wave=0 outcome=InProgress cmd=seq=4 tick=1262 kind=DriveResolve slot=0 source=Player accepted=True reason=None timing=Good value=0	2243	50619
+OpenQte#3	tap p0	tapped GameRoot/Canvas/p0	3494	70671
+OpenQte#3	QteOpen or PendingDrive	QteOpen=True pending=0	3506	70798
+JudgeQte#3	QTE resolved via vfxGood tap	screen=Battle last=DRIVE  冰刃  焚城  Good drive=0 qte=-1 fever=False paused=False speed=1 auto=Manual wave=0 outcome=InProgress cmd=seq=6 tick=1886 kind=DriveResolve slot=0 source=Player accepted=True reason=None timing=Good value=0	3565	71424
+FeverPlay	Fever + two FeverTap slots before end	missing=Fever,FeverTapA,FeverTapB screen=Result last=全灭 drive=88 qte=-1 fever=False paused=False speed=1 auto=Manual wave=0 outcome=Defeat cmd=seq=6 tick=1886 kind=DriveResolve slot=0 source=Player accepted=True reason=None timing=Good value=0	5802	105978
+ResultVisible	screen=Result	screen=Result title=DEFEAT	5802	105978
+ResultVisible	ResultBoard interactable	board=True interactable=True	5806	106166
+Rematch	tap RETRY	tapped GameRoot/Canvas/ResultBoard/RETRY	5808	106565
+RematchBattle	screen=Battle hud=p0	screen=Battle hud=p0 wave=0	5821	106692
+BattleId	unique battle_id + frozen BattleInitialHeader + RunHeader	id=np-20260914T153202-002 scenario=np.fever.v1 frozen=True header=seed=97812703;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=1;forceNoCrit=0;stage=NP-FEVER;data=g2id1-b078632c5f28a3727180f69f48398c62aad1a435fbf9a2ddebf731e382227388;party=C001,C007,C010,C003,C005	5822	106700
+ExitPause	tap || PAUSE	tapped GameRoot/Canvas/|| PAUSE	5824	107020
+ExitPause	PauseBoard + Paused	PauseBoard Paused=true	5833	107149
+ExitHome	tap HOME	tapped GameRoot/Canvas/PauseBoard/HOME	5835	107658
+HomeReturn	screen=Home	screen=Home	5839	107783
+
+--- inputs ---
+note natural-play start
+note historical_baseline=DC_RECON_KIT/m1/G2_REVIEW_20260913/artifacts/natural-play/run7 verdict=FAIL BattlePlay missing=Tap,Slide (kept; not rewritten)
+note pointer=UnityEngine.EventSystem os_touch=NOT_CLAIMED
+note plan mode=np.fever.v1 fights=1 provenance=DESIGN_PLACEHOLDER schema=G2R14-NP-1
+note catalog DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.fever.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok
+note ok VerificationCatalog DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.fever.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok
+note ok HomeVisible screen=Home
+frame=2 t=6.443 kind=tap pos=289,438 target=none after=battle=null screen=Stage
+note ok TapToStage tapped GameRoot/Canvas/首页/关卡
+note ok StageVisible screen=Stage
+frame=5 t=8.339 kind=tap pos=540,250 target=none after=screen=Battle last=第一波 drive=0 qte=-1 fever=False paused=False speed=1 auto=Manual wave=0 outcome=InProgress
+note ok TapStart tapped GameRoot/Canvas/StageBoard/WavePreview/FIGHT
+note ok BattleVisible screen=Battle hud=p0 wave=0
+note ok BattleId id=np-20260914T153202-001 scenario=np.fever.v1 frozen=True header=seed=97714718;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=1;forceNoCrit=0;stage=NP-FEVER;data=g2id1-b078632c5f28a3727180f69f48398c62aad1a435fbf9a2ddebf731e382227388;party=C001,C007,C010,C003,C005
+note shot np_01_battle.png
+frame=1270 t=29.107 kind=tap pos=119,307 target=GameRoot/Canvas/p0 after=screen=Battle last=冰刃 准备 Drive drive=100 qte=0 fever=False paused=False speed=1 auto=Manual wave=0 outcome=InProgress cmd=seq=1 tick=617 kind=DriveBegin slot=0 source=Player accepted=True reason=None timing=Bad value=0
+note ok OpenQte#1 tapped GameRoot/Canvas/p0
+note ok OpenQte#1 QteOpen=True pending=0
+note shot np_04_qte.png
+frame=1329 t=30.420 kind=tap pos=540,515 target=GameRoot/Canvas/vfxGood/face after=screen=Battle last=DRIVE  冰刃  焚城  Good drive=0 qte=-1 fever=False paused=False speed=1 auto=Manual wave=0 outcome=InProgress cmd=seq=2 tick=656 kind=DriveResolve slot=0 source=Player accepted=True reason=None timing=Good value=0
+note ok JudgeQte#1 screen=Battle last=DRIVE  冰刃  焚城  Good drive=0 qte=-1 fever=False paused=False speed=1 auto=Manual wave=0 outcome=InProgress cmd=seq=2 tick=656 kind=DriveResolve slot=0 source=Player accepted=True reason=None timing=Good value=0
+note shot np_05_judge.png
+frame=2209 t=49.743 kind=tap pos=119,307 target=GameRoot/Canvas/p0 after=screen=Battle last=冰刃 准备 Drive drive=100 qte=0 fever=False paused=False speed=1 auto=Manual wave=0 outcome=InProgress cmd=seq=3 tick=1236 kind=DriveBegin slot=0 source=Player accepted=True reason=None timing=Bad value=0
+note ok OpenQte#2 tapped GameRoot/Canvas/p0
+note ok OpenQte#2 QteOpen=True pending=0
+frame=2242 t=50.603 kind=tap pos=540,515 target=GameRoot/Canvas/vfxGood/face after=screen=Battle last=DRIVE  冰刃  焚城  Good drive=0 qte=-1 fever=False paused=False speed=1 auto=Manual wave=0 outcome=InProgress cmd=seq=4 tick=1262 kind=DriveResolve slot=0 source=Player accepted=True reason=None timing=Good value=0
+note ok JudgeQte#2 screen=Battle last=DRIVE  冰刃  焚城  Good drive=0 qte=-1 fever=False paused=False speed=1 auto=Manual wave=0 outcome=InProgress cmd=seq=4 tick=1262 kind=DriveResolve slot=0 source=Player accepted=True reason=None timing=Good value=0
+frame=3493 t=70.637 kind=tap pos=119,307 target=GameRoot/Canvas/p0 after=screen=Battle last=冰刃 准备 Drive drive=100 qte=0 fever=False paused=False speed=1 auto=Manual wave=0 outcome=InProgress cmd=seq=5 tick=1863 kind=DriveBegin slot=0 source=Player accepted=True reason=None timing=Bad value=0
+note ok OpenQte#3 tapped GameRoot/Canvas/p0
+note ok OpenQte#3 QteOpen=True pending=0
+frame=3564 t=71.412 kind=tap pos=540,515 target=GameRoot/Canvas/vfxGood/face after=screen=Battle last=DRIVE  冰刃  焚城  Good drive=0 qte=-1 fever=False paused=False speed=1 auto=Manual wave=0 outcome=InProgress cmd=seq=6 tick=1886 kind=DriveResolve slot=0 source=Player accepted=True reason=None timing=Good value=0
+note ok JudgeQte#3 screen=Battle last=DRIVE  冰刃  焚城  Good drive=0 qte=-1 fever=False paused=False speed=1 auto=Manual wave=0 outcome=InProgress cmd=seq=6 tick=1886 kind=DriveResolve slot=0 source=Player accepted=True reason=None timing=Good value=0
+note fail FeverPlay missing=Fever,FeverTapA,FeverTapB screen=Result last=全灭 drive=88 qte=-1 fever=False paused=False speed=1 auto=Manual wave=0 outcome=Defeat cmd=seq=6 tick=1886 kind=DriveResolve slot=0 source=Player accepted=True reason=None timing=Good value=0
+note ok ResultVisible screen=Result title=DEFEAT
+note persist np-20260914T153202-001 why=pre-next status=F:\天命之子\client\captures\natural-play\battles\np-20260914T153202-001 outcome=Defeat digest=0641ef1d5751f919dec6bb2cb7409e2ecf22711155d993915b2e423ea2f609aa replay=F:\天命之子\client\captures\natural-play\battles\np-20260914T153202-001\replay.jsonl
+frame=5802 t=105.979 kind=tap pos=540,960 target=none after=screen=Result last=全灭 drive=88 qte=-1 fever=False paused=False speed=1 auto=Manual wave=0 outcome=Defeat cmd=seq=6 tick=1886 kind=DriveResolve slot=0 source=Player accepted=True reason=None timing=Good value=0
+frame=5804 t=106.141 kind=tap pos=540,960 target=GameRoot/Canvas/vfxStageClear/veil after=screen=Result last=全灭 drive=88 qte=-1 fever=False paused=False speed=1 auto=Manual wave=0 outcome=Defeat cmd=seq=6 tick=1886 kind=DriveResolve slot=0 source=Player accepted=True reason=None timing=Good value=0
+note ok ResultVisible board=True interactable=True
+note shot np_09_result.png
+frame=5807 t=106.316 kind=tap pos=756,576 target=none after=screen=Battle last=第一波 drive=0 qte=-1 fever=False paused=False speed=1 auto=Manual wave=0 outcome=InProgress
+note ok Rematch tapped GameRoot/Canvas/ResultBoard/RETRY
+note ok RematchBattle screen=Battle hud=p0 wave=0
+note ok BattleId id=np-20260914T153202-002 scenario=np.fever.v1 frozen=True header=seed=97812703;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=1;forceNoCrit=0;stage=NP-FEVER;data=g2id1-b078632c5f28a3727180f69f48398c62aad1a435fbf9a2ddebf731e382227388;party=C001,C007,C010,C003,C005
+note shot np_10_rematch.png
+note persist np-20260914T153202-002 why=rematch-enter status=F:\天命之子\client\captures\natural-play\battles\np-20260914T153202-002 outcome=InProgress digest=81b8bd79ef6c593a270decd08a93319846ba3cdc73d356cd1feea624c62c0090 replay=F:\天命之子\client\captures\natural-play\battles\np-20260914T153202-002\replay.jsonl
+frame=5823 t=106.921 kind=tap pos=97,1824 target=GameRoot/Canvas/|| PAUSE after=screen=Battle last=第一波 drive=0 qte=-1 fever=False paused=True speed=1 auto=Manual wave=0 outcome=InProgress cmd=seq=1 tick=18 kind=Pause slot=0 source=Player accepted=True reason=None timing=Bad value=0
+note ok ExitPause tapped GameRoot/Canvas/|| PAUSE
+note ok ExitPause PauseBoard Paused=true
+note persist np-20260914T153202-002 why=pre-home status=F:\天命之子\client\captures\natural-play\battles\np-20260914T153202-002 outcome=InProgress digest=3aea78ae9de8cdc4062d85fa6efdb7af05dfed2a19c73f5f38329d759d5db900 replay=F:\天命之子\client\captures\natural-play\battles\np-20260914T153202-002\replay.jsonl
+frame=5834 t=107.160 kind=tap pos=238,538 target=none after=screen=Home last=第一波 drive=0 qte=-1 fever=False paused=True speed=1 auto=Manual wave=0 outcome=InProgress cmd=seq=1 tick=18 kind=Pause slot=0 source=Player accepted=True reason=None timing=Bad value=0
+note ok ExitHome tapped GameRoot/Canvas/PauseBoard/HOME
+note ok HomeReturn screen=Home
+note shot np_11_home.png
+note persist np-20260914T153202-002 why=quit status=F:\天命之子\client\captures\natural-play\battles\np-20260914T153202-002 outcome=InProgress digest=3aea78ae9de8cdc4062d85fa6efdb7af05dfed2a19c73f5f38329d759d5db900 replay=F:\天命之子\client\captures\natural-play\battles\np-20260914T153202-002\replay.jsonl
+
+--- frozen battle headers (authoritative) ---
+np-20260914T153202-001	seed=97714718;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=1;forceNoCrit=0;stage=NP-FEVER;data=g2id1-b078632c5f28a3727180f69f48398c62aad1a435fbf9a2ddebf731e382227388;party=C001,C007,C010,C003,C005
+np-20260914T153202-002	seed=97812703;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=1;forceNoCrit=0;stage=NP-FEVER;data=g2id1-b078632c5f28a3727180f69f48398c62aad1a435fbf9a2ddebf731e382227388;party=C001,C007,C010,C003,C005
+
+--- live RunHeader (current GameRoot.Battle; may be fight 2) ---
+seed=97812703;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=1;forceNoCrit=0;stage=NP-FEVER;data=g2id1-739d8b44874327aba5cc7bbf1de521bdd7e524983b1452f749fcacbf4d40f054;party=C001,C007,C010,C003,C005
+
+--- live CommandLog (current GameRoot.Battle; per-fight files are authoritative) ---
+seq=1 tick=18 kind=Pause slot=0 source=Player accepted=True reason=None timing=Bad value=0
+
+--- reflection (read-only) ---
+BattleSim.CommandLog (public, read-only)
+BattleSim.RunHeader() (read-only)

@@ -1,0 +1,110 @@
+battle_id=np-20260914T153840-001
+scenario=np.auto.v1
+regression=N03
+provenance=DESIGN_PLACEHOLDER
+schema=G2R14-NP-1
+stage=NP-AUTO
+seed=98113015
+outcome=InProgress
+drive=94
+fever=False
+feverEver=False
+auto=Manual
+speed=1
+wave=0
+event_count=63
+command_count=14
+pointer=UnityEngine.EventSystem
+os_touch=NOT_CLAIMED
+replay=replay.jsonl
+dataIdentity=294520235fa74b2acb890b925c4abd6bebc5bfbff96d391b63df2fca6a1ef144
+growth=C001:2460/1550+0|C007:3760/760+0|C010:2640/990+0|C003:3160/1050+0|C005:2700/1040+0
+clock=8.000|14.000|70|7.000|2.000|1|1|1|1|1|1|1|1|0.200|5.000
+policy=schema=G2R14-NP-1;name=np.auto.v1;active=1;honor=1;gain=2;charge=1.25
+
+--- frozen RunHeader ---
+seed=98113015;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=1;forceNoCrit=0;stage=NP-AUTO;data=g2id1-4b247612fde6977dd6935b20202716cecb4c65baba75593cd4b79142e9cd73a2;party=C001,C007,C010,C003,C005
+
+--- frozen BattleInitialHeader ---
+seed=98113015;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=1;forceNoCrit=0;leader=0;stage=NP-AUTO;party=C001,C007,C010,C003,C005;growth=C001:2460/1550+0|C007:3760/760+0|C010:2640/990+0|C003:3160/1050+0|C005:2700/1040+0;clock=8.000|14.000|70|7.000|2.000|1|1|1|1|1|1|1|1|0.200|5.000;data=294520235fa74b2acb890b925c4abd6bebc5bfbff96d391b63df2fca6a1ef144;content=g2id1-4b247612fde6977dd6935b20202716cecb4c65baba75593cd4b79142e9cd73a2;frozen=1
+
+--- CommandLog ---
+seq=1 tick=18 kind=SetAuto slot=0 source=Player accepted=True reason=None timing=Bad value=1
+seq=2 tick=25 kind=Tap slot=0 source=Auto accepted=True reason=None timing=Bad value=0
+seq=3 tick=25 kind=Tap slot=1 source=Auto accepted=True reason=None timing=Bad value=0
+seq=4 tick=25 kind=Slide slot=2 source=Auto accepted=True reason=None timing=Bad value=0
+seq=5 tick=25 kind=Tap slot=3 source=Auto accepted=True reason=None timing=Bad value=0
+seq=6 tick=25 kind=Slide slot=4 source=Auto accepted=True reason=None timing=Bad value=0
+seq=7 tick=25 kind=SetAuto slot=0 source=Player accepted=True reason=None timing=Bad value=2
+seq=8 tick=107 kind=Slide slot=0 source=Auto accepted=True reason=None timing=Bad value=0
+seq=9 tick=107 kind=Tap slot=1 source=Auto accepted=True reason=None timing=Bad value=0
+seq=10 tick=107 kind=Tap slot=2 source=Auto accepted=True reason=None timing=Bad value=0
+seq=11 tick=107 kind=Tap slot=3 source=Auto accepted=True reason=None timing=Bad value=0
+seq=12 tick=107 kind=Tap slot=4 source=Auto accepted=True reason=None timing=Bad value=0
+seq=13 tick=110 kind=SetAuto slot=0 source=Player accepted=True reason=None timing=Bad value=0
+seq=14 tick=120 kind=Pause slot=0 source=Player accepted=True reason=None timing=Bad value=0
+
+--- Events ---
+0|resolve|0|wave|enter|-1|0|-1|0|0|0|0|1|0
+0|resolve|1|opcode|status.apply|0|1|-1|0|0|4|0|1|0
+0|resolve|2|cast|status.apply|0|1|-1|0|0|4|0|1|0
+0|resolve|3|opcode|status.apply|-1|0|0|1|0|4|0|1|0
+0|resolve|4|opcode|status.apply|-1|0|1|1|0|4|0|1|0
+0|resolve|5|opcode|status.apply|-1|0|2|1|0|4|0|1|0
+0|resolve|6|opcode|status.apply|-1|0|3|1|0|4|0|1|0
+0|resolve|7|opcode|status.apply|-1|0|4|1|0|4|0|1|0
+25|resolve|8|opcode|dmg.tap|0|1|-1|0|0|1|1|0|2
+25|resolve|9|hit|dmg.tap|0|1|1|0|3279|1|1|0|2
+25|resolve|10|cast|dmg.tap|0|1|-1|0|0|1|1|0|2
+25|resolve|11|opcode|dmg.tap|1|1|-1|0|0|1|1|0|2
+25|resolve|12|hit|dmg.tap|1|1|2|0|1289|1|1|0|2
+25|resolve|13|cast|dmg.tap|1|1|-1|0|0|1|1|0|2
+25|resolve|14|opcode|dmg.slide|2|1|-1|0|0|2|1|0|2
+25|resolve|15|hit|dmg.slide|2|1|1|0|833|2|1|0|2
+25|resolve|16|hit|dmg.slide|2|1|0|0|957|2|1|0|2
+25|resolve|17|hit|dmg.slide|2|1|1|0|833|2|1|0|2
+25|resolve|18|cast|dmg.slide|2|1|-1|0|0|2|1|0|2
+25|resolve|19|opcode|control.apply|-1|0|1|0|0|2|1|0|2
+25|resolve|20|opcode|control.apply|-1|0|1|0|0|2|1|0|2
+25|resolve|21|opcode|control.apply|-1|0|2|0|0|2|1|0|2
+25|resolve|22|opcode|dmg.tap|3|1|-1|0|0|1|1|0|2
+25|resolve|23|cast|dmg.tap|3|1|-1|0|0|1|1|0|2
+25|resolve|24|opcode|dmg.slide|4|1|-1|0|0|2|1|0|2
+25|resolve|25|cast|dmg.slide|4|1|-1|0|0|2|1|0|2
+25|resolve|26|opcode|status.apply|-1|0|0|1|0|2|1|0|2
+25|resolve|27|opcode|status.apply|-1|0|1|1|0|2|1|0|2
+25|resolve|28|opcode|status.apply|-1|0|2|1|0|2|1|0|2
+25|resolve|29|opcode|status.apply|-1|0|3|1|0|2|1|0|2
+25|resolve|30|opcode|status.apply|-1|0|4|1|0|2|1|0|2
+100|resolve|31|opcode|dmg.auto|2|1|-1|0|0|0|1|0|2
+100|resolve|32|hit|dmg.auto|2|1|1|0|406|0|1|0|2
+100|resolve|33|cast|dmg.auto|2|1|-1|0|0|0|1|0|2
+101|resolve|34|opcode|dmg.auto|4|1|-1|0|0|0|1|0|2
+101|resolve|35|hit|dmg.auto|4|1|0|0|292|0|1|0|2
+101|resolve|36|cast|dmg.auto|4|1|-1|0|0|0|1|0|2
+103|resolve|37|opcode|dmg.auto|0|1|-1|0|0|0|1|0|2
+103|resolve|38|hit|dmg.auto|0|1|0|0|648|0|1|0|2
+103|resolve|39|cast|dmg.auto|0|1|-1|0|0|0|1|0|2
+105|resolve|40|opcode|dmg.auto|3|1|-1|0|0|0|1|0|2
+105|resolve|41|hit|dmg.auto|3|1|2|0|279|0|1|0|2
+105|resolve|42|cast|dmg.auto|3|1|-1|0|0|0|1|0|2
+106|resolve|43|opcode|dmg.auto|1|1|-1|0|0|0|1|0|2
+106|resolve|44|hit|dmg.auto|1|1|2|0|278|0|1|0|2
+106|resolve|45|cast|dmg.auto|1|1|-1|0|0|0|1|0|2
+107|resolve|46|opcode|dmg.slide|0|1|-1|0|0|2|1|0|2
+107|resolve|47|hit|dmg.slide|0|1|1|0|3302|2|1|0|2
+107|resolve|48|hit|dmg.slide|0|1|2|0|1912|2|1|0|2
+107|resolve|49|cast|dmg.slide|0|1|-1|0|0|2|1|0|2
+107|resolve|50|opcode|dmg.tap|1|1|-1|0|0|1|1|0|2
+107|resolve|51|hit|dmg.tap|1|1|2|0|644|1|1|0|2
+107|resolve|52|cast|dmg.tap|1|1|-1|0|0|1|1|0|2
+107|resolve|53|opcode|dmg.tap|2|1|-1|0|0|1|1|0|2
+107|resolve|54|hit|dmg.tap|2|1|0|0|675|1|1|0|2
+107|resolve|55|cast|dmg.tap|2|1|-1|0|0|1|1|0|2
+107|resolve|56|opcode|status.apply|-1|0|0|0|0|1|1|0|2
+107|resolve|57|opcode|dmg.tap|3|1|-1|0|0|1|1|0|2
+107|resolve|58|cast|dmg.tap|3|1|-1|0|0|1|1|0|2
+107|resolve|59|opcode|dmg.tap|4|1|-1|0|0|1|1|0|2
+107|resolve|60|hit|dmg.tap|4|1|2|0|583|1|1|0|2
+107|resolve|61|cast|dmg.tap|4|1|-1|0|0|1|1|0|2
+107|resolve|62|opcode|charge.rate|-1|0|0|1|0|1|1|0|2

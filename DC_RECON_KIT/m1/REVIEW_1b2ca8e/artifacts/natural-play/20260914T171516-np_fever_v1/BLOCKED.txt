@@ -1,0 +1,13 @@
+BLOCKED
+token=np.fever.v1
+task=B1-F2
+stamp=20260914T171516
+play=never
+result=missing
+reason=Unity Safe Mode; executeMethod NaturalPlaySmoke.CliFever not found
+compiler=Assets\Scripts\Resonance.Battle\Core\BattleReplay.cs(1396,27): error CS0246: The type or namespace name 'FiveStat' could not be found
+lease=BattleReplay.cs is B1-F1; F2 did not edit it
+f2_files=VfxGoodWindow / VfxGoodButton / NaturalPlayRuntime — no CS error in this log
+log=editor-np-fever-v1-20260914T171516.log
+not=NOT_RUN-as-pass
+path_a=not claimed

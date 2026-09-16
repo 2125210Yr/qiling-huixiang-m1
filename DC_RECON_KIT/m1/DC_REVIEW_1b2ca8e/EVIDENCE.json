@@ -1,0 +1,169 @@
+{
+  "repository": "2125210Yr/qiling-huixiang-m1",
+  "branch": "m1-gt6-review",
+  "reviewed_commit": "1b2ca8e4ff56d9f0986e158fc97b50498f735cb3",
+  "previous_review_commit": "1a752532e39560b861c2a661db66c97ca18ffece",
+  "review_verdict": "NEEDS_FIX",
+  "method": "Read-only GitHub source/test/artifact review; no independent C#/Unity execution",
+  "independently_executed_dotnet": false,
+  "independently_executed_unity": false,
+  "remote_repository_modified": false,
+  "fidelity_measured": false,
+  "committed_gate_trx": {
+    "path": "DC_RECON_KIT/m1/REVIEW_1a75253/artifacts/tests/a53-gate.trx",
+    "blob_sha": "987ffbe9ebfd493370fe20ff4258847819270cd2",
+    "run_id": "561a2e62-012e-4021-ba20-6b0b3620f263",
+    "started_at": "2026-09-14T17:13:14.5608319+08:00",
+    "finished_at": "2026-09-14T17:13:18.6794861+08:00",
+    "result_summary_outcome": "Failed",
+    "reported_counters": {
+      "total": 245,
+      "executed": 244,
+      "passed": 234,
+      "failed": 10,
+      "notExecuted": 0
+    },
+    "stdout_explicit_skip": "G2RecheckNaturalContractTests.N01_N02_N03_NaturalPlayContract_DocumentedNotFaked",
+    "failures_listed_in_runinfos": [
+      "Resonance.Tests.G2ReviewReplayComponentTests.FullReplayVerifyHasZeroDivergences",
+      "Resonance.Tests.G2ReviewReplayComponentTests.DifferentSeedReplayReportsDivergence",
+      "Resonance.Tests.M1CoreSliceTests.SlideCdIsIndependentOfCharge",
+      "Resonance.Tests.M1RepairQaTests.SlideDoesNotUseUniformVarianceRng",
+      "Resonance.Tests.M1RepairQaTests.CloneSkillKeepsExternalSlideRankSlots",
+      "Resonance.Tests.M1RepairQaTests.EmptyOrUnknownOpcodeCastFails",
+      "Resonance.Tests.BattleSimTests.TapAndSlideRecordDistinctCasts",
+      "Resonance.Tests.BattleSimTests.SlideAddsFourteenDrive",
+      "Resonance.Tests.BattleSimTests.AutoTapFollowsReservation",
+      "Resonance.Tests.BattleSimTests.BattleSimLightDarkMatchup"
+    ],
+    "extraction_method": "Direct fixed-ref file-range reads, including XML tail and RunInfos"
+  },
+  "committed_summary_claim": {
+    "passed": 244,
+    "failed": 0,
+    "skipped": 1,
+    "total": 245
+  },
+  "caution": "Report mismatch does not prove the final committed code independently reruns with the same failures.",
+  "findings": [
+    {
+      "id": "A1",
+      "kind": "committed-evidence-conflict",
+      "status": "OPEN"
+    },
+    {
+      "id": "A2",
+      "kind": "source-path-integration-gap",
+      "status": "OPEN",
+      "runtime_test": "NOT_RUN_BY_REVIEWER"
+    },
+    {
+      "id": "A3",
+      "kind": "source-derived-actual-stage-identity-counterexample",
+      "status": "OPEN",
+      "runtime_test": "NOT_RUN_BY_REVIEWER"
+    },
+    {
+      "id": "A4",
+      "kind": "missing-current-unity-build-evidence",
+      "status": "OPEN"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S01",
+      "path": "DC_RECON_KIT/m1/REVIEW_1a75253/artifacts/CURRENT_STATE.md",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/1b2ca8e4ff56d9f0986e158fc97b50498f735cb3/DC_RECON_KIT/m1/REVIEW_1a75253/artifacts/CURRENT_STATE.md"
+    },
+    {
+      "id": "S02",
+      "path": "DC_RECON_KIT/m1/REVIEW_1a75253/artifacts/REGRESSION_LOG.md",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/1b2ca8e4ff56d9f0986e158fc97b50498f735cb3/DC_RECON_KIT/m1/REVIEW_1a75253/artifacts/REGRESSION_LOG.md"
+    },
+    {
+      "id": "S03",
+      "path": "DC_RECON_KIT/m1/REVIEW_1a75253/artifacts/tests/a53-gate.trx",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/1b2ca8e4ff56d9f0986e158fc97b50498f735cb3/DC_RECON_KIT/m1/REVIEW_1a75253/artifacts/tests/a53-gate.trx"
+    },
+    {
+      "id": "S04",
+      "path": "client/Assets/Scripts/Resonance.Battle/Core/BattleSim.Commands.cs",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/1b2ca8e4ff56d9f0986e158fc97b50498f735cb3/client/Assets/Scripts/Resonance.Battle/Core/BattleSim.Commands.cs"
+    },
+    {
+      "id": "S05",
+      "path": "client/Assets/Scripts/Resonance.Battle/Core/BattleSim.cs",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/1b2ca8e4ff56d9f0986e158fc97b50498f735cb3/client/Assets/Scripts/Resonance.Battle/Core/BattleSim.cs"
+    },
+    {
+      "id": "S06",
+      "path": "client/Assets/Scripts/Resonance.Battle/Content/Catalog.cs",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/1b2ca8e4ff56d9f0986e158fc97b50498f735cb3/client/Assets/Scripts/Resonance.Battle/Content/Catalog.cs"
+    },
+    {
+      "id": "S07",
+      "path": "client/Assets/Scripts/Resonance.Battle/Core/EffectCapability.cs",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/1b2ca8e4ff56d9f0986e158fc97b50498f735cb3/client/Assets/Scripts/Resonance.Battle/Core/EffectCapability.cs"
+    },
+    {
+      "id": "S08",
+      "path": "client/Assets/Scripts/Resonance.Battle/Content/VerificationCatalog.cs",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/1b2ca8e4ff56d9f0986e158fc97b50498f735cb3/client/Assets/Scripts/Resonance.Battle/Content/VerificationCatalog.cs"
+    },
+    {
+      "id": "S09",
+      "path": "client/Assets/Scripts/Resonance.App/Core/GameRoot.cs",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/1b2ca8e4ff56d9f0986e158fc97b50498f735cb3/client/Assets/Scripts/Resonance.App/Core/GameRoot.cs"
+    },
+    {
+      "id": "S10",
+      "path": "client/Assets/Scripts/Resonance.App/Debug/NaturalPlayRuntime.cs",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/1b2ca8e4ff56d9f0986e158fc97b50498f735cb3/client/Assets/Scripts/Resonance.App/Debug/NaturalPlayRuntime.cs"
+    },
+    {
+      "id": "S11",
+      "path": "tools/BattleSim.Tests/G2ReviewFixtures.cs",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/1b2ca8e4ff56d9f0986e158fc97b50498f735cb3/tools/BattleSim.Tests/G2ReviewFixtures.cs"
+    },
+    {
+      "id": "S12",
+      "path": "tools/BattleSim.Tests/M1CoreSliceTests.cs",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/1b2ca8e4ff56d9f0986e158fc97b50498f735cb3/tools/BattleSim.Tests/M1CoreSliceTests.cs"
+    },
+    {
+      "id": "S13",
+      "path": "client/Assets/Scripts/Resonance.Battle/Content/CatalogJson.cs",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/1b2ca8e4ff56d9f0986e158fc97b50498f735cb3/client/Assets/Scripts/Resonance.Battle/Content/CatalogJson.cs"
+    },
+    {
+      "id": "S14",
+      "path": "client/Assets/Scripts/Resonance.Battle/Core/BattleReplay.cs",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/1b2ca8e4ff56d9f0986e158fc97b50498f735cb3/client/Assets/Scripts/Resonance.Battle/Core/BattleReplay.cs"
+    },
+    {
+      "id": "S15",
+      "path": "client/Assets/Scripts/Resonance.App/Debug/NaturalPlayBattleEvidence.cs",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/1b2ca8e4ff56d9f0986e158fc97b50498f735cb3/client/Assets/Scripts/Resonance.App/Debug/NaturalPlayBattleEvidence.cs"
+    },
+    {
+      "id": "S16",
+      "path": "tools/BattleSim.Tests/G2A53EvidenceTests.cs",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/1b2ca8e4ff56d9f0986e158fc97b50498f735cb3/tools/BattleSim.Tests/G2A53EvidenceTests.cs"
+    },
+    {
+      "id": "S17",
+      "path": "tools/BattleSim.Tests/BattleSim.Tests.csproj",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/1b2ca8e4ff56d9f0986e158fc97b50498f735cb3/tools/BattleSim.Tests/BattleSim.Tests.csproj"
+    },
+    {
+      "id": "S18",
+      "path": "tools/BattleSim.Tests/G2A53AssemblyIsolation.cs",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/1b2ca8e4ff56d9f0986e158fc97b50498f735cb3/tools/BattleSim.Tests/G2A53AssemblyIsolation.cs"
+    },
+    {
+      "id": "S19",
+      "path": "tools/BattleSim.Tests/G2A53PlayableGateTests.cs",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/1b2ca8e4ff56d9f0986e158fc97b50498f735cb3/tools/BattleSim.Tests/G2A53PlayableGateTests.cs"
+    }
+  ]
+}

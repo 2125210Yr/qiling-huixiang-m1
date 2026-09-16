@@ -1,0 +1,1 @@
+seed=97812703;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=1;forceNoCrit=0;stage=NP-FEVER;data=g2id1-b078632c5f28a3727180f69f48398c62aad1a435fbf9a2ddebf731e382227388;party=C001,C007,C010,C003,C005

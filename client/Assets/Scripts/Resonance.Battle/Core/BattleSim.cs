@@ -309,6 +309,9 @@ namespace Resonance.Battle
         /// <summary>Per-fight effect replacements consumed by ResolveEffect. Null when none applied.</summary>
         public IReadOnlyDictionary<string, EffectDef> EffectOverlays => _effectOverlay;
 
+        /// <summary>Stage this fight is running. Same object as ctor <c>_stage</c> (VerticalSlice fallback). No copy.</summary>
+        public StageDef ActiveStage => _stage;
+
         SkillDef ResolveSkill(string id)
         {
             if (_skillOverlay != null && !string.IsNullOrEmpty(id)
