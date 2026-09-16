@@ -228,13 +228,14 @@ namespace Resonance.App
         }
 
         /// <summary>
-        /// New sim from the tape's opening party/stage/profile/leader/seed.
+        /// New sim from the tape's opening party/stage/profile/leader/seed/mods.
         /// When <paramref name="growth"/> is null and <paramref name="recoverOpeningGrowth"/>
         /// is true (default), rebuild the tape's opening <see cref="UnitProgress"/> —
-        /// explicit snapshot on the record, else a Growth.Apply search of
+        /// recorded rows first, else a labelled Growth.Apply search of
         /// <c>id:hp/atk+extra</c>. Catalog defaults only when recovery is off
-        /// or the caller passes an empty/default array. Bind the recorded policy
-        /// before calling if the fight used a verification catalog.
+        /// or the caller passes an empty/default array. Recorded
+        /// <see cref="BattleMods"/> are always applied (not recomputed from save).
+        /// Bind the recorded policy before calling if the fight used a verification catalog.
         /// Mismatched growth/gear/policy/data identity fails
         /// <see cref="BattleReplayer.Verify"/> with a named Diff (not a same-object compare).
         /// </summary>
@@ -245,8 +246,9 @@ namespace Resonance.App
         {
             if (rec == null) throw new ArgumentNullException(nameof(rec));
             var resolved = ResolveOpeningGrowth(rec, growth, recoverOpeningGrowth);
+            var mods = OpeningGrowth.RecoverMods(rec);
             var stage = BattleContentIdentity.FindStage(rec.StageId);
-            var sim = new BattleSim(rec.PartyIds, rec.LeaderSlot, rec.Seed, stage, resolved)
+            var sim = new BattleSim(rec.PartyIds, rec.LeaderSlot, rec.Seed, stage, resolved, mods)
             {
                 Profile = rec.Profile
             };
@@ -263,10 +265,11 @@ namespace Resonance.App
         {
             if (rec == null) throw new ArgumentNullException(nameof(rec));
             var resolved = ResolveOpeningGrowth(rec, growth, recoverOpeningGrowth);
+            var mods = OpeningGrowth.RecoverMods(rec);
             return seed =>
             {
                 var stage = BattleContentIdentity.FindStage(rec.StageId);
-                var sim = new BattleSim(rec.PartyIds, rec.LeaderSlot, seed, stage, resolved)
+                var sim = new BattleSim(rec.PartyIds, rec.LeaderSlot, seed, stage, resolved, mods)
                 {
                     Profile = rec.Profile
                 };
@@ -339,6 +342,13 @@ namespace Resonance.App
                 var snap = BattleInitialHeader.Snapshot(rebuilt, tape.PartyIds, tape.StageId, true);
                 if (!string.Equals(tape.Initial.GrowthIdentity ?? "", snap.GrowthIdentity ?? "", StringComparison.Ordinal))
                     return "GrowthIdentity: tape != replayed";
+            }
+
+            if (tape.Initial != null && !string.IsNullOrEmpty(tape.Initial.OpeningInputsIdentity))
+            {
+                var snap = BattleInitialHeader.Snapshot(rebuilt, tape.PartyIds, tape.StageId, true);
+                if (!string.Equals(tape.Initial.OpeningInputsIdentity ?? "", snap.OpeningInputsIdentity ?? "", StringComparison.Ordinal))
+                    return "OpeningInputsIdentity: tape != replayed";
             }
 
             if (tape.Initial != null && !string.IsNullOrEmpty(tape.Initial.ClockIdentity))
@@ -510,6 +520,9 @@ namespace Resonance.App
                 .Append("leader=").Append(h != null ? h.LeaderSlot.ToString(CultureInfo.InvariantCulture) : "").Append('\n')
                 .Append("party=").Append(JoinIds(h != null ? h.PartyIds : null)).Append('\n')
                 .Append("growth=").Append(h != null ? h.GrowthIdentity : "").Append('\n')
+                .Append("openingInputs=").Append(h != null ? h.OpeningInputsIdentity : "").Append('\n')
+                .Append("openingSource=").Append(rec != null ? rec.OpeningSource : "").Append('\n')
+                .Append("openingMods=").Append(OpeningGrowth.FormatMods(rec != null ? rec.OpeningMods : null)).Append('\n')
                 .Append("clock=").Append(h != null ? h.ClockIdentity : "").Append('\n')
                 .Append("dataIdentity=").Append(h != null ? h.DataIdentity : (rec != null ? rec.DataIdentity : "")).Append('\n')
                 .Append("contentFingerprint=").Append(h != null ? h.ContentFingerprint : "").Append('\n')
@@ -547,6 +560,7 @@ namespace Resonance.App
             {
                 sb.AppendLine("dataIdentity=" + (h.DataIdentity ?? ""));
                 sb.AppendLine("growth=" + (h.GrowthIdentity ?? ""));
+                sb.AppendLine("openingInputs=" + (h.OpeningInputsIdentity ?? ""));
                 sb.AppendLine("clock=" + (h.ClockIdentity ?? ""));
                 sb.AppendLine("policy=" + (PolicyIdentity ?? ""));
             }
@@ -578,6 +592,7 @@ namespace Resonance.App
                 + ";stage=" + (h.StageId ?? "")
                 + ";party=" + JoinIds(h.PartyIds)
                 + ";growth=" + (h.GrowthIdentity ?? "")
+                + ";openingInputs=" + (h.OpeningInputsIdentity ?? "")
                 + ";clock=" + (h.ClockIdentity ?? "")
                 + ";data=" + (h.DataIdentity ?? "")
                 + ";content=" + (h.ContentFingerprint ?? "")
@@ -610,6 +625,7 @@ namespace Resonance.App
                 else if (key == "leader") h.LeaderSlot = ParseInt(val, h.LeaderSlot);
                 else if (key == "party") h.PartyIds = SplitIds(val);
                 else if (key == "growth") h.GrowthIdentity = val;
+                else if (key == "openingInputs") h.OpeningInputsIdentity = val;
                 else if (key == "clock") h.ClockIdentity = val;
                 else if (key == "dataIdentity") h.DataIdentity = val;
                 else if (key == "contentFingerprint") h.ContentFingerprint = val;

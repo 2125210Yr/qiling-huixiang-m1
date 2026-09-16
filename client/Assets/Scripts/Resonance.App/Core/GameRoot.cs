@@ -142,7 +142,11 @@ namespace Resonance.App
             return ok;
         }
 
-        public bool TryFocusEnemy(int slot) => _battle != null && _battle.TryFocusEnemy(slot);
+        public bool TryFocusEnemy(int slot)
+        {
+            if (_battle == null) return false;
+            return _battle.Submit(BattleCommand.FocusEnemy(slot, CommandSource.Player)).Accepted;
+        }
 
         public int FocusEnemySlot => _battle != null ? _battle.FocusEnemySlot : -1;
 

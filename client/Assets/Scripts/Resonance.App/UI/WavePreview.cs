@@ -428,7 +428,6 @@ namespace Resonance.App
         const float PhaseLifeSec = 2.00f;
         const float SlamSec = 0.14f;
 
-        bool _phaseHold;
         int _probeId;
         CanvasGroup _group;
         Image _tone;
@@ -624,6 +623,8 @@ namespace Resonance.App
             if (!cue.Visible) return;
             _kind = cue.Kind;
             _life = cue.Kind == WaveCueKind.WaveAdvance ? PhaseLifeSec : LifeSec;
+            if (cue.Kind == WaveCueKind.WaveAdvance && _battle != null && _battle.HoldLeftSec > 0.01f)
+                _life = _battle.HoldLeftSec;
             _age = 0f;
             _tilt = cue.Kind == WaveCueKind.AllyDown ? 12f
                 : cue.Kind == WaveCueKind.EnemyDown ? -4f
@@ -678,12 +679,7 @@ namespace Resonance.App
             gameObject.SetActive(true);
             if (cue.Kind == WaveCueKind.WaveAdvance)
             {
-                // P0 PHASE splash: BATTLE TIME stays put. Not T28. Not Full Auto proof.
-                if (_battle != null)
-                {
-                    _battle.HoldSim = true;
-                    _phaseHold = true;
-                }
+                // Overlay only. Core owns the PHASE sim hold from LoadWave (C2).
                 _probeId++;
                 CueTimingProbe.On("phase", _probeId);
             }
@@ -691,11 +687,6 @@ namespace Resonance.App
 
         void Hide()
         {
-            if (_phaseHold && _battle != null)
-            {
-                _battle.HoldSim = false;
-                _phaseHold = false;
-            }
             if (_kind == WaveCueKind.WaveAdvance && _probeId != 0)
                 CueTimingProbe.Off("phase", _probeId);
             _life = 0f;

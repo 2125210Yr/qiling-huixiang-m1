@@ -479,6 +479,10 @@ namespace Resonance.Tests
             float gauge = 0f;
             for (int n = 0; n < 4; n++)
             {
+                // C2: Full-auto Drive / ally Slide start a core tick-budget hold. Drain it
+                // (ticks advance, clocks do not) before asserting the next Drive round.
+                while (sim.PolicyHoldTicksLeft > 0 && sim.Outcome == BattleOutcome.InProgress)
+                    sim.Tick();
                 ChargeAll(sim);
                 sim.Drive = 100f;
                 sim.Outcome = BattleOutcome.InProgress;

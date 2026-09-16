@@ -172,7 +172,10 @@ namespace Resonance.Tests
             Assert.False(SliceDriveSequence.HasDriveCast(sim));
             sim.HoldSim = false;
             sim.Tick();
-            Assert.False(sim.HoldSim);
+            // C2: the released tick runs Full-auto Drive/Slide, which may open a core
+            // tick-budget hold. Sticky must be gone; any hold left is policy, not sticky.
+            Assert.False(sim.HoldSticky);
+            Assert.True(!sim.HoldSim || sim.PolicyHoldTicksLeft > 0);
             Assert.True(sim.TimeLeft < time);
         }
 
@@ -259,6 +262,13 @@ namespace Resonance.Tests
             Assert.Equal(1, sim.WaveIndex);
             Assert.True(MvpLoop.HasEventKind(sim, "death"));
             Assert.Contains(sim.Events.Events, e => e.Kind == "wave" && e.Opcode == "advance" && e.Amount == 1);
+            // C2: LoadWave(index>0) opens the core PHASE hold (WaveAdvanceHoldSec tick budget).
+            Assert.Contains(sim.Events.Events, e => e.Kind == "hold" && e.Opcode == "begin.wave");
+            Assert.True(sim.PolicyHoldTicksLeft > 0);
+            while (sim.PolicyHoldTicksLeft > 0)
+                sim.Tick();
+            Assert.False(sim.HoldSim);
+            Assert.Contains(sim.Events.Events, e => e.Kind == "hold" && e.Opcode == "end.wave");
 
             var afterWave = sim.Events.Events.Count;
             sim.Enemies[0].Hp = 0;

@@ -196,19 +196,7 @@ namespace Resonance.Battle
             {
                 var e = kv.Value;
                 if (e == null) continue;
-                d[kv.Key] = new EffectDef
-                {
-                    Id = e.Id,
-                    Opcode = e.Opcode,
-                    Kind = e.Kind,
-                    Magnitude = e.Magnitude,
-                    DurationSec = e.DurationSec,
-                    MaxStack = e.MaxStack,
-                    SourceTier = e.SourceTier,
-                    Group = e.Group,
-                    Trigger = e.Trigger,
-                    PeriodSec = e.PeriodSec
-                };
+                d[kv.Key] = Catalog.CloneEffect(e);
             }
             return d;
         }

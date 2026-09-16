@@ -1,0 +1,288 @@
+{
+  "repository": "2125210Yr/qiling-huixiang-m1",
+  "branch": "m1-gt6-review",
+  "reviewed_commit": "a82801b80fd81fb4f8ff30cf45b72b30fcd63521",
+  "baseline": "1b2ca8e4ff56d9f0986e158fc97b50498f735cb3",
+  "date": "2026-09-16",
+  "verdict": "NEEDS_FIX",
+  "scope": "G2 Path A; no G3; existing fidelity deferrals unchanged",
+  "method": "Pinned GitHub connector source and committed artifact inspection",
+  "independently_executed_csharp": false,
+  "independently_executed_unity": false,
+  "independently_executed_replay": false,
+  "reviewed_recording_bytes": false,
+  "ran_build_binary": false,
+  "remote_modified": false,
+  "fidelity_measured": false,
+  "full_repository_audit_claimed": false,
+  "committed_baseline_test_run": {
+    "source_commit": "1b2ca8e4ff56d9f0986e158fc97b50498f735cb3",
+    "reported_xml_summary": "Completed",
+    "total": 245,
+    "executed": 244,
+    "passed": 244,
+    "failed": 0,
+    "stdout_skipped": 1,
+    "console_exit_code": 0,
+    "run_id": "a457d5a0-4d49-4492-b868-a50fb82349d8",
+    "qualifies_as_final_head_run": false
+  },
+  "committed_natural_results": {
+    "basic": {
+      "session": "np-20260914T152600",
+      "reported": "PASS",
+      "kind": "EventSystem pointer",
+      "independently_run": false
+    },
+    "fever": {
+      "session": "np-20260914T183818",
+      "reported": "PASS",
+      "player_fever_slots": [
+        0,
+        1
+      ],
+      "first_fight_outcome": "Victory",
+      "independently_run": false
+    },
+    "auto": {
+      "session": "np-20260914T153840",
+      "reported": "PASS",
+      "scope": "Full->Manual and automatic skill observed",
+      "independently_run": false
+    }
+  },
+  "committed_basic_readback": {
+    "Match": false,
+    "CommandDiff": 0,
+    "Unconsumed": 0,
+    "VersionDiff": 0,
+    "DigestDiff": 17,
+    "EventDiff": 1,
+    "first_event_divergence": 12,
+    "expected_first_divergent_tick": 69,
+    "actual_first_divergent_tick": 40,
+    "expected_final_tick": 191,
+    "actual_final_tick": 163,
+    "expected_events": 100,
+    "actual_events": 124
+  },
+  "findings": [
+    {
+      "id": "C1",
+      "priority": "P1",
+      "status": "SOURCE_CONFIRMED",
+      "description": "VerificationCatalog.CloneEffects omits Side/HasTarget/Target",
+      "repro_execution": "NOT_RUN_BY_REVIEWER"
+    },
+    {
+      "id": "C2",
+      "priority": "P1",
+      "status": "SOURCE_CONFIRMED_MECHANISM",
+      "description": "HUD writes HoldSim with wall-clock release outside replay log",
+      "sample_causality": "Consistent with recorded first divergence; not independently proved sole cause",
+      "repro_execution": "NOT_RUN_BY_REVIEWER"
+    },
+    {
+      "id": "C2b",
+      "priority": "P2",
+      "status": "SOURCE_CONFIRMED",
+      "description": "Enemy focus UI callback bypasses existing Submit FocusEnemy",
+      "repro_execution": "NOT_RUN_BY_REVIEWER"
+    },
+    {
+      "id": "C3",
+      "priority": "P1",
+      "status": "SOURCE_CONFIRMED",
+      "description": "New capture reverse-searches growth; Format/Parse omit Reserve",
+      "repro_execution": "NOT_RUN_BY_REVIEWER"
+    },
+    {
+      "id": "C4",
+      "priority": "ACCEPTANCE",
+      "status": "OPEN",
+      "description": "Baseline green report does not bind later B1 code; real readback remains failed"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S01",
+      "path": "DC_RECON_KIT/m1/REVIEW_1b2ca8e/artifacts/CURRENT_STATE.md",
+      "commit": "a82801b80fd81fb4f8ff30cf45b72b30fcd63521",
+      "blob_sha": "f8061aa5930dfac27b65dbd0187bb7abefa099dd",
+      "citation_base": "turn156file0",
+      "citation_visible_range": "L2-L2",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/a82801b80fd81fb4f8ff30cf45b72b30fcd63521/DC_RECON_KIT/m1/REVIEW_1b2ca8e/artifacts/CURRENT_STATE.md"
+    },
+    {
+      "id": "S02",
+      "path": "DC_RECON_KIT/m1/REVIEW_1b2ca8e/artifacts/a1-dotnet.log",
+      "commit": "a82801b80fd81fb4f8ff30cf45b72b30fcd63521",
+      "blob_sha": "9a455de03ecf9292255229e7f09cc25cd3f80d4d",
+      "citation_base": "turn159file0",
+      "citation_visible_range": "L2-L2",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/a82801b80fd81fb4f8ff30cf45b72b30fcd63521/DC_RECON_KIT/m1/REVIEW_1b2ca8e/artifacts/a1-dotnet.log"
+    },
+    {
+      "id": "S03",
+      "path": "DC_RECON_KIT/m1/REVIEW_1b2ca8e/artifacts/tests/a1-1b2ca8e.trx",
+      "commit": "a82801b80fd81fb4f8ff30cf45b72b30fcd63521",
+      "blob_sha": "4a1739ee6144c0857553a802b6898c586aeb1dfc",
+      "citation_base": "turn160file0",
+      "citation_visible_range": "L2-L2",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/a82801b80fd81fb4f8ff30cf45b72b30fcd63521/DC_RECON_KIT/m1/REVIEW_1b2ca8e/artifacts/tests/a1-1b2ca8e.trx"
+    },
+    {
+      "id": "S04",
+      "path": "DC_RECON_KIT/m1/REVIEW_1b2ca8e/artifacts/SOURCE_IDENTITY.md",
+      "commit": "a82801b80fd81fb4f8ff30cf45b72b30fcd63521",
+      "blob_sha": "7abc4ee4e768ed06950aeecd775b97c6c9db9802",
+      "citation_base": "turn185file0",
+      "citation_visible_range": "L2-L2",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/a82801b80fd81fb4f8ff30cf45b72b30fcd63521/DC_RECON_KIT/m1/REVIEW_1b2ca8e/artifacts/SOURCE_IDENTITY.md"
+    },
+    {
+      "id": "S05",
+      "path": "DC_RECON_KIT/m1/REVIEW_1b2ca8e/artifacts/natural-play/20260914T152459-np_basic_v1/natural-play.result.txt",
+      "commit": "a82801b80fd81fb4f8ff30cf45b72b30fcd63521",
+      "blob_sha": "35db321937b48cb0ffff06c28bc67150531377e9",
+      "citation_base": "turn191file0",
+      "citation_visible_range": "L2-L2",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/a82801b80fd81fb4f8ff30cf45b72b30fcd63521/DC_RECON_KIT/m1/REVIEW_1b2ca8e/artifacts/natural-play/20260914T152459-np_basic_v1/natural-play.result.txt"
+    },
+    {
+      "id": "S06",
+      "path": "DC_RECON_KIT/m1/REVIEW_1b2ca8e/artifacts/natural-play/20260914T183658-np_fever_v1/natural-play.result.txt",
+      "commit": "a82801b80fd81fb4f8ff30cf45b72b30fcd63521",
+      "blob_sha": null,
+      "citation_base": "turn175file0",
+      "citation_visible_range": "L2-L2",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/a82801b80fd81fb4f8ff30cf45b72b30fcd63521/DC_RECON_KIT/m1/REVIEW_1b2ca8e/artifacts/natural-play/20260914T183658-np_fever_v1/natural-play.result.txt"
+    },
+    {
+      "id": "S07",
+      "path": "DC_RECON_KIT/m1/REVIEW_1b2ca8e/artifacts/natural-play/20260914T153700-np_auto_v1/natural-play.result.txt",
+      "commit": "a82801b80fd81fb4f8ff30cf45b72b30fcd63521",
+      "blob_sha": "e53c7c02bbe9dcfc4e1b20077fb4edb90bf50440",
+      "citation_base": "turn193file0",
+      "citation_visible_range": "L2-L2",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/a82801b80fd81fb4f8ff30cf45b72b30fcd63521/DC_RECON_KIT/m1/REVIEW_1b2ca8e/artifacts/natural-play/20260914T153700-np_auto_v1/natural-play.result.txt"
+    },
+    {
+      "id": "S08",
+      "path": "DC_RECON_KIT/m1/REVIEW_1b2ca8e/artifacts/natural-play/fight1-readback.txt",
+      "commit": "a82801b80fd81fb4f8ff30cf45b72b30fcd63521",
+      "blob_sha": "57597a278c7b14245e84afcc56b1321738d9e453",
+      "citation_base": "turn161file0",
+      "citation_visible_range": "L2-L2",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/a82801b80fd81fb4f8ff30cf45b72b30fcd63521/DC_RECON_KIT/m1/REVIEW_1b2ca8e/artifacts/natural-play/fight1-readback.txt"
+    },
+    {
+      "id": "S09",
+      "path": "DC_RECON_KIT/m1/REVIEW_1b2ca8e/artifacts/natural-play/20260914T152459-np_basic_v1/natural-play/battles/np-20260914T152600-001/commands.txt",
+      "commit": "a82801b80fd81fb4f8ff30cf45b72b30fcd63521",
+      "blob_sha": "c27501bae247808bd147c02debaf63569179b452",
+      "citation_base": "turn170file0",
+      "citation_visible_range": "L2-L2",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/a82801b80fd81fb4f8ff30cf45b72b30fcd63521/DC_RECON_KIT/m1/REVIEW_1b2ca8e/artifacts/natural-play/20260914T152459-np_basic_v1/natural-play/battles/np-20260914T152600-001/commands.txt"
+    },
+    {
+      "id": "S10",
+      "path": "client/Assets/Scripts/Resonance.Battle/Content/VerificationCatalog.cs",
+      "commit": "a82801b80fd81fb4f8ff30cf45b72b30fcd63521",
+      "blob_sha": "bc19a8c984c086a6292e0c4d582629fe703fc0d2",
+      "citation_base": "turn176file0",
+      "citation_visible_range": "L2-L2",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/a82801b80fd81fb4f8ff30cf45b72b30fcd63521/client/Assets/Scripts/Resonance.Battle/Content/VerificationCatalog.cs"
+    },
+    {
+      "id": "S11",
+      "path": "client/Assets/Scripts/Resonance.Battle/Content/Catalog.cs",
+      "commit": "a82801b80fd81fb4f8ff30cf45b72b30fcd63521",
+      "blob_sha": "55065d3d52947bd3ec6867f9d8cd75d1923b4569",
+      "citation_base": "turn189file0",
+      "citation_visible_range": "L2-L2",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/a82801b80fd81fb4f8ff30cf45b72b30fcd63521/client/Assets/Scripts/Resonance.Battle/Content/Catalog.cs"
+    },
+    {
+      "id": "S12",
+      "path": "client/Assets/Scripts/Resonance.Battle/Core/Definitions.cs",
+      "commit": "a82801b80fd81fb4f8ff30cf45b72b30fcd63521",
+      "blob_sha": "1c794ac97366d105404c9926697b934269d23d0d",
+      "citation_base": "turn190file0",
+      "citation_visible_range": "L2-L2",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/a82801b80fd81fb4f8ff30cf45b72b30fcd63521/client/Assets/Scripts/Resonance.Battle/Core/Definitions.cs"
+    },
+    {
+      "id": "S13",
+      "path": "client/Assets/Scripts/Resonance.Battle/Core/Enums.cs",
+      "commit": "a82801b80fd81fb4f8ff30cf45b72b30fcd63521",
+      "blob_sha": "245971222fabb3954833264c1955c79f9e8606fd",
+      "citation_base": "turn196file0",
+      "citation_visible_range": "L2-L2",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/a82801b80fd81fb4f8ff30cf45b72b30fcd63521/client/Assets/Scripts/Resonance.Battle/Core/Enums.cs"
+    },
+    {
+      "id": "S14",
+      "path": "client/Assets/Scripts/Resonance.Battle/Core/TargetSemantics.cs",
+      "commit": "a82801b80fd81fb4f8ff30cf45b72b30fcd63521",
+      "blob_sha": "903803140c79e81f508d46990972b98e4a08857f",
+      "citation_base": "turn183file0",
+      "citation_visible_range": "L2-L2",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/a82801b80fd81fb4f8ff30cf45b72b30fcd63521/client/Assets/Scripts/Resonance.Battle/Core/TargetSemantics.cs"
+    },
+    {
+      "id": "S15",
+      "path": "client/Assets/Scripts/Resonance.Battle/Core/BattleSim.cs",
+      "commit": "a82801b80fd81fb4f8ff30cf45b72b30fcd63521",
+      "blob_sha": "89dbea518fba4009147a92be35848fc0bf2e5e17",
+      "citation_base": "turn165file0",
+      "citation_visible_range": "L2-L2",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/a82801b80fd81fb4f8ff30cf45b72b30fcd63521/client/Assets/Scripts/Resonance.Battle/Core/BattleSim.cs"
+    },
+    {
+      "id": "S16",
+      "path": "client/Assets/Scripts/Resonance.Battle/Core/BattleSim.Commands.cs",
+      "commit": "a82801b80fd81fb4f8ff30cf45b72b30fcd63521",
+      "blob_sha": "85aad112efafe42812a9203cb036723fa54eb923",
+      "citation_base": "turn194file0",
+      "citation_visible_range": "L2-L2",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/a82801b80fd81fb4f8ff30cf45b72b30fcd63521/client/Assets/Scripts/Resonance.Battle/Core/BattleSim.Commands.cs"
+    },
+    {
+      "id": "S17",
+      "path": "client/Assets/Scripts/Resonance.Battle/Core/BattleReplay.cs",
+      "commit": "a82801b80fd81fb4f8ff30cf45b72b30fcd63521",
+      "blob_sha": "f739d7097400a008e420f460c0f0a567456e93ac",
+      "citation_base": "turn181file0",
+      "citation_visible_range": "L2-L2",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/a82801b80fd81fb4f8ff30cf45b72b30fcd63521/client/Assets/Scripts/Resonance.Battle/Core/BattleReplay.cs"
+    },
+    {
+      "id": "S18",
+      "path": "client/Assets/Scripts/Resonance.App/Battle/BattleHud.cs",
+      "commit": "a82801b80fd81fb4f8ff30cf45b72b30fcd63521",
+      "blob_sha": "299d3ca44d3e8d855c2df2f9b95814841a33b94a",
+      "citation_base": "turn169file0",
+      "citation_visible_range": "L2-L2",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/a82801b80fd81fb4f8ff30cf45b72b30fcd63521/client/Assets/Scripts/Resonance.App/Battle/BattleHud.cs"
+    },
+    {
+      "id": "S19",
+      "path": "client/Assets/Scripts/Resonance.App/Core/GameRoot.cs",
+      "commit": "a82801b80fd81fb4f8ff30cf45b72b30fcd63521",
+      "blob_sha": "d51f93ae9b9913d9cb7aa6e228e7190a7dd53fef",
+      "citation_base": "turn162file0",
+      "citation_visible_range": "L2-L2",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/a82801b80fd81fb4f8ff30cf45b72b30fcd63521/client/Assets/Scripts/Resonance.App/Core/GameRoot.cs"
+    },
+    {
+      "id": "S20",
+      "path": "DC_RECON_KIT/m1/REVIEW_1b2ca8e/artifacts/natural-play/SESSION_RESULTS.md",
+      "commit": "a82801b80fd81fb4f8ff30cf45b72b30fcd63521",
+      "blob_sha": "ebda8a6af2b65f1668e50e8a545bddffa8365123",
+      "citation_base": "turn174file0",
+      "citation_visible_range": "L2-L2",
+      "url": "https://github.com/2125210Yr/qiling-huixiang-m1/blob/a82801b80fd81fb4f8ff30cf45b72b30fcd63521/DC_RECON_KIT/m1/REVIEW_1b2ca8e/artifacts/natural-play/SESSION_RESULTS.md"
+    }
+  ]
+}

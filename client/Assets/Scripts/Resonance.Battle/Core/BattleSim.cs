@@ -137,6 +137,12 @@ namespace Resonance.Battle
         public int FeverHitBudget;
         public float DriveQteTimeoutSec;
         public float HoldTimeoutSec;
+        /// <summary>C2: ally Slide showtime freeze. DESIGN_PLACEHOLDER = VfxShowtime.Duration (1.47s), not GL.</summary>
+        public float SlideShowtimeHoldSec;
+        /// <summary>C2: non-QTE ally Drive cast freeze. DESIGN_PLACEHOLDER = HUD 0.70f, not GL.</summary>
+        public float DriveCastHoldSec;
+        /// <summary>C2: PHASE / wave-advance freeze. DESIGN_PLACEHOLDER = WaveCueBoard.PhaseLifeSec (2.00s), not GL.</summary>
+        public float WaveAdvanceHoldSec;
         public bool StageCountdownScalesWithSpeed = true;
         public bool ChargeScalesWithSpeed = true;
         public bool SlideCdScalesWithSpeed = true;
@@ -160,6 +166,9 @@ namespace Resonance.Battle
             FeverHitBudget = BattleSim.UnknownFeverHitBudget;
             DriveQteTimeoutSec = BattleSim.DriveQteTimeoutSec;
             HoldTimeoutSec = BattleSim.HoldTimeoutSec;
+            SlideShowtimeHoldSec = BattleSim.DesignSlideShowtimeHoldSec;
+            DriveCastHoldSec = BattleSim.DesignDriveCastHoldSec;
+            WaveAdvanceHoldSec = BattleSim.DesignWaveAdvanceHoldSec;
         }
 
         public static BattleClockPolicy DesignPlaceholder()
@@ -195,6 +204,12 @@ namespace Resonance.Battle
         /// </summary>
         public const float DriveQteTimeoutSec = 7f;
         public const float HoldTimeoutSec = 2f;
+        /// <summary>DESIGN_PLACEHOLDER: matches <c>VfxShowtime.Duration</c>. Not GL.</summary>
+        public const float DesignSlideShowtimeHoldSec = 1.47f;
+        /// <summary>DESIGN_PLACEHOLDER: matches HUD Drive cast overlay 0.70s. Not GL.</summary>
+        public const float DesignDriveCastHoldSec = 0.70f;
+        /// <summary>DESIGN_PLACEHOLDER: matches WaveCueBoard PHASE splash 2.00s. Not GL.</summary>
+        public const float DesignWaveAdvanceHoldSec = 2.00f;
         public const float UnknownSlideCdSec = 8f;
         /// <summary>
         /// Primary P0 tip (~t435): "For 14 seconds tap…". Prior 7s was KR/compat placeholder — not GL_FINAL.
@@ -217,20 +232,38 @@ namespace Resonance.Battle
         public bool Paused;
         bool _holdSim;
         bool _holdSticky;
+        int _holdTicksLeft;
+        float _holdBudgetSec;
+        string _holdKind;
+        bool _requestDriveHold;
+        /// <summary>
+        /// Presentation may read this. The setter is internal so HUD/WavePreview cannot
+        /// write wall-clock holds. Same-assembly fixtures may still assign it (watchdog path).
+        /// App debug hosts use <see cref="DebugForceHold"/> / <see cref="DebugRelease"/>.
+        /// </summary>
         public bool HoldSim
         {
             get => _holdSim;
-            set
+            internal set
             {
-                _holdSim = value;
-                if (!value)
+                if (value)
                 {
-                    _holdSticky = false;
-                    _holdElapsed = 0f;
+                    _holdSim = true;
+                    if (_holdTicksLeft <= 0)
+                    {
+                        _holdBudgetSec = 0f;
+                        _holdKind = null;
+                    }
                 }
+                else
+                    ClearHoldState();
             }
         }
         public bool HoldSticky => _holdSticky;
+        /// <summary>Remaining policy-hold seconds (tick-budget * TickDt). 0 when not in a core hold.</summary>
+        public float HoldLeftSec => _holdTicksLeft > 0 ? _holdTicksLeft * TickDt : 0f;
+        public int PolicyHoldTicksLeft => _holdTicksLeft;
+        public string PolicyHoldKind => _holdKind;
         public AutoMode Auto;
         public bool AutoTap
         {
@@ -312,6 +345,16 @@ namespace Resonance.Battle
         /// <summary>Stage this fight is running. Same object as ctor <c>_stage</c> (VerticalSlice fallback). No copy.</summary>
         public StageDef ActiveStage => _stage;
 
+        /// <summary>
+        /// C3: the actual opening <see cref="UnitProgress"/> rows this fight was built from
+        /// (deep copy taken in the ctor; includes Reserve). Null when the ctor got null.
+        /// Read-only source for tape capture; never reverse-searched from stats.
+        /// </summary>
+        public UnitProgress[] OpeningGrowthInput => _growth;
+
+        /// <summary>C3: the actual per-fight <see cref="BattleMods"/> used in the ctor (copied).</summary>
+        public BattleMods OpeningMods { get; private set; }
+
         SkillDef ResolveSkill(string id)
         {
             if (_skillOverlay != null && !string.IsNullOrEmpty(id)
@@ -346,10 +389,14 @@ namespace Resonance.Battle
             Seed = seed;
             _rng = new Random(seed);
             _stage = stage ?? Catalog.VerticalSliceStage;
-            _growth = growth;
+            // C3: opening inputs are deep-copied at construction. Later mutation of the
+            // caller's UnitProgress/BattleMods objects must not change this fight or its tape.
+            _growth = OpeningGrowth.Copy(growth);
             TimeLeft = _stage.TimeLimitSec;
             LeaderSlot = leaderSlot;
             if (mods == null) mods = new BattleMods();
+            OpeningMods = new BattleMods { FoodAtkMul = mods.FoodAtkMul, CartaMul = mods.CartaMul };
+            mods = OpeningMods;
             var partyN = partyIds != null ? partyIds.Length : 0;
             Stats = new FightStats(partyN);
             Allies = new UnitState[partyN];
@@ -428,6 +475,80 @@ namespace Resonance.Battle
             _holdSim = true;
             _holdSticky = true;
             _holdElapsed = 0f;
+            _holdTicksLeft = 0;
+            _holdBudgetSec = 0f;
+            _holdKind = null;
+        }
+
+        /// <summary>Fixture/test hold that uses the watchdog, not a showtime budget.</summary>
+        public void FixtureHold(bool on)
+        {
+            if (on)
+            {
+                _holdSim = true;
+                _holdSticky = false;
+                _holdElapsed = 0f;
+                _holdTicksLeft = 0;
+                _holdBudgetSec = 0f;
+                _holdKind = null;
+                LastEvent = "fixture.hold";
+            }
+            else
+            {
+                ClearHoldState();
+                LastEvent = "fixture.release";
+            }
+        }
+
+        /// <summary>Resonance.App debug hosts only. Natural-play must never call this.</summary>
+        public void DebugForceHold()
+        {
+            FixtureHold(true);
+            LastEvent = "fixture.DebugForceHold";
+        }
+
+        /// <summary>Resonance.App debug hosts only. Natural-play must never call this.</summary>
+        public void DebugRelease()
+        {
+            FixtureHold(false);
+            LastEvent = "fixture.DebugRelease";
+        }
+
+        public static int TicksForPolicyHold(float sec)
+        {
+            if (sec <= 0f) return 0;
+            return Math.Max(1, (int)Math.Round(sec * TickHz));
+        }
+
+        void BeginPolicyHold(string kind, float sec)
+        {
+            var ticks = TicksForPolicyHold(sec);
+            if (ticks <= 0) return;
+            if (_holdSim && !_holdSticky && _holdTicksLeft >= ticks) return;
+            _holdSim = true;
+            _holdSticky = false;
+            _holdElapsed = 0f;
+            _holdBudgetSec = sec;
+            _holdTicksLeft = ticks;
+            _holdKind = kind ?? "";
+            NoteEvent("hold", "begin." + _holdKind, null, null, ticks, SkillType.Auto);
+        }
+
+        void EndPolicyHold()
+        {
+            var kind = _holdKind ?? "";
+            ClearHoldState();
+            NoteEvent("hold", "end." + kind, null, null, 0, SkillType.Auto);
+        }
+
+        void ClearHoldState()
+        {
+            _holdSim = false;
+            _holdSticky = false;
+            _holdElapsed = 0f;
+            _holdBudgetSec = 0f;
+            _holdTicksLeft = 0;
+            _holdKind = null;
         }
 
         float ScaleClock(float battleDt, bool scalesWithSpeed)
@@ -442,6 +563,15 @@ namespace Resonance.Battle
             {
                 if (_holdSticky)
                     return false;
+                if (_holdTicksLeft > 0)
+                {
+                    _holdTicksLeft--;
+                    _holdElapsed += TickDt;
+                    if (_holdTicksLeft > 0)
+                        return false;
+                    EndPolicyHold();
+                    return false;
+                }
                 var holdDt = ScaleClock(dt, Clocks != null && Clocks.HoldWatchdogScalesWithSpeed);
                 _holdElapsed += holdDt;
                 var holdLimit = Clocks != null ? Clocks.HoldTimeoutSec : HoldTimeoutSec;
@@ -480,6 +610,7 @@ namespace Resonance.Battle
                     _qteElapsed += qteDt;
                     if (_qteElapsed < QteLimitSec)
                         return false;
+                    _requestDriveHold = true;
                     ResolveDrive(DriveTiming.Good);
                 }
             }
@@ -615,16 +746,31 @@ namespace Resonance.Battle
             _qteElapsed = 0f;
             LastEvent = Allies[slot].Def.Name + " 准备 Drive";
             if (Auto == AutoMode.Full)
+            {
+                _requestDriveHold = true;
                 return ResolveDrive(DriveTiming.Great);
+            }
             return true;
         }
 
         /// <summary>Q03/Q04: late or terminal callbacks are rejected without side effects.</summary>
         public DriveResolveResult ResolveDriveChecked(DriveTiming timing)
         {
-            if (PendingDriveSlot < 0) return DriveResolveResult.NoPending;
-            if (Outcome != BattleOutcome.InProgress) return DriveResolveResult.NotInProgress;
-            if (Paused) return DriveResolveResult.Paused;
+            if (PendingDriveSlot < 0)
+            {
+                _requestDriveHold = false;
+                return DriveResolveResult.NoPending;
+            }
+            if (Outcome != BattleOutcome.InProgress)
+            {
+                _requestDriveHold = false;
+                return DriveResolveResult.NotInProgress;
+            }
+            if (Paused)
+            {
+                _requestDriveHold = false;
+                return DriveResolveResult.Paused;
+            }
             var slot = PendingDriveSlot;
             var unit = Allies[slot];
             var skill = unit != null && unit.Def != null ? ResolveSkill(unit.Def.DriveSkillId) : null;
@@ -632,6 +778,7 @@ namespace Resonance.Battle
             {
                 PendingDriveSlot = -1;
                 _qteElapsed = 0f;
+                _requestDriveHold = false;
                 LastEvent = EffectCapability.FightRejectReason(skill, CheckFightSkill(skill));
                 return DriveResolveResult.Unplayable;
             }
@@ -646,6 +793,12 @@ namespace Resonance.Battle
             unit.Charge = 0f;
             Cast(unit, true, skill, mul);
             LastEvent = "DRIVE  " + unit.Def.Name + "  " + skill.Name + "  " + timing;
+            if (_requestDriveHold)
+            {
+                _requestDriveHold = false;
+                var driveHold = Clocks != null ? Clocks.DriveCastHoldSec : DesignDriveCastHoldSec;
+                BeginPolicyHold("drive", driveHold);
+            }
             return DriveResolveResult.Accepted;
         }
 
@@ -867,6 +1020,11 @@ namespace Resonance.Battle
             Drive = Math.Min(100f, Drive + skill.DriveGain);
             Cast(u, true, skill, 1f);
             LastEvent = VisualTag(skill.Type) + "  " + u.Def.Name + "  " + skill.Name;
+            if (type == SkillType.Slide)
+            {
+                var slideHold = Clocks != null ? Clocks.SlideShowtimeHoldSec : DesignSlideShowtimeHoldSec;
+                BeginPolicyHold("slide", slideHold);
+            }
             return true;
         }
 
@@ -1624,6 +1782,11 @@ namespace Resonance.Battle
             }
             LastEvent = index == 0 ? "第一波" : "首领出现";
             NoteEvent("wave", index == 0 ? "enter" : "advance", null, null, index, SkillType.Auto);
+            if (index > 0)
+            {
+                var waveHold = Clocks != null ? Clocks.WaveAdvanceHoldSec : DesignWaveAdvanceHoldSec;
+                BeginPolicyHold("wave", waveHold);
+            }
         }
 
         static UnitState Spawn(CharacterDef def, int slot, bool ally)

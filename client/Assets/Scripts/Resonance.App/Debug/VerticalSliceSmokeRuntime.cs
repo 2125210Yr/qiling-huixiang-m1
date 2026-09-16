@@ -405,7 +405,7 @@ namespace Resonance.App
 
             _drive = true;
             _fever = true;
-            b.HoldSim = false;
+            b.DebugRelease();
             g.EnsureSpeed2();
             g.EnsureAutoOn();
             SliceDriveSequence.ReadyCharges(b);
@@ -498,7 +498,7 @@ namespace Resonance.App
         {
             if (_autoHitShot && _shots.Contains("06j_auto_hit.png")) return true;
             if (b.Paused) g.ToggleBattlePause();
-            b.HoldSim = false;
+            b.DebugRelease();
             g.EnsureAutoOn();
             if (_autoHitAt <= 0f) _autoHitAt = Time.unscaledTime;
             DrainCombatEvidence(b);
@@ -699,7 +699,7 @@ namespace Resonance.App
             }
             if (VfxFeverOverlay.Active)
                 VfxFeverOverlay.Hide();
-            b.HoldSim = false;
+            b.DebugRelease();
             g.EnsureSpeed2();
             DrainCombatEvidence(b);
             if (!_killShot && _sawEnemyDeath)
@@ -999,7 +999,7 @@ namespace Resonance.App
             }
             if (!_loseForced)
             {
-                b.HoldSim = false;
+                b.DebugRelease();
                 b.TimeLeft = BattleSim.TickDt * 0.25f;
                 _loseForced = true;
                 Note("force timeout");

@@ -159,10 +159,10 @@ namespace Resonance.App
             GameRoot.Live.EnsureAutoOn();
             GameRoot.Live.StartVsBattle();
             GameRoot.Live.EnsureSpeed2();
-            if (GameRoot.Live.Battle != null) GameRoot.Live.Battle.HoldSim = true;
+            if (GameRoot.Live.Battle != null) GameRoot.Live.Battle.DebugForceHold();
             yield return new WaitForSecondsRealtime(0.55f);
             yield return CaptureShots.Shot("06_battle.png", "ui_battle.png");
-            if (GameRoot.Live.Battle != null) GameRoot.Live.Battle.HoldSim = false;
+            if (GameRoot.Live.Battle != null) GameRoot.Live.Battle.DebugRelease();
 
             var t = 0f;
             var feverShot = false;

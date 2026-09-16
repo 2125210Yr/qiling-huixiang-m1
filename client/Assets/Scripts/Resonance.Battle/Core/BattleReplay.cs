@@ -482,7 +482,12 @@ namespace Resonance.Battle
                 + "|" + (c.DriveQteScalesWithSpeed ? "1" : "0")
                 + "|" + (c.HoldWatchdogScalesWithSpeed ? "1" : "0")
                 + "|" + BattleStateDigest.F3(c.FeverMinHitIntervalSec)
-                + "|" + BattleStateDigest.F3(c.FeverAutoTapsPerSec);
+                + "|" + BattleStateDigest.F3(c.FeverAutoTapsPerSec)
+                // C2: core-owned tick-budget holds are clock policy; a tape replayed under
+                // different hold budgets must fail ClockIdentity, not silently diverge.
+                + "|" + BattleStateDigest.F3(c.SlideShowtimeHoldSec)
+                + "|" + BattleStateDigest.F3(c.DriveCastHoldSec)
+                + "|" + BattleStateDigest.F3(c.WaveAdvanceHoldSec);
         }
 
         public static StageDef FindStage(string id)
@@ -769,6 +774,7 @@ namespace Resonance.Battle
         public string StageId;
         public string ClockIdentity;
         public string GrowthIdentity;
+        public string OpeningInputsIdentity;
         public string DataIdentity;
         public string ContentFingerprint;
         public bool FrozenAtStart;
@@ -825,6 +831,9 @@ namespace Resonance.Battle
             h.StageId = stage;
             h.ClockIdentity = BattleContentIdentity.ClockKey(sim != null ? sim.Clocks : null);
             h.GrowthIdentity = GrowthKey(sim);
+            h.OpeningInputsIdentity = OpeningGrowth.InputsKey(
+                sim != null ? sim.OpeningGrowthInput : null,
+                sim != null ? sim.OpeningMods : null);
             h.ContentFingerprint = SafeContentFingerprint();
             h.DataIdentity = BattleContentIdentity.Compute(sim, ids, stage);
             h.FrozenAtStart = atStart;
@@ -859,6 +868,7 @@ namespace Resonance.Battle
                 StageId = src.StageId,
                 ClockIdentity = src.ClockIdentity,
                 GrowthIdentity = src.GrowthIdentity,
+                OpeningInputsIdentity = src.OpeningInputsIdentity,
                 DataIdentity = src.DataIdentity,
                 ContentFingerprint = src.ContentFingerprint,
                 FrozenAtStart = src.FrozenAtStart
@@ -984,10 +994,18 @@ namespace Resonance.Battle
         public bool HeaderFrozen;
         public BattleInitialHeader Initial;
         /// <summary>
-        /// Opening <see cref="UnitProgress"/> copied at Capture, or recovered from
-        /// <see cref="BattleInitialHeader.GrowthIdentity"/>. Null on historical tapes.
+        /// Opening <see cref="UnitProgress"/> copied from <see cref="BattleSim.OpeningGrowthInput"/>
+        /// at Capture. Null/empty with <see cref="OpeningSource"/> = input means catalog defaults.
+        /// Historical tapes omit this key.
         /// </summary>
         public UnitProgress[] OpeningProgress;
+        /// <summary>Ctor <see cref="BattleMods"/> copied at Capture. Null on historical tapes.</summary>
+        public BattleMods OpeningMods;
+        /// <summary>
+        /// <c>input</c> (real ctor rows or explicit catalog defaults),
+        /// <c>legacy-recovered</c> (GrowthIdentity search), or <c>incomplete</c>.
+        /// </summary>
+        public string OpeningSource;
         public readonly List<CommandRecord> Commands = new List<CommandRecord>(64);
         public BattleStateDigest FinalDigest;
         public readonly List<EventSummary> EventSummaries = new List<EventSummary>(256);
@@ -1010,7 +1028,9 @@ namespace Resonance.Battle
             rec.DataIdentity = initial.DataIdentity;
             rec.ContentFingerprint = initial.ContentFingerprint;
             rec.HeaderFrozen = initial.FrozenAtStart;
-            rec.OpeningProgress = OpeningGrowth.FromSim(sim, rec.PartyIds);
+            rec.OpeningProgress = OpeningGrowth.Copy(sim.OpeningGrowthInput);
+            rec.OpeningMods = OpeningGrowth.CopyMods(sim.OpeningMods) ?? new BattleMods();
+            rec.OpeningSource = OpeningGrowth.SourceInput;
             if (sim.CommandLog != null)
             {
                 for (int i = 0; i < sim.CommandLog.Count; i++)
@@ -1048,7 +1068,10 @@ namespace Resonance.Battle
             J(sb, "forceNoCrit", Initial != null && Initial.ForceNoCrit);
             J(sb, "clockIdentity", Initial != null ? Initial.ClockIdentity : "");
             J(sb, "growthIdentity", Initial != null ? Initial.GrowthIdentity : "");
+            J(sb, "openingInputsIdentity", Initial != null ? Initial.OpeningInputsIdentity : "");
             J(sb, "openingProgress", OpeningGrowth.Format(OpeningProgress));
+            J(sb, "openingMods", OpeningGrowth.FormatMods(OpeningMods));
+            J(sb, "openingSource", OpeningSource ?? "");
             sb.Append(",\"partyIds\":[");
             var ids = PartyIds ?? new string[0];
             for (int i = 0; i < ids.Length; i++)
@@ -1208,7 +1231,10 @@ namespace Resonance.Battle
             rec.Initial.ForceNoCrit = map.GetBool("forceNoCrit");
             rec.Initial.ClockIdentity = map.Get("clockIdentity", rec.Initial.ClockIdentity ?? "");
             rec.Initial.GrowthIdentity = map.Get("growthIdentity", rec.Initial.GrowthIdentity ?? "");
+            rec.Initial.OpeningInputsIdentity = map.Get("openingInputsIdentity", rec.Initial.OpeningInputsIdentity ?? "");
             rec.OpeningProgress = OpeningGrowth.Parse(map.Get("openingProgress", ""));
+            rec.OpeningMods = OpeningGrowth.ParseMods(map.Get("openingMods", ""));
+            rec.OpeningSource = map.Get("openingSource", rec.OpeningSource ?? "");
         }
 
         static void ReadDigestScalars(BattleStateDigest d, JsonMap map)
@@ -1386,11 +1412,15 @@ namespace Resonance.Battle
     /// <summary>
     /// Rebuild opening <see cref="UnitProgress"/> so a factory can open the same
     /// grown party the tape recorded. Does not write live HP/Drive/Charge/Fever.
-    /// Prefer an explicit array, then <see cref="BattleRunRecord.OpeningProgress"/>,
-    /// then a Growth.Apply search of <c>id:hp/atk+extra</c>.
+    /// Prefer recorded rows + mods. <see cref="FromIdentity"/> / Search is a labelled
+    /// legacy path only — never the normal Capture path, never a silent Level=1 exact claim.
     /// </summary>
     public static class OpeningGrowth
     {
+        public const string SourceInput = "input";
+        public const string SourceLegacyRecovered = "legacy-recovered";
+        public const string SourceIncomplete = "incomplete";
+
         // Nested types first: Unity CS0246 if FiveStat/GearCombo are only declared
         // after field use (Roslyn accepts the forward reference; Editor does not).
         struct FiveStat : IEquatable<FiveStat>
@@ -1443,9 +1473,38 @@ namespace Resonance.Battle
         public static UnitProgress[] Recover(BattleRunRecord rec)
         {
             if (rec == null) return null;
-            if (HasRows(rec.OpeningProgress)) return Copy(rec.OpeningProgress);
+            if (HasRows(rec.OpeningProgress))
+            {
+                if (string.IsNullOrEmpty(rec.OpeningSource))
+                    rec.OpeningSource = SourceInput;
+                return Copy(rec.OpeningProgress);
+            }
+
             var identity = rec.Initial != null ? rec.Initial.GrowthIdentity : null;
-            return FromIdentity(identity, rec.PartyIds);
+            if (!string.IsNullOrEmpty(identity))
+            {
+                bool incomplete;
+                var rows = FromIdentity(identity, rec.PartyIds, out incomplete);
+                // Keep Capture's "input" only when it still has rows. Empty progress +
+                // GrowthIdentity is the labelled legacy search (G2B1 identity path /
+                // historical tapes). Do not keep source=input after a search.
+                rec.OpeningSource = incomplete ? SourceIncomplete : SourceLegacyRecovered;
+                return rows;
+            }
+
+            // Capture of a growth=null sim: source=input + empty rows + no identity
+            // means catalog defaults. Missing identity on an old tape is incomplete.
+            if (string.Equals(rec.OpeningSource, SourceInput, StringComparison.OrdinalIgnoreCase))
+                return null;
+            rec.OpeningSource = SourceIncomplete;
+            return null;
+        }
+
+        public static BattleMods RecoverMods(BattleRunRecord rec)
+        {
+            if (rec == null || rec.OpeningMods == null)
+                return new BattleMods();
+            return CopyMods(rec.OpeningMods);
         }
 
         public static UnitProgress[] FromSim(BattleSim sim, string[] partyIds)
@@ -1478,9 +1537,24 @@ namespace Resonance.Battle
 
         public static UnitProgress[] FromIdentity(string growthIdentity, string[] partyIds)
         {
+            bool incomplete;
+            return FromIdentity(growthIdentity, partyIds, out incomplete);
+        }
+
+        /// <summary>
+        /// Legacy GrowthIdentity search. <paramref name="incomplete"/> is true when any
+        /// row cannot be matched — the Level=1 fallback is not an exact claim.
+        /// </summary>
+        public static UnitProgress[] FromIdentity(string growthIdentity, string[] partyIds, out bool incomplete)
+        {
+            incomplete = false;
             var tokens = ParseIdentity(growthIdentity);
             var n = tokens != null ? tokens.Length : (partyIds != null ? partyIds.Length : 0);
-            if (n <= 0) return null;
+            if (n <= 0)
+            {
+                incomplete = true;
+                return null;
+            }
             var rows = new UnitProgress[n];
             for (int i = 0; i < n; i++)
             {
@@ -1490,12 +1564,19 @@ namespace Resonance.Battle
                 if (tokens == null || i >= tokens.Length)
                 {
                     rows[i] = new UnitProgress { Id = id ?? "", Level = 1 };
+                    incomplete = true;
                     continue;
                 }
                 var t = tokens[i];
                 if (!string.IsNullOrEmpty(id)) t.Id = id;
                 var found = Search(t.Id, t.Hp, t.Atk, t.Extra, -1, -1, -1, i);
-                rows[i] = found != null ? found : new UnitProgress { Id = t.Id ?? "", Level = 1 };
+                if (found != null)
+                    rows[i] = found;
+                else
+                {
+                    rows[i] = new UnitProgress { Id = t.Id ?? "", Level = 1 };
+                    incomplete = true;
+                }
             }
             return rows;
         }
@@ -1529,6 +1610,8 @@ namespace Resonance.Battle
                 if (p.IgnAtk != 0) sb.Append(";ia=").Append(BattleStateDigest.I(p.IgnAtk));
                 if (p.IgnCrt != 0) sb.Append(";ic=").Append(BattleStateDigest.I(p.IgnCrt));
                 if (p.IgnAgl != 0) sb.Append(";il=").Append(BattleStateDigest.I(p.IgnAgl));
+                if (!string.IsNullOrEmpty(p.SkinId)) sb.Append(";sk=").Append(p.SkinId);
+                sb.Append(";r=").Append(string.IsNullOrEmpty(p.Reserve) ? "EEEEE" : p.Reserve);
             }
             return sb.ToString();
         }
@@ -1582,9 +1665,13 @@ namespace Resonance.Battle
                         else if (key == "ia") p.IgnAtk = ParseInt(val, 0);
                         else if (key == "ic") p.IgnCrt = ParseInt(val, 0);
                         else if (key == "il") p.IgnAgl = ParseInt(val, 0);
+                        else if (key == "sk") p.SkinId = val ?? "";
+                        else if (key == "r") p.Reserve = string.IsNullOrEmpty(val) ? "EEEEE" : val;
                     }
                 }
                 if (p.Level < 1) p.Level = 1;
+                if (string.IsNullOrEmpty(p.Reserve)) p.Reserve = "EEEEE";
+                if (p.SkinId == null) p.SkinId = "";
                 rows[i] = p;
             }
             return rows;
@@ -1633,10 +1720,50 @@ namespace Resonance.Battle
             return false;
         }
 
+        public static BattleMods CopyMods(BattleMods src)
+        {
+            if (src == null) return null;
+            return new BattleMods { FoodAtkMul = src.FoodAtkMul, CartaMul = src.CartaMul };
+        }
+
+        public static string FormatMods(BattleMods mods)
+        {
+            var m = mods != null ? mods : new BattleMods();
+            return "food=" + BattleStateDigest.F3(m.FoodAtkMul)
+                + ";carta=" + BattleStateDigest.F3(m.CartaMul);
+        }
+
+        public static BattleMods ParseMods(string raw)
+        {
+            var m = new BattleMods();
+            if (string.IsNullOrEmpty(raw)) return m;
+            var parts = raw.Split(';');
+            for (int i = 0; i < parts.Length; i++)
+            {
+                var kv = parts[i];
+                if (string.IsNullOrEmpty(kv)) continue;
+                var eq = kv.IndexOf('=');
+                if (eq <= 0) continue;
+                var key = kv.Substring(0, eq);
+                var val = kv.Substring(eq + 1);
+                if (key == "food") m.FoodAtkMul = BattleStateDigest.ParseF3(val, 1f);
+                else if (key == "carta") m.CartaMul = BattleStateDigest.ParseF3(val, 1f);
+            }
+            return m;
+        }
+
+        public static string InputsKey(UnitProgress[] rows, BattleMods mods)
+        {
+            var body = Format(rows);
+            var m = FormatMods(mods);
+            if (string.IsNullOrEmpty(body)) return "m=" + m;
+            return body + "#m=" + m;
+        }
+
         static UnitProgress Search(string id, int hp, int atk, int extra, int def, int agl, int crt, int slot)
         {
             var src = Catalog.TryChar(id);
-            if (src == null) return new UnitProgress { Id = id ?? "", Level = 1 };
+            if (src == null) return null;
 
             UnitProgress hit;
             hit = new UnitProgress { Id = id ?? "", Level = 1 };

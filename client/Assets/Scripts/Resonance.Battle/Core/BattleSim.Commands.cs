@@ -37,6 +37,8 @@ namespace Resonance.Battle
             => new BattleCommand { Kind = BattleCommandKind.DriveResolve, Timing = timing, Source = src };
         public static BattleCommand FeverTap(int slot, CommandSource src = CommandSource.Player)
             => new BattleCommand { Kind = BattleCommandKind.FeverTap, Slot = slot, Source = src };
+        public static BattleCommand FocusEnemy(int slot, CommandSource src = CommandSource.Player)
+            => new BattleCommand { Kind = BattleCommandKind.FocusEnemy, Slot = slot, Source = src };
     }
 
     public struct CommandResult
@@ -169,6 +171,7 @@ namespace Resonance.Battle
                 }
                 case BattleCommandKind.DriveResolve:
                 {
+                    _requestDriveHold = cmd.Source == CommandSource.Auto;
                     switch (ResolveDriveChecked(cmd.Timing))
                     {
                         case DriveResolveResult.Accepted: return CommandReject.None;

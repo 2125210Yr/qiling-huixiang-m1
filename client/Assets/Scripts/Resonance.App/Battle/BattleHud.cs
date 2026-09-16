@@ -1868,24 +1868,26 @@ namespace Resonance.App
 
         void TickCutHold(BattleSim battle)
         {
+            if (battle != null && !battle.Paused && battle.HoldLeftSec > 0f)
+                _cutHoldT = battle.HoldLeftSec;
             if (_cutHoldT <= 0f) return;
             if (battle != null && battle.Paused) return;
+            if (battle != null && battle.HoldLeftSec > 0f) return;
             _cutHoldT -= Time.unscaledDeltaTime;
-            if (_cutHoldT > 0f) return;
-            _cutHoldT = 0f;
-            if (battle != null) battle.HoldSim = false;
+            if (_cutHoldT < 0f) _cutHoldT = 0f;
         }
 
         void BeginShowtime(BattleFighter caster, string title, string skill, string badge, Color accent, float life, CombatCut kind, bool hold)
         {
             if (_pix != null && _pix.Showing) _pix.HideNow();
             var battle = _host != null ? _host.Battle : null;
-            // P0 SHOWTIME: BATTLE TIME frozen for the overlay (tutorial).
-            // Full Auto + speed scale still UNKNOWN; hold is presentation, not a GL clock close.
-            if (hold && battle != null)
+            // Overlay lifetime only. Core owns the sim hold (C2); do not write HoldSim.
+            if (hold)
             {
-                battle.HoldSim = true;
-                _cutHoldT = Mathf.Max(0.35f, life);
+                if (battle != null && battle.HoldLeftSec > 0.01f)
+                    _cutHoldT = battle.HoldLeftSec;
+                else
+                    _cutHoldT = Mathf.Max(0.35f, life);
             }
             else _cutHoldT = 0f;
         }
@@ -2017,7 +2019,7 @@ namespace Resonance.App
                 if (fx == null) continue;
                 if (_built != null) _built.Add(fx.gameObject);
                 var slot = i;
-                fx.BindFocus(() => { if (_host != null) _host.TryFocusEnemy(slot); });
+                fx.BindFocus(() => { if (_host != null) _host.TryFocusEnemy(slot); }); // GameRoot → Submit FocusEnemy
                 _fieldEnemies[i] = fx;
             }
             _fieldWave = battle.WaveIndex;
