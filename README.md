@@ -1,5 +1,7 @@
 # 契灵回响 / Project Resonance
 
+总目录的分类入口、保留资料和可回收内容见 [00_整理说明.md](00_整理说明.md)。原项目路径保留兼容，以下开发说明仍适用。
+
 内部名 Resonance。Unity 工程在 `client/`（junction 到 `F:\Resonance\client`）。
 
 ## 根目录怎么分

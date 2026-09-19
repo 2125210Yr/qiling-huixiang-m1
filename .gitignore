@@ -63,3 +63,13 @@ tools/BattleSim.Tests/TestResults/
 **/.env.*
 **/credentials.json
 **/secrets.json
+
+# Local library organization: data, compatibility entries and move journals
+/01_游戏与启动/
+/02_原始素材与资料/
+/03_模型与恢复/
+/04_角色创作与项目/
+/05_工具与文档/
+/06_历史记录/
+/可回收/
+/整理记录/
