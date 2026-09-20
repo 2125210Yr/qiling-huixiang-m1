@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="775d6ca7-9abe-4d4c-af6b-281bc8f4d8db" name="Administrator@DESKTOP-AKI3LSA 2026-09-21 03:25:16" runUser="DESKTOP-AKI3LSA\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-09-21T03:25:16.2339895+08:00" queuing="2026-09-21T03:25:16.2339898+08:00" start="2026-09-21T03:25:15.3092269+08:00" finish="2026-09-21T03:25:16.2433701+08:00" />
+  <TestSettings name="default" id="4d7e812c-97dd-4694-94d2-62822ce14898">
+    <Deployment runDeploymentRoot="Administrator_DESKTOP-AKI3LSA_2026-09-21_03_25_16" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="ab95b10c-19a7-46e4-a3ac-bfeda3c8ffe6" testId="41cda710-6efe-b529-5dd6-88e838799717" testName="Resonance.Tests.OriginalReplayCliTests.UnsupportedReplayIsRejectedBeforeSimulation(changedField: &quot;content&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0047793" startTime="2026-09-21T03:25:16.1306079+08:00" endTime="2026-09-21T03:25:16.1306081+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ab95b10c-19a7-46e4-a3ac-bfeda3c8ffe6">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: 1&#xD;
+Actual:   2</Message>
+          <StackTrace>   at Resonance.Tests.OriginalReplayCliTests.UnsupportedReplayIsRejectedBeforeSimulation(String changedField) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 88</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="756fe648-1f03-4f65-8280-1c376cbb30a6" testId="d676a4f2-bc17-5df7-e03a-6ae12003fbb6" testName="Resonance.Tests.OriginalReplayCliTests.WrongArgumentCountReportsUsageError(argumentCount: 0)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0016733" startTime="2026-09-21T03:25:16.1457754+08:00" endTime="2026-09-21T03:25:16.1457755+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="756fe648-1f03-4f65-8280-1c376cbb30a6">
+      <Output>
+        <ErrorInfo>
+          <Message>System.Collections.Generic.KeyNotFoundException : The given key was not present in the dictionary.</Message>
+          <StackTrace>   at System.Text.Json.JsonElement.GetProperty(String propertyName)&#xD;
+   at Resonance.Tests.OriginalReplayCliTests.AssertError(JsonElement report, Int32 exitCode) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 188&#xD;
+   at Resonance.Tests.OriginalReplayCliTests.WrongArgumentCountReportsUsageError(Int32 argumentCount) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 136</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="e0b0016c-0c98-463c-ac6f-895a529ecf92" testId="4a9a1f2f-13cf-2e29-b694-8f19c4c4a8c0" testName="Resonance.Tests.OriginalReplayCliTests.TamperedExpectedFinalStateReportsMismatchWithReplayResult" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0078005" startTime="2026-09-21T03:25:16.1391251+08:00" endTime="2026-09-21T03:25:16.1391253+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e0b0016c-0c98-463c-ac6f-895a529ecf92">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: 1&#xD;
+Actual:   2</Message>
+          <StackTrace>   at Resonance.Tests.OriginalReplayCliTests.TamperedExpectedFinalStateReportsMismatchWithReplayResult() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 61</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="630502c1-1a0b-4c0e-8164-8b36286c98c9" testId="1ebbacac-b9e7-3e96-4cf2-6a8def94d14d" testName="Resonance.Tests.OriginalReplayCliTests.WrongArgumentCountReportsUsageError(argumentCount: 2)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0032152" startTime="2026-09-21T03:25:16.1437197+08:00" endTime="2026-09-21T03:25:16.1437198+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="630502c1-1a0b-4c0e-8164-8b36286c98c9">
+      <Output>
+        <ErrorInfo>
+          <Message>System.Collections.Generic.KeyNotFoundException : The given key was not present in the dictionary.</Message>
+          <StackTrace>   at System.Text.Json.JsonElement.GetProperty(String propertyName)&#xD;
+   at Resonance.Tests.OriginalReplayCliTests.AssertError(JsonElement report, Int32 exitCode) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 188&#xD;
+   at Resonance.Tests.OriginalReplayCliTests.WrongArgumentCountReportsUsageError(Int32 argumentCount) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 136</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="9d7f5c90-47d5-4ec8-a523-9082e810e8fe" testId="10e31b78-2991-a202-42ad-5dbc67327abb" testName="Resonance.Tests.OriginalReplayCliTests.UnicodePathAndUtf8BomReplayReportsIdentityAndHashOfUnmodifiedFileBytes" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0065337" startTime="2026-09-21T03:25:16.1575626+08:00" endTime="2026-09-21T03:25:16.1575628+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9d7f5c90-47d5-4ec8-a523-9082e810e8fe">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: 0&#xD;
+Actual:   2</Message>
+          <StackTrace>   at Resonance.Tests.OriginalReplayCliTests.UnicodePathAndUtf8BomReplayReportsIdentityAndHashOfUnmodifiedFileBytes() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 27</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="0aff344d-ed3e-4336-8b93-ed394196099c" testId="bf98eee1-d690-a615-ed35-b75925ef5f1c" testName="Resonance.Tests.OriginalReplayCliTests.MissingFileReportsIoErrorWithoutHashOrReplay" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0013001" startTime="2026-09-21T03:25:16.1505116+08:00" endTime="2026-09-21T03:25:16.1505118+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0aff344d-ed3e-4336-8b93-ed394196099c">
+      <Output>
+        <ErrorInfo>
+          <Message>System.Collections.Generic.KeyNotFoundException : The given key was not present in the dictionary.</Message>
+          <StackTrace>   at System.Text.Json.JsonElement.GetProperty(String propertyName)&#xD;
+   at Resonance.Tests.OriginalReplayCliTests.AssertError(JsonElement report, Int32 exitCode) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 188&#xD;
+   at Resonance.Tests.OriginalReplayCliTests.MissingFileReportsIoErrorWithoutHashOrReplay() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 119</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c0a0ebbf-83c0-408f-aec4-ceee2d482bca" testId="d5e068cd-2062-c51e-600f-f9988aa14e36" testName="Resonance.Tests.OriginalReplayCliTests.MalformedJsonReportsParseErrorAndPreservesOriginalFile" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0026122" startTime="2026-09-21T03:25:16.1488484+08:00" endTime="2026-09-21T03:25:16.1488486+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c0a0ebbf-83c0-408f-aec4-ceee2d482bca">
+      <Output>
+        <ErrorInfo>
+          <Message>System.Collections.Generic.KeyNotFoundException : The given key was not present in the dictionary.</Message>
+          <StackTrace>   at System.Text.Json.JsonElement.GetProperty(String propertyName)&#xD;
+   at Resonance.Tests.OriginalReplayCliTests.AssertError(JsonElement report, Int32 exitCode) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 188&#xD;
+   at Resonance.Tests.OriginalReplayCliTests.MalformedJsonReportsParseErrorAndPreservesOriginalFile() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 106</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="aa52e5ba-e804-4bdf-9bb8-e8021821541e" testId="f1c8c551-7576-b4f6-e48f-6a00ffb0c156" testName="Resonance.Tests.OriginalReplayCliTests.UnsupportedReplayIsRejectedBeforeSimulation(changedField: &quot;schema&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.1369885" startTime="2026-09-21T03:25:16.1225067+08:00" endTime="2026-09-21T03:25:16.1225213+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="aa52e5ba-e804-4bdf-9bb8-e8021821541e">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: 1&#xD;
+Actual:   2</Message>
+          <StackTrace>   at Resonance.Tests.OriginalReplayCliTests.UnsupportedReplayIsRejectedBeforeSimulation(String changedField) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 88</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Resonance.Tests.OriginalReplayCliTests.WrongArgumentCountReportsUsageError(argumentCount: 0)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="d676a4f2-bc17-5df7-e03a-6ae12003fbb6">
+      <Execution id="756fe648-1f03-4f65-8280-1c376cbb30a6" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayCliTests" name="WrongArgumentCountReportsUsageError" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayCliTests.WrongArgumentCountReportsUsageError(argumentCount: 2)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="1ebbacac-b9e7-3e96-4cf2-6a8def94d14d">
+      <Execution id="630502c1-1a0b-4c0e-8164-8b36286c98c9" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayCliTests" name="WrongArgumentCountReportsUsageError" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayCliTests.TamperedExpectedFinalStateReportsMismatchWithReplayResult" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="4a9a1f2f-13cf-2e29-b694-8f19c4c4a8c0">
+      <Execution id="e0b0016c-0c98-463c-ac6f-895a529ecf92" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayCliTests" name="TamperedExpectedFinalStateReportsMismatchWithReplayResult" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayCliTests.UnicodePathAndUtf8BomReplayReportsIdentityAndHashOfUnmodifiedFileBytes" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="10e31b78-2991-a202-42ad-5dbc67327abb">
+      <Execution id="9d7f5c90-47d5-4ec8-a523-9082e810e8fe" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayCliTests" name="UnicodePathAndUtf8BomReplayReportsIdentityAndHashOfUnmodifiedFileBytes" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayCliTests.MalformedJsonReportsParseErrorAndPreservesOriginalFile" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="d5e068cd-2062-c51e-600f-f9988aa14e36">
+      <Execution id="c0a0ebbf-83c0-408f-aec4-ceee2d482bca" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayCliTests" name="MalformedJsonReportsParseErrorAndPreservesOriginalFile" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayCliTests.UnsupportedReplayIsRejectedBeforeSimulation(changedField: &quot;schema&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="f1c8c551-7576-b4f6-e48f-6a00ffb0c156">
+      <Execution id="aa52e5ba-e804-4bdf-9bb8-e8021821541e" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayCliTests" name="UnsupportedReplayIsRejectedBeforeSimulation" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayCliTests.UnsupportedReplayIsRejectedBeforeSimulation(changedField: &quot;content&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="41cda710-6efe-b529-5dd6-88e838799717">
+      <Execution id="ab95b10c-19a7-46e4-a3ac-bfeda3c8ffe6" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayCliTests" name="UnsupportedReplayIsRejectedBeforeSimulation" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayCliTests.MissingFileReportsIoErrorWithoutHashOrReplay" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="bf98eee1-d690-a615-ed35-b75925ef5f1c">
+      <Execution id="0aff344d-ed3e-4336-8b93-ed394196099c" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayCliTests" name="MissingFileReportsIoErrorWithoutHashOrReplay" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="41cda710-6efe-b529-5dd6-88e838799717" executionId="ab95b10c-19a7-46e4-a3ac-bfeda3c8ffe6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d676a4f2-bc17-5df7-e03a-6ae12003fbb6" executionId="756fe648-1f03-4f65-8280-1c376cbb30a6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4a9a1f2f-13cf-2e29-b694-8f19c4c4a8c0" executionId="e0b0016c-0c98-463c-ac6f-895a529ecf92" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1ebbacac-b9e7-3e96-4cf2-6a8def94d14d" executionId="630502c1-1a0b-4c0e-8164-8b36286c98c9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="10e31b78-2991-a202-42ad-5dbc67327abb" executionId="9d7f5c90-47d5-4ec8-a523-9082e810e8fe" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bf98eee1-d690-a615-ed35-b75925ef5f1c" executionId="0aff344d-ed3e-4336-8b93-ed394196099c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d5e068cd-2062-c51e-600f-f9988aa14e36" executionId="c0a0ebbf-83c0-408f-aec4-ceee2d482bca" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f1c8c551-7576-b4f6-e48f-6a00ffb0c156" executionId="aa52e5ba-e804-4bdf-9bb8-e8021821541e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="8" executed="8" passed="0" failed="8" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 6.0.33)&#xD;
+[xUnit.net 00:00:00.08]   Discovering: BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.16]   Discovered:  BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.16]   Starting:    BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.36]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.36]       Expected: 1&#xD;
+[xUnit.net 00:00:00.36]       Actual:   2&#xD;
+[xUnit.net 00:00:00.36]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs(88,0): at Resonance.Tests.OriginalReplayCliTests.UnsupportedReplayIsRejectedBeforeSimulation(String changedField)&#xD;
+[xUnit.net 00:00:00.37]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.37]       Expected: 1&#xD;
+[xUnit.net 00:00:00.37]       Actual:   2&#xD;
+[xUnit.net 00:00:00.37]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.37]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs(88,0): at Resonance.Tests.OriginalReplayCliTests.UnsupportedReplayIsRejectedBeforeSimulation(String changedField)&#xD;
+[xUnit.net 00:00:00.37]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.37]       Expected: 1&#xD;
+[xUnit.net 00:00:00.37]       Actual:   2&#xD;
+[xUnit.net 00:00:00.37]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.37]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs(61,0): at Resonance.Tests.OriginalReplayCliTests.TamperedExpectedFinalStateReportsMismatchWithReplayResult()&#xD;
+[xUnit.net 00:00:00.38]       System.Collections.Generic.KeyNotFoundException : The given key was not present in the dictionary.&#xD;
+[xUnit.net 00:00:00.38]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.38]            at System.Text.Json.JsonElement.GetProperty(String propertyName)&#xD;
+[xUnit.net 00:00:00.38]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs(188,0): at Resonance.Tests.OriginalReplayCliTests.AssertError(JsonElement report, Int32 exitCode)&#xD;
+[xUnit.net 00:00:00.38]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs(136,0): at Resonance.Tests.OriginalReplayCliTests.WrongArgumentCountReportsUsageError(Int32 argumentCount)&#xD;
+[xUnit.net 00:00:00.38]       System.Collections.Generic.KeyNotFoundException : The given key was not present in the dictionary.&#xD;
+[xUnit.net 00:00:00.38]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.38]            at System.Text.Json.JsonElement.GetProperty(String propertyName)&#xD;
+[xUnit.net 00:00:00.38]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs(188,0): at Resonance.Tests.OriginalReplayCliTests.AssertError(JsonElement report, Int32 exitCode)&#xD;
+[xUnit.net 00:00:00.38]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs(136,0): at Resonance.Tests.OriginalReplayCliTests.WrongArgumentCountReportsUsageError(Int32 argumentCount)&#xD;
+[xUnit.net 00:00:00.38]       System.Collections.Generic.KeyNotFoundException : The given key was not present in the dictionary.&#xD;
+[xUnit.net 00:00:00.38]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.38]            at System.Text.Json.JsonElement.GetProperty(String propertyName)&#xD;
+[xUnit.net 00:00:00.38]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs(188,0): at Resonance.Tests.OriginalReplayCliTests.AssertError(JsonElement report, Int32 exitCode)&#xD;
+[xUnit.net 00:00:00.38]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs(106,0): at Resonance.Tests.OriginalReplayCliTests.MalformedJsonReportsParseErrorAndPreservesOriginalFile()&#xD;
+[xUnit.net 00:00:00.39]       System.Collections.Generic.KeyNotFoundException : The given key was not present in the dictionary.&#xD;
+[xUnit.net 00:00:00.39]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.39]            at System.Text.Json.JsonElement.GetProperty(String propertyName)&#xD;
+[xUnit.net 00:00:00.39]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs(188,0): at Resonance.Tests.OriginalReplayCliTests.AssertError(JsonElement report, Int32 exitCode)&#xD;
+[xUnit.net 00:00:00.39]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs(119,0): at Resonance.Tests.OriginalReplayCliTests.MissingFileReportsIoErrorWithoutHashOrReplay()&#xD;
+[xUnit.net 00:00:00.39]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.39]       Expected: 0&#xD;
+[xUnit.net 00:00:00.39]       Actual:   2&#xD;
+[xUnit.net 00:00:00.39]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.39]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs(27,0): at Resonance.Tests.OriginalReplayCliTests.UnicodePathAndUtf8BomReplayReportsIdentityAndHashOfUnmodifiedFileBytes()&#xD;
+[xUnit.net 00:00:00.40]   Finished:    BattleSim.Tests&#xD;
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T03:25:16.1199732+08:00">
+        <Text>[xUnit.net 00:00:00.35]     Resonance.Tests.OriginalReplayCliTests.UnsupportedReplayIsRejectedBeforeSimulation(changedField: "schema") [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T03:25:16.1306278+08:00">
+        <Text>[xUnit.net 00:00:00.37]     Resonance.Tests.OriginalReplayCliTests.UnsupportedReplayIsRejectedBeforeSimulation(changedField: "content") [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T03:25:16.1391346+08:00">
+        <Text>[xUnit.net 00:00:00.37]     Resonance.Tests.OriginalReplayCliTests.TamperedExpectedFinalStateReportsMismatchWithReplayResult [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T03:25:16.1437299+08:00">
+        <Text>[xUnit.net 00:00:00.38]     Resonance.Tests.OriginalReplayCliTests.WrongArgumentCountReportsUsageError(argumentCount: 2) [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T03:25:16.1457195+08:00">
+        <Text>[xUnit.net 00:00:00.38]     Resonance.Tests.OriginalReplayCliTests.WrongArgumentCountReportsUsageError(argumentCount: 0) [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T03:25:16.1488429+08:00">
+        <Text>[xUnit.net 00:00:00.38]     Resonance.Tests.OriginalReplayCliTests.MalformedJsonReportsParseErrorAndPreservesOriginalFile [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T03:25:16.1504253+08:00">
+        <Text>[xUnit.net 00:00:00.39]     Resonance.Tests.OriginalReplayCliTests.MissingFileReportsIoErrorWithoutHashOrReplay [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T03:25:16.1576254+08:00">
+        <Text>[xUnit.net 00:00:00.39]     Resonance.Tests.OriginalReplayCliTests.UnicodePathAndUtf8BomReplayReportsIdentityAndHashOfUnmodifiedFileBytes [FAIL]</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>

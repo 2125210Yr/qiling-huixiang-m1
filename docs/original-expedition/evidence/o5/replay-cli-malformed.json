@@ -1,0 +1,26 @@
+{
+  "tool": "original-expedition-replay-verifier-v1",
+  "status": "ERROR",
+  "match": false,
+  "file": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\original-replay-cli-process-fixture-f17e04c83bcf44068542fd682c34214a\\malformed.original-replay.json",
+  "fileSha256": "e83cbf6d1c8ea57d77f45a45f4454e86ba909b37460649c94e3e98dc25bbb871",
+  "verifierContentHash": "5be148f01a9107e6c6d149cf95798e5e57d810832b071f0e237268398e7506f6",
+  "schemaVersion": null,
+  "format": null,
+  "modeId": null,
+  "rulesetId": null,
+  "contentVersion": null,
+  "contentHash": null,
+  "runId": null,
+  "encounterId": null,
+  "attemptId": null,
+  "battleOrdinal": null,
+  "inputHash": null,
+  "endTick": null,
+  "replayedOutcome": null,
+  "replayedEndTick": null,
+  "replayedEventHash": null,
+  "differences": [
+    "JSON error: SerializationException: There was an error deserializing the object of type Resonance.Battle.OriginalBattleRecord. The token \u0027\u0022\u0027 was expected but found \u0027n\u0027."
+  ]
+}

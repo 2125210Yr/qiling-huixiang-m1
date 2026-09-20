@@ -8,6 +8,7 @@
   <ItemGroup>
     <Compile Include="..\..\client\Assets\Scripts\Resonance.Battle\**\*.cs" />
     <Compile Include="..\..\client\Assets\Scripts\Resonance.App\Debug\NaturalPlayBattleEvidence.cs" />
+    <Compile Include="..\OriginalReplay.Verify\OriginalReplayCli.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Update="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />

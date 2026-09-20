@@ -1,0 +1,76 @@
+F:\天命之子\tools\BattleSim.Tests\M1FormulaIsolationTests.cs(86,13): warning xUnit2000: The literal or constant value DamageMath.FeverChannelAtkCoef should be passed as the 'expected' argument in the call to 'Assert.NotEqual(expected, actual)' in method 'FeverDoesNotReadTapCoefficients' on type 'M1FormulaIsolationTests'. Swap the parameter values. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\tools\BattleSim.Tests\M1FormulaIsolationTests.cs(87,13): warning xUnit2000: The literal or constant value DamageMath.FeverChannelFlat should be passed as the 'expected' argument in the call to 'Assert.NotEqual(expected, actual)' in method 'FeverDoesNotReadTapCoefficients' on type 'M1FormulaIsolationTests'. Swap the parameter values. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+  BattleSim.Tests -> F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll
+F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll (.NETCoreApp,Version=v6.0)的测试运行
+Microsoft (R) 测试执行命令行工具版本 17.3.3 (x64)
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+正在启动测试执行，请稍候...
+总共 1 个测试文件与指定模式相匹配。
+[xUnit.net 00:00:00.35]     Resonance.Tests.OriginalReplayCliTests.UnsupportedReplayIsRejectedBeforeSimulation(changedField: "schema") [FAIL]
+[xUnit.net 00:00:00.37]     Resonance.Tests.OriginalReplayCliTests.UnsupportedReplayIsRejectedBeforeSimulation(changedField: "content") [FAIL]
+[xUnit.net 00:00:00.37]     Resonance.Tests.OriginalReplayCliTests.TamperedExpectedFinalStateReportsMismatchWithReplayResult [FAIL]
+[xUnit.net 00:00:00.38]     Resonance.Tests.OriginalReplayCliTests.WrongArgumentCountReportsUsageError(argumentCount: 2) [FAIL]
+[xUnit.net 00:00:00.38]     Resonance.Tests.OriginalReplayCliTests.WrongArgumentCountReportsUsageError(argumentCount: 0) [FAIL]
+[xUnit.net 00:00:00.38]     Resonance.Tests.OriginalReplayCliTests.MalformedJsonReportsParseErrorAndPreservesOriginalFile [FAIL]
+[xUnit.net 00:00:00.39]     Resonance.Tests.OriginalReplayCliTests.MissingFileReportsIoErrorWithoutHashOrReplay [FAIL]
+[xUnit.net 00:00:00.39]     Resonance.Tests.OriginalReplayCliTests.UnicodePathAndUtf8BomReplayReportsIdentityAndHashOfUnmodifiedFileBytes [FAIL]
+  失败 Resonance.Tests.OriginalReplayCliTests.UnsupportedReplayIsRejectedBeforeSimulation(changedField: "schema") [136 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 1
+Actual:   2
+  堆栈跟踪:
+     at Resonance.Tests.OriginalReplayCliTests.UnsupportedReplayIsRejectedBeforeSimulation(String changedField) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 88
+  失败 Resonance.Tests.OriginalReplayCliTests.UnsupportedReplayIsRejectedBeforeSimulation(changedField: "content") [4 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 1
+Actual:   2
+  堆栈跟踪:
+     at Resonance.Tests.OriginalReplayCliTests.UnsupportedReplayIsRejectedBeforeSimulation(String changedField) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 88
+  失败 Resonance.Tests.OriginalReplayCliTests.TamperedExpectedFinalStateReportsMismatchWithReplayResult [7 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 1
+Actual:   2
+  堆栈跟踪:
+     at Resonance.Tests.OriginalReplayCliTests.TamperedExpectedFinalStateReportsMismatchWithReplayResult() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 61
+  失败 Resonance.Tests.OriginalReplayCliTests.WrongArgumentCountReportsUsageError(argumentCount: 2) [3 ms]
+  错误消息:
+   System.Collections.Generic.KeyNotFoundException : The given key was not present in the dictionary.
+  堆栈跟踪:
+     at System.Text.Json.JsonElement.GetProperty(String propertyName)
+   at Resonance.Tests.OriginalReplayCliTests.AssertError(JsonElement report, Int32 exitCode) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 188
+   at Resonance.Tests.OriginalReplayCliTests.WrongArgumentCountReportsUsageError(Int32 argumentCount) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 136
+  失败 Resonance.Tests.OriginalReplayCliTests.WrongArgumentCountReportsUsageError(argumentCount: 0) [1 ms]
+  错误消息:
+   System.Collections.Generic.KeyNotFoundException : The given key was not present in the dictionary.
+  堆栈跟踪:
+     at System.Text.Json.JsonElement.GetProperty(String propertyName)
+   at Resonance.Tests.OriginalReplayCliTests.AssertError(JsonElement report, Int32 exitCode) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 188
+   at Resonance.Tests.OriginalReplayCliTests.WrongArgumentCountReportsUsageError(Int32 argumentCount) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 136
+  失败 Resonance.Tests.OriginalReplayCliTests.MalformedJsonReportsParseErrorAndPreservesOriginalFile [2 ms]
+  错误消息:
+   System.Collections.Generic.KeyNotFoundException : The given key was not present in the dictionary.
+  堆栈跟踪:
+     at System.Text.Json.JsonElement.GetProperty(String propertyName)
+   at Resonance.Tests.OriginalReplayCliTests.AssertError(JsonElement report, Int32 exitCode) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 188
+   at Resonance.Tests.OriginalReplayCliTests.MalformedJsonReportsParseErrorAndPreservesOriginalFile() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 106
+  失败 Resonance.Tests.OriginalReplayCliTests.MissingFileReportsIoErrorWithoutHashOrReplay [1 ms]
+  错误消息:
+   System.Collections.Generic.KeyNotFoundException : The given key was not present in the dictionary.
+  堆栈跟踪:
+     at System.Text.Json.JsonElement.GetProperty(String propertyName)
+   at Resonance.Tests.OriginalReplayCliTests.AssertError(JsonElement report, Int32 exitCode) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 188
+   at Resonance.Tests.OriginalReplayCliTests.MissingFileReportsIoErrorWithoutHashOrReplay() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 119
+  失败 Resonance.Tests.OriginalReplayCliTests.UnicodePathAndUtf8BomReplayReportsIdentityAndHashOfUnmodifiedFileBytes [6 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 0
+Actual:   2
+  堆栈跟踪:
+     at Resonance.Tests.OriginalReplayCliTests.UnicodePathAndUtf8BomReplayReportsIdentityAndHashOfUnmodifiedFileBytes() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayCliTests.cs:line 27
+结果文件: F:\天命之子\docs\original-expedition\evidence\o5\replay-cli-red-2.trx
+
+失败!  - 失败:     8，通过:     0，已跳过:     0，总计:     8，持续时间: 35 ms - BattleSim.Tests.dll (net6.0)

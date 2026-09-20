@@ -1,0 +1,57 @@
+{
+  "checkedAt": "2026-09-21T03:28:06.1374361+08:00",
+  "scope": "Actual Release CLI process calls against controlled tapes and deliberately invalid temporary files; not Player or ordinary UI proof",
+  "binarySha256": "6f5444b48e853c75d895f9f5a251d3e987dae3a8887c65955f14c4a5433efb85",
+  "sourceFiles": [
+    "tools/OriginalReplay.Verify/OriginalReplayCli.cs",
+    "tools/OriginalReplay.Verify/Program.cs"
+  ],
+  "tests": [
+    {
+      "case": "controlled-family-a",
+      "exitCode": 0,
+      "status": "MATCH",
+      "endTick": 1141,
+      "outcome": "Victory",
+      "fileSha256": "2394842261767f43b943d273151d2fe2e0261fc9d3c8e3338e36e9e7a52cb238",
+      "sourceUnchanged": true
+    },
+    {
+      "case": "controlled-family-b",
+      "exitCode": 0,
+      "status": "MATCH",
+      "endTick": 1675,
+      "outcome": "Victory",
+      "fileSha256": "9e7b22ab1d8209dbb8e0b1a0af3868db5e657bd98b18a250e0d1ed8b7ad3d4b1",
+      "sourceUnchanged": true
+    },
+    {
+      "case": "controlled-family-c",
+      "exitCode": 0,
+      "status": "MATCH",
+      "endTick": 1899,
+      "outcome": "Victory",
+      "fileSha256": "c6c041c0dda4bd5b31e80a271b9bb8dec9b546ba850d84e9b0bb6a436541af7c",
+      "sourceUnchanged": true
+    },
+    {
+      "case": "unsupported",
+      "exitCode": 1,
+      "status": "REJECTED",
+      "differences": [
+        "Original replay rejected: ArgumentException: Unsupported original replay format or schema version."
+      ]
+    },
+    {
+      "case": "malformed",
+      "exitCode": 2,
+      "status": "ERROR",
+      "differences": [
+        "JSON error: SerializationException: There was an error deserializing the object of type Resonance.Battle.OriginalBattleRecord. The token '\"' was expected but found 'n'."
+      ]
+    }
+  ],
+  "temporaryFixturePath": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\original-replay-cli-process-fixture-f17e04c83bcf44068542fd682c34214a",
+  "unityExecuted": false,
+  "playerExecuted": false
+}
