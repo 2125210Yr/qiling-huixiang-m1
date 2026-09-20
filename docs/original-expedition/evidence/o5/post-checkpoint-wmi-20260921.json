@@ -1,0 +1,9 @@
+{
+  "checkedAt": "2026-09-21T02:47:23.4944895+08:00",
+  "class": "Win32_OperatingSystem",
+  "result": "FAILED",
+  "exceptionType": "Microsoft.Management.Infrastructure.CimException",
+  "message": "已超时 ",
+  "elapsedMs": 5058,
+  "uptimeMinutes": 620.8
+}

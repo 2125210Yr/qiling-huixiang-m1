@@ -1,6 +1,6 @@
 {
   "document": "ORIGINAL-EXPEDITION-MVP v0.1 actual acceptance progress",
-  "generated_utc": "2026-09-20T18:43:42.418944+00:00",
+  "generated_utc": "2026-09-20T18:55:35.0732298Z",
   "source_plan": "docs/original-expedition/spec/02_ACCEPTANCE_MATRIX.json",
   "source_plan_sha256": "b9e67b41b5335c7396cfb10be519056157f01eea839ab2d1fc224e3b46072162",
   "source_baseline": "8e56ee7c562c55ea336e3402f8c8c85d8c0223f4",
@@ -2225,17 +2225,21 @@
       "evidence_required": "构建/包指纹＋连续录像",
       "original_plan_status": "NOT_RUN",
       "actual_status": "NOT_RUN",
-      "actual_result": "已准备一次 499 文件的白名单源码副本，逐文件 SHA 与旧素材排除检查通过；副本只是 a31c47ff 加未提交修改的中途快照。未启动 Unity 构建、未产出本次新版 EXE/ZIP，未执行离线完整流程和连续视频，不能引用历史包代替。",
+      "actual_result": "已有中途快照保留；2026-09-21 02:48 以源码 1ae47287 为基线创建 prepare-1ae47287 候选副本，499 文件、11,448,923 字节，包含最后版本构建审计入口。独立核对所有源/副本 SHA 与大小相同，247 个 meta GUID 唯一。Git 来源检查发现 12 个既有运行时 meta 被第三方忽略，本次精准补跟踪；其余 487 项与基线一致。清单仍为预备源码快照。未启动 Unity 构建、未产出新版 EXE/ZIP，未执行离线完整流程和连续视频，不能引用历史包代替。",
       "evidence_paths": [
         "docs/original-expedition/PACKAGING-AUDIT.md",
         "docs/original-expedition/evidence/o5/package-preparation.md",
         "docs/original-expedition/evidence/o5/package-preparation-validation.json",
-        "docs/original-expedition/evidence/o5/package-preparation-manifest.json"
+        "docs/original-expedition/evidence/o5/package-preparation-manifest.json",
+        "docs/original-expedition/evidence/o5/package-1ae47287-input-manifest.json",
+        "docs/original-expedition/evidence/o5/package-1ae47287-preparation.json",
+        "docs/original-expedition/evidence/o5/post-checkpoint-wmi-20260921.json",
+        "docs/original-expedition/evidence/o5/package-1ae47287-validation.json"
       ],
       "exact_test_names": [],
       "test_evidence": [],
       "remaining_requirements": [
-        "最终提交后新目录重新复制",
+        "完成 Unity 回归后确认最终源码并冻结交付用副本",
         "真实 BuildReport 和新版 Win64 包/源码指纹",
         "源码目录之外无参数离线全流程及对应连续录像"
       ],

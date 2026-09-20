@@ -1,0 +1,19 @@
+{
+  "sourceCommit": "1ae4728787bbdb40f01dba9f59beebfe13b35847",
+  "destination": "F:\\天命之子\\dist\\original-expedition-v01\\prepare-1ae47287",
+  "sourceProject": "F:\\Resonance\\client",
+  "createdUtc": "2026-09-20T18:48:00.5503309Z",
+  "fileCount": 499,
+  "totalInputBytes": 11448923.0,
+  "manifestSha256": "09A2D0844A2B39A36DD445BF0B1C60C9579CA846FDF78D0A3BF1457D6F72425F",
+  "status": "PREPARED_SOURCE_CANDIDATE_WITH_PRESERVED_LOCAL_METADATA",
+  "sourceManifestPurpose": "INTERMEDIATE_SOURCE_SNAPSHOT_NOT_A_RELEASE_BUILD",
+  "sourceManifestFinalDeliveryRequiresNewSnapshot": true,
+  "resourcesData": [
+    "Assets/Resources/Fonts/NotoSansSC.otf"
+  ],
+  "unityExecuted": false,
+  "playerBuilt": false,
+  "ordinaryPlayExecuted": false,
+  "sourceCommitCaveat": "487 inputs are tracked and unchanged at this base; 12 existing ignored runtime meta inputs are preserved in the accompanying metadata fix. The original manifest hashes identify all actual bytes."
+}
