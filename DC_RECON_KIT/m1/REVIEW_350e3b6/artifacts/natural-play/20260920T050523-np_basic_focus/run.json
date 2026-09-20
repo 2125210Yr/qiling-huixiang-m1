@@ -1,0 +1,15 @@
+{
+  "head": "40ab2fba42c10a71ace69d6c86e5c185afe67859",
+  "startedAt": "2026-09-20T13:05:23.8148876+08:00",
+  "recordedAt": "2026-09-20T13:05:52.3679256+08:00",
+  "finishedAt": "2026-09-20T13:06:14.6580452+08:00",
+  "unityExitCode": 0,
+  "session": "np-20260920T050557",
+  "battles": [
+    "np-20260920T050557-001",
+    "np-20260920T050557-002"
+  ],
+  "video": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T050523-np_basic_focus\\basic-focus.mp4",
+  "windowTitle": "client - Untitled - Windows, Mac, Linux - Unity 6.3 LTS (6000.3.23f1) <DX12>",
+  "result": "PASS"
+}

@@ -1,0 +1,51 @@
+F:\天命之子\tools\BattleSim.Tests\M1FormulaIsolationTests.cs(86,13): warning xUnit2000: The literal or constant value DamageMath.FeverChannelAtkCoef should be passed as the 'expected' argument in the call to 'Assert.NotEqual(expected, actual)' in method 'FeverDoesNotReadTapCoefficients' on type 'M1FormulaIsolationTests'. Swap the parameter values. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\tools\BattleSim.Tests\M1FormulaIsolationTests.cs(87,13): warning xUnit2000: The literal or constant value DamageMath.FeverChannelFlat should be passed as the 'expected' argument in the call to 'Assert.NotEqual(expected, actual)' in method 'FeverDoesNotReadTapCoefficients' on type 'M1FormulaIsolationTests'. Swap the parameter values. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+  BattleSim.Tests -> F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll
+F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll (.NETCoreApp,Version=v6.0)的测试运行
+Microsoft (R) 测试执行命令行工具版本 17.3.3 (x64)
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+正在启动测试执行，请稍候...
+总共 1 个测试文件与指定模式相匹配。
+[xUnit.net 00:00:01.09]     Resonance.Tests.G2OpeningDefaultsAuditTests.ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay(kind: "null") [FAIL]
+  失败 Resonance.Tests.G2OpeningDefaultsAuditTests.ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay(kind: "null") [373 ms]
+  错误消息:
+   Assert.Equal() Failure: Strings differ
+             ↓ (pos 2)
+Expected: "input"
+Actual:   "incomplete"
+             ↑ (pos 2)
+  堆栈跟踪:
+     at Resonance.Tests.G2OpeningDefaultsAuditTests.ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay(String kind) in F:\天命之子\tools\BattleSim.Tests\G2OpeningDefaultsAuditTests.cs:line 49
+[xUnit.net 00:00:01.47]     Resonance.Tests.G2OpeningDefaultsAuditTests.ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay(kind: "all-null") [FAIL]
+[xUnit.net 00:00:01.84]     Resonance.Tests.G2OpeningDefaultsAuditTests.ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay(kind: "empty") [FAIL]
+[xUnit.net 00:00:01.86]     Resonance.Tests.G2OpeningDefaultsAuditTests.ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay(kind: "mixed") [FAIL]
+  失败 Resonance.Tests.G2OpeningDefaultsAuditTests.ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay(kind: "all-null") [382 ms]
+  错误消息:
+   Assert.Equal() Failure: Strings differ
+             ↓ (pos 2)
+Expected: "input"
+Actual:   "incomplete"
+             ↑ (pos 2)
+  堆栈跟踪:
+     at Resonance.Tests.G2OpeningDefaultsAuditTests.ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay(String kind) in F:\天命之子\tools\BattleSim.Tests\G2OpeningDefaultsAuditTests.cs:line 49
+  失败 Resonance.Tests.G2OpeningDefaultsAuditTests.ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay(kind: "empty") [367 ms]
+  错误消息:
+   Assert.Equal() Failure: Strings differ
+             ↓ (pos 2)
+Expected: "input"
+Actual:   "incomplete"
+             ↑ (pos 2)
+  堆栈跟踪:
+     at Resonance.Tests.G2OpeningDefaultsAuditTests.ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay(String kind) in F:\天命之子\tools\BattleSim.Tests\G2OpeningDefaultsAuditTests.cs:line 49
+  失败 Resonance.Tests.G2OpeningDefaultsAuditTests.ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay(kind: "mixed") [20 ms]
+  错误消息:
+   Assert.Null() Failure: Value is not null
+Expected: null
+Actual:   UnitProgress { Affection = 0, Gear0 = "", Gear1 = "", Gear2 = "", Gear3 = "", ··· }
+  堆栈跟踪:
+     at Resonance.Tests.G2OpeningDefaultsAuditTests.AssertInputShape(UnitProgress[] expected, UnitProgress[] actual, Boolean allowEmptyAsNull) in F:\天命之子\tools\BattleSim.Tests\G2OpeningDefaultsAuditTests.cs:line 134
+   at Resonance.Tests.G2OpeningDefaultsAuditTests.ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay(String kind) in F:\天命之子\tools\BattleSim.Tests\G2OpeningDefaultsAuditTests.cs:line 56
+结果文件: F:\天命之子\DC_RECON_KIT\m1\REVIEW_350e3b6\artifacts\D1\D1-red.trx
+
+失败!  - 失败:     4，通过:     2，已跳过:     0，总计:     6，持续时间: 1 s - BattleSim.Tests.dll (net6.0)

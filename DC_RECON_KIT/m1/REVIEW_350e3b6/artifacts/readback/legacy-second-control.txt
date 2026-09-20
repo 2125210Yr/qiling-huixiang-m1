@@ -1,0 +1,21 @@
+dir=F:\天命之子\DC_RECON_KIT\m1\REVIEW_a82801b\artifacts\natural-play\20260916T085805-np_basic_v1\natural-play\battles\np-20260916T085931-002
+catalog=DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.basic.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok
+openingSource=input
+openingMods=food=1.000;carta=1.000
+recovered=C001:lv=2;a=4;g0=EQ_WPN;g3=SC006;r=TSTEE|C007:lv=2;a=4;g1=EQ_ARM;r=TTEEE|C010:lv=2;a=4;g2=EQ_ACC;r=SSTEE|C003:lv=2;a=4;g3=SC006;r=TEEEE|C005:lv=2;a=4;g0=EQ_WPN;r=ESTEE
+NamedOpeningDiff=DataIdentity: tape != replayed
+battle_id=np-20260916T085931-002
+scenario=np.basic.v1
+Match=False
+Ok=False
+CommandDiff=0
+Unconsumed=0
+DigestDiff=2
+EventDiff=0
+VersionDiff=1
+FirstEventDivergence=-1
+ExpectedEventCount=8
+ActualEventCount=8
+diff Ally[3].Hp: 3283 != 3284
+diff Ally[3].MaxHp: 3283 != 3284
+diff DataIdentity: tape != replayed

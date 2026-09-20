@@ -1,0 +1,6 @@
+seq=1 tick=17 kind=FocusEnemy slot=1 source=Player accepted=True reason=None timing=Bad value=0
+seq=2 tick=21 kind=Pause slot=0 source=Player accepted=True reason=None timing=Bad value=0
+seq=3 tick=21 kind=Resume slot=0 source=Player accepted=True reason=None timing=Bad value=0
+seq=4 tick=25 kind=SetSpeed slot=0 source=Player accepted=True reason=None timing=Bad value=2
+seq=5 tick=34 kind=Slide slot=0 source=Player accepted=True reason=None timing=Bad value=0
+seq=6 tick=97 kind=Tap slot=0 source=Player accepted=True reason=None timing=Bad value=0

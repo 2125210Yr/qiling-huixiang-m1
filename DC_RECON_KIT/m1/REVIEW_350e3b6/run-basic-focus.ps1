@@ -1,11 +1,16 @@
-param([int]$TimeoutSeconds = 900)
+param(
+    [int]$TimeoutSeconds = 900,
+    [ValidateSet('np.basic.v1','np.fever.v1','np.auto.v1')]
+    [string]$Scenario = 'np.basic.v1',
+    [switch]$ShowWindow
+)
 
 $ErrorActionPreference = 'Stop'
 $repoPath = 'F:\天命之子'
 $projectPath = 'F:\Resonance\client'
 $unityPath = 'D:\Unity\Hub\Editor\6000.3.23f1\Editor\Unity.exe'
 $stamp = [DateTime]::UtcNow.ToString('yyyyMMddTHHmmss')
-$runPath = Join-Path $PSScriptRoot "artifacts\natural-play\$stamp-np_basic_focus"
+$runPath = Join-Path $PSScriptRoot ("artifacts\natural-play\$stamp-" + $Scenario.Replace('.', '_'))
 $backupPath = Join-Path $runPath 'pre-run-captures'
 $capturesPath = Join-Path $projectPath 'captures'
 $tempPath = Join-Path $projectPath 'Temp'
@@ -15,6 +20,7 @@ $editorLog = Join-Path $runPath 'editor.log'
 $videoPath = Join-Path $runPath 'basic-focus.mp4'
 $ffmpegPath = (Get-Command ffmpeg -ErrorAction Stop).Source
 
+if (-not $ShowWindow) { throw 'Window recording requires -ShowWindow after explicit permission; hidden Unity windows produce blank captures.' }
 if (Get-Process Unity -ErrorAction SilentlyContinue) { throw 'An existing Unity Editor owns the workspace.' }
 if (Test-Path -LiteralPath (Join-Path $projectPath 'Library\EditorInstance.json')) { throw 'EditorInstance.json exists.' }
 if (Test-Path -LiteralPath $requestPath) { throw 'An existing natural-play request must be inspected first.' }
@@ -43,7 +49,8 @@ $recordedAt = $null
 $recorderErrorTask = $null
 try {
     # Compile/load first, then arm the existing EventSystem scenario after recording begins.
-    $unityProcess = Start-Process -FilePath $unityPath -WindowStyle Hidden -PassThru -ArgumentList @('-projectPath', $projectPath, '-logFile', $editorLog)
+    $windowStyle = if ($ShowWindow) { 'Normal' } else { 'Hidden' }
+    $unityProcess = Start-Process -FilePath $unityPath -WindowStyle $windowStyle -PassThru -ArgumentList @('-projectPath', $projectPath, '-logFile', $editorLog)
     $deadline = (Get-Date).AddSeconds($TimeoutSeconds)
     $window = $null
     while ((Get-Date) -lt $deadline) {
@@ -65,7 +72,7 @@ try {
     $recordedAt = Get-Date
     Start-Sleep -Seconds 2
     if ($recorder.HasExited) { throw 'Recorder exited before the scenario was armed.' }
-    [System.IO.File]::WriteAllText($requestPath, 'np.basic.v1')
+    [System.IO.File]::WriteAllText($requestPath, $Scenario)
     while ((Get-Date) -lt $deadline) {
         if ($unityProcess.HasExited) { break }
         Start-Sleep -Seconds 2
@@ -87,6 +94,7 @@ try {
     [pscustomobject]@{head=$head;startedAt=$startedAt.ToString('o');recordedAt=$recordedAt.ToString('o');finishedAt=(Get-Date).ToString('o');unityExitCode=$unityProcess.ExitCode;session=[regex]::Match($resultText,'(?m)^session=([^\r\n]+)').Groups[1].Value;battles=$battleIds;video=$videoPath;windowTitle=$window.MainWindowTitle;result=($resultText -split '\r?\n')[0]} | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $runPath 'run.json') -Encoding utf8
     Write-Output "Archive=$runPath"
     Write-Output (($resultText -split '\r?\n')[0])
+    if (-not $resultText.StartsWith('PASS')) { throw 'Natural-play scenario failed; its original result is archived.' }
 } finally {
     if ($recorder -and -not $recorder.HasExited) {
         $recorder.StandardInput.WriteLine('q')
@@ -94,6 +102,10 @@ try {
         if (-not $recorder.WaitForExit(15000)) { Write-Warning 'Recorder has not exited; do not mark video complete.' }
     }
     if ($recorderErrorTask -and $recorder.HasExited) { $recorderErrorTask.GetAwaiter().GetResult() | Set-Content -LiteralPath (Join-Path $runPath 'ffmpeg.log') -Encoding utf8 }
+    if ($unityProcess -and -not $unityProcess.HasExited) {
+        Stop-Process -Id $unityProcess.Id
+        $unityProcess.WaitForExit(10000) | Out-Null
+    }
     # Restore only the exact pre-run capture files saved above, leaving all new battle evidence intact.
     foreach ($item in $originalFiles) { Copy-Item -LiteralPath (Join-Path $backupPath $item.Name) -Destination $item.FullName -Force }
     if (Test-Path -LiteralPath (Join-Path $backupPath 'BATTLE_INDEX.txt')) { Copy-Item -LiteralPath (Join-Path $backupPath 'BATTLE_INDEX.txt') -Destination $oldIndex -Force }

@@ -1,0 +1,20 @@
+[
+  {
+    "relativePath": "Resonance.exe",
+    "length": 667136,
+    "modified": "2026-09-16T16:52:37.4977709+08:00",
+    "sha256": "82EFD5A8C297A5046F6BB72C240DAB8972E64003851935EBA0A46AD121CE0305"
+  },
+  {
+    "relativePath": "Resonance_Data\\Managed\\Resonance.App.dll",
+    "length": 774656,
+    "modified": "2026-09-20T13:14:39.1575013+08:00",
+    "sha256": "C9C1E4A79C5E26A567BE7869A6A0201F25DDE08DE38A14269203485D0CD73F6F"
+  },
+  {
+    "relativePath": "Resonance_Data\\Managed\\Resonance.Battle.dll",
+    "length": 225792,
+    "modified": "2026-09-20T13:14:39.1575013+08:00",
+    "sha256": "8C8A27A5811135CA774A67C7C5569B5DBCE2BAD7A3A5549277703E71F0F27DA9"
+  }
+]

@@ -1,0 +1,4 @@
+artifacts/natural-play/*/pre-run-captures/
+artifacts/natural-play/*/pre-run-temp-result.txt
+artifacts/video-check/*.png
+artifacts/build/win64-build.log
