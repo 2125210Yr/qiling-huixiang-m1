@@ -53,6 +53,8 @@ New-Item -ItemType Directory -Force -Path $runPath, $backupPath, $tempPath, $giC
 $head = (& git -c safe.directory=F:/天命之子 -C $repoPath rev-parse HEAD).Trim()
 $sourcePaths = @(
     'Assets\Scripts\Resonance.Battle\Core\BattleReplay.cs',
+    'Assets\Scripts\Resonance.Battle\Progression\Growth.cs',
+    'Assets\Scripts\Resonance.Battle\Progression\Bond.cs',
     'Assets\Scripts\Resonance.App\Debug\NaturalPlayRuntime.cs',
     'Assets\Scripts\Resonance.App\Debug\NaturalPlayBattleEvidence.cs'
 )

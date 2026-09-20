@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="b81770c3-9aa2-4164-b8ff-1b38947c1e2d" name="Administrator@DESKTOP-AKI3LSA 2026-09-20 15:44:35" runUser="DESKTOP-AKI3LSA\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-09-20T15:44:35.2701034+08:00" queuing="2026-09-20T15:44:35.2701039+08:00" start="2026-09-20T15:44:34.4194399+08:00" finish="2026-09-20T15:44:35.2792580+08:00" />
+  <TestSettings name="default" id="b70f315b-8ee5-4a1b-ba7b-0ad7a23c1cc2">
+    <Deployment runDeploymentRoot="Administrator_DESKTOP-AKI3LSA_2026-09-20_15_44_35" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="908fad54-6da4-4904-bab9-550fecb7613f" testId="c039a02c-554f-fe3d-6bea-7a3e19814390" testName="Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(id: &quot;C007&quot;, level: 2, uncap: 0, ignition: 12, affection: 100, hp: 1061, atk: 246, def: 369, agl: 220, crt: 171)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0004875" startTime="2026-09-20T15:44:35.1930703+08:00" endTime="2026-09-20T15:44:35.1930704+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="908fad54-6da4-4904-bab9-550fecb7613f">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Collections differ&#xD;
+                                ↓ (pos 4)&#xD;
+Expected: [1061, 246, 369, 220, 171]&#xD;
+Actual:   [1061, 246, 369, 220, 172]&#xD;
+                                ↑ (pos 4)</Message>
+          <StackTrace>   at Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(String id, Int32 level, Int32 uncap, Int32 ignition, Int32 affection, Int32 hp, Int32 atk, Int32 def, Int32 agl, Int32 crt) in F:\天命之子\tools\BattleSim.Tests\GrowthRuntimeRoundingTests.cs:line 49</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="3c922ba5-4281-4939-9cc3-097b2a38320b" testId="11aa9bf1-c6e3-a223-567b-0683ba840d8c" testName="Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(id: &quot;C020&quot;, level: 60, uncap: 1, ignition: 1, affection: 100, hp: 1886, atk: 994, def: 561, agl: 773, crt: 680)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0005717" startTime="2026-09-20T15:44:35.1922939+08:00" endTime="2026-09-20T15:44:35.1922942+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3c922ba5-4281-4939-9cc3-097b2a38320b">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Collections differ&#xD;
+           ↓ (pos 0)&#xD;
+Expected: [1886, 994, 561, 773, 680]&#xD;
+Actual:   [1887, 994, 561, 773, 680]&#xD;
+           ↑ (pos 0)</Message>
+          <StackTrace>   at Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(String id, Int32 level, Int32 uncap, Int32 ignition, Int32 affection, Int32 hp, Int32 atk, Int32 def, Int32 agl, Int32 crt) in F:\天命之子\tools\BattleSim.Tests\GrowthRuntimeRoundingTests.cs:line 49</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="b7a600b2-3214-4147-9dda-38c794b79d24" testId="5ef9891f-04cf-f590-eefd-5784b332ce68" testName="Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(id: &quot;C020&quot;, level: 60, uncap: 1, ignition: 1, affection: 4, hp: 50, atk: 26, def: 15, agl: 20, crt: 18)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0361602" startTime="2026-09-20T15:44:35.1886760+08:00" endTime="2026-09-20T15:44:35.1886887+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b7a600b2-3214-4147-9dda-38c794b79d24">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Collections differ&#xD;
+           ↓ (pos 0)&#xD;
+Expected: [50, 26, 15, 20, 18]&#xD;
+Actual:   [49, 26, 15, 20, 18]&#xD;
+           ↑ (pos 0)</Message>
+          <StackTrace>   at Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(String id, Int32 level, Int32 uncap, Int32 ignition, Int32 affection, Int32 hp, Int32 atk, Int32 def, Int32 agl, Int32 crt) in F:\天命之子\tools\BattleSim.Tests\GrowthRuntimeRoundingTests.cs:line 49</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="f4b31153-b06c-4c4d-bffb-bf2d845707d6" testId="7ca8ace1-4b30-be12-736a-406464322922" testName="Resonance.Tests.GrowthRuntimeRoundingTests.NextBattleLevelTwo_PreservesRecordedUnityStats" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0007748" startTime="2026-09-20T15:44:35.1943456+08:00" endTime="2026-09-20T15:44:35.1943457+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f4b31153-b06c-4c4d-bffb-bf2d845707d6">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Collections differ&#xD;
+           ↓ (pos 0)&#xD;
+Expected: [3001, 931, 828, 828, 683]&#xD;
+Actual:   [3002, 932, 828, 828, 683]&#xD;
+           ↑ (pos 0)</Message>
+          <StackTrace>   at Resonance.Tests.GrowthRuntimeRoundingTests.NextBattleLevelTwo_PreservesRecordedUnityStats() in F:\天命之子\tools\BattleSim.Tests\GrowthRuntimeRoundingTests.cs:line 23</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Resonance.Tests.GrowthRuntimeRoundingTests.NextBattleLevelTwo_PreservesRecordedUnityStats" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="7ca8ace1-4b30-be12-736a-406464322922">
+      <Execution id="f4b31153-b06c-4c4d-bffb-bf2d845707d6" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.GrowthRuntimeRoundingTests" name="NextBattleLevelTwo_PreservesRecordedUnityStats" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(id: &quot;C020&quot;, level: 60, uncap: 1, ignition: 1, affection: 100, hp: 1886, atk: 994, def: 561, agl: 773, crt: 680)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="11aa9bf1-c6e3-a223-567b-0683ba840d8c">
+      <Execution id="3c922ba5-4281-4939-9cc3-097b2a38320b" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.GrowthRuntimeRoundingTests" name="AffectionHalfBoundaries_PreserveUnityRounding" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(id: &quot;C007&quot;, level: 2, uncap: 0, ignition: 12, affection: 100, hp: 1061, atk: 246, def: 369, agl: 220, crt: 171)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="c039a02c-554f-fe3d-6bea-7a3e19814390">
+      <Execution id="908fad54-6da4-4904-bab9-550fecb7613f" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.GrowthRuntimeRoundingTests" name="AffectionHalfBoundaries_PreserveUnityRounding" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(id: &quot;C020&quot;, level: 60, uncap: 1, ignition: 1, affection: 4, hp: 50, atk: 26, def: 15, agl: 20, crt: 18)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="5ef9891f-04cf-f590-eefd-5784b332ce68">
+      <Execution id="b7a600b2-3214-4147-9dda-38c794b79d24" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.GrowthRuntimeRoundingTests" name="AffectionHalfBoundaries_PreserveUnityRounding" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="c039a02c-554f-fe3d-6bea-7a3e19814390" executionId="908fad54-6da4-4904-bab9-550fecb7613f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="11aa9bf1-c6e3-a223-567b-0683ba840d8c" executionId="3c922ba5-4281-4939-9cc3-097b2a38320b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5ef9891f-04cf-f590-eefd-5784b332ce68" executionId="b7a600b2-3214-4147-9dda-38c794b79d24" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7ca8ace1-4b30-be12-736a-406464322922" executionId="f4b31153-b06c-4c4d-bffb-bf2d845707d6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="4" executed="4" passed="0" failed="4" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 6.0.33)&#xD;
+[xUnit.net 00:00:00.08]   Discovering: BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.14]   Discovered:  BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.14]   Starting:    BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.24]       Assert.Equal() Failure: Collections differ&#xD;
+[xUnit.net 00:00:00.24]                  ↓ (pos 0)&#xD;
+[xUnit.net 00:00:00.24]       Expected: [50, 26, 15, 20, 18]&#xD;
+[xUnit.net 00:00:00.24]       Actual:   [49, 26, 15, 20, 18]&#xD;
+[xUnit.net 00:00:00.24]                  ↑ (pos 0)&#xD;
+[xUnit.net 00:00:00.24]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.24]         F:\天命之子\tools\BattleSim.Tests\GrowthRuntimeRoundingTests.cs(49,0): at Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(String id, Int32 level, Int32 uncap, Int32 ignition, Int32 affection, Int32 hp, Int32 atk, Int32 def, Int32 agl, Int32 crt)&#xD;
+[xUnit.net 00:00:00.25]       Assert.Equal() Failure: Collections differ&#xD;
+[xUnit.net 00:00:00.25]                  ↓ (pos 0)&#xD;
+[xUnit.net 00:00:00.25]       Expected: [1886, 994, 561, 773, 680]&#xD;
+[xUnit.net 00:00:00.25]       Actual:   [1887, 994, 561, 773, 680]&#xD;
+[xUnit.net 00:00:00.25]                  ↑ (pos 0)&#xD;
+[xUnit.net 00:00:00.25]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.25]         F:\天命之子\tools\BattleSim.Tests\GrowthRuntimeRoundingTests.cs(49,0): at Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(String id, Int32 level, Int32 uncap, Int32 ignition, Int32 affection, Int32 hp, Int32 atk, Int32 def, Int32 agl, Int32 crt)&#xD;
+[xUnit.net 00:00:00.25]       Assert.Equal() Failure: Collections differ&#xD;
+[xUnit.net 00:00:00.25]                                       ↓ (pos 4)&#xD;
+[xUnit.net 00:00:00.25]       Expected: [1061, 246, 369, 220, 171]&#xD;
+[xUnit.net 00:00:00.25]       Actual:   [1061, 246, 369, 220, 172]&#xD;
+[xUnit.net 00:00:00.25]                                       ↑ (pos 4)&#xD;
+[xUnit.net 00:00:00.25]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.25]         F:\天命之子\tools\BattleSim.Tests\GrowthRuntimeRoundingTests.cs(49,0): at Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(String id, Int32 level, Int32 uncap, Int32 ignition, Int32 affection, Int32 hp, Int32 atk, Int32 def, Int32 agl, Int32 crt)&#xD;
+[xUnit.net 00:00:00.25]       Assert.Equal() Failure: Collections differ&#xD;
+[xUnit.net 00:00:00.25]                  ↓ (pos 0)&#xD;
+[xUnit.net 00:00:00.25]       Expected: [3001, 931, 828, 828, 683]&#xD;
+[xUnit.net 00:00:00.25]       Actual:   [3002, 932, 828, 828, 683]&#xD;
+[xUnit.net 00:00:00.25]                  ↑ (pos 0)&#xD;
+[xUnit.net 00:00:00.25]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.25]         F:\天命之子\tools\BattleSim.Tests\GrowthRuntimeRoundingTests.cs(23,0): at Resonance.Tests.GrowthRuntimeRoundingTests.NextBattleLevelTwo_PreservesRecordedUnityStats()&#xD;
+[xUnit.net 00:00:00.25]   Finished:    BattleSim.Tests&#xD;
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-20T15:44:35.1860616+08:00">
+        <Text>[xUnit.net 00:00:00.24]     Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(id: "C020", level: 60, uncap: 1, ignition: 1, affection: 4, hp: 50, atk: 26, def: 15, agl: 20, crt: 18) [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-20T15:44:35.1922803+08:00">
+        <Text>[xUnit.net 00:00:00.25]     Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(id: "C020", level: 60, uncap: 1, ignition: 1, affection: 100, hp: 1886, atk: 994, def: 561, agl: 773, crt: 680) [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-20T15:44:35.1930248+08:00">
+        <Text>[xUnit.net 00:00:00.25]     Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(id: "C007", level: 2, uncap: 0, ignition: 12, affection: 100, hp: 1061, atk: 246, def: 369, agl: 220, crt: 171) [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-20T15:44:35.1943050+08:00">
+        <Text>[xUnit.net 00:00:00.25]     Resonance.Tests.GrowthRuntimeRoundingTests.NextBattleLevelTwo_PreservesRecordedUnityStats [FAIL]</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>

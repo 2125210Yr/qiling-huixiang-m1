@@ -1,0 +1,32 @@
+F:\天命之子\tools\BattleSim.Tests\M1FormulaIsolationTests.cs(86,13): warning xUnit2000: The literal or constant value DamageMath.FeverChannelAtkCoef should be passed as the 'expected' argument in the call to 'Assert.NotEqual(expected, actual)' in method 'FeverDoesNotReadTapCoefficients' on type 'M1FormulaIsolationTests'. Swap the parameter values. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\tools\BattleSim.Tests\M1FormulaIsolationTests.cs(87,13): warning xUnit2000: The literal or constant value DamageMath.FeverChannelFlat should be passed as the 'expected' argument in the call to 'Assert.NotEqual(expected, actual)' in method 'FeverDoesNotReadTapCoefficients' on type 'M1FormulaIsolationTests'. Swap the parameter values. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+  BattleSim.Tests -> F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll
+F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll (.NETCoreApp,Version=v6.0)的测试运行
+Microsoft (R) 测试执行命令行工具版本 17.3.3 (x64)
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+正在启动测试执行，请稍候...
+总共 1 个测试文件与指定模式相匹配。
+[xUnit.net 00:00:01.37]     Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(id: "C020", level: 60, uncap: 1, ignition: 1, affection: 100, hp: 1886, atk: 994, def: 561, agl: 773, crt: 680) [FAIL]
+[xUnit.net 00:00:01.38]     Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(id: "C007", level: 2, uncap: 0, ignition: 12, affection: 100, hp: 1061, atk: 246, def: 369, agl: 220, crt: 171) [FAIL]
+  失败 Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(id: "C020", level: 60, uncap: 1, ignition: 1, affection: 100, hp: 1886, atk: 994, def: 561, agl: 773, crt: 680) [9 ms]
+  错误消息:
+   Assert.Equal() Failure: Collections differ
+           ↓ (pos 0)
+Expected: [1886, 994, 561, 773, 680]
+Actual:   [1887, 994, 561, 773, 680]
+           ↑ (pos 0)
+  堆栈跟踪:
+     at Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(String id, Int32 level, Int32 uncap, Int32 ignition, Int32 affection, Int32 hp, Int32 atk, Int32 def, Int32 agl, Int32 crt) in F:\天命之子\tools\BattleSim.Tests\GrowthRuntimeRoundingTests.cs:line 49
+  失败 Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(id: "C007", level: 2, uncap: 0, ignition: 12, affection: 100, hp: 1061, atk: 246, def: 369, agl: 220, crt: 171) [< 1 ms]
+  错误消息:
+   Assert.Equal() Failure: Collections differ
+                                ↓ (pos 4)
+Expected: [1061, 246, 369, 220, 171]
+Actual:   [1061, 246, 369, 220, 172]
+                                ↑ (pos 4)
+  堆栈跟踪:
+     at Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(String id, Int32 level, Int32 uncap, Int32 ignition, Int32 affection, Int32 hp, Int32 atk, Int32 def, Int32 agl, Int32 crt) in F:\天命之子\tools\BattleSim.Tests\GrowthRuntimeRoundingTests.cs:line 49
+结果文件: F:\天命之子\DC_RECON_KIT\m1\REVIEW_350e3b6\artifacts\growth-rounding\rounding-green.trx
+
+失败!  - 失败:     2，通过:    13，已跳过:     0，总计:    15，持续时间: 1 s - BattleSim.Tests.dll (net6.0)

@@ -1,0 +1,760 @@
+{
+  "scope": "Read existing natural-play archives using the prebuilt net6.0 Readback.dll; no rebuild and no archive changes.",
+  "startedAtUtc": "2026-09-20T08:07:45.5486109Z",
+  "completedAtUtc": "2026-09-20T08:07:47.0091064Z",
+  "repositoryHeadAtStart": "6096282486e8f78b3c500c71bf8bb8460ca1b003",
+  "readbackExecutable": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_a82801b\\readback\\bin\\Debug\\net6.0\\Readback.dll",
+  "dotnetExecutable": "C:\\Program Files\\dotnet\\dotnet.exe",
+  "sourceFingerprints": {
+    "reader": {
+      "path": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_a82801b\\readback\\bin\\Debug\\net6.0\\Readback.dll",
+      "sha256": "85E9C06938E07F8988BF6094A696EBB1C1B54F731A6B935E0DD3AADCBCBCFD86",
+      "sha256After": "85E9C06938E07F8988BF6094A696EBB1C1B54F731A6B935E0DD3AADCBCBCFD86",
+      "unchangedDuringReadback": true
+    },
+    "readerProgram": {
+      "path": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_a82801b\\readback\\Program.cs",
+      "sha256": "6593D03F0EC0FD7F860C78CD4838E684096D92A7CF706D5916C24332C14B6B8F",
+      "sha256After": "6593D03F0EC0FD7F860C78CD4838E684096D92A7CF706D5916C24332C14B6B8F",
+      "unchangedDuringReadback": true
+    },
+    "battleReplay": {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Core\\BattleReplay.cs",
+      "sha256": "96A476683FBA85898CAC5F4F7CB81D346D54B7E6E1BA4B16D8136F5B073FDBC6",
+      "sha256After": "96A476683FBA85898CAC5F4F7CB81D346D54B7E6E1BA4B16D8136F5B073FDBC6",
+      "unchangedDuringReadback": true
+    },
+    "growth": {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Progression\\Growth.cs",
+      "sha256": "E92CA5973FE65C1F5AF9901E4B5C4A239AEF11A4592052ECCB2EBCE011196010",
+      "sha256After": "E92CA5973FE65C1F5AF9901E4B5C4A239AEF11A4592052ECCB2EBCE011196010",
+      "unchangedDuringReadback": true
+    },
+    "bond": {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Progression\\Bond.cs",
+      "sha256": "3AD72CBC3260C205A11A3A7C4D29595FCF406638928FB1FC9785130B6EA05E7E",
+      "sha256After": "3AD72CBC3260C205A11A3A7C4D29595FCF406638928FB1FC9785130B6EA05E7E",
+      "unchangedDuringReadback": true
+    },
+    "naturalPlayBattleEvidence": {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Debug\\NaturalPlayBattleEvidence.cs",
+      "sha256": "387FDA21E7303B1215398F7BB370ED3BCB528A85A446136F85B3EC074863312B",
+      "sha256After": "387FDA21E7303B1215398F7BB370ED3BCB528A85A446136F85B3EC074863312B",
+      "unchangedDuringReadback": true
+    }
+  },
+  "fingerprintsStable": true,
+  "legacyArchiveAliases": [
+    {
+      "battlePath": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_a82801b\\artifacts\\natural-play\\20260916T085805-np_basic_v1\\natural-play\\battles\\np-20260916T085931-002",
+      "replaySha256": "2E55A65AF37800A6A7218A656563582B2BAFE8C4385881D4A5A2966025FF2A3D"
+    },
+    {
+      "battlePath": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_a82801b\\artifacts\\natural-play\\20260916T090011-np_fever_v1\\natural-play\\battles\\np-20260916T085931-002",
+      "replaySha256": "2E55A65AF37800A6A7218A656563582B2BAFE8C4385881D4A5A2966025FF2A3D"
+    },
+    {
+      "battlePath": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_a82801b\\artifacts\\natural-play\\20260916T090337-np_auto_v1\\natural-play\\battles\\np-20260916T085931-002",
+      "replaySha256": "2E55A65AF37800A6A7218A656563582B2BAFE8C4385881D4A5A2966025FF2A3D"
+    }
+  ],
+  "runCount": 7,
+  "matchCount": 7,
+  "failedCount": 0,
+  "allArchivesUnchanged": true,
+  "runs": [
+    {
+      "label": "prior-hp-basic-002",
+      "battlePath": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T050523-np_basic_focus\\battles\\np-20260920T050557-002",
+      "checkedAtUtc": "2026-09-20T08:07:45.6833968Z",
+      "readbackExitCode": 0,
+      "stdoutFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\growth-rounding\\readback\\prior-hp-basic-002.stdout.txt",
+      "stderrFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\growth-rounding\\readback\\prior-hp-basic-002.stderr.txt",
+      "exitCodeFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\growth-rounding\\readback\\prior-hp-basic-002.exit-code.txt",
+      "replay": {
+        "path": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T050523-np_basic_focus\\battles\\np-20260920T050557-002\\replay.jsonl",
+        "sha256": "B1917DF1A344E404ACED1779AEF4FC4942D343135909268AECDF68688B19061C",
+        "totalLines": 24,
+        "nonEmptyLines": 24,
+        "jsonErrorCount": 0,
+        "jsonErrors": []
+      },
+      "readback": {
+        "dir": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T050523-np_basic_focus\\battles\\np-20260920T050557-002",
+        "catalog": "DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.basic.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok",
+        "openingSource": "input",
+        "openingMods": "food=1.000;carta=1.000",
+        "recovered": "C001:lv=2;a=4;g0=EQ_WPN;g3=SC006;r=TSTEE|C007:lv=2;a=4;g1=EQ_ARM;r=TTEEE|C010:lv=2;a=4;g2=EQ_ACC;r=SSTEE|C003:lv=2;a=4;g3=SC006;r=TEEEE|C005:lv=2;a=4;g0=EQ_WPN;r=ESTEE",
+        "NamedOpeningDiff": null,
+        "battle_id": "np-20260920T050557-002",
+        "scenario": "np.basic.v1",
+        "Match": true,
+        "Ok": true,
+        "CommandDiff": 0,
+        "Unconsumed": 0,
+        "DigestDiff": 0,
+        "EventDiff": 0,
+        "VersionDiff": 0,
+        "FirstEventDivergence": -1,
+        "ExpectedEventCount": 8,
+        "ActualEventCount": 8
+      },
+      "diffLines": [],
+      "archiveFilesBefore": [
+        {
+          "name": "commands.txt",
+          "sha256": "0689E820BAFDB3F7B2795321581105B88C26458C55912B46BF2ADA015E1CC122"
+        },
+        {
+          "name": "digest.txt",
+          "sha256": "8EE4492D8FF01651754DF34A47815CAA7A65E95DDE38BF5C00F43E0AB2EA79D0"
+        },
+        {
+          "name": "events.txt",
+          "sha256": "012F39946B4F49F564AE44AAD7F0AFCF4C4EA336EF61F8CF73AF1388EF645226"
+        },
+        {
+          "name": "header.txt",
+          "sha256": "BF37BDBB57F9E7D0B9B0DC1D7CC9C6F50EC13C48A7CD1F3768490E68A008D167"
+        },
+        {
+          "name": "replay.jsonl",
+          "sha256": "B1917DF1A344E404ACED1779AEF4FC4942D343135909268AECDF68688B19061C"
+        },
+        {
+          "name": "result.txt",
+          "sha256": "9B105BBBD1896BC1C090D2FFDEC20C36A5FEBE80A6F502526B7C1F111BBCF4D7"
+        },
+        {
+          "name": "scenario.txt",
+          "sha256": "A883583C136385A72F9A77D2ED19F1F207D838BF33D8C5E433457956BAD74AE9"
+        }
+      ],
+      "archiveFilesAfter": [
+        {
+          "name": "commands.txt",
+          "sha256": "0689E820BAFDB3F7B2795321581105B88C26458C55912B46BF2ADA015E1CC122"
+        },
+        {
+          "name": "digest.txt",
+          "sha256": "8EE4492D8FF01651754DF34A47815CAA7A65E95DDE38BF5C00F43E0AB2EA79D0"
+        },
+        {
+          "name": "events.txt",
+          "sha256": "012F39946B4F49F564AE44AAD7F0AFCF4C4EA336EF61F8CF73AF1388EF645226"
+        },
+        {
+          "name": "header.txt",
+          "sha256": "BF37BDBB57F9E7D0B9B0DC1D7CC9C6F50EC13C48A7CD1F3768490E68A008D167"
+        },
+        {
+          "name": "replay.jsonl",
+          "sha256": "B1917DF1A344E404ACED1779AEF4FC4942D343135909268AECDF68688B19061C"
+        },
+        {
+          "name": "result.txt",
+          "sha256": "9B105BBBD1896BC1C090D2FFDEC20C36A5FEBE80A6F502526B7C1F111BBCF4D7"
+        },
+        {
+          "name": "scenario.txt",
+          "sha256": "A883583C136385A72F9A77D2ED19F1F207D838BF33D8C5E433457956BAD74AE9"
+        }
+      ],
+      "archiveUnchanged": true
+    },
+    {
+      "label": "legacy-basic-002",
+      "battlePath": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_a82801b\\artifacts\\natural-play\\20260916T085805-np_basic_v1\\natural-play\\battles\\np-20260916T085931-002",
+      "checkedAtUtc": "2026-09-20T08:07:46.0140051Z",
+      "readbackExitCode": 0,
+      "stdoutFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\growth-rounding\\readback\\legacy-basic-002.stdout.txt",
+      "stderrFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\growth-rounding\\readback\\legacy-basic-002.stderr.txt",
+      "exitCodeFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\growth-rounding\\readback\\legacy-basic-002.exit-code.txt",
+      "replay": {
+        "path": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_a82801b\\artifacts\\natural-play\\20260916T085805-np_basic_v1\\natural-play\\battles\\np-20260916T085931-002\\replay.jsonl",
+        "sha256": "2E55A65AF37800A6A7218A656563582B2BAFE8C4385881D4A5A2966025FF2A3D",
+        "totalLines": 24,
+        "nonEmptyLines": 24,
+        "jsonErrorCount": 0,
+        "jsonErrors": []
+      },
+      "readback": {
+        "dir": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_a82801b\\artifacts\\natural-play\\20260916T085805-np_basic_v1\\natural-play\\battles\\np-20260916T085931-002",
+        "catalog": "DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.basic.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok",
+        "openingSource": "input",
+        "openingMods": "food=1.000;carta=1.000",
+        "recovered": "C001:lv=2;a=4;g0=EQ_WPN;g3=SC006;r=TSTEE|C007:lv=2;a=4;g1=EQ_ARM;r=TTEEE|C010:lv=2;a=4;g2=EQ_ACC;r=SSTEE|C003:lv=2;a=4;g3=SC006;r=TEEEE|C005:lv=2;a=4;g0=EQ_WPN;r=ESTEE",
+        "NamedOpeningDiff": null,
+        "battle_id": "np-20260916T085931-002",
+        "scenario": "np.basic.v1",
+        "Match": true,
+        "Ok": true,
+        "CommandDiff": 0,
+        "Unconsumed": 0,
+        "DigestDiff": 0,
+        "EventDiff": 0,
+        "VersionDiff": 0,
+        "FirstEventDivergence": -1,
+        "ExpectedEventCount": 8,
+        "ActualEventCount": 8
+      },
+      "diffLines": [],
+      "archiveFilesBefore": [
+        {
+          "name": "commands.txt",
+          "sha256": "C6AB294A85DD7B0D14024A994A4CB975A1EE279C31EF53A8C5D7F155A97DB3BD"
+        },
+        {
+          "name": "digest.txt",
+          "sha256": "CBFDAE669E66C81C38BDD21B64AA236C5EEEFCB0BD845066E0D20CD028FC44D1"
+        },
+        {
+          "name": "events.txt",
+          "sha256": "012F39946B4F49F564AE44AAD7F0AFCF4C4EA336EF61F8CF73AF1388EF645226"
+        },
+        {
+          "name": "header.txt",
+          "sha256": "38597F16D96E44C73519ED13B4CF7E76F77C50EC90553AA223745E523733AE7A"
+        },
+        {
+          "name": "replay.jsonl",
+          "sha256": "2E55A65AF37800A6A7218A656563582B2BAFE8C4385881D4A5A2966025FF2A3D"
+        },
+        {
+          "name": "result.txt",
+          "sha256": "975C1933B8E907617D379B9B0D1430781F272A8B23B194907B49C134E6D0BE7E"
+        },
+        {
+          "name": "scenario.txt",
+          "sha256": "8BF2B76F41504C9F0FB7597A64ED30C924DDC0E34BEA1C1E50E522688E5B14B7"
+        }
+      ],
+      "archiveFilesAfter": [
+        {
+          "name": "commands.txt",
+          "sha256": "C6AB294A85DD7B0D14024A994A4CB975A1EE279C31EF53A8C5D7F155A97DB3BD"
+        },
+        {
+          "name": "digest.txt",
+          "sha256": "CBFDAE669E66C81C38BDD21B64AA236C5EEEFCB0BD845066E0D20CD028FC44D1"
+        },
+        {
+          "name": "events.txt",
+          "sha256": "012F39946B4F49F564AE44AAD7F0AFCF4C4EA336EF61F8CF73AF1388EF645226"
+        },
+        {
+          "name": "header.txt",
+          "sha256": "38597F16D96E44C73519ED13B4CF7E76F77C50EC90553AA223745E523733AE7A"
+        },
+        {
+          "name": "replay.jsonl",
+          "sha256": "2E55A65AF37800A6A7218A656563582B2BAFE8C4385881D4A5A2966025FF2A3D"
+        },
+        {
+          "name": "result.txt",
+          "sha256": "975C1933B8E907617D379B9B0D1430781F272A8B23B194907B49C134E6D0BE7E"
+        },
+        {
+          "name": "scenario.txt",
+          "sha256": "8BF2B76F41504C9F0FB7597A64ED30C924DDC0E34BEA1C1E50E522688E5B14B7"
+        }
+      ],
+      "archiveUnchanged": true
+    },
+    {
+      "label": "d3-basic-001",
+      "battlePath": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T062640-np_basic_v1\\battles\\np-20260920T062700-001",
+      "checkedAtUtc": "2026-09-20T08:07:46.1612245Z",
+      "readbackExitCode": 0,
+      "stdoutFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\growth-rounding\\readback\\d3-basic-001.stdout.txt",
+      "stderrFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\growth-rounding\\readback\\d3-basic-001.stderr.txt",
+      "exitCodeFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\growth-rounding\\readback\\d3-basic-001.exit-code.txt",
+      "replay": {
+        "path": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T062640-np_basic_v1\\battles\\np-20260920T062700-001\\replay.jsonl",
+        "sha256": "2591850577397A60939D46AC8FF7BB9B9FDD301FAAAA47A80958E74AB9128BA9",
+        "totalLines": 168,
+        "nonEmptyLines": 168,
+        "jsonErrorCount": 0,
+        "jsonErrors": []
+      },
+      "readback": {
+        "dir": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T062640-np_basic_v1\\battles\\np-20260920T062700-001",
+        "catalog": "DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.basic.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok",
+        "openingSource": "input",
+        "openingMods": "food=1.000;carta=1.000",
+        "recovered": "C001:lv=1;g0=EQ_WPN;g3=SC006;r=TSTEE|C007:lv=1;g1=EQ_ARM;r=TTEEE|C010:lv=1;g2=EQ_ACC;r=SSTEE|C003:lv=1;g3=SC006;r=TEEEE|C005:lv=1;g0=EQ_WPN;r=ESTEE",
+        "NamedOpeningDiff": null,
+        "battle_id": "np-20260920T062700-001",
+        "scenario": "np.basic.v1",
+        "Match": true,
+        "Ok": true,
+        "CommandDiff": 0,
+        "Unconsumed": 0,
+        "DigestDiff": 0,
+        "EventDiff": 0,
+        "VersionDiff": 0,
+        "FirstEventDivergence": -1,
+        "ExpectedEventCount": 155,
+        "ActualEventCount": 155
+      },
+      "diffLines": [],
+      "archiveFilesBefore": [
+        {
+          "name": "commands.txt",
+          "sha256": "BB94D4D2F0C5E3FDF4CA52249AFFE7EBACAE0C9D3A9034D85BCB595F08EC5301"
+        },
+        {
+          "name": "digest.txt",
+          "sha256": "57DCAC1516E5D1DAF76AEF3719A796D08ED157CAC83FC953AFB6602B1D555BDA"
+        },
+        {
+          "name": "events.txt",
+          "sha256": "4B04548D1AF3E2B0E592E55171E62504445229AD8A8512EA8A871A3F7AC90A5F"
+        },
+        {
+          "name": "header.txt",
+          "sha256": "4BDD958BA1A7DF9BE234B238CAAD4CCC7946515CAE9AA90548BD5BEA22FCFC56"
+        },
+        {
+          "name": "replay.jsonl",
+          "sha256": "2591850577397A60939D46AC8FF7BB9B9FDD301FAAAA47A80958E74AB9128BA9"
+        },
+        {
+          "name": "result.txt",
+          "sha256": "26E0DEF9100C3331F6C1A83E556CC2CE7B5F231D648794E45765F5B4D9320065"
+        },
+        {
+          "name": "scenario.txt",
+          "sha256": "55D3568F654841701ADC8A7560401A3C913FE05DF7A52EF0B4C9054C5B0C9BC0"
+        }
+      ],
+      "archiveFilesAfter": [
+        {
+          "name": "commands.txt",
+          "sha256": "BB94D4D2F0C5E3FDF4CA52249AFFE7EBACAE0C9D3A9034D85BCB595F08EC5301"
+        },
+        {
+          "name": "digest.txt",
+          "sha256": "57DCAC1516E5D1DAF76AEF3719A796D08ED157CAC83FC953AFB6602B1D555BDA"
+        },
+        {
+          "name": "events.txt",
+          "sha256": "4B04548D1AF3E2B0E592E55171E62504445229AD8A8512EA8A871A3F7AC90A5F"
+        },
+        {
+          "name": "header.txt",
+          "sha256": "4BDD958BA1A7DF9BE234B238CAAD4CCC7946515CAE9AA90548BD5BEA22FCFC56"
+        },
+        {
+          "name": "replay.jsonl",
+          "sha256": "2591850577397A60939D46AC8FF7BB9B9FDD301FAAAA47A80958E74AB9128BA9"
+        },
+        {
+          "name": "result.txt",
+          "sha256": "26E0DEF9100C3331F6C1A83E556CC2CE7B5F231D648794E45765F5B4D9320065"
+        },
+        {
+          "name": "scenario.txt",
+          "sha256": "55D3568F654841701ADC8A7560401A3C913FE05DF7A52EF0B4C9054C5B0C9BC0"
+        }
+      ],
+      "archiveUnchanged": true
+    },
+    {
+      "label": "d3-basic-002",
+      "battlePath": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T062640-np_basic_v1\\battles\\np-20260920T062700-002",
+      "checkedAtUtc": "2026-09-20T08:07:46.3293732Z",
+      "readbackExitCode": 0,
+      "stdoutFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\growth-rounding\\readback\\d3-basic-002.stdout.txt",
+      "stderrFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\growth-rounding\\readback\\d3-basic-002.stderr.txt",
+      "exitCodeFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\growth-rounding\\readback\\d3-basic-002.exit-code.txt",
+      "replay": {
+        "path": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T062640-np_basic_v1\\battles\\np-20260920T062700-002\\replay.jsonl",
+        "sha256": "D617E7271831CA5107C47B442FC30A5B42B24823BBEE2F5075007A9A0DFCE1BC",
+        "totalLines": 24,
+        "nonEmptyLines": 24,
+        "jsonErrorCount": 0,
+        "jsonErrors": []
+      },
+      "readback": {
+        "dir": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T062640-np_basic_v1\\battles\\np-20260920T062700-002",
+        "catalog": "DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.basic.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok",
+        "openingSource": "input",
+        "openingMods": "food=1.000;carta=1.000",
+        "recovered": "C001:lv=2;a=4;g0=EQ_WPN;g3=SC006;r=TSTEE|C007:lv=2;a=4;g1=EQ_ARM;r=TTEEE|C010:lv=2;a=4;g2=EQ_ACC;r=SSTEE|C003:lv=2;a=4;g3=SC006;r=TEEEE|C005:lv=2;a=4;g0=EQ_WPN;r=ESTEE",
+        "NamedOpeningDiff": null,
+        "battle_id": "np-20260920T062700-002",
+        "scenario": "np.basic.v1",
+        "Match": true,
+        "Ok": true,
+        "CommandDiff": 0,
+        "Unconsumed": 0,
+        "DigestDiff": 0,
+        "EventDiff": 0,
+        "VersionDiff": 0,
+        "FirstEventDivergence": -1,
+        "ExpectedEventCount": 8,
+        "ActualEventCount": 8
+      },
+      "diffLines": [],
+      "archiveFilesBefore": [
+        {
+          "name": "commands.txt",
+          "sha256": "0689E820BAFDB3F7B2795321581105B88C26458C55912B46BF2ADA015E1CC122"
+        },
+        {
+          "name": "digest.txt",
+          "sha256": "5397199DED48E650249DCE6B1187FCFC0FFD09ED4E11B63BE210FDC5B09AD740"
+        },
+        {
+          "name": "events.txt",
+          "sha256": "012F39946B4F49F564AE44AAD7F0AFCF4C4EA336EF61F8CF73AF1388EF645226"
+        },
+        {
+          "name": "header.txt",
+          "sha256": "79B46E52BD662C937173CAE5DD73BF597691684E94B057E332A74B9457569171"
+        },
+        {
+          "name": "replay.jsonl",
+          "sha256": "D617E7271831CA5107C47B442FC30A5B42B24823BBEE2F5075007A9A0DFCE1BC"
+        },
+        {
+          "name": "result.txt",
+          "sha256": "AFC880EF46CB9B6C84E9FBC13D062D6626C042F595569A42A0105A31B60271E7"
+        },
+        {
+          "name": "scenario.txt",
+          "sha256": "A8A2699B508D46C3A66945A446C1BA00C017EDB62A142E3256C2A18C7DF0682C"
+        }
+      ],
+      "archiveFilesAfter": [
+        {
+          "name": "commands.txt",
+          "sha256": "0689E820BAFDB3F7B2795321581105B88C26458C55912B46BF2ADA015E1CC122"
+        },
+        {
+          "name": "digest.txt",
+          "sha256": "5397199DED48E650249DCE6B1187FCFC0FFD09ED4E11B63BE210FDC5B09AD740"
+        },
+        {
+          "name": "events.txt",
+          "sha256": "012F39946B4F49F564AE44AAD7F0AFCF4C4EA336EF61F8CF73AF1388EF645226"
+        },
+        {
+          "name": "header.txt",
+          "sha256": "79B46E52BD662C937173CAE5DD73BF597691684E94B057E332A74B9457569171"
+        },
+        {
+          "name": "replay.jsonl",
+          "sha256": "D617E7271831CA5107C47B442FC30A5B42B24823BBEE2F5075007A9A0DFCE1BC"
+        },
+        {
+          "name": "result.txt",
+          "sha256": "AFC880EF46CB9B6C84E9FBC13D062D6626C042F595569A42A0105A31B60271E7"
+        },
+        {
+          "name": "scenario.txt",
+          "sha256": "A8A2699B508D46C3A66945A446C1BA00C017EDB62A142E3256C2A18C7DF0682C"
+        }
+      ],
+      "archiveUnchanged": true
+    },
+    {
+      "label": "d3-fever-001",
+      "battlePath": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T071823-np_fever_v1\\battles\\np-20260920T071843-001",
+      "checkedAtUtc": "2026-09-20T08:07:46.4868169Z",
+      "readbackExitCode": 0,
+      "stdoutFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\growth-rounding\\readback\\d3-fever-001.stdout.txt",
+      "stderrFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\growth-rounding\\readback\\d3-fever-001.stderr.txt",
+      "exitCodeFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\growth-rounding\\readback\\d3-fever-001.exit-code.txt",
+      "replay": {
+        "path": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T071823-np_fever_v1\\battles\\np-20260920T071843-001\\replay.jsonl",
+        "sha256": "57AE1FFA2E628482083AAD8B14CBF6AEDF3C421F04E9B2CC28F449BC4DB05D38",
+        "totalLines": 1159,
+        "nonEmptyLines": 1159,
+        "jsonErrorCount": 0,
+        "jsonErrors": []
+      },
+      "readback": {
+        "dir": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T071823-np_fever_v1\\battles\\np-20260920T071843-001",
+        "catalog": "DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.fever.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok",
+        "openingSource": "input",
+        "openingMods": "food=1.000;carta=1.000",
+        "recovered": "C001:lv=1;g0=EQ_WPN;g3=SC006;r=TSTEE|C007:lv=1;g1=EQ_ARM;r=TTEEE|C010:lv=1;g2=EQ_ACC;r=SSTEE|C003:lv=1;g3=SC006;r=TEEEE|C005:lv=1;g0=EQ_WPN;r=ESTEE",
+        "NamedOpeningDiff": null,
+        "battle_id": "np-20260920T071843-001",
+        "scenario": "np.fever.v1",
+        "Match": true,
+        "Ok": true,
+        "CommandDiff": 0,
+        "Unconsumed": 0,
+        "DigestDiff": 0,
+        "EventDiff": 0,
+        "VersionDiff": 0,
+        "FirstEventDivergence": -1,
+        "ExpectedEventCount": 1141,
+        "ActualEventCount": 1141
+      },
+      "diffLines": [],
+      "archiveFilesBefore": [
+        {
+          "name": "commands.txt",
+          "sha256": "2B9FA26DCB2C969F3AEAC38767F5AB1F19E05BF194707C64458BF365CC34268D"
+        },
+        {
+          "name": "digest.txt",
+          "sha256": "3A491BB0A5C3544AAE01C30B7C9FF0415E7BAD0AFB294FA1E8178F600D28A12F"
+        },
+        {
+          "name": "events.txt",
+          "sha256": "4EE8AB41BBABFC1883DC039208B798DA64D8DE489DA54FC245F3C73C88B279C8"
+        },
+        {
+          "name": "header.txt",
+          "sha256": "5602303CEF951E71C79C885859C5D67486EE956276CBFA9E5187D783AD00B953"
+        },
+        {
+          "name": "replay.jsonl",
+          "sha256": "57AE1FFA2E628482083AAD8B14CBF6AEDF3C421F04E9B2CC28F449BC4DB05D38"
+        },
+        {
+          "name": "result.txt",
+          "sha256": "AA484AE470601B7A5EA5161CB90AEE59D3D9D5A647D8A1281D4B425D81FEAE07"
+        },
+        {
+          "name": "scenario.txt",
+          "sha256": "F6FE213D0A3E940B3626783F1CA0835B81CB30E387EA4C15084A89C2316B426F"
+        }
+      ],
+      "archiveFilesAfter": [
+        {
+          "name": "commands.txt",
+          "sha256": "2B9FA26DCB2C969F3AEAC38767F5AB1F19E05BF194707C64458BF365CC34268D"
+        },
+        {
+          "name": "digest.txt",
+          "sha256": "3A491BB0A5C3544AAE01C30B7C9FF0415E7BAD0AFB294FA1E8178F600D28A12F"
+        },
+        {
+          "name": "events.txt",
+          "sha256": "4EE8AB41BBABFC1883DC039208B798DA64D8DE489DA54FC245F3C73C88B279C8"
+        },
+        {
+          "name": "header.txt",
+          "sha256": "5602303CEF951E71C79C885859C5D67486EE956276CBFA9E5187D783AD00B953"
+        },
+        {
+          "name": "replay.jsonl",
+          "sha256": "57AE1FFA2E628482083AAD8B14CBF6AEDF3C421F04E9B2CC28F449BC4DB05D38"
+        },
+        {
+          "name": "result.txt",
+          "sha256": "AA484AE470601B7A5EA5161CB90AEE59D3D9D5A647D8A1281D4B425D81FEAE07"
+        },
+        {
+          "name": "scenario.txt",
+          "sha256": "F6FE213D0A3E940B3626783F1CA0835B81CB30E387EA4C15084A89C2316B426F"
+        }
+      ],
+      "archiveUnchanged": true
+    },
+    {
+      "label": "d3-fever-002",
+      "battlePath": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T071823-np_fever_v1\\battles\\np-20260920T071843-002",
+      "checkedAtUtc": "2026-09-20T08:07:46.7154356Z",
+      "readbackExitCode": 0,
+      "stdoutFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\growth-rounding\\readback\\d3-fever-002.stdout.txt",
+      "stderrFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\growth-rounding\\readback\\d3-fever-002.stderr.txt",
+      "exitCodeFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\growth-rounding\\readback\\d3-fever-002.exit-code.txt",
+      "replay": {
+        "path": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T071823-np_fever_v1\\battles\\np-20260920T071843-002\\replay.jsonl",
+        "sha256": "D8478D141D7D1CB75B4BB9CBFEA5E949C348A2720C705B2A584522E5CB3AFCC8",
+        "totalLines": 24,
+        "nonEmptyLines": 24,
+        "jsonErrorCount": 0,
+        "jsonErrors": []
+      },
+      "readback": {
+        "dir": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T071823-np_fever_v1\\battles\\np-20260920T071843-002",
+        "catalog": "DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.fever.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok",
+        "openingSource": "input",
+        "openingMods": "food=1.000;carta=1.000",
+        "recovered": "C001:lv=2;a=4;g0=EQ_WPN;g3=SC006;r=TSTEE|C007:lv=2;a=4;g1=EQ_ARM;r=TTEEE|C010:lv=2;a=4;g2=EQ_ACC;r=SSTEE|C003:lv=2;a=4;g3=SC006;r=TEEEE|C005:lv=2;a=4;g0=EQ_WPN;r=ESTEE",
+        "NamedOpeningDiff": null,
+        "battle_id": "np-20260920T071843-002",
+        "scenario": "np.fever.v1",
+        "Match": true,
+        "Ok": true,
+        "CommandDiff": 0,
+        "Unconsumed": 0,
+        "DigestDiff": 0,
+        "EventDiff": 0,
+        "VersionDiff": 0,
+        "FirstEventDivergence": -1,
+        "ExpectedEventCount": 8,
+        "ActualEventCount": 8
+      },
+      "diffLines": [],
+      "archiveFilesBefore": [
+        {
+          "name": "commands.txt",
+          "sha256": "0689E820BAFDB3F7B2795321581105B88C26458C55912B46BF2ADA015E1CC122"
+        },
+        {
+          "name": "digest.txt",
+          "sha256": "46E6E4A77C1E7152F3692569FDD62CB64093AF5A8B50E63B4DDD38C675FDAD97"
+        },
+        {
+          "name": "events.txt",
+          "sha256": "012F39946B4F49F564AE44AAD7F0AFCF4C4EA336EF61F8CF73AF1388EF645226"
+        },
+        {
+          "name": "header.txt",
+          "sha256": "08015F094765A8F92C5EC752BE6DD26F50ED80E75ABD26A48197BA8BEFE72A7A"
+        },
+        {
+          "name": "replay.jsonl",
+          "sha256": "D8478D141D7D1CB75B4BB9CBFEA5E949C348A2720C705B2A584522E5CB3AFCC8"
+        },
+        {
+          "name": "result.txt",
+          "sha256": "4BDC00F16EA317590EE39E8ABB3C606C9442D0D163CA47FC0F70DF83DA4317B0"
+        },
+        {
+          "name": "scenario.txt",
+          "sha256": "472E4B6B14A2884C3CC6F0B5FA3889790FF88BED75D7706765E46FB4B685F4E1"
+        }
+      ],
+      "archiveFilesAfter": [
+        {
+          "name": "commands.txt",
+          "sha256": "0689E820BAFDB3F7B2795321581105B88C26458C55912B46BF2ADA015E1CC122"
+        },
+        {
+          "name": "digest.txt",
+          "sha256": "46E6E4A77C1E7152F3692569FDD62CB64093AF5A8B50E63B4DDD38C675FDAD97"
+        },
+        {
+          "name": "events.txt",
+          "sha256": "012F39946B4F49F564AE44AAD7F0AFCF4C4EA336EF61F8CF73AF1388EF645226"
+        },
+        {
+          "name": "header.txt",
+          "sha256": "08015F094765A8F92C5EC752BE6DD26F50ED80E75ABD26A48197BA8BEFE72A7A"
+        },
+        {
+          "name": "replay.jsonl",
+          "sha256": "D8478D141D7D1CB75B4BB9CBFEA5E949C348A2720C705B2A584522E5CB3AFCC8"
+        },
+        {
+          "name": "result.txt",
+          "sha256": "4BDC00F16EA317590EE39E8ABB3C606C9442D0D163CA47FC0F70DF83DA4317B0"
+        },
+        {
+          "name": "scenario.txt",
+          "sha256": "472E4B6B14A2884C3CC6F0B5FA3889790FF88BED75D7706765E46FB4B685F4E1"
+        }
+      ],
+      "archiveUnchanged": true
+    },
+    {
+      "label": "d3-auto-001",
+      "battlePath": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T064643-np_auto_v1\\battles\\np-20260920T064701-001",
+      "checkedAtUtc": "2026-09-20T08:07:46.8414061Z",
+      "readbackExitCode": 0,
+      "stdoutFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\growth-rounding\\readback\\d3-auto-001.stdout.txt",
+      "stderrFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\growth-rounding\\readback\\d3-auto-001.stderr.txt",
+      "exitCodeFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\growth-rounding\\readback\\d3-auto-001.exit-code.txt",
+      "replay": {
+        "path": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T064643-np_auto_v1\\battles\\np-20260920T064701-001\\replay.jsonl",
+        "sha256": "774AD36A770C0F48B73394C43A31FE1C5E2337F4A95C4393917A629366C3E20C",
+        "totalLines": 102,
+        "nonEmptyLines": 102,
+        "jsonErrorCount": 0,
+        "jsonErrors": []
+      },
+      "readback": {
+        "dir": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T064643-np_auto_v1\\battles\\np-20260920T064701-001",
+        "catalog": "DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.auto.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok",
+        "openingSource": "input",
+        "openingMods": "food=1.000;carta=1.000",
+        "recovered": "C001:lv=1;g0=EQ_WPN;g3=SC006;r=TSTEE|C007:lv=1;g1=EQ_ARM;r=TTEEE|C010:lv=1;g2=EQ_ACC;r=SSTEE|C003:lv=1;g3=SC006;r=TEEEE|C005:lv=1;g0=EQ_WPN;r=ESTEE",
+        "NamedOpeningDiff": null,
+        "battle_id": "np-20260920T064701-001",
+        "scenario": "np.auto.v1",
+        "Match": true,
+        "Ok": true,
+        "CommandDiff": 0,
+        "Unconsumed": 0,
+        "DigestDiff": 0,
+        "EventDiff": 0,
+        "VersionDiff": 0,
+        "FirstEventDivergence": -1,
+        "ExpectedEventCount": 69,
+        "ActualEventCount": 69
+      },
+      "diffLines": [],
+      "archiveFilesBefore": [
+        {
+          "name": "commands.txt",
+          "sha256": "A80A63F928077A1D4A639C3906CA87F6B07C9A95B494EE4620368E158138A2F1"
+        },
+        {
+          "name": "digest.txt",
+          "sha256": "F65AADEEF1F5BA4B8D0418800AF0E21BF5C938E6D9BC074BAAE084F7AEE925E5"
+        },
+        {
+          "name": "events.txt",
+          "sha256": "C96F7D064A45D8AE14511207674E3F0995D9142BB059063EB430712817D26F0A"
+        },
+        {
+          "name": "header.txt",
+          "sha256": "DBE2720CA8D9A1FFCA48E467CAB950B004C31E411C4971C28C5AD057CA8D556A"
+        },
+        {
+          "name": "replay.jsonl",
+          "sha256": "774AD36A770C0F48B73394C43A31FE1C5E2337F4A95C4393917A629366C3E20C"
+        },
+        {
+          "name": "result.txt",
+          "sha256": "4D14A585C7D68D60DC1508B7BC1B169D49D1F00BDF86BBBD4630124EBD069D7C"
+        },
+        {
+          "name": "scenario.txt",
+          "sha256": "E5956F160CF9D826A984F4669DB93248449EB0B27A1E8FD3A956BAA25902A32A"
+        }
+      ],
+      "archiveFilesAfter": [
+        {
+          "name": "commands.txt",
+          "sha256": "A80A63F928077A1D4A639C3906CA87F6B07C9A95B494EE4620368E158138A2F1"
+        },
+        {
+          "name": "digest.txt",
+          "sha256": "F65AADEEF1F5BA4B8D0418800AF0E21BF5C938E6D9BC074BAAE084F7AEE925E5"
+        },
+        {
+          "name": "events.txt",
+          "sha256": "C96F7D064A45D8AE14511207674E3F0995D9142BB059063EB430712817D26F0A"
+        },
+        {
+          "name": "header.txt",
+          "sha256": "DBE2720CA8D9A1FFCA48E467CAB950B004C31E411C4971C28C5AD057CA8D556A"
+        },
+        {
+          "name": "replay.jsonl",
+          "sha256": "774AD36A770C0F48B73394C43A31FE1C5E2337F4A95C4393917A629366C3E20C"
+        },
+        {
+          "name": "result.txt",
+          "sha256": "4D14A585C7D68D60DC1508B7BC1B169D49D1F00BDF86BBBD4630124EBD069D7C"
+        },
+        {
+          "name": "scenario.txt",
+          "sha256": "E5956F160CF9D826A984F4669DB93248449EB0B27A1E8FD3A956BAA25902A32A"
+        }
+      ],
+      "archiveUnchanged": true
+    }
+  ]
+}

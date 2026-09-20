@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="833e5d87-1fbd-4874-bd73-0a4274dafd7c" name="Administrator@DESKTOP-AKI3LSA 2026-09-20 15:45:21" runUser="DESKTOP-AKI3LSA\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-09-20T15:45:21.1025301+08:00" queuing="2026-09-20T15:45:21.1025303+08:00" start="2026-09-20T15:45:19.3362260+08:00" finish="2026-09-20T15:45:21.1586828+08:00" />
+  <TestSettings name="default" id="3bead4c5-a0dd-4ba2-ac71-f8c235bbb5cd">
+    <Deployment runDeploymentRoot="Administrator_DESKTOP-AKI3LSA_2026-09-20_15_45_21" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="63cd4c6c-2fac-4b8b-b8f1-dd19b5aa2a9e" testId="90bedeca-6947-f17c-9708-bceab88c00cb" testName="Resonance.Tests.G2B1FactoryReadbackTests.Fight1GrowthIdentity_Search_RestoresStarterMaxHp" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0394285" startTime="2026-09-20T15:45:19.9523176+08:00" endTime="2026-09-20T15:45:19.9523303+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="63cd4c6c-2fac-4b8b-b8f1-dd19b5aa2a9e" />
+    <UnitTestResult executionId="05dc6537-5c8c-4766-9476-d1e179b182bc" testId="652fa06b-4fc3-9488-c211-a0c7c141ee41" testName="Resonance.Tests.G2OpeningDefaultsAuditTests.ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay(kind: &quot;all-null&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0062100" startTime="2026-09-20T15:45:21.0582038+08:00" endTime="2026-09-20T15:45:21.0582039+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="05dc6537-5c8c-4766-9476-d1e179b182bc" />
+    <UnitTestResult executionId="18548e24-42dc-4bbd-a202-cd301c7901a2" testId="7ca8ace1-4b30-be12-736a-406464322922" testName="Resonance.Tests.GrowthRuntimeRoundingTests.NextBattleLevelTwo_PreservesRecordedUnityStats" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0005553" startTime="2026-09-20T15:45:21.1189830+08:00" endTime="2026-09-20T15:45:21.1189831+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="18548e24-42dc-4bbd-a202-cd301c7901a2" />
+    <UnitTestResult executionId="9fee96a2-f878-4b83-85e7-36223648f4eb" testId="5ef9891f-04cf-f590-eefd-5784b332ce68" testName="Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(id: &quot;C020&quot;, level: 60, uncap: 1, ignition: 1, affection: 4, hp: 50, atk: 26, def: 15, agl: 20, crt: 18)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0008246" startTime="2026-09-20T15:45:21.0909472+08:00" endTime="2026-09-20T15:45:21.0909473+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9fee96a2-f878-4b83-85e7-36223648f4eb" />
+    <UnitTestResult executionId="3b68e7c1-4980-4655-97ea-5cb81e350beb" testId="feebaad5-dddf-3cbb-d162-49c8c75ce06b" testName="Resonance.Tests.G2OpeningDefaultsAuditTests.LegacyRecord_WithoutInputSource_StillRecoversGrowthIdentity" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0011144" startTime="2026-09-20T15:45:21.0899339+08:00" endTime="2026-09-20T15:45:21.0899340+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3b68e7c1-4980-4655-97ea-5cb81e350beb" />
+    <UnitTestResult executionId="8ebff4dd-04c1-470a-8e29-a46711537992" testId="c039a02c-554f-fe3d-6bea-7a3e19814390" testName="Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(id: &quot;C007&quot;, level: 2, uncap: 0, ignition: 12, affection: 100, hp: 1061, atk: 246, def: 369, agl: 220, crt: 171)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0005713" startTime="2026-09-20T15:45:21.1183383+08:00" endTime="2026-09-20T15:45:21.1183385+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8ebff4dd-04c1-470a-8e29-a46711537992">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Collections differ&#xD;
+                                ↓ (pos 4)&#xD;
+Expected: [1061, 246, 369, 220, 171]&#xD;
+Actual:   [1061, 246, 369, 220, 172]&#xD;
+                                ↑ (pos 4)</Message>
+          <StackTrace>   at Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(String id, Int32 level, Int32 uncap, Int32 ignition, Int32 affection, Int32 hp, Int32 atk, Int32 def, Int32 agl, Int32 crt) in F:\天命之子\tools\BattleSim.Tests\GrowthRuntimeRoundingTests.cs:line 49</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="43a11292-d362-4c8e-adc1-39693683cc33" testId="940c96c1-c422-1ef5-0a20-bf49253c7362" testName="Resonance.Tests.G2OpeningDefaultsAuditTests.ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay(kind: &quot;null&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0079308" startTime="2026-09-20T15:45:21.0518865+08:00" endTime="2026-09-20T15:45:21.0518867+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="43a11292-d362-4c8e-adc1-39693683cc33" />
+    <UnitTestResult executionId="35da4bcd-586e-4756-898b-a3ccceabcaf6" testId="11aa9bf1-c6e3-a223-567b-0683ba840d8c" testName="Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(id: &quot;C020&quot;, level: 60, uncap: 1, ignition: 1, affection: 100, hp: 1886, atk: 994, def: 561, agl: 773, crt: 680)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0090781" startTime="2026-09-20T15:45:21.1172465+08:00" endTime="2026-09-20T15:45:21.1172467+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="35da4bcd-586e-4756-898b-a3ccceabcaf6">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Collections differ&#xD;
+           ↓ (pos 0)&#xD;
+Expected: [1886, 994, 561, 773, 680]&#xD;
+Actual:   [1887, 994, 561, 773, 680]&#xD;
+           ↑ (pos 0)</Message>
+          <StackTrace>   at Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(String id, Int32 level, Int32 uncap, Int32 ignition, Int32 affection, Int32 hp, Int32 atk, Int32 def, Int32 agl, Int32 crt) in F:\天命之子\tools\BattleSim.Tests\GrowthRuntimeRoundingTests.cs:line 49</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5cef4fbc-9fe2-44b3-becf-9b699e8e30a7" testId="b8766bf5-90c2-3c2c-4e2c-27e069a77247" testName="Resonance.Tests.G2OpeningDefaultsAuditTests.ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay(kind: &quot;empty&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0062146" startTime="2026-09-20T15:45:21.0645208+08:00" endTime="2026-09-20T15:45:21.0645217+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5cef4fbc-9fe2-44b3-becf-9b699e8e30a7" />
+    <UnitTestResult executionId="a330505f-52cf-4d7c-ae1e-f797a21f80b0" testId="64b85c5a-2282-3677-d2b9-ea0040ecd6bd" testName="Resonance.Tests.G2C3OpeningInputTests.C3_T1_ReserveRoundTrip_DistinctAutoSequences_FactoryMatch" computerName="DESKTOP-AKI3LSA" duration="00:00:00.3419592" startTime="2026-09-20T15:45:20.6473103+08:00" endTime="2026-09-20T15:45:20.6473105+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a330505f-52cf-4d7c-ae1e-f797a21f80b0" />
+    <UnitTestResult executionId="1396efd0-f439-4030-8db1-1c1f4fbebbaf" testId="c506c888-557e-305f-7ae1-67812831762c" testName="Resonance.Tests.G2OpeningDefaultsAuditTests.ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay(kind: &quot;mixed&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0067591" startTime="2026-09-20T15:45:21.0886455+08:00" endTime="2026-09-20T15:45:21.0886457+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1396efd0-f439-4030-8db1-1c1f4fbebbaf" />
+    <UnitTestResult executionId="f8fadfb3-7197-4d2e-a35c-4ebdd350466b" testId="b170cbb0-863e-0041-3339-5600354eef4c" testName="Resonance.Tests.G2B1FactoryReadbackTests.CatalogDefaultFactory_DoesNotSilentlyMatchGrownTape" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0044512" startTime="2026-09-20T15:45:20.2979869+08:00" endTime="2026-09-20T15:45:20.2979871+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f8fadfb3-7197-4d2e-a35c-4ebdd350466b" />
+    <UnitTestResult executionId="26d7c862-89ef-4dec-864b-0a3ba45c502d" testId="ebbf0d9d-07d2-f4d1-a736-e4577f705a99" testName="Resonance.Tests.G2C3OpeningInputTests.C3_T2_FrozenInputs_IgnoreCallerMutation_LegacyIncompleteLabels" computerName="DESKTOP-AKI3LSA" duration="00:00:00.3961337" startTime="2026-09-20T15:45:21.0435800+08:00" endTime="2026-09-20T15:45:21.0435803+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="26d7c862-89ef-4dec-864b-0a3ba45c502d" />
+    <UnitTestResult executionId="3fd4bd0f-7954-459d-a937-23658e45e153" testId="2b171738-fbfa-a0ec-f743-2290970caae4" testName="Resonance.Tests.G2B1FactoryReadbackTests.NewSim_WithoutGrowth_RecoversCaptureOpening_NamedOpeningDiffNull" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0056025" startTime="2026-09-20T15:45:20.3036999+08:00" endTime="2026-09-20T15:45:20.3037001+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3fd4bd0f-7954-459d-a937-23658e45e153" />
+    <UnitTestResult executionId="a42f2015-856f-497a-85ea-02d4d0b46f9b" testId="cda05006-23fe-d106-ede8-1d867fa41306" testName="Resonance.Tests.G2B1FactoryReadbackTests.Factory_NullGrowth_And_ExplicitRecovered_BothVerifyMatch" computerName="DESKTOP-AKI3LSA" duration="00:00:00.3382929" startTime="2026-09-20T15:45:20.2934031+08:00" endTime="2026-09-20T15:45:20.2934034+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a42f2015-856f-497a-85ea-02d4d0b46f9b" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Resonance.Tests.G2B1FactoryReadbackTests.Factory_NullGrowth_And_ExplicitRecovered_BothVerifyMatch" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="cda05006-23fe-d106-ede8-1d867fa41306">
+      <Execution id="a42f2015-856f-497a-85ea-02d4d0b46f9b" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2B1FactoryReadbackTests" name="Factory_NullGrowth_And_ExplicitRecovered_BothVerifyMatch" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2OpeningDefaultsAuditTests.ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay(kind: &quot;mixed&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="c506c888-557e-305f-7ae1-67812831762c">
+      <Execution id="1396efd0-f439-4030-8db1-1c1f4fbebbaf" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2OpeningDefaultsAuditTests" name="ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2OpeningDefaultsAuditTests.ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay(kind: &quot;null&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="940c96c1-c422-1ef5-0a20-bf49253c7362">
+      <Execution id="43a11292-d362-4c8e-adc1-39693683cc33" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2OpeningDefaultsAuditTests" name="ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2OpeningDefaultsAuditTests.ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay(kind: &quot;all-null&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="652fa06b-4fc3-9488-c211-a0c7c141ee41">
+      <Execution id="05dc6537-5c8c-4766-9476-d1e179b182bc" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2OpeningDefaultsAuditTests" name="ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2B1FactoryReadbackTests.NewSim_WithoutGrowth_RecoversCaptureOpening_NamedOpeningDiffNull" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="2b171738-fbfa-a0ec-f743-2290970caae4">
+      <Execution id="3fd4bd0f-7954-459d-a937-23658e45e153" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2B1FactoryReadbackTests" name="NewSim_WithoutGrowth_RecoversCaptureOpening_NamedOpeningDiffNull" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.GrowthRuntimeRoundingTests.NextBattleLevelTwo_PreservesRecordedUnityStats" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="7ca8ace1-4b30-be12-736a-406464322922">
+      <Execution id="18548e24-42dc-4bbd-a202-cd301c7901a2" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.GrowthRuntimeRoundingTests" name="NextBattleLevelTwo_PreservesRecordedUnityStats" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(id: &quot;C020&quot;, level: 60, uncap: 1, ignition: 1, affection: 100, hp: 1886, atk: 994, def: 561, agl: 773, crt: 680)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="11aa9bf1-c6e3-a223-567b-0683ba840d8c">
+      <Execution id="35da4bcd-586e-4756-898b-a3ccceabcaf6" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.GrowthRuntimeRoundingTests" name="AffectionHalfBoundaries_PreserveUnityRounding" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2OpeningDefaultsAuditTests.ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay(kind: &quot;empty&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="b8766bf5-90c2-3c2c-4e2c-27e069a77247">
+      <Execution id="5cef4fbc-9fe2-44b3-becf-9b699e8e30a7" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2OpeningDefaultsAuditTests" name="ExplicitOpeningInputs_KeepDefaultsAndNullSlots_ThroughRecoveryAndReplay" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2C3OpeningInputTests.C3_T1_ReserveRoundTrip_DistinctAutoSequences_FactoryMatch" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="64b85c5a-2282-3677-d2b9-ea0040ecd6bd">
+      <Execution id="a330505f-52cf-4d7c-ae1e-f797a21f80b0" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2C3OpeningInputTests" name="C3_T1_ReserveRoundTrip_DistinctAutoSequences_FactoryMatch" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2B1FactoryReadbackTests.Fight1GrowthIdentity_Search_RestoresStarterMaxHp" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="90bedeca-6947-f17c-9708-bceab88c00cb">
+      <Execution id="63cd4c6c-2fac-4b8b-b8f1-dd19b5aa2a9e" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2B1FactoryReadbackTests" name="Fight1GrowthIdentity_Search_RestoresStarterMaxHp" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(id: &quot;C007&quot;, level: 2, uncap: 0, ignition: 12, affection: 100, hp: 1061, atk: 246, def: 369, agl: 220, crt: 171)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="c039a02c-554f-fe3d-6bea-7a3e19814390">
+      <Execution id="8ebff4dd-04c1-470a-8e29-a46711537992" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.GrowthRuntimeRoundingTests" name="AffectionHalfBoundaries_PreserveUnityRounding" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(id: &quot;C020&quot;, level: 60, uncap: 1, ignition: 1, affection: 4, hp: 50, atk: 26, def: 15, agl: 20, crt: 18)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="5ef9891f-04cf-f590-eefd-5784b332ce68">
+      <Execution id="9fee96a2-f878-4b83-85e7-36223648f4eb" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.GrowthRuntimeRoundingTests" name="AffectionHalfBoundaries_PreserveUnityRounding" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2B1FactoryReadbackTests.CatalogDefaultFactory_DoesNotSilentlyMatchGrownTape" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="b170cbb0-863e-0041-3339-5600354eef4c">
+      <Execution id="f8fadfb3-7197-4d2e-a35c-4ebdd350466b" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2B1FactoryReadbackTests" name="CatalogDefaultFactory_DoesNotSilentlyMatchGrownTape" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2C3OpeningInputTests.C3_T2_FrozenInputs_IgnoreCallerMutation_LegacyIncompleteLabels" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="ebbf0d9d-07d2-f4d1-a736-e4577f705a99">
+      <Execution id="26d7c862-89ef-4dec-864b-0a3ba45c502d" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2C3OpeningInputTests" name="C3_T2_FrozenInputs_IgnoreCallerMutation_LegacyIncompleteLabels" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2OpeningDefaultsAuditTests.LegacyRecord_WithoutInputSource_StillRecoversGrowthIdentity" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="feebaad5-dddf-3cbb-d162-49c8c75ce06b">
+      <Execution id="3b68e7c1-4980-4655-97ea-5cb81e350beb" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2OpeningDefaultsAuditTests" name="LegacyRecord_WithoutInputSource_StillRecoversGrowthIdentity" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="90bedeca-6947-f17c-9708-bceab88c00cb" executionId="63cd4c6c-2fac-4b8b-b8f1-dd19b5aa2a9e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="652fa06b-4fc3-9488-c211-a0c7c141ee41" executionId="05dc6537-5c8c-4766-9476-d1e179b182bc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7ca8ace1-4b30-be12-736a-406464322922" executionId="18548e24-42dc-4bbd-a202-cd301c7901a2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5ef9891f-04cf-f590-eefd-5784b332ce68" executionId="9fee96a2-f878-4b83-85e7-36223648f4eb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="feebaad5-dddf-3cbb-d162-49c8c75ce06b" executionId="3b68e7c1-4980-4655-97ea-5cb81e350beb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c039a02c-554f-fe3d-6bea-7a3e19814390" executionId="8ebff4dd-04c1-470a-8e29-a46711537992" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="940c96c1-c422-1ef5-0a20-bf49253c7362" executionId="43a11292-d362-4c8e-adc1-39693683cc33" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="11aa9bf1-c6e3-a223-567b-0683ba840d8c" executionId="35da4bcd-586e-4756-898b-a3ccceabcaf6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b8766bf5-90c2-3c2c-4e2c-27e069a77247" executionId="5cef4fbc-9fe2-44b3-becf-9b699e8e30a7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="64b85c5a-2282-3677-d2b9-ea0040ecd6bd" executionId="a330505f-52cf-4d7c-ae1e-f797a21f80b0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c506c888-557e-305f-7ae1-67812831762c" executionId="1396efd0-f439-4030-8db1-1c1f4fbebbaf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b170cbb0-863e-0041-3339-5600354eef4c" executionId="f8fadfb3-7197-4d2e-a35c-4ebdd350466b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ebbf0d9d-07d2-f4d1-a736-e4577f705a99" executionId="26d7c862-89ef-4dec-864b-0a3ba45c502d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2b171738-fbfa-a0ec-f743-2290970caae4" executionId="3fd4bd0f-7954-459d-a937-23658e45e153" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cda05006-23fe-d106-ede8-1d867fa41306" executionId="a42f2015-856f-497a-85ea-02d4d0b46f9b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="15" executed="15" passed="13" failed="2" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 6.0.33)&#xD;
+[xUnit.net 00:00:00.08]   Discovering: BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.13]   Discovered:  BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.13]   Starting:    BattleSim.Tests&#xD;
+[xUnit.net 00:00:01.37]       Assert.Equal() Failure: Collections differ&#xD;
+[xUnit.net 00:00:01.37]                  ↓ (pos 0)&#xD;
+[xUnit.net 00:00:01.37]       Expected: [1886, 994, 561, 773, 680]&#xD;
+[xUnit.net 00:00:01.37]       Actual:   [1887, 994, 561, 773, 680]&#xD;
+[xUnit.net 00:00:01.37]                  ↑ (pos 0)&#xD;
+[xUnit.net 00:00:01.37]       Stack Trace:&#xD;
+[xUnit.net 00:00:01.37]         F:\天命之子\tools\BattleSim.Tests\GrowthRuntimeRoundingTests.cs(49,0): at Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(String id, Int32 level, Int32 uncap, Int32 ignition, Int32 affection, Int32 hp, Int32 atk, Int32 def, Int32 agl, Int32 crt)&#xD;
+[xUnit.net 00:00:01.38]       Assert.Equal() Failure: Collections differ&#xD;
+[xUnit.net 00:00:01.38]                                       ↓ (pos 4)&#xD;
+[xUnit.net 00:00:01.38]       Expected: [1061, 246, 369, 220, 171]&#xD;
+[xUnit.net 00:00:01.38]       Actual:   [1061, 246, 369, 220, 172]&#xD;
+[xUnit.net 00:00:01.38]                                       ↑ (pos 4)&#xD;
+[xUnit.net 00:00:01.38]       Stack Trace:&#xD;
+[xUnit.net 00:00:01.38]         F:\天命之子\tools\BattleSim.Tests\GrowthRuntimeRoundingTests.cs(49,0): at Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(String id, Int32 level, Int32 uncap, Int32 ignition, Int32 affection, Int32 hp, Int32 atk, Int32 def, Int32 agl, Int32 crt)&#xD;
+[xUnit.net 00:00:01.38]   Finished:    BattleSim.Tests&#xD;
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-20T15:45:21.1148074+08:00">
+        <Text>[xUnit.net 00:00:01.37]     Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(id: "C020", level: 60, uncap: 1, ignition: 1, affection: 100, hp: 1886, atk: 994, def: 561, agl: 773, crt: 680) [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-20T15:45:21.1182641+08:00">
+        <Text>[xUnit.net 00:00:01.38]     Resonance.Tests.GrowthRuntimeRoundingTests.AffectionHalfBoundaries_PreserveUnityRounding(id: "C007", level: 2, uncap: 0, ignition: 12, affection: 100, hp: 1061, atk: 246, def: 369, agl: 220, crt: 171) [FAIL]</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>

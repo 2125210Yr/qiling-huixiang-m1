@@ -86,18 +86,21 @@ namespace Resonance.Battle
             var uncap = p == null ? 0 : ClampUncap(src, p.Uncap);
             var ign = p == null ? 0 : ClampIgn(src, p.Ignition);
             var mul = BodyMul(lv, uncap, ign);
-            b.BodyHp = (int)Math.Round(src.Hp * mul);
-            b.BodyAtk = (int)Math.Round(src.Atk * mul);
-            b.BodyDef = (int)Math.Round(src.Def * mul);
-            b.BodyAgl = (int)Math.Round(src.Agl * mul);
-            b.BodyCrt = (int)Math.Round(src.Crt * mul);
+            // Promote before multiplying: .NET otherwise rounds the product to float,
+            // while Unity Mono keeps it wider. Retain the existing float multipliers
+            // and round-to-even rule so recorded Unity growth remains reproducible.
+            b.BodyHp = (int)Math.Round((double)src.Hp * mul);
+            b.BodyAtk = (int)Math.Round((double)src.Atk * mul);
+            b.BodyDef = (int)Math.Round((double)src.Def * mul);
+            b.BodyAgl = (int)Math.Round((double)src.Agl * mul);
+            b.BodyCrt = (int)Math.Round((double)src.Crt * mul);
             var aff = p == null ? 0 : p.Affection;
             var am = AffMul(aff);
-            b.AffHp = (int)Math.Round(b.BodyHp * am) - b.BodyHp;
-            b.AffAtk = (int)Math.Round(b.BodyAtk * am) - b.BodyAtk;
-            b.AffDef = (int)Math.Round(b.BodyDef * am) - b.BodyDef;
-            b.AffAgl = (int)Math.Round(b.BodyAgl * am) - b.BodyAgl;
-            b.AffCrt = (int)Math.Round(b.BodyCrt * am) - b.BodyCrt;
+            b.AffHp = (int)Math.Round((double)b.BodyHp * am) - b.BodyHp;
+            b.AffAtk = (int)Math.Round((double)b.BodyAtk * am) - b.BodyAtk;
+            b.AffDef = (int)Math.Round((double)b.BodyDef * am) - b.BodyDef;
+            b.AffAgl = (int)Math.Round((double)b.BodyAgl * am) - b.BodyAgl;
+            b.AffCrt = (int)Math.Round((double)b.BodyCrt * am) - b.BodyCrt;
             AddGearFlats(p, out b.GearHp, out b.GearAtk, out b.GearDef, out b.GearAgl, out b.GearCrt);
             b.TotalHp = b.BodyHp + b.AffHp + b.GearHp;
             b.TotalAtk = b.BodyAtk + b.AffAtk + b.GearAtk;
@@ -187,13 +190,15 @@ namespace Resonance.Battle
         }
 
         static float BodyMul(int lv, int uncap, int ign) =>
-            1f + 0.035f * (lv - 1) + 0.02f * uncap + 0.012f * ign;
+            (float)(1d + (double)0.035f * (lv - 1) + (double)0.02f * uncap + (double)0.012f * ign);
 
         static float AffMul(int affection)
         {
             if (affection < 0) affection = 0;
             if (affection > 100) affection = 100;
-            return (1f + 0.18f * (affection / 100f)) * Bond.StatMul(Bond.Level(affection));
+            // Match Mono's wider intermediate arithmetic, then store the completed
+            // multiplier as float once. Casting only the final stat product is too late.
+            return (float)((1d + (double)0.18f * (affection / 100d)) * Bond.StatMulPrecise(Bond.Level(affection)));
         }
 
         static int ClampLv(int lv) => lv < 1 ? 1 : (lv > MaxLevel ? MaxLevel : lv);
