@@ -1,0 +1,13 @@
+{
+  "SourceUrl": "https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/LICENSE",
+  "RetrievedUtc": "2026-09-20T18:10:04.3557805Z",
+  "LicenseSha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2",
+  "FontFile": "Assets/Resources/Fonts/NotoSansSC.otf",
+  "FontSha256": "a2b93e6c2db05d6bbbf6f27d413ec73269735b7b679019c8a5aa9670ff0ffbf2",
+  "FontFamily": "Noto Sans SC",
+  "FontStyle": "Regular",
+  "FontVersion": "2.002",
+  "FontPostScriptName": "NotoSansSC-Regular",
+  "EmbeddedLicense": "SIL Open Font License, Version 1.1",
+  "ProvenanceLimit": "Font identity and license read from local SFNT name table; original acquisition history and upstream binary equality were not verified."
+}

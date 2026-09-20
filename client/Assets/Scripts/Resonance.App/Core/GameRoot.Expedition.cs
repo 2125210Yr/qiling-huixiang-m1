@@ -12,7 +12,7 @@ namespace Resonance.App
         ExpeditionFlow _expedition;
         ExpeditionHud _expeditionHud;
         ExpeditionBattleInput _originalOpening;
-        string _originalNotice, _originalPreset = "single";
+        string _originalNotice, _originalPreset = "single", _originalReplayDirectory;
         public bool IsOriginalMode => _originalMode;
         public OriginalProfile OriginalProfile => _expedition?.Profile;
 
@@ -27,6 +27,7 @@ namespace Resonance.App
                 var path = string.IsNullOrEmpty(customPath)
                     ? Path.Combine(Application.persistentDataPath, "OriginalExpedition", "profile.v1.json") : customPath;
                 var store = new OriginalProfileStore(path);
+                _originalReplayDirectory = Path.Combine(Path.GetDirectoryName(store.FilePath), "Replays");
                 _expedition = new ExpeditionFlow(store);
                 if (store.RecoveredFromBackup) _originalNotice = "已读取上一个有效备份；损坏正文保留，下一次保存时修复。";
                 ShowOriginalExpedition();
@@ -407,6 +408,7 @@ namespace Resonance.App
             {
                 var hp = new int[_battle.Allies.Length];
                 for (int i = 0; i < hp.Length; i++) hp[i] = _battle.Allies[i].Hp;
+                SaveOriginalBattleEvidence();
                 OriginalAction(() =>
                 {
                     var summary = ExpeditionBattleFeedback.Summarize(_battle);
@@ -419,5 +421,21 @@ namespace Resonance.App
             _expeditionHud.RefreshBattle(_battle, OriginalBattleView());
         }
 
+        void SaveOriginalBattleEvidence()
+        {
+            if (string.IsNullOrEmpty(_originalReplayDirectory)) return;
+            try
+            {
+                var record = OriginalBattleRecord.Capture(_battle);
+                var path = OriginalReplayStore.SaveVerified(record, _originalReplayDirectory);
+                Debug.Log("ORIGINAL_REPLAY_MATCH path=" + path + " input=" + record.InputHash
+                    + " ticks=" + record.EndTick + " events=" + record.EventHash + " resolutions=" + record.ResolutionHash);
+            }
+            catch (Exception error)
+            {
+                // Evidence failure does not alter actual combat outcome or block saving progression.
+                Debug.LogWarning("ORIGINAL_REPLAY_FAILED " + error);
+            }
+        }
     }
 }

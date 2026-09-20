@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "scope": "Independent read-only validation of the one prepared copy; no Unity build or runtime verification",
+  "destination": "F:\\天命之子\\dist\\original-expedition-v01\\prepare-20260921",
+  "manifestSha256": "92949149d50c2370a8d6ebfb746d0fe5faa3439ac93b81af18508f71e558795e",
+  "fileCount": 499,
+  "totalCopiedBytes": 11447768,
+  "sourceCommit": "a31c47ff720d062aa88ba2bf3aca7a8d6ea711a4",
+  "actualFilesIncludingManifest": 500,
+  "resourcesData": [
+    "Assets/Resources/Fonts/NotoSansSC.otf"
+  ],
+  "reparsePoints": [],
+  "forbiddenAssets": [],
+  "unexpectedFiles": [],
+  "hashMismatches": [],
+  "assetsWithoutMeta": [],
+  "unityExecuted": false
+}

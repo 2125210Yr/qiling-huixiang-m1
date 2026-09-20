@@ -1,0 +1,18 @@
+{
+  "Phase": "RED",
+  "Scope": "Only guard functions extracted from AST; no preparation script execution or copy",
+  "Results": [
+    {
+      "Name": "reject-existing-destination",
+      "Expected": "throw",
+      "Passed": false,
+      "Error": ""
+    },
+    {
+      "Name": "reject-source-junction",
+      "Expected": "throw",
+      "Passed": false,
+      "Error": ""
+    }
+  ]
+}

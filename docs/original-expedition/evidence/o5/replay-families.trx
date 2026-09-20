@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="de95280d-e0cf-4f84-9598-f12fdd8120b7" name="Administrator@DESKTOP-AKI3LSA 2026-09-21 02:25:21" runUser="DESKTOP-AKI3LSA\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-09-21T02:25:21.2146499+08:00" queuing="2026-09-21T02:25:21.2146502+08:00" start="2026-09-21T02:25:19.9589264+08:00" finish="2026-09-21T02:25:21.2235639+08:00" />
+  <TestSettings name="default" id="7c1ac5b1-822c-4ef2-ad98-3418f33ece1b">
+    <Deployment runDeploymentRoot="Administrator_DESKTOP-AKI3LSA_2026-09-21_02_25_21" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="1cb289e1-85e8-437c-ad77-c18607ce63c1" testId="e5a5655f-16c7-e560-3ced-d8a7208feada" testName="Resonance.Tests.OriginalReplayFamilyTests.ChangedOpeningHpOrRelicParametersWithOldHashAreRejectedBeforeConstruction(change: &quot;opening-hp&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0049743" startTime="2026-09-21T02:25:21.1161846+08:00" endTime="2026-09-21T02:25:21.1161848+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1cb289e1-85e8-437c-ad77-c18607ce63c1">
+      <Output>
+        <StdOut>tamper=opening-hp; rejectedBeforeConstruction=true; diagnostic=Original replay rejected: ArgumentException: Frozen input hash mismatch.</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="cbbaa0ef-59a5-454e-835c-0fc86e359ef3" testId="597e4b98-3b78-2b85-be5a-27f00f4b4659" testName="Resonance.Tests.OriginalReplayFamilyTests.ChangedOpeningHpOrRelicParametersWithOldHashAreRejectedBeforeConstruction(change: &quot;relic-parameters&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0037683" startTime="2026-09-21T02:25:21.1200334+08:00" endTime="2026-09-21T02:25:21.1200336+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cbbaa0ef-59a5-454e-835c-0fc86e359ef3">
+      <Output>
+        <StdOut>tamper=relic-parameters; rejectedBeforeConstruction=true; diagnostic=Original replay rejected: ArgumentException: Frozen input hash mismatch.</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5a24d2ba-ef50-4677-a888-527821f02b52" testId="d33fe5b2-2cae-026d-60e3-8c2289100cd6" testName="Resonance.Tests.OriginalReplayFamilyTests.CompleteFamilyActuallyTriggersAndItsBossBattleRoundTrips(family: &quot;C&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0945828" startTime="2026-09-21T02:25:21.1108986+08:00" endTime="2026-09-21T02:25:21.1108990+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5a24d2ba-ef50-4677-a888-527821f02b52">
+      <Output>
+        <StdOut>scope=controlled-battle-fixture; family=C; outcome=Victory; elapsed=63.3000; endTick=1899; seed=260921; relics=C01,C02,C03,C04; A04EffectiveHpDamage=0; B01EffectiveHpDamage=0; harmonyEvents=14; forteConsumptions=14; critsInRetainedLog=7; inputHash=e9db9ff7853e7d35fadce773acead26c453a9340eca22dd9e3f70a412e399b7d; eventHash=c0f107ee459d51360ffb127331a80af87ba98db9878a9d5ecb75f334d4ffcc13; resolutionHash=d7d96f79d6f37a91eed22cf95907b0f09607d65d02618f2e4407345acca4a734&#xD;
+scope=controlled-battle-fixture-not-ordinary-UI-video; tape=F:\天命之子\docs\original-expedition\evidence\o5\family-tapes\fixture-c-boss.original-replay.json; bytes=275488; sha256=c6c041c0dda4bd5b31e80a271b9bb8dec9b546ba850d84e9b0bb6a436541af7c</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="cdc36d30-a32c-4212-9fef-c83d0d039b97" testId="d429259d-5a51-0703-5ee9-d9b104c63ae9" testName="Resonance.Tests.OriginalReplayFamilyTests.CompleteFamilyActuallyTriggersAndItsBossBattleRoundTrips(family: &quot;A&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.2783873" startTime="2026-09-21T02:25:20.8888144+08:00" endTime="2026-09-21T02:25:20.8888279+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cdc36d30-a32c-4212-9fef-c83d0d039b97">
+      <Output>
+        <StdOut>scope=controlled-battle-fixture; family=A; outcome=Victory; elapsed=38.0333; endTick=1141; seed=260921; relics=A01,A02,A03,A04; A04EffectiveHpDamage=16219; B01EffectiveHpDamage=0; harmonyEvents=0; forteConsumptions=0; critsInRetainedLog=5; inputHash=1736345a0d7825babfe127e42f55f8b7d7dea1e2c190fdc6f0cd21e2a1f0ab83; eventHash=d883c1c0effcbd54aaba027772c3b0ee1a3e99c832b27da7143fe4ac8becdfdb; resolutionHash=77b5de4c0465316d6102999bb989bc1fdcddb4861134f7b47d20356142a772e8&#xD;
+scope=controlled-battle-fixture-not-ordinary-UI-video; tape=F:\天命之子\docs\original-expedition\evidence\o5\family-tapes\fixture-a-boss.original-replay.json; bytes=176984; sha256=2394842261767f43b943d273151d2fe2e0261fc9d3c8e3338e36e9e7a52cb238</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="3e4c5a72-8c11-41a0-991d-3f3a132918b3" testId="88655edd-3509-f160-ac2b-ccec022a4dfb" testName="Resonance.Tests.OriginalReplayFamilyTests.CompleteFamilyActuallyTriggersAndItsBossBattleRoundTrips(family: &quot;B&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.1233432" startTime="2026-09-21T02:25:21.0161885+08:00" endTime="2026-09-21T02:25:21.0161888+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3e4c5a72-8c11-41a0-991d-3f3a132918b3">
+      <Output>
+        <StdOut>scope=controlled-battle-fixture; family=B; outcome=Victory; elapsed=55.8333; endTick=1675; seed=260921; relics=B01,B02,B03,B04,C01; A04EffectiveHpDamage=0; B01EffectiveHpDamage=23259; harmonyEvents=0; forteConsumptions=0; critsInRetainedLog=6; inputHash=ac2cc7f1a6d9db2ad49c63259e82032b343fd00956457dcbd78be82f3224b81c; eventHash=c73fb8fa480a79a5001f888b2208d62e068f737fd4a6e29242d11f1ae9ef4914; resolutionHash=7adb0dd4e29f8877268156ce7a1853e08efd6d9178dc3d95480dcd09299fff61&#xD;
+scope=controlled-battle-fixture-not-ordinary-UI-video; tape=F:\天命之子\docs\original-expedition\evidence\o5\family-tapes\fixture-b-boss.original-replay.json; bytes=290814; sha256=9e7b22ab1d8209dbb8e0b1a0af3868db5e657bd98b18a250e0d1ed8b7ad3d4b1</StdOut>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Resonance.Tests.OriginalReplayFamilyTests.ChangedOpeningHpOrRelicParametersWithOldHashAreRejectedBeforeConstruction(change: &quot;opening-hp&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="e5a5655f-16c7-e560-3ced-d8a7208feada">
+      <Execution id="1cb289e1-85e8-437c-ad77-c18607ce63c1" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayFamilyTests" name="ChangedOpeningHpOrRelicParametersWithOldHashAreRejectedBeforeConstruction" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayFamilyTests.CompleteFamilyActuallyTriggersAndItsBossBattleRoundTrips(family: &quot;A&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="d429259d-5a51-0703-5ee9-d9b104c63ae9">
+      <Execution id="cdc36d30-a32c-4212-9fef-c83d0d039b97" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayFamilyTests" name="CompleteFamilyActuallyTriggersAndItsBossBattleRoundTrips" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayFamilyTests.CompleteFamilyActuallyTriggersAndItsBossBattleRoundTrips(family: &quot;C&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="d33fe5b2-2cae-026d-60e3-8c2289100cd6">
+      <Execution id="5a24d2ba-ef50-4677-a888-527821f02b52" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayFamilyTests" name="CompleteFamilyActuallyTriggersAndItsBossBattleRoundTrips" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayFamilyTests.CompleteFamilyActuallyTriggersAndItsBossBattleRoundTrips(family: &quot;B&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="88655edd-3509-f160-ac2b-ccec022a4dfb">
+      <Execution id="3e4c5a72-8c11-41a0-991d-3f3a132918b3" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayFamilyTests" name="CompleteFamilyActuallyTriggersAndItsBossBattleRoundTrips" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayFamilyTests.ChangedOpeningHpOrRelicParametersWithOldHashAreRejectedBeforeConstruction(change: &quot;relic-parameters&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="597e4b98-3b78-2b85-be5a-27f00f4b4659">
+      <Execution id="cbbaa0ef-59a5-454e-835c-0fc86e359ef3" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayFamilyTests" name="ChangedOpeningHpOrRelicParametersWithOldHashAreRejectedBeforeConstruction" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="e5a5655f-16c7-e560-3ced-d8a7208feada" executionId="1cb289e1-85e8-437c-ad77-c18607ce63c1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="597e4b98-3b78-2b85-be5a-27f00f4b4659" executionId="cbbaa0ef-59a5-454e-835c-0fc86e359ef3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d33fe5b2-2cae-026d-60e3-8c2289100cd6" executionId="5a24d2ba-ef50-4677-a888-527821f02b52" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d429259d-5a51-0703-5ee9-d9b104c63ae9" executionId="cdc36d30-a32c-4212-9fef-c83d0d039b97" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="88655edd-3509-f160-ac2b-ccec022a4dfb" executionId="3e4c5a72-8c11-41a0-991d-3f3a132918b3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="5" executed="5" passed="5" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 6.0.33)&#xD;
+[xUnit.net 00:00:00.09]   Discovering: BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.18]   Discovered:  BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.18]   Starting:    BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.74]   Finished:    BattleSim.Tests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

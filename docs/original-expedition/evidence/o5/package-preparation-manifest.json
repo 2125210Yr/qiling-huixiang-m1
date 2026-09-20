@@ -1,0 +1,3019 @@
+{
+  "schema": "original-expedition-package-preparation-v1",
+  "purpose": "INTERMEDIATE_SOURCE_SNAPSHOT_NOT_A_RELEASE_BUILD",
+  "createdUtc": "2026-09-20T18:14:00.3188935Z",
+  "sourceProject": "F:\\Resonance\\client",
+  "sourceCommit": "a31c47ff720d062aa88ba2bf3aca7a8d6ea711a4",
+  "sourceCommitMeaning": "Caller-supplied base reference; this snapshot may include uncommitted changes. Per-file SHA-256 values identify the actual copied bytes.",
+  "destination": "F:\\天命之子\\dist\\original-expedition-v01\\prepare-20260921",
+  "preparationScriptSha256": "dce3a3c909de6b42e8e7ad7ea3a3d9e8f8b64dd8a1624bccf942c3038d19dc49",
+  "unityExecuted": false,
+  "finalDeliveryRequiresNewSnapshot": true,
+  "sourceHashesRecheckedAfterCopy": true,
+  "fileCount": 499,
+  "resourcesData": [
+    "Assets/Resources/Fonts/NotoSansSC.otf"
+  ],
+  "assetMetaPolicy": "Every copied asset has its original meta; a missing meta stops preflight. No source meta is generated or edited.",
+  "files": [
+    {
+      "path": "Assets/Editor.meta",
+      "sha256": "94f46a1440d4d9c4c86f099399ff804bf4eaa6f9647954d85056fa834b50f0fb",
+      "bytes": 172,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Editor/Build.meta",
+      "sha256": "c139cf7cace601328655c35b69e971155fbefc19dd84a09b58ee64e3fd188a3d",
+      "bytes": 176,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Editor/Build/OriginalExpeditionBuild.cs",
+      "sha256": "0ee7a9fa4ae39cc91bf0f3a1c71758105f6ca931f648ffc5e4b2b0e484ce1f84",
+      "bytes": 10754,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Editor/Build/OriginalExpeditionBuild.cs.meta",
+      "sha256": "8caafc018a515886a42edef41693a951d6f9f0baed1f0dcd5f601d9a86cb6daf",
+      "bytes": 60,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Editor/Build/WindowsBuild.cs",
+      "sha256": "d677b2708e69e955462fb93b45170b2bf23c7b77803de98de497bf2e6e41f305",
+      "bytes": 3404,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Editor/Build/WindowsBuild.cs.meta",
+      "sha256": "c109a1bb36ec233a5e90d632c2391881706e599928c76c7865b9012a895e46b3",
+      "bytes": 60,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Editor/Resonance.Editor.asmdef",
+      "sha256": "b4d13459ef57523e5157a5e5bea43ff389064decf3b28e1579e6a6281880b334",
+      "bytes": 432,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Editor/Resonance.Editor.asmdef.meta",
+      "sha256": "ff6b48fceee22df150b225b34cfab97b05eb21ae4ec43c21030b633bf2e0519c",
+      "bytes": 166,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/EmeraldInochi.meta",
+      "sha256": "109ab2b06af155b7c5b06ffaade9cd5a49439acf589916ee5700376dc4c9f2ab",
+      "bytes": 172,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/EmeraldInochi/EmeraldInochi.asmdef",
+      "sha256": "02c058c7dccc772eff22ec5177aa0578a35f3ffd9663afd6c71fdb87c158ccb8",
+      "bytes": 95,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/EmeraldInochi/EmeraldInochi.asmdef.meta",
+      "sha256": "2caf8ec41671467296e625af68edb0a4fdf6fe96cb42338e9fa93827726da71b",
+      "bytes": 166,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/EmeraldInochi/FootStretchTimeline.cs",
+      "sha256": "17ff96991ffbf72984405de56e45924f92cc86f942de3b77de28606cfbafeff2",
+      "bytes": 3036,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/EmeraldInochi/FootStretchTimeline.cs.meta",
+      "sha256": "5bf4229cdca91c809ff7ce1b3370e31e66c7bb917cddb876af01e4617808fd1c",
+      "bytes": 60,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/EmeraldInochi/InochiStandee.cs",
+      "sha256": "a9d876ac4b8980c785a6ede2de752687caa25e87a48ff6656c5eaaa2d312366c",
+      "bytes": 23678,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/EmeraldInochi/InochiStandee.cs.meta",
+      "sha256": "520cd32f6127a4fb628ca501749caa296d27044efe4be32a08fe0774f5f1e887",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/EmeraldInochi/NativeSurface.cs",
+      "sha256": "7c2781b9a064b3f056a3a5ce8298e998ab204aa96502153be6d8be5b2d8f2883",
+      "bytes": 8579,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/EmeraldInochi/NativeSurface.cs.meta",
+      "sha256": "f56218b6b6141429e577828af2fd69176307ff821a85ae92e71a38ec8cdeefcb",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Inochi2D.meta",
+      "sha256": "9eccfb86cc107766ebacd438549da06c0872dd82a54fc3ab04e867506bd94c45",
+      "bytes": 172,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Inochi2D/Runtime.meta",
+      "sha256": "2fa22d1d9d906b8c1ea1ab8ca8b980cdf7fd306d3d98420d6ef05819767282f3",
+      "bytes": 180,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Inochi2D/Runtime/inochi2d.inochi2d-unity.Runtime.asmdef",
+      "sha256": "465b699577efa7ce7f7bc942d0f1fa072b49b3be09b233b1a4ed718f311a63fe",
+      "bytes": 507,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Inochi2D/Runtime/inochi2d.inochi2d-unity.Runtime.asmdef.meta",
+      "sha256": "08b8c6893b26270062e507bf751b3d687d6b7841a2835898b2d746aaf7ff0e5f",
+      "bytes": 166,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Inochi2D/Runtime/Internal.meta",
+      "sha256": "6038df9e59327e29b1f17028f09a1ecb65ed771758772647489ea7454ceb5777",
+      "bytes": 172,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Inochi2D/Runtime/Internal/DrawList.cs",
+      "sha256": "a4d746ca889ddec3c664bb80f52cb0fd849b41b5ef2e3174b69c04d3d9751d9a",
+      "bytes": 5701,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Inochi2D/Runtime/Internal/DrawList.cs.meta",
+      "sha256": "b7becd8ff92448d431343d81b94c58ee9fdb48d2da6e330655dea89e393f4212",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Inochi2D/Runtime/Internal/Inochi2D.cs",
+      "sha256": "891208e8ab402a9168bb219089bb706e6b98538aa152183525e65171d023b325",
+      "bytes": 3879,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Inochi2D/Runtime/Internal/Inochi2D.cs.meta",
+      "sha256": "f3c9e5b68ea73ff6479df4b0f9b811062ec543cbc87517832272bc73c73aec3e",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Inochi2D/Runtime/Internal/Math.cs",
+      "sha256": "fe5f68e178c5b3276f020c738355b1bd3f9757967151e00bdd09dec68a4e5327",
+      "bytes": 1073,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Inochi2D/Runtime/Internal/Math.cs.meta",
+      "sha256": "947589ec0e33e2bf42811f991eca6acc18ca9e746cdac744a3f3b529b6619290",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Inochi2D/Runtime/Internal/Parameter.cs",
+      "sha256": "db1fa88244303dfeb4e07f92d2c77ad1a39c466c03c1c6f9ddfeb6986d3d5e0f",
+      "bytes": 4152,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Inochi2D/Runtime/Internal/Parameter.cs.meta",
+      "sha256": "f01945a72b8b449319e8ae3afafd895a53900032359ab779738c6e9e3149681e",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Inochi2D/Runtime/Internal/Puppet.cs",
+      "sha256": "3ccbd3c36dabf74bbc4add40e3101e05a1bcce41863df956d634600606a57a77",
+      "bytes": 7037,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Inochi2D/Runtime/Internal/Puppet.cs.meta",
+      "sha256": "621899bf2da40254a4a634dcdbcc2b42059ae928e1ce53dec6a2a76571f3a678",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Inochi2D/Runtime/Internal/Renderer.cs",
+      "sha256": "e59ddd987ac231ae6f6373705909b998d0efe5ff78b0d9aa640bd0a34b15df5d",
+      "bytes": 19086,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Inochi2D/Runtime/Internal/Renderer.cs.meta",
+      "sha256": "5cfa92edfc00036a357344f31093a30ec8e5b84780e3276f28b4b55a8faba603",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Inochi2D/Runtime/Internal/Resource.cs",
+      "sha256": "b3fcd832c5a323fae82fc2edb0cab609064cd6094dfe9c8859fc22ec2053581c",
+      "bytes": 7303,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Inochi2D/Runtime/Internal/Resource.cs.meta",
+      "sha256": "9dabcfcb4d3a411c618fe0dd9305a73a89518d445302c6cbe6702243a757f57e",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Inochi2D/Runtime/Puppet.cs",
+      "sha256": "6a483063c8a5048a0e1fdd44680d098dc12fe2f59ef02e20f6a3067ac701a45f",
+      "bytes": 2814,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Inochi2D/Runtime/Puppet.cs.meta",
+      "sha256": "72e17773a1cca41e88b15bd86fefd630cd32b87e7439a2c928097ab498db50e1",
+      "bytes": 305,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Inochi2D/Runtime/Scene.cs",
+      "sha256": "628148967b762d27adf1432c54b243011756ca0891fdb7836217ee84843358a3",
+      "bytes": 1923,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Inochi2D/Runtime/Scene.cs.meta",
+      "sha256": "15716e3f21ba589e04e0fa8267e358d2d9c26bb435edb9844f6897a89670376f",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Resources.meta",
+      "sha256": "b401791ea6cfde737b3bfb758f10e8123f5a50acb1759fc7fe258ea6b508edf6",
+      "bytes": 172,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Resources/Fonts.meta",
+      "sha256": "dea8fe4207f5adf9096b18f2ff34e51fa49357201cb9d66fb1aaa66521d0caba",
+      "bytes": 180,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Resources/Fonts/NotoSansSC.otf",
+      "sha256": "a2b93e6c2db05d6bbbf6f27d413ec73269735b7b679019c8a5aa9670ff0ffbf2",
+      "bytes": 8482020,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Resources/Fonts/NotoSansSC.otf.meta",
+      "sha256": "9ae85edf8802ca92621d4f3b0b193b48cb0895ff8992815fce22da67e8090b27",
+      "bytes": 498,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scenes.meta",
+      "sha256": "d51b6fc05b6ba8f81abe7b6e2a69482121ac9eb1d6cf07877c093dca8be78fef",
+      "bytes": 172,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scenes/Boot.unity",
+      "sha256": "ed226da5e948b68aaf94cd96f6679108ea410bae68f90dccdf5c3e1303a62a43",
+      "bytes": 6811,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scenes/Boot.unity.meta",
+      "sha256": "878766541a50e5bb2687b43a11a097ae89a14c3779c2cf0a58a49daf1215b246",
+      "bytes": 162,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts.meta",
+      "sha256": "8a0fa242cbc16bd0c419192ee015eea2a4cc9b7bdb0ddd12f59f3c218fd577b8",
+      "bytes": 172,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App.meta",
+      "sha256": "d52bef44e046cb8663f917968117b79027214890abcd82467e72e9cdf1319829",
+      "bytes": 172,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle.meta",
+      "sha256": "70bb290a4be6cb1243f23256a44e563322e98c034f518b9442295b7ce58e0a51",
+      "bytes": 176,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/BattleFighter.cs",
+      "sha256": "df6365146d13048b94799b261feb30f3e9b1d4073e2a544b30bcc4694eddb48e",
+      "bytes": 33272,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/BattleFighter.cs.meta",
+      "sha256": "0299c3840d8f25cd782ef7bb1ee75300453d3b7fbe4b2ac37732cf4d0396ab16",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/BattleHud.cs",
+      "sha256": "680dd131952d053a4e6d96bd61ef4d6d488c0489fea770b0fcb04d89c762228c",
+      "bytes": 114490,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/BattleHud.cs.meta",
+      "sha256": "af8f0980a41dec8679c45ea59e3d257b59e41ecb12c10a2303600c5da0a7564b",
+      "bytes": 62,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/CharacterPresentationAdapter.cs",
+      "sha256": "2ad6dcbc404bda1aeb889425794f5b3796a7124fe7874c6e52939123ee5f033f",
+      "bytes": 2190,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/CharacterPresentationAdapter.cs.meta",
+      "sha256": "4fb1266a7491f8407d7f67cce35160b66a6fbe705c1fb5919c3144063c341257",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/CombatFeel.cs",
+      "sha256": "081a28665ebd0493ac845261f97f2369fbe7f097c62f30a5cd5968b20e19dc58",
+      "bytes": 27814,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/CombatFeel.cs.meta",
+      "sha256": "22d358fc954eb4b945c601795d8086042bb81a3e06cc615bdd4e0a0bf11c6ef0",
+      "bytes": 254,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/ICharacterPresentation.cs",
+      "sha256": "0ec8f75a72c3ec64dd23627114a0bd7e55623c7303da7ad2fa0e3a18dcd75ae9",
+      "bytes": 1794,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/ICharacterPresentation.cs.meta",
+      "sha256": "f581606b065cbb5ce36f954a304e60651473c6aa08245411f718772e56cf5540",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/PixelCombatFx.cs",
+      "sha256": "9a757c77c5b70c2a81f319af001ac0a376ce6642739767bdf2036b5d4df57904",
+      "bytes": 21950,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/PixelCombatFx.cs.meta",
+      "sha256": "9bc992db8bf638bf0e01dd8593d4848d917ad3dd0b1b53c55136e9c05eb2747b",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/StatusChipText.cs",
+      "sha256": "3a050a960fdafcc89a281989828a188d0915d7d0aa494f6525acf6c8a3cc2839",
+      "bytes": 4873,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/StatusChipText.cs.meta",
+      "sha256": "68598ca520492909517c07f3f5ad3400fbc24cfe8ac0811a99e12e077fbde5e5",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx.meta",
+      "sha256": "0976f420bfe46ff3d992f3b749ef8d719079844e29fc2a02a6f4b65b9a40164e",
+      "bytes": 172,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/CueTimingProbe.cs",
+      "sha256": "bfa8d6f89fa7644c898179812a357a2f4c1d8ca5522c3360a986c70767709ae8",
+      "bytes": 2198,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/CueTimingProbe.cs.meta",
+      "sha256": "c1a6899f306c7f0fa203c7420515169f6a390c099cdb394eb2534122f4d3e2e2",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/HitChainProbe.cs",
+      "sha256": "ad317aeb0d22c15039e7c624a78bf16916c86965d8cb0b02f4516de6f87e7fe0",
+      "bytes": 1540,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/HitChainProbe.cs.meta",
+      "sha256": "ea0790d07893916526c4265c1baaef9d09b54cd8e3da1198ee375ef30808b1fd",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxAffection.cs",
+      "sha256": "16f23e53c63f405c390bc2104d8662cacb58ccf04dc80f710e677c6601819b2f",
+      "bytes": 8226,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxAffection.cs.meta",
+      "sha256": "1ec7543de702434a0976bfaa50c995558680194707c349dcb4c226d87571f6f2",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxAfterimage.cs",
+      "sha256": "3ea193cff7da9a9cb63265703b93ec2bb75aa71a40829a9f4a79a5632d5db655",
+      "bytes": 6011,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxAfterimage.cs.meta",
+      "sha256": "a2d53ed668f48e052ebf2708cd105de1db20caeb1e8861b3c58d5e1491c09d91",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxBleed.cs",
+      "sha256": "b9fb3a80faea08ad950d8cd43e27549c56b83afe147a90f58500caa061f912c4",
+      "bytes": 9578,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxBleed.cs.meta",
+      "sha256": "0ba65e67f6ca94503792be38f28d2572354d85fba8212d416a17bbec34387bc1",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxBossIntro.cs",
+      "sha256": "3ecdd399c7a7a252158b5ee8a0dc2d3ee37beeb38214275e9d7845b3a4f2afce",
+      "bytes": 9156,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxBossIntro.cs.meta",
+      "sha256": "1566677d050aaa8b0984e37ee5faea76e245a4ab10a45dcbcefb6dfde46830ee",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxBuffFloat.cs",
+      "sha256": "9a25c8db847c42e6c751a34143894f2c0780bdc5c7bb64c2a929a49c3d4c4fb8",
+      "bytes": 17939,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxBuffFloat.cs.meta",
+      "sha256": "20f7832062f64c42b582dafde81b9b792193519a1b8659611a9428812e0646d1",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxCleanse.cs",
+      "sha256": "20ada8f007e27dd91fad9a15e07fb846edfbded146a3f2bdb01a045f7abda14e",
+      "bytes": 11024,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxCleanse.cs.meta",
+      "sha256": "da6a0de64257ca7738f49dd157ae20cc26e873b3529c6c1653a36cfae5336311",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxComboBanner.cs",
+      "sha256": "ce10298c1db663dea05876e81ad5d31e025bcbab21fdcd0697d025edeeb2567b",
+      "bytes": 6984,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxComboBanner.cs.meta",
+      "sha256": "a3870d7850dcfe38ea47027f18fc83828e0b1885c5176255499a437dcad931c4",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxCounter.cs",
+      "sha256": "45ffbe95a7c1056cc4ec61fb6e9d40fcfdb667a2ae42f26abe23fc3f074e0236",
+      "bytes": 10033,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxCounter.cs.meta",
+      "sha256": "585f296c1bf5f14032b71adf16d44a6782c83182376b7527ccbfae96513d218e",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxCritical.cs",
+      "sha256": "089b8f648457048518cee9b94ef56a5e4bfd45447321c338ecdc627e394c8441",
+      "bytes": 14631,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxCritical.cs.meta",
+      "sha256": "11610f2409eb86da6f6890f3e7dc6ae80812e1b7777e23750d29c3e2e47e0398",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxDamagePopup.cs",
+      "sha256": "4a391de16da668f5ae3d756a2a5db9f24e4bce1119d827d6b57e1622271d6577",
+      "bytes": 10136,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxDamagePopup.cs.meta",
+      "sha256": "9a2c3545e58bc83f8a79767981b7c3ab3ae4b17f73d89f0d4d0132d509140c3e",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxDpsPanel.cs",
+      "sha256": "1cd4868930eadfd2796464c9195bb7203f227c67f6299b67b8f9a53bab8c39de",
+      "bytes": 7798,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxDpsPanel.cs.meta",
+      "sha256": "5da18200e77b6a8a970863878a7f53106c30abbb62b9490b25e5dbe437af9ed6",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxDriveCrush.cs",
+      "sha256": "e5c1aec37714856270bdeb8864b5e6cb767cd8aba74c80c47089e177b70a8f58",
+      "bytes": 12154,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxDriveCrush.cs.meta",
+      "sha256": "78b0d798e9fa05d4f08b3d9d571f6065076b1dd849fe798741bb49bde1a0393d",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxDriveReady.cs",
+      "sha256": "1a6735eaaf50fa9b0eb7872802cb078f2eddc209a2f707fd3d983576abd4c848",
+      "bytes": 11475,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxDriveReady.cs.meta",
+      "sha256": "606f964dd572e6b6f27fd55f9078e1905c3b0aebaaa0262f42f1b1c26cd1758e",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxElemDark.cs",
+      "sha256": "bca1a9f0b0cf72bb1276a7308a6a69256e5b2df9dd24d14646d7671c6942bbbb",
+      "bytes": 5824,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxElemDark.cs.meta",
+      "sha256": "64bd81880a95f617ee6738acd8770bcf9442696c1d87c2c6e9eaa65042d4e9bb",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxElemFire.cs",
+      "sha256": "8c7e3c498e422b7d938c4dd15fa1173fb8cbabcee3de3d2122e83d84cb635b15",
+      "bytes": 7983,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxElemFire.cs.meta",
+      "sha256": "8d16ea46c3e38c273048e0dee699714418cc6625b6f55d5244ab45302f485d4f",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxElemLight.cs",
+      "sha256": "21dd780894c00a6722a5e68540d9440aaf465601c5a5b19c3424560fe451a84e",
+      "bytes": 5740,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxElemLight.cs.meta",
+      "sha256": "b441a28263b15fea7935afe6818baf218c5e087054659f91619bc7df5c973a03",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxElemWater.cs",
+      "sha256": "8b0ba4ccb72df66d79db4b098acbe05db892708896c891fb7cfacbd225218439",
+      "bytes": 8619,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxElemWater.cs.meta",
+      "sha256": "db2aae9dc9eabffc8c87e748d4132ae5dabd226ae8479f82d161a132295c54e3",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxElemWood.cs",
+      "sha256": "e5a9722b505a09cfb856b056505c2fa0e9c87c228689c1e87b09585a85574a16",
+      "bytes": 11377,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxElemWood.cs.meta",
+      "sha256": "34103de1e689e6d1489e54ceaabfcff1b0c63d92be16cedf0fe331a9f345afb7",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxFeverOverlay.cs",
+      "sha256": "00acb1464a40185d49133a960f02b83fdb2c3f64c84350b3f8f8e4dc9b8a3dfa",
+      "bytes": 8443,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxFeverOverlay.cs.meta",
+      "sha256": "190d58f176c670e94def4e7fb768e3087e2981988f1fec1d1ed5d385e17dadf7",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxGoodButton.cs",
+      "sha256": "a7911aba53f137ac03a0c27c2cbc2c422ed792cfaee949cab253a01b09e63035",
+      "bytes": 11789,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxGoodButton.cs.meta",
+      "sha256": "71ee753fffbebfae77f8f39d5c8925cd58cfa476a0065dfe39f82430b9a1474c",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxHeal.cs",
+      "sha256": "afd9f34f22c664a6b8a08e2bd3e3d507fc5ec8cc92a40f5824e8d04e48ac2a6a",
+      "bytes": 8339,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxHeal.cs.meta",
+      "sha256": "c60da2a2dccb24fe0e04b5cecb119dde4a2c56ccd13dd72be0450fc8b8648739",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxHitFlash.cs",
+      "sha256": "502dd3547babac87dc2b8f9efa4031fa04d12253069e89545318a58c718b0631",
+      "bytes": 11886,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxHitFlash.cs.meta",
+      "sha256": "02ffe1fb34d951c550270378f541b916f0146903b1f4cef4442f5565d428db46",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxInvuln.cs",
+      "sha256": "c3a77d3dab6649e41747f462dc2ff7aefac9b18fa45300cf23263c6ac284c0f0",
+      "bytes": 7935,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxInvuln.cs.meta",
+      "sha256": "187e3cd9964572094a9267cdb04e33f6ab7f53f60f4f14acdfb38369b97aeb4f",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxJudge.cs",
+      "sha256": "47ed88fed4a08f6f71e4e986fd655ab4ad7a1ba7682f8a776f09375a78877fc1",
+      "bytes": 18920,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxJudge.cs.meta",
+      "sha256": "2d82324ae7f87ebbf71cded94caa6b9c8f6c60056e152f6044f03a4e7a86df93",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxKnockback.cs",
+      "sha256": "7f77a8d6535fb28354dbf2eb80854d07fb5325ad5f6e5af3a8364cea40a3e8ea",
+      "bytes": 16582,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxKnockback.cs.meta",
+      "sha256": "88b2a00120ef580abe093315090e83f8d74bd9514d8a7af827d070b252f2d4d2",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxKo.cs",
+      "sha256": "74afaa51357c44b74e3142626b4a5b476647435e932b9aad8f33a7a7f3cd9454",
+      "bytes": 10949,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxKo.cs.meta",
+      "sha256": "e1201eb43f47e6f20b69329ec0d41ddd9127a1d694ff8bb7fa18621162b1abab",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxLeaderBurst.cs",
+      "sha256": "d38ad386d15ab86f4787d1ba23e66aa37165f8062184d0538eb92ac2dab7ee16",
+      "bytes": 11590,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxLeaderBurst.cs.meta",
+      "sha256": "c14bef3bacef90d7ed8f18064b8b1660bc36c39608d45fd5258ecdd47ce29e9b",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxLevelUp.cs",
+      "sha256": "b29b71f9f472dcc5a438a76b1f7ccb838dbb849af384a248604a8dbd6e9304d3",
+      "bytes": 11483,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxLevelUp.cs.meta",
+      "sha256": "81cfbdcdde4f943b5c3acec8f1f891485b6d30d6a0794b265083619e56a9f5f8",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxLootDrop.cs",
+      "sha256": "ea2ca7d02e20388091072823502422d47e5db7611fb863a43ba6533982ecaba5",
+      "bytes": 7210,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxLootDrop.cs.meta",
+      "sha256": "40d51f35e117f1567edb65951f67b2334c1168ad9611eaf496334fd38a493771",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxPhaseBar.cs",
+      "sha256": "e56c4dafcb325ca9ff41accf59e06e64098cd4076a62c070dfa1f035fab17dcd",
+      "bytes": 9050,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxPhaseBar.cs.meta",
+      "sha256": "0fd4aa09397dfc17f8a13f1c6cff556f9b27b3e79291e5843b94cfe068e937b7",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxPoison.cs",
+      "sha256": "223dc343dd4367c5e7157c9262a5a96ac32d64b5182f1f2e6d5c29ca9f63df0b",
+      "bytes": 10525,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxPoison.cs.meta",
+      "sha256": "d97e204b882943315376f99e1e809aad6c4fddf9aa25c552c45f2dc093ae7b2a",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxProjectile.cs",
+      "sha256": "7c0739f7d484e22a2486fff1931cafb6930f56b6c74905cba524c0c954aea51b",
+      "bytes": 10151,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxProjectile.cs.meta",
+      "sha256": "e9becb38fd25caa60a1a99cd630cadd9baf68316ecde9bd726545209569501a7",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxRagnaBar.cs",
+      "sha256": "3dfefe82c43b2302547beb1b3badbbce1ffc089f04496a8f70b7fac3f930990a",
+      "bytes": 13553,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxRagnaBar.cs.meta",
+      "sha256": "4224e02fb9d0f9d4be929b704f5b144b7ecc35b4e9823b597a8dbaedc6cbb150",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxRegen.cs",
+      "sha256": "61805db318016ccb83a9eccc83cefd096825fbd5b9e57418ecd0e5e0d5b0f582",
+      "bytes": 6724,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxRegen.cs.meta",
+      "sha256": "94ce830401b76b541f4b850205887773bb4227647b8caab152a71e62c32fe630",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxRestSteam.cs",
+      "sha256": "dcc27ff1c17ed8fcfc45af7f352e410ffc57dc7c0cf1d760614f10870b4efd90",
+      "bytes": 7862,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxRestSteam.cs.meta",
+      "sha256": "3f1e58e53150667abee4192d6ecc033fc30553beff2675187073918edbe3cd44",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxRouter.cs",
+      "sha256": "f56787ba6e408e76d2704c1b9946ecc92b18d18a738f129b3096c2856211bee4",
+      "bytes": 12176,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxRouter.cs.meta",
+      "sha256": "b63ab40b0f297336e7c46c2070b6fd671ce3fd969a04898b7339b58c84f8a17a",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxShield.cs",
+      "sha256": "1c5baf536369fc024dcf3b53997405b0c7d78342b359744128e64abbba991724",
+      "bytes": 6357,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxShield.cs.meta",
+      "sha256": "fe10eff6e9fcb77cfb2b728403e72787062d8290c67fbef1418200556d958889",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxShowtime.cs",
+      "sha256": "4606bf7a45753fb33ef48a6a268c8b5533ded827e46d985392c41bf81b9889d4",
+      "bytes": 10717,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxShowtime.cs.meta",
+      "sha256": "549ba1b142a60acc7f49d0b7275b577a5f75a49dda4e0b03c0bc1e22014f1765",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxSilence.cs",
+      "sha256": "0594b2d4df8dcfcb65304d25f6fbcefe6ad84439cf0ea1397fa5e6ba0dcd25e9",
+      "bytes": 11993,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxSilence.cs.meta",
+      "sha256": "96f56324d307b62dfb7f4fb81180f676893ec4ef52877b076f78ae0e408e97f7",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxSkillCast.cs",
+      "sha256": "a42e4129b96f0cf2542bd0453f35532ccc7e1e160c9e2bd4465d7772487e2ff6",
+      "bytes": 11644,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxSkillCast.cs.meta",
+      "sha256": "09c255aafc56c59d8ce2d5c82a0e88250fe8b354614b128b237856f59a2bfef0",
+      "bytes": 60,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxSleep.cs",
+      "sha256": "b0300aa3023975d7ab98f93bf93b58e187bd66fbed662c2376b46c72a6bf7a0a",
+      "bytes": 10622,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxSleep.cs.meta",
+      "sha256": "a05e7f27c65d92f102fe6de0dfc939fa890a3273e4b5c6ee375ff45719e60dbe",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxSlideReady.cs",
+      "sha256": "4fe873d89d81b72f6fda75be60f0fe9955c42890bba27bf58fef84f91fbd3175",
+      "bytes": 8497,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxSlideReady.cs.meta",
+      "sha256": "937f6dbf810a7aef0dfc97b3b5f8b92ef3b16c8521b351eba68dee8cb04c22ca",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxSlideSlash.cs",
+      "sha256": "02405ac8b3cfb259c49fd20a517f2a3ae6d9da12e7293e63525b8240ded5ebde",
+      "bytes": 5670,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxSlideSlash.cs.meta",
+      "sha256": "85a3b669dbaada58bcd5b3089c5d3da31fc41398014a21af7f2845b1b07fb099",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxSpeedLines.cs",
+      "sha256": "0753fca2b5296639d60a9f2cb7b61274f73bc29927e10e5101dcaefbaa8e9d0d",
+      "bytes": 6963,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxSpeedLines.cs.meta",
+      "sha256": "12e23885d598750f58b772e9f193e770634904ca8e2bcb105e6af2da261c9e3c",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxStageClear.cs",
+      "sha256": "4846daf58b0712d2fb071f907697cc04f6864c14fd6cee263ce28cdb367804a9",
+      "bytes": 13942,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxStageClear.cs.meta",
+      "sha256": "ef4684c65f53ceb8bf4c35b1ec2bb608e775796448f3a835884e0ebabe46dd9d",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxStatusIcons.cs",
+      "sha256": "6d851f66e71f4cbc2328cd676ee8cb7716b6328f28e8a0f940b31b9aff55251a",
+      "bytes": 15571,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxStatusIcons.cs.meta",
+      "sha256": "cead1c5ccef873ad7920ce3323bd48791c409547582496a3fbcd6bf8fde177ee",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxStun.cs",
+      "sha256": "814cc691da268a42dfdf6d08da6a69ea54a8c32e643f61098356275321e6b96c",
+      "bytes": 6492,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxStun.cs.meta",
+      "sha256": "52e89ff029c4b1d58d1c4c9e456f759f7753245b3ece6d53014123cce41deae3",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxSummonBurst.cs",
+      "sha256": "c24a4bc706e4c4e5d5b0d1169a4d7c321bd01ed36f3dcc6ff4be197d2a6b4a86",
+      "bytes": 12328,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxSummonBurst.cs.meta",
+      "sha256": "30719ae48e045597ac63c0a93a9cac83352bb3db4ae600c40dbf1ea9886f432d",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxTapReady.cs",
+      "sha256": "326d73bc02baed0b71de563b2138e9b3a800ddc64bba9f6048bf4ffb2f61e285",
+      "bytes": 7549,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxTapReady.cs.meta",
+      "sha256": "b731fb610fdbad9186657630abc8c41763ab12e8dbb445a05479b3c6d429af26",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxTapSkill.cs",
+      "sha256": "a38e10343a9de2d14d01a48c5ceeb70137e56095f95ec49a589882125edbe4cd",
+      "bytes": 8456,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxTapSkill.cs.meta",
+      "sha256": "8f40ca56e9437bd02fb1d3a0e98069459cc94ec775ce332466a64d8d3ebb9066",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxTaunt.cs",
+      "sha256": "4b7674e0fe432709e5b1af2a93a00ea2fd2cde9772d5ed3e0e995a16a8f8f7af",
+      "bytes": 9054,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxTaunt.cs.meta",
+      "sha256": "d3a565ca65365d0c158ac40f28ec46076c666ba35a2468e6344efdb6ada759c7",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxTipPlate.cs",
+      "sha256": "be845610377e7f99ce336600bd1bde23bf5409b77061e383cfcca5397597f30a",
+      "bytes": 11689,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxTipPlate.cs.meta",
+      "sha256": "6b9d25dbb4a0b6718e3f727c6de6c588d4ab5ab7e1d89f238580f97d7064a725",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxUncap.cs",
+      "sha256": "ac57c6d2d6cabcb5195d1900e56ddee0aa406d7e91c2490bffc4b4db72a3beba",
+      "bytes": 9650,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxUncap.cs.meta",
+      "sha256": "06c7078549015e7540260b6743d55088c900fecd3780606a940f4f75ee2a2a87",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxWarning.cs",
+      "sha256": "fd978718a4d4fa919d4fb1e951e41da6f44f37eebeda8b8b3f4564bc959d9d81",
+      "bytes": 10131,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxWarning.cs.meta",
+      "sha256": "a1d187fabebe54553de8d0b78e03a7bea5d756b29fec1988fd733151e3d2cab7",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxWeakPoint.cs",
+      "sha256": "8e9031055781598611183b3c8388237fd877a733ae539b0fa5c759fba7f36459",
+      "bytes": 8891,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxWeakPoint.cs.meta",
+      "sha256": "a75b46963105714b92d821bc73faa3b2d6bd9265512839ae3cc0640349d51055",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxWordStamp.cs",
+      "sha256": "45baee3eef5b7d1da4efb0bab697c9ad24f1d251d8ed7f27e9b5735f169715b8",
+      "bytes": 10103,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxWordStamp.cs.meta",
+      "sha256": "b5d8796467e55b9ddbf1f693a058eb627228657674efa63ec664c3085b9c24f9",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxWorldBossBar.cs",
+      "sha256": "f09592933a83610854b0fd881b3cf78e8ce55b13eb64b0c0f5d3724bcb9ab997",
+      "bytes": 13855,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Battle/Vfx/VfxWorldBossBar.cs.meta",
+      "sha256": "32a867813c20cbde1268f5f20ae7be2c784df9fc2b61962eba381482a1f5e9af",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters.meta",
+      "sha256": "197e00404b6840cb95c33a6189d1aa5065de061ec23af2f814086b86be3c7f5f",
+      "bytes": 176,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/CharacterArt.cs",
+      "sha256": "0f7ae9aba5adb82d58f50a24b4dfda72be9d0fecf2d9d7abd4935ee7eb917902",
+      "bytes": 8147,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/CharacterArt.cs.meta",
+      "sha256": "bef3cb050703734214dece27aa6a34cb49244eda67ae33c92ee27a3ed2d67f7c",
+      "bytes": 254,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/CharacterPresenter.cs",
+      "sha256": "9e86df222fbcedb9f5b5f97b0bc883095f0295676c9fd4d8cab7009ae082fcc4",
+      "bytes": 59853,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/CharacterPresenter.cs.meta",
+      "sha256": "411985a4512e156a9f36dddfa010aad5dd9c6c0b5b0ee12f5b18306609820fa2",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/CubismPlateRig.cs",
+      "sha256": "1eaf5ec141473763b9750741f5a29be24f4a90bfae1718551a1b9bfe110e4391",
+      "bytes": 16893,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/CubismPlateRig.cs.meta",
+      "sha256": "8b52ffe6634e2705c15a2c8906effd8e919e0eb9b1a20652e76bf698eff4be4f",
+      "bytes": 243,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/CutoutRig.cs",
+      "sha256": "01ebf7e82a9335f393adb6b3765f556700417775f61fc3fd932c88d422b6ed33",
+      "bytes": 18933,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/CutoutRig.cs.meta",
+      "sha256": "497b57ac34e92ace761d5e0bcdb02e22ce4df58b2a75c18b0478b58481a7d6d4",
+      "bytes": 243,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/ForegroundIce.cs",
+      "sha256": "3f2e5b1cb71a17fa88b01fd4e1dc108772f8327042b78af76737f24c75c3dba3",
+      "bytes": 4562,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/ForegroundIce.cs.meta",
+      "sha256": "a8514e0a2767eec6d7c03da69983b6207bbd139ec3bd337393a202b420247ba1",
+      "bytes": 243,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/HairRibbon.cs",
+      "sha256": "be6eb8137073881b4c5dc236ca12c5935ea42c4b2dcccde2cc54efc93e346af2",
+      "bytes": 9989,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/HairRibbon.cs.meta",
+      "sha256": "a48df9b33c61d6992f220a6b0745f33cd3e1a0302097ffeb2289736830d300f2",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/IceAura.cs",
+      "sha256": "6e361d4a523a96a074daf1a151bfbc98eb0e79a0a353775ed1bf7d7a9790418b",
+      "bytes": 6163,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/IceAura.cs.meta",
+      "sha256": "f170c241a9ebe6428124479d459e61cf99f60c0284a9555b5d6c17f336d2a246",
+      "bytes": 249,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/IceParticles.cs",
+      "sha256": "368746bf7167d0adb7ec5a73fb6d979443fb42ad74186111ef262f1e3e440aa1",
+      "bytes": 11763,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/IceParticles.cs.meta",
+      "sha256": "ce37c52f39a44e190f120a9b04ce209fdc2188f7ae6037e2e834087f49f97d61",
+      "bytes": 243,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/LayeredPresenter.cs",
+      "sha256": "a475d00054699e2f5409ac7f16587a85ffbadd620b88c9b65a2bf134de965b0f",
+      "bytes": 8641,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/LayeredPresenter.cs.meta",
+      "sha256": "4a75de10936d78cf5b7aa450021d5df306edfd5f6a008987da31d0123b90190f",
+      "bytes": 254,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/Live2DIdle.cs",
+      "sha256": "d2bd1f4e0843da66006a6ed79a7c14fdb77fb8baf49d644046e778293724b6cd",
+      "bytes": 8373,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/Live2DIdle.cs.meta",
+      "sha256": "cec7f0b0331a8799ba61a2852d37f60f848bf0455e414d979ebd2faf595b5b4f",
+      "bytes": 254,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/LiveRig.cs",
+      "sha256": "ed34732162a5a309d4168d8168f6f2178fdf663381c5e20d2a8a830cd79b3abe",
+      "bytes": 19125,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/LiveRig.cs.meta",
+      "sha256": "25f53c6ada1a2079680c6eb0126414440beebb9fa006f8a1d044d73f5a2745ff",
+      "bytes": 243,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/PixelStandIn.cs",
+      "sha256": "de94a5e410128cb4aae021d745580bf91481ea1bbf62650f78467570f354017e",
+      "bytes": 21122,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/PixelStandIn.cs.meta",
+      "sha256": "a735277afbac70622dbbecaf2318fabff46d26b08f7e5b67f69be031d20f9d63",
+      "bytes": 254,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/PuppetBootTopology.cs",
+      "sha256": "f269d4bc0e9f31326a733d1533dac23bf9531203a3cd7e37e67053c57f6b97aa",
+      "bytes": 5102,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/PuppetBootTopology.cs.meta",
+      "sha256": "c9cda4af94a63195598948281988f31bf177208bda2f14eebedb3fc8fde70506",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/PuppetLegIK.cs",
+      "sha256": "21ad177c790fa284fe4496f9f18c79f0b62ed8bf338856e7f7c7913e113f0c03",
+      "bytes": 1233,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/PuppetLegIK.cs.meta",
+      "sha256": "de62eed9dbce7a0ae97aa6d96d775432acbfb38211a05e5ef7f81ea91ec23a8c",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/PuppetMotion.cs",
+      "sha256": "2d47444051a422a468ca4dc5395d01d39b9c039a0b74f0df9ee23c67e75e2666",
+      "bytes": 8343,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/PuppetMotion.cs.meta",
+      "sha256": "5150d75d880c6b6653629d2487ec3f723d9f69b1e61ed76def5c3d34a3208775",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/PuppetRig.cs",
+      "sha256": "d963c7c6ec05a748322504f2d5e5cf4e90a6fc19b332e0abd32e7d6221d84070",
+      "bytes": 42072,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/PuppetRig.cs.meta",
+      "sha256": "1ddaf4072e338d7647ecbce8198e59f75f9474fa31d3043107bd80debff5e5dd",
+      "bytes": 241,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/PuppetSoftBust.cs",
+      "sha256": "92f917c707560eacead588c8604903b58842e154934ed5978cd376ba4aa46492",
+      "bytes": 5524,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/PuppetSoftBust.cs.meta",
+      "sha256": "be664dbd59efdcfb34089045ae7bea5ef0d3d49614a6a7f4f07b59c9a6bbed1d",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/PuppetSoftMath.cs",
+      "sha256": "de4c4882c6fa59968c7c66f65ef89d77c2f7933d531ae2fdcb89c385a04a1a7b",
+      "bytes": 2746,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/PuppetSoftMath.cs.meta",
+      "sha256": "2d58cbac991f58acc664e4a3e9bafa5205fffb42fb0cdfa58d40e85f5070c979",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/Sprite2DStandee.cs",
+      "sha256": "a34671edc48aff98684544dfa5fec90176fdc84cc03e49cf8cc62b95e362703a",
+      "bytes": 12962,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/Sprite2DStandee.cs.meta",
+      "sha256": "a7901d2928c1cc4c8ab4a26b2f021b90cf6d340daad04bb8d9f24bad9034061f",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/StandeeZoom.cs",
+      "sha256": "4c2cd3fddb7063155c933b7e2c237d2f01efa4dc3033fb98c3684acb3673fe4f",
+      "bytes": 5055,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/StandeeZoom.cs.meta",
+      "sha256": "c98ff0c124694dc577a47696391411976fe0da2a82e08884a36b1991f71835a7",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/StillLight.cs",
+      "sha256": "8aa76e942c39ef7c8c044b2f8aa9b01515629fabd306f5f8abf6baf2241ad2e1",
+      "bytes": 1711,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Characters/StillLight.cs.meta",
+      "sha256": "f21fd89528e82c797178df85fd8768a63d1fa81e53440cc76d84fa7a5b27c244",
+      "bytes": 243,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Core.meta",
+      "sha256": "b8780b6bc86b93cf623f2603364aaa087b8b74cc5e313f596910e312ffd7a43d",
+      "bytes": 176,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Core/GameRoot.cs",
+      "sha256": "699dd9f1a49904214c5355d74aa872073291cae2db55c40eb0d1b1c70644cbf0",
+      "bytes": 61094,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Core/GameRoot.cs.meta",
+      "sha256": "440be91c8288d7e6a5decaa43a3194986e47bcb0cf680b5141097b66046dcb21",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Core/GameRoot.Expedition.cs",
+      "sha256": "7e07d9cd93b1ae64df6d9b24f95a3f72c46e889640e2c03dafb30f848d759bd1",
+      "bytes": 26132,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Core/GameRoot.Expedition.cs.meta",
+      "sha256": "ac9c4d54d3c363d3f1253d302aa48a73164fea2688c783438fbcb199fedec598",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Debug.meta",
+      "sha256": "6af114cc6b7f7893f2e3eb6fcc100f5d5ee9a3df6f133bca644f8c5a5c290841",
+      "bytes": 176,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Debug/CaptureRuntime.cs",
+      "sha256": "69f2a6d8fc63dde6e5224ca161713c00351687d3efbe0812f91b4a5fcc975ba2",
+      "bytes": 7789,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Debug/CaptureRuntime.cs.meta",
+      "sha256": "d3f54c3fd60fdeed0f654833215d5a4157bc5542f8867575beb5937693745a50",
+      "bytes": 62,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Debug/CueStripRecorder.cs",
+      "sha256": "7a27c9f77bfae72d66e24e68f8eb50a068136da285cbfe70dacfcec410bdf5ac",
+      "bytes": 7431,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Debug/CueStripRecorder.cs.meta",
+      "sha256": "44b530b5b7f36d79ebe15ca0484228879add7131d4c8ef7ea4a4be4f96d38ca5",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Debug/EmeraldLobbyCheck.cs",
+      "sha256": "b8f2da6e6cba614b89b0c248411047ac6df20b0f89bb02ccfcbcb88babebba15",
+      "bytes": 9272,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Debug/EmeraldLobbyCheck.cs.meta",
+      "sha256": "061346a180cf526c08b7de6ea1ef3ab05f5c1680b6ad275d1c1fbec35d1ceac2",
+      "bytes": 60,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Debug/M1DevOverlay.cs",
+      "sha256": "2bed2babe80b8dd4624870c4d39664899fd55ce3b883253def05e678ba471b0f",
+      "bytes": 4250,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Debug/M1DevOverlay.cs.meta",
+      "sha256": "aa38b4532650724bd666ff7281f988c76a75822eb0cfb339c9698a3d74ca012b",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Debug/NaturalPlayBattleEvidence.cs",
+      "sha256": "387fda21e7303b1215398f7bb370ed3bcb528a85a446136f85b3ec074863312b",
+      "bytes": 34525,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Debug/NaturalPlayBattleEvidence.cs.meta",
+      "sha256": "ff9030f8a1935b21e9e07ea255dbe5cffc7794418f23a9885ec6a78a8128393a",
+      "bytes": 62,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Debug/NaturalPlayRuntime.cs",
+      "sha256": "f7c45364a9074eb219727b357b3f49102a9205a5f5f74a505ee272afb849b27d",
+      "bytes": 81175,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Debug/NaturalPlayRuntime.cs.meta",
+      "sha256": "feab77ebf1ddf3ce59ebaf3c96aca9173baacdb0d12c2e74d8ac40709e85dd5f",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Debug/VerticalSliceSmokeRuntime.cs",
+      "sha256": "1cf1e40b332d6707b9203a7fe7ac93bbfea66519597f91235634cb38aa00c186",
+      "bytes": 41011,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Debug/VerticalSliceSmokeRuntime.cs.meta",
+      "sha256": "89cf876eec93be52cfe8a43c4d697806052b70d80a43306330e4b685e5e92f77",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Expedition.meta",
+      "sha256": "eeda562866d41ffaac44c4bb8bfc31bd2e3bdd19cd460813e819bf65607cceff",
+      "bytes": 172,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Expedition/ExpeditionHud.cs",
+      "sha256": "dbf0470dbf1c4ac806f767cbb1f838c824e174fc7dc3d6bc64946e71386acd16",
+      "bytes": 31049,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Expedition/ExpeditionHud.cs.meta",
+      "sha256": "9a2dbccb2f4e9d46a3a0757d47084b44197e2e078a919d5848f0bbd4c3efd75e",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Resonance.App.asmdef",
+      "sha256": "d5fd2253682892fff79d084a13128728586a4b3e4f531d9c31fc11d80a023a00",
+      "bytes": 387,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/Resonance.App.asmdef.meta",
+      "sha256": "e56e3eba1fcf7be9b19b184e42a595034888ed14012491c5b500f7588a5cdad8",
+      "bytes": 166,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI.meta",
+      "sha256": "1616b054f51509d2233212ece8990ac807f38884f0b4ffa61dcafa8d899a16ad",
+      "bytes": 176,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/AchievementBoard.cs",
+      "sha256": "61df2de057340482640c1e4c841bd20a943640be9936f3beba418202f573ba5f",
+      "bytes": 6856,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/AchievementBoard.cs.meta",
+      "sha256": "bcd7c647d2b691698c51fb8305a4d10818b1ceefea13f9c6ed5d0c4193e978aa",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/ArchiveBoard.cs",
+      "sha256": "f7bcdfdcb4cd3f29cf1f5965c5f292b6216eede0237ef2837d99d7b23361dc6c",
+      "bytes": 20386,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/ArchiveBoard.cs.meta",
+      "sha256": "22090c576b4fa0dd7869ddeaf7ecfabb948649b29d0c078cfa35749f97825b89",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/BattleCueCopy.cs",
+      "sha256": "8fdd8bd24ffa930fb0c0fbee2696ba50499825a15fc69e03444c598910aa6a07",
+      "bytes": 55019,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/BattleCueCopy.cs.meta",
+      "sha256": "0776e61befa5d7d20ab86a78e193d57481c5a53bd1fa85f52d48d5eff027d35c",
+      "bytes": 62,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/BootSplash.cs",
+      "sha256": "59605b49f1680591acfe63d1dd15e03f7d1ea7724fe3568696110dedd8af6222",
+      "bytes": 3140,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/BootSplash.cs.meta",
+      "sha256": "7c5b5c484527b04a053a894c09e74d5e5fcc18a289eb448fb85cfe29735bd6e6",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/ChapterMap.cs",
+      "sha256": "163094b6e8b76899d394000205f6475c4e0809d4b51f0eaf7c1403672b65e452",
+      "bytes": 11304,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/ChapterMap.cs.meta",
+      "sha256": "f307c90719cb6bffb9648be8e41fd35ac16604c0c43e906334b7682dec1f5945",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/CostumeBoard.cs",
+      "sha256": "22f5bc29cc5f8e17ce210dd843f237b83a515bedf8cbce6c9451f733539e6b2e",
+      "bytes": 7661,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/CostumeBoard.cs.meta",
+      "sha256": "79dc20727aaf51c18e4e57f7da2dc7f70fa4f6e6871726a1ad0bb295bfbb83bf",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/CurrencyPlate.cs",
+      "sha256": "fc451779c524e999177fdc028b68484f4a2395a1554bd677902d27b4a1cf3d6c",
+      "bytes": 4507,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/CurrencyPlate.cs.meta",
+      "sha256": "149ced42d24f54060a9995d2e4c8bb951aafd295daf272eacb7401d7e5c1ab49",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/DailyBoard.cs",
+      "sha256": "ae8a65ce0e8b7314ef0c0fc5a95e36e6ac3bae6384dfca3d6df8b3b42d5df805",
+      "bytes": 7439,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/DailyBoard.cs.meta",
+      "sha256": "cbc6e4f308fb3858ade96dbf98492d56c8a33d428b368829663dc8ff69bbe521",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/DeepBoard.cs",
+      "sha256": "2b9d40036e6477502d765d48a9580cd03215d15c12afe8bcbb81ca764ede7e67",
+      "bytes": 5987,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/DeepBoard.cs.meta",
+      "sha256": "098beeef313ead97081cc05c54c37022e225e041319e38d747a9bdb71e592fe3",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/EmeraldLobby.cs",
+      "sha256": "59f3b2b82c7e529a9929573e4dd9b5ddfc328bd826f48f660a7f79fc615c71b2",
+      "bytes": 3389,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/EmeraldLobby.cs.meta",
+      "sha256": "1bbe297b15c99f836248e19699e10fffcd7cf85c4dbc1825c4cb630ffacfa5a3",
+      "bytes": 60,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/FoodBoard.cs",
+      "sha256": "0b7bddb9bba57ec4beae0789739e644fa48cbe3939c7f67142869cf9bd1d1a7c",
+      "bytes": 7343,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/FoodBoard.cs.meta",
+      "sha256": "9d140008ced35d526c3e00fbe663919d66573bc3cd44c3c8027d9dc18834eaf1",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/FriendBoard.cs",
+      "sha256": "bdee367948d820851f1355698e6d37c55549abceeb4943a99d7542ec04685ae7",
+      "bytes": 11192,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/FriendBoard.cs.meta",
+      "sha256": "e5a6e2212ea982f2d422542c170d681fad254bf5314f99ac5302f3b475cf3550",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/HomeHud.cs",
+      "sha256": "0f40410d915ec1f6be8dc94ed752a4345fe7d46e5cd6a69827954455402b4fc7",
+      "bytes": 20102,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/HomeHud.cs.meta",
+      "sha256": "014d98c30b026ca0fc706188dbeab6b728a573ffcfdddb0a82599cd0d05ad378",
+      "bytes": 243,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/HomeIdleFx.cs",
+      "sha256": "b6b7c0706447714fa88958e884687a0680ff6b2a484d8e106fe9b09a684ad1e0",
+      "bytes": 6680,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/HomeIdleFx.cs.meta",
+      "sha256": "935bf600cb3d908179c4dcf2a0ac6b0acf31c89ee8bdb01cc8404fe96948ed5a",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/IgnitionBoard.cs",
+      "sha256": "2e876346dc7c4454a1fde896e3c9d5790b6a541867b19012f274088d493c382d",
+      "bytes": 8207,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/IgnitionBoard.cs.meta",
+      "sha256": "18539efd37d5619f16c793417160ba77ae0b5c4bd943d910d30301622759be02",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/InspectBoard.cs",
+      "sha256": "33e41f4d5d2aa26f755dec5c4d67e021d91d74069db354d84326fdd4ebaeaca7",
+      "bytes": 42542,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/InspectBoard.cs.meta",
+      "sha256": "874ed1bcea3450a85f08d6fd9c7059337b304c4d1ebe3e65b34cfe5cf1f8c4b0",
+      "bytes": 243,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/LibraryBoard.cs",
+      "sha256": "606f3279ac5d64ac87d76c524790917e5d0e05e23ed5244a70f6d9eb7792bee3",
+      "bytes": 8274,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/LibraryBoard.cs.meta",
+      "sha256": "c2647159c752f47eb6587b29d234f91c65c55305a1988962314f043fd73b581a",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/LobbyRail.cs",
+      "sha256": "e064fcbb5bddc7ca2f5c68547ef9995dc9537016012e32d19e2eee5fc5d8ac04",
+      "bytes": 12110,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/LobbyRail.cs.meta",
+      "sha256": "ef745013b70637837109efb54f9cfe1d9f84b6506fd03fac16946b490b7dc017",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/LobbyStage.cs",
+      "sha256": "a1f05dceaea2f6f8dea00e9126cbacacaa356144fc924c8aac56ed7685a5fb13",
+      "bytes": 5650,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/LobbyStage.cs.meta",
+      "sha256": "b8ad3a1a0e519b68f44d65e845d98cbfefe97dc37ad06e32cdbb550bc3a0e2c2",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/LootPopup.cs",
+      "sha256": "8a6e6ae1f4d545b5a64f1869e1f5b39bd93ddda5ecc18171edaddcfaa18d5a63",
+      "bytes": 4574,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/LootPopup.cs.meta",
+      "sha256": "79163846b00f3e8cb8caf5bc9990c0351ed8f0fe2b0c9d592bb340986870dc17",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/MailBoard.cs",
+      "sha256": "6218ababa24b5348ccca69abc74c5bf7e93f0da096efd4f29b296461d196503e",
+      "bytes": 6526,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/MailBoard.cs.meta",
+      "sha256": "8e015dde7709450d40909a63487ed44a3bf5c0ef971a7414ec4124df76196801",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/NebulaBoard.cs",
+      "sha256": "00d178ca1b0f04a8307ff1ee7dd419166873208a681b0eb7dd50a0d5974a996c",
+      "bytes": 13596,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/NebulaBoard.cs.meta",
+      "sha256": "741443067c20d8020a46b2cce38c9ec27437c126549328ffa76831af67377c79",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/PauseBoard.cs",
+      "sha256": "f2ff3d8a0ae16003b7e876e5c62fe4523954a9219b1a899e9172cad2a9d93d62",
+      "bytes": 5766,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/PauseBoard.cs.meta",
+      "sha256": "373a56dd2adddbb0a8d011cee0f1399312f9498a5dc3d9c8b867a0c671587210",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/PauseBoardBind.cs",
+      "sha256": "75988e39e3591018fc5df38620c09a7e709dfa856dda65d5585ebcfb1cd86365",
+      "bytes": 3472,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/PauseBoardBind.cs.meta",
+      "sha256": "cc422607a25071eaae63090194b63cb205cab020896e15dc2b252cf6d4458440",
+      "bytes": 254,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/PauseClockReadout.cs",
+      "sha256": "7f6db5032dd54e19a79443eeb5297d831bef953141b54c928a05fac085d12651",
+      "bytes": 4526,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/PauseClockReadout.cs.meta",
+      "sha256": "4415e6000b04779d172229e440b85a8ae9dc324962145187ffb817814ebd0e44",
+      "bytes": 254,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/PerspectiveFloor.cs",
+      "sha256": "7b66b9b5ddaceac401dab773d35c47d7afe23ca6d6ccae2f91ba76f707464f5c",
+      "bytes": 1221,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/PerspectiveFloor.cs.meta",
+      "sha256": "1ad4958d2f18eb12a072bbf84767aa206d2b593784b7c0abeca5866069c8a9c8",
+      "bytes": 243,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/PhoneDisplay.cs",
+      "sha256": "1472cf6939aa4e8b10c72d2e176e865d2f10e172499d9df8d0e2270d1d4a179c",
+      "bytes": 3713,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/PhoneDisplay.cs.meta",
+      "sha256": "c45a60917887230e0a694cd96859a20ad3015ffc764b07793973c7a41f2b7f4d",
+      "bytes": 62,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/PvpBoard.cs",
+      "sha256": "036bec3cdb2e71b8fe5d392c2471c51541258d77c37c95097eb2db6d57e3641f",
+      "bytes": 5717,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/PvpBoard.cs.meta",
+      "sha256": "2cfe88b7d3d200e18b426b98c41076f89a52e390b4addedbc509f3e684579a5e",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/RestBoard.cs",
+      "sha256": "f7b6660e9d722a2ffe31ed6450b776d10c0dad01a6a6e37f9cabb8c601fa0322",
+      "bytes": 5453,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/RestBoard.cs.meta",
+      "sha256": "310d4a81d1289f5c3594b822c409fd5635b5cb7ff2c0d95d1003c39b482c796a",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/ResultBoard.cs",
+      "sha256": "0035031d2647d8786899bd6d57fc5fc7d53b9892fe2703c74a65d39beddb3755",
+      "bytes": 12926,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/ResultBoard.cs.meta",
+      "sha256": "017a697029e7da8347673e81fb517d2dccc50c28572c33e86d03c8fe333957cd",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/SettingsModal.cs",
+      "sha256": "6fdc5655832bc1c815d7aca135e2195ff36f87f053780bae59a93302ad1faf09",
+      "bytes": 8674,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/SettingsModal.cs.meta",
+      "sha256": "e0e78c61237b20c47855aa5c2d33d868d0d9e30777254484b468d5e43b87a3ce",
+      "bytes": 243,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/ShopBoard.cs",
+      "sha256": "7ab0a4ad0c05cf8e26ce4c4940da8bf2f8046f95bd1960671ddce7ebad274d4a",
+      "bytes": 5961,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/ShopBoard.cs.meta",
+      "sha256": "5356234e7b56bec60d53786c05d8709988e51757a1d5399214b61875cd549188",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/SkillDemoDrive.cs",
+      "sha256": "a4704d0af0d19fd3516ffc981006f8739e2cb349292aca4b837e60dac9b00ca8",
+      "bytes": 31062,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/SkillDemoDrive.cs.meta",
+      "sha256": "44950ce7d339a543661da4bf4585e11530a8753e3ce90a900e56a90f17a02a93",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/SkillDemoSlide.cs",
+      "sha256": "c83cc7ef03244fee9b46c68980d87317c63ad4a932d3b75e859410587e50739d",
+      "bytes": 25664,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/SkillDemoSlide.cs.meta",
+      "sha256": "924279ef4ba84cd965e318b7b68d16ee09321b2e6c3ce9b15b1c4288181b8a2b",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/SkillDemoStrip.cs",
+      "sha256": "36242c043c07a5175272edd780464c01790900390fd7d7d27e33c210dedc1f1e",
+      "bytes": 24459,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/SkillDemoStrip.cs.meta",
+      "sha256": "5ecd29881faf3bc4484abf7ee17efe6d9becea72e029fa33f2cc439192e7c649",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/StageBoard.cs",
+      "sha256": "c570f12109ee811e59e82af53905b2d702f8f3b8addca1972632642d0781d702",
+      "bytes": 6632,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/StageBoard.cs.meta",
+      "sha256": "9763b2021ad299a8999d4670a52c5bfccd204990d4500696ba56a9db31695aa6",
+      "bytes": 254,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/SummonBoard.cs",
+      "sha256": "3d35f1dc0bb0649119a4b125a63ef4125d472692af8067f3c90bb7fe43a359d2",
+      "bytes": 4625,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/SummonBoard.cs.meta",
+      "sha256": "839bf296e2f32d1e8440a6d36dcdb0afd26ec5f0b5f79eed6db2bd28560f6dd2",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/TeamBoard.cs",
+      "sha256": "76ef4828b961d9041d802b1423c13b145c1f51b22f55e1d4e344940c1ac0ad02",
+      "bytes": 27633,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/TeamBoard.cs.meta",
+      "sha256": "b7fea831a37d054b23d1523c2edf81307f4c886cada0bffc77c7c7a2f6affa43",
+      "bytes": 243,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/TitleBoard.cs",
+      "sha256": "cee82e3bbe80edf12d067454b4c7b04716101caf9f7bb48eea329f3390e67092",
+      "bytes": 7726,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/TitleBoard.cs.meta",
+      "sha256": "544ee2b63f76586016fc93b25e4134374dce0e0c311b9a1309afacf50e490e14",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/TutorialBoard.cs",
+      "sha256": "f63c11b6007c8306c1934327ee1cb4337321c910705adb76b4d7f4cfc9e45411",
+      "bytes": 6761,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/TutorialBoard.cs.meta",
+      "sha256": "41ed2eca01bde9ce14ad53926bd9ec108cfd711d590f7cc331f5b22101bf7dcb",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/UiChrome.cs",
+      "sha256": "7736ad3b5eadc11152e8ffa10493578eeae672fd7464a8f5c2dfa9d01f164ea3",
+      "bytes": 33389,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/UiChrome.cs.meta",
+      "sha256": "7c416700f30242f4157aee3a6808f3ea420e83071b6ca1cb198b73b233139708",
+      "bytes": 243,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/UiSprites.cs",
+      "sha256": "353b614b245f5db709eb988f642415be79cc47c6dae678774241239f150a7231",
+      "bytes": 61241,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/UiSprites.cs.meta",
+      "sha256": "e9e0258ebbe1a2e582be17a22bff38412c1dad5fac5c6a563242089a6b8331db",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/VisualTokens.cs",
+      "sha256": "a0d1bca6db4bb33a689a8f713aa37ba351e6c987d55aaf94a9b4367008280bb1",
+      "bytes": 5467,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/VisualTokens.cs.meta",
+      "sha256": "774a53a1cf3fe4e0f6f5cd62031c4dc2670c104c026cbc40876d61438d41055e",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/WavePreview.cs",
+      "sha256": "eae7c17b700e39327b3dcd2ba80a4cde1f1afec8db1fd48e8137491ec82997b7",
+      "bytes": 31536,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.App/UI/WavePreview.cs.meta",
+      "sha256": "3947ebfa1ce08042ebb0f93737edafb07eaa469ea63608443dcba5c44f71b70b",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle.meta",
+      "sha256": "86f6cef9ee815dbd1efd644478e7a8601d800c9b4df686ead15f81bf955d5da9",
+      "bytes": 172,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Content.meta",
+      "sha256": "3649d8b7b6ee9d85d9754cff5edb1b210e505011dbb2ce9cd637638bdcb408f9",
+      "bytes": 176,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Content/BuffCatalog.cs",
+      "sha256": "98c823384ad274174d3f6cfc236c06b73f135ea3b6d4ceafc7f7814ce2a22361",
+      "bytes": 14098,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Content/BuffCatalog.cs.meta",
+      "sha256": "69e9670c7dcc7b1524a4b482ebbb3584582a92cb2e485aef872b201f823efba3",
+      "bytes": 60,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Content/Catalog.cs",
+      "sha256": "d3c1c11fba42387d89e782de50e632f5b090878d5ddf8acf663b9035891fbfd5",
+      "bytes": 63032,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Content/Catalog.cs.meta",
+      "sha256": "b6eeee442ae46dfca43c5fb8c182405571d276459a4f23ef45e2f7dd5b0b309d",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Content/CatalogJson.cs",
+      "sha256": "87d3b42763fb0ec111c0f50b72911f0ed6dce25cfb54e140db4d1b0411fd47da",
+      "bytes": 31690,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Content/CatalogJson.cs.meta",
+      "sha256": "6aa8923d716395cb0d0d41c165d6ba56530ac8043a85e62a82dfb47deab2bf6f",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Content/DesignPlaceholderPolicy.cs",
+      "sha256": "6332fd315d9fa5006b56f53be6109929913fcb5f4137d784c95a40d39470257c",
+      "bytes": 2061,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Content/DesignPlaceholderPolicy.cs.meta",
+      "sha256": "a4ad99300d4c09e1ccb7b9f5e4cd53eaf1dbf4ece5e772d6a9ba157417da66fa",
+      "bytes": 62,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Content/SkillTags.cs",
+      "sha256": "48be279d2f00ca01b2cbf340108791d8187a9e482f5b9ea3b9b003bb3b05241a",
+      "bytes": 3258,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Content/SkillTags.cs.meta",
+      "sha256": "6c87825bf6c9c9207aa89200dbfd8c3ae737eebc74bf9365f0c76556d1fcdc9f",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Content/VerificationCatalog.cs",
+      "sha256": "f5b9ed8b4a7cb4103b733c0f84cf7c5cc8aa9471364e25aa77b553a54bdd336a",
+      "bytes": 8248,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Content/VerificationCatalog.cs.meta",
+      "sha256": "692c6a117d8072596d2e391369037fc025c1431a84d8a079bc204ce284b12a7e",
+      "bytes": 62,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Content/VerificationScenario.cs",
+      "sha256": "0b87f448382b85920e112393be0bf0bd1efec814a8f0df898b6161c0b0636e1c",
+      "bytes": 8462,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Content/VerificationScenario.cs.meta",
+      "sha256": "fc6b61765c1495827ff2a5118323d53405d17de99f964675e2e99d224f0958ec",
+      "bytes": 62,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core.meta",
+      "sha256": "44fa523379157a391c3034c18e7d2bf790848ca07f680f81dad35fbb88b5078e",
+      "bytes": 176,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/BattleEventLog.cs",
+      "sha256": "dae85a5544dcdd41e7a99c31cc62d77a8b0ec064662dedb62c04c6396f65760d",
+      "bytes": 6990,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/BattleEventLog.cs.meta",
+      "sha256": "39319ad033f0f15bb71ad77c34b083ee8b7afdcec9d79ee3719e12b224304b5a",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/BattleReplay.cs",
+      "sha256": "e1d23391c402ee8daf1915ef68a1fa5ea2f0a3be5ef9123f0054e9b153a00e60",
+      "bytes": 137103,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/BattleReplay.cs.meta",
+      "sha256": "31d0515557cb2c3190cea59e6c40047b0ed5426fb091e03e100ea29cb8dfeb88",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/BattleSim.Commands.cs",
+      "sha256": "2e67c7306cadc43cdba2e330cc7418ba93bd70532f011fe38b07538e8c417c1f",
+      "bytes": 12050,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/BattleSim.Commands.cs.meta",
+      "sha256": "258a16b8f79a474e1130ec42a0f3333e7126c89188074d3b67da43e451a9b3b3",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/BattleSim.cs",
+      "sha256": "0a97e05dc33394b308aa90110a77a414d155ebfd2539591e9f1ca876bf3f1ee6",
+      "bytes": 80486,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/BattleSim.cs.meta",
+      "sha256": "962e717b75ebfc0510c3705cdfbb2fba554026a65d9757c3833329eb0282bedf",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/BattleSim.Expedition.cs",
+      "sha256": "1cdf3269d1ebe353c51c941802306098bb9472c3217e0f58ac4171ade47bdee7",
+      "bytes": 9064,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/BattleSim.Expedition.cs.meta",
+      "sha256": "c0eebc246dd71976cac8eb1018d8438045e6edbff44a04489d1cc400a5b06138",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/BattleSim.ExpeditionEncounter.cs",
+      "sha256": "52ab0f19570e74a0eba683f90dde667aa1673838f5467f8adaadc93970c6a4b7",
+      "bytes": 3698,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/BattleSim.ExpeditionEncounter.cs.meta",
+      "sha256": "5340ecd735b5f32ee1a3cb17aca1b3ba15583e26d64b46b093123310d3a6079a",
+      "bytes": 60,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/BattleSim.ExpeditionQueue.cs",
+      "sha256": "9ea5bc63cf591494feba5dc78d111d863a4ef78206e3c86fada8083f120a95b6",
+      "bytes": 7317,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/BattleSim.ExpeditionQueue.cs.meta",
+      "sha256": "505724131057d057ff07a79fcf81a49fc1130aca5956a2fd4aa9053cab0e1872",
+      "bytes": 60,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/BattleSim.ExpeditionReplay.cs",
+      "sha256": "bf7f12d68db3af45af886462ba98696ab77e16009be19ab3a92a517bf90c4314",
+      "bytes": 1097,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/BattleSim.ExpeditionReplay.cs.meta",
+      "sha256": "c3f37d95d4c8ecd6053044b56c51abbebfd2a7e8336514cd1f6677c31a074ad4",
+      "bytes": 60,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/DamageMath.cs",
+      "sha256": "fc2931923ab4a4cdb6b6b8d95d1c905c31bde02026be1a04522fd0be2b6d2ad8",
+      "bytes": 21647,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/DamageMath.cs.meta",
+      "sha256": "76f96d3f401b70152901850b45774f5171593b74de6328c203f9f14e2723d457",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/Definitions.cs",
+      "sha256": "a78183b13af3ebcbf575c12a8b68034a09bcc6ce4f4b637a845b4610cd868e06",
+      "bytes": 3902,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/Definitions.cs.meta",
+      "sha256": "4420ad9d657bf704b1c3c8ca6052acca4a3d86178535b9a3278515d55357cc84",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/EffectCapability.cs",
+      "sha256": "6facdb402938ad6d1e9f03ad826aee38e3302b15621475f58448cdd719a6633a",
+      "bytes": 52397,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/EffectCapability.cs.meta",
+      "sha256": "03e1bbd185d63e0e47296eb64ef8f992c3d986db82c566627bf03af1393eba4f",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/EffectOpcodes.cs",
+      "sha256": "dd6d45ad44e97d01b486da5b222217a0005b90490c8d49dab4b846315d20fbbb",
+      "bytes": 4280,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/EffectOpcodes.cs.meta",
+      "sha256": "f03358fc604a2a7fa11214b5e9242c9d34f1ea956c426fb015b299645124e3b2",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/Enums.cs",
+      "sha256": "f44e942ccff5266b8d8ab884dc8059a01164f8fef77ffbfb11c0e90938bebdba",
+      "bytes": 2102,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/Enums.cs.meta",
+      "sha256": "2f51ff6e3e631c1e3e3ff8059a3170c4190a218fc735e59ef219e531c3bbfa2e",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/FightStats.cs",
+      "sha256": "e65990a57326351c5ea0a0127748bc27c1a584a16384a1fdc4de9d19e91a5c9e",
+      "bytes": 2564,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/FightStats.cs.meta",
+      "sha256": "55b8cc91cad95166c029730d308df64df6da70f2ae43ea0677e814fff525e721",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/FormulaProfile.cs",
+      "sha256": "67cec8fc03d678e0a04ba0e683457686a2416eb5fc3183685064caff6d0f9cd5",
+      "bytes": 7363,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/FormulaProfile.cs.meta",
+      "sha256": "a05097c41c9188638827eddf876e70450251d8fc9f55d4b489eabf3bc92a3cca",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/LeaderSkill.cs",
+      "sha256": "046702d5325ea4a847dffbda29115a8979f8e2f3c231567c371be5705042c84f",
+      "bytes": 8293,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/LeaderSkill.cs.meta",
+      "sha256": "fab07e147c2b425f095ae1a5609c7c994271c701b048bf32f20532cd00e4c67e",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/SliceDriveSequence.cs",
+      "sha256": "ab1d441dde998aa0f56bbc256e4ffb0328b7c02650b60d93eb2d76437af6eafd",
+      "bytes": 3502,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/SliceDriveSequence.cs.meta",
+      "sha256": "491e6a97f4cdc7bc9c0d77cb5d5012a1e322c92f965e3f0d9e4ffba2de29f267",
+      "bytes": 62,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/TargetSemantics.cs",
+      "sha256": "a5d33df5f603cc20e545948ac65d9f6dc57351cd9e5f1b688c496b2cd4787b84",
+      "bytes": 1768,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/TargetSemantics.cs.meta",
+      "sha256": "e08be421af303ec1abcc521cf1c1831cef93374b980d6f274bc2cad21602ddaa",
+      "bytes": 62,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/VfxGoodWindow.cs",
+      "sha256": "8c2a6202038139c3d212755b2b22541191d64a736339250031851a3ecc0c5831",
+      "bytes": 2534,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Core/VfxGoodWindow.cs.meta",
+      "sha256": "38a2d6a8bb78c16cc22229ac9e6563da84bc79ba1d00fd9f6974df9d9094597e",
+      "bytes": 62,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition.meta",
+      "sha256": "7003a403bc7365bd5b77dc3d42472bf3ba82d1709ef77783340df1b6e2c62eb3",
+      "bytes": 172,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/BossEncounterController.cs",
+      "sha256": "5b545a86808be844da2353aad201beb143435e058289acb39d16b10e36fdb8da",
+      "bytes": 13777,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/BossEncounterController.cs.meta",
+      "sha256": "583a4a9c33b1eb8e6127cf91426e8e060b13657b53df4d9eca8687aca12fe1ac",
+      "bytes": 60,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/ExpeditionBattleFeedback.cs",
+      "sha256": "b69ac1a8550fd0912b1f3fcd3135e30d752a7548dfbcb6a8124c0a1738c5d33e",
+      "bytes": 12470,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/ExpeditionBattleFeedback.cs.meta",
+      "sha256": "0a4358f357cc40d535f4b7389649e33336b70882a8709d87a1653054f548b2f1",
+      "bytes": 60,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/ExpeditionBattleInput.cs",
+      "sha256": "57270cd1c0aed719af68e0971f7c1d7c95e78caeab1f750fb50b8005499fa5ed",
+      "bytes": 7626,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/ExpeditionBattleInput.cs.meta",
+      "sha256": "b88005ab0a0c7b8f25bb27cd5a3c48482bdf3411bb18597d4ecaa08942c6bb73",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/ExpeditionContent.cs",
+      "sha256": "9d4feff324e29154465d9efff7efa20047728ea2c101f7bd0e81b6790e10906a",
+      "bytes": 19954,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/ExpeditionContent.cs.meta",
+      "sha256": "5a73b3cf1ba6c7dfa76bbb15775897ec8fd7610705a9ec60d40321afb7862265",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/ExpeditionFlow.cs",
+      "sha256": "c0a7ce84e1848a6f8c4ce638aa07b979a533a2f733181ebea0689bccb3570200",
+      "bytes": 14060,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/ExpeditionFlow.cs.meta",
+      "sha256": "575d602c5c492b8c8f2cb0740a27622d5e3821eb20be209b480cac3b71fae894",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/ExpeditionRelicRuntime.cs",
+      "sha256": "e8955ddc6c7c66d87b932c2a0d4180b9f6d2959404bf97c5ca3abcc25659670d",
+      "bytes": 19536,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/ExpeditionRelicRuntime.cs.meta",
+      "sha256": "99868fb49cd1a88ed120bac7df6fd451284339931aeabec121fa39af93689169",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/ExpeditionState.cs",
+      "sha256": "5c6b2103aa7049a8eea0c462d75b12c6293ed64452148bf9ddbe98d8ee5ed51e",
+      "bytes": 2308,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/ExpeditionState.cs.meta",
+      "sha256": "3ea81b88a2902dcaea4e6db2c92766842582ea56cea18c979afb37886bbe5c14",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/OriginalBattleReplay.cs",
+      "sha256": "a06a805252e55f09b6b296d015b6a06f181afb036c4c1a1783bb80d620312176",
+      "bytes": 12190,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/OriginalBattleReplay.cs.meta",
+      "sha256": "2899c8ffc3ccd61602dce4bc68661f18e5b8d99695ef8bf06cda117cd7f29b01",
+      "bytes": 60,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/OriginalModeSelection.cs",
+      "sha256": "e965312c4218f24e8d367fdc70f2fad8687565144770a6b7f993fc982be36ab4",
+      "bytes": 490,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/OriginalModeSelection.cs.meta",
+      "sha256": "3a6f0ff398212491ae99d4baa457ff12d18b978513afdf2f30a5ca9cd42f28cc",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/OriginalProfileStore.cs",
+      "sha256": "ab437e18ca01444365e19abd0fa3733ef618789d0edceda917e91e57cc2e0637",
+      "bytes": 8748,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/OriginalProfileStore.cs.meta",
+      "sha256": "e6a0e650770f9e1ecb561a07f29a342fbce7b07fbe08960307c21ccd7b06edcc",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/OriginalReplayStore.cs",
+      "sha256": "70e3e7126c498c266d0ac3daa695c47a4f7b69e161bd67d6e6fca5f58ec6ee25",
+      "bytes": 1553,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/OriginalReplayStore.cs.meta",
+      "sha256": "1346e2bc46c844d7a4b1589ccee6a661a6b20fb4d0558405d5ab9019f0a8a9a4",
+      "bytes": 60,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/ResolutionResult.cs",
+      "sha256": "04584d9d9a47b7bb1acd0cc80a102c5eef6ac21a84f284ba19b7973416d62803",
+      "bytes": 10093,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/ResolutionResult.cs.meta",
+      "sha256": "4333f9003cfc890348273abbad82e9ad205247e8ee8b0fbc375ae441954e67aa",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/RewardDraft.cs",
+      "sha256": "e03036de452b82003aa3348a2d6a4e1eca6db9c2064f375cc02d5eefe479ae11",
+      "bytes": 3432,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/RewardDraft.cs.meta",
+      "sha256": "8ede49c05da9a02177b0df5126b3df959953d4a33447eca313e2532a92b693e6",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/RunBattleFactory.cs",
+      "sha256": "2781db1dafd1f54eec78b8a5d3db4d6d50974bd4eeb114a83eb24ea534814741",
+      "bytes": 14247,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Expedition/RunBattleFactory.cs.meta",
+      "sha256": "d86545e1aeee80b790473827df389daab328d479bd13c17606fefc5b6f4d6d37",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Loop.meta",
+      "sha256": "529beb68411a98ff54c73220469663d21e37d0b34f2709bf135f46893d0e7b6a",
+      "bytes": 176,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Loop/MvpLoop.cs",
+      "sha256": "d82d24fb5eab3386d868691c54757ac2e7d52e944f73d94f9bc9ad3dd69b8e81",
+      "bytes": 4033,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Loop/MvpLoop.cs.meta",
+      "sha256": "7f0159ad5837d8adfcf1bf280354b7230c50603b66491bfd13156a19eb7a4a7c",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Progression.meta",
+      "sha256": "a5ffbc12addf86935aa5aad65c47d0a960bc2a75527a5689b1dab22757431fa1",
+      "bytes": 176,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Progression/Bond.cs",
+      "sha256": "3ad72cbc3260c205a11a3a7c4d29595fcf406638928fb1fc9785130b6ea05e7e",
+      "bytes": 1061,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Progression/Bond.cs.meta",
+      "sha256": "771d82e030541b0c6b45a1d8689bf81af062e2907a120e33b4c0c28870f5ab25",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Progression/Costume.cs",
+      "sha256": "b16a60ce9ea8dc34579131f4d412fe3e6c0f5664383cdd5e13323a9bea471a3a",
+      "bytes": 2535,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Progression/Costume.cs.meta",
+      "sha256": "5dfef04921af69c7838fcf882804c8bd126ca3b740f1c6540f0256c81547f61c",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Progression/Equipment.cs",
+      "sha256": "8f2f6837b72f53fdaadc52f0c490bcbc5a486ee9c8be69a49c560fa0a5039d37",
+      "bytes": 2638,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Progression/Equipment.cs.meta",
+      "sha256": "880eb49ef8c3bd01a7d9ce4bf2ea362aa71c3ff13d6bb7bef394d00881180541",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Progression/Food.cs",
+      "sha256": "99e4d45a2a7e283de3de71700e55b267bf2dadefb9b5952a00ee89f4b9938a0a",
+      "bytes": 1053,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Progression/Food.cs.meta",
+      "sha256": "caf64f8938999aa044d8cf76ac17fb1415aedbeed5dce8c412a615d064dbd153",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Progression/Gear.cs",
+      "sha256": "6abda25bb9fb73ceac156e01a70564a69de26869a44007737f5192feee7f5c2f",
+      "bytes": 11780,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Progression/Gear.cs.meta",
+      "sha256": "b216047cf7e37552bc2899e2e0a691af66119ccba2e1d97a780d5f1c468ef9b0",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Progression/Growth.cs",
+      "sha256": "e92ca5973fe65c1f5af9901e4b5c4a239aef11a4592052eccb2ebce011196010",
+      "bytes": 10770,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Progression/Growth.cs.meta",
+      "sha256": "f88e14827fb507a755d5e8db1f5de03c85204639ffcad08089baac0695170be7",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Progression/Ignition.cs",
+      "sha256": "d9d68936a99992571ea430f8119a9f48d82d5099c5d2466af9ec31c83834a33e",
+      "bytes": 1796,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Progression/Ignition.cs.meta",
+      "sha256": "44731586eb7800132879979fda79cf0609cb00b3ecb76b47aa9c36b9f40b39b7",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Progression/Puppets.cs",
+      "sha256": "13fca9d0b1e3a8c0d92d7ed64e8f1dfe028226d97dca8fa1c9cf735b2622c528",
+      "bytes": 5605,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Progression/Puppets.cs.meta",
+      "sha256": "4bf66ed863b954027339a1b4b1f3a2f59b8bd41ec49ced8da7e05a8324cb3cd2",
+      "bytes": 60,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Progression/PvpRules.cs",
+      "sha256": "d56ee36dbb6434c36dff4dbc6c3e2281764751f4f05ce0904e165ebb3a6de04b",
+      "bytes": 430,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Progression/PvpRules.cs.meta",
+      "sha256": "57488ff865217836ef2632e5a1d77e899bb863a0cd4e4cdf9463fce6fa0ee3d3",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Progression/StageMode.cs",
+      "sha256": "a6fad305976c19cef978de8f9a10054fa6c14155693a1fb13d37e6141df760ef",
+      "bytes": 486,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Progression/StageMode.cs.meta",
+      "sha256": "b26e6cec38ddb656a980bcaca623cd70cf6058d83a41b2b7dc5048207f2a9c43",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Resonance.Battle.asmdef",
+      "sha256": "7511f1eb6dbcbf1e295541323ff1db7163bf63d2c6022876ce7782838c36428b",
+      "bytes": 379,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Resonance.Battle.asmdef.meta",
+      "sha256": "6d47127c9b130e691af2d3cc20f9264c49e85252929b9e91ef24381bbe542116",
+      "bytes": 166,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Save.meta",
+      "sha256": "eff2bd2161dba5bb06987bd050754f5be671a56c804fb12cfe1dc59166be6484",
+      "bytes": 176,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Save/SaveStore.cs",
+      "sha256": "d1be1a4f8237d5992188bab06307c22c51be892ac7679a3c4424336ed9e59fd3",
+      "bytes": 35558,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Scripts/Resonance.Battle/Save/SaveStore.cs.meta",
+      "sha256": "fabdbc491921f8c1290e7b624d863d0d62a46d705aa532afe1f418a4bf5219ce",
+      "bytes": 59,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Settings.meta",
+      "sha256": "dffc985268e7cc348e0df24e98a0d543b8534d286176073e1574ef7b025b6637",
+      "bytes": 172,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Settings/DefaultVolumeProfile.asset",
+      "sha256": "463776c51ae49d4fef980e8fd268081b2f505610d79315003faae1acff8f4115",
+      "bytes": 24035,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Settings/DefaultVolumeProfile.asset.meta",
+      "sha256": "efbcb026cee6b8e32fdf27018c06b0515296a6ccbb43969e792fea270310700a",
+      "bytes": 189,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Settings/Mobile_Renderer.asset",
+      "sha256": "2043eaf96a62493c1b43b600c02d8b6d1a5aec5ca9cbccb7ae9c6f9ec397245d",
+      "bytes": 2189,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Settings/Mobile_Renderer.asset.meta",
+      "sha256": "a148ee2b4987b05b8ff7ae5f9bf84916184f77aefddc821dceb551f5a69f8179",
+      "bytes": 189,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Settings/Mobile_RPAsset.asset",
+      "sha256": "e1dd9cc2222bfe29b52c62306d83b2758e87ef987779adf6b2f1d32ab736d5de",
+      "bytes": 4650,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Settings/Mobile_RPAsset.asset.meta",
+      "sha256": "53ea46647712c615fd1a3f2e0dddfa8559eeedc649e9a1dbf93ff913de28544c",
+      "bytes": 189,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Settings/PC_Renderer.asset",
+      "sha256": "3d0b01d8ded3327263b6690be128a3de58d17c514943ae42fe743a3e084a9c79",
+      "bytes": 3439,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Settings/PC_Renderer.asset.meta",
+      "sha256": "b5df8ddb2708c6ed4c133a5ff9ee95a75cc20e4ee3ed6181366a61aedbaf31ec",
+      "bytes": 189,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Settings/PC_RPAsset.asset",
+      "sha256": "70b76a59fb5b3ee0bbc0269df512833053efb96fd7abd681fd0b064a6c5cb564",
+      "bytes": 4669,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Settings/PC_RPAsset.asset.meta",
+      "sha256": "bb469b9b6f318e9e9bed29c3b2e73e79371c04743c6f95dd6603941f1cd3e53e",
+      "bytes": 189,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Settings/SampleSceneProfile.asset",
+      "sha256": "a8677d4bac051d24caa11cd622e39f968155ee277bfce132274f1de225692fe9",
+      "bytes": 3703,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Settings/SampleSceneProfile.asset.meta",
+      "sha256": "2e23abc214069f0adbf2b2207f1db54be7876629ec2a3681d0f4aa5b61622ef0",
+      "bytes": 182,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Settings/UniversalRenderPipelineGlobalSettings.asset",
+      "sha256": "8f5f859d147891670509bb91a5fae98a1cbedb5710f8e3b47885e9ae82625667",
+      "bytes": 27043,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Assets/Settings/UniversalRenderPipelineGlobalSettings.asset.meta",
+      "sha256": "f61661d8bc8dbe531daf09f6211ef978c7ba145c9207c8e76524396ae0722d7c",
+      "bytes": 189,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Packages/manifest.json",
+      "sha256": "a9374cebd8d9a370307496fc913ef6f7569903478f2af0ecdf336d298e3b917a",
+      "bytes": 1746,
+      "sourceKind": "project"
+    },
+    {
+      "path": "Packages/packages-lock.json",
+      "sha256": "a405fa8fe32c009b6f6a37a8f726aa5cd5d174cdb35203684c324b60ad0c43a3",
+      "bytes": 11475,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/AudioManager.asset",
+      "sha256": "aeedeb3243f07b61dbbe854aa08b5ef6f0b5274dd9852ad9f6129dde3e105a31",
+      "bytes": 413,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/ClusterInputManager.asset",
+      "sha256": "40e65dd214bf254955d2c8829ca8ce2130fd3510485560ce012e9a1ddd93e623",
+      "bytes": 114,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/DynamicsManager.asset",
+      "sha256": "b7c9a9dc08b98990109d4346f68745e15e238de400f96c583e53e1c83c743a78",
+      "bytes": 1254,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/EditorBuildSettings.asset",
+      "sha256": "cd556a8c3306f023678dba4aa753860b7fcd18a48f8ef69c976f545ab6e8f152",
+      "bytes": 261,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/EditorSettings.asset",
+      "sha256": "5b9a2a204c4d505a4f4d007829409b941d9d9cd4284b5c90de8a0136f92687ed",
+      "bytes": 1687,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/GraphicsSettings.asset",
+      "sha256": "6736f33dc62c35b0e7a88e275242080bc7a1d94c91154d18fceb332b661a6bce",
+      "bytes": 2615,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/InputManager.asset",
+      "sha256": "7a1bb836a1008d26d0860d143e9d9df7ca41731d30a72901b518063819c62df2",
+      "bytes": 9731,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/MemorySettings.asset",
+      "sha256": "1e8379a461b10ae09f3f696911088c16875d63e87ed5f2d95df9e1892703f9fd",
+      "bytes": 1192,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/MultiplayerManager.asset",
+      "sha256": "aba89fd1a1ddad182727ad82727e536d27372e90328a8196da2a4560398983dd",
+      "bytes": 157,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/NavMeshAreas.asset",
+      "sha256": "80106cfa7e6181a1928b142c075f3e510d527441e3d79bc83590e4ac91e7cd66",
+      "bytes": 1308,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/PackageManagerSettings.asset",
+      "sha256": "4c62c2846ba44f8657e01ffbf3eaa1ca29c15bd02f612c78c3a2a42d65adf941",
+      "bytes": 1047,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/Physics2DSettings.asset",
+      "sha256": "e3cbdbf0be15244b7b67d2f07bdb8e8981911c11a8c7fe8035f5261272fec658",
+      "bytes": 2028,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/PhysicsCoreProjectSettings2D.asset",
+      "sha256": "bedc5339a832c60dc3f11b84abc4f4384dbfa20b0cd9ad6c444b907e751fc35e",
+      "bytes": 151,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/PresetManager.asset",
+      "sha256": "29c125923fe6e29f90190d4fce1c82d660e7051546e2c9d02908d18c9cf2436c",
+      "bytes": 146,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/ProjectSettings.asset",
+      "sha256": "d5ac1a251256e72019b3ed9eda7d880a1b5a2091ffb8c169d41e3f16270cfa45",
+      "bytes": 25855,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/ProjectVersion.txt",
+      "sha256": "c8d71172c1924261396354462f6e4fca0c1889b7d5d15caf00018171eb455927",
+      "bytes": 87,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/QualitySettings.asset",
+      "sha256": "6814d6cc3eb850dd7d2a069a8b17ba9f7591deba8b1758a855978bd9c8627643",
+      "bytes": 3662,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/ShaderGraphSettings.asset",
+      "sha256": "cdba1e5d65bcf6e3269d76ed3e60b6c21f98322002996642c9d74f1eb89f6b91",
+      "bytes": 556,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/TagManager.asset",
+      "sha256": "b45b2cc0f5dfb9ca8fd7ef3627e669be514326f268fb21f164f99a986e01c504",
+      "bytes": 664,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/TimeManager.asset",
+      "sha256": "1a83e54adbbda7c9f4851103a0c6ab7f6448a3343d4ea5b7620452fa08416ecd",
+      "bytes": 202,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/UnityConnectSettings.asset",
+      "sha256": "d6034acbef6c9e3179866486c31eab81fcbe5e7ed350ce71e0fa2b1449b77109",
+      "bytes": 943,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/URPProjectSettings.asset",
+      "sha256": "c317fe22b9488785c0611f0642429922e5d324430d929bffb41648130f30c218",
+      "bytes": 461,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/VersionControlSettings.asset",
+      "sha256": "e7bda45bf7a394745fee1316e6c71fa676004d591ad1f3aa247fd3e4ceb86071",
+      "bytes": 188,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/VFXManager.asset",
+      "sha256": "f066c6483919961332415ee64204f74fe52f38c02e82892eb02b7a5b2e381f0e",
+      "bytes": 308,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ProjectSettings/XRSettings.asset",
+      "sha256": "edd2beb4a2e388312b4b7da241aa51070434005d82c59363f1237dd2e567585f",
+      "bytes": 158,
+      "sourceKind": "project"
+    },
+    {
+      "path": "ThirdPartyNotices/Inochi2D/LICENSE.md",
+      "sha256": "9a29f84848158fac9c8f5c0a4406ecf9bc2fd7065d929bef8edd401587e25fae",
+      "bytes": 1351,
+      "sourceKind": "project-license"
+    },
+    {
+      "path": "ThirdPartyNotices/NotoSansSC/COPYRIGHT.txt",
+      "sha256": "75f81b81040aaab4bfd11cd7e1b9135503c9110a0d75926c829632e56f2ed9c2",
+      "bytes": 681,
+      "sourceKind": "font-notice"
+    },
+    {
+      "path": "ThirdPartyNotices/NotoSansSC/OFL.txt",
+      "sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2",
+      "bytes": 4301,
+      "sourceKind": "font-notice"
+    },
+    {
+      "path": "ThirdPartyNotices/NotoSansSC/SOURCE.json",
+      "sha256": "77bf281a3f3f9ae830944af25fd040b5788ef0809d01b9b94e982600ce5155de",
+      "bytes": 730,
+      "sourceKind": "font-notice"
+    }
+  ],
+  "manifestSelfExcludedFromFileHashes": true,
+  "copiedBuildEntriesNotExecuted": [
+    "Assets/Editor/Build/WindowsBuild.cs",
+    "Assets/Editor/Build/OriginalExpeditionBuild.cs"
+  ]
+}

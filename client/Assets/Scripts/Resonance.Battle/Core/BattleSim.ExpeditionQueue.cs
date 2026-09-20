@@ -47,6 +47,7 @@ namespace Resonance.Battle
 
         public CommandReject QueueExpeditionTap(int actorSlot)
         {
+            RecordOriginalQueueInput(OriginalReplayInputKind.QueueTap, actorSlot);
             var reason = CanEditExpeditionQueue(actorSlot);
             if (reason != CommandReject.None) return reason;
             var actor = Allies[actorSlot];
@@ -71,6 +72,7 @@ namespace Resonance.Battle
 
         public CommandReject ClearExpeditionQueuedCommand(int actorSlot)
         {
+            RecordOriginalQueueInput(OriginalReplayInputKind.ClearActor, actorSlot);
             var reason = CanEditExpeditionQueue(actorSlot);
             if (reason != CommandReject.None) return reason;
             var index = _expeditionQueue.FindIndex(c => c.ActorSlot == actorSlot);
@@ -81,6 +83,7 @@ namespace Resonance.Battle
         /// <summary>Discard session-only instructions and feedback when leaving the encounter.</summary>
         public void ClearExpeditionQueue()
         {
+            RecordOriginalQueueInput(OriginalReplayInputKind.ClearQueue);
             _expeditionQueue.Clear();
             _expeditionQueueResults.Clear();
         }

@@ -1,0 +1,98 @@
+F:\天命之子\tools\BattleSim.Tests\M1FormulaIsolationTests.cs(86,13): warning xUnit2000: The literal or constant value DamageMath.FeverChannelAtkCoef should be passed as the 'expected' argument in the call to 'Assert.NotEqual(expected, actual)' in method 'FeverDoesNotReadTapCoefficients' on type 'M1FormulaIsolationTests'. Swap the parameter values. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\tools\BattleSim.Tests\M1FormulaIsolationTests.cs(87,13): warning xUnit2000: The literal or constant value DamageMath.FeverChannelFlat should be passed as the 'expected' argument in the call to 'Assert.NotEqual(expected, actual)' in method 'FeverDoesNotReadTapCoefficients' on type 'M1FormulaIsolationTests'. Swap the parameter values. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\tools\BattleSim.Tests\OriginalLifecycleBoundaryTests.cs(131,13): warning xUnit2012: Do not use Assert.True() to check if a value exists in a collection. Use Assert.Contains instead. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\tools\BattleSim.Tests\OriginalLifecycleBoundaryTests.cs(146,13): warning xUnit2012: Do not use Assert.True() to check if a value exists in a collection. Use Assert.Contains instead. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\tools\BattleSim.Tests\OriginalLifecycleBoundaryTests.cs(146,61): warning xUnit2012: Do not use Assert.True() to check if a value exists in a collection. Use Assert.Contains instead. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\tools\BattleSim.Tests\OriginalLifecycleBoundaryTests.cs(147,13): warning xUnit2012: Do not use Assert.True() to check if a value exists in a collection. Use Assert.Contains instead. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\tools\BattleSim.Tests\OriginalLifecycleBoundaryTests.cs(147,61): warning xUnit2012: Do not use Assert.True() to check if a value exists in a collection. Use Assert.Contains instead. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+  BattleSim.Tests -> F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll
+F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll (.NETCoreApp,Version=v6.0)的测试运行
+Microsoft (R) 测试执行命令行工具版本 17.3.3 (x64)
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+正在启动测试执行，请稍候...
+总共 1 个测试文件与指定模式相匹配。
+[xUnit.net 00:00:00.44]     Resonance.Tests.OriginalLifecycleBoundaryTests.OrdinaryVictoryCarriesRecoveredLivingHpAndDownStateButNoCombatTemporaries [FAIL]
+[xUnit.net 00:00:00.50]     Resonance.Tests.OriginalLifecycleBoundaryTests.EndRunThenStartNewRunPreservesDiscoveriesButDropsBuildAndAllBattleTemporaries [FAIL]
+[xUnit.net 00:00:00.53]     Resonance.Tests.OriginalLifecycleBoundaryTests.MatureN5BuildReachesBossDoorWithFullHpAndRebuildsCleanAAndCState [FAIL]
+  失败 Resonance.Tests.OriginalLifecycleBoundaryTests.OrdinaryVictoryCarriesRecoveredLivingHpAndDownStateButNoCombatTemporaries [202 ms]
+  错误消息:
+   Assert.All() Failure: 5 out of 5 items in the collection did not pass.
+[0]: Item:  UnitState { ActionLocked = False, Alive = False, Ally = True, Atk = 700, AutoTimer = 0, ··· }
+     Error: Assert.Equal() Failure: Values differ
+            Expected: 0
+            Actual:   35
+[1]: Item:  UnitState { ActionLocked = False, Alive = True, Ally = True, Atk = 420, AutoTimer = 0, ··· }
+     Error: Assert.Equal() Failure: Values differ
+            Expected: 0
+            Actual:   35
+[2]: Item:  UnitState { ActionLocked = False, Alive = True, Ally = True, Atk = 360, AutoTimer = 0, ··· }
+     Error: Assert.Equal() Failure: Values differ
+            Expected: 0
+            Actual:   35
+[3]: Item:  UnitState { ActionLocked = False, Alive = True, Ally = True, Atk = 720, AutoTimer = 0, ··· }
+     Error: Assert.Equal() Failure: Values differ
+            Expected: 0
+            Actual:   35
+[4]: Item:  UnitState { ActionLocked = False, Alive = True, Ally = True, Atk = 460, AutoTimer = 0, ··· }
+     Error: Assert.Equal() Failure: Values differ
+            Expected: 0
+            Actual:   35
+  堆栈跟踪:
+     at Resonance.Tests.OriginalLifecycleBoundaryTests.AssertClean(BattleSim sim) in F:\天命之子\tools\BattleSim.Tests\OriginalLifecycleBoundaryTests.cs:line 160
+   at Resonance.Tests.OriginalLifecycleBoundaryTests.OrdinaryVictoryCarriesRecoveredLivingHpAndDownStateButNoCombatTemporaries() in F:\天命之子\tools\BattleSim.Tests\OriginalLifecycleBoundaryTests.cs:line 47
+  失败 Resonance.Tests.OriginalLifecycleBoundaryTests.EndRunThenStartNewRunPreservesDiscoveriesButDropsBuildAndAllBattleTemporaries [47 ms]
+  错误消息:
+   Assert.All() Failure: 5 out of 5 items in the collection did not pass.
+[0]: Item:  UnitState { ActionLocked = False, Alive = True, Ally = True, Atk = 700, AutoTimer = 0, ··· }
+     Error: Assert.Equal() Failure: Values differ
+            Expected: 0
+            Actual:   35
+[1]: Item:  UnitState { ActionLocked = False, Alive = True, Ally = True, Atk = 420, AutoTimer = 0, ··· }
+     Error: Assert.Equal() Failure: Values differ
+            Expected: 0
+            Actual:   35
+[2]: Item:  UnitState { ActionLocked = False, Alive = True, Ally = True, Atk = 360, AutoTimer = 0, ··· }
+     Error: Assert.Equal() Failure: Values differ
+            Expected: 0
+            Actual:   35
+[3]: Item:  UnitState { ActionLocked = False, Alive = True, Ally = True, Atk = 720, AutoTimer = 0, ··· }
+     Error: Assert.Equal() Failure: Values differ
+            Expected: 0
+            Actual:   35
+[4]: Item:  UnitState { ActionLocked = False, Alive = True, Ally = True, Atk = 460, AutoTimer = 0, ··· }
+     Error: Assert.Equal() Failure: Values differ
+            Expected: 0
+            Actual:   35
+  堆栈跟踪:
+     at Resonance.Tests.OriginalLifecycleBoundaryTests.AssertClean(BattleSim sim) in F:\天命之子\tools\BattleSim.Tests\OriginalLifecycleBoundaryTests.cs:line 160
+   at Resonance.Tests.OriginalLifecycleBoundaryTests.EndRunThenStartNewRunPreservesDiscoveriesButDropsBuildAndAllBattleTemporaries() in F:\天命之子\tools\BattleSim.Tests\OriginalLifecycleBoundaryTests.cs:line 97
+  失败 Resonance.Tests.OriginalLifecycleBoundaryTests.MatureN5BuildReachesBossDoorWithFullHpAndRebuildsCleanAAndCState [34 ms]
+  错误消息:
+   Assert.All() Failure: 5 out of 5 items in the collection did not pass.
+[0]: Item:  UnitState { ActionLocked = False, Alive = True, Ally = True, Atk = 700, AutoTimer = 0, ··· }
+     Error: Assert.Equal() Failure: Values differ
+            Expected: 0
+            Actual:   35
+[1]: Item:  UnitState { ActionLocked = False, Alive = True, Ally = True, Atk = 420, AutoTimer = 0, ··· }
+     Error: Assert.Equal() Failure: Values differ
+            Expected: 0
+            Actual:   35
+[2]: Item:  UnitState { ActionLocked = False, Alive = True, Ally = True, Atk = 360, AutoTimer = 0, ··· }
+     Error: Assert.Equal() Failure: Values differ
+            Expected: 0
+            Actual:   35
+[3]: Item:  UnitState { ActionLocked = False, Alive = True, Ally = True, Atk = 720, AutoTimer = 0, ··· }
+     Error: Assert.Equal() Failure: Values differ
+            Expected: 0
+            Actual:   35
+[4]: Item:  UnitState { ActionLocked = False, Alive = True, Ally = True, Atk = 460, AutoTimer = 0, ··· }
+     Error: Assert.Equal() Failure: Values differ
+            Expected: 0
+            Actual:   35
+  堆栈跟踪:
+     at Resonance.Tests.OriginalLifecycleBoundaryTests.AssertClean(BattleSim sim) in F:\天命之子\tools\BattleSim.Tests\OriginalLifecycleBoundaryTests.cs:line 160
+   at Resonance.Tests.OriginalLifecycleBoundaryTests.MatureN5BuildReachesBossDoorWithFullHpAndRebuildsCleanAAndCState() in F:\天命之子\tools\BattleSim.Tests\OriginalLifecycleBoundaryTests.cs:line 67
+结果文件: F:\天命之子\docs\original-expedition\evidence\o5\lifecycle-boundaries.trx
+
+失败!  - 失败:     3，通过:     0，已跳过:     0，总计:     3，持续时间: 86 ms - BattleSim.Tests.dll (net6.0)

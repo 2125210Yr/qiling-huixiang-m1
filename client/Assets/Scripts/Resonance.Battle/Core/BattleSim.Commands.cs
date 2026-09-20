@@ -120,6 +120,7 @@ namespace Resonance.Battle
 
         public CommandResult Submit(BattleCommand cmd)
         {
+            RecordOriginalCommand(cmd);
             int? terminalFeverTick = Outcome != BattleOutcome.InProgress ? TerminalFeverTicks : (int?)null;
             var reason = Execute(cmd);
             var rec = new CommandRecord

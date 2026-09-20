@@ -1,0 +1,5 @@
+Get-CimInstance: F:\天命之子\docs\original-expedition\evidence\o5\wmi-health-probe.ps1:4
+Line |
+   4 |      $rows=@(Get-CimInstance -ClassName $wmiClass -OperationTimeoutSec …
+     |              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 已超时 

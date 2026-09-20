@@ -1,0 +1,79 @@
+{
+  "Phase": "GREEN",
+  "Scope": "Guard functions extracted from AST only; no preparation execution or copy",
+  "ParseErrors": 0,
+  "Results": [
+    {
+      "Name": "reject-existing-destination",
+      "ExpectedThrow": true,
+      "Passed": true,
+      "Error": "Destination already exists; no overwrite or cleanup is allowed: F:\\Resonance\\client"
+    },
+    {
+      "Name": "reject-source-junction",
+      "ExpectedThrow": true,
+      "Passed": true,
+      "Error": "Reparse points, junctions and symbolic links are forbidden: F:\\天命之子\\client"
+    },
+    {
+      "Name": "reject-destination-junction-ancestor",
+      "ExpectedThrow": true,
+      "Passed": true,
+      "Error": "Reparse points, junctions and symbolic links are forbidden: F:\\天命之子\\client"
+    },
+    {
+      "Name": "reject-destination-in-source",
+      "ExpectedThrow": true,
+      "Passed": true,
+      "Error": "Destination must be outside the source project."
+    },
+    {
+      "Name": "reject-relative-path",
+      "ExpectedThrow": true,
+      "Passed": true,
+      "Error": "Use an absolute local drive path; relative, UNC and device paths are not accepted."
+    },
+    {
+      "Name": "reject-path-traversal",
+      "ExpectedThrow": true,
+      "Passed": true,
+      "Error": "Unsafe relative copy path: Assets/../Outside.txt"
+    },
+    {
+      "Name": "reject-nested-resource-model",
+      "ExpectedThrow": true,
+      "Passed": true,
+      "Error": "Native, model, reference or media asset is forbidden: Assets/EmeraldInochi/Resources/Inochi/EmeraldBunny.bytes"
+    },
+    {
+      "Name": "reject-native-dll",
+      "ExpectedThrow": true,
+      "Passed": true,
+      "Error": "Native, model, reference or media asset is forbidden: Assets/Inochi2D/Native/inochi2d.dll"
+    },
+    {
+      "Name": "reject-old-reference-image",
+      "ExpectedThrow": true,
+      "Passed": true,
+      "Error": "Native, model, reference or media asset is forbidden: Assets/Resources/Art/Characters/C001/portrait.png"
+    },
+    {
+      "Name": "allow-font",
+      "ExpectedThrow": false,
+      "Passed": true,
+      "Error": ""
+    },
+    {
+      "Name": "allow-font-folder-meta",
+      "ExpectedThrow": false,
+      "Passed": true,
+      "Error": ""
+    },
+    {
+      "Name": "allow-new-physical-destination",
+      "ExpectedThrow": false,
+      "Passed": true,
+      "Error": ""
+    }
+  ]
+}

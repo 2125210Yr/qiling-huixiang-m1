@@ -1,0 +1,818 @@
+{
+  "capturedUtc": "2026-09-20T18:24:33.8548606Z",
+  "scope": "Current O5 source files; core full suite and matching Unity-reference compile evidence are linked separately",
+  "files": [
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Editor\\Build\\OriginalExpeditionBuild.cs",
+      "sha256": "3FA19717ABB2457E3EFBD778C075FD0A0E7C286091FCC1D741E791BAD648078B"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\BattleFighter.cs",
+      "sha256": "DF6365146D13048B94799B261FEB30F3E9B1D4073E2A544B30BCC4694EDDB48E"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\BattleHud.cs",
+      "sha256": "680DD131952D053A4E6D96BD61EF4D6D488C0489FEA770B0FCB04D89C762228C"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\CharacterPresentationAdapter.cs",
+      "sha256": "2AD6DCBC404BDA1AEB889425794F5B3796A7124FE7874C6E52939123EE5F033F"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\CombatFeel.cs",
+      "sha256": "081A28665EBD0493AC845261F97F2369FBE7F097C62F30A5CD5968B20E19DC58"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\ICharacterPresentation.cs",
+      "sha256": "0EC8F75A72C3EC64DD23627114A0BD7E55623C7303DA7AD2FA0E3A18DCD75AE9"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\PixelCombatFx.cs",
+      "sha256": "9A757C77C5B70C2A81F319AF001AC0A376CE6642739767BDF2036B5D4DF57904"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\StatusChipText.cs",
+      "sha256": "3A050A960FDAFCC89A281989828A188D0915D7D0AA494F6525ACF6C8A3CC2839"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\CueTimingProbe.cs",
+      "sha256": "BFA8D6F89FA7644C898179812A357A2F4C1D8CA5522C3360A986C70767709AE8"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\HitChainProbe.cs",
+      "sha256": "AD317AEB0D22C15039E7C624A78BF16916C86965D8CB0B02F4516DE6F87E7FE0"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxAffection.cs",
+      "sha256": "16F23E53C63F405C390BC2104D8662CACB58CCF04DC80F710E677C6601819B2F"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxAfterimage.cs",
+      "sha256": "3EA193CFF7DA9A9CB63265703B93EC2BB75AA71A40829A9F4A79A5632D5DB655"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxBleed.cs",
+      "sha256": "B9FB3A80FAEA08AD950D8CD43E27549C56B83AFE147A90F58500CAA061F912C4"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxBossIntro.cs",
+      "sha256": "3ECDD399C7A7A252158B5EE8A0DC2D3EE37BEEB38214275E9D7845B3A4F2AFCE"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxBuffFloat.cs",
+      "sha256": "9A25C8DB847C42E6C751A34143894F2C0780BDC5C7BB64C2A929A49C3D4C4FB8"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxCleanse.cs",
+      "sha256": "20ADA8F007E27DD91FAD9A15E07FB846EDFBDED146A3F2BDB01A045F7ABDA14E"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxComboBanner.cs",
+      "sha256": "CE10298C1DB663DEA05876E81AD5D31E025BCBAB21FDCD0697D025EDEEB2567B"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxCounter.cs",
+      "sha256": "45FFBE95A7C1056CC4EC61FB6E9D40FCFDB667A2AE42F26ABE23FC3F074E0236"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxCritical.cs",
+      "sha256": "089B8F648457048518CEE9B94EF56A5E4BFD45447321C338ECDC627E394C8441"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxDamagePopup.cs",
+      "sha256": "4A391DE16DA668F5AE3D756A2A5DB9F24E4BCE1119D827D6B57E1622271D6577"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxDpsPanel.cs",
+      "sha256": "1CD4868930EADFD2796464C9195BB7203F227C67F6299B67B8F9A53BAB8C39DE"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxDriveCrush.cs",
+      "sha256": "E5C1AEC37714856270BDEB8864B5E6CB767CD8ABA74C80C47089E177B70A8F58"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxDriveReady.cs",
+      "sha256": "1A6735EAAF50FA9B0EB7872802CB078F2EDDC209A2F707FD3D983576ABD4C848"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxElemDark.cs",
+      "sha256": "BCA1A9F0B0CF72BB1276A7308A6A69256E5B2DF9DD24D14646D7671C6942BBBB"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxElemFire.cs",
+      "sha256": "8C7E3C498E422B7D938C4DD15FA1173FB8CBABCEE3DE3D2122E83D84CB635B15"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxElemLight.cs",
+      "sha256": "21DD780894C00A6722A5E68540D9440AAF465601C5A5B19C3424560FE451A84E"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxElemWater.cs",
+      "sha256": "8B0BA4CCB72DF66D79DB4B098ACBE05DB892708896C891FB7CFACBD225218439"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxElemWood.cs",
+      "sha256": "E5A9722B505A09CFB856B056505C2FA0E9C87C228689C1E87B09585A85574A16"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxFeverOverlay.cs",
+      "sha256": "00ACB1464A40185D49133A960F02B83FDB2C3F64C84350B3F8F8E4DC9B8A3DFA"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxGoodButton.cs",
+      "sha256": "A7911ABA53F137AC03A0C27C2CBC2C422ED792CFAEE949CAB253A01B09E63035"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxHeal.cs",
+      "sha256": "AFD9F34F22C664A6B8A08E2BD3E3D507FC5EC8CC92A40F5824E8D04E48AC2A6A"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxHitFlash.cs",
+      "sha256": "502DD3547BABAC87DC2B8F9EFA4031FA04D12253069E89545318A58C718B0631"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxInvuln.cs",
+      "sha256": "C3A77D3DAB6649E41747F462DC2FF7AEFAC9B18FA45300CF23263C6AC284C0F0"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxJudge.cs",
+      "sha256": "47ED88FED4A08F6F71E4E986FD655AB4AD7A1BA7682F8A776F09375A78877FC1"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxKnockback.cs",
+      "sha256": "7F77A8D6535FB28354DBF2EB80854D07FB5325AD5F6E5AF3A8364CEA40A3E8EA"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxKo.cs",
+      "sha256": "74AFAA51357C44B74E3142626B4A5B476647435E932B9AAD8F33A7A7F3CD9454"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxLeaderBurst.cs",
+      "sha256": "D38AD386D15AB86F4787D1BA23E66AA37165F8062184D0538EB92AC2DAB7EE16"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxLevelUp.cs",
+      "sha256": "B29B71F9F472DCC5A438A76B1F7CCB838DBB849AF384A248604A8DBD6E9304D3"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxLootDrop.cs",
+      "sha256": "EA2CA7D02E20388091072823502422D47E5DB7611FB863A43BA6533982ECABA5"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxPhaseBar.cs",
+      "sha256": "E56C4DAFCB325CA9FF41ACCF59E06E64098CD4076A62C070DFA1F035FAB17DCD"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxPoison.cs",
+      "sha256": "223DC343DD4367C5E7157C9262A5A96AC32D64B5182F1F2E6D5C29CA9F63DF0B"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxProjectile.cs",
+      "sha256": "7C0739F7D484E22A2486FFF1931CAFB6930F56B6C74905CBA524C0C954AEA51B"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxRagnaBar.cs",
+      "sha256": "3DFEFE82C43B2302547BEB1B3BADBBCE1FFC089F04496A8F70B7FAC3F930990A"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxRegen.cs",
+      "sha256": "61805DB318016CCB83A9ECCC83CEFD096825FBD5B9E57418ECD0E5E0D5B0F582"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxRestSteam.cs",
+      "sha256": "DCC27FF1C17ED8FCFC45AF7F352E410FFC57DC7C0CF1D760614F10870B4EFD90"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxRouter.cs",
+      "sha256": "F56787BA6E408E76D2704C1B9946ECC92B18D18A738F129B3096C2856211BEE4"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxShield.cs",
+      "sha256": "1C5BAF536369FC024DCF3B53997405B0C7D78342B359744128E64ABBBA991724"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxShowtime.cs",
+      "sha256": "4606BF7A45753FB33EF48A6A268C8B5533DED827E46D985392C41BF81B9889D4"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxSilence.cs",
+      "sha256": "0594B2D4DF8DCFCB65304D25F6FBCEFE6AD84439CF0EA1397FA5E6BA0DCD25E9"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxSkillCast.cs",
+      "sha256": "A42E4129B96F0CF2542BD0453F35532CCC7E1E160C9E2BD4465D7772487E2FF6"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxSleep.cs",
+      "sha256": "B0300AA3023975D7AB98F93BF93B58E187BD66FBED662C2376B46C72A6BF7A0A"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxSlideReady.cs",
+      "sha256": "4FE873D89D81B72F6FDA75BE60F0FE9955C42890BBA27BF58FEF84F91FBD3175"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxSlideSlash.cs",
+      "sha256": "02405AC8B3CFB259C49FD20A517F2A3AE6D9DA12E7293E63525B8240DED5EBDE"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxSpeedLines.cs",
+      "sha256": "0753FCA2B5296639D60A9F2CB7B61274F73BC29927E10E5101DCAEFBAA8E9D0D"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxStageClear.cs",
+      "sha256": "4846DAF58B0712D2FB071F907697CC04F6864C14FD6CEE263CE28CDB367804A9"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxStatusIcons.cs",
+      "sha256": "6D851F66E71F4CBC2328CD676EE8CB7716B6328F28E8A0F940B31B9AFF55251A"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxStun.cs",
+      "sha256": "814CC691DA268A42DFDF6D08DA6A69EA54A8C32E643F61098356275321E6B96C"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxSummonBurst.cs",
+      "sha256": "C24A4BC706E4C4E5D5B0D1169A4D7C321BD01ED36F3DCC6FF4BE197D2A6B4A86"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxTapReady.cs",
+      "sha256": "326D73BC02BAED0B71DE563B2138E9B3A800DDC64BBA9F6048BF4FFB2F61E285"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxTapSkill.cs",
+      "sha256": "A38E10343A9DE2D14D01A48C5CEEB70137E56095F95EC49A589882125EDBE4CD"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxTaunt.cs",
+      "sha256": "4B7674E0FE432709E5B1AF2A93A00EA2FD2CDE9772D5ED3E0E995A16A8F8F7AF"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxTipPlate.cs",
+      "sha256": "BE845610377E7F99CE336600BD1BDE23BF5409B77061E383CFCCA5397597F30A"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxUncap.cs",
+      "sha256": "AC57C6D2D6CABCB5195D1900E56DDEE0AA406D7E91C2490BFFC4B4DB72A3BEBA"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxWarning.cs",
+      "sha256": "FD978718A4D4FA919D4FB1E951E41DA6F44F37EEBEDA8B8B3F4564BC959D9D81"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxWeakPoint.cs",
+      "sha256": "8E9031055781598611183B3C8388237FD877A733AE539B0FA5C759FBA7F36459"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxWordStamp.cs",
+      "sha256": "45BAEE3EEF5B7D1DA4EFB0BAB697C9AD24F1D251D8ED7F27E9B5735F169715B8"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxWorldBossBar.cs",
+      "sha256": "F09592933A83610854B0FD881B3CF78E8CE55B13EB64B0C0F5D3724BCB9AB997"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Characters\\CharacterArt.cs",
+      "sha256": "0F7AE9ABA5ADB82D58F50A24B4DFDA72BE9D0FECF2D9D7ABD4935EE7EB917902"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Characters\\CharacterPresenter.cs",
+      "sha256": "9E86DF222FBCEDB9F5B5F97B0BC883095F0295676C9FD4D8CAB7009AE082FCC4"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Characters\\CubismPlateRig.cs",
+      "sha256": "1EAF5EC141473763B9750741F5A29BE24F4A90BFAE1718551A1B9BFE110E4391"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Characters\\CutoutRig.cs",
+      "sha256": "01EBF7E82A9335F393ADB6B3765F556700417775F61FC3FD932C88D422B6ED33"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Characters\\ForegroundIce.cs",
+      "sha256": "3F2E5B1CB71A17FA88B01FD4E1DC108772F8327042B78AF76737F24C75C3DBA3"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Characters\\HairRibbon.cs",
+      "sha256": "BE6EB8137073881B4C5DC236CA12C5935EA42C4B2DCCCDE2CC54EFC93E346AF2"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Characters\\IceAura.cs",
+      "sha256": "6E361D4A523A96A074DAF1A151BFBC98EB0E79A0A353775ED1BF7D7A9790418B"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Characters\\IceParticles.cs",
+      "sha256": "368746BF7167D0ADB7EC5A73FB6D979443FB42AD74186111EF262F1E3E440AA1"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Characters\\LayeredPresenter.cs",
+      "sha256": "A475D00054699E2F5409AC7F16587A85FFBADD620B88C9B65A2BF134DE965B0F"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Characters\\Live2DIdle.cs",
+      "sha256": "D2BD1F4E0843DA66006A6ED79A7C14FDB77FB8BAF49D644046E778293724B6CD"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Characters\\LiveRig.cs",
+      "sha256": "ED34732162A5A309D4168D8168F6F2178FDF663381C5E20D2A8A830CD79B3ABE"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Characters\\PixelStandIn.cs",
+      "sha256": "DE94A5E410128CB4AAE021D745580BF91481EA1BBF62650F78467570F354017E"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Characters\\PuppetBootTopology.cs",
+      "sha256": "F269D4BC0E9F31326A733D1533DAC23BF9531203A3CD7E37E67053C57F6B97AA"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Characters\\PuppetLegIK.cs",
+      "sha256": "21AD177C790FA284FE4496F9F18C79F0B62ED8BF338856E7F7C7913E113F0C03"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Characters\\PuppetMotion.cs",
+      "sha256": "2D47444051A422A468CA4DC5395D01D39B9C039A0B74F0DF9EE23C67E75E2666"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Characters\\PuppetRig.cs",
+      "sha256": "D963C7C6EC05A748322504F2D5E5CF4E90A6FC19B332E0ABD32E7D6221D84070"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Characters\\PuppetSoftBust.cs",
+      "sha256": "92F917C707560EACEAD588C8604903B58842E154934ED5978CD376BA4AA46492"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Characters\\PuppetSoftMath.cs",
+      "sha256": "DE4C4882C6FA59968C7C66F65EF89D77C2F7933D531AE2FDCB89C385A04A1A7B"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Characters\\Sprite2DStandee.cs",
+      "sha256": "A34671EDC48AFF98684544DFA5FEC90176FDC84CC03E49CF8CC62B95E362703A"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Characters\\StandeeZoom.cs",
+      "sha256": "4C2CD3FDDB7063155C933B7E2C237D2F01EFA4DC3033FB98C3684ACB3673FE4F"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Characters\\StillLight.cs",
+      "sha256": "8AA76E942C39EF7C8C044B2F8AA9B01515629FABD306F5F8ABF6BAF2241AD2E1"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Core\\GameRoot.cs",
+      "sha256": "699DD9F1A49904214C5355D74AA872073291CAE2DB55C40EB0D1B1C70644CBF0"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Core\\GameRoot.Expedition.cs",
+      "sha256": "7E07D9CD93B1AE64DF6D9B24F95A3F72C46E889640E2C03DAFB30F848D759BD1"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Debug\\CaptureRuntime.cs",
+      "sha256": "69F2A6D8FC63DDE6E5224CA161713C00351687D3EFBE0812F91B4A5FCC975BA2"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Debug\\CueStripRecorder.cs",
+      "sha256": "7A27C9F77BFAE72D66E24E68F8EB50A068136DA285CBFE70DACFCEC410BDF5AC"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Debug\\EmeraldLobbyCheck.cs",
+      "sha256": "B8F2DA6E6CBA614B89B0C248411047AC6DF20B0F89BB02CCFCBCB88BABEBBA15"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Debug\\M1DevOverlay.cs",
+      "sha256": "2BED2BABE80B8DD4624870C4D39664899FD55CE3B883253DEF05E678BA471B0F"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Debug\\NaturalPlayBattleEvidence.cs",
+      "sha256": "387FDA21E7303B1215398F7BB370ED3BCB528A85A446136F85B3EC074863312B"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Debug\\NaturalPlayRuntime.cs",
+      "sha256": "F7C45364A9074EB219727B357B3F49102A9205A5F5F74A505EE272AFB849B27D"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Debug\\VerticalSliceSmokeRuntime.cs",
+      "sha256": "1CF1E40B332D6707B9203A7FE7AC93BBFEA66519597F91235634CB38AA00C186"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Expedition\\ExpeditionHud.cs",
+      "sha256": "DBF0470DBF1C4AC806F767CBB1F838C824E174FC7DC3D6BC64946E71386ACD16"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Resonance.App.asmdef",
+      "sha256": "D5FD2253682892FFF79D084A13128728586A4B3E4F531D9C31FC11D80A023A00"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\AchievementBoard.cs",
+      "sha256": "61DF2DE057340482640C1E4C841BD20A943640BE9936F3BEBA418202F573BA5F"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\ArchiveBoard.cs",
+      "sha256": "F7BCDFDCB4CD3F29CF1F5965C5F292B6216EEDE0237EF2837D99D7B23361DC6C"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\BattleCueCopy.cs",
+      "sha256": "8FDD8BD24FFA930FB0C0FBEE2696BA50499825A15FC69E03444C598910AA6A07"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\BootSplash.cs",
+      "sha256": "59605B49F1680591ACFE63D1DD15E03F7D1EA7724FE3568696110DEDD8AF6222"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\ChapterMap.cs",
+      "sha256": "163094B6E8B76899D394000205F6475C4E0809D4B51F0EAF7C1403672B65E452"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\CostumeBoard.cs",
+      "sha256": "22F5BC29CC5F8E17CE210DD843F237B83A515BEDF8CBCE6C9451F733539E6B2E"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\CurrencyPlate.cs",
+      "sha256": "FC451779C524E999177FDC028B68484F4A2395A1554BD677902D27B4A1CF3D6C"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\DailyBoard.cs",
+      "sha256": "AE8A65CE0E8B7314EF0C0FC5A95E36E6AC3BAE6384DFCA3D6DF8B3B42D5DF805"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\DeepBoard.cs",
+      "sha256": "2B9D40036E6477502D765D48A9580CD03215D15C12AFE8BCBB81CA764EDE7E67"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\EmeraldLobby.cs",
+      "sha256": "59F3B2B82C7E529A9929573E4DD9B5DDFC328BD826F48F660A7F79FC615C71B2"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\FoodBoard.cs",
+      "sha256": "0B7BDDB9BBA57EC4BEAE0789739E644FA48CBE3939C7F67142869CF9BD1D1A7C"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\FriendBoard.cs",
+      "sha256": "BDEE367948D820851F1355698E6D37C55549ABCEEB4943A99D7542EC04685AE7"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\HomeHud.cs",
+      "sha256": "0F40410D915EC1F6BE8DC94ED752A4345FE7D46E5CD6A69827954455402B4FC7"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\HomeIdleFx.cs",
+      "sha256": "B6B7C0706447714FA88958E884687A0680FF6B2A484D8E106FE9B09A684AD1E0"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\IgnitionBoard.cs",
+      "sha256": "2E876346DC7C4454A1FDE896E3C9D5790B6A541867B19012F274088D493C382D"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\InspectBoard.cs",
+      "sha256": "33E41F4D5D2AA26F755DEC5C4D67E021D91D74069DB354D84326FDD4EBAEACA7"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\LibraryBoard.cs",
+      "sha256": "606F3279AC5D64AC87D76C524790917E5D0E05E23ED5244A70F6D9EB7792BEE3"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\LobbyRail.cs",
+      "sha256": "E064FCBB5BDDC7CA2F5C68547EF9995DC9537016012E32D19E2EEE5FC5D8AC04"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\LobbyStage.cs",
+      "sha256": "A1F05DCEAEA2F6F8DEA00E9126CBACACAA356144FC924C8AAC56ED7685A5FB13"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\LootPopup.cs",
+      "sha256": "8A6E6AE1F4D545B5A64F1869E1F5B39BD93DDDA5ECC18171EDADDCFAA18D5A63"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\MailBoard.cs",
+      "sha256": "6218ABABA24B5348CCCA69ABC74C5BF7E93F0DA096EFD4F29B296461D196503E"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\NebulaBoard.cs",
+      "sha256": "00D178CA1B0F04A8307FF1EE7DD419166873208A681B0EB7DD50A0D5974A996C"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\PauseBoard.cs",
+      "sha256": "F2FF3D8A0AE16003B7E876E5C62FE4523954A9219B1A899E9172CAD2A9D93D62"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\PauseBoardBind.cs",
+      "sha256": "75988E39E3591018FC5DF38620C09A7E709DFA856DDA65D5585EBCFB1CD86365"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\PauseClockReadout.cs",
+      "sha256": "7F6DB5032DD54E19A79443EEB5297D831BEF953141B54C928A05FAC085D12651"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\PerspectiveFloor.cs",
+      "sha256": "7B66B9B5DDACEAC401DAB773D35C47D7AFE23CA6D6CCAE2F91BA76F707464F5C"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\PhoneDisplay.cs",
+      "sha256": "1472CF6939AA4E8B10C72D2E176E865D2F10E172499D9DF8D0E2270D1D4A179C"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\PvpBoard.cs",
+      "sha256": "036BEC3CDB2E71B8FE5D392C2471C51541258D77C37C95097EB2DB6D57E3641F"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\RestBoard.cs",
+      "sha256": "F7B6660E9D722A2FFE31ED6450B776D10C0DAD01A6A6E37F9CABB8C601FA0322"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\ResultBoard.cs",
+      "sha256": "0035031D2647D8786899BD6D57FC5FC7D53B9892FE2703C74A65D39BEDDB3755"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\SettingsModal.cs",
+      "sha256": "6FDC5655832BC1C815D7ACA135E2195FF36F87F053780BAE59A93302AD1FAF09"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\ShopBoard.cs",
+      "sha256": "7AB0A4AD0C05CF8E26CE4C4940DA8BF2F8046F95BD1960671DDCE7EBAD274D4A"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\SkillDemoDrive.cs",
+      "sha256": "A4704D0AF0D19FD3516FFC981006F8739E2CB349292ACA4B837E60DAC9B00CA8"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\SkillDemoSlide.cs",
+      "sha256": "C83CC7EF03244FEE9B46C68980D87317C63AD4A932D3B75E859410587E50739D"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\SkillDemoStrip.cs",
+      "sha256": "36242C043C07A5175272EDD780464C01790900390FD7D7D27E33C210DEDC1F1E"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\StageBoard.cs",
+      "sha256": "C570F12109EE811E59E82AF53905B2D702F8F3B8ADDCA1972632642D0781D702"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\SummonBoard.cs",
+      "sha256": "3D35F1DC0BB0649119A4B125A63EF4125D472692AF8067F3C90BB7FE43A359D2"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\TeamBoard.cs",
+      "sha256": "76EF4828B961D9041D802B1423C13B145C1F51B22F55E1D4E344940C1AC0AD02"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\TitleBoard.cs",
+      "sha256": "CEE82E3BBE80EDF12D067454B4C7B04716101CAF9F7BB48EEA329F3390E67092"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\TutorialBoard.cs",
+      "sha256": "F63C11B6007C8306C1934327EE1CB4337321C910705ADB76B4D7F4CFC9E45411"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\UiChrome.cs",
+      "sha256": "7736AD3B5EADC11152E8FFA10493578EEAE672FD7464A8F5C2DFA9D01F164EA3"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\UiSprites.cs",
+      "sha256": "353B614B245F5DB709EB988F642415BE79CC47C6DAE678774241239F150A7231"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\VisualTokens.cs",
+      "sha256": "A0D1BCA6DB4BB33A689A8F713AA37BA351E6C987D55AAF94A9B4367008280BB1"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\UI\\WavePreview.cs",
+      "sha256": "EAE7C17B700E39327B3DCD2BA80A4CDE1F1AFEC8DB1FD48E8137491EC82997B7"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Content\\BuffCatalog.cs",
+      "sha256": "98C823384AD274174D3F6CFC236C06B73F135EA3B6D4CEAFC7F7814CE2A22361"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Content\\Catalog.cs",
+      "sha256": "D3C1C11FBA42387D89E782DE50E632F5B090878D5DDF8ACF663B9035891FBFD5"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Content\\CatalogJson.cs",
+      "sha256": "87D3B42763FB0EC111C0F50B72911F0ED6DCE25CFB54E140DB4D1B0411FD47DA"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Content\\DesignPlaceholderPolicy.cs",
+      "sha256": "6332FD315D9FA5006B56F53BE6109929913FCB5F4137D784C95A40D39470257C"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Content\\SkillTags.cs",
+      "sha256": "48BE279D2F00CA01B2CBF340108791D8187A9E482F5B9EA3B9B003BB3B05241A"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Content\\VerificationCatalog.cs",
+      "sha256": "F5B9ED8B4A7CB4103B733C0F84CF7C5CC8AA9471364E25AA77B553A54BDD336A"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Content\\VerificationScenario.cs",
+      "sha256": "0B87F448382B85920E112393BE0BF0BD1EFEC814A8F0DF898B6161C0B0636E1C"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Core\\BattleEventLog.cs",
+      "sha256": "DAE85A5544DCDD41E7A99C31CC62D77A8B0EC064662DEDB62C04C6396F65760D"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Core\\BattleReplay.cs",
+      "sha256": "E1D23391C402EE8DAF1915EF68A1FA5EA2F0A3BE5EF9123F0054E9B153A00E60"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Core\\BattleSim.Commands.cs",
+      "sha256": "2E67C7306CADC43CDBA2E330CC7418BA93BD70532F011FE38B07538E8C417C1F"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Core\\BattleSim.cs",
+      "sha256": "0A97E05DC33394B308AA90110A77A414D155EBFD2539591E9F1CA876BF3F1EE6"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Core\\BattleSim.Expedition.cs",
+      "sha256": "1CDF3269D1EBE353C51C941802306098BB9472C3217E0F58AC4171ADE47BDEE7"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Core\\BattleSim.ExpeditionEncounter.cs",
+      "sha256": "52AB0F19570E74A0EBA683F90DDE667AA1673838F5467F8ADAADC93970C6A4B7"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Core\\BattleSim.ExpeditionQueue.cs",
+      "sha256": "9EA5BC63CF591494FEBA5DC78D111D863A4EF78206E3C86FADA8083F120A95B6"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Core\\BattleSim.ExpeditionReplay.cs",
+      "sha256": "BF7F12D68DB3AF45AF886462BA98696AB77E16009BE19AB3A92A517BF90C4314"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Core\\DamageMath.cs",
+      "sha256": "FC2931923AB4A4CDB6B6B8D95D1C905C31BDE02026BE1A04522FD0BE2B6D2AD8"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Core\\Definitions.cs",
+      "sha256": "A78183B13AF3EBCBF575C12A8B68034A09BCC6CE4F4B637A845B4610CD868E06"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Core\\EffectCapability.cs",
+      "sha256": "6FACDB402938AD6D1E9F03AD826AEE38E3302B15621475F58448CDD719A6633A"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Core\\EffectOpcodes.cs",
+      "sha256": "DD6D45AD44E97D01B486DA5B222217A0005B90490C8D49DAB4B846315D20FBBB"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Core\\Enums.cs",
+      "sha256": "F44E942CCFF5266B8D8AB884DC8059A01164F8FEF77FFBFB11C0E90938BEBDBA"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Core\\FightStats.cs",
+      "sha256": "E65990A57326351C5EA0A0127748BC27C1A584A16384A1FDC4DE9D19E91A5C9E"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Core\\FormulaProfile.cs",
+      "sha256": "67CEC8FC03D678E0A04BA0E683457686A2416EB5FC3183685064CAFF6D0F9CD5"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Core\\LeaderSkill.cs",
+      "sha256": "046702D5325EA4A847DFFBDA29115A8979F8E2F3C231567C371BE5705042C84F"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Core\\SliceDriveSequence.cs",
+      "sha256": "AB1D441DDE998AA0F56BBC256E4FFB0328B7C02650B60D93EB2D76437AF6EAFD"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Core\\TargetSemantics.cs",
+      "sha256": "A5D33DF5F603CC20E545948AC65D9F6DC57351CD9E5F1B688C496B2CD4787B84"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Core\\VfxGoodWindow.cs",
+      "sha256": "8C2A6202038139C3D212755B2B22541191D64A736339250031851A3ECC0C5831"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Expedition\\BossEncounterController.cs",
+      "sha256": "5B545A86808BE844DA2353AAD201BEB143435E058289ACB39D16B10E36FDB8DA"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Expedition\\ExpeditionBattleFeedback.cs",
+      "sha256": "B69AC1A8550FD0912B1F3FCD3135E30D752A7548DFBCB6A8124C0A1738C5D33E"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Expedition\\ExpeditionBattleInput.cs",
+      "sha256": "57270CD1C0AED719AF68E0971F7C1D7C95E78CAEAB1F750FB50B8005499FA5ED"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Expedition\\ExpeditionContent.cs",
+      "sha256": "9D4FEFF324E29154465D9EFFF7EFA20047728EA2C101F7BD0E81B6790E10906A"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Expedition\\ExpeditionFlow.cs",
+      "sha256": "C0A7CE84E1848A6F8C4CE638AA07B979A533A2F733181EBEA0689BCCB3570200"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Expedition\\ExpeditionRelicRuntime.cs",
+      "sha256": "E8955DDC6C7C66D87B932C2A0D4180B9F6D2959404BF97C5CA3ABCC25659670D"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Expedition\\ExpeditionState.cs",
+      "sha256": "5C6B2103AA7049A8EEA0C462D75B12C6293ED64452148BF9DDBE98D8EE5ED51E"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Expedition\\OriginalBattleReplay.cs",
+      "sha256": "A06A805252E55F09B6B296D015B6A06F181AFB036C4C1A1783BB80D620312176"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Expedition\\OriginalModeSelection.cs",
+      "sha256": "E965312C4218F24E8D367FDC70F2FAD8687565144770A6B7F993FC982BE36AB4"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Expedition\\OriginalProfileStore.cs",
+      "sha256": "AB437E18CA01444365E19ABD0FA3733EF618789D0EDCEDA917E91E57CC2E0637"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Expedition\\OriginalReplayStore.cs",
+      "sha256": "70E3E7126C498C266D0AC3DAA695C47A4F7B69E161BD67D6E6FCA5F58EC6EE25"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Expedition\\ResolutionResult.cs",
+      "sha256": "04584D9D9A47B7BB1ACD0CC80A102C5EEF6AC21A84F284BA19B7973416D62803"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Expedition\\RewardDraft.cs",
+      "sha256": "E03036DE452B82003AA3348A2D6A4E1ECA6DB9C2064F375CC02D5EEFE479AE11"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Expedition\\RunBattleFactory.cs",
+      "sha256": "2781DB1DAFD1F54EEC78B8A5D3DB4D6D50974BD4EEB114A83EB24EA534814741"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Loop\\MvpLoop.cs",
+      "sha256": "D82D24FB5EAB3386D868691C54757AC2E7D52E944F73D94F9BC9AD3DD69B8E81"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Progression\\Bond.cs",
+      "sha256": "3AD72CBC3260C205A11A3A7C4D29595FCF406638928FB1FC9785130B6EA05E7E"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Progression\\Costume.cs",
+      "sha256": "B16A60CE9EA8DC34579131F4D412FE3E6C0F5664383CDD5E13323A9BEA471A3A"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Progression\\Equipment.cs",
+      "sha256": "8F2F6837B72F53FDAADC52F0C490BCBC5A486EE9C8BE69A49C560FA0A5039D37"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Progression\\Food.cs",
+      "sha256": "99E4D45A2A7E283DE3DE71700E55B267BF2DADEFB9B5952A00EE89F4B9938A0A"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Progression\\Gear.cs",
+      "sha256": "6ABDA25BB9FB73CEAC156E01A70564A69DE26869A44007737F5192FEEE7F5C2F"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Progression\\Growth.cs",
+      "sha256": "E92CA5973FE65C1F5AF9901E4B5C4A239AEF11A4592052ECCB2EBCE011196010"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Progression\\Ignition.cs",
+      "sha256": "D9D68936A99992571EA430F8119A9F48D82D5099C5D2466AF9EC31C83834A33E"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Progression\\Puppets.cs",
+      "sha256": "13FCA9D0B1E3A8C0D92D7ED64E8F1DFE028226D97DCA8FA1C9CF735B2622C528"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Progression\\PvpRules.cs",
+      "sha256": "D56EE36DBB6434C36DFF4DBC6C3E2281764751F4F05CE0904E165EBB3A6DE04B"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Progression\\StageMode.cs",
+      "sha256": "A6FAD305976C19CEF978DE8F9A10054FA6C14155693A1FB13D37E6141DF760EF"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Resonance.Battle.asmdef",
+      "sha256": "7511F1EB6DBCBF1E295541323FF1DB7163BF63D2C6022876CE7782838C36428B"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Save\\SaveStore.cs",
+      "sha256": "D1BE1A4F8237D5992188BAB06307C22C51BE892AC7679A3C4424336ED9E59FD3"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Tests\\Editor\\BattleTutorialPresentationTests.cs",
+      "sha256": "4A9C0261989B9F81BAE5216F2F773887F094552E4199CB7DE93F5F4FF7087179"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Tests\\Editor\\OriginalEncounterUiTests.cs",
+      "sha256": "2DCF880F578C4F4E350278B3BD6D27E91A61165EE67A67C64A82B09BC0E5A17C"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Tests\\Editor\\OriginalExpeditionHudTests.cs",
+      "sha256": "47D075F01F58BC95357DFAEAF62946D6D65CA5814E22088C5D38BED2C3379777"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Tests\\Editor\\OriginalExpeditionRecoveryTests.cs",
+      "sha256": "FE80C9BF1DEBE0DE19D0B7C2DFB0E84B5DCD7558BD1006D55E40B44DE9D707AE"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Tests\\Editor\\OriginalFeedbackUiTests.cs",
+      "sha256": "86CFAA9828E5942FD9C9EE4BB605D2D982F1D27BE351AB2203FC70C31DEE1499"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Tests\\Editor\\OriginalModeIsolationTests.cs",
+      "sha256": "163887EC65180CD01841DE7FA6D72FF334CA37295CA84AF5475006934B53C579"
+    },
+    {
+      "path": "F:\\Resonance\\client\\Assets\\Tests\\Editor\\Resonance.EditorTests.asmdef",
+      "sha256": "256BE18CFC6FC9A8B3FAEAB72F9CE6D2F205644F2E6B28275890E3B4F2593A9F"
+    }
+  ]
+}

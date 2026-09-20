@@ -1,0 +1,27 @@
+warning CS2023: /noconfig 选项是在响应文件中指定的，因此被忽略
+F:\Resonance\client\Assets\Scripts\Resonance.App\Core\GameRoot.cs(29,15): warning CS0169: 从不使用字段“GameRoot._bootT”
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\LiveRig.cs(478,49): warning CS0649: 从未对字段“LiveRig.PivotFile.head”赋值，字段将一直保持其默认值 null
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\PuppetRig.cs(55,17): warning CS0649: 从未对字段“PuppetRig._mouth0”赋值，字段将一直保持其默认值 null
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\PuppetRig.cs(55,35): warning CS0649: 从未对字段“PuppetRig._mouth2”赋值，字段将一直保持其默认值 null
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\LiveRig.cs(480,34): warning CS0649: 从未对字段“LiveRig.PivotFile.legR”赋值，字段将一直保持其默认值 null
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\LiveRig.cs(480,47): warning CS0649: 从未对字段“LiveRig.PivotFile.footR”赋值，字段将一直保持其默认值 null
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\CutoutRig.cs(486,28): warning CS0649: 从未对字段“CutoutRig.PivotFile.hairFront”赋值，字段将一直保持其默认值 null
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\LiveRig.cs(478,38): warning CS0649: 从未对字段“LiveRig.PivotFile.hairFront”赋值，字段将一直保持其默认值 null
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\LiveRig.cs(479,40): warning CS0649: 从未对字段“LiveRig.PivotFile.handL”赋值，字段将一直保持其默认值 null
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\PuppetRig.cs(55,26): warning CS0649: 从未对字段“PuppetRig._mouth1”赋值，字段将一直保持其默认值 null
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\LiveRig.cs(478,28): warning CS0649: 从未对字段“LiveRig.PivotFile.hairBack”赋值，字段将一直保持其默认值 null
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\CutoutRig.cs(488,28): warning CS0649: 从未对字段“CutoutRig.PivotFile.sword”赋值，字段将一直保持其默认值 null
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\LiveRig.cs(480,54): warning CS0649: 从未对字段“LiveRig.PivotFile.sword”赋值，字段将一直保持其默认值 null
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\CutoutRig.cs(487,28): warning CS0649: 从未对字段“CutoutRig.PivotFile.hairTip”赋值，字段将一直保持其默认值 null
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\LiveRig.cs(479,34): warning CS0649: 从未对字段“LiveRig.PivotFile.armR”赋值，字段将一直保持其默认值 null
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\LiveRig.cs(480,40): warning CS0649: 从未对字段“LiveRig.PivotFile.footL”赋值，字段将一直保持其默认值 null
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\LiveRig.cs(479,28): warning CS0649: 从未对字段“LiveRig.PivotFile.armL”赋值，字段将一直保持其默认值 null
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\CutoutRig.cs(485,28): warning CS0649: 从未对字段“CutoutRig.PivotFile.hairBack”赋值，字段将一直保持其默认值 null
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\LiveRig.cs(478,55): warning CS0649: 从未对字段“LiveRig.PivotFile.torso”赋值，字段将一直保持其默认值 null
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\LiveRig.cs(480,28): warning CS0649: 从未对字段“LiveRig.PivotFile.legL”赋值，字段将一直保持其默认值 null
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\LiveRig.cs(479,47): warning CS0649: 从未对字段“LiveRig.PivotFile.handR”赋值，字段将一直保持其默认值 null
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\PuppetRig.cs(76,14): warning CS0414: 字段“PuppetRig._hasHair”已被赋值，但从未使用过它的值
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\PuppetRig.cs(78,14): warning CS0414: 字段“PuppetRig._hasFoot”已被赋值，但从未使用过它的值
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\PuppetRig.cs(75,14): warning CS0414: 字段“PuppetRig._hasHead”已被赋值，但从未使用过它的值
+F:\Resonance\client\Assets\Scripts\Resonance.App\Characters\PuppetRig.cs(77,14): warning CS0414: 字段“PuppetRig._hasHand”已被赋值，但从未使用过它的值
+F:\Resonance\client\Assets\Scripts\Resonance.App\Debug\VerticalSliceSmokeRuntime.cs(55,14): warning CS0414: 字段“VerticalSliceSmokeRuntime._loseShot”已被赋值，但从未使用过它的值

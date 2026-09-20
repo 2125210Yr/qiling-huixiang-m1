@@ -1,0 +1,10 @@
+{
+  "Status": "PREPARED_INTERMEDIATE_SNAPSHOT",
+  "Destination": "F:\\天命之子\\dist\\original-expedition-v01\\prepare-20260921",
+  "Manifest": "F:\\天命之子\\dist\\original-expedition-v01\\prepare-20260921\\package-input-manifest.json",
+  "FileCount": 499,
+  "ResourcesData": [
+    "Assets/Resources/Fonts/NotoSansSC.otf"
+  ],
+  "UnityExecuted": false
+}

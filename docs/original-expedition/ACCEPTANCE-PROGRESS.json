@@ -1,0 +1,2246 @@
+{
+  "document": "ORIGINAL-EXPEDITION-MVP v0.1 actual acceptance progress",
+  "generated_utc": "2026-09-20T18:43:42.418944+00:00",
+  "source_plan": "docs/original-expedition/spec/02_ACCEPTANCE_MATRIX.json",
+  "source_plan_sha256": "b9e67b41b5335c7396cfb10be519056157f01eea839ab2d1fc224e3b46072162",
+  "source_baseline": "8e56ee7c562c55ea336e3402f8c8c85d8c0223f4",
+  "source_plan_unchanged": true,
+  "overall_mvp_complete": false,
+  "status_policy": {
+    "PASS": "该项要求在所说明范围内全部已有实际执行证据；不自动代表普通实玩、最终包或玩家体验通过。",
+    "PARTIAL": "有真实子项证据，但列明的要求仍未执行或缺专门证据。",
+    "NOT_RUN": "该项所要求的主要验收形式尚未执行；可以附相关夹具或准备证据，但不据此升级状态。",
+    "USER_REVIEW": "保留给明确交付后的用户体验评审；本轮没有宣称用户已验收。"
+  },
+  "counts": {
+    "PASS": 24,
+    "PARTIAL": 11,
+    "NOT_RUN": 3
+  },
+  "core_evidence": {
+    "latest_runs": [
+      {
+        "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "raw_counters": {
+          "total": "539",
+          "executed": "538",
+          "passed": "538",
+          "failed": "0",
+          "error": "0",
+          "timeout": "0",
+          "aborted": "0",
+          "inconclusive": "0",
+          "passedButRunAborted": "0",
+          "notRunnable": "0",
+          "notExecuted": "0",
+          "disconnected": "0",
+          "warning": "0",
+          "completed": "0",
+          "inProgress": "0",
+          "pending": "0"
+        },
+        "observed_result_outcomes": {
+          "Passed": 538,
+          "NotExecuted": 1
+        }
+      },
+      {
+        "path": "docs/original-expedition/evidence/o5/core-o5-catalog-isolated.trx",
+        "raw_counters": {
+          "total": "1",
+          "executed": "1",
+          "passed": "1",
+          "failed": "0",
+          "error": "0",
+          "timeout": "0",
+          "aborted": "0",
+          "inconclusive": "0",
+          "passedButRunAborted": "0",
+          "notRunnable": "0",
+          "notExecuted": "0",
+          "disconnected": "0",
+          "warning": "0",
+          "completed": "0",
+          "inProgress": "0",
+          "pending": "0"
+        },
+        "observed_result_outcomes": {
+          "Passed": 1
+        }
+      },
+      {
+        "path": "docs/original-expedition/evidence/o5/replay-families.trx",
+        "raw_counters": {
+          "total": "5",
+          "executed": "5",
+          "passed": "5",
+          "failed": "0",
+          "error": "0",
+          "timeout": "0",
+          "aborted": "0",
+          "inconclusive": "0",
+          "passedButRunAborted": "0",
+          "notRunnable": "0",
+          "notExecuted": "0",
+          "disconnected": "0",
+          "warning": "0",
+          "completed": "0",
+          "inProgress": "0",
+          "pending": "0"
+        },
+        "observed_result_outcomes": {
+          "Passed": 5
+        }
+      },
+      {
+        "path": "docs/original-expedition/evidence/o5/relic-acceptance-boundaries.trx",
+        "raw_counters": {
+          "total": "4",
+          "executed": "4",
+          "passed": "4",
+          "failed": "0",
+          "error": "0",
+          "timeout": "0",
+          "aborted": "0",
+          "inconclusive": "0",
+          "passedButRunAborted": "0",
+          "notRunnable": "0",
+          "notExecuted": "0",
+          "disconnected": "0",
+          "warning": "0",
+          "completed": "0",
+          "inProgress": "0",
+          "pending": "0"
+        },
+        "observed_result_outcomes": {
+          "Passed": 4
+        }
+      },
+      {
+        "path": "docs/original-expedition/evidence/o5/lifecycle-boundaries-green.trx",
+        "raw_counters": {
+          "total": "3",
+          "executed": "3",
+          "passed": "3",
+          "failed": "0",
+          "error": "0",
+          "timeout": "0",
+          "aborted": "0",
+          "inconclusive": "0",
+          "passedButRunAborted": "0",
+          "notRunnable": "0",
+          "notExecuted": "0",
+          "disconnected": "0",
+          "warning": "0",
+          "completed": "0",
+          "inProgress": "0",
+          "pending": "0"
+        },
+        "observed_result_outcomes": {
+          "Passed": 3
+        }
+      }
+    ],
+    "total_listed_cases": 552,
+    "actually_executed": 551,
+    "passed": 551,
+    "failed": 0,
+    "observed_not_executed": 1,
+    "not_executed_test": "Resonance.Tests.G2RecheckNaturalContractTests.N01_N02_N03_NaturalPlayContract_DocumentedNotFaked",
+    "skip_count_note": "主 TRX total=539/executed=538；UnitTestResult 有 1 个 NotExecuted，即使其原始 counters.notExecuted 字段为 0，仍如实单列。",
+    "legacy_catalog_order_dependency": "未经隔离的 O2 全套曾实际失败；探针确认既有 CatalogJsonSerializeRoundtripKeepsOpcode 全局污染。后续将该例单独进程运行，没有删除测试或把旧失败覆盖为通过。",
+    "aggregation_note": "同一生产代码状态的主全套（538 通过、1 既有跳过）、隔离 Catalog 旧例（1 通过）、新增回放定点（5 通过）、遗物验收边界（4 通过）及生命周期边界（3 通过）五份报告汇总；不声称重新执行过单份 552 项全套。",
+    "replay_cases_passed": 54,
+    "replay_count_note": "45 项基础与边界回放、4 项持久化回放、5 项家族与输入篡改定点，全部实际通过。",
+    "lifecycle_fixture_correction": {
+      "initial_run": "docs/original-expedition/evidence/o5/lifecycle-boundaries.trx",
+      "initial_outcomes": {
+        "Failed": 3
+      },
+      "corrected_run": "docs/original-expedition/evidence/o5/lifecycle-boundaries-green.trx",
+      "corrected_outcomes": {
+        "Passed": 3
+      },
+      "reason": "最初 AssertClean 错误要求盟方充能为 0；规格第 3.1 节要求每场重新初始化，既有 BattleSim.NewUnit 盟方开局值为 35。仅把夹具预期更正为 35，并加强旧模拟存在 Charge != 35 的断言；生产代码未修改。原始失败 log/TRX 保留，不将其称为生产缺陷修复或抹去。"
+    }
+  },
+  "global_limitations": [
+    "当前 O3/O4 Unity UI 执行、截图和教程回归均 NOT_RUN；C# 引用编译不是 Unity 测试。",
+    "没有完整 N0→N7 普通流程录像、普通失败重试录像或最终 Win64 交付包。",
+    "O0 单战普通 UI、O1/O2 Unity XML 是历史有界证据；不扩张为当前完整交付。",
+    "状态机注入终局、BattleSim 合法命令策略、固定平衡对照与普通玩家界面操作分开标注。",
+    "这份进度映射不修改原始 38 项输入清单，也不因缺口自动扩展代码或新增测试。"
+  ],
+  "checks": [
+    {
+      "id": "O-001",
+      "name": "基线与数据隔离",
+      "phase": "O0",
+      "verification_kind": "集成",
+      "scenario": "普通启动进入原创模式，不读写旧save.json；退出、失焦、返回据点仍隔离。",
+      "expected": "原用户档案前后字节与哈希相同，原创档在独立目录。",
+      "evidence_required": "普通启动证据＋隔离测试",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "O0 无参数开发包完成一场真实 UI 战斗、领奖、返回和新一趟；旧 save.json 与备份前后 SHA-256 相同。O2 Unity 生命周期/失焦/暂停隔离用例通过，当前核心默认模式与独立档案检查也通过。此结论限入口和旧档隔离，不代表 O5 最终包。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/evidence/o0/player-entry/README.md",
+        "docs/original-expedition/evidence/o0/player-entry/build-hashes.json",
+        "docs/original-expedition/evidence/o0/legacy-profile-comparison.json",
+        "docs/original-expedition/evidence/o2/unity-o2.xml"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalExpeditionModeTests.DefaultMode_IsOriginal_LegacyRequiresExplicitOptIn",
+        "Resonance.Tests.OriginalProfileStoreTests.RevisionCompareAndSwapRejectsSecondWriterAndLegacyFileIsUntouched"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionModeTests.DefaultMode_IsOriginal_LegacyRequiresExplicitOptIn",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalProfileStoreTests.RevisionCompareAndSwapRejectsSecondWriterAndLegacyFileIsUntouched",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "HISTORICAL_O2_PASS_CURRENT_UI_NOT_RUN",
+      "ordinary_play_execution": "HISTORICAL_O0_SINGLE_BATTLE_PASS"
+    },
+    {
+      "id": "O-002",
+      "name": "旧入口隔离",
+      "phase": "O0",
+      "verification_kind": "逻辑/UI",
+      "scenario": "点击导航、热键、返回栈，尝试进入旧抽卡/商城/直接升级等入口。",
+      "expected": "新模式无法触发旧永久奖励、兑换或任意改级；旧代码不被删除冒充功能完成。",
+      "evidence_required": "导航测试＋修改路径",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PARTIAL",
+      "actual_result": "O2 Unity 已通过七种旧界面导航拒绝和旧持久资源变更入口阻断；当前核心只在显式 --legacy 时选择旧模式。未取得覆盖导航、热键、返回栈全部普通输入的当前版本证据。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/evidence/o2/unity-o2.xml",
+        "docs/original-expedition/O0-O1-CHECKPOINT.md"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalExpeditionModeTests.DefaultMode_IsOriginal_LegacyRequiresExplicitOptIn"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionModeTests.DefaultMode_IsOriginal_LegacyRequiresExplicitOptIn",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [
+        "当前版本普通导航、热键及返回栈输入覆盖"
+      ],
+      "current_unity_ui_execution": "HISTORICAL_O2_PASS_CURRENT_UI_NOT_RUN",
+      "ordinary_play_execution": "NOT_RUN"
+    },
+    {
+      "id": "O-003",
+      "name": "最短远征闭环",
+      "phase": "O1",
+      "verification_kind": "实玩",
+      "scenario": "从N0选择核心，经N1、N2一侧、N3、N4、N5、N6、N7结算。",
+      "expected": "仅5场战斗；分岔互斥；正常界面可继续，无调试状态注入。",
+      "evidence_required": "完整普通流程录像",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "NOT_RUN",
+      "actual_result": "最新核心两条五战合法 Submit 策略闭环均通过，但它们是模拟集成夹具。只有 O0 一场真实 UI 闭环，未执行 N0→N7 的完整普通流程，也没有其连续录像。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/evidence/flow/README.md",
+        "docs/original-expedition/evidence/o0/player-entry/README.md"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalExpeditionLoopIntegrationTests.ActualSimulation_FiveBattlesRewardsAndNextRun_UseNormalCommands(seed: 91021, branch: \"N2-backstage\")",
+        "Resonance.Tests.OriginalExpeditionLoopIntegrationTests.ActualSimulation_FiveBattlesRewardsAndNextRun_UseNormalCommands(seed: 92021, branch: \"N2-audience\")"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionLoopIntegrationTests.ActualSimulation_FiveBattlesRewardsAndNextRun_UseNormalCommands(seed: 91021, branch: \"N2-backstage\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionLoopIntegrationTests.ActualSimulation_FiveBattlesRewardsAndNextRun_UseNormalCommands(seed: 92021, branch: \"N2-audience\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [
+        "完整普通界面五战流程与连续录像"
+      ],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "NOT_RUN"
+    },
+    {
+      "id": "O-004",
+      "name": "跨场生命与临时状态",
+      "phase": "O1",
+      "verification_kind": "逻辑",
+      "scenario": "带伤/倒下队员进入下一场，检查普通胜利恢复、工坊与首领门前恢复。",
+      "expected": "严格按规格处理生命与倒下状态；盾、冷却、蓄能不跨场，遗物保留。",
+      "evidence_required": "状态快照对照",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "既有状态机例覆盖普通胜利只为存活队员恢复 15% MaxHP、倒下保留、工坊复活/强化取舍及首领门前全员恢复。新增真实 Flow 转换的控制夹具先经 Submit/Tick 产生护盾、吸收蓄能及和声/强奏，明确安排充能、冷却和终局 HP，再提交声明的夹具胜利并持久化重载：N1→N2 保留恢复后生命/倒下与遗物，成熟 N5→N6→N7 全员满血；下一场护盾/状态/冷却/蓄能/和声/强奏/触发序列及队列重新初始化，盟方充能为既有开局值 35，旧模拟仍保留脏状态以证明未复用。该证据隔离生命周期转换，不是完整自然战斗。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/evidence/flow/README.md",
+        "docs/original-expedition/evidence/o5/lifecycle-boundaries-green.trx",
+        "docs/original-expedition/evidence/o5/lifecycle-boundaries.trx"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalExpeditionFlowTests.VictoryPreservesDownStateWorkshopRevivesAndBossDoorFullyRestores",
+        "Resonance.Tests.OriginalExpeditionFlowTests.WorkshopReinforcementDoesNotHealAndDeclineConsumesOffer",
+        "Resonance.Tests.OriginalExpeditionContentTests.OpeningHpPreservesDownedMembersAndRejectsInvalidState",
+        "Resonance.Tests.OriginalLifecycleBoundaryTests.MatureN5BuildReachesBossDoorWithFullHpAndRebuildsCleanAAndCState",
+        "Resonance.Tests.OriginalLifecycleBoundaryTests.OrdinaryVictoryCarriesRecoveredLivingHpAndDownStateButNoCombatTemporaries"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.VictoryPreservesDownStateWorkshopRevivesAndBossDoorFullyRestores",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.WorkshopReinforcementDoesNotHealAndDeclineConsumesOffer",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionContentTests.OpeningHpPreservesDownedMembersAndRejectsInvalidState",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalLifecycleBoundaryTests.MatureN5BuildReachesBossDoorWithFullHpAndRebuildsCleanAAndCState",
+          "path": "docs/original-expedition/evidence/o5/lifecycle-boundaries-green.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalLifecycleBoundaryTests.OrdinaryVictoryCarriesRecoveredLivingHpAndDownStateButNoCombatTemporaries",
+          "path": "docs/original-expedition/evidence/o5/lifecycle-boundaries-green.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-005",
+      "name": "普通败北与工程失败",
+      "phase": "O1",
+      "verification_kind": "逻辑",
+      "scenario": "分别构造全灭、非法效果导致Failed与游戏中途退出。",
+      "expected": "普通全灭结束远征；Failed不当玩家败北；退出回到同场战前快照。",
+      "evidence_required": "状态机用例",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "状态机构造普通 Defeat 与 Failed，确认全灭结束普通远征、工程失败保留检查点且不发结算；重开保持相同战前输入。真实核心规则失败优先级和数值失败路径另有通过用例。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/evidence/flow/README.md"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalExpeditionFlowTests.EngineeringFailureRetainsCheckpointOrdinaryDefeatEndsRun",
+        "Resonance.Tests.OriginalExpeditionFlowTests.ReopeningMidBattleKeepsExactCheckpointAndOffersKeepOrder",
+        "Resonance.Tests.OriginalEncounterIntegrationTests.RuleFailureLaterInTheSameNativeActionHasPriorityOverBossDeath",
+        "Resonance.Tests.OriginalRuleBoundaryTests.InvalidScaledAttackFailsBeforeHealingCanPublishAResult(nan: False)",
+        "Resonance.Tests.OriginalRuleBoundaryTests.InvalidScaledAttackFailsBeforeHealingCanPublishAResult(nan: True)"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.EngineeringFailureRetainsCheckpointOrdinaryDefeatEndsRun",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.ReopeningMidBattleKeepsExactCheckpointAndOffersKeepOrder",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalEncounterIntegrationTests.RuleFailureLaterInTheSameNativeActionHasPriorityOverBossDeath",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalRuleBoundaryTests.InvalidScaledAttackFailsBeforeHealingCanPublishAResult(nan: False)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalRuleBoundaryTests.InvalidScaledAttackFailsBeforeHealingCanPublishAResult(nan: True)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-006",
+      "name": "奖励确定性与防重抽",
+      "phase": "O2",
+      "verification_kind": "逻辑/存档",
+      "scenario": "同一offer退出重开、重复展示；改变UI随机调用。",
+      "expected": "offerId与候选顺序不变，战斗/奖励随机流独立。",
+      "evidence_required": "重复运行及存档用例",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "相同已持久化 offer 的 ID/候选顺序在 Reload 和额外 UI 侧随机调用后不变；固定 runSeed 重算候选一致，战前 seed/输入重开一致。验证为存档/逻辑用例。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/evidence/flow/README.md"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalExpeditionFlowTests.ReopeningMidBattleKeepsExactCheckpointAndOffersKeepOrder",
+        "Resonance.Tests.OriginalExpeditionFlowTests.RewardDraftHonorsPrerequisitesAndGuaranteedProgress(core: \"A01\", support: \"A02\", amplifier: \"A04\")",
+        "Resonance.Tests.OriginalExpeditionFlowTests.RewardDraftHonorsPrerequisitesAndGuaranteedProgress(core: \"B01\", support: \"B02\", amplifier: \"B04\")",
+        "Resonance.Tests.OriginalExpeditionFlowTests.RewardDraftHonorsPrerequisitesAndGuaranteedProgress(core: \"C01\", support: \"C03\", amplifier: \"C04\")"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.ReopeningMidBattleKeepsExactCheckpointAndOffersKeepOrder",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.RewardDraftHonorsPrerequisitesAndGuaranteedProgress(core: \"A01\", support: \"A02\", amplifier: \"A04\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.RewardDraftHonorsPrerequisitesAndGuaranteedProgress(core: \"B01\", support: \"B02\", amplifier: \"B04\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.RewardDraftHonorsPrerequisitesAndGuaranteedProgress(core: \"C01\", support: \"C03\", amplifier: \"C04\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-007",
+      "name": "奖励有效性与前置",
+      "phase": "O2",
+      "verification_kind": "逻辑",
+      "scenario": "固定解锁/核心分别生成R1-R4，覆盖前置不足和候选池耗尽。",
+      "expected": "不发无法使用的高阶件；R1/R2保方向；R4满足前置有放大件；不复制选项凑数。",
+      "evidence_required": "奖励生成矩阵",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "三个核心各覆盖 100 个种子的方向保障和前置检查；固定路径覆盖 R1/R2/R4 成套，工坊 R3 路径可运行。缺 C03 不发 C04，候选池仅剩一件或耗尽时不复制选项。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/evidence/flow/README.md"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalExpeditionFlowTests.RewardDraftHonorsPrerequisitesAndGuaranteedProgress(core: \"A01\", support: \"A02\", amplifier: \"A04\")",
+        "Resonance.Tests.OriginalExpeditionFlowTests.RewardDraftHonorsPrerequisitesAndGuaranteedProgress(core: \"B01\", support: \"B02\", amplifier: \"B04\")",
+        "Resonance.Tests.OriginalExpeditionFlowTests.RewardDraftHonorsPrerequisitesAndGuaranteedProgress(core: \"C01\", support: \"C03\", amplifier: \"C04\")",
+        "Resonance.Tests.OriginalExpeditionFlowTests.MissingC03CannotOfferC04AndExhaustionNeverDuplicatesOptions",
+        "Resonance.Tests.OriginalExpeditionFlowTests.EveryFamilyHasAReproducibleFourPiecePathBeforeN5(core: \"A01\", first: \"A02\", second: \"A03\", amplifier: \"A04\")",
+        "Resonance.Tests.OriginalExpeditionFlowTests.EveryFamilyHasAReproducibleFourPiecePathBeforeN5(core: \"B01\", first: \"B02\", second: \"B03\", amplifier: \"B04\")",
+        "Resonance.Tests.OriginalExpeditionFlowTests.EveryFamilyHasAReproducibleFourPiecePathBeforeN5(core: \"C01\", first: \"C02\", second: \"C03\", amplifier: \"C04\")",
+        "Resonance.Tests.OriginalExpeditionFlowTests.WorkshopReinforcementDoesNotHealAndDeclineConsumesOffer"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.RewardDraftHonorsPrerequisitesAndGuaranteedProgress(core: \"A01\", support: \"A02\", amplifier: \"A04\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.RewardDraftHonorsPrerequisitesAndGuaranteedProgress(core: \"B01\", support: \"B02\", amplifier: \"B04\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.RewardDraftHonorsPrerequisitesAndGuaranteedProgress(core: \"C01\", support: \"C03\", amplifier: \"C04\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.MissingC03CannotOfferC04AndExhaustionNeverDuplicatesOptions",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.EveryFamilyHasAReproducibleFourPiecePathBeforeN5(core: \"A01\", first: \"A02\", second: \"A03\", amplifier: \"A04\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.EveryFamilyHasAReproducibleFourPiecePathBeforeN5(core: \"B01\", first: \"B02\", second: \"B03\", amplifier: \"B04\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.EveryFamilyHasAReproducibleFourPiecePathBeforeN5(core: \"C01\", first: \"C02\", second: \"C03\", amplifier: \"C04\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.WorkshopReinforcementDoesNotHealAndDeclineConsumesOffer",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-008",
+      "name": "奖励幂等",
+      "phase": "O2",
+      "verification_kind": "逻辑/存档",
+      "scenario": "连续双击同一选项，旧revision再次提交，提交后立即重启。",
+      "expected": "每个offer最多领取一次，不能一组拿两件。",
+      "evidence_required": "事务用例",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "重复 offer、旧 revision、重复胜利回调及领取提交后故障重开均不能领取第二次；写失败不发布新内存状态。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalExpeditionFlowTests.BranchCannotBeChosenTwiceAndRewardsCannotBeReplayed",
+        "Resonance.Tests.OriginalProfileStoreTests.SaveFailureDoesNotPublishRewardAndSuccessfulRestartCannotDoubleCollect",
+        "Resonance.Tests.OriginalProfileStoreTests.FailureAfterRewardCommitReopensExactlyOneAwardAndRejectsStaleRetry"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.BranchCannotBeChosenTwiceAndRewardsCannotBeReplayed",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalProfileStoreTests.SaveFailureDoesNotPublishRewardAndSuccessfulRestartCannotDoubleCollect",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalProfileStoreTests.FailureAfterRewardCommitReopensExactlyOneAwardAndRejectsStaleRetry",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-009",
+      "name": "A01真实吸收",
+      "phase": "O2",
+      "verification_kind": "逻辑",
+      "scenario": "盾全吸收/部分吸收/过期/替换/未命中/衍生伤害分别运行。",
+      "expected": "仅敌方原生伤害造成的实际盾消耗积蓄能；上限3T；条件未满足不反击。",
+      "evidence_required": "固定数值夹具",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "已验证全吸收、部分吸收、护盾替换/到期、DOT/Derived/非敌方原生来源、3T 上限和无目标不消耗。新增两项执行器合同夹具分别传入无命中结果、零有效原生结果，均为蓄能 0、A01 触发 0、请求 0；同身份实际吸收 100 的阳性对照会累积 100。当前引擎没有通用 miss 机制，本项无结果合同证据不声称实现或实玩过通用闪避。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/O2-CHECKPOINT.md",
+        "docs/original-expedition/evidence/o5/relic-acceptance-boundaries.trx"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.A01AggregatesOnlyActualEnemyNativeAbsorptionThenReleasesOneThreshold",
+        "Resonance.Tests.OriginalResolutionIntegrationTests.A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy(hit: 1000, energy: 3360)",
+        "Resonance.Tests.OriginalResolutionIntegrationTests.A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy(hit: 223, energy: 1115)",
+        "Resonance.Tests.OriginalResolutionIntegrationTests.A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy(hit: 224, energy: 1120)",
+        "Resonance.Tests.OriginalResolutionIntegrationTests.A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy(hit: 449, energy: 2245)",
+        "Resonance.Tests.OriginalResolutionIntegrationTests.A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy(hit: 672, energy: 3360)",
+        "Resonance.Tests.OriginalResolutionIntegrationTests.ShieldReplacementExpiryAndDotAbsorption_DoNotChargeA01",
+        "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.ARejectsDotDerivedAndNonNativeTierAbsorptionAndDoesNotSpendWithoutEnemies",
+        "Resonance.Tests.OriginalRelicAcceptanceBoundaryTests.O009_AbsentOrZeroEffectiveNativeHitDoesNotAccumulateBarrier(zeroResult: False)",
+        "Resonance.Tests.OriginalRelicAcceptanceBoundaryTests.O009_AbsentOrZeroEffectiveNativeHitDoesNotAccumulateBarrier(zeroResult: True)"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.A01AggregatesOnlyActualEnemyNativeAbsorptionThenReleasesOneThreshold",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalResolutionIntegrationTests.A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy(hit: 1000, energy: 3360)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalResolutionIntegrationTests.A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy(hit: 223, energy: 1115)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalResolutionIntegrationTests.A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy(hit: 224, energy: 1120)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalResolutionIntegrationTests.A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy(hit: 449, energy: 2245)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalResolutionIntegrationTests.A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy(hit: 672, energy: 3360)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalResolutionIntegrationTests.ShieldReplacementExpiryAndDotAbsorption_DoNotChargeA01",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.ARejectsDotDerivedAndNonNativeTierAbsorptionAndDoesNotSpendWithoutEnemies",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalRelicAcceptanceBoundaryTests.O009_AbsentOrZeroEffectiveNativeHitDoesNotAccumulateBarrier(zeroResult: False)",
+          "path": "docs/original-expedition/evidence/o5/relic-acceptance-boundaries.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalRelicAcceptanceBoundaryTests.O009_AbsentOrZeroEffectiveNativeHitDoesNotAccumulateBarrier(zeroResult: True)",
+          "path": "docs/original-expedition/evidence/o5/relic-acceptance-boundaries.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-010",
+      "name": "A02-A04组合",
+      "phase": "O2",
+      "verification_kind": "逻辑",
+      "scenario": "A系合法组合依次作用，覆盖蓄能不足、正好T、多于3T及仅一个敌人。",
+      "expected": "盾增量、消费数、主/副震荡次数与倍率符合合同；A04替代不叠发。",
+      "evidence_required": "家族组合测试",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "A02 实际队伍护盾增强，A04 在 T-1/T/3T/超过上限时的消耗与倍率，A03 次震荡及 A04 替代基础震荡均已通过。新增冻结单敌受控 BattleSim 夹具使用真实 Submit/Tick：队伍实际吸收 2245，阈值 1120，随后仅产生一次 A04，实际扣血 4480，余能 5；无 A01 基础震荡或 A03 次震荡请求。该证据是受控核心模拟，不是普通玩家流程。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/evidence/o5/relic-acceptance-boundaries.trx"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalRelicIntegrationTests.A02_EnhancesTheActualLinkedTeamShieldExactlyOnce",
+        "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.A04ThresholdBoundariesAndEnergyCap(absorbed: 199, damage: 0, remaining: 199)",
+        "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.A04ThresholdBoundariesAndEnergyCap(absorbed: 200, damage: 400, remaining: 0)",
+        "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.A04ThresholdBoundariesAndEnergyCap(absorbed: 600, damage: 1200, remaining: 0)",
+        "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.A04ThresholdBoundariesAndEnergyCap(absorbed: 9000, damage: 1200, remaining: 0)",
+        "Resonance.Tests.OriginalResolutionIntegrationTests.A04_ReplacesBaseShock_AndA03UsesComputedMainForceAfterNativeHeal",
+        "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.A04ReplacesNormalShockAndLeavesFractionalThreshold",
+        "Resonance.Tests.OriginalRelicAcceptanceBoundaryTests.O010_FullBarrierFamilyWithOneEnemyEmitsOnlyOneOverloadAndNoSplash"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalRelicIntegrationTests.A02_EnhancesTheActualLinkedTeamShieldExactlyOnce",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.A04ThresholdBoundariesAndEnergyCap(absorbed: 199, damage: 0, remaining: 199)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.A04ThresholdBoundariesAndEnergyCap(absorbed: 200, damage: 400, remaining: 0)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.A04ThresholdBoundariesAndEnergyCap(absorbed: 600, damage: 1200, remaining: 0)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.A04ThresholdBoundariesAndEnergyCap(absorbed: 9000, damage: 1200, remaining: 0)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalResolutionIntegrationTests.A04_ReplacesBaseShock_AndA03UsesComputedMainForceAfterNativeHeal",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.A04ReplacesNormalShockAndLeavesFractionalThreshold",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalRelicAcceptanceBoundaryTests.O010_FullBarrierFamilyWithOneEnemyEmitsOnlyOneOverloadAndNoSplash",
+          "path": "docs/original-expedition/evidence/o5/relic-acceptance-boundaries.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-011",
+      "name": "B01来源与次数",
+      "phase": "O2",
+      "verification_kind": "逻辑",
+      "scenario": "单体多段、暴击、群攻、仅一敌人、主目标死亡与过量伤害。",
+      "expected": "每次允许原生施法最多一次散射；只取首个有效主命中；不二次暴击或叠全技能总和。",
+      "evidence_required": "固定命中日志",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "B 使用第一次有效原生单体命中的盾前请求值；后续多段不累加、群攻/单存活目标不散射；原生暴击、防御已应用后不二次计算。过量伤害及首个无效结果边界均有固定断言。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.BUsesFirstEffectivePreShieldHitOnceAndCopiesWithoutRecalculation(improved: False, expected: 400)",
+        "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.BUsesFirstEffectivePreShieldHitOnceAndCopiesWithoutRecalculation(improved: True, expected: 700)",
+        "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.BSkipsAnInvalidFirstResultAndUsesFirstRealAbsorptionAsReference",
+        "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.BIgnoresGroupDamageSingleSurvivorDerivedKillsAndAbsentOtherTarget",
+        "Resonance.Tests.OriginalRelicIntegrationTests.B01_B02_UseTheSameNativeHitWithoutSecondDefenseOrCrit(improved: False, ratio: 0.40000000000000002)",
+        "Resonance.Tests.OriginalRelicIntegrationTests.B01_B02_UseTheSameNativeHitWithoutSecondDefenseOrCrit(improved: True, ratio: 0.69999999999999996)"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.BUsesFirstEffectivePreShieldHitOnceAndCopiesWithoutRecalculation(improved: False, expected: 400)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.BUsesFirstEffectivePreShieldHitOnceAndCopiesWithoutRecalculation(improved: True, expected: 700)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.BSkipsAnInvalidFirstResultAndUsesFirstRealAbsorptionAsReference",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.BIgnoresGroupDamageSingleSurvivorDerivedKillsAndAbsentOtherTarget",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalRelicIntegrationTests.B01_B02_UseTheSameNativeHitWithoutSecondDefenseOrCrit(improved: False, ratio: 0.40000000000000002)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalRelicIntegrationTests.B01_B02_UseTheSameNativeHitWithoutSecondDefenseOrCrit(improved: True, ratio: 0.69999999999999996)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-012",
+      "name": "B02-B04连锁",
+      "phase": "O2",
+      "verification_kind": "逻辑",
+      "scenario": "扩散到两个目标，原生击杀和衍生击杀分别触发。",
+      "expected": "比例替换，目标不重复；B04仅原生击杀触发且每root最多一次；衍生不再扩散。",
+      "evidence_required": "因果链记录",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "B02 比例替换、B03 两个不同副目标、B04 仅原生击杀触发及散射后重新找活目标均通过；衍生击杀不递归扩散，同根请求来源与深度有断言。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.BUsesFirstEffectivePreShieldHitOnceAndCopiesWithoutRecalculation(improved: False, expected: 400)",
+        "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.BUsesFirstEffectivePreShieldHitOnceAndCopiesWithoutRecalculation(improved: True, expected: 700)",
+        "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.B04RequiresNativeKillAndRechecksBossAfterScatter",
+        "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.B04RechecksLiveTargetAfterScatterAndNeverRecursesFromItsKill",
+        "Resonance.Tests.OriginalRelicIntegrationTests.ScatterUsesSharedShieldHpSettlement_WithoutPoisonOrStunSideEffects"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.BUsesFirstEffectivePreShieldHitOnceAndCopiesWithoutRecalculation(improved: False, expected: 400)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.BUsesFirstEffectivePreShieldHitOnceAndCopiesWithoutRecalculation(improved: True, expected: 700)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.B04RequiresNativeKillAndRechecksBossAfterScatter",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.B04RechecksLiveTargetAfterScatterAndNeverRecursesFromItsKill",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalRelicIntegrationTests.ScatterUsesSharedShieldHpSettlement_WithoutPoisonOrStunSideEffects",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-013",
+      "name": "C01-C02接力",
+      "phase": "O2",
+      "verification_kind": "逻辑",
+      "scenario": "不同slot施法，队员已满/已死/仅一存活；拒绝指令和Auto攻击。",
+      "expected": "只对成功主动技能接力；循环选合法他人；充能不超100，不自动施法。",
+      "evidence_required": "顺序及边界测试",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "C01/C02 循环选择其他存活且未满队员；跳过满/死成员、仅施法者可用不推进、上限 100；真实拒绝与原生 Auto 不推进和声/接力，接力不会自动施法。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.CRelaySkipsFullAndDeadAndDoesNotSelectTheCaster(improved: False, charge: 12)",
+        "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.CRelaySkipsFullAndDeadAndDoesNotSelectTheCaster(improved: True, charge: 20)",
+        "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.CWrapsClampsAndDoesNothingWhenOnlyCasterIsEligible",
+        "Resonance.Tests.OriginalRelicIntegrationTests.C01_C02_AdvanceTheNextEligibleAllyWithoutAutoCasting(improved: False, bonus: 12)",
+        "Resonance.Tests.OriginalRelicIntegrationTests.C01_C02_AdvanceTheNextEligibleAllyWithoutAutoCasting(improved: True, bonus: 20)",
+        "Resonance.Tests.OriginalRelicCIntegrationTests.RejectedCommandsAndRealNativeAutoAttacks_DoNotAdvanceHarmonyOrRelay"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.CRelaySkipsFullAndDeadAndDoesNotSelectTheCaster(improved: False, charge: 12)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.CRelaySkipsFullAndDeadAndDoesNotSelectTheCaster(improved: True, charge: 20)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.CWrapsClampsAndDoesNothingWhenOnlyCasterIsEligible",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalRelicIntegrationTests.C01_C02_AdvanceTheNextEligibleAllyWithoutAutoCasting(improved: False, bonus: 12)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalRelicIntegrationTests.C01_C02_AdvanceTheNextEligibleAllyWithoutAutoCasting(improved: True, bonus: 20)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalRelicCIntegrationTests.RejectedCommandsAndRealNativeAutoAttacks_DoNotAdvanceHarmonyOrRelay",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-014",
+      "name": "C03-C04和声",
+      "phase": "O2",
+      "verification_kind": "逻辑",
+      "scenario": "同人重复、三不同人、治疗后攻击、已有强奏再次形成和声。",
+      "expected": "不同人数正确，三人时清记录；强奏只储一份，作用后续主动伤害，不消耗于治疗。",
+      "evidence_required": "状态与伤害夹具",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "重复同 slot 不重复计数，第三个不同施法者清空和声记录并充能；强奏不叠份、不被盾/治疗消费、只影响后续主动伤害，完整多段共用一次消费且可同根重新形成和声。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalRelicCIntegrationTests.C03_RepeatedActorDoesNotCountTwice_ThirdDistinctActorResetsAndChargesLivingParty",
+        "Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(supportSlot: 1)",
+        "Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(supportSlot: 2)",
+        "Resonance.Tests.OriginalRelicCIntegrationTests.C04_AddsToExistingChannelBonus_AndAppliesToEveryHitOfOneNativeAction",
+        "Resonance.Tests.OriginalRelicCIntegrationTests.C04_DamageThatFormsHarmony_IsNotBoostedByTheForteItCreates",
+        "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.C04NeverStacksAndCanConsumeOldForteWhileRearmingOnSameAction"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalRelicCIntegrationTests.C03_RepeatedActorDoesNotCountTwice_ThirdDistinctActorResetsAndChargesLivingParty",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(supportSlot: 1)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(supportSlot: 2)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalRelicCIntegrationTests.C04_AddsToExistingChannelBonus_AndAppliesToEveryHitOfOneNativeAction",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalRelicCIntegrationTests.C04_DamageThatFormsHarmony_IsNotBoostedByTheForteItCreates",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.C04NeverStacksAndCanConsumeOldForteWhileRearmingOnSameAction",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-015",
+      "name": "十二件可正常获取",
+      "phase": "O2",
+      "verification_kind": "集成/UI",
+      "scenario": "以固定可复现种子分别沿A/B/C走正常节点选择。",
+      "expected": "全部定义可从游戏界面获得并触发；不是仅测试构造可用。",
+      "evidence_required": "种子清单＋UI获取证据",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PARTIAL",
+      "actual_result": "A seed 0、B seed 3、C seed 0 的状态机候选路径可在 N5 前形成四件套；效果分别有运行时/核心测试。此前普通 UI 只取得过 A01/A03，且那时尚未接入效果。十二件逐一从正常界面获得并触发的证据未执行。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/evidence/flow/README.md",
+        "docs/original-expedition/evidence/o0/player-entry/README.md"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalExpeditionFlowTests.EveryFamilyHasAReproducibleFourPiecePathBeforeN5(core: \"A01\", first: \"A02\", second: \"A03\", amplifier: \"A04\")",
+        "Resonance.Tests.OriginalExpeditionFlowTests.EveryFamilyHasAReproducibleFourPiecePathBeforeN5(core: \"B01\", first: \"B02\", second: \"B03\", amplifier: \"B04\")",
+        "Resonance.Tests.OriginalExpeditionFlowTests.EveryFamilyHasAReproducibleFourPiecePathBeforeN5(core: \"C01\", first: \"C02\", second: \"C03\", amplifier: \"C04\")"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.EveryFamilyHasAReproducibleFourPiecePathBeforeN5(core: \"A01\", first: \"A02\", second: \"A03\", amplifier: \"A04\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.EveryFamilyHasAReproducibleFourPiecePathBeforeN5(core: \"B01\", first: \"B02\", second: \"B03\", amplifier: \"B04\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.EveryFamilyHasAReproducibleFourPiecePathBeforeN5(core: \"C01\", first: \"C02\", second: \"C03\", amplifier: \"C04\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [
+        "三族固定种子的正常 UI 获取及十二件实际触发证据"
+      ],
+      "current_unity_ui_execution": "NOT_RUN",
+      "ordinary_play_execution": "NOT_RUN"
+    },
+    {
+      "id": "O-016",
+      "name": "衍生队列有界",
+      "phase": "O2",
+      "verification_kind": "逻辑",
+      "scenario": "最大合法持有组合、多目标多段、高生命/大伤害和持续触发。",
+      "expected": "无无限循环、负数、NaN、溢出或静默截断；队列预算超限清晰报告失败。",
+      "evidence_required": "极值测试＋事件计数",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "十二遗物组合固定 A→B→C 顺序，最多 12 请求、派生深度为 1，重复完成被拒绝；负数、long 溢出、NaN、非法防御/攻击明确失败。新增预算夹具仅通过反射注入请求计数前置条件，随机值及原生结算不改：预置 15 后第 16 请求正常；预置 16 后真实 Submit 的第 17 请求返回 Failed，原因精确为 ORIGINAL_RULE_ERROR RelicRuleException: RELIC_REQUEST_BUDGET_EXCEEDED，未应用派生伤害，后续 Submit/Tick 不再推进或结算。该护栏证明不代表普通玩法自然耗尽预算。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/O2-CHECKPOINT.md",
+        "docs/original-expedition/evidence/o5/relic-acceptance-boundaries.trx"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.AllFamiliesUseFixedOrderAndAtMostTwelveMutationsWithoutRecursion",
+        "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.EngineeringOverflowAndInvalidViewsFailInsteadOfWrappingOrTruncating",
+        "Resonance.Tests.OriginalResolutionTests.OverflowLeavesEveryAggregateUnchanged",
+        "Resonance.Tests.OriginalResolutionTests.NumericalBoundariesFailExplicitlyInsteadOfWrappingOrSaturating",
+        "Resonance.Tests.OriginalRuleBoundaryTests.DefenseOverflowFailsBeforeDamageInsteadOfBecomingZeroDefense",
+        "Resonance.Tests.OriginalRuleBoundaryTests.InvalidScaledAttackFailsBeforeHealingCanPublishAResult(nan: False)",
+        "Resonance.Tests.OriginalRuleBoundaryTests.InvalidScaledAttackFailsBeforeHealingCanPublishAResult(nan: True)",
+        "Resonance.Tests.OriginalRelicAcceptanceBoundaryTests.O016_InjectedRequestBudgetOverflowFailsThroughSubmitAndStopsFurtherSettlement"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.AllFamiliesUseFixedOrderAndAtMostTwelveMutationsWithoutRecursion",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.EngineeringOverflowAndInvalidViewsFailInsteadOfWrappingOrTruncating",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalResolutionTests.OverflowLeavesEveryAggregateUnchanged",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalResolutionTests.NumericalBoundariesFailExplicitlyInsteadOfWrappingOrSaturating",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalRuleBoundaryTests.DefenseOverflowFailsBeforeDamageInsteadOfBecomingZeroDefense",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalRuleBoundaryTests.InvalidScaledAttackFailsBeforeHealingCanPublishAResult(nan: False)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalRuleBoundaryTests.InvalidScaledAttackFailsBeforeHealingCanPublishAResult(nan: True)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalRelicAcceptanceBoundaryTests.O016_InjectedRequestBudgetOverflowFailsThroughSubmitAndStopsFurtherSettlement",
+          "path": "docs/original-expedition/evidence/o5/relic-acceptance-boundaries.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-017",
+      "name": "有效贡献统计",
+      "phase": "O2",
+      "verification_kind": "逻辑/UI",
+      "scenario": "对低血目标高伤、满血治疗、多层盾与多目标连锁。",
+      "expected": "请求/有效/溢出分开；同一伤害不重复计入；面板的单次与合计标注正确。",
+      "evidence_required": "精确数值用例＋截图",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PARTIAL",
+      "actual_result": "真实结果/账本区分请求、吸盾、HP 损失、过量与有效治疗；低血过杀/满血治疗不抬高有效贡献，单次与总计可重算。O4 面板实际数值及标注截图尚未在 Unity 运行。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/O4-CHECKPOINT.md"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalResolutionIntegrationTests.NativeOverkillAndFullHealthHealing_DoNotInflateEffectiveContribution",
+        "Resonance.Tests.OriginalResolutionTests.ContributionsAreActualShieldAndHpLossWithoutDoubleCountingOverkill",
+        "Resonance.Tests.OriginalFeedbackTests.CapturedTotalsAndLatestActionRecomputeFromActualResults_AndReadingNeverMutatesSimulation",
+        "Resonance.Tests.OriginalFeedbackTests.EffectiveAndOverhealingAreKeptSeparate_AndAdviceRespondsToActualOverheal"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalResolutionIntegrationTests.NativeOverkillAndFullHealthHealing_DoNotInflateEffectiveContribution",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalResolutionTests.ContributionsAreActualShieldAndHpLossWithoutDoubleCountingOverkill",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalFeedbackTests.CapturedTotalsAndLatestActionRecomputeFromActualResults_AndReadingNeverMutatesSimulation",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalFeedbackTests.EffectiveAndOverhealingAreKeptSeparate_AndAdviceRespondsToActualOverheal",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [
+        "当前 Unity 贡献面板精确数值与单次/合计标注截图"
+      ],
+      "current_unity_ui_execution": "NOT_RUN",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-018",
+      "name": "共享内容不污染",
+      "phase": "O2",
+      "verification_kind": "逻辑",
+      "scenario": "并行/交替构建两个持不同遗物的战斗，修改外部传入对象。",
+      "expected": "Catalog、旧场与新场互不污染；克隆并冻结所有可变开局输入。",
+      "evidence_required": "构建前后内容指纹",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "开局嵌套数组/定义与暴露副本深克隆；外部修改 HP/ATK/技能/关卡不改正在运行的战斗或 Catalog 指纹；等价配置不污染另一份输入，遗物参数和阈值也冻结。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalExpeditionContentTests.DeepCloneSeversAllMutableArraysAndNestedDefinitions",
+        "Resonance.Tests.OriginalExpeditionContentTests.PresetIsEquivalentBudgetAndDoesNotModifyOtherBattles",
+        "Resonance.Tests.OriginalExpeditionModeTests.FrozenInput_DeadMembersStayDownAndCallerCannotAlterBattle",
+        "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.FrozenParametersAndThresholdDoNotFollowCallerMutation"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionContentTests.DeepCloneSeversAllMutableArraysAndNestedDefinitions",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionContentTests.PresetIsEquivalentBudgetAndDoesNotModifyOtherBattles",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionModeTests.FrozenInput_DeadMembersStayDownAndCallerCannotAlterBattle",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionRelicRuntimeTests.FrozenParametersAndThresholdDoNotFollowCallerMutation",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-019",
+      "name": "首领单一行为所有者",
+      "phase": "O3",
+      "verification_kind": "逻辑",
+      "scenario": "运行首领普攻/读条/阶段切换，与旧敌方技能路径同时计数。",
+      "expected": "只执行脚本规定的动作，没有原TickUnit随机技能额外结算。",
+      "evidence_required": "逐动作日志",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "首领控制器拥有固定槽位，真实 BattleSim 验证首领/面具不走旧随机敌技路径；读条排斥额外 Auto，N4 精英与其普通随从所有权独立。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/O3-CHECKPOINT.md"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalEncounterIntegrationTests.BossOwnsAllThreeSlots_UsesOneWorldClock_AndPauseFreezesIntent",
+        "Resonance.Tests.OriginalBossControllerTests.BossClockHasTwoAutosThenVisibleFourSecondCastWithoutExtraAuto",
+        "Resonance.Tests.OriginalBossControllerTests.OwnsExactlyAuthoredSlots",
+        "Resonance.Tests.OriginalBossControllerTests.EliteIntentStartsAtSixAndAreaCompletesAtNineWithoutOwningAdds"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalEncounterIntegrationTests.BossOwnsAllThreeSlots_UsesOneWorldClock_AndPauseFreezesIntent",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalBossControllerTests.BossClockHasTwoAutosThenVisibleFourSecondCastWithoutExtraAuto",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalBossControllerTests.OwnsExactlyAuthoredSlots",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalBossControllerTests.EliteIntentStartsAtSixAndAreaCompletesAtNineWithoutOwningAdds",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-020",
+      "name": "群攻读条与清面具",
+      "phase": "O3",
+      "verification_kind": "逻辑/UI",
+      "scenario": "分别保留0/1/2面具，在读条期间击杀面具。",
+      "expected": "倍率按执行时存活数量为1/1.5/2；预警可见；到期只结算一次。",
+      "evidence_required": "模拟边界测试＋画面",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PARTIAL",
+      "actual_result": "模拟验证 0/1/2 个存活面具在实际群攻结算时决定倍率，读条中击杀面具改变实际伤害；群攻完成次数受控。当前预警可见性及最终画面没有 Unity 执行证据。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/O3-CHECKPOINT.md",
+        "docs/original-expedition/evidence/o3/encounter-ui-red.log",
+        "docs/original-expedition/evidence/o3/encounter-ui-red-2.log"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalBossControllerTests.ActualCastUsesMasksStillAliveAtResolutionAndSnapshotUpdatesDuringCast",
+        "Resonance.Tests.OriginalEncounterIntegrationTests.RemovingMaskDuringCastChangesActualAreaDamageAtResolution",
+        "Resonance.Tests.OriginalBossControllerTests.SubsequentAreaAndAutoScheduleFromCompletionWithNoSameFrameAuto"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalBossControllerTests.ActualCastUsesMasksStillAliveAtResolutionAndSnapshotUpdatesDuringCast",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalEncounterIntegrationTests.RemovingMaskDuringCastChangesActualAreaDamageAtResolution",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalBossControllerTests.SubsequentAreaAndAutoScheduleFromCompletionWithNoSameFrameAuto",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [
+        "当前真实 UI 预警及面具变化画面"
+      ],
+      "current_unity_ui_execution": "NOT_RUN",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-021",
+      "name": "阶段切换和死亡优先",
+      "phase": "O3",
+      "verification_kind": "逻辑",
+      "scenario": "跨50%时仍活、读条中跨阈值、直接击杀、同root双方同时倒下。",
+      "expected": "仅切一次阶段；不瞬发/重复群攻；首领死即胜利、面具存活不阻塞；Failed单列。",
+      "evidence_required": "阶段测试",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "非读条/读条中跨半血各只转换一次；只重建死面具，存活面具不回满；读条完成后延迟切阶段。首领与最后队员同根倒下判胜，规则失败优先，终局取消待执行读条/重建。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalBossControllerTests.StablePhaseBoundaryIsOnceAndDoesNotWaitForFirstIntent",
+        "Resonance.Tests.OriginalBossControllerTests.PhaseChangeDuringCastWaitsThenRebuildsOnlyDeadMaskWithoutHealingSurvivor",
+        "Resonance.Tests.OriginalEncounterIntegrationTests.HalfHealthDuringCastDefersOnePhaseChange_AndRebuildsOnlyDeadMask",
+        "Resonance.Tests.OriginalEncounterIntegrationTests.BossAndLastAllyDyingInOneRootIsVictory_AndCancelsPendingIntent",
+        "Resonance.Tests.OriginalEncounterIntegrationTests.RuleFailureLaterInTheSameNativeActionHasPriorityOverBossDeath",
+        "Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Defeat)",
+        "Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Failed)",
+        "Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Victory)"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalBossControllerTests.StablePhaseBoundaryIsOnceAndDoesNotWaitForFirstIntent",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalBossControllerTests.PhaseChangeDuringCastWaitsThenRebuildsOnlyDeadMaskWithoutHealingSurvivor",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalEncounterIntegrationTests.HalfHealthDuringCastDefersOnePhaseChange_AndRebuildsOnlyDeadMask",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalEncounterIntegrationTests.BossAndLastAllyDyingInOneRootIsVictory_AndCancelsPendingIntent",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalEncounterIntegrationTests.RuleFailureLaterInTheSameNativeActionHasPriorityOverBossDeath",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Defeat)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Failed)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Victory)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-022",
+      "name": "面具实例隔离",
+      "phase": "O3",
+      "verification_kind": "逻辑",
+      "scenario": "面具死亡/重建后保留旧目标与待执行事件。",
+      "expected": "新旧实例代数不同；旧引用不能命中新对象或重复记录死亡。",
+      "evidence_required": "实例生命周期用例",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "死面具按代数重建且活面具不重建；旧队列绑定同槽旧代数时拒绝，不能伤害新实例；先前队列击杀也使后续旧目标失效。回放比较记录代数和重建次数。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalBossControllerTests.MissingMaskUsesGenerationZeroAndLivingMasksAreNotRefilled",
+        "Resonance.Tests.OriginalEncounterIntegrationTests.HalfHealthDuringCastDefersOnePhaseChange_AndRebuildsOnlyDeadMask",
+        "Resonance.Tests.OriginalExpeditionQueueTests.SameSlotWithANewGeneration_IsRejectedWithoutDamagingTheReplacement",
+        "Resonance.Tests.OriginalExpeditionQueueTests.EarlierQueuedKill_InvalidatesLaterBoundTarget_WhileSupportAndGlobalFocusRemainIndependent",
+        "Resonance.Tests.OriginalReplayTests.FullBossVictoryReplaysPhaseMaskGenerationsAndFinalTickRejectedCommands"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalBossControllerTests.MissingMaskUsesGenerationZeroAndLivingMasksAreNotRefilled",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalEncounterIntegrationTests.HalfHealthDuringCastDefersOnePhaseChange_AndRebuildsOnlyDeadMask",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionQueueTests.SameSlotWithANewGeneration_IsRejectedWithoutDamagingTheReplacement",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionQueueTests.EarlierQueuedKill_InvalidatesLaterBoundTarget_WhileSupportAndGlobalFocusRemainIndependent",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayTests.FullBossVictoryReplaysPhaseMaskGenerationsAndFinalTickRejectedCommands",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-023",
+      "name": "时间一致性",
+      "phase": "O3",
+      "verification_kind": "逻辑/UI",
+      "scenario": "1×/2×、暂停/恢复、政策停顿、不同画面帧率下跑同输入。",
+      "expected": "首领意图使用模拟权威时钟；暂停不涨冷却/蓄能；UI倒计时不决定伤害。",
+      "evidence_required": "时间与事件对照",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PARTIAL",
+      "actual_result": "1×/2×、政策停顿和暂停的模拟时钟/状态保持通过，真实速度指令按发生 tick 可回放；没有跨实际画面帧率的当前 Unity UI 对照。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/O3-CHECKPOINT.md"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalBossControllerTests.FrozenDefinitionAndOneVsTwoSpeedHaveSameGameTimeActions",
+        "Resonance.Tests.OriginalEncounterIntegrationTests.SpeedScalesTheEncounterClockOnce_AndPolicyHoldDoesNotAdvanceIt",
+        "Resonance.Tests.OriginalExpeditionQueueTests.PausedQueueEditingAndTicks_DoNotAdvanceAnyCapturedBattleState",
+        "Resonance.Tests.OriginalReplayBoundaryTests.LegalSpeedChangesAreReplayedAtTheirActualTicksIncludingTheBossCast"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalBossControllerTests.FrozenDefinitionAndOneVsTwoSpeedHaveSameGameTimeActions",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalEncounterIntegrationTests.SpeedScalesTheEncounterClockOnce_AndPolicyHoldDoesNotAdvanceIt",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionQueueTests.PausedQueueEditingAndTicks_DoNotAdvanceAnyCapturedBattleState",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayBoundaryTests.LegalSpeedChangesAreReplayedAtTheirActualTicksIncludingTheBossCast",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [
+        "不同实际画面帧率下的意图/倒计时/伤害时间对照"
+      ],
+      "current_unity_ui_execution": "NOT_RUN",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-024",
+      "name": "暂停队列",
+      "phase": "O3",
+      "verification_kind": "逻辑/UI",
+      "scenario": "同slot覆盖、多slot排序、目标失效、资源不足以及重复恢复。",
+      "expected": "恢复后统一Submit，合法性重验；顺序稳定；拒绝有原因；未就绪不偷偷等待后自动施放。",
+      "evidence_required": "队列用例＋正常输入片段",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PARTIAL",
+      "actual_result": "队列同 slot 覆盖保序、清除重排、恢复先记 Resume 再统一 Submit、目标失效和角色状态拒绝、未就绪不自动重试均通过。当前普通 UI 编排输入片段未执行。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/O3-CHECKPOINT.md"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalExpeditionQueueTests.QueueReplacementPreservesOrder_ClearThenReinsertMovesToEnd_AndSnapshotsAreStable",
+        "Resonance.Tests.OriginalExpeditionQueueTests.ResumeIsLoggedBeforeQueuedActions_AndAllDrainBeforeTheNextTick",
+        "Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: ActionLocked)",
+        "Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: NotCharged)",
+        "Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: Silenced)",
+        "Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: UnitDead)",
+        "Resonance.Tests.OriginalExpeditionQueueTests.NotReadyAtResume_IsConsumedWithoutRefillOrAutomaticRetryWhenChargeLaterBecomesReady",
+        "Resonance.Tests.OriginalReplayTests.PausedQueueReplacementClearAndResumeRegenerateBoundCommandsExactlyOnce"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionQueueTests.QueueReplacementPreservesOrder_ClearThenReinsertMovesToEnd_AndSnapshotsAreStable",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionQueueTests.ResumeIsLoggedBeforeQueuedActions_AndAllDrainBeforeTheNextTick",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: ActionLocked)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: NotCharged)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: Silenced)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: UnitDead)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionQueueTests.NotReadyAtResume_IsConsumedWithoutRefillOrAutomaticRetryWhenChargeLaterBecomesReady",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayTests.PausedQueueReplacementClearAndResumeRegenerateBoundCommandsExactlyOnce",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [
+        "当前正常界面暂停、覆盖、恢复与拒绝反馈片段"
+      ],
+      "current_unity_ui_execution": "NOT_RUN",
+      "ordinary_play_execution": "NOT_RUN"
+    },
+    {
+      "id": "O-025",
+      "name": "本模式关闭QTE/Fever",
+      "phase": "O0/O3",
+      "verification_kind": "逻辑/UI",
+      "scenario": "生成足够旧Drive/Fever资源，经过旧自动策略与HUD刷新。",
+      "expected": "新模式不进入隐藏QTE等待或Fever连点；普通攻击与玩家技能仍可用；legacy测试保持独立。",
+      "evidence_required": "模式隔离回归",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PARTIAL",
+      "actual_result": "当前核心已有 Drive/Fever/旧自动所有权/3× 拒绝及 Tick 后不进入隐藏等待的模式测试；普通 Auto 仍运行。当前 O3/O4 HUD 刷新与整套 Unity 回归尚未执行，不能把 C# 引用编译当作 UI 通过。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/evidence/o2/unity-o2.xml",
+        "docs/original-expedition/O3-CHECKPOINT.md"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalExpeditionModeTests.OriginalMode_RejectsDriveFeverAutoOwnershipAndThreeTimesSpeed",
+        "Resonance.Tests.OriginalExpeditionModeTests.OriginalPause_FreezesSimulationAndResumedSkillsUseSubmit"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionModeTests.OriginalMode_RejectsDriveFeverAutoOwnershipAndThreeTimesSpeed",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionModeTests.OriginalPause_FreezesSimulationAndResumedSkillsUseSubmit",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [
+        "当前 HUD/旧自动路径组合的 Unity 模式隔离回归"
+      ],
+      "current_unity_ui_execution": "HISTORICAL_O2_PASS_CURRENT_UI_NOT_RUN",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-026",
+      "name": "无必抽通关资格",
+      "phase": "O3",
+      "verification_kind": "场景/实玩",
+      "scenario": "固定普通合法构筑优先清面具，与防护成型构筑承受群攻分别测试。",
+      "expected": "至少两种方案通过，不依赖未显示状态注入；证明范围限定到实际种子和配置。",
+      "evidence_required": "两个策略脚本/输入记录",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "固定 N7/single/seed260921 的无遗物清面具、完整 A 承受双面具群攻、完整 B+C01 清面具三种合法命令策略均真实胜利；无战斗中 HP/充能/暴击/结局注入。只证明这些固定配置与策略，不代表从正常 UI 获取构筑或人类通关。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/O3-CHECKPOINT.md"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalBossStrategyTests.FixedBossAllowsDifferentLegalPlans(strategy: \"barrier-hold\")",
+        "Resonance.Tests.OriginalBossStrategyTests.FixedBossAllowsDifferentLegalPlans(strategy: \"base-mask-first\")",
+        "Resonance.Tests.OriginalBossStrategyTests.FixedBossAllowsDifferentLegalPlans(strategy: \"scatter-mask-first\")"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalBossStrategyTests.FixedBossAllowsDifferentLegalPlans(strategy: \"barrier-hold\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalBossStrategyTests.FixedBossAllowsDifferentLegalPlans(strategy: \"base-mask-first\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalBossStrategyTests.FixedBossAllowsDifferentLegalPlans(strategy: \"scatter-mask-first\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "SIMULATION_STRATEGIES_ONLY"
+    },
+    {
+      "id": "O-027",
+      "name": "首领检查点原样重试",
+      "phase": "O3",
+      "verification_kind": "逻辑/实玩",
+      "scenario": "首领失败后重试，并关闭重开；另以不同玩家命令重试。",
+      "expected": "基础配置、开局状态、内容hash、seed、遗物相同；attemptId可变；操作可改变结果；不能重抽。",
+      "evidence_required": "快照比对＋失败重试录像",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PARTIAL",
+      "actual_result": "同一持久化 N7 开局自然闲置全灭后重开，规范化输入除 AttemptId 外逐字段 SHA 相同；合法命令重试实际胜利，不能重抽/重复结算。N6 之前是状态夹具，失败→重试普通 UI 录像未执行。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/evidence/o3/retry-contract.md",
+        "docs/original-expedition/evidence/o4/retry-comparison.trx"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalBossRetryStrategyTests.SamePersistedBossOpeningNaturallyLosesThenWinsWithLegalCommands",
+        "Resonance.Tests.OriginalExpeditionFlowTests.BossRetryFreezesInputAndCannotRedraftOrReconfigure"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalBossRetryStrategyTests.SamePersistedBossOpeningNaturallyLosesThenWinsWithLegalCommands",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.BossRetryFreezesInputAndCannotRedraftOrReconfigure",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [
+        "普通界面失败、关闭重开、原样重试并改变操作的录像"
+      ],
+      "current_unity_ui_execution": "NOT_RUN",
+      "ordinary_play_execution": "NOT_RUN"
+    },
+    {
+      "id": "O-028",
+      "name": "单次首通奖励",
+      "phase": "O4",
+      "verification_kind": "逻辑/存档",
+      "scenario": "胜利回调重复、结算页重开、重复通关同章。",
+      "expected": "首通等价配置只解锁一次；没有永久属性累计；resultApplied与解锁同次提交。",
+      "evidence_required": "幂等用例",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "同一次胜利重复回调被拒绝；ResultApplied 与等价 sweep 解锁出现在同一完整 profile 提交；再次通关不再解锁/叠加。持久化重启与真实 Boss 重试结算均有通过结果。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/evidence/flow/README.md"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalExpeditionFlowTests.FiveBattleLoopSettlesOnceAndNextRunClearsTemporaryState(reinforce: False, relicCount: 4)",
+        "Resonance.Tests.OriginalExpeditionFlowTests.FiveBattleLoopSettlesOnceAndNextRunClearsTemporaryState(reinforce: True, relicCount: 5)",
+        "Resonance.Tests.OriginalExpeditionFlowTests.RepeatedChapterWinDoesNotStackPermanentUnlock",
+        "Resonance.Tests.OriginalBossRetryStrategyTests.SamePersistedBossOpeningNaturallyLosesThenWinsWithLegalCommands",
+        "Resonance.Tests.OriginalProfileStoreTests.AtomicWriteFaultProducesWholeOldOrWholeNewState(point: AfterReplace, committed: True)",
+        "Resonance.Tests.OriginalProfileStoreTests.AtomicWriteFaultProducesWholeOldOrWholeNewState(point: AfterTempFlushed, committed: False)",
+        "Resonance.Tests.OriginalProfileStoreTests.AtomicWriteFaultProducesWholeOldOrWholeNewState(point: BeforeReplace, committed: False)",
+        "Resonance.Tests.OriginalProfileStoreTests.AtomicWriteFaultProducesWholeOldOrWholeNewState(point: BeforeWrite, committed: False)"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.FiveBattleLoopSettlesOnceAndNextRunClearsTemporaryState(reinforce: False, relicCount: 4)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.FiveBattleLoopSettlesOnceAndNextRunClearsTemporaryState(reinforce: True, relicCount: 5)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.RepeatedChapterWinDoesNotStackPermanentUnlock",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalBossRetryStrategyTests.SamePersistedBossOpeningNaturallyLosesThenWinsWithLegalCommands",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalProfileStoreTests.AtomicWriteFaultProducesWholeOldOrWholeNewState(point: AfterReplace, committed: True)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalProfileStoreTests.AtomicWriteFaultProducesWholeOldOrWholeNewState(point: AfterTempFlushed, committed: False)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalProfileStoreTests.AtomicWriteFaultProducesWholeOldOrWholeNewState(point: BeforeReplace, committed: False)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalProfileStoreTests.AtomicWriteFaultProducesWholeOldOrWholeNewState(point: BeforeWrite, committed: False)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-029",
+      "name": "下一趟清理",
+      "phase": "O4",
+      "verification_kind": "逻辑/UI",
+      "scenario": "胜利或结束远征后创建新run，打开上局摘要。",
+      "expected": "无旧遗物/蓄能/生命残留；发现图鉴与解锁保留；摘要不作为战斗输入。",
+      "evidence_required": "两趟连续测试",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PARTIAL",
+      "actual_result": "状态机及五场真实模拟栈已验证新 run 只含所选初始核心、满 HP、无旧 checkpoint/结算标记，同时保留解锁/发现/摘要。新增真实 Flow 转换控制夹具在旧模拟实际存在护盾、蓄能、和声、强奏及显式冷却/充能时结束该趟并重载开新 run：新模拟清除全部战斗临时态，盟方充能按既有开局值 35 重新初始化，保留发现/解锁，旧模拟保持脏状态。成熟路线与终局 HP 是明确夹具前置条件，不代表普通实玩；O0 普通单战后重开是历史证据，当前连续两趟的结算/旧摘要 UI 回归仍未执行。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/evidence/o0/player-entry/README.md",
+        "docs/original-expedition/O4-CHECKPOINT.md",
+        "docs/original-expedition/evidence/o5/lifecycle-boundaries-green.trx",
+        "docs/original-expedition/evidence/o5/lifecycle-boundaries.trx"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalExpeditionFlowTests.FiveBattleLoopSettlesOnceAndNextRunClearsTemporaryState(reinforce: False, relicCount: 4)",
+        "Resonance.Tests.OriginalExpeditionFlowTests.FiveBattleLoopSettlesOnceAndNextRunClearsTemporaryState(reinforce: True, relicCount: 5)",
+        "Resonance.Tests.OriginalExpeditionLoopIntegrationTests.ActualSimulation_FiveBattlesRewardsAndNextRun_UseNormalCommands(seed: 91021, branch: \"N2-backstage\")",
+        "Resonance.Tests.OriginalExpeditionLoopIntegrationTests.ActualSimulation_FiveBattlesRewardsAndNextRun_UseNormalCommands(seed: 92021, branch: \"N2-audience\")",
+        "Resonance.Tests.OriginalLifecycleBoundaryTests.EndRunThenStartNewRunPreservesDiscoveriesButDropsBuildAndAllBattleTemporaries"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.FiveBattleLoopSettlesOnceAndNextRunClearsTemporaryState(reinforce: False, relicCount: 4)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.FiveBattleLoopSettlesOnceAndNextRunClearsTemporaryState(reinforce: True, relicCount: 5)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionLoopIntegrationTests.ActualSimulation_FiveBattlesRewardsAndNextRun_UseNormalCommands(seed: 91021, branch: \"N2-backstage\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionLoopIntegrationTests.ActualSimulation_FiveBattlesRewardsAndNextRun_UseNormalCommands(seed: 92021, branch: \"N2-audience\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalLifecycleBoundaryTests.EndRunThenStartNewRunPreservesDiscoveriesButDropsBuildAndAllBattleTemporaries",
+          "path": "docs/original-expedition/evidence/o5/lifecycle-boundaries-green.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [
+        "当前连续两趟及旧局摘要 UI 回归"
+      ],
+      "current_unity_ui_execution": "NOT_RUN",
+      "ordinary_play_execution": "HISTORICAL_O0_RESTART_ONLY"
+    },
+    {
+      "id": "O-030",
+      "name": "保存失败和崩溃点",
+      "phase": "O1/O4",
+      "verification_kind": "存档",
+      "scenario": "模拟写入前、临时写完、替换前后与奖励提交前后的故障。",
+      "expected": "只出现完整旧状态或完整新状态；失败不显示已领取；不重复收益、不写旧个人档。",
+      "evidence_required": "故障注入报告",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "四个故障点 BeforeWrite/AfterTempFlushed/BeforeReplace/AfterReplace 实际执行，重开只有完整旧或新状态；奖励提交后故障不重复收益，失败不发布成功状态，旧档不被写入。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/evidence/flow/README.md"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalProfileStoreTests.AtomicWriteFaultProducesWholeOldOrWholeNewState(point: AfterReplace, committed: True)",
+        "Resonance.Tests.OriginalProfileStoreTests.AtomicWriteFaultProducesWholeOldOrWholeNewState(point: AfterTempFlushed, committed: False)",
+        "Resonance.Tests.OriginalProfileStoreTests.AtomicWriteFaultProducesWholeOldOrWholeNewState(point: BeforeReplace, committed: False)",
+        "Resonance.Tests.OriginalProfileStoreTests.AtomicWriteFaultProducesWholeOldOrWholeNewState(point: BeforeWrite, committed: False)",
+        "Resonance.Tests.OriginalProfileStoreTests.FailureAfterRewardCommitReopensExactlyOneAwardAndRejectsStaleRetry",
+        "Resonance.Tests.OriginalProfileStoreTests.SaveFailureDoesNotPublishRewardAndSuccessfulRestartCannotDoubleCollect",
+        "Resonance.Tests.OriginalProfileStoreTests.InterruptedFirstWriteKeepsTheValidEmptyProfileAndNoLegacyFile",
+        "Resonance.Tests.OriginalProfileStoreTests.RevisionCompareAndSwapRejectsSecondWriterAndLegacyFileIsUntouched"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalProfileStoreTests.AtomicWriteFaultProducesWholeOldOrWholeNewState(point: AfterReplace, committed: True)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalProfileStoreTests.AtomicWriteFaultProducesWholeOldOrWholeNewState(point: AfterTempFlushed, committed: False)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalProfileStoreTests.AtomicWriteFaultProducesWholeOldOrWholeNewState(point: BeforeReplace, committed: False)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalProfileStoreTests.AtomicWriteFaultProducesWholeOldOrWholeNewState(point: BeforeWrite, committed: False)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalProfileStoreTests.FailureAfterRewardCommitReopensExactlyOneAwardAndRejectsStaleRetry",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalProfileStoreTests.SaveFailureDoesNotPublishRewardAndSuccessfulRestartCannotDoubleCollect",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalProfileStoreTests.InterruptedFirstWriteKeepsTheValidEmptyProfileAndNoLegacyFile",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalProfileStoreTests.RevisionCompareAndSwapRejectsSecondWriterAndLegacyFileIsUntouched",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-031",
+      "name": "损坏档恢复",
+      "phase": "O1/O4",
+      "verification_kind": "存档",
+      "scenario": "正文损坏、备份有效，以及正文/备份均坏。",
+      "expected": "有效备份可恢复；两者坏时明确报错，不自动Reset、清空或新建覆盖。",
+      "evidence_required": "恢复用例",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "正文损坏可读取有效备份，随后写入不覆盖唯一有效备份；正文和备份均坏时抛错，保留原字节而不 Reset/清空/覆盖。完整性字段也拒绝语义有效 JSON 篡改。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/evidence/flow/README.md"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalProfileStoreTests.ValidBackupRecoversAndFollowingWritePreservesIt",
+        "Resonance.Tests.OriginalProfileStoreTests.TwoCorruptCopiesFailWithoutResetOrOverwrite",
+        "Resonance.Tests.OriginalProfileStoreTests.SemanticallyValidJsonTamperFailsIntegrityInsteadOfGrantingUnlock"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalProfileStoreTests.ValidBackupRecoversAndFollowingWritePreservesIt",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalProfileStoreTests.TwoCorruptCopiesFailWithoutResetOrOverwrite",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalProfileStoreTests.SemanticallyValidJsonTamperFailsIntegrityInsteadOfGrantingUnlock",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-032",
+      "name": "新回放输入和状态",
+      "phase": "O5",
+      "verification_kind": "逻辑",
+      "scenario": "录制后用冻结配置和commands重放A/B/C与首领阶段样本。",
+      "expected": "新模式输入、首领意图/实例、蓄能/和声/强奏、最终状态及事件匹配。",
+      "evidence_required": "replay报告",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "A/B/C 三份完整家族 N7 首领逻辑样本均在默认暴击规则下通过真实命令取得 Victory，并证明本族实际触发；冻结输入序列化后 Verify 通过，最终状态、事件/结算哈希和触发序列一致。既有 case 另覆盖首领阶段、面具代数、蓄能/和声/强奏及暂停队列状态。三份 tape 为可核验的核心模拟样本，不代表普通 UI 实玩。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/evidence/o5/replay-boundaries.trx",
+        "docs/original-expedition/evidence/o5/fixture-boss-replay.json",
+        "docs/original-expedition/evidence/o5/replay-families.trx",
+        "docs/original-expedition/evidence/o5/family-tapes/fixture-a-boss.original-replay.json",
+        "docs/original-expedition/evidence/o5/family-tapes/fixture-b-boss.original-replay.json",
+        "docs/original-expedition/evidence/o5/family-tapes/fixture-c-boss.original-replay.json"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalReplayTests.RecordedAcceptedAndRejectedCommandsRoundTripWithDefaultCriticalRolls",
+        "Resonance.Tests.OriginalReplayTests.FullBossVictoryReplaysPhaseMaskGenerationsAndFinalTickRejectedCommands",
+        "Resonance.Tests.OriginalReplayTests.PausedQueueReplacementClearAndResumeRegenerateBoundCommandsExactlyOnce",
+        "Resonance.Tests.OriginalReplayTests.CaptureWhilePausedRetainsUnsubmittedQueueWithoutExecutingItOrAdvancingTime",
+        "Resonance.Tests.OriginalReplayStoreTests.SavedShortBattleDeserializesAndVerifiesFromItsFrozenOpening",
+        "Resonance.Tests.OriginalReplayFamilyTests.CompleteFamilyActuallyTriggersAndItsBossBattleRoundTrips(family: \"A\")",
+        "Resonance.Tests.OriginalReplayFamilyTests.CompleteFamilyActuallyTriggersAndItsBossBattleRoundTrips(family: \"B\")",
+        "Resonance.Tests.OriginalReplayFamilyTests.CompleteFamilyActuallyTriggersAndItsBossBattleRoundTrips(family: \"C\")"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalReplayTests.RecordedAcceptedAndRejectedCommandsRoundTripWithDefaultCriticalRolls",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayTests.FullBossVictoryReplaysPhaseMaskGenerationsAndFinalTickRejectedCommands",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayTests.PausedQueueReplacementClearAndResumeRegenerateBoundCommandsExactlyOnce",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayTests.CaptureWhilePausedRetainsUnsubmittedQueueWithoutExecutingItOrAdvancingTime",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayStoreTests.SavedShortBattleDeserializesAndVerifiesFromItsFrozenOpening",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayFamilyTests.CompleteFamilyActuallyTriggersAndItsBossBattleRoundTrips(family: \"A\")",
+          "path": "docs/original-expedition/evidence/o5/replay-families.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayFamilyTests.CompleteFamilyActuallyTriggersAndItsBossBattleRoundTrips(family: \"B\")",
+          "path": "docs/original-expedition/evidence/o5/replay-families.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayFamilyTests.CompleteFamilyActuallyTriggersAndItsBossBattleRoundTrips(family: \"C\")",
+          "path": "docs/original-expedition/evidence/o5/replay-families.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-033",
+      "name": "篡改与版本拒绝",
+      "phase": "O5",
+      "verification_kind": "逻辑",
+      "scenario": "修改预期终局、遗物参数、开局生命、配置版本或独立结束边界。",
+      "expected": "比较失败或版本明确拒绝；不会看预期结果补血、改随机、补时钟求绿。",
+      "evidence_required": "负向回归",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "预期终局/状态、技能参数、六种版本标识、命令结果/日志和独立结束边界的负向回归均通过。新增两个独立 case 在合法数值域内分别修改 OpeningHp 和 RelicParameters.ForteDamageBonus，保留旧 InputHash，均在构造模拟前明确拒绝 FrozenInputHashMismatch；不会根据预期结果补时间或改变执行。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/evidence/o5/replay-boundaries.trx",
+        "docs/original-expedition/evidence/o5/replay-families.trx"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalReplayTests.TamperedFrozenSkillWithUnchangedInputHashIsRejectedBeforeSimulation",
+        "Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: \"content-hash\")",
+        "Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: \"content-version\")",
+        "Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: \"input-schema\")",
+        "Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: \"mode\")",
+        "Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: \"record-schema\")",
+        "Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: \"ruleset\")",
+        "Resonance.Tests.OriginalReplayTests.ExpectedFinalOutputsCannotChooseOrShortenTheReplayBoundary",
+        "Resonance.Tests.OriginalReplayTests.ChangingOnlyExpectedCommandAcceptanceIsDetectedWithoutChangingExecution",
+        "Resonance.Tests.OriginalReplayBoundaryTests.NaturallyTerminalSimulationCannotReachAnInventedLaterBoundary",
+        "Resonance.Tests.OriginalReplayBoundaryTests.ChangedEventDetailCannotHideBehindTheUnchangedRecordedHash",
+        "Resonance.Tests.OriginalReplayBoundaryTests.ChangedResolutionDetailCannotHideBehindTheUnchangedRecordedHash(changeGeneration: False)",
+        "Resonance.Tests.OriginalReplayBoundaryTests.ChangedResolutionDetailCannotHideBehindTheUnchangedRecordedHash(changeGeneration: True)",
+        "Resonance.Tests.OriginalReplayFamilyTests.ChangedOpeningHpOrRelicParametersWithOldHashAreRejectedBeforeConstruction(change: \"opening-hp\")",
+        "Resonance.Tests.OriginalReplayFamilyTests.ChangedOpeningHpOrRelicParametersWithOldHashAreRejectedBeforeConstruction(change: \"relic-parameters\")"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalReplayTests.TamperedFrozenSkillWithUnchangedInputHashIsRejectedBeforeSimulation",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: \"content-hash\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: \"content-version\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: \"input-schema\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: \"mode\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: \"record-schema\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: \"ruleset\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayTests.ExpectedFinalOutputsCannotChooseOrShortenTheReplayBoundary",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayTests.ChangingOnlyExpectedCommandAcceptanceIsDetectedWithoutChangingExecution",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayBoundaryTests.NaturallyTerminalSimulationCannotReachAnInventedLaterBoundary",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayBoundaryTests.ChangedEventDetailCannotHideBehindTheUnchangedRecordedHash",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayBoundaryTests.ChangedResolutionDetailCannotHideBehindTheUnchangedRecordedHash(changeGeneration: False)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayBoundaryTests.ChangedResolutionDetailCannotHideBehindTheUnchangedRecordedHash(changeGeneration: True)",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayFamilyTests.ChangedOpeningHpOrRelicParametersWithOldHashAreRejectedBeforeConstruction(change: \"opening-hp\")",
+          "path": "docs/original-expedition/evidence/o5/replay-families.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayFamilyTests.ChangedOpeningHpOrRelicParametersWithOldHashAreRejectedBeforeConstruction(change: \"relic-parameters\")",
+          "path": "docs/original-expedition/evidence/o5/replay-families.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-034",
+      "name": "旧工程回归",
+      "phase": "O5",
+      "verification_kind": "逻辑/UI",
+      "scenario": "运行改变涉及的旧核心及教程UI回归；保留legacy上下文。",
+      "expected": "不批量放宽断言；范围退出时保留旧测试并新增模式测试；真实报告跳过项。",
+      "evidence_required": "测试原件与归类",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PARTIAL",
+      "actual_result": "最新核心主套件 538 通过、1 项 NotExecuted；已知污染 Catalog 的历史测试另进程 1/1 通过；同一生产代码状态新增回放定点 5/5、遗物验收边界 4/4、生命周期边界 3/3 通过。五份报告累计列项 552、实际执行并通过 551，保留 1 项既有跳过；这不是单次 552 项全套执行。生命周期首次 3 项失败来自错误的充能零值预期，按既有开局值 35 更正测试，原报告保留，生产未改。旧全套顺序污染和隔离原因保留。O2 Unity 61/61 是历史证据，O3/O4 改动后的教程/UI 回归仍未执行。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-catalog-isolated.trx",
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/O2-CHECKPOINT.md",
+        "docs/original-expedition/evidence/o2/core-o2.trx",
+        "docs/original-expedition/evidence/o2/legacy-catalog-probe/probe.log",
+        "docs/original-expedition/evidence/o2/unity-o2.xml",
+        "docs/original-expedition/O3-CHECKPOINT.md",
+        "docs/original-expedition/evidence/o5/replay-families.trx",
+        "docs/original-expedition/evidence/o5/relic-acceptance-boundaries.trx",
+        "docs/original-expedition/evidence/o5/lifecycle-boundaries-green.trx",
+        "docs/original-expedition/evidence/o5/lifecycle-boundaries.trx"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.BattleSimTests.CatalogJsonSerializeRoundtripKeepsOpcode",
+        "Resonance.Tests.M1CoreSliceTests.PoisonTriggersOnActionAndHitTakenNotPerSecond",
+        "Resonance.Tests.OriginalReplayBoundaryTests.LegacyBattlesKeepTheLegacyTapePathAndRejectOriginalCapture"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.BattleSimTests.CatalogJsonSerializeRoundtripKeepsOpcode",
+          "path": "docs/original-expedition/evidence/o5/core-o5-catalog-isolated.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.M1CoreSliceTests.PoisonTriggersOnActionAndHitTakenNotPerSecond",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalReplayBoundaryTests.LegacyBattlesKeepTheLegacyTapePathAndRejectOriginalCapture",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [
+        "当前版本 Unity UI/教程全套回归"
+      ],
+      "current_unity_ui_execution": "HISTORICAL_O2_PASS_CURRENT_UI_NOT_RUN",
+      "ordinary_play_execution": "NOT_APPLICABLE"
+    },
+    {
+      "id": "O-035",
+      "name": "成型反馈对照",
+      "phase": "O4",
+      "verification_kind": "平衡/实玩",
+      "scenario": "同一静态参照场景比较无遗物、普通混搭、家族完整和极强组合。",
+      "expected": "至少一个家族有明显有效优势；不调敌人同步抵消；记录实际DPS/时间/承伤等，不强行给所有流派同一分数。",
+      "evidence_required": "平衡对照与参数版本",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PASS",
+      "actual_result": "固定 N5/single/seed260921 以同一 HP、默认暴击、敌人参数与输入策略比较无遗物、混搭、完整 A/B/C、B+C01 六组；除 RelicIds 外冻结输入指纹相同，均真实胜利并对账。完整 B 11.60 秒对无遗物 30.80 秒，至少一个家族有明确效率优势；此为固定平衡对照，不是玩家体感验收。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/evidence/o4/comparison-n5-single-seed260921.json",
+        "docs/original-expedition/O4-CHECKPOINT.md"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalBuildComparisonTests.FixedN5_SixLegalBuildsShareEveryOtherInput_AndActualResultsReconcileWithTheLedger"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalBuildComparisonTests.FixedN5_SixLegalBuildsShareEveryOtherInput_AndActualResultsReconcileWithTheLedger",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "NOT_APPLICABLE",
+      "ordinary_play_execution": "CONTROLLED_COMPARISON_ONLY"
+    },
+    {
+      "id": "O-036",
+      "name": "成型后有战斗",
+      "phase": "O4",
+      "verification_kind": "实玩",
+      "scenario": "沿正常奖励选择在N4形成组合，进入N5与N7。",
+      "expected": "获得强化后确实发挥；不是通关后才发关键组件；可辨认主要触发来源。",
+      "evidence_required": "普通流程时间点",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "NOT_RUN",
+      "actual_result": "API 路径已证明三族可在 N4 奖励后进入持有完整套的 N5，且另有 N5/N7 战斗策略与反馈测试；但这些是分开的受控夹具，没有普通流程中形成构筑后继续战斗的时间点录像。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/evidence/flow/README.md",
+        "docs/original-expedition/O4-CHECKPOINT.md"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalExpeditionFlowTests.EveryFamilyHasAReproducibleFourPiecePathBeforeN5(core: \"A01\", first: \"A02\", second: \"A03\", amplifier: \"A04\")",
+        "Resonance.Tests.OriginalExpeditionFlowTests.EveryFamilyHasAReproducibleFourPiecePathBeforeN5(core: \"B01\", first: \"B02\", second: \"B03\", amplifier: \"B04\")",
+        "Resonance.Tests.OriginalExpeditionFlowTests.EveryFamilyHasAReproducibleFourPiecePathBeforeN5(core: \"C01\", first: \"C02\", second: \"C03\", amplifier: \"C04\")",
+        "Resonance.Tests.OriginalBuildComparisonTests.FixedN5_SixLegalBuildsShareEveryOtherInput_AndActualResultsReconcileWithTheLedger",
+        "Resonance.Tests.OriginalBossStrategyTests.FixedBossAllowsDifferentLegalPlans(strategy: \"barrier-hold\")",
+        "Resonance.Tests.OriginalBossStrategyTests.FixedBossAllowsDifferentLegalPlans(strategy: \"base-mask-first\")",
+        "Resonance.Tests.OriginalBossStrategyTests.FixedBossAllowsDifferentLegalPlans(strategy: \"scatter-mask-first\")"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.EveryFamilyHasAReproducibleFourPiecePathBeforeN5(core: \"A01\", first: \"A02\", second: \"A03\", amplifier: \"A04\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.EveryFamilyHasAReproducibleFourPiecePathBeforeN5(core: \"B01\", first: \"B02\", second: \"B03\", amplifier: \"B04\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalExpeditionFlowTests.EveryFamilyHasAReproducibleFourPiecePathBeforeN5(core: \"C01\", first: \"C02\", second: \"C03\", amplifier: \"C04\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalBuildComparisonTests.FixedN5_SixLegalBuildsShareEveryOtherInput_AndActualResultsReconcileWithTheLedger",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalBossStrategyTests.FixedBossAllowsDifferentLegalPlans(strategy: \"barrier-hold\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalBossStrategyTests.FixedBossAllowsDifferentLegalPlans(strategy: \"base-mask-first\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalBossStrategyTests.FixedBossAllowsDifferentLegalPlans(strategy: \"scatter-mask-first\")",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [
+        "沿普通 UI 奖励形成家族后进入 N5/N7 并可辨认触发来源的流程证据"
+      ],
+      "current_unity_ui_execution": "NOT_RUN",
+      "ordinary_play_execution": "NOT_RUN"
+    },
+    {
+      "id": "O-037",
+      "name": "UI可读与生命周期",
+      "phase": "O4/O5",
+      "verification_kind": "Unity UI",
+      "scenario": "长文字、缺图、连续施法、暂停/退出/重试/重建。",
+      "expected": "不串角色、不抢raycast、不残留遮挡；无关键提示仅靠颜色；意图和贡献数据真实。",
+      "evidence_required": "UI测试＋截图",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "PARTIAL",
+      "actual_result": "O0/O2 Unity 已验证长文、字形空间、占位身份、raycast 和界面生命周期；O4 核心反馈来源测试通过。新增 O3/O4 实际意图/贡献/退出重建 UI 用例仅有引用编译，许可证握手失败导致未进入 Unity 测试和截图。",
+      "evidence_paths": [
+        "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+        "docs/original-expedition/evidence/o2/unity-o2.xml",
+        "docs/original-expedition/O4-CHECKPOINT.md",
+        "docs/original-expedition/evidence/o3/unity-license-diagnosis.md",
+        "docs/original-expedition/evidence/o3/encounter-ui-red.log",
+        "docs/original-expedition/evidence/o3/encounter-ui-red-2.log",
+        "docs/original-expedition/evidence/o5/compile-03/compile-results.json"
+      ],
+      "exact_test_names": [
+        "Resonance.Tests.OriginalFeedbackTests.EveryRelicTriggeredByOneNativeActionRetainsItsOwnSerial_AndQueryCopiesStayUnchanged",
+        "Resonance.Tests.OriginalFeedbackTests.EmptyAndRejectedActionsDoNotInventFeedback_AndSummaryHasThreeCheckableFactsAndOneSpecificAdvice"
+      ],
+      "test_evidence": [
+        {
+          "test_name": "Resonance.Tests.OriginalFeedbackTests.EveryRelicTriggeredByOneNativeActionRetainsItsOwnSerial_AndQueryCopiesStayUnchanged",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        },
+        {
+          "test_name": "Resonance.Tests.OriginalFeedbackTests.EmptyAndRejectedActionsDoNotInventFeedback_AndSummaryHasThreeCheckableFactsAndOneSpecificAdvice",
+          "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
+          "outcome": "Passed"
+        }
+      ],
+      "remaining_requirements": [
+        "当前 O3/O4/O5 Unity UI 用例和真实截图",
+        "暂停/退出/重试/重建后的普通交互核验"
+      ],
+      "current_unity_ui_execution": "NOT_RUN",
+      "ordinary_play_execution": "NOT_RUN"
+    },
+    {
+      "id": "O-038",
+      "name": "新包完整交付",
+      "phase": "O5",
+      "verification_kind": "独立程序",
+      "scenario": "解压新Win64目录，在普通入口离线完成全流程。",
+      "expected": "不依赖F盘源码；包/源码/视频版本对应；历史ZIP不冒充新版；已知限制明确。",
+      "evidence_required": "构建/包指纹＋连续录像",
+      "original_plan_status": "NOT_RUN",
+      "actual_status": "NOT_RUN",
+      "actual_result": "已准备一次 499 文件的白名单源码副本，逐文件 SHA 与旧素材排除检查通过；副本只是 a31c47ff 加未提交修改的中途快照。未启动 Unity 构建、未产出本次新版 EXE/ZIP，未执行离线完整流程和连续视频，不能引用历史包代替。",
+      "evidence_paths": [
+        "docs/original-expedition/PACKAGING-AUDIT.md",
+        "docs/original-expedition/evidence/o5/package-preparation.md",
+        "docs/original-expedition/evidence/o5/package-preparation-validation.json",
+        "docs/original-expedition/evidence/o5/package-preparation-manifest.json"
+      ],
+      "exact_test_names": [],
+      "test_evidence": [],
+      "remaining_requirements": [
+        "最终提交后新目录重新复制",
+        "真实 BuildReport 和新版 Win64 包/源码指纹",
+        "源码目录之外无参数离线全流程及对应连续录像"
+      ],
+      "current_unity_ui_execution": "NOT_RUN",
+      "ordinary_play_execution": "NOT_RUN"
+    }
+  ]
+}
