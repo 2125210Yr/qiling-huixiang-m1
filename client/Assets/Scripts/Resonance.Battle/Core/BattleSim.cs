@@ -227,6 +227,8 @@ namespace Resonance.Battle
         public bool FeverEver;
         public float FeverLeft;
         public int FeverHitsLeft;
+        /// <summary>Effective post-result Fever clock calls, recorded independently of expected output.</summary>
+        public int TerminalFeverTicks { get; private set; }
         public float TimeLeft;
         public int Speed = 1;
         public bool Paused;
@@ -465,6 +467,7 @@ namespace Resonance.Battle
         public void TickFeverOnly()
         {
             if (!FeverActive || Paused) return;
+            if (Outcome != BattleOutcome.InProgress) TerminalFeverTicks++;
             var dt = Clocks != null ? Clocks.BattleDt(Speed) : TickDt * (Speed < 1 ? 1 : Speed);
             if (dt <= 0f) dt = TickDt;
             TickFever(ScaleClock(dt, Clocks != null && Clocks.FeverWindowScalesWithSpeed));

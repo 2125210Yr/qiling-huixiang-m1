@@ -1007,6 +1007,14 @@ namespace Resonance.Battle
         /// </summary>
         public string OpeningSource;
         public readonly List<CommandRecord> Commands = new List<CommandRecord>(64);
+        /// <summary>
+        /// Recorded post-result clock input. Null means a historical tape did not record this boundary.
+        /// This is independent of FinalDigest and EventSummaries, which are comparison-only output.
+        /// </summary>
+        public int? TerminalFeverTicks;
+        /// <summary>Independent battle-clock capture boundary; null on historical records.</summary>
+        public int? BattleTickIndex;
+        internal string BoundaryError;
         public BattleStateDigest FinalDigest;
         public readonly List<EventSummary> EventSummaries = new List<EventSummary>(256);
 
@@ -1039,6 +1047,8 @@ namespace Resonance.Battle
                     if (copy != null) rec.Commands.Add(copy);
                 }
             }
+            rec.TerminalFeverTicks = sim.TerminalFeverTicks;
+            rec.BattleTickIndex = sim.TickIndex;
             rec.FinalDigest = BattleStateDigest.Of(sim);
             if (sim.Events != null && sim.Events.Events != null)
             {
@@ -1053,6 +1063,7 @@ namespace Resonance.Battle
 
         public string ToJsonLines()
         {
+            if (BoundaryError != null) throw new InvalidOperationException(BoundaryError);
             var sb = new StringBuilder(512 + Commands.Count * 96 + EventSummaries.Count * 80);
             sb.Append("{\"rec\":\"header\"");
             J(sb, "runHeader", RunHeader);
@@ -1092,6 +1103,7 @@ namespace Resonance.Battle
                 sb.Append("{\"rec\":\"cmd\"");
                 J(sb, "seq", c.Seq);
                 J(sb, "tick", c.Tick);
+                if (c.TerminalFeverTick.HasValue) J(sb, "terminalFeverTick", c.TerminalFeverTick.Value);
                 J(sb, "kind", c.Kind.ToString());
                 J(sb, "slot", c.Slot);
                 J(sb, "timing", c.Timing.ToString());
@@ -1099,6 +1111,14 @@ namespace Resonance.Battle
                 J(sb, "source", c.Source.ToString());
                 J(sb, "accepted", c.Accepted);
                 J(sb, "reason", c.Reason.ToString());
+                sb.Append("}\n");
+            }
+
+            if (TerminalFeverTicks.HasValue || BattleTickIndex.HasValue)
+            {
+                sb.Append("{\"rec\":\"boundary\"");
+                if (BattleTickIndex.HasValue) J(sb, "battleTickIndex", BattleTickIndex.Value);
+                if (TerminalFeverTicks.HasValue) J(sb, "terminalFeverTicks", TerminalFeverTicks.Value);
                 sb.Append("}\n");
             }
 
@@ -1174,6 +1194,7 @@ namespace Resonance.Battle
             if (text == null) throw new ArgumentNullException(nameof(text));
             var rec = new BattleRunRecord();
             rec.FinalDigest = new BattleStateDigest();
+            var boundarySeen = false;
             var lines = text.Replace("\r\n", "\n").Replace('\r', '\n').Split('\n');
             for (int i = 0; i < lines.Length; i++)
             {
@@ -1188,6 +1209,17 @@ namespace Resonance.Battle
                     ReadHeader(rec, map);
                 else if (kind == "cmd" || kind == "command")
                     rec.Commands.Add(ReadCmd(map));
+                else if (kind == "boundary")
+                {
+                    if (boundarySeen)
+                        rec.BoundaryError = "Replay boundary: duplicate boundary rows.";
+                    else
+                    {
+                        boundarySeen = true;
+                        rec.BattleTickIndex = map.GetInt("battleTickIndex", -1);
+                        rec.TerminalFeverTicks = map.GetInt("terminalFeverTicks", -1);
+                    }
+                }
                 else if (kind == "digest")
                     ReadDigestScalars(rec.FinalDigest, map);
                 else if (kind == "unit")
@@ -1313,6 +1345,8 @@ namespace Resonance.Battle
             {
                 Seq = map.GetInt("seq", 0),
                 Tick = map.GetInt("tick", 0),
+                TerminalFeverTick = map.Get("terminalFeverTick", null) == null
+                    ? (int?)null : map.GetInt("terminalFeverTick", -1),
                 Kind = ParseEnum(map.Get("kind", ""), default(BattleCommandKind)),
                 Slot = map.GetInt("slot", 0),
                 Timing = ParseEnum(map.Get("timing", ""), default(DriveTiming)),
@@ -1369,6 +1403,7 @@ namespace Resonance.Battle
             {
                 Seq = src.Seq,
                 Tick = src.Tick,
+                TerminalFeverTick = src.TerminalFeverTick,
                 Kind = src.Kind,
                 Slot = src.Slot,
                 Timing = src.Timing,
@@ -2232,6 +2267,8 @@ namespace Resonance.Battle
         {
             Kv(sb, "seq", BattleStateDigest.I(c.Seq), false);
             Kv(sb, "tick", BattleStateDigest.I(c.Tick), true);
+            if (c.TerminalFeverTick.HasValue)
+                Kv(sb, "terminalFeverTick", BattleStateDigest.I(c.TerminalFeverTick.Value), true);
             Kv(sb, "kind", c.Kind.ToString(), true);
             Kv(sb, "slot", BattleStateDigest.I(c.Slot), true);
             Kv(sb, "timing", c.Timing.ToString(), true);
@@ -2248,6 +2285,8 @@ namespace Resonance.Battle
             {
                 Seq = GetInt(map, "seq", 0),
                 Tick = GetInt(map, "tick", 0),
+                TerminalFeverTick = Get(map, "terminalFeverTick", null) == null
+                    ? (int?)null : GetInt(map, "terminalFeverTick", -1),
                 Kind = BattleRunRecord.ParseEnum(Get(map, "kind", ""), default(BattleCommandKind)),
                 Slot = GetInt(map, "slot", 0),
                 Timing = BattleRunRecord.ParseEnum(Get(map, "timing", ""), default(DriveTiming)),
@@ -2521,6 +2560,7 @@ namespace Resonance.Battle
             return report;
         }
 
+        /// <summary>Legacy battle-tick API. Post-result input requires a BattleRunRecord boundary.</summary>
         public static BattleSim Run(ReplayScript script, Func<BattleSim> factory, int maxTicks)
         {
             if (factory == null) throw new ArgumentNullException(nameof(factory));
@@ -2539,7 +2579,10 @@ namespace Resonance.Battle
                 for (int i = 0; i < script.Commands.Count; i++)
                 {
                     var c = script.Commands[i];
-                    if (IsExternalInput(c)) external.Add(c);
+                    if (!IsExternalInput(c)) continue;
+                    if (c.TerminalFeverTick.HasValue)
+                        NoteDivergence(session, "TerminalFeverTick: terminal inputs require a BattleRunRecord boundary.");
+                    else external.Add(c);
                 }
 
                 var cursor = 0;
@@ -2583,34 +2626,63 @@ namespace Resonance.Battle
                 ApplyHeader(sim, rec.Speed, rec.Auto, session);
 
                 var external = new List<CommandRecord>(rec.Commands.Count);
+                var terminal = new List<CommandRecord>();
+                var modernBoundary = rec.BattleTickIndex.HasValue || rec.TerminalFeverTicks.HasValue
+                    || rec.BoundaryError != null;
                 for (int i = 0; i < rec.Commands.Count; i++)
                 {
                     var c = rec.Commands[i];
-                    if (IsExternalInput(c)) external.Add(c);
+                    if (!IsExternalInput(c)) continue;
+                    if (modernBoundary && c.TerminalFeverTick.HasValue) terminal.Add(c);
+                    else if (c.TerminalFeverTick.HasValue)
+                        NoteDivergence(session, "TerminalFeverTick: terminal inputs require an independent replay boundary.");
+                    else external.Add(c);
                 }
 
-                var goal = rec.FinalDigest != null ? rec.FinalDigest.TickIndex : LastTick(external);
+                if (modernBoundary && (rec.BoundaryError != null || !rec.BattleTickIndex.HasValue
+                    || rec.BattleTickIndex.Value < 0 || !rec.TerminalFeverTicks.HasValue
+                    || rec.TerminalFeverTicks.Value < 0))
+                {
+                    NoteDivergence(session, rec.BoundaryError
+                        ?? "TerminalFeverTicks: invalid, missing, or malformed replay boundary fields.");
+                    CollectUnconsumed(external, 0, session);
+                    CollectUnconsumed(terminal, 0, session);
+                    return sim;
+                }
+
+                // Old tapes used digest.TickIndex as their only recorded end position.
+                // Modern tapes own an input boundary; expected output cannot choose it.
+                var goal = modernBoundary ? rec.BattleTickIndex.Value
+                    : (rec.FinalDigest != null ? rec.FinalDigest.TickIndex : LastTick(external));
                 var cursor = 0;
-                var spins = 0;
-                var spinLimit = Math.Max(goal, 0) + external.Count + 16;
+                var spins = 0L;
+                var spinLimit = (long)Math.Max(goal, 0) + external.Count + 16;
                 while (spins++ <= spinLimit)
                 {
-                    DrainAt(sim, external, ref cursor, sim.TickIndex, session);
+                    DrainAt(sim, external, ref cursor, sim.TickIndex, session, modernBoundary);
                     if (sim.TickIndex >= goal)
                     {
-                        DrainAt(sim, external, ref cursor, sim.TickIndex, session);
+                        DrainAt(sim, external, ref cursor, sim.TickIndex, session, modernBoundary);
                         break;
                     }
                     var before = sim.TickIndex;
                     sim.Tick();
                     if (sim.TickIndex != before) continue;
-                    DrainAt(sim, external, ref cursor, sim.TickIndex, session);
+                    DrainAt(sim, external, ref cursor, sim.TickIndex, session, modernBoundary);
                     if (sim.TickIndex >= goal) break;
                     if (sim.Outcome != BattleOutcome.InProgress || sim.Paused)
                         break;
                 }
-                DrainAt(sim, external, ref cursor, sim.TickIndex, session);
-                FinishRecordedFever(sim, rec.FinalDigest);
+                DrainAt(sim, external, ref cursor, sim.TickIndex, session, modernBoundary);
+                if (modernBoundary)
+                {
+                    if (sim.TickIndex != goal)
+                        NoteDivergence(session, "Replay boundary: battle clock did not reach the recorded input boundary.");
+                    else
+                        ReplayTerminalInputs(sim, terminal, rec.TerminalFeverTicks.Value, session);
+                }
+                else if (sim.Outcome != BattleOutcome.InProgress && sim.FeverActive)
+                    NoteDivergence(session, "TerminalFeverTicks: legacy record has no terminal Fever clock boundary.");
                 CollectUnconsumed(external, cursor, session);
                 return sim;
             }
@@ -2620,27 +2692,77 @@ namespace Resonance.Battle
             }
         }
 
-        static void FinishRecordedFever(BattleSim sim, BattleStateDigest final)
+        static void ReplayTerminalInputs(BattleSim sim, List<CommandRecord> commands, int finalTicks, ReplayDiagnosticSnapshot session)
         {
-            // GameRoot keeps the Fever clock running after result without advancing
-            // TickIndex. Only reproduce that tail when the recorded snapshot is settled;
-            // a terminal snapshot with Fever still active must stay at its capture boundary.
-            if (final == null || final.Outcome == BattleOutcome.InProgress || final.FeverActive
-                || sim.Outcome != final.Outcome || sim.TickIndex != final.TickIndex
-                || !sim.FeverActive || sim.Paused)
-                return;
+            var previous = 0;
+            for (var i = 0; i < commands.Count; i++)
+            {
+                var c = commands[i];
+                var offset = c.TerminalFeverTick.Value;
+                if (sim.Outcome == BattleOutcome.InProgress || c.Tick != sim.TickIndex
+                    || offset < previous || offset > finalTicks)
+                {
+                    NoteDivergence(session, "TerminalFeverTick: command offset is invalid, out of order, or outside the recorded boundary.");
+                    CollectUnconsumed(commands, 0, session);
+                    return;
+                }
+                previous = offset;
+            }
+            for (var i = 0; i < commands.Count; i++)
+            {
+                var c = commands[i];
+                if (!AdvanceTerminalFeverClock(sim, c.TerminalFeverTick.Value, session))
+                {
+                    CollectUnconsumed(commands, i, session);
+                    return;
+                }
+                SubmitReplay(sim, c, session);
+            }
+            AdvanceTerminalFeverClock(sim, finalTicks, session);
+        }
+
+        static bool AdvanceTerminalFeverClock(BattleSim sim, int targetTicks, ReplayDiagnosticSnapshot session)
+        {
+            // Each segment ends at an explicit input position, including between speed/
+            // auto changes. Expected digest/events never select clock advancement.
+            var ticks = targetTicks - sim.TerminalFeverTicks;
+            if (ticks < 0)
+            {
+                NoteDivergence(session, "TerminalFeverTicks: clock boundary moved backwards.");
+                return false;
+            }
+            if (ticks == 0) return true;
+            if (sim.Outcome == BattleOutcome.InProgress || !sim.FeverActive || sim.Paused)
+            {
+                NoteDivergence(session, "TerminalFeverTicks: recorded clock calls cannot run at the replay boundary.");
+                return false;
+            }
 
             var left = sim.FeverLeft;
-            if (float.IsNaN(left) || float.IsInfinity(left)) return;
-            // TickFeverOnly advances by at least TickDt under every speed/clock policy.
-            // Keep a finite budget plus a progress check for invalid or stalled clocks.
-            var ticksLeft = Math.Ceiling(Math.Max(0d, left) / BattleSim.TickDt) + 2d;
-            while (ticksLeft-- > 0d && sim.FeverActive && !sim.Paused)
+            // Every supported clock advances by at least TickDt. Reject an implausible
+            // input count before looping; allow two calls for float rounding at zero.
+            var maxTicks = Math.Ceiling(Math.Max(0d, left) / BattleSim.TickDt) + 2d;
+            if (float.IsNaN(left) || float.IsInfinity(left) || ticks > maxTicks)
             {
+                NoteDivergence(session, "TerminalFeverTicks: boundary exceeds the remaining Fever clock budget.");
+                return false;
+            }
+            for (var i = 0; i < ticks; i++)
+            {
+                if (!sim.FeverActive || sim.Paused)
+                {
+                    NoteDivergence(session, "TerminalFeverTicks: boundary includes ineffective clock calls.");
+                    return false;
+                }
                 var before = sim.FeverLeft;
                 sim.TickFeverOnly();
-                if (sim.FeverActive && !(sim.FeverLeft < before)) break;
+                if (sim.FeverActive && !(sim.FeverLeft < before))
+                {
+                    NoteDivergence(session, "TerminalFeverTicks: clock failed to advance.");
+                    return false;
+                }
             }
+            return true;
         }
 
         static ReplayDiagnosticSnapshot BeginSession()
@@ -2786,7 +2908,8 @@ namespace Resonance.Battle
             }
         }
 
-        static void DrainAt(BattleSim sim, List<CommandRecord> cmds, ref int cursor, int tick, ReplayDiagnosticSnapshot session)
+        static void DrainAt(BattleSim sim, List<CommandRecord> cmds, ref int cursor, int tick, ReplayDiagnosticSnapshot session,
+            bool requireTerminalOffsets = false)
         {
             if (cmds == null || sim == null) return;
             while (cursor < cmds.Count)
@@ -2796,6 +2919,11 @@ namespace Resonance.Battle
                 if (rec.Tick > tick) break;
                 cursor++;
                 if (rec.Tick < tick || !IsExternalInput(rec)) continue;
+                if (requireTerminalOffsets && sim.Outcome != BattleOutcome.InProgress)
+                {
+                    NoteDivergence(session, "TerminalFeverTick: modern terminal input is missing its clock offset.");
+                    continue;
+                }
                 SubmitReplay(sim, rec, session);
             }
         }

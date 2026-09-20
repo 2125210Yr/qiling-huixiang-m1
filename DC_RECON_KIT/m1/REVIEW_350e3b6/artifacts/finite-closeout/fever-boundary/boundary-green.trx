@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="68b594a8-5277-44d5-942f-e80aa64b1a93" name="Administrator@DESKTOP-AKI3LSA 2026-09-20 17:41:15" runUser="DESKTOP-AKI3LSA\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-09-20T17:41:15.4491830+08:00" queuing="2026-09-20T17:41:15.4491834+08:00" start="2026-09-20T17:41:14.7294221+08:00" finish="2026-09-20T17:41:15.4894636+08:00" />
+  <TestSettings name="default" id="22db833f-7cb4-4758-8214-1f9e68e8c33f">
+    <Deployment runDeploymentRoot="Administrator_DESKTOP-AKI3LSA_2026-09-20_17_41_15" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="2f31f735-03e5-4278-a310-219772225e24" testId="711f0d35-82cb-d173-fa47-b21cbfa6e6ba" testName="Resonance.Tests.G2TerminalFeverReplayTests.MissingLegacyBoundary_StillAllowsOrdinaryNoTailRecords" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0014300" startTime="2026-09-20T17:41:15.4013475+08:00" endTime="2026-09-20T17:41:15.4013477+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2f31f735-03e5-4278-a310-219772225e24" />
+    <UnitTestResult executionId="01618c27-5e56-4d65-8b41-ffe60b57083b" testId="78fb5390-56da-be2c-3ad6-e79173dd184a" testName="Resonance.Tests.G2TerminalFeverReplayTests.TamperedExpectedFeverActive_CannotChangeTheReplayClock" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0048341" startTime="2026-09-20T17:41:15.4462104+08:00" endTime="2026-09-20T17:41:15.4462106+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="01618c27-5e56-4d65-8b41-ffe60b57083b" />
+    <UnitTestResult executionId="789ec3fc-b082-4dd8-8cb0-a8e7033f0f42" testId="ec39203c-9e64-c153-ce3c-9f4e91e6c037" testName="Resonance.Tests.G2TerminalFeverReplayTests.ClockCounter_ExcludesBattleTicksPausedAndInactiveCalls" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0004457" startTime="2026-09-20T17:41:15.4018588+08:00" endTime="2026-09-20T17:41:15.4018590+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="789ec3fc-b082-4dd8-8cb0-a8e7033f0f42" />
+    <UnitTestResult executionId="882cfe10-a462-4f9f-b685-8a6c0e76d343" testId="07db9d37-54f1-1082-368d-6c44ab47b4bb" testName="Resonance.Tests.G2TerminalFeverReplayTests.TerminalClock_DoesNotDealDamageOrEmitAnotherResult(auto: Full)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0008575" startTime="2026-09-20T17:41:15.4285848+08:00" endTime="2026-09-20T17:41:15.4285850+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="882cfe10-a462-4f9f-b685-8a6c0e76d343" />
+    <UnitTestResult executionId="05fc561d-188c-4423-bb24-aabd96239b2b" testId="a3b20f20-1c7b-1d64-aeb6-f957a9d8db79" testName="Resonance.Tests.G2TerminalFeverReplayTests.SettledTerminalRecord_ReplaysFeverEndAtTheResultTick" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0028995" startTime="2026-09-20T17:41:15.4412779+08:00" endTime="2026-09-20T17:41:15.4412780+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="05fc561d-188c-4423-bb24-aabd96239b2b" />
+    <UnitTestResult executionId="7141660a-8d6f-40d0-b12d-7d143ffc835a" testId="a532e7aa-4d00-ce2e-3dde-070736e4072a" testName="Resonance.Tests.G2TerminalFeverReplayTests.TerminalClock_DoesNotDealDamageOrEmitAnotherResult(auto: Manual)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0038057" startTime="2026-09-20T17:41:15.4111531+08:00" endTime="2026-09-20T17:41:15.4111532+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7141660a-8d6f-40d0-b12d-7d143ffc835a" />
+    <UnitTestResult executionId="0beb52b9-7e11-40d8-84ff-4bf8f6889e91" testId="d24f4a72-60f5-ce00-9ea8-ee060ae04fc2" testName="Resonance.Tests.G2TerminalFeverReplayTests.MissingLegacyBoundary_DoesNotInferSettledFeverFromExpectedOutput" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0068238" startTime="2026-09-20T17:41:15.4382898+08:00" endTime="2026-09-20T17:41:15.4382901+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0beb52b9-7e11-40d8-84ff-4bf8f6889e91" />
+    <UnitTestResult executionId="d009cb9b-ca66-402c-9920-d44d4c425950" testId="87023b8f-fb05-6e05-fd9f-b9b6fa02a928" testName="Resonance.Tests.G2TerminalFeverReplayTests.InvalidRecordedBoundary_FailsWithoutAdvancingTheClock(calls: 2147483647)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0013059" startTime="2026-09-20T17:41:15.3998424+08:00" endTime="2026-09-20T17:41:15.3998426+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d009cb9b-ca66-402c-9920-d44d4c425950" />
+    <UnitTestResult executionId="972f8a71-36ad-4271-9f5f-3d66d08d5cd4" testId="e4100467-837e-c5fc-9227-81f88cabb91b" testName="Resonance.Tests.G2TerminalFeverReplayTests.TamperedExpectedOutcome_CannotPreventTheRecordedClockCalls" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0105635" startTime="2026-09-20T17:41:15.3937994+08:00" endTime="2026-09-20T17:41:15.3937996+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="972f8a71-36ad-4271-9f5f-3d66d08d5cd4" />
+    <UnitTestResult executionId="bdcbf4ff-67dd-4e62-83fe-b5968e5b0100" testId="1cdca60e-578e-d1f3-92e2-56a70d9f53fc" testName="Resonance.Tests.G2TerminalFeverReplayTests.InvalidRecordedBoundary_FailsWithoutAdvancingTheClock(calls: -1)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0045211" startTime="2026-09-20T17:41:15.3984522+08:00" endTime="2026-09-20T17:41:15.3984525+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bdcbf4ff-67dd-4e62-83fe-b5968e5b0100" />
+    <UnitTestResult executionId="7eb8f3b8-1eba-47f4-81b2-80ad05491968" testId="4c9f2ec0-0dbf-2904-0452-2ff2a530d9c4" testName="Resonance.Tests.G2TerminalFeverReplayTests.PartialTerminalSnapshot_ReplaysOnlyTheRecordedClockCalls" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0516384" startTime="2026-09-20T17:41:15.3800403+08:00" endTime="2026-09-20T17:41:15.3800597+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7eb8f3b8-1eba-47f4-81b2-80ad05491968" />
+    <UnitTestResult executionId="c399f186-7dd1-4284-badc-380359dcc182" testId="87d0a371-01f4-fd40-99f6-61a89a6adadb" testName="Resonance.Tests.G2TerminalFeverReplayTests.TamperedExpectedEvents_CannotChangeTheReplayClockOrEvents" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0020549" startTime="2026-09-20T17:41:15.4039767+08:00" endTime="2026-09-20T17:41:15.4039769+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c399f186-7dd1-4284-badc-380359dcc182" />
+    <UnitTestResult executionId="e8396338-b8f9-47f9-ae31-4d54be6cb099" testId="1a73f357-7186-3003-0ab6-0460f60d3d17" testName="Resonance.Tests.G2TerminalFeverReplayTests.TerminalClock_DoesNotDealDamageOrEmitAnotherResult(auto: Semi)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0004244" startTime="2026-09-20T17:41:15.4291301+08:00" endTime="2026-09-20T17:41:15.4291301+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e8396338-b8f9-47f9-ae31-4d54be6cb099" />
+    <UnitTestResult executionId="7d8b1b1a-6e5e-4970-af6c-5635b7c5d26c" testId="2a42cd3a-8f19-c788-9649-353a7e49dcfc" testName="Resonance.Tests.G2TerminalFeverReplayTests.CapturedBoundary_IsAnIndependentValueAndSurvivesSerialization" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0032280" startTime="2026-09-20T17:41:15.4072788+08:00" endTime="2026-09-20T17:41:15.4072790+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7d8b1b1a-6e5e-4970-af6c-5635b7c5d26c" />
+    <UnitTestResult executionId="7c99022e-c089-420b-8b13-d71723f5727f" testId="0e1df0e6-5bef-a26d-6284-761e6049d6da" testName="Resonance.Tests.G2TerminalFeverReplayTests.ActiveTerminalSnapshot_DoesNotAdvanceFeverBeyondTheRecord" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0021510" startTime="2026-09-20T17:41:15.4313639+08:00" endTime="2026-09-20T17:41:15.4313640+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7c99022e-c089-420b-8b13-d71723f5727f" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Resonance.Tests.G2TerminalFeverReplayTests.InvalidRecordedBoundary_FailsWithoutAdvancingTheClock(calls: -1)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="1cdca60e-578e-d1f3-92e2-56a70d9f53fc">
+      <Execution id="bdcbf4ff-67dd-4e62-83fe-b5968e5b0100" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2TerminalFeverReplayTests" name="InvalidRecordedBoundary_FailsWithoutAdvancingTheClock" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2TerminalFeverReplayTests.TamperedExpectedEvents_CannotChangeTheReplayClockOrEvents" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="87d0a371-01f4-fd40-99f6-61a89a6adadb">
+      <Execution id="c399f186-7dd1-4284-badc-380359dcc182" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2TerminalFeverReplayTests" name="TamperedExpectedEvents_CannotChangeTheReplayClockOrEvents" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2TerminalFeverReplayTests.PartialTerminalSnapshot_ReplaysOnlyTheRecordedClockCalls" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="4c9f2ec0-0dbf-2904-0452-2ff2a530d9c4">
+      <Execution id="7eb8f3b8-1eba-47f4-81b2-80ad05491968" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2TerminalFeverReplayTests" name="PartialTerminalSnapshot_ReplaysOnlyTheRecordedClockCalls" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2TerminalFeverReplayTests.TamperedExpectedOutcome_CannotPreventTheRecordedClockCalls" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="e4100467-837e-c5fc-9227-81f88cabb91b">
+      <Execution id="972f8a71-36ad-4271-9f5f-3d66d08d5cd4" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2TerminalFeverReplayTests" name="TamperedExpectedOutcome_CannotPreventTheRecordedClockCalls" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2TerminalFeverReplayTests.MissingLegacyBoundary_DoesNotInferSettledFeverFromExpectedOutput" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="d24f4a72-60f5-ce00-9ea8-ee060ae04fc2">
+      <Execution id="0beb52b9-7e11-40d8-84ff-4bf8f6889e91" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2TerminalFeverReplayTests" name="MissingLegacyBoundary_DoesNotInferSettledFeverFromExpectedOutput" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2TerminalFeverReplayTests.TerminalClock_DoesNotDealDamageOrEmitAnotherResult(auto: Manual)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="a532e7aa-4d00-ce2e-3dde-070736e4072a">
+      <Execution id="7141660a-8d6f-40d0-b12d-7d143ffc835a" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2TerminalFeverReplayTests" name="TerminalClock_DoesNotDealDamageOrEmitAnotherResult" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2TerminalFeverReplayTests.CapturedBoundary_IsAnIndependentValueAndSurvivesSerialization" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="2a42cd3a-8f19-c788-9649-353a7e49dcfc">
+      <Execution id="7d8b1b1a-6e5e-4970-af6c-5635b7c5d26c" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2TerminalFeverReplayTests" name="CapturedBoundary_IsAnIndependentValueAndSurvivesSerialization" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2TerminalFeverReplayTests.SettledTerminalRecord_ReplaysFeverEndAtTheResultTick" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="a3b20f20-1c7b-1d64-aeb6-f957a9d8db79">
+      <Execution id="05fc561d-188c-4423-bb24-aabd96239b2b" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2TerminalFeverReplayTests" name="SettledTerminalRecord_ReplaysFeverEndAtTheResultTick" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2TerminalFeverReplayTests.TerminalClock_DoesNotDealDamageOrEmitAnotherResult(auto: Full)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="07db9d37-54f1-1082-368d-6c44ab47b4bb">
+      <Execution id="882cfe10-a462-4f9f-b685-8a6c0e76d343" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2TerminalFeverReplayTests" name="TerminalClock_DoesNotDealDamageOrEmitAnotherResult" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2TerminalFeverReplayTests.TamperedExpectedFeverActive_CannotChangeTheReplayClock" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="78fb5390-56da-be2c-3ad6-e79173dd184a">
+      <Execution id="01618c27-5e56-4d65-8b41-ffe60b57083b" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2TerminalFeverReplayTests" name="TamperedExpectedFeverActive_CannotChangeTheReplayClock" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2TerminalFeverReplayTests.ClockCounter_ExcludesBattleTicksPausedAndInactiveCalls" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="ec39203c-9e64-c153-ce3c-9f4e91e6c037">
+      <Execution id="789ec3fc-b082-4dd8-8cb0-a8e7033f0f42" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2TerminalFeverReplayTests" name="ClockCounter_ExcludesBattleTicksPausedAndInactiveCalls" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2TerminalFeverReplayTests.ActiveTerminalSnapshot_DoesNotAdvanceFeverBeyondTheRecord" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="0e1df0e6-5bef-a26d-6284-761e6049d6da">
+      <Execution id="7c99022e-c089-420b-8b13-d71723f5727f" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2TerminalFeverReplayTests" name="ActiveTerminalSnapshot_DoesNotAdvanceFeverBeyondTheRecord" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2TerminalFeverReplayTests.MissingLegacyBoundary_StillAllowsOrdinaryNoTailRecords" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="711f0d35-82cb-d173-fa47-b21cbfa6e6ba">
+      <Execution id="2f31f735-03e5-4278-a310-219772225e24" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2TerminalFeverReplayTests" name="MissingLegacyBoundary_StillAllowsOrdinaryNoTailRecords" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2TerminalFeverReplayTests.InvalidRecordedBoundary_FailsWithoutAdvancingTheClock(calls: 2147483647)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="87023b8f-fb05-6e05-fd9f-b9b6fa02a928">
+      <Execution id="d009cb9b-ca66-402c-9920-d44d4c425950" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2TerminalFeverReplayTests" name="InvalidRecordedBoundary_FailsWithoutAdvancingTheClock" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.G2TerminalFeverReplayTests.TerminalClock_DoesNotDealDamageOrEmitAnotherResult(auto: Semi)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="1a73f357-7186-3003-0ab6-0460f60d3d17">
+      <Execution id="e8396338-b8f9-47f9-ae31-4d54be6cb099" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2TerminalFeverReplayTests" name="TerminalClock_DoesNotDealDamageOrEmitAnotherResult" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="711f0d35-82cb-d173-fa47-b21cbfa6e6ba" executionId="2f31f735-03e5-4278-a310-219772225e24" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="78fb5390-56da-be2c-3ad6-e79173dd184a" executionId="01618c27-5e56-4d65-8b41-ffe60b57083b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ec39203c-9e64-c153-ce3c-9f4e91e6c037" executionId="789ec3fc-b082-4dd8-8cb0-a8e7033f0f42" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="07db9d37-54f1-1082-368d-6c44ab47b4bb" executionId="882cfe10-a462-4f9f-b685-8a6c0e76d343" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a3b20f20-1c7b-1d64-aeb6-f957a9d8db79" executionId="05fc561d-188c-4423-bb24-aabd96239b2b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a532e7aa-4d00-ce2e-3dde-070736e4072a" executionId="7141660a-8d6f-40d0-b12d-7d143ffc835a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d24f4a72-60f5-ce00-9ea8-ee060ae04fc2" executionId="0beb52b9-7e11-40d8-84ff-4bf8f6889e91" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="87023b8f-fb05-6e05-fd9f-b9b6fa02a928" executionId="d009cb9b-ca66-402c-9920-d44d4c425950" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e4100467-837e-c5fc-9227-81f88cabb91b" executionId="972f8a71-36ad-4271-9f5f-3d66d08d5cd4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1cdca60e-578e-d1f3-92e2-56a70d9f53fc" executionId="bdcbf4ff-67dd-4e62-83fe-b5968e5b0100" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4c9f2ec0-0dbf-2904-0452-2ff2a530d9c4" executionId="7eb8f3b8-1eba-47f4-81b2-80ad05491968" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="87d0a371-01f4-fd40-99f6-61a89a6adadb" executionId="c399f186-7dd1-4284-badc-380359dcc182" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1a73f357-7186-3003-0ab6-0460f60d3d17" executionId="e8396338-b8f9-47f9-ae31-4d54be6cb099" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2a42cd3a-8f19-c788-9649-353a7e49dcfc" executionId="7d8b1b1a-6e5e-4970-af6c-5635b7c5d26c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0e1df0e6-5bef-a26d-6284-761e6049d6da" executionId="7c99022e-c089-420b-8b13-d71723f5727f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="15" executed="15" passed="15" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 6.0.33)&#xD;
+[xUnit.net 00:00:00.08]   Discovering: BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.14]   Discovered:  BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.14]   Starting:    BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.30]   Finished:    BattleSim.Tests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

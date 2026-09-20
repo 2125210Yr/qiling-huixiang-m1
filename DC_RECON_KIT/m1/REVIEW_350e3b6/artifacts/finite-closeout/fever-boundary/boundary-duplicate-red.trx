@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="df5be614-7bf5-4ddf-ac91-4b342344c18e" name="Administrator@DESKTOP-AKI3LSA 2026-09-20 17:54:13" runUser="DESKTOP-AKI3LSA\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-09-20T17:54:13.0358714+08:00" queuing="2026-09-20T17:54:13.0358716+08:00" start="2026-09-20T17:54:12.2831636+08:00" finish="2026-09-20T17:54:13.0438719+08:00" />
+  <TestSettings name="default" id="3a39bcd0-9170-44f5-a7a5-d5550cfebec5">
+    <Deployment runDeploymentRoot="Administrator_DESKTOP-AKI3LSA_2026-09-20_17_54_13" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="2f9a80b8-5713-471e-b75b-b3ed54f6abbc" testId="e3dab7ef-33cb-7a16-5907-3a5d3376769f" testName="Resonance.Tests.G2TerminalFeverReplayTests.DuplicateBoundaryError_CannotBeRemovedByReserializingTheRecord" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0465635" startTime="2026-09-20T17:54:12.9574629+08:00" endTime="2026-09-20T17:54:12.9574861+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2f9a80b8-5713-471e-b75b-b3ed54f6abbc">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Throws() Failure: No exception was thrown&#xD;
+Expected: typeof(System.InvalidOperationException)</Message>
+          <StackTrace>   at Resonance.Tests.G2TerminalFeverReplayTests.DuplicateBoundaryError_CannotBeRemovedByReserializingTheRecord() in F:\天命之子\tools\BattleSim.Tests\G2TerminalFeverReplayTests.cs:line 305</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Resonance.Tests.G2TerminalFeverReplayTests.DuplicateBoundaryError_CannotBeRemovedByReserializingTheRecord" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="e3dab7ef-33cb-7a16-5907-3a5d3376769f">
+      <Execution id="2f9a80b8-5713-471e-b75b-b3ed54f6abbc" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.G2TerminalFeverReplayTests" name="DuplicateBoundaryError_CannotBeRemovedByReserializingTheRecord" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="e3dab7ef-33cb-7a16-5907-3a5d3376769f" executionId="2f9a80b8-5713-471e-b75b-b3ed54f6abbc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" passed="0" failed="1" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 6.0.33)&#xD;
+[xUnit.net 00:00:00.08]   Discovering: BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.14]   Discovered:  BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.14]   Starting:    BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.24]       Assert.Throws() Failure: No exception was thrown&#xD;
+[xUnit.net 00:00:00.24]       Expected: typeof(System.InvalidOperationException)&#xD;
+[xUnit.net 00:00:00.24]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.25]         F:\天命之子\tools\BattleSim.Tests\G2TerminalFeverReplayTests.cs(305,0): at Resonance.Tests.G2TerminalFeverReplayTests.DuplicateBoundaryError_CannotBeRemovedByReserializingTheRecord()&#xD;
+[xUnit.net 00:00:00.25]   Finished:    BattleSim.Tests&#xD;
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-20T17:54:12.9546612+08:00">
+        <Text>[xUnit.net 00:00:00.24]     Resonance.Tests.G2TerminalFeverReplayTests.DuplicateBoundaryError_CannotBeRemovedByReserializingTheRecord [FAIL]</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>

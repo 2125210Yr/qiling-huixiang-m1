@@ -53,6 +53,8 @@ namespace Resonance.Battle
     {
         public int Seq;
         public int Tick;
+        /// <summary>Post-result clock position before this input; null for battle-time input.</summary>
+        public int? TerminalFeverTick;
         public BattleCommandKind Kind;
         public int Slot;
         public DriveTiming Timing;
@@ -113,11 +115,13 @@ namespace Resonance.Battle
 
         public CommandResult Submit(BattleCommand cmd)
         {
+            int? terminalFeverTick = Outcome != BattleOutcome.InProgress ? TerminalFeverTicks : (int?)null;
             var reason = Execute(cmd);
             var rec = new CommandRecord
             {
                 Seq = ++_cmdSeq,
                 Tick = TickIndex,
+                TerminalFeverTick = terminalFeverTick,
                 Kind = cmd.Kind,
                 Slot = cmd.Slot,
                 Timing = cmd.Timing,
