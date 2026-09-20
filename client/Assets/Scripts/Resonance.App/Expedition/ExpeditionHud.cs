@@ -63,6 +63,7 @@ namespace Resonance.App
             // Advance only for a real structured runtime trigger. The short glow is presentation time.
             public long RelicTriggerSerial;
             public string LastTriggeredRelicId;
+            public long[] RelicTriggerSerials;
         }
 
         static readonly Color Ink = new Color(0.045f, 0.06f, 0.09f, 1f);
@@ -85,9 +86,8 @@ namespace Resonance.App
         readonly UnitView[] _enemies = new UnitView[5];
         readonly Image[] _relicIcons = new Image[5];
         readonly Text[] _relicIconLabels = new Text[5];
-        long _triggerSerial;
-        float _triggerUntil;
-        string _triggerRelic;
+        readonly long[] _triggerSerials = new long[5];
+        readonly float[] _triggerUntil = new float[5];
         BattleActions _actions;
 
         sealed class UnitView
@@ -178,7 +178,7 @@ namespace Resonance.App
             _battleSubtitle = LabelAt(_root.transform, "BattleSubtitle", "", 26, Muted, 28, 111, 1024, 56);
             var intent = BoxAt(_root.transform, "Intent", Panel, 28, 190, 1024, 190);
             _intentTitle = LabelAt(intent.transform, "IntentTitle", "", 36, Gold, 22, 14, 980, 54, true);
-            _intentBody = LabelAt(intent.transform, "IntentDescription", "", 28, Paper, 22, 74, 980, 71);
+            _intentBody = LabelAt(intent.transform, "IntentDescription", "", 28, Paper, 22, 74, 980, 87);
             _intentFill = MeterAt(intent.transform, "IntentProgress", 22, 162, 980, 12, Warning);
             LabelAt(_root.transform, "TargetLabel", "点选敌人集火 · 金色边框为当前目标", 26, Muted, 28, 405, 1024, 48);
             for (var i = 0; i < 5; i++)
@@ -195,7 +195,7 @@ namespace Resonance.App
                 _relicIconLabels[i] = LabelAt(icon.transform, "RelicId", "", 25, Paper, 5, 5, 175, 36, true);
                 _relicIconLabels[i].alignment = TextAnchor.MiddleCenter;
             }
-            _feedback = LabelAt(relicPanel.transform, "Feedback", "", 27, Paper, 22, 165, 980, 66);
+            _feedback = LabelAt(relicPanel.transform, "Feedback", "", 27, Paper, 22, 159, 980, 82);
             _queue = LabelAt(_root.transform, "PauseQueue", "", 26, Mint, 28, 1010, 1024, 110);
             LabelAt(_root.transform, "PartyLabel", "五人小队 · 普攻自动 · 主要技能手动", 26, Muted, 28, 1135, 1024, 48);
             for (var i = 0; i < 5; i++)
@@ -225,18 +225,19 @@ namespace Resonance.App
             SetMeter(_intentFill, model.IntentProgress < 0 ? 0 : model.IntentProgress);
             _relicState.text = model.RelicState ?? "本场构筑";
             _feedback.text = model.Feedback ?? "遗物触发与实际伤害、护盾吸收、治疗将在这里显示。";
-            if (model.RelicTriggerSerial != _triggerSerial)
-            {
-                _triggerSerial = model.RelicTriggerSerial;
-                _triggerRelic = model.LastTriggeredRelicId;
-                _triggerUntil = Time.unscaledTime + 1.2f;
-            }
             for (var i = 0; i < _relicIcons.Length; i++)
             {
                 var id = At(model.RelicIds, i);
                 _relicIcons[i].gameObject.SetActive(!string.IsNullOrEmpty(id));
                 if (string.IsNullOrEmpty(id)) continue;
-                var lit = id == _triggerRelic && Time.unscaledTime < _triggerUntil;
+                var serial = model.RelicTriggerSerials != null && i < model.RelicTriggerSerials.Length
+                    ? model.RelicTriggerSerials[i] : id == model.LastTriggeredRelicId ? model.RelicTriggerSerial : 0;
+                if (serial > _triggerSerials[i])
+                {
+                    _triggerSerials[i] = serial;
+                    _triggerUntil[i] = Time.unscaledTime + 1.2f;
+                }
+                var lit = _triggerSerials[i] > 0 && Time.unscaledTime < _triggerUntil[i];
                 _relicIcons[i].color = lit ? FamilyColor(id.Substring(0, 1)) : Line;
                 _relicIconLabels[i].color = lit ? Ink : Paper;
                 _relicIconLabels[i].text = (lit ? "◆ " : "") + id;
@@ -277,9 +278,8 @@ namespace Resonance.App
         void NewRoot(string name)
         {
             Dispose();
-            _triggerSerial = 0;
-            _triggerUntil = 0;
-            _triggerRelic = null;
+            Array.Clear(_triggerSerials, 0, _triggerSerials.Length);
+            Array.Clear(_triggerUntil, 0, _triggerUntil.Length);
             _root = Box(_parent, name, Ink, false);
             Stretch(_root.GetComponent<RectTransform>());
         }

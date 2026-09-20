@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Resonance.Battle
 {
@@ -63,6 +64,7 @@ namespace Resonance.Battle
     public sealed class ExpeditionRelicRuntime
     {
         readonly HashSet<string> _owned;
+        readonly Dictionary<string, long> _triggerSerials = new Dictionary<string, long>(StringComparer.Ordinal);
         readonly ExpeditionRelicParameters _parameters;
         readonly int _energyCap;
         RelicNativeAction _current;
@@ -79,6 +81,16 @@ namespace Resonance.Battle
         public long LastCompletedRootActionId { get; private set; }
         public int LastRequestCount { get; private set; }
 
+        /// <summary>Global serial at this relic's last real trigger; zero means it has not triggered.</summary>
+        public long GetTriggerSerial(string relicId)
+        {
+            long serial;
+            return relicId != null && _triggerSerials.TryGetValue(relicId, out serial) ? serial : 0;
+        }
+        /// <summary>A stable, read-only copy including owned relics which have not triggered yet.</summary>
+        public IReadOnlyDictionary<string, long> RelicTriggerSerials =>
+            new ReadOnlyDictionary<string, long>(new Dictionary<string, long>(_triggerSerials, StringComparer.Ordinal));
+
         public ExpeditionRelicRuntime(ExpeditionBattleInput input, int[] openingMaxHp)
         {
             RunBattleFactory.Validate(input);
@@ -90,6 +102,7 @@ namespace Resonance.Battle
                 total = checked(total + hp);
             }
             _owned = new HashSet<string>(input.RelicIds ?? Array.Empty<string>(), StringComparer.Ordinal);
+            foreach (var relicId in _owned) _triggerSerials.Add(relicId, 0);
             _parameters = input.RelicParameters.DeepClone();
             BarrierThreshold = Math.Max(1, (int)decimal.Floor(total * (decimal)_parameters.BarrierThresholdFraction / openingMaxHp.Length));
             _energyCap = checked(BarrierThreshold * _parameters.BarrierStoredThresholds);
@@ -278,6 +291,7 @@ namespace Resonance.Battle
         {
             if (!action.Triggered.Add(relicId)) return;
             TriggerSerial = checked(TriggerSerial + 1); LastTriggeredRelicId = relicId;
+            _triggerSerials[relicId] = TriggerSerial;
         }
 
         void RequireCurrent(RelicNativeAction action)

@@ -81,11 +81,20 @@ namespace Resonance.App
                     var summary = profile.LastRunSummary;
                     model.Kind = ExpeditionHud.ScreenKind.Result;
                     model.Title = summary.Victory ? "终幕落下" : "远征结束";
-                    model.Subtitle = summary.EndReason;
-                    model.Facts.Add("本趟完成 " + summary.BattlesCompleted + " 场战斗。");
-                    model.Facts.Add("本趟获得 " + summary.RelicIds.Length + " 件临时强化；返回后清空临时构筑。");
-                    model.Facts.Add(summary.UnlockedNewPreset ? "首次通关：已解锁等价的「横扫」起始配置。" : "已发现的强化与已解锁配置保留。");
-                    model.Body = summary.Victory ? "下一趟可以选另一个核心，尝试不同的强化组合。" : "尝试先保护队伍、处理危险目标，再接续输出技能。";
+                    model.Subtitle = summary.EndReason + (summary.Facts != null && summary.Facts.Length >= 4 ? " · 最后一战复盘" : "");
+                    if (summary.Facts != null && summary.Facts.Length >= 4)
+                    {
+                        for (int i = 0; i < 3; i++) model.Facts.Add(summary.Facts[i]);
+                        model.Body = summary.Facts[3];
+                    }
+                    else
+                    {
+                        model.Facts.Add("本趟完成 " + summary.BattlesCompleted + " 场战斗。");
+                        model.Facts.Add("本趟获得 " + summary.RelicIds.Length + " 件临时强化。");
+                        model.Body = "下一趟可以选择另一核心，尝试不同的强化组合。";
+                    }
+                    model.FooterNote = "完成 " + summary.BattlesCompleted + " 场 · 临时构筑已清空。" + (summary.UnlockedNewPreset
+                        ? "首通解锁等价「横扫」配置。" : "已发现强化和已解锁配置保留。");
                     model.FooterActions.Add(OriginalChoice("home", "返回据点", "", () => { _originalSummaryOpen = false; ShowOriginalExpedition(); }));
                 }
                 else
@@ -281,10 +290,30 @@ namespace Resonance.App
             {
                 Title = _originalOpening?.Stage.Name, Subtitle = "点敌集火 · 普攻自动 · 主动技能由你指挥",
                 SkillNames = names, RelicIds = _originalOpening?.RelicIds, Notice = _originalNotice,
-                Feedback = _battle?.LastEvent, RelicState = "当前强化：" + string.Join(" / ", _originalOpening?.RelicIds ?? new string[0]),
                 QueuedCommands = queued, QueueSummary = order.Count > 0 ? "恢复时按序校验：" + string.Join("  ", order)
                     : execution.Count > 0 ? string.Join("；", execution) : null
             };
+            if (_battle != null)
+            {
+                var facts = ExpeditionBattleFeedback.Capture(_battle);
+                var ids = model.RelicIds ?? Array.Empty<string>();
+                model.RelicTriggerSerials = new long[ids.Length];
+                for (int i = 0; i < ids.Length; i++) model.RelicTriggerSerials[i] = _battle.ExpeditionRelics.GetTriggerSerial(ids[i]);
+                var actors = 0;
+                for (int i = 0; i < 5; i++) if ((facts.HarmonyActorBits & (1 << i)) != 0) actors++;
+                model.RelicState = (Array.IndexOf(ids, "A01") >= 0 ? "A 蓄能 " + facts.BarrierEnergy + "/" + facts.BarrierThreshold : "A 未持有")
+                    + " · " + (Array.IndexOf(ids, "C03") >= 0 ? "C 和声 " + actors + "/3" : Array.IndexOf(ids, "C01") >= 0 ? "C 接力" : "C 未持有")
+                    + (Array.IndexOf(ids, "C04") >= 0 ? " · 强奏" + (facts.ForteStored ? "已储存" : "未储存") : "");
+                if (Array.IndexOf(ids, "B01") >= 0)
+                {
+                    var targets = new List<string>();
+                    foreach (var target in facts.LatestScatterTargets)
+                        targets.Add("敌" + (target.Slot + 1) + "（" + target.EffectiveDamage + "）");
+                    model.RelicState += "\nB 最近散射：" + (targets.Count > 0 ? string.Join("、", targets) : "尚未触发");
+                }
+                model.Feedback = "本场对敌 " + facts.EnemyEffectiveDamage + " · 己方吸收 " + facts.AllyShieldAbsorbed
+                    + "\n有效治疗 " + facts.AllyEffectiveHealing + " · 成功主动 " + facts.SuccessfulActiveCommands + " 次";
+            }
             var intent = _battle?.OriginalIntentSnapshot;
             if (intent != null && !intent.Cancelled)
             {
@@ -380,12 +409,15 @@ namespace Resonance.App
                 for (int i = 0; i < hp.Length; i++) hp[i] = _battle.Allies[i].Hp;
                 OriginalAction(() =>
                 {
-                    _expedition.CompleteBattle(_originalOpening.EncounterId, _battle.Outcome, hp, _battle.FailedReason, attemptId: _originalOpening.AttemptId);
+                    var summary = ExpeditionBattleFeedback.Summarize(_battle);
+                    var facts = new List<string>(summary.Facts) { summary.Advice };
+                    _expedition.CompleteBattle(_originalOpening.EncounterId, _battle.Outcome, hp, _battle.FailedReason, facts.ToArray(), _originalOpening.AttemptId);
                     _originalSummaryOpen = _expedition.Profile.ActiveRun == null;
                 });
                 return;
             }
             _expeditionHud.RefreshBattle(_battle, OriginalBattleView());
         }
+
     }
 }

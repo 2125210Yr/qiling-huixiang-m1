@@ -1,0 +1,264 @@
+F:\天命之子\tools\BattleSim.Tests\M1FormulaIsolationTests.cs(86,13): warning xUnit2000: The literal or constant value DamageMath.FeverChannelAtkCoef should be passed as the 'expected' argument in the call to 'Assert.NotEqual(expected, actual)' in method 'FeverDoesNotReadTapCoefficients' on type 'M1FormulaIsolationTests'. Swap the parameter values. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\tools\BattleSim.Tests\M1FormulaIsolationTests.cs(87,13): warning xUnit2000: The literal or constant value DamageMath.FeverChannelFlat should be passed as the 'expected' argument in the call to 'Assert.NotEqual(expected, actual)' in method 'FeverDoesNotReadTapCoefficients' on type 'M1FormulaIsolationTests'. Swap the parameter values. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+  BattleSim.Tests -> F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll
+F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll (.NETCoreApp,Version=v6.0)的测试运行
+Microsoft (R) 测试执行命令行工具版本 17.3.3 (x64)
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+正在启动测试执行，请稍候...
+总共 1 个测试文件与指定模式相匹配。
+[xUnit.net 00:00:00.28]     Resonance.Tests.OriginalFeedbackTests.HarmonyBitsAndStoredForteComeFromRuntime_AndC04SerialAppearsOnlyWhenForteIsConsumed [FAIL]
+[xUnit.net 00:00:00.30]     Resonance.Tests.OriginalFeedbackTests.BarrierAndScatterFromTheSameAction_BothKeepTheirActualTriggerSerial [FAIL]
+[xUnit.net 00:00:00.30]     Resonance.Tests.OriginalFeedbackTests.CapturedTotalsAndLatestActionRecomputeFromActualResults_AndReadingNeverMutatesSimulation [FAIL]
+[xUnit.net 00:00:00.31]     Resonance.Tests.OriginalFeedbackTests.EffectiveAndOverhealingAreKeptSeparate_AndAdviceRespondsToActualOverheal [FAIL]
+[xUnit.net 00:00:00.31]     Resonance.Tests.OriginalFeedbackTests.LatestScatterTargetsAreActualB01Resolutions_WithRootAndGeneration_AndSurviveLaterSupportActions [FAIL]
+[xUnit.net 00:00:00.31]     Resonance.Tests.OriginalFeedbackTests.EmptyAndRejectedActionsDoNotInventFeedback_AndSummaryHasThreeCheckableFactsAndOneSpecificAdvice [FAIL]
+[xUnit.net 00:00:00.32]     Resonance.Tests.OriginalFeedbackTests.EveryRelicTriggeredByOneNativeActionRetainsItsOwnSerial_AndQueryCopiesStayUnchanged [FAIL]
+[xUnit.net 00:00:00.33]     Resonance.Tests.OriginalReplayTests.ExpectedFinalOutputsCannotChooseOrShortenTheReplayBoundary [FAIL]
+[xUnit.net 00:00:00.33]     Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "trigger") [FAIL]
+  失败 Resonance.Tests.OriginalFeedbackTests.HarmonyBitsAndStoredForteComeFromRuntime_AndC04SerialAppearsOnlyWhenForteIsConsumed [47 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 6
+Actual:   0
+  堆栈跟踪:
+     at Resonance.Tests.OriginalFeedbackTests.HarmonyBitsAndStoredForteComeFromRuntime_AndC04SerialAppearsOnlyWhenForteIsConsumed() in F:\天命之子\tools\BattleSim.Tests\OriginalFeedbackTests.cs:line 71
+  失败 Resonance.Tests.OriginalFeedbackTests.BarrierAndScatterFromTheSameAction_BothKeepTheirActualTriggerSerial [13 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at Resonance.Tests.OriginalFeedbackTests.BarrierAndScatterFromTheSameAction_BothKeepTheirActualTriggerSerial() in F:\天命之子\tools\BattleSim.Tests\OriginalFeedbackTests.cs:line 56
+  失败 Resonance.Tests.OriginalFeedbackTests.CapturedTotalsAndLatestActionRecomputeFromActualResults_AndReadingNeverMutatesSimulation [4 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 5072
+Actual:   0
+  堆栈跟踪:
+     at Resonance.Tests.OriginalFeedbackTests.CapturedTotalsAndLatestActionRecomputeFromActualResults_AndReadingNeverMutatesSimulation() in F:\天命之子\tools\BattleSim.Tests\OriginalFeedbackTests.cs:line 120
+  失败 Resonance.Tests.OriginalFeedbackTests.EffectiveAndOverhealingAreKeptSeparate_AndAdviceRespondsToActualOverheal [< 1 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at Resonance.Tests.OriginalFeedbackTests.EffectiveAndOverhealingAreKeptSeparate_AndAdviceRespondsToActualOverheal() in F:\天命之子\tools\BattleSim.Tests\OriginalFeedbackTests.cs:line 169
+  失败 Resonance.Tests.OriginalFeedbackTests.LatestScatterTargetsAreActualB01Resolutions_WithRootAndGeneration_AndSurviveLaterSupportActions [< 1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 1
+Actual:   0
+  堆栈跟踪:
+     at Resonance.Tests.OriginalFeedbackTests.LatestScatterTargetsAreActualB01Resolutions_WithRootAndGeneration_AndSurviveLaterSupportActions() in F:\天命之子\tools\BattleSim.Tests\OriginalFeedbackTests.cs:line 97
+  失败 Resonance.Tests.OriginalFeedbackTests.EmptyAndRejectedActionsDoNotInventFeedback_AndSummaryHasThreeCheckableFactsAndOneSpecificAdvice [7 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 3
+Actual:   0
+  堆栈跟踪:
+     at Resonance.Tests.OriginalFeedbackTests.EmptyAndRejectedActionsDoNotInventFeedback_AndSummaryHasThreeCheckableFactsAndOneSpecificAdvice() in F:\天命之子\tools\BattleSim.Tests\OriginalFeedbackTests.cs:line 149
+  失败 Resonance.Tests.OriginalFeedbackTests.EveryRelicTriggeredByOneNativeActionRetainsItsOwnSerial_AndQueryCopiesStayUnchanged [2 ms]
+  错误消息:
+   System.Collections.Generic.KeyNotFoundException : The given key 'B01' was not present in the dictionary.
+  堆栈跟踪:
+     at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at System.Collections.ObjectModel.ReadOnlyDictionary`2.get_Item(TKey key)
+   at Resonance.Tests.OriginalFeedbackTests.EveryRelicTriggeredByOneNativeActionRetainsItsOwnSerial_AndQueryCopiesStayUnchanged() in F:\天命之子\tools\BattleSim.Tests\OriginalFeedbackTests.cs:line 24
+  失败 Resonance.Tests.OriginalReplayTests.ExpectedFinalOutputsCannotChooseOrShortenTheReplayBoundary [3 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.ExpectedFinalOutputsCannotChooseOrShortenTheReplayBoundary() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 160
+  失败 Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "trigger") [1 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 134
+[xUnit.net 00:00:00.35]     Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "native-root") [FAIL]
+[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "generation") [FAIL]
+[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "threshold") [FAIL]
+[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "intent") [FAIL]
+[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "completed-root") [FAIL]
+[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "phase") [FAIL]
+[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "barrier") [FAIL]
+[xUnit.net 00:00:00.37]     Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "harmony") [FAIL]
+[xUnit.net 00:00:00.37]     Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "forte") [FAIL]
+  失败 Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "native-root") [1 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 134
+  失败 Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "generation") [1 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 134
+  失败 Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "threshold") [1 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 134
+  失败 Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "intent") [1 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 134
+  失败 Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "completed-root") [1 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 134
+  失败 Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "phase") [1 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 134
+  失败 Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "barrier") [1 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 134
+  失败 Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "harmony") [1 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 134
+  失败 Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "forte") [1 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 134
+[xUnit.net 00:00:00.37]     Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "last-relic") [FAIL]
+[xUnit.net 00:00:00.37]     Resonance.Tests.OriginalReplayTests.ChangingOnlyExpectedCommandAcceptanceIsDetectedWithoutChangingExecution [FAIL]
+[xUnit.net 00:00:00.37]     Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: "record-schema") [FAIL]
+[xUnit.net 00:00:00.37]     Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: "ruleset") [FAIL]
+[xUnit.net 00:00:00.37]     Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: "content-version") [FAIL]
+[xUnit.net 00:00:00.38]     Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: "input-schema") [FAIL]
+[xUnit.net 00:00:00.38]     Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: "mode") [FAIL]
+[xUnit.net 00:00:00.38]     Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: "content-hash") [FAIL]
+[xUnit.net 00:00:00.38]     Resonance.Tests.OriginalReplayTests.RecordedAcceptedAndRejectedCommandsRoundTripWithDefaultCriticalRolls [FAIL]
+  失败 Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "last-relic") [1 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 134
+  失败 Resonance.Tests.OriginalReplayTests.ChangingOnlyExpectedCommandAcceptanceIsDetectedWithoutChangingExecution [1 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.ChangingOnlyExpectedCommandAcceptanceIsDetectedWithoutChangingExecution() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 215
+  失败 Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: "record-schema") [< 1 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(String change) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 187
+  失败 Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: "ruleset") [< 1 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(String change) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 187
+  失败 Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: "content-version") [< 1 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(String change) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 187
+  失败 Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: "input-schema") [< 1 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(String change) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 187
+  失败 Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: "mode") [< 1 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(String change) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 187
+  失败 Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: "content-hash") [< 1 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(String change) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 187
+  失败 Resonance.Tests.OriginalReplayTests.RecordedAcceptedAndRejectedCommandsRoundTripWithDefaultCriticalRolls [2 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.RecordedAcceptedAndRejectedCommandsRoundTripWithDefaultCriticalRolls() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 25
+[xUnit.net 00:00:00.39]     Resonance.Tests.OriginalReplayTests.FullBossVictoryReplaysPhaseMaskGenerationsAndFinalTickRejectedCommands [FAIL]
+[xUnit.net 00:00:00.39]     Resonance.Tests.OriginalReplayTests.CapturedTapeOwnsCopiesOfInputCommandsAndFinalState [FAIL]
+[xUnit.net 00:00:00.39]     Resonance.Tests.OriginalReplayTests.TamperedFrozenSkillWithUnchangedInputHashIsRejectedBeforeSimulation [FAIL]
+[xUnit.net 00:00:00.39]     Resonance.Tests.OriginalReplayTests.CaptureWhilePausedRetainsUnsubmittedQueueWithoutExecutingItOrAdvancingTime [FAIL]
+[xUnit.net 00:00:00.40]     Resonance.Tests.OriginalReplayTests.InvalidBoundGenerationRejectionIsPreservedAsActualSubmittedInput [FAIL]
+[xUnit.net 00:00:00.40]     Resonance.Tests.OriginalReplayTests.NegativeIndependentBoundaryIsRejectedBeforeSimulation [FAIL]
+[xUnit.net 00:00:00.41]     Resonance.Tests.OriginalReplayTests.PausedQueueReplacementClearAndResumeRegenerateBoundCommandsExactlyOnce [FAIL]
+[xUnit.net 00:00:00.41]     Resonance.Tests.OriginalReplayTests.ResolutionHashUsesActualPropertiesRatherThanOnlyTheNumberOfResults [FAIL]
+  失败 Resonance.Tests.OriginalReplayTests.FullBossVictoryReplaysPhaseMaskGenerationsAndFinalTickRejectedCommands [9 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.FullBossVictoryReplaysPhaseMaskGenerationsAndFinalTickRejectedCommands() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 106
+  失败 Resonance.Tests.OriginalReplayTests.CapturedTapeOwnsCopiesOfInputCommandsAndFinalState [< 1 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.CapturedTapeOwnsCopiesOfInputCommandsAndFinalState() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 227
+  失败 Resonance.Tests.OriginalReplayTests.TamperedFrozenSkillWithUnchangedInputHashIsRejectedBeforeSimulation [< 1 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.TamperedFrozenSkillWithUnchangedInputHashIsRejectedBeforeSimulation() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 205
+  失败 Resonance.Tests.OriginalReplayTests.CaptureWhilePausedRetainsUnsubmittedQueueWithoutExecutingItOrAdvancingTime [2 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.CaptureWhilePausedRetainsUnsubmittedQueueWithoutExecutingItOrAdvancingTime() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 73
+  失败 Resonance.Tests.OriginalReplayTests.InvalidBoundGenerationRejectionIsPreservedAsActualSubmittedInput [< 1 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.InvalidBoundGenerationRejectionIsPreservedAsActualSubmittedInput() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 90
+  失败 Resonance.Tests.OriginalReplayTests.NegativeIndependentBoundaryIsRejectedBeforeSimulation [< 1 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.NegativeIndependentBoundaryIsRejectedBeforeSimulation() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 173
+  失败 Resonance.Tests.OriginalReplayTests.PausedQueueReplacementClearAndResumeRegenerateBoundCommandsExactlyOnce [10 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.PausedQueueReplacementClearAndResumeRegenerateBoundCommandsExactlyOnce() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 58
+  失败 Resonance.Tests.OriginalReplayTests.ResolutionHashUsesActualPropertiesRatherThanOnlyTheNumberOfResults [2 ms]
+  错误消息:
+   System.NotImplementedException : The method or operation is not implemented.
+  堆栈跟踪:
+     at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60
+   at Resonance.Tests.OriginalReplayTests.ResolutionHashUsesActualPropertiesRatherThanOnlyTheNumberOfResults() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 246
+结果文件: F:\天命之子\docs\original-expedition\evidence\o4\feedback-replay-red.trx
+
+失败!  - 失败:    35，通过:     0，已跳过:     0，总计:    35，持续时间: 127 ms - BattleSim.Tests.dll (net6.0)

@@ -1,0 +1,779 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="f9891943-d20d-479d-ad1e-2dc785ce9436" name="Administrator@DESKTOP-AKI3LSA 2026-09-21 02:03:51" runUser="DESKTOP-AKI3LSA\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-09-21T02:03:51.3073955+08:00" queuing="2026-09-21T02:03:51.3073958+08:00" start="2026-09-21T02:03:50.4886563+08:00" finish="2026-09-21T02:03:51.3874541+08:00" />
+  <TestSettings name="default" id="148e1780-a0c4-42d4-85a9-d8a3c61f0e5e">
+    <Deployment runDeploymentRoot="Administrator_DESKTOP-AKI3LSA_2026-09-21_02_03_51" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="cb43a8fd-d763-4adb-be6f-85d6b54f6d7c" testId="de9e3089-18e7-6bb1-7125-6107dd183a10" testName="Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: &quot;input-schema&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0002658" startTime="2026-09-21T02:03:51.3081517+08:00" endTime="2026-09-21T02:03:51.3081518+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cb43a8fd-d763-4adb-be6f-85d6b54f6d7c">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(String change) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 187</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="7ee494a2-e610-404b-9244-dcecbf25e66e" testId="babf0bf9-b34f-7ce6-84e8-b734e02e8471" testName="Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: &quot;forte&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0018002" startTime="2026-09-21T02:03:51.3005166+08:00" endTime="2026-09-21T02:03:51.3005168+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7ee494a2-e610-404b-9244-dcecbf25e66e">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 134</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="986222aa-cb21-4172-b5da-367bb63a6a42" testId="79c17b87-cd41-aa64-3fea-b630331fd0b5" testName="Resonance.Tests.OriginalReplayTests.RecordedAcceptedAndRejectedCommandsRoundTripWithDefaultCriticalRolls" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0025521" startTime="2026-09-21T02:03:51.3121483+08:00" endTime="2026-09-21T02:03:51.3121484+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="986222aa-cb21-4172-b5da-367bb63a6a42">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.RecordedAcceptedAndRejectedCommandsRoundTripWithDefaultCriticalRolls() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 25</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="17ea0a3a-0868-4ecb-8b59-0f86324eb963" testId="6ff773df-d8c4-eaf6-215a-256fa6bc115f" testName="Resonance.Tests.OriginalFeedbackTests.LatestScatterTargetsAreActualB01Resolutions_WithRootAndGeneration_AndSurviveLaterSupportActions" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0009486" startTime="2026-09-21T02:03:51.2399078+08:00" endTime="2026-09-21T02:03:51.2399079+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="17ea0a3a-0868-4ecb-8b59-0f86324eb963">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: 1&#xD;
+Actual:   0</Message>
+          <StackTrace>   at Resonance.Tests.OriginalFeedbackTests.LatestScatterTargetsAreActualB01Resolutions_WithRootAndGeneration_AndSurviveLaterSupportActions() in F:\天命之子\tools\BattleSim.Tests\OriginalFeedbackTests.cs:line 97</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="55794d31-63cb-4f03-8d3d-9418891bc256" testId="913c9c49-7d2c-4b8c-cf02-8ce62a4bdafc" testName="Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: &quot;content-version&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0008555" startTime="2026-09-21T02:03:51.3074883+08:00" endTime="2026-09-21T02:03:51.3074884+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="55794d31-63cb-4f03-8d3d-9418891bc256">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(String change) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 187</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5c8ac95d-7954-43ec-b4cc-89c3910a6e0a" testId="e6115b94-b5dd-5ebe-a46f-350f0ee0a3ec" testName="Resonance.Tests.OriginalFeedbackTests.EmptyAndRejectedActionsDoNotInventFeedback_AndSummaryHasThreeCheckableFactsAndOneSpecificAdvice" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0070111" startTime="2026-09-21T02:03:51.2474070+08:00" endTime="2026-09-21T02:03:51.2474071+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5c8ac95d-7954-43ec-b4cc-89c3910a6e0a">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: 3&#xD;
+Actual:   0</Message>
+          <StackTrace>   at Resonance.Tests.OriginalFeedbackTests.EmptyAndRejectedActionsDoNotInventFeedback_AndSummaryHasThreeCheckableFactsAndOneSpecificAdvice() in F:\天命之子\tools\BattleSim.Tests\OriginalFeedbackTests.cs:line 149</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="73be25d2-1a12-4ea5-822c-9b6cee7278a5" testId="bf998dca-90fb-1590-2184-cf674b20eb42" testName="Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: &quot;phase&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0011119" startTime="2026-09-21T02:03:51.2944788+08:00" endTime="2026-09-21T02:03:51.2944789+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="73be25d2-1a12-4ea5-822c-9b6cee7278a5">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 134</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="f68d6231-549e-49c2-941a-503cd533148c" testId="07747fcc-c9f5-854d-f7a5-8c92dbfaa332" testName="Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: &quot;completed-root&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0012266" startTime="2026-09-21T02:03:51.2930678+08:00" endTime="2026-09-21T02:03:51.2930681+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f68d6231-549e-49c2-941a-503cd533148c">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 134</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="50421f38-dbcd-4b66-9a4b-c3a6f4c5ddb0" testId="9c631432-4607-aafe-2b4e-ddf91ec6d881" testName="Resonance.Tests.OriginalReplayTests.TamperedFrozenSkillWithUnchangedInputHashIsRejectedBeforeSimulation" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0003970" startTime="2026-09-21T02:03:51.3239758+08:00" endTime="2026-09-21T02:03:51.3239759+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="50421f38-dbcd-4b66-9a4b-c3a6f4c5ddb0">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.TamperedFrozenSkillWithUnchangedInputHashIsRejectedBeforeSimulation() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 205</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="9c0cf73d-10f6-4433-a9bc-50b6cbbb8750" testId="11df5183-44b4-c032-22ec-263b6097975c" testName="Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: &quot;barrier&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0011421" startTime="2026-09-21T02:03:51.2960241+08:00" endTime="2026-09-21T02:03:51.2960242+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9c0cf73d-10f6-4433-a9bc-50b6cbbb8750">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 134</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4631d959-7864-4fdb-8823-c0c95b8b1776" testId="124076f7-b5a2-b5e6-c07a-a2c2a2ff8546" testName="Resonance.Tests.OriginalReplayTests.ChangingOnlyExpectedCommandAcceptanceIsDetectedWithoutChangingExecution" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0011920" startTime="2026-09-21T02:03:51.3050316+08:00" endTime="2026-09-21T02:03:51.3050318+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4631d959-7864-4fdb-8823-c0c95b8b1776">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.ChangingOnlyExpectedCommandAcceptanceIsDetectedWithoutChangingExecution() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 215</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="12b9c7ba-4c41-48c1-ba28-f071edeb3b98" testId="8b756153-eedb-7ee8-5caf-ca6bbcebd4c2" testName="Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: &quot;content-hash&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0002347" startTime="2026-09-21T02:03:51.3092134+08:00" endTime="2026-09-21T02:03:51.3092135+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="12b9c7ba-4c41-48c1-ba28-f071edeb3b98">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(String change) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 187</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="dae59c74-5884-4901-b770-fc6cff8b2157" testId="978dadb2-bd88-0ecc-cd85-42b654ce01f0" testName="Resonance.Tests.OriginalReplayTests.CapturedTapeOwnsCopiesOfInputCommandsAndFinalState" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0004889" startTime="2026-09-21T02:03:51.3232468+08:00" endTime="2026-09-21T02:03:51.3232469+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dae59c74-5884-4901-b770-fc6cff8b2157">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.CapturedTapeOwnsCopiesOfInputCommandsAndFinalState() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 227</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="8e04c3f2-d45a-4834-920c-9d40d15fb646" testId="f6e33530-3c35-b326-3724-0decfa258d99" testName="Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: &quot;last-relic&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0013068" startTime="2026-09-21T02:03:51.3034774+08:00" endTime="2026-09-21T02:03:51.3034776+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8e04c3f2-d45a-4834-920c-9d40d15fb646">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 134</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="44d09295-afc1-46a3-936b-1cb0356b8405" testId="019d0d7d-bd2d-1dc0-b5d7-dbdd7eedc137" testName="Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: &quot;native-root&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0015738" startTime="2026-09-21T02:03:51.2869542+08:00" endTime="2026-09-21T02:03:51.2869543+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="44d09295-afc1-46a3-936b-1cb0356b8405">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 134</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="e50ae3eb-031e-4e20-a7ba-1ea12ca86f0a" testId="bea5f2f4-2e2f-cdf7-8f33-b4665442db3c" testName="Resonance.Tests.OriginalFeedbackTests.BarrierAndScatterFromTheSameAction_BothKeepTheirActualTriggerSerial" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0131608" startTime="2026-09-21T02:03:51.2324536+08:00" endTime="2026-09-21T02:03:51.2324539+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e50ae3eb-031e-4e20-a7ba-1ea12ca86f0a">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.True() Failure&#xD;
+Expected: True&#xD;
+Actual:   False</Message>
+          <StackTrace>   at Resonance.Tests.OriginalFeedbackTests.BarrierAndScatterFromTheSameAction_BothKeepTheirActualTriggerSerial() in F:\天命之子\tools\BattleSim.Tests\OriginalFeedbackTests.cs:line 56</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="0cc3d2ad-9319-4abe-99fb-5ed5679a46de" testId="a7fbc97f-7c71-3221-49a2-a2f8b33d3d05" testName="Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: &quot;record-schema&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0004347" startTime="2026-09-21T02:03:51.3057923+08:00" endTime="2026-09-21T02:03:51.3057924+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0cc3d2ad-9319-4abe-99fb-5ed5679a46de">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(String change) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 187</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="b5718c25-4a88-45af-a01f-eebadef49131" testId="f0798542-1a0c-0651-e87a-6c0cc5357e48" testName="Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: &quot;trigger&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0016393" startTime="2026-09-21T02:03:51.2619077+08:00" endTime="2026-09-21T02:03:51.2619078+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b5718c25-4a88-45af-a01f-eebadef49131">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 134</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4d16aedb-c4f3-4bc4-b3db-ee67ab233e81" testId="714439b6-a4c4-01cb-d283-e1f5fc82c8a8" testName="Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: &quot;mode&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0002843" startTime="2026-09-21T02:03:51.3087408+08:00" endTime="2026-09-21T02:03:51.3087409+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4d16aedb-c4f3-4bc4-b3db-ee67ab233e81">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(String change) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 187</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="1ab9de1b-bb3d-41e9-9995-89bf7470566c" testId="725b5bd5-644d-a6a5-53a6-089fa7b998d8" testName="Resonance.Tests.OriginalReplayTests.ResolutionHashUsesActualPropertiesRatherThanOnlyTheNumberOfResults" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0029272" startTime="2026-09-21T02:03:51.3426493+08:00" endTime="2026-09-21T02:03:51.3426494+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1ab9de1b-bb3d-41e9-9995-89bf7470566c">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.ResolutionHashUsesActualPropertiesRatherThanOnlyTheNumberOfResults() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 246</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="18c6da15-8266-4052-b46a-43bbeb7d5256" testId="5c12a923-04b0-50df-7c15-ca1c6c1e370d" testName="Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: &quot;ruleset&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0002694" startTime="2026-09-21T02:03:51.3063241+08:00" endTime="2026-09-21T02:03:51.3063242+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="18c6da15-8266-4052-b46a-43bbeb7d5256">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(String change) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 187</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="586ba57a-c4b9-4b5c-a55f-376a1d1ccd92" testId="9d06168e-f6f2-884c-315f-8920cf4faa08" testName="Resonance.Tests.OriginalReplayTests.CaptureWhilePausedRetainsUnsubmittedQueueWithoutExecutingItOrAdvancingTime" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0022766" startTime="2026-09-21T02:03:51.3266280+08:00" endTime="2026-09-21T02:03:51.3266281+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="586ba57a-c4b9-4b5c-a55f-376a1d1ccd92">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.CaptureWhilePausedRetainsUnsubmittedQueueWithoutExecutingItOrAdvancingTime() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 73</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5a6bc59a-88c8-4fa7-8d2c-574ddf1d3bf0" testId="e480b280-1265-1273-3ea1-e28a3c17fc9b" testName="Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: &quot;harmony&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0015686" startTime="2026-09-21T02:03:51.2982021+08:00" endTime="2026-09-21T02:03:51.2982023+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5a6bc59a-88c8-4fa7-8d2c-574ddf1d3bf0">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 134</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="7a1bcc18-2976-4418-8a8d-d6623ea1101e" testId="f9d4735e-bd64-dd74-6fb8-cec9b74e0753" testName="Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: &quot;threshold&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0010640" startTime="2026-09-21T02:03:51.2897832+08:00" endTime="2026-09-21T02:03:51.2897833+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7a1bcc18-2976-4418-8a8d-d6623ea1101e">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 134</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a31c665e-6ea0-43aa-bbbf-263bdfe82b3e" testId="a59797d6-4f92-ac79-b47a-f7f675bd2817" testName="Resonance.Tests.OriginalFeedbackTests.HarmonyBitsAndStoredForteComeFromRuntime_AndC04SerialAppearsOnlyWhenForteIsConsumed" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0474585" startTime="2026-09-21T02:03:51.2154923+08:00" endTime="2026-09-21T02:03:51.2155104+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a31c665e-6ea0-43aa-bbbf-263bdfe82b3e">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: 6&#xD;
+Actual:   0</Message>
+          <StackTrace>   at Resonance.Tests.OriginalFeedbackTests.HarmonyBitsAndStoredForteComeFromRuntime_AndC04SerialAppearsOnlyWhenForteIsConsumed() in F:\天命之子\tools\BattleSim.Tests\OriginalFeedbackTests.cs:line 71</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="266d8279-d29d-4f0b-a6b9-b7ee72fcf020" testId="ae446524-fec4-351f-c352-17c67bb41ac8" testName="Resonance.Tests.OriginalReplayTests.InvalidBoundGenerationRejectionIsPreservedAsActualSubmittedInput" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0009788" startTime="2026-09-21T02:03:51.3279285+08:00" endTime="2026-09-21T02:03:51.3279285+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="266d8279-d29d-4f0b-a6b9-b7ee72fcf020">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.InvalidBoundGenerationRejectionIsPreservedAsActualSubmittedInput() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 90</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="9a6ed54f-a1aa-4344-92c3-8158d74f2b4c" testId="4b393bbf-e449-9dd3-cb78-4a2880328571" testName="Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: &quot;generation&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0011241" startTime="2026-09-21T02:03:51.2884408+08:00" endTime="2026-09-21T02:03:51.2884409+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9a6ed54f-a1aa-4344-92c3-8158d74f2b4c">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 134</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c84af83a-c0fc-411d-8f9d-c4e91c996e59" testId="8136ac9c-7773-0718-4013-7eb6d4bc8a86" testName="Resonance.Tests.OriginalReplayTests.ExpectedFinalOutputsCannotChooseOrShortenTheReplayBoundary" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0037716" startTime="2026-09-21T02:03:51.2598223+08:00" endTime="2026-09-21T02:03:51.2598224+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c84af83a-c0fc-411d-8f9d-c4e91c996e59">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.ExpectedFinalOutputsCannotChooseOrShortenTheReplayBoundary() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 160</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="e0afb07b-7b87-4b01-a25f-28620fe1ab03" testId="f92c24b2-e1c2-f4e0-1026-915ccfb7556f" testName="Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: &quot;intent&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0014149" startTime="2026-09-21T02:03:51.2915049+08:00" endTime="2026-09-21T02:03:51.2915049+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e0afb07b-7b87-4b01-a25f-28620fe1ab03">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference) in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 134</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="e47b0915-5df9-4fdf-997b-6b55327e9e33" testId="486b4b68-2b32-22bc-0f73-bd19674d2e3b" testName="Resonance.Tests.OriginalFeedbackTests.EffectiveAndOverhealingAreKeptSeparate_AndAdviceRespondsToActualOverheal" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0005371" startTime="2026-09-21T02:03:51.2385913+08:00" endTime="2026-09-21T02:03:51.2385915+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e47b0915-5df9-4fdf-997b-6b55327e9e33">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.True() Failure&#xD;
+Expected: True&#xD;
+Actual:   False</Message>
+          <StackTrace>   at Resonance.Tests.OriginalFeedbackTests.EffectiveAndOverhealingAreKeptSeparate_AndAdviceRespondsToActualOverheal() in F:\天命之子\tools\BattleSim.Tests\OriginalFeedbackTests.cs:line 169</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d2c9f284-3edf-41ae-8c7a-46903694892c" testId="250788af-cba3-05f5-f5f3-d6104aab95c6" testName="Resonance.Tests.OriginalReplayTests.NegativeIndependentBoundaryIsRejectedBeforeSimulation" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0003218" startTime="2026-09-21T02:03:51.3285334+08:00" endTime="2026-09-21T02:03:51.3285334+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d2c9f284-3edf-41ae-8c7a-46903694892c">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.NegativeIndependentBoundaryIsRejectedBeforeSimulation() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 173</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5bcdbd50-dbaf-4265-ab7a-16901bc6d0a0" testId="196ca3b5-cf81-7e33-4580-3953902cf28a" testName="Resonance.Tests.OriginalReplayTests.FullBossVictoryReplaysPhaseMaskGenerationsAndFinalTickRejectedCommands" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0095967" startTime="2026-09-21T02:03:51.3223615+08:00" endTime="2026-09-21T02:03:51.3223617+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5bcdbd50-dbaf-4265-ab7a-16901bc6d0a0">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.FullBossVictoryReplaysPhaseMaskGenerationsAndFinalTickRejectedCommands() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 106</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="9c1ffc73-c037-4fd4-a4a1-2ea00602d096" testId="3de3a05a-4271-8d51-3735-4a265d0cf742" testName="Resonance.Tests.OriginalReplayTests.PausedQueueReplacementClearAndResumeRegenerateBoundCommandsExactlyOnce" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0101353" startTime="2026-09-21T02:03:51.3392486+08:00" endTime="2026-09-21T02:03:51.3392489+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9c1ffc73-c037-4fd4-a4a1-2ea00602d096">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : The method or operation is not implemented.</Message>
+          <StackTrace>   at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim) in F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs:line 60&#xD;
+   at Resonance.Tests.OriginalReplayTests.PausedQueueReplacementClearAndResumeRegenerateBoundCommandsExactlyOnce() in F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs:line 58</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2f872be3-8e10-45f8-81ab-c3635fdb523e" testId="2f2ee3a8-81ed-0ef6-1a18-bfdf9c92efe2" testName="Resonance.Tests.OriginalFeedbackTests.CapturedTotalsAndLatestActionRecomputeFromActualResults_AndReadingNeverMutatesSimulation" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0047029" startTime="2026-09-21T02:03:51.2376582+08:00" endTime="2026-09-21T02:03:51.2376583+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2f872be3-8e10-45f8-81ab-c3635fdb523e">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: 5072&#xD;
+Actual:   0</Message>
+          <StackTrace>   at Resonance.Tests.OriginalFeedbackTests.CapturedTotalsAndLatestActionRecomputeFromActualResults_AndReadingNeverMutatesSimulation() in F:\天命之子\tools\BattleSim.Tests\OriginalFeedbackTests.cs:line 120</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="3afea750-5c01-4a86-8a3c-990c9e29f1e5" testId="127ddea9-beb6-0392-d83a-817530a21ac9" testName="Resonance.Tests.OriginalFeedbackTests.EveryRelicTriggeredByOneNativeActionRetainsItsOwnSerial_AndQueryCopiesStayUnchanged" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0028542" startTime="2026-09-21T02:03:51.2520273+08:00" endTime="2026-09-21T02:03:51.2520276+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3afea750-5c01-4a86-8a3c-990c9e29f1e5">
+      <Output>
+        <ErrorInfo>
+          <Message>System.Collections.Generic.KeyNotFoundException : The given key 'B01' was not present in the dictionary.</Message>
+          <StackTrace>   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)&#xD;
+   at System.Collections.ObjectModel.ReadOnlyDictionary`2.get_Item(TKey key)&#xD;
+   at Resonance.Tests.OriginalFeedbackTests.EveryRelicTriggeredByOneNativeActionRetainsItsOwnSerial_AndQueryCopiesStayUnchanged() in F:\天命之子\tools\BattleSim.Tests\OriginalFeedbackTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.CapturedTapeOwnsCopiesOfInputCommandsAndFinalState" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="978dadb2-bd88-0ecc-cd85-42b654ce01f0">
+      <Execution id="dae59c74-5884-4901-b770-fc6cff8b2157" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="CapturedTapeOwnsCopiesOfInputCommandsAndFinalState" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.CaptureWhilePausedRetainsUnsubmittedQueueWithoutExecutingItOrAdvancingTime" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="9d06168e-f6f2-884c-315f-8920cf4faa08">
+      <Execution id="586ba57a-c4b9-4b5c-a55f-376a1d1ccd92" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="CaptureWhilePausedRetainsUnsubmittedQueueWithoutExecutingItOrAdvancingTime" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.ResolutionHashUsesActualPropertiesRatherThanOnlyTheNumberOfResults" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="725b5bd5-644d-a6a5-53a6-089fa7b998d8">
+      <Execution id="1ab9de1b-bb3d-41e9-9995-89bf7470566c" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="ResolutionHashUsesActualPropertiesRatherThanOnlyTheNumberOfResults" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalFeedbackTests.EveryRelicTriggeredByOneNativeActionRetainsItsOwnSerial_AndQueryCopiesStayUnchanged" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="127ddea9-beb6-0392-d83a-817530a21ac9">
+      <Execution id="3afea750-5c01-4a86-8a3c-990c9e29f1e5" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalFeedbackTests" name="EveryRelicTriggeredByOneNativeActionRetainsItsOwnSerial_AndQueryCopiesStayUnchanged" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: &quot;forte&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="babf0bf9-b34f-7ce6-84e8-b734e02e8471">
+      <Execution id="7ee494a2-e610-404b-9244-dcecbf25e66e" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: &quot;mode&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="714439b6-a4c4-01cb-d283-e1f5fc82c8a8">
+      <Execution id="4d16aedb-c4f3-4bc4-b3db-ee67ab233e81" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: &quot;ruleset&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="5c12a923-04b0-50df-7c15-ca1c6c1e370d">
+      <Execution id="18c6da15-8266-4052-b46a-43bbeb7d5256" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalFeedbackTests.BarrierAndScatterFromTheSameAction_BothKeepTheirActualTriggerSerial" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="bea5f2f4-2e2f-cdf7-8f33-b4665442db3c">
+      <Execution id="e50ae3eb-031e-4e20-a7ba-1ea12ca86f0a" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalFeedbackTests" name="BarrierAndScatterFromTheSameAction_BothKeepTheirActualTriggerSerial" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: &quot;completed-root&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="07747fcc-c9f5-854d-f7a5-8c92dbfaa332">
+      <Execution id="f68d6231-549e-49c2-941a-503cd533148c" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: &quot;trigger&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="f0798542-1a0c-0651-e87a-6c0cc5357e48">
+      <Execution id="b5718c25-4a88-45af-a01f-eebadef49131" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: &quot;record-schema&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="a7fbc97f-7c71-3221-49a2-a2f8b33d3d05">
+      <Execution id="0cc3d2ad-9319-4abe-99fb-5ed5679a46de" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.FullBossVictoryReplaysPhaseMaskGenerationsAndFinalTickRejectedCommands" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="196ca3b5-cf81-7e33-4580-3953902cf28a">
+      <Execution id="5bcdbd50-dbaf-4265-ab7a-16901bc6d0a0" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="FullBossVictoryReplaysPhaseMaskGenerationsAndFinalTickRejectedCommands" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: &quot;last-relic&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="f6e33530-3c35-b326-3724-0decfa258d99">
+      <Execution id="8e04c3f2-d45a-4834-920c-9d40d15fb646" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.NegativeIndependentBoundaryIsRejectedBeforeSimulation" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="250788af-cba3-05f5-f5f3-d6104aab95c6">
+      <Execution id="d2c9f284-3edf-41ae-8c7a-46903694892c" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="NegativeIndependentBoundaryIsRejectedBeforeSimulation" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalFeedbackTests.LatestScatterTargetsAreActualB01Resolutions_WithRootAndGeneration_AndSurviveLaterSupportActions" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="6ff773df-d8c4-eaf6-215a-256fa6bc115f">
+      <Execution id="17ea0a3a-0868-4ecb-8b59-0f86324eb963" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalFeedbackTests" name="LatestScatterTargetsAreActualB01Resolutions_WithRootAndGeneration_AndSurviveLaterSupportActions" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.ChangingOnlyExpectedCommandAcceptanceIsDetectedWithoutChangingExecution" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="124076f7-b5a2-b5e6-c07a-a2c2a2ff8546">
+      <Execution id="4631d959-7864-4fdb-8823-c0c95b8b1776" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="ChangingOnlyExpectedCommandAcceptanceIsDetectedWithoutChangingExecution" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: &quot;barrier&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="11df5183-44b4-c032-22ec-263b6097975c">
+      <Execution id="9c0cf73d-10f6-4433-a9bc-50b6cbbb8750" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: &quot;phase&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="bf998dca-90fb-1590-2184-cf674b20eb42">
+      <Execution id="73be25d2-1a12-4ea5-822c-9b6cee7278a5" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.TamperedFrozenSkillWithUnchangedInputHashIsRejectedBeforeSimulation" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="9c631432-4607-aafe-2b4e-ddf91ec6d881">
+      <Execution id="50421f38-dbcd-4b66-9a4b-c3a6f4c5ddb0" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="TamperedFrozenSkillWithUnchangedInputHashIsRejectedBeforeSimulation" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: &quot;threshold&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="f9d4735e-bd64-dd74-6fb8-cec9b74e0753">
+      <Execution id="7a1bcc18-2976-4418-8a8d-d6623ea1101e" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.PausedQueueReplacementClearAndResumeRegenerateBoundCommandsExactlyOnce" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="3de3a05a-4271-8d51-3735-4a265d0cf742">
+      <Execution id="9c1ffc73-c037-4fd4-a4a1-2ea00602d096" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="PausedQueueReplacementClearAndResumeRegenerateBoundCommandsExactlyOnce" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: &quot;content-version&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="913c9c49-7d2c-4b8c-cf02-8ce62a4bdafc">
+      <Execution id="55794d31-63cb-4f03-8d3d-9418891bc256" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: &quot;content-hash&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="8b756153-eedb-7ee8-5caf-ca6bbcebd4c2">
+      <Execution id="12b9c7ba-4c41-48c1-ba28-f071edeb3b98" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.ExpectedFinalOutputsCannotChooseOrShortenTheReplayBoundary" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="8136ac9c-7773-0718-4013-7eb6d4bc8a86">
+      <Execution id="c84af83a-c0fc-411d-8f9d-c4e91c996e59" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="ExpectedFinalOutputsCannotChooseOrShortenTheReplayBoundary" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalFeedbackTests.CapturedTotalsAndLatestActionRecomputeFromActualResults_AndReadingNeverMutatesSimulation" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="2f2ee3a8-81ed-0ef6-1a18-bfdf9c92efe2">
+      <Execution id="2f872be3-8e10-45f8-81ab-c3635fdb523e" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalFeedbackTests" name="CapturedTotalsAndLatestActionRecomputeFromActualResults_AndReadingNeverMutatesSimulation" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalFeedbackTests.HarmonyBitsAndStoredForteComeFromRuntime_AndC04SerialAppearsOnlyWhenForteIsConsumed" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="a59797d6-4f92-ac79-b47a-f7f675bd2817">
+      <Execution id="a31c665e-6ea0-43aa-bbbf-263bdfe82b3e" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalFeedbackTests" name="HarmonyBitsAndStoredForteComeFromRuntime_AndC04SerialAppearsOnlyWhenForteIsConsumed" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: &quot;input-schema&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="de9e3089-18e7-6bb1-7125-6107dd183a10">
+      <Execution id="cb43a8fd-d763-4adb-be6f-85d6b54f6d7c" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.InvalidBoundGenerationRejectionIsPreservedAsActualSubmittedInput" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="ae446524-fec4-351f-c352-17c67bb41ac8">
+      <Execution id="266d8279-d29d-4f0b-a6b9-b7ee72fcf020" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="InvalidBoundGenerationRejectionIsPreservedAsActualSubmittedInput" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: &quot;harmony&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="e480b280-1265-1273-3ea1-e28a3c17fc9b">
+      <Execution id="5a6bc59a-88c8-4fa7-8d2c-574ddf1d3bf0" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalFeedbackTests.EffectiveAndOverhealingAreKeptSeparate_AndAdviceRespondsToActualOverheal" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="486b4b68-2b32-22bc-0f73-bd19674d2e3b">
+      <Execution id="e47b0915-5df9-4fdf-997b-6b55327e9e33" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalFeedbackTests" name="EffectiveAndOverhealingAreKeptSeparate_AndAdviceRespondsToActualOverheal" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: &quot;native-root&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="019d0d7d-bd2d-1dc0-b5d7-dbdd7eedc137">
+      <Execution id="44d09295-afc1-46a3-936b-1cb0356b8405" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: &quot;intent&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="f92c24b2-e1c2-f4e0-1026-915ccfb7556f">
+      <Execution id="e0afb07b-7b87-4b01-a25f-28620fe1ab03" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.RecordedAcceptedAndRejectedCommandsRoundTripWithDefaultCriticalRolls" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="79c17b87-cd41-aa64-3fea-b630331fd0b5">
+      <Execution id="986222aa-cb21-4172-b5da-367bb63a6a42" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="RecordedAcceptedAndRejectedCommandsRoundTripWithDefaultCriticalRolls" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: &quot;generation&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="4b393bbf-e449-9dd3-cb78-4a2880328571">
+      <Execution id="9a6ed54f-a1aa-4344-92c3-8158d74f2b4c" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalReplayTests" name="NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalFeedbackTests.EmptyAndRejectedActionsDoNotInventFeedback_AndSummaryHasThreeCheckableFactsAndOneSpecificAdvice" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="e6115b94-b5dd-5ebe-a46f-350f0ee0a3ec">
+      <Execution id="5c8ac95d-7954-43ec-b4cc-89c3910a6e0a" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalFeedbackTests" name="EmptyAndRejectedActionsDoNotInventFeedback_AndSummaryHasThreeCheckableFactsAndOneSpecificAdvice" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="de9e3089-18e7-6bb1-7125-6107dd183a10" executionId="cb43a8fd-d763-4adb-be6f-85d6b54f6d7c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="babf0bf9-b34f-7ce6-84e8-b734e02e8471" executionId="7ee494a2-e610-404b-9244-dcecbf25e66e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="79c17b87-cd41-aa64-3fea-b630331fd0b5" executionId="986222aa-cb21-4172-b5da-367bb63a6a42" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6ff773df-d8c4-eaf6-215a-256fa6bc115f" executionId="17ea0a3a-0868-4ecb-8b59-0f86324eb963" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="913c9c49-7d2c-4b8c-cf02-8ce62a4bdafc" executionId="55794d31-63cb-4f03-8d3d-9418891bc256" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e6115b94-b5dd-5ebe-a46f-350f0ee0a3ec" executionId="5c8ac95d-7954-43ec-b4cc-89c3910a6e0a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bf998dca-90fb-1590-2184-cf674b20eb42" executionId="73be25d2-1a12-4ea5-822c-9b6cee7278a5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="07747fcc-c9f5-854d-f7a5-8c92dbfaa332" executionId="f68d6231-549e-49c2-941a-503cd533148c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9c631432-4607-aafe-2b4e-ddf91ec6d881" executionId="50421f38-dbcd-4b66-9a4b-c3a6f4c5ddb0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="11df5183-44b4-c032-22ec-263b6097975c" executionId="9c0cf73d-10f6-4433-a9bc-50b6cbbb8750" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="124076f7-b5a2-b5e6-c07a-a2c2a2ff8546" executionId="4631d959-7864-4fdb-8823-c0c95b8b1776" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8b756153-eedb-7ee8-5caf-ca6bbcebd4c2" executionId="12b9c7ba-4c41-48c1-ba28-f071edeb3b98" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="978dadb2-bd88-0ecc-cd85-42b654ce01f0" executionId="dae59c74-5884-4901-b770-fc6cff8b2157" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f6e33530-3c35-b326-3724-0decfa258d99" executionId="8e04c3f2-d45a-4834-920c-9d40d15fb646" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="019d0d7d-bd2d-1dc0-b5d7-dbdd7eedc137" executionId="44d09295-afc1-46a3-936b-1cb0356b8405" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bea5f2f4-2e2f-cdf7-8f33-b4665442db3c" executionId="e50ae3eb-031e-4e20-a7ba-1ea12ca86f0a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a7fbc97f-7c71-3221-49a2-a2f8b33d3d05" executionId="0cc3d2ad-9319-4abe-99fb-5ed5679a46de" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f0798542-1a0c-0651-e87a-6c0cc5357e48" executionId="b5718c25-4a88-45af-a01f-eebadef49131" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="714439b6-a4c4-01cb-d283-e1f5fc82c8a8" executionId="4d16aedb-c4f3-4bc4-b3db-ee67ab233e81" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="725b5bd5-644d-a6a5-53a6-089fa7b998d8" executionId="1ab9de1b-bb3d-41e9-9995-89bf7470566c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5c12a923-04b0-50df-7c15-ca1c6c1e370d" executionId="18c6da15-8266-4052-b46a-43bbeb7d5256" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9d06168e-f6f2-884c-315f-8920cf4faa08" executionId="586ba57a-c4b9-4b5c-a55f-376a1d1ccd92" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e480b280-1265-1273-3ea1-e28a3c17fc9b" executionId="5a6bc59a-88c8-4fa7-8d2c-574ddf1d3bf0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f9d4735e-bd64-dd74-6fb8-cec9b74e0753" executionId="7a1bcc18-2976-4418-8a8d-d6623ea1101e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a59797d6-4f92-ac79-b47a-f7f675bd2817" executionId="a31c665e-6ea0-43aa-bbbf-263bdfe82b3e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ae446524-fec4-351f-c352-17c67bb41ac8" executionId="266d8279-d29d-4f0b-a6b9-b7ee72fcf020" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4b393bbf-e449-9dd3-cb78-4a2880328571" executionId="9a6ed54f-a1aa-4344-92c3-8158d74f2b4c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8136ac9c-7773-0718-4013-7eb6d4bc8a86" executionId="c84af83a-c0fc-411d-8f9d-c4e91c996e59" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f92c24b2-e1c2-f4e0-1026-915ccfb7556f" executionId="e0afb07b-7b87-4b01-a25f-28620fe1ab03" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="486b4b68-2b32-22bc-0f73-bd19674d2e3b" executionId="e47b0915-5df9-4fdf-997b-6b55327e9e33" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="250788af-cba3-05f5-f5f3-d6104aab95c6" executionId="d2c9f284-3edf-41ae-8c7a-46903694892c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="196ca3b5-cf81-7e33-4580-3953902cf28a" executionId="5bcdbd50-dbaf-4265-ab7a-16901bc6d0a0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3de3a05a-4271-8d51-3735-4a265d0cf742" executionId="9c1ffc73-c037-4fd4-a4a1-2ea00602d096" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2f2ee3a8-81ed-0ef6-1a18-bfdf9c92efe2" executionId="2f872be3-8e10-45f8-81ab-c3635fdb523e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="127ddea9-beb6-0392-d83a-817530a21ac9" executionId="3afea750-5c01-4a86-8a3c-990c9e29f1e5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="35" executed="35" passed="0" failed="35" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 6.0.33)&#xD;
+[xUnit.net 00:00:00.08]   Discovering: BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.16]   Discovered:  BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.17]   Starting:    BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.28]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.28]       Expected: 6&#xD;
+[xUnit.net 00:00:00.28]       Actual:   0&#xD;
+[xUnit.net 00:00:00.28]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.28]         F:\天命之子\tools\BattleSim.Tests\OriginalFeedbackTests.cs(71,0): at Resonance.Tests.OriginalFeedbackTests.HarmonyBitsAndStoredForteComeFromRuntime_AndC04SerialAppearsOnlyWhenForteIsConsumed()&#xD;
+[xUnit.net 00:00:00.30]       Assert.True() Failure&#xD;
+[xUnit.net 00:00:00.30]       Expected: True&#xD;
+[xUnit.net 00:00:00.30]       Actual:   False&#xD;
+[xUnit.net 00:00:00.30]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.30]         F:\天命之子\tools\BattleSim.Tests\OriginalFeedbackTests.cs(56,0): at Resonance.Tests.OriginalFeedbackTests.BarrierAndScatterFromTheSameAction_BothKeepTheirActualTriggerSerial()&#xD;
+[xUnit.net 00:00:00.30]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.30]       Expected: 5072&#xD;
+[xUnit.net 00:00:00.30]       Actual:   0&#xD;
+[xUnit.net 00:00:00.30]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.30]         F:\天命之子\tools\BattleSim.Tests\OriginalFeedbackTests.cs(120,0): at Resonance.Tests.OriginalFeedbackTests.CapturedTotalsAndLatestActionRecomputeFromActualResults_AndReadingNeverMutatesSimulation()&#xD;
+[xUnit.net 00:00:00.31]       Assert.True() Failure&#xD;
+[xUnit.net 00:00:00.31]       Expected: True&#xD;
+[xUnit.net 00:00:00.31]       Actual:   False&#xD;
+[xUnit.net 00:00:00.31]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.31]         F:\天命之子\tools\BattleSim.Tests\OriginalFeedbackTests.cs(169,0): at Resonance.Tests.OriginalFeedbackTests.EffectiveAndOverhealingAreKeptSeparate_AndAdviceRespondsToActualOverheal()&#xD;
+[xUnit.net 00:00:00.31]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.31]       Expected: 1&#xD;
+[xUnit.net 00:00:00.31]       Actual:   0&#xD;
+[xUnit.net 00:00:00.31]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.31]         F:\天命之子\tools\BattleSim.Tests\OriginalFeedbackTests.cs(97,0): at Resonance.Tests.OriginalFeedbackTests.LatestScatterTargetsAreActualB01Resolutions_WithRootAndGeneration_AndSurviveLaterSupportActions()&#xD;
+[xUnit.net 00:00:00.31]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.31]       Expected: 3&#xD;
+[xUnit.net 00:00:00.31]       Actual:   0&#xD;
+[xUnit.net 00:00:00.31]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.31]         F:\天命之子\tools\BattleSim.Tests\OriginalFeedbackTests.cs(149,0): at Resonance.Tests.OriginalFeedbackTests.EmptyAndRejectedActionsDoNotInventFeedback_AndSummaryHasThreeCheckableFactsAndOneSpecificAdvice()&#xD;
+[xUnit.net 00:00:00.32]       System.Collections.Generic.KeyNotFoundException : The given key 'B01' was not present in the dictionary.&#xD;
+[xUnit.net 00:00:00.32]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.32]            at System.Collections.Generic.Dictionary`2.get_Item(TKey key)&#xD;
+[xUnit.net 00:00:00.32]            at System.Collections.ObjectModel.ReadOnlyDictionary`2.get_Item(TKey key)&#xD;
+[xUnit.net 00:00:00.32]         F:\天命之子\tools\BattleSim.Tests\OriginalFeedbackTests.cs(24,0): at Resonance.Tests.OriginalFeedbackTests.EveryRelicTriggeredByOneNativeActionRetainsItsOwnSerial_AndQueryCopiesStayUnchanged()&#xD;
+[xUnit.net 00:00:00.33]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.33]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.33]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.33]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(160,0): at Resonance.Tests.OriginalReplayTests.ExpectedFinalOutputsCannotChooseOrShortenTheReplayBoundary()&#xD;
+[xUnit.net 00:00:00.33]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.33]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.33]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.33]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(134,0): at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference)&#xD;
+[xUnit.net 00:00:00.35]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.35]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.35]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.35]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(134,0): at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference)&#xD;
+[xUnit.net 00:00:00.36]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.36]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(134,0): at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference)&#xD;
+[xUnit.net 00:00:00.36]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.36]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(134,0): at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference)&#xD;
+[xUnit.net 00:00:00.36]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.36]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(134,0): at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference)&#xD;
+[xUnit.net 00:00:00.36]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.36]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(134,0): at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference)&#xD;
+[xUnit.net 00:00:00.36]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.36]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(134,0): at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference)&#xD;
+[xUnit.net 00:00:00.36]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.36]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(134,0): at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference)&#xD;
+[xUnit.net 00:00:00.37]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.37]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.37]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.37]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(134,0): at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference)&#xD;
+[xUnit.net 00:00:00.37]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.37]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.37]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.37]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(134,0): at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference)&#xD;
+[xUnit.net 00:00:00.37]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.37]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.37]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.37]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(134,0): at Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(String difference)&#xD;
+[xUnit.net 00:00:00.37]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.37]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.37]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.37]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(215,0): at Resonance.Tests.OriginalReplayTests.ChangingOnlyExpectedCommandAcceptanceIsDetectedWithoutChangingExecution()&#xD;
+[xUnit.net 00:00:00.37]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.37]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.37]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.37]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(187,0): at Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(String change)&#xD;
+[xUnit.net 00:00:00.37]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.37]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.37]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.37]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(187,0): at Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(String change)&#xD;
+[xUnit.net 00:00:00.37]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.37]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.37]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.37]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(187,0): at Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(String change)&#xD;
+[xUnit.net 00:00:00.38]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.38]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.38]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.38]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(187,0): at Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(String change)&#xD;
+[xUnit.net 00:00:00.38]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.38]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.38]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.38]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(187,0): at Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(String change)&#xD;
+[xUnit.net 00:00:00.38]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.38]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.38]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.38]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(187,0): at Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(String change)&#xD;
+[xUnit.net 00:00:00.38]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.38]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.38]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.38]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(25,0): at Resonance.Tests.OriginalReplayTests.RecordedAcceptedAndRejectedCommandsRoundTripWithDefaultCriticalRolls()&#xD;
+[xUnit.net 00:00:00.39]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.39]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.39]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.39]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(106,0): at Resonance.Tests.OriginalReplayTests.FullBossVictoryReplaysPhaseMaskGenerationsAndFinalTickRejectedCommands()&#xD;
+[xUnit.net 00:00:00.39]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.39]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.39]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.39]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(227,0): at Resonance.Tests.OriginalReplayTests.CapturedTapeOwnsCopiesOfInputCommandsAndFinalState()&#xD;
+[xUnit.net 00:00:00.39]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.39]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.39]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.39]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(205,0): at Resonance.Tests.OriginalReplayTests.TamperedFrozenSkillWithUnchangedInputHashIsRejectedBeforeSimulation()&#xD;
+[xUnit.net 00:00:00.39]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.39]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.39]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.39]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(73,0): at Resonance.Tests.OriginalReplayTests.CaptureWhilePausedRetainsUnsubmittedQueueWithoutExecutingItOrAdvancingTime()&#xD;
+[xUnit.net 00:00:00.40]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.40]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.40]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.40]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(90,0): at Resonance.Tests.OriginalReplayTests.InvalidBoundGenerationRejectionIsPreservedAsActualSubmittedInput()&#xD;
+[xUnit.net 00:00:00.40]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.40]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.40]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.40]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(173,0): at Resonance.Tests.OriginalReplayTests.NegativeIndependentBoundaryIsRejectedBeforeSimulation()&#xD;
+[xUnit.net 00:00:00.41]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.41]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.41]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.41]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(58,0): at Resonance.Tests.OriginalReplayTests.PausedQueueReplacementClearAndResumeRegenerateBoundCommandsExactlyOnce()&#xD;
+[xUnit.net 00:00:00.41]       System.NotImplementedException : The method or operation is not implemented.&#xD;
+[xUnit.net 00:00:00.41]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.41]         F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\OriginalBattleReplay.cs(60,0): at Resonance.Battle.OriginalBattleRecord.Capture(BattleSim sim)&#xD;
+[xUnit.net 00:00:00.41]         F:\天命之子\tools\BattleSim.Tests\OriginalReplayTests.cs(246,0): at Resonance.Tests.OriginalReplayTests.ResolutionHashUsesActualPropertiesRatherThanOnlyTheNumberOfResults()&#xD;
+[xUnit.net 00:00:00.41]   Finished:    BattleSim.Tests&#xD;
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.2121574+08:00">
+        <Text>[xUnit.net 00:00:00.28]     Resonance.Tests.OriginalFeedbackTests.HarmonyBitsAndStoredForteComeFromRuntime_AndC04SerialAppearsOnlyWhenForteIsConsumed [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.2324762+08:00">
+        <Text>[xUnit.net 00:00:00.30]     Resonance.Tests.OriginalFeedbackTests.BarrierAndScatterFromTheSameAction_BothKeepTheirActualTriggerSerial [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.2376915+08:00">
+        <Text>[xUnit.net 00:00:00.30]     Resonance.Tests.OriginalFeedbackTests.CapturedTotalsAndLatestActionRecomputeFromActualResults_AndReadingNeverMutatesSimulation [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.2385168+08:00">
+        <Text>[xUnit.net 00:00:00.31]     Resonance.Tests.OriginalFeedbackTests.EffectiveAndOverhealingAreKeptSeparate_AndAdviceRespondsToActualOverheal [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.2398978+08:00">
+        <Text>[xUnit.net 00:00:00.31]     Resonance.Tests.OriginalFeedbackTests.LatestScatterTargetsAreActualB01Resolutions_WithRootAndGeneration_AndSurviveLaterSupportActions [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.2474938+08:00">
+        <Text>[xUnit.net 00:00:00.31]     Resonance.Tests.OriginalFeedbackTests.EmptyAndRejectedActionsDoNotInventFeedback_AndSummaryHasThreeCheckableFactsAndOneSpecificAdvice [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.2519715+08:00">
+        <Text>[xUnit.net 00:00:00.32]     Resonance.Tests.OriginalFeedbackTests.EveryRelicTriggeredByOneNativeActionRetainsItsOwnSerial_AndQueryCopiesStayUnchanged [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.2598531+08:00">
+        <Text>[xUnit.net 00:00:00.33]     Resonance.Tests.OriginalReplayTests.ExpectedFinalOutputsCannotChooseOrShortenTheReplayBoundary [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.2619036+08:00">
+        <Text>[xUnit.net 00:00:00.33]     Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "trigger") [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3169475+08:00">
+        <Text>[xUnit.net 00:00:00.35]     Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "native-root") [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3169684+08:00">
+        <Text>[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "generation") [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3169824+08:00">
+        <Text>[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "threshold") [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3170106+08:00">
+        <Text>[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "intent") [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3170279+08:00">
+        <Text>[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "completed-root") [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3170424+08:00">
+        <Text>[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "phase") [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3170556+08:00">
+        <Text>[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "barrier") [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3170723+08:00">
+        <Text>[xUnit.net 00:00:00.37]     Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "harmony") [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3170887+08:00">
+        <Text>[xUnit.net 00:00:00.37]     Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "forte") [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3176647+08:00">
+        <Text>[xUnit.net 00:00:00.37]     Resonance.Tests.OriginalReplayTests.NewStateDifferenceFailsEvenWhenOldDigestAndHpAreIdentical(difference: "last-relic") [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3176824+08:00">
+        <Text>[xUnit.net 00:00:00.37]     Resonance.Tests.OriginalReplayTests.ChangingOnlyExpectedCommandAcceptanceIsDetectedWithoutChangingExecution [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3176959+08:00">
+        <Text>[xUnit.net 00:00:00.37]     Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: "record-schema") [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3177127+08:00">
+        <Text>[xUnit.net 00:00:00.37]     Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: "ruleset") [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3177301+08:00">
+        <Text>[xUnit.net 00:00:00.37]     Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: "content-version") [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3177429+08:00">
+        <Text>[xUnit.net 00:00:00.38]     Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: "input-schema") [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3177558+08:00">
+        <Text>[xUnit.net 00:00:00.38]     Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: "mode") [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3177688+08:00">
+        <Text>[xUnit.net 00:00:00.38]     Resonance.Tests.OriginalReplayTests.UnknownInputVersionIsExplicitlyRejectedEvenWithRecomputedInputHash(change: "content-hash") [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3177817+08:00">
+        <Text>[xUnit.net 00:00:00.38]     Resonance.Tests.OriginalReplayTests.RecordedAcceptedAndRejectedCommandsRoundTripWithDefaultCriticalRolls [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3223936+08:00">
+        <Text>[xUnit.net 00:00:00.39]     Resonance.Tests.OriginalReplayTests.FullBossVictoryReplaysPhaseMaskGenerationsAndFinalTickRejectedCommands [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3232242+08:00">
+        <Text>[xUnit.net 00:00:00.39]     Resonance.Tests.OriginalReplayTests.CapturedTapeOwnsCopiesOfInputCommandsAndFinalState [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3239746+08:00">
+        <Text>[xUnit.net 00:00:00.39]     Resonance.Tests.OriginalReplayTests.TamperedFrozenSkillWithUnchangedInputHashIsRejectedBeforeSimulation [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3266400+08:00">
+        <Text>[xUnit.net 00:00:00.39]     Resonance.Tests.OriginalReplayTests.CaptureWhilePausedRetainsUnsubmittedQueueWithoutExecutingItOrAdvancingTime [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3278623+08:00">
+        <Text>[xUnit.net 00:00:00.40]     Resonance.Tests.OriginalReplayTests.InvalidBoundGenerationRejectionIsPreservedAsActualSubmittedInput [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3284717+08:00">
+        <Text>[xUnit.net 00:00:00.40]     Resonance.Tests.OriginalReplayTests.NegativeIndependentBoundaryIsRejectedBeforeSimulation [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3391804+08:00">
+        <Text>[xUnit.net 00:00:00.41]     Resonance.Tests.OriginalReplayTests.PausedQueueReplacementClearAndResumeRegenerateBoundCommandsExactlyOnce [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T02:03:51.3426863+08:00">
+        <Text>[xUnit.net 00:00:00.41]     Resonance.Tests.OriginalReplayTests.ResolutionHashUsesActualPropertiesRatherThanOnlyTheNumberOfResults [FAIL]</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>
