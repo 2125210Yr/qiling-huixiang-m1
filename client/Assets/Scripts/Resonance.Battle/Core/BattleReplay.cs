@@ -1473,6 +1473,10 @@ namespace Resonance.Battle
         public static UnitProgress[] Recover(BattleRunRecord rec)
         {
             if (rec == null) return null;
+            // Explicit input is authoritative even when it is null, empty, or all-null:
+            // those shapes request catalog defaults and must not enter legacy search.
+            if (string.Equals(rec.OpeningSource, SourceInput, StringComparison.OrdinalIgnoreCase))
+                return Copy(rec.OpeningProgress);
             if (HasRows(rec.OpeningProgress))
             {
                 if (string.IsNullOrEmpty(rec.OpeningSource))
@@ -1485,17 +1489,13 @@ namespace Resonance.Battle
             {
                 bool incomplete;
                 var rows = FromIdentity(identity, rec.PartyIds, out incomplete);
-                // Keep Capture's "input" only when it still has rows. Empty progress +
-                // GrowthIdentity is the labelled legacy search (G2B1 identity path /
-                // historical tapes). Do not keep source=input after a search.
+                // Historical tapes lack an explicit input source and need a labelled
+                // GrowthIdentity search when they did not record opening rows.
                 rec.OpeningSource = incomplete ? SourceIncomplete : SourceLegacyRecovered;
                 return rows;
             }
 
-            // Capture of a growth=null sim: source=input + empty rows + no identity
-            // means catalog defaults. Missing identity on an old tape is incomplete.
-            if (string.Equals(rec.OpeningSource, SourceInput, StringComparison.OrdinalIgnoreCase))
-                return null;
+            // Missing identity on an old tape is incomplete.
             rec.OpeningSource = SourceIncomplete;
             return null;
         }
@@ -1626,7 +1626,8 @@ namespace Resonance.Battle
                 var part = parts[i];
                 if (string.IsNullOrEmpty(part) || part == "-")
                 {
-                    rows[i] = new UnitProgress { Level = 1 };
+                    // Format writes '-' for a catalog-default slot. A Level=1 object
+                    // is a different input and changes the opening-input identity.
                     continue;
                 }
                 var colon = part.IndexOf(':');

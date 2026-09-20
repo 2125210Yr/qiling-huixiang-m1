@@ -73,6 +73,9 @@ namespace Resonance.Tests
         public static void Dispose(Session session)
         {
             if (session == null || string.IsNullOrEmpty(session.Root)) return;
+            // Keep the real recorder output for review runs that must not delete evidence.
+            // Assertions still execute; only the post-test cleanup is disabled.
+            if (Environment.GetEnvironmentVariable("RESONANCE_KEEP_TEST_ARTIFACTS") == "1") return;
             try
             {
                 if (Directory.Exists(session.Root))

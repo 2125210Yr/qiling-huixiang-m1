@@ -356,6 +356,8 @@ namespace Resonance.App
 
         IEnumerator PlayBasicNaturally()
         {
+            yield return FocusEnemyNaturally(8f);
+            if (_done) yield break;
             bool tapDone = false, slideDone = false, pauseDone = false, speedDone = false, goalsNoted = false;
             var t0 = Time.unscaledTime;
             var qteCount = 0;
@@ -488,6 +490,115 @@ namespace Resonance.App
 
                 yield return null;
             }
+        }
+
+        IEnumerator FocusEnemyNaturally(float timeout)
+        {
+            var t0 = Time.unscaledTime;
+            var b = Battle();
+            GameObject target = null;
+            var slot = -1;
+            var probe = "no eligible BattleFighter/focusHit";
+            while (target == null)
+            {
+                if (b == null || Battle() != b || b.Outcome != BattleOutcome.InProgress)
+                {
+                    Fail("FocusEnemy", "same live battle before pointer click", ObserveBattle());
+                    yield break;
+                }
+                // With no focus the core follows each skill's target rule, which may be random.
+                // Use a non-first living enemy, never claim that its predecessor was a random target.
+                var firstAlive = -1;
+                for (int i = 0; i < b.Enemies.Count; i++)
+                    if (b.Enemies[i] != null && b.Enemies[i].Alive) { firstAlive = i; break; }
+                var canvas = CanvasRoot();
+                var fighters = canvas != null ? canvas.GetComponentsInChildren<BattleFighter>() : null;
+                if (fighters != null)
+                {
+                    for (int i = 0; i < fighters.Length; i++)
+                    {
+                        var fighter = fighters[i];
+                        var candidate = fighter.Slot;
+                        if (fighter.Ally || candidate == firstAlive || candidate == b.FocusEnemySlot
+                            || candidate < 0 || candidate >= b.Enemies.Count
+                            || b.Enemies[candidate] == null || !b.Enemies[candidate].Alive) continue;
+                        var hit = fighter.transform.Find("focusHit");
+                        var button = hit != null ? hit.GetComponent<Button>() : null;
+                        if (button == null || !button.isActiveAndEnabled || !button.IsInteractable()) continue;
+                        var raycast = PeekRaycast(ScreenCenter(hit.gameObject));
+                        probe = "slot=" + candidate + " target=" + PathOf(hit.gameObject)
+                            + " raycast=" + PathOf(raycast);
+                        if (raycast != hit.gameObject
+                            && (raycast == null || !raycast.transform.IsChildOf(hit))) continue;
+                        target = hit.gameObject;
+                        slot = candidate;
+                        break;
+                    }
+                }
+                if (target != null) break;
+                if (TimedOut(t0, timeout) || OverLimit())
+                {
+                    Fail("FocusEnemy", "raycastable non-first living enemy with different focus",
+                        "focus=" + b.FocusEnemySlot + " " + probe + " " + ObserveBattle());
+                    yield break;
+                }
+                yield return null;
+            }
+
+            var before = b.FocusEnemySlot;
+            var countBefore = b.CommandLog.Count;
+            var path = PathOf(target);
+            yield return PointerAt(ScreenCenter(target), "tap");
+            CommandRecord accepted = null;
+            for (int i = countBefore; i < b.CommandLog.Count; i++)
+            {
+                var cmd = b.CommandLog[i];
+                if (cmd.Kind == BattleCommandKind.FocusEnemy && cmd.Slot == slot
+                    && cmd.Source == CommandSource.Player && cmd.Accepted)
+                    accepted = cmd;
+            }
+            if (Battle() != b || accepted == null || before == slot || b.FocusEnemySlot != slot)
+            {
+                Fail("FocusEnemy", "new accepted Player FocusEnemy + changed focus slot",
+                    "target=" + path + " slot=" + slot + " focus=" + before + "->" + b.FocusEnemySlot
+                    + " accepted=" + (accepted != null) + " " + ObserveBattle());
+                yield break;
+            }
+            Record("FocusEnemy", "EventSystem click on non-first live enemy changes focus",
+                "battle_id=" + _current.BattleId + " target=" + path + " focus=" + before + "->" + b.FocusEnemySlot
+                + " " + NaturalPlayBattleEvidence.FormatCommand(accepted), true);
+
+            PersistCurrentBattle("focus-click");
+            var persisted = false;
+            var persistDetail = "no current battle evidence";
+            try
+            {
+                BattleRunRecord record;
+                if (_current != null && _current.Sim == b && _current.Persisted
+                    && NaturalPlayBattleEvidence.TryReadRecord(_current.Dir, out record) && record != null)
+                {
+                    var expected = NaturalPlayBattleEvidence.FormatCommand(accepted);
+                    var commandsPath = Path.Combine(_current.Dir, "commands.txt");
+                    var textFound = File.Exists(commandsPath)
+                        && Array.IndexOf(File.ReadAllLines(commandsPath), expected) >= 0;
+                    var replayFound = false;
+                    for (int i = 0; i < record.Commands.Count; i++)
+                        if (NaturalPlayBattleEvidence.FormatCommand(record.Commands[i]) == expected)
+                            replayFound = true;
+                    persisted = textFound && replayFound;
+                    persistDetail = "battle_id=" + _current.BattleId + " seq=" + accepted.Seq
+                        + " tick=" + accepted.Tick + " slot=" + slot
+                        + " commands=" + textFound + " replay=" + replayFound + " dir=" + _current.Dir;
+                }
+            }
+            catch (Exception e) { persistDetail = e.Message; }
+            if (!persisted)
+            {
+                Fail("FocusEnemyPersist", "same Player FocusEnemy in commands.txt + parsed replay.jsonl", persistDetail);
+                yield break;
+            }
+            Record("FocusEnemyPersist", "same Player FocusEnemy in commands.txt + parsed replay.jsonl", persistDetail, true);
+            yield return Shot("np_04_focus.png");
         }
 
         IEnumerator PlayFeverNaturally()
@@ -1429,6 +1540,7 @@ namespace Resonance.App
             _line.Append(" paused=").Append(b.Paused);
             _line.Append(" speed=").Append(b.Speed);
             _line.Append(" auto=").Append(b.Auto);
+            _line.Append(" focus=").Append(b.FocusEnemySlot);
             _line.Append(" wave=").Append(b.WaveIndex);
             _line.Append(" outcome=").Append(b.Outcome);
             if (!string.IsNullOrEmpty(cmd)) _line.Append(" cmd=").Append(cmd);

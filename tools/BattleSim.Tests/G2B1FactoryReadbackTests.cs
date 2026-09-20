@@ -82,6 +82,7 @@ namespace Resonance.Tests
                     Assert.True(viaExplicit.Match, "explicit recovered factory Diff=" + DiffBlob(viaExplicit));
 
                     rec.OpeningProgress = null;
+                    rec.OpeningSource = null; // Historical tapes also omit the opening-source field.
                     var fromIdentity = NaturalPlayBattleEvidence.RecoverOpeningGrowth(rec);
                     var identitySim = NaturalPlayBattleEvidence.NewSim(rec, fromIdentity);
                     var identityNamed = NaturalPlayBattleEvidence.NamedOpeningDiff(rec, identitySim);
