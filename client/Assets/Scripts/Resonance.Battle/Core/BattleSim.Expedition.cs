@@ -26,6 +26,7 @@ namespace Resonance.Battle
             foreach (var enemy in Enemies) enemy.InstanceGeneration = 1;
             ExpeditionRelics = new ExpeditionRelicRuntime(_expeditionInput, max);
             ExpeditionTotals = new ResolutionLedger();
+            InitializeOriginalEncounter();
         }
 
         // The legacy and original modes share CastCore and the same damage/heal/shield mutation paths.
@@ -104,20 +105,24 @@ namespace Resonance.Battle
             Outcome = BattleOutcome.Failed;
             FailedReason = "ORIGINAL_RULE_ERROR " + error.GetType().Name + ": " + error.Message;
             LastEvent = FailedReason;
+            OriginalEncounter?.Cancel();
             NoteEvent("fail", "original.rule", null, null, 0, _activeKind);
         }
 
         void SettleOriginalBoundary()
         {
-            if (!IsOriginalExpedition || Outcome != BattleOutcome.InProgress) return;
+            if (!IsOriginalExpedition) return;
+            if (Outcome != BattleOutcome.InProgress) { OriginalEncounter?.Cancel(); return; }
             bool anyEnemy = false;
             foreach (var enemy in Enemies) if (enemy.Alive) { anyEnemy = true; break; }
             if (OriginalBossDead() || !anyEnemy)
             {
                 SweepDeaths(); Outcome = BattleOutcome.Victory; LastEvent = "胜利"; NoteResult("clear");
+                ObserveOriginalEncounterBoundary();
                 return;
             }
             AnyAllyAlive();
+            ObserveOriginalEncounterBoundary();
         }
 
         float OriginalChannelBonus() => IsOriginalExpedition && _originalAction != null && _originalRequest == null && !_poisonResolving

@@ -1,0 +1,331 @@
+  正在确定要还原的项目…
+  所有项目均是最新的，无法还原。
+F:\天命之子\tools\BattleSim.Tests\M1FormulaIsolationTests.cs(86,13): warning xUnit2000: The literal or constant value DamageMath.FeverChannelAtkCoef should be passed as the 'expected' argument in the call to 'Assert.NotEqual(expected, actual)' in method 'FeverDoesNotReadTapCoefficients' on type 'M1FormulaIsolationTests'. Swap the parameter values. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\tools\BattleSim.Tests\M1FormulaIsolationTests.cs(87,13): warning xUnit2000: The literal or constant value DamageMath.FeverChannelFlat should be passed as the 'expected' argument in the call to 'Assert.NotEqual(expected, actual)' in method 'FeverDoesNotReadTapCoefficients' on type 'M1FormulaIsolationTests'. Swap the parameter values. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+  BattleSim.Tests -> F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll
+F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll (.NETCoreApp,Version=v6.0)的测试运行
+Microsoft (R) 测试执行命令行工具版本 17.3.3 (x64)
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+正在启动测试执行，请稍候...
+总共 1 个测试文件与指定模式相匹配。
+[xUnit.net 00:00:00.35]     Resonance.Tests.OriginalExpeditionQueueTests.PausedQueueEditingAndTicks_DoNotAdvanceAnyCapturedBattleState [FAIL]
+[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalExpeditionQueueTests.NotReadyAtResume_IsConsumedWithoutRefillOrAutomaticRetryWhenChargeLaterBecomesReady [FAIL]
+[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalExpeditionQueueTests.OnlySingleEnemyDamageBindsFocus_SupportSweepAndUnfocusedCommandsDoNot [FAIL]
+[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: NotCharged) [FAIL]
+[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: Silenced) [FAIL]
+[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: ActionLocked) [FAIL]
+[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: UnitDead) [FAIL]
+[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalExpeditionQueueTests.ResumeIsLoggedBeforeQueuedActions_AndAllDrainBeforeTheNextTick [FAIL]
+[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalExpeditionQueueTests.ClearForExitRemovesPendingAndPreviousResults_AndQueueApisRejectWrongModeOrState [FAIL]
+  失败 Resonance.Tests.OriginalExpeditionQueueTests.PausedQueueEditingAndTicks_DoNotAdvanceAnyCapturedBattleState [55 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: None
+Actual:   InvalidValue
+  堆栈跟踪:
+     at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 254
+   at Resonance.Tests.OriginalExpeditionQueueTests.PausedQueueEditingAndTicks_DoNotAdvanceAnyCapturedBattleState() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 51
+  失败 Resonance.Tests.OriginalExpeditionQueueTests.NotReadyAtResume_IsConsumedWithoutRefillOrAutomaticRetryWhenChargeLaterBecomesReady [< 1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: None
+Actual:   InvalidValue
+  堆栈跟踪:
+     at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 254
+   at Resonance.Tests.OriginalExpeditionQueueTests.NotReadyAtResume_IsConsumedWithoutRefillOrAutomaticRetryWhenChargeLaterBecomesReady() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 123
+  失败 Resonance.Tests.OriginalExpeditionQueueTests.OnlySingleEnemyDamageBindsFocus_SupportSweepAndUnfocusedCommandsDoNot [< 1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: None
+Actual:   InvalidValue
+  堆栈跟踪:
+     at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 254
+   at Resonance.Tests.OriginalExpeditionQueueTests.OnlySingleEnemyDamageBindsFocus_SupportSweepAndUnfocusedCommandsDoNot() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 187
+  失败 Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: NotCharged) [< 1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: None
+Actual:   InvalidValue
+  堆栈跟踪:
+     at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 254
+   at Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(CommandReject reason) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 98
+  失败 Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: Silenced) [< 1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: None
+Actual:   InvalidValue
+  堆栈跟踪:
+     at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 254
+   at Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(CommandReject reason) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 98
+  失败 Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: ActionLocked) [< 1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: None
+Actual:   InvalidValue
+  堆栈跟踪:
+     at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 254
+   at Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(CommandReject reason) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 98
+  失败 Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: UnitDead) [< 1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: None
+Actual:   InvalidValue
+  堆栈跟踪:
+     at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 254
+   at Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(CommandReject reason) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 98
+  失败 Resonance.Tests.OriginalExpeditionQueueTests.ResumeIsLoggedBeforeQueuedActions_AndAllDrainBeforeTheNextTick [1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: None
+Actual:   InvalidValue
+  堆栈跟踪:
+     at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 254
+   at Resonance.Tests.OriginalExpeditionQueueTests.ResumeIsLoggedBeforeQueuedActions_AndAllDrainBeforeTheNextTick() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 66
+  失败 Resonance.Tests.OriginalExpeditionQueueTests.ClearForExitRemovesPendingAndPreviousResults_AndQueueApisRejectWrongModeOrState [< 1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: SlotInvalid
+Actual:   InvalidValue
+  堆栈跟踪:
+     at Resonance.Tests.OriginalExpeditionQueueTests.ClearForExitRemovesPendingAndPreviousResults_AndQueueApisRejectWrongModeOrState() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 205
+[xUnit.net 00:00:00.39]     Resonance.Tests.OriginalExpeditionQueueTests.SameSlotWithANewGeneration_IsRejectedWithoutDamagingTheReplacement [FAIL]
+[xUnit.net 00:00:00.41]     Resonance.Tests.OriginalExpeditionQueueTests.QueueReplacementPreservesOrder_ClearThenReinsertMovesToEnd_AndSnapshotsAreStable [FAIL]
+[xUnit.net 00:00:00.41]     Resonance.Tests.OriginalExpeditionQueueTests.EarlierQueuedKill_InvalidatesLaterBoundTarget_WhileSupportAndGlobalFocusRemainIndependent [FAIL]
+[xUnit.net 00:00:00.42]     Resonance.Tests.OriginalEncounterIntegrationTests.RemovingMaskDuringCastChangesActualAreaDamageAtResolution [FAIL]
+[xUnit.net 00:00:00.43]     Resonance.Tests.OriginalEncounterIntegrationTests.BossAndLastAllyDyingInOneRootIsVictory_AndCancelsPendingIntent [FAIL]
+[xUnit.net 00:00:00.44]     Resonance.Tests.OriginalEncounterIntegrationTests.BossOwnsAllThreeSlots_UsesOneWorldClock_AndPauseFreezesIntent [FAIL]
+[xUnit.net 00:00:00.44]     Resonance.Tests.OriginalEncounterIntegrationTests.HalfHealthDuringCastDefersOnePhaseChange_AndRebuildsOnlyDeadMask [FAIL]
+[xUnit.net 00:00:00.44]     Resonance.Tests.OriginalEncounterInputTests.EliteChangesContentCompatibilityAndItsOwnInputFingerprint [FAIL]
+  失败 Resonance.Tests.OriginalExpeditionQueueTests.SameSlotWithANewGeneration_IsRejectedWithoutDamagingTheReplacement [1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: None
+Actual:   InvalidValue
+  堆栈跟踪:
+     at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 254
+   at Resonance.Tests.OriginalExpeditionQueueTests.SameSlotWithANewGeneration_IsRejectedWithoutDamagingTheReplacement() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 169
+  失败 Resonance.Tests.OriginalExpeditionQueueTests.QueueReplacementPreservesOrder_ClearThenReinsertMovesToEnd_AndSnapshotsAreStable [< 1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: None
+Actual:   InvalidValue
+  堆栈跟踪:
+     at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 254
+   at Resonance.Tests.OriginalExpeditionQueueTests.QueueReplacementPreservesOrder_ClearThenReinsertMovesToEnd_AndSnapshotsAreStable() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 20
+  失败 Resonance.Tests.OriginalExpeditionQueueTests.EarlierQueuedKill_InvalidatesLaterBoundTarget_WhileSupportAndGlobalFocusRemainIndependent [< 1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: None
+Actual:   InvalidValue
+  堆栈跟踪:
+     at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 254
+   at Resonance.Tests.OriginalExpeditionQueueTests.EarlierQueuedKill_InvalidatesLaterBoundTarget_WhileSupportAndGlobalFocusRemainIndependent() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 143
+  失败 Resonance.Tests.OriginalEncounterIntegrationTests.RemovingMaskDuringCastChangesActualAreaDamageAtResolution [11 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at Resonance.Tests.OriginalEncounterIntegrationTests.RemovingMaskDuringCastChangesActualAreaDamageAtResolution() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterIntegrationTests.cs:line 65
+  失败 Resonance.Tests.OriginalEncounterIntegrationTests.BossAndLastAllyDyingInOneRootIsVictory_AndCancelsPendingIntent [5 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at Resonance.Tests.OriginalEncounterIntegrationTests.BossAndLastAllyDyingInOneRootIsVictory_AndCancelsPendingIntent() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterIntegrationTests.cs:line 127
+  失败 Resonance.Tests.OriginalEncounterIntegrationTests.BossOwnsAllThreeSlots_UsesOneWorldClock_AndPauseFreezesIntent [6 ms]
+  错误消息:
+   Assert.Empty() Failure: Collection was not empty
+Collection: [CastFx { CasterAlly = False, CasterSlot = 0, Fever = False, Name = "普攻", SlideRank = 0, ··· }, CastFx { CasterAlly = False, CasterSlot = 0, Fever = False, Name = "指挥杖", SlideRank = 0, ··· }, CastFx { CasterAlly = False, CasterSlot = 1, Fever = False, Name = "普攻", SlideRank = 0, ··· }, CastFx { CasterAlly = False, CasterSlot = 1, Fever = False, Name = "静默", SlideRank = 0, ··· }, CastFx { CasterAlly = False, CasterSlot = 2, Fever = False, Name = "普攻", SlideRank = 0, ··· }, ···]
+  堆栈跟踪:
+     at Resonance.Tests.OriginalEncounterIntegrationTests.BossOwnsAllThreeSlots_UsesOneWorldClock_AndPauseFreezesIntent() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterIntegrationTests.cs:line 34
+  失败 Resonance.Tests.OriginalEncounterIntegrationTests.HalfHealthDuringCastDefersOnePhaseChange_AndRebuildsOnlyDeadMask [2 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at Resonance.Tests.OriginalEncounterIntegrationTests.HalfHealthDuringCastDefersOnePhaseChange_AndRebuildsOnlyDeadMask() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterIntegrationTests.cs:line 92
+  失败 Resonance.Tests.OriginalEncounterInputTests.EliteChangesContentCompatibilityAndItsOwnInputFingerprint [3 ms]
+  错误消息:
+   Assert.NotEqual() Failure: Strings are equal
+Expected: Not "03a8cc088289181ba9ba9c2f2cdee6de52b1bd6e191aabdd86"···
+Actual:       "03a8cc088289181ba9ba9c2f2cdee6de52b1bd6e191aabdd86"···
+  堆栈跟踪:
+     at Resonance.Tests.OriginalEncounterInputTests.EliteChangesContentCompatibilityAndItsOwnInputFingerprint() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs:line 68
+[xUnit.net 00:00:00.45]     Resonance.Tests.OriginalEncounterInputTests.N4FreezesTheDeclaredEliteTimingAndSkillIdentity [FAIL]
+[xUnit.net 00:00:00.45]     Resonance.Tests.OriginalEncounterInputTests.N4RejectsMissingOrMismatchedEliteIdentity [FAIL]
+[xUnit.net 00:00:00.45]     Resonance.Tests.OriginalEncounterInputTests.DeepCloneDetachesTheFrozenEliteDefinition [FAIL]
+[xUnit.net 00:00:00.45]     Resonance.Tests.OriginalEncounterInputTests.EncounterDefinitionsCannotAppearOnUnrelatedNodes [FAIL]
+[xUnit.net 00:00:00.59]     Resonance.Tests.OriginalEncounterInputTests.N7RequiresTheFixedBossAndTwoMasksAndSupportedVersion [FAIL]
+[xUnit.net 00:00:00.59]     Resonance.Tests.OriginalEncounterInputTests.EliteClocksMustRemainFinitePositiveAndBounded [FAIL]
+  失败 Resonance.Tests.OriginalEncounterInputTests.N4FreezesTheDeclaredEliteTimingAndSkillIdentity [< 1 ms]
+[xUnit.net 00:00:00.59]     Resonance.Tests.OriginalEncounterInputTests.EncounterAutoAndAreaCannotSilentlyChangeTheirTargetContract [FAIL]
+  错误消息:
+   Assert.NotNull() Failure: Value is null
+  堆栈跟踪:
+     at Resonance.Tests.OriginalEncounterInputTests.N4FreezesTheDeclaredEliteTimingAndSkillIdentity() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs:line 18
+  失败 Resonance.Tests.OriginalEncounterInputTests.N4RejectsMissingOrMismatchedEliteIdentity [1 ms]
+  错误消息:
+   Assert.Throws() Failure: No exception was thrown
+Expected: typeof(System.ArgumentException)
+  堆栈跟踪:
+     at Resonance.Tests.OriginalEncounterInputTests.N4RejectsMissingOrMismatchedEliteIdentity() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs:line 97
+  失败 Resonance.Tests.OriginalEncounterInputTests.DeepCloneDetachesTheFrozenEliteDefinition [< 1 ms]
+  错误消息:
+   Assert.NotSame() Failure: Values are the same instance
+  堆栈跟踪:
+[xUnit.net 00:00:00.59]     Resonance.Tests.OriginalBossControllerTests.StablePhaseBoundaryIsOnceAndDoesNotWaitForFirstIntent [FAIL]
+[xUnit.net 00:00:00.59]     Resonance.Tests.OriginalBossControllerTests.ReentrantBoundaryFromAreaDefersRebuildUntilAttackCallbackReturns [FAIL]
+[xUnit.net 00:00:00.60]     Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Defeat) [FAIL]
+[xUnit.net 00:00:00.60]     Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Failed) [FAIL]
+[xUnit.net 00:00:00.60]     Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Victory) [FAIL]
+[xUnit.net 00:00:00.60]     Resonance.Tests.OriginalBossControllerTests.EliteIntentStartsAtSixAndAreaCompletesAtNineWithoutOwningAdds [FAIL]
+[xUnit.net 00:00:00.60]     Resonance.Tests.OriginalBossControllerTests.DeadBossCancelsEvenWhenMasksAndInProgressRemain [FAIL]
+     at Resonance.Tests.OriginalEncounterInputTests.DeepCloneDetachesTheFrozenEliteDefinition() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs:line 37
+  失败 Resonance.Tests.OriginalEncounterInputTests.EncounterDefinitionsCannotAppearOnUnrelatedNodes [< 1 ms]
+  错误消息:
+   Assert.Throws() Failure: No exception was thrown
+Expected: typeof(System.ArgumentException)
+  堆栈跟踪:
+     at Resonance.Tests.OriginalEncounterInputTests.EncounterDefinitionsCannotAppearOnUnrelatedNodes() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs:line 109
+  失败 Resonance.Tests.OriginalEncounterInputTests.N7RequiresTheFixedBossAndTwoMasksAndSupportedVersion [< 1 ms]
+  错误消息:
+   Assert.Throws() Failure: No exception was thrown
+Expected: typeof(System.ArgumentException)
+  堆栈跟踪:
+     at Resonance.Tests.OriginalEncounterInputTests.N7RequiresTheFixedBossAndTwoMasksAndSupportedVersion() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs:line 173
+[xUnit.net 00:00:00.60]     Resonance.Tests.OriginalBossControllerTests.ActualCastUsesMasksStillAliveAtResolutionAndSnapshotUpdatesDuringCast [FAIL]
+  失败 Resonance.Tests.OriginalEncounterInputTests.EliteClocksMustRemainFinitePositiveAndBounded [< 1 ms]
+  错误消息:
+   Assert.Throws() Failure: No exception was thrown
+Expected: typeof(System.ArgumentException)
+  堆栈跟踪:
+     at Resonance.Tests.OriginalEncounterInputTests.EliteClocksMustRemainFinitePositiveAndBounded() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs:line 128
+  失败 Resonance.Tests.OriginalEncounterInputTests.EncounterAutoAndAreaCannotSilentlyChangeTheirTargetContract [1 ms]
+  错误消息:
+   Assert.Throws() Failure: No exception was thrown
+Expected: typeof(System.ArgumentException)
+  堆栈跟踪:
+     at Resonance.Tests.OriginalEncounterInputTests.EncounterAutoAndAreaCannotSilentlyChangeTheirTargetContract() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs:line 151
+  失败 Resonance.Tests.OriginalBossControllerTests.StablePhaseBoundaryIsOnceAndDoesNotWaitForFirstIntent [1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 2
+Actual:   1
+  堆栈跟踪:
+     at Resonance.Tests.OriginalBossControllerTests.StablePhaseBoundaryIsOnceAndDoesNotWaitForFirstIntent() in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 100
+[xUnit.net 00:00:00.61]     Resonance.Tests.OriginalBossControllerTests.OwnsExactlyAuthoredSlots [FAIL]
+[xUnit.net 00:00:00.61]     Resonance.Tests.OriginalBossControllerTests.BossClockHasTwoAutosThenVisibleFourSecondCastWithoutExtraAuto [FAIL]
+  失败 Resonance.Tests.OriginalBossControllerTests.ReentrantBoundaryFromAreaDefersRebuildUntilAttackCallbackReturns [< 1 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at Resonance.Tests.OriginalBossControllerTests.ReentrantBoundaryFromAreaDefersRebuildUntilAttackCallbackReturns() in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 115
+  失败 Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Defeat) [< 1 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(BattleOutcome outcome) in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 126
+  失败 Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Failed) [< 1 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(BattleOutcome outcome) in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 126
+  失败 Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Victory) [< 1 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(BattleOutcome outcome) in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 126
+  失败 Resonance.Tests.OriginalBossControllerTests.EliteIntentStartsAtSixAndAreaCompletesAtNineWithoutOwningAdds [1 ms]
+  错误消息:
+   Assert.Single() Failure: The collection was empty
+  堆栈跟踪:
+     at Resonance.Tests.OriginalBossControllerTests.EliteIntentStartsAtSixAndAreaCompletesAtNineWithoutOwningAdds() in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 141
+  失败 Resonance.Tests.OriginalBossControllerTests.DeadBossCancelsEvenWhenMasksAndInProgressRemain [< 1 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at Resonance.Tests.OriginalBossControllerTests.DeadBossCancelsEvenWhenMasksAndInProgressRemain() in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 134
+  失败 Resonance.Tests.OriginalBossControllerTests.ActualCastUsesMasksStillAliveAtResolutionAndSnapshotUpdatesDuringCast [< 1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 1
+Actual:   0
+  堆栈跟踪:
+     at Resonance.Tests.OriginalBossControllerTests.ActualCastUsesMasksStillAliveAtResolutionAndSnapshotUpdatesDuringCast() in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 73
+  失败 Resonance.Tests.OriginalBossControllerTests.OwnsExactlyAuthoredSlots [12 ms]
+  错误消息:
+   Assert.Equal() Failure: Collections differ
+                                        ↓ (pos 0)
+Expected: int[]                        [0, 1, 2]
+Actual:   WhereEnumerableIterator<int> []
+  堆栈跟踪:
+     at Resonance.Tests.OriginalBossControllerTests.OwnsExactlyAuthoredSlots() in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 49
+  失败 Resonance.Tests.OriginalBossControllerTests.BossClockHasTwoAutosThenVisibleFourSecondCastWithoutExtraAuto [< 1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 2
+Actual:   0
+  堆栈跟踪:
+     at Resonance.Tests.OriginalBossControllerTests.BossClockHasTwoAutosThenVisibleFourSecondCastWithoutExtraAuto() in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 57
+[xUnit.net 00:00:00.62]     Resonance.Tests.OriginalBossControllerTests.PhaseChangeDuringCastWaitsThenRebuildsOnlyDeadMaskWithoutHealingSurvivor [FAIL]
+[xUnit.net 00:00:00.62]     Resonance.Tests.OriginalBossControllerTests.ActionLockDefersDueActionsAndSilenceDefersAreaButAllowsAuto [FAIL]
+[xUnit.net 00:00:00.62]     Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(dt: NaN) [FAIL]
+[xUnit.net 00:00:00.62]     Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(dt: ∞) [FAIL]
+[xUnit.net 00:00:00.62]     Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(dt: -1) [FAIL]
+[xUnit.net 00:00:00.62]     Resonance.Tests.OriginalBossControllerTests.FrozenDefinitionAndOneVsTwoSpeedHaveSameGameTimeActions [FAIL]
+  失败 Resonance.Tests.OriginalBossControllerTests.PhaseChangeDuringCastWaitsThenRebuildsOnlyDeadMaskWithoutHealingSurvivor [1 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at Resonance.Tests.OriginalBossControllerTests.PhaseChangeDuringCastWaitsThenRebuildsOnlyDeadMaskWithoutHealingSurvivor() in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 83
+  失败 Resonance.Tests.OriginalBossControllerTests.ActionLockDefersDueActionsAndSilenceDefersAreaButAllowsAuto [< 1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 2
+Actual:   0
+  堆栈跟踪:
+     at Resonance.Tests.OriginalBossControllerTests.ActionLockDefersDueActionsAndSilenceDefersAreaButAllowsAuto() in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 151
+  失败 Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(dt: NaN) [< 1 ms]
+  错误消息:
+   Assert.Throws() Failure: No exception was thrown
+Expected: typeof(System.ArgumentOutOfRangeException)
+  堆栈跟踪:
+     at Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(Single dt) in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 175
+  失败 Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(dt: ∞) [< 1 ms]
+  错误消息:
+   Assert.Throws() Failure: No exception was thrown
+Expected: typeof(System.ArgumentOutOfRangeException)
+  堆栈跟踪:
+     at Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(Single dt) in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 175
+  失败 Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(dt: -1) [< 1 ms]
+  错误消息:
+   Assert.Throws() Failure: No exception was thrown
+Expected: typeof(System.ArgumentOutOfRangeException)
+  堆栈跟踪:
+     at Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(Single dt) in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 175
+  失败 Resonance.Tests.OriginalBossControllerTests.FrozenDefinitionAndOneVsTwoSpeedHaveSameGameTimeActions [< 1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 3
+Actual:   0
+  堆栈跟踪:
+     at Resonance.Tests.OriginalBossControllerTests.FrozenDefinitionAndOneVsTwoSpeedHaveSameGameTimeActions() in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 164
+结果文件: F:\天命之子\docs\original-expedition\evidence\o3\o3-combined-red.trx
+
+失败!  - 失败:    40，通过:     2，已跳过:     0，总计:    42，持续时间: 270 ms - BattleSim.Tests.dll (net6.0)

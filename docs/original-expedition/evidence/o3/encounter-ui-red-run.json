@@ -1,0 +1,23 @@
+{
+  "started": "2026-09-20T17:45:07.6390976Z",
+  "finished": "2026-09-20T17:47:01.5789779Z",
+  "exitCode": -1,
+  "mode": "tests",
+  "name": "encounter-ui-red",
+  "arguments": [
+    "-batchmode",
+    "-projectPath",
+    "\"F:\\Resonance\\client\"",
+    "-giCustomCacheLocation",
+    "\"F:\\Resonance\\client\\Temp\\GICache-Original\"",
+    "-logFile",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o3\\encounter-ui-red.log\"",
+    "-runTests",
+    "-testPlatform",
+    "EditMode",
+    "-testFilter",
+    "Resonance.EditorTests.OriginalEncounterUiTests",
+    "-testResults",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o3\\encounter-ui-red.xml\""
+  ]
+}

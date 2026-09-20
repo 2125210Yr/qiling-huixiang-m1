@@ -29,7 +29,8 @@ namespace Resonance.Battle
                 Clocks = ExpeditionContent.CreateClocks(), Profile = FormulaProfile.JP_LEGACY_EMPIRICAL,
                 RelicIds = relicIds == null ? new string[0] : (string[])relicIds.Clone(),
                 RelicParameters = new ExpeditionRelicParameters(), IsBoss = nodeId == "N7",
-                Boss = nodeId == "N7" ? new BossEncounterDef() : null };
+                Boss = nodeId == "N7" ? new BossEncounterDef() : null,
+                Elite = nodeId == "N4" ? new EliteEncounterDef() : null };
             Validate(input);
             return input;
         }
@@ -125,20 +126,56 @@ namespace Resonance.Battle
                 if (!ExpeditionContent.FindRelic(id).IsEligible(other))
                     throw new ArgumentException("Missing relic prerequisite: " + id, nameof(input));
             }
-            if (input.IsBoss != (input.Stage.Id == "N7") || (input.IsBoss && input.Boss == null))
+            if (input.IsBoss != (input.Stage.Id == "N7") || input.IsBoss != (input.Boss != null))
                 throw new ArgumentException("Boss identity does not match encounter.", nameof(input));
             if (input.Boss != null)
             {
                 var b = input.Boss;
-                if (b.BossSlot != 0 || b.MaskSlots == null || b.MaskSlots.Length != 2 || b.MaskSlots[0] != 1 || b.MaskSlots[1] != 2
-                    || !characters.ContainsKey(b.MaskCharacterId ?? "") || !skills.ContainsKey(b.AutoSkillId ?? "")
-                    || !skills.ContainsKey(b.AreaSkillId ?? "") || !InRange(b.FirstIntentSec, 0.01f, 120f)
+                if (b.Version != "white-conductor-v1" || b.BossSlot != 0 || b.MaskSlots == null
+                    || b.MaskSlots.Length != 2 || b.MaskSlots[0] != 1 || b.MaskSlots[1] != 2
+                    || b.MaskCharacterId != "OE_MASK" || b.AutoSkillId != "OE_BOSS_auto" || b.AreaSkillId != "OE_BOSS_echo"
+                    || input.Stage.Wave0.Length != 3 || input.Stage.Wave0[0] != "OE_BOSS"
+                    || input.Stage.Wave0[1] != "OE_MASK" || input.Stage.Wave0[2] != "OE_MASK"
+                    || !characters["OE_BOSS"].IsBoss || characters["OE_MASK"].IsBoss
+                    || characters["OE_BOSS"].AutoSkillId != b.AutoSkillId || !InRange(b.FirstIntentSec, 0.01f, 120f)
                     || !InRange(b.CastDurationSec, 0.01f, 120f) || !InRange(b.PhaseOneIntervalSec, 0.01f, 120f)
                     || !InRange(b.PhaseTwoIntervalSec, 0.01f, 120f) || !InRange(b.AutoIntervalSec, 0.01f, 120f)
                     || !InRange(b.PhaseTwoHpFraction, 0.01f, 0.99f) || !InRange(b.DamagePerLivingMask, 0f, 10f))
                     throw new ArgumentException("Invalid frozen boss configuration.", nameof(input));
+                ValidateEncounterSkills(skills, b.AutoSkillId, b.AreaSkillId);
+            }
+            if ((input.Stage.Id == "N4") != (input.Elite != null))
+                throw new ArgumentException("Elite identity does not match encounter.", nameof(input));
+            if (input.Elite != null)
+            {
+                var e = input.Elite;
+                if (e.Version != "prompter-v1" || e.CasterSlot != 0 || input.Stage.Wave0[0] != "OE_PROMPTER"
+                    || characters["OE_PROMPTER"].IsBoss || e.AutoSkillId != "OE_PROMPTER_auto"
+                    || e.AreaSkillId != "OE_PROMPTER_tap" || characters["OE_PROMPTER"].AutoSkillId != e.AutoSkillId
+                    || characters["OE_PROMPTER"].TapSkillId != e.AreaSkillId
+                    || !InRange(e.FirstIntentSec, 0.01f, 120f) || !InRange(e.CastDurationSec, 0.01f, 120f)
+                    || !InRange(e.IntervalSec, 0.01f, 120f) || !InRange(e.AutoIntervalSec, 0.01f, 120f))
+                    throw new ArgumentException("Invalid frozen elite configuration.", nameof(input));
+                ValidateEncounterSkills(skills, e.AutoSkillId, e.AreaSkillId);
             }
         }
+
+        static void ValidateEncounterSkills(Dictionary<string, SkillDef> skills, string autoId, string areaId)
+        {
+            SkillDef auto, area;
+            if (!skills.TryGetValue(autoId, out auto) || !skills.TryGetValue(areaId, out area))
+                throw new ArgumentException("Missing scripted encounter skill.", "input");
+            var singleFoe = auto.Target == TargetRule.RandomEnemies || auto.Target == TargetRule.LowestHpEnemies
+                || auto.Target == TargetRule.HighestAtkEnemies || auto.Target == TargetRule.LowestHpRatioEnemies;
+            if (auto.Type != SkillType.Auto || auto.Opcode != EffectOpcodes.DmgAuto || !singleFoe || auto.TargetCount != 1
+                || area.Type != SkillType.Tap || area.Opcode != EffectOpcodes.DmgTap
+                || area.Target != TargetRule.AllEnemies || area.TargetCount != 5
+                || !DirectDamage(auto) || !DirectDamage(area))
+                throw new ArgumentException("Scripted encounter requires single-target Auto and whole-party area damage.", "input");
+        }
+
+        static bool DirectDamage(SkillDef skill) => skill.HealCoef == 0f && skill.FlatHeal == 0 && skill.HealMaxHpFrac == 0f
+            && (skill.AtkCoef > 0f || skill.FlatPower > 0 || skill.PercentAtk > 0f);
 
         static bool Finite(float value) => !float.IsNaN(value) && !float.IsInfinity(value);
         static bool InRange(float value, float min, float max) => Finite(value) && value >= min && value <= max;

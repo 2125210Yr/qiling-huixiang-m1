@@ -46,6 +46,7 @@ namespace Resonance.App
         void ShowOriginalError(Exception error)
         {
             _originalBattleActive = false;
+            _battle?.ClearExpeditionQueue();
             _originalNotice = error.Message;
             Debug.LogWarning("Original expedition: " + error.Message);
             if (_expeditionHud == null) return;
@@ -66,6 +67,7 @@ namespace Resonance.App
         {
             if (_expeditionHud == null || _expedition == null) return;
             _originalBattleActive = false;
+            _battle?.ClearExpeditionQueue();
             _battle = null;
             _originalOpening = null;
             _simAcc = 0;
@@ -243,7 +245,7 @@ namespace Resonance.App
                 _simAcc = 0; _originalBattleActive = true; _originalNotice = null;
                 _expeditionHud.RenderBattle(_battle, OriginalBattleView(), new ExpeditionHud.BattleActions
                 {
-                    OnSkill = OriginalSkill, OnFocus = OriginalFocus, OnPause = ToggleOriginalPause,
+                    OnSkill = OriginalSkill, OnFocus = OriginalFocus, OnClear = ClearOriginalQueuedSkill, OnPause = ToggleOriginalPause,
                     OnSpeed = ToggleBattleSpeed, OnExit = ShowOriginalExpedition
                 });
             }
@@ -260,17 +262,54 @@ namespace Resonance.App
                     var skill = Array.Find(_originalOpening.Skills, x => x.Id == unit.Def.TapSkillId);
                     names[i] = skill?.Name ?? "主动技能";
                 }
-            return new ExpeditionHud.BattleModel
+            var queued = new string[5];
+            var order = new List<string>();
+            if (_battle != null)
+                foreach (var command in _battle.ExpeditionQueue)
+                {
+                    var text = _battle.Allies[command.ActorSlot].Def.Name;
+                    if (command.RequiredEnemyGeneration > 0)
+                        text += "→" + _battle.Enemies[command.RequiredEnemySlot].Def.Name;
+                    queued[command.ActorSlot] = text;
+                    order.Add((order.Count + 1) + "." + text);
+                }
+            var execution = new List<string>();
+            if (_battle != null)
+                foreach (var entry in _battle.ExpeditionQueueResults)
+                    execution.Add(_battle.Allies[entry.ActorSlot].Def.Name + (entry.Result.Accepted ? "已执行" : "：" + OriginalReject(entry.Result.Reason)));
+            var model = new ExpeditionHud.BattleModel
             {
                 Title = _originalOpening?.Stage.Name, Subtitle = "点敌集火 · 普攻自动 · 主动技能由你指挥",
                 SkillNames = names, RelicIds = _originalOpening?.RelicIds, Notice = _originalNotice,
-                Feedback = _battle?.LastEvent, RelicState = "当前强化：" + string.Join(" / ", _originalOpening?.RelicIds ?? new string[0])
+                Feedback = _battle?.LastEvent, RelicState = "当前强化：" + string.Join(" / ", _originalOpening?.RelicIds ?? new string[0]),
+                QueuedCommands = queued, QueueSummary = order.Count > 0 ? "恢复时按序校验：" + string.Join("  ", order)
+                    : execution.Count > 0 ? string.Join("；", execution) : null
             };
+            var intent = _battle?.OriginalIntentSnapshot;
+            if (intent != null && !intent.Cancelled)
+            {
+                model.IntentTitle = intent.IsCasting ? intent.AreaName + " · 正在蓄势" : intent.AreaName + " · 准备中";
+                model.IntentDescription = intent.IsCasting
+                    ? "全队范围 · " + intent.RemainingCastSec.ToString("0.0") + " 秒后结算"
+                    : "距离下一次预告 " + intent.NextIntentSec.ToString("0.0") + " 秒";
+                model.IntentDescription += intent.IsBoss
+                    ? "\n阶段 " + intent.Phase + " · 面具 " + intent.AliveMasks + "/2 · 群攻力度 " + intent.AreaMultiplier.ToString("0.0") + "×"
+                    : "\n护盾可吸收群攻；技能和治疗由你决定时机。";
+                model.IntentProgress = intent.IsCasting && intent.CastDurationSec > 0f
+                    ? 1f - intent.RemainingCastSec / intent.CastDurationSec : 0f;
+            }
+            return model;
         }
 
         void OriginalSkill(int slot)
         {
             if (!_originalBattleActive || _battle == null) return;
+            if (_battle.Paused)
+            {
+                var queued = _battle.QueueExpeditionTap(slot);
+                _originalNotice = queued == CommandReject.None ? "已编排；恢复时检查充能和目标。" : "无法编排：" + OriginalReject(queued);
+                return;
+            }
             var result = _battle.Submit(BattleCommand.Tap(slot, CommandSource.Player));
             _originalNotice = result.Accepted ? null : "技能未执行：" + OriginalReject(result.Reason);
         }
@@ -285,6 +324,8 @@ namespace Resonance.App
                 case CommandReject.Silenced: return "当前无法使用技能";
                 case CommandReject.ActionLocked: return "行动受到控制";
                 case CommandReject.NotInProgress: return "战斗已结束";
+                case CommandReject.TargetInvalid: return "原目标已失效，请重新选敌";
+                case CommandReject.SlideOnCooldown: return "技能仍在冷却";
                 default: return reason.ToString();
             }
         }
@@ -301,6 +342,25 @@ namespace Resonance.App
             if (!_originalBattleActive || _battle == null) return;
             var result = _battle.Submit(new BattleCommand { Kind = _battle.Paused ? BattleCommandKind.Resume : BattleCommandKind.Pause, Source = CommandSource.Player });
             if (!result.Accepted) _originalNotice = OriginalReject(result.Reason);
+            else if (!_battle.Paused)
+            {
+                var accepted = 0; var rejected = 0; string firstReason = null;
+                foreach (var entry in _battle.ExpeditionQueueResults)
+                {
+                    if (entry.Result.Accepted) accepted++;
+                    else { rejected++; if (firstReason == null) firstReason = OriginalReject(entry.Result.Reason); }
+                }
+                _originalNotice = rejected > 0 ? "已执行 " + accepted + " 条；未执行 " + rejected + " 条：" + firstReason
+                    : accepted > 0 ? "已按顺序执行 " + accepted + " 条指令。" : null;
+            }
+            else _originalNotice = null;
+        }
+
+        void ClearOriginalQueuedSkill(int slot)
+        {
+            if (_battle == null) return;
+            var result = _battle.ClearExpeditionQueuedCommand(slot);
+            _originalNotice = result == CommandReject.None ? null : OriginalReject(result);
         }
 
         void UpdateOriginalExpedition()

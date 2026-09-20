@@ -1409,6 +1409,8 @@ namespace Resonance.Battle
                 Timing = src.Timing,
                 Value = src.Value,
                 Source = src.Source,
+                RequiredEnemySlot = src.RequiredEnemySlot,
+                RequiredEnemyGeneration = src.RequiredEnemyGeneration,
                 Accepted = src.Accepted,
                 Reason = src.Reason
             };
@@ -2953,6 +2955,8 @@ namespace Resonance.Battle
                 Slot = rec.Slot,
                 Timing = rec.Timing,
                 Value = rec.Value,
+                RequiredEnemySlot = rec.RequiredEnemySlot,
+                RequiredEnemyGeneration = rec.RequiredEnemyGeneration,
                 Source = CommandSource.Replay
             });
             if (!result.Accepted)

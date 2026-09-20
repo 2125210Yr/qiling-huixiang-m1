@@ -16,7 +16,7 @@ namespace Resonance.Battle
         None, NotInProgress, Paused, QtePending, NoQtePending, SlotInvalid, UnitDead,
         ActionLocked, Silenced, NotCharged, SlideOnCooldown, DriveNotReady, FeverNotActive, FeverThrottled,
         FeverBudgetExhausted, AutoOwnsInput, InvalidValue,
-        Unplayable, ModeDisabled
+        Unplayable, ModeDisabled, TargetInvalid
     }
 
     public struct BattleCommand
@@ -26,6 +26,9 @@ namespace Resonance.Battle
         public DriveTiming Timing;
         public int Value;
         public CommandSource Source;
+        // A zero generation leaves historical commands unbound. Queued original skills bind an instance.
+        public int RequiredEnemySlot;
+        public int RequiredEnemyGeneration;
 
         public static BattleCommand Tap(int slot, CommandSource src = CommandSource.Player)
             => new BattleCommand { Kind = BattleCommandKind.Tap, Slot = slot, Source = src };
@@ -60,6 +63,8 @@ namespace Resonance.Battle
         public DriveTiming Timing;
         public int Value;
         public CommandSource Source;
+        public int RequiredEnemySlot;
+        public int RequiredEnemyGeneration;
         public bool Accepted;
         public CommandReject Reason;
 
@@ -127,10 +132,14 @@ namespace Resonance.Battle
                 Timing = cmd.Timing,
                 Value = cmd.Value,
                 Source = cmd.Source,
+                RequiredEnemySlot = cmd.RequiredEnemySlot,
+                RequiredEnemyGeneration = cmd.RequiredEnemyGeneration,
                 Accepted = reason == CommandReject.None,
                 Reason = reason
             };
             CommandLog.Add(rec);
+            if (IsOriginalExpedition && rec.Accepted && cmd.Kind == BattleCommandKind.Resume)
+                DrainExpeditionQueueAfterResume();
             return new CommandResult { Accepted = rec.Accepted, Reason = reason, Seq = rec.Seq, Tick = rec.Tick };
         }
 
@@ -150,21 +159,25 @@ namespace Resonance.Battle
                 case BattleCommandKind.Tap:
                 {
                     if (!CanAcceptSkillInput(cmd.Slot, out var r)) return r;
+                    var targetReason = ValidateExpeditionTarget(cmd);
+                    if (targetReason != CommandReject.None) return targetReason;
                     if (Allies[cmd.Slot].Charge < 100f) return CommandReject.NotCharged;
                     var tapId = Allies[cmd.Slot].Def != null ? Allies[cmd.Slot].Def.TapSkillId : null;
                     var tap = ResolveSkill(tapId);
                     if (!FightSkillReady(tap)) return CommandReject.Unplayable;
-                    return TryTap(cmd.Slot) ? CommandReject.None : CommandReject.InvalidValue;
+                    return RunWithExpeditionTarget(cmd, () => TryTap(cmd.Slot) ? CommandReject.None : CommandReject.InvalidValue);
                 }
                 case BattleCommandKind.Slide:
                 {
                     if (!CanAcceptSkillInput(cmd.Slot, out var r)) return r;
+                    var targetReason = ValidateExpeditionTarget(cmd);
+                    if (targetReason != CommandReject.None) return targetReason;
                     if (Allies[cmd.Slot].Charge < 100f) return CommandReject.NotCharged;
                     if (Allies[cmd.Slot].SlideCd > 0f) return CommandReject.SlideOnCooldown;
                     var slideId = Allies[cmd.Slot].Def != null ? Allies[cmd.Slot].Def.SlideSkillId : null;
                     var slide = ResolveSkill(slideId);
                     if (!FightSkillReady(slide)) return CommandReject.Unplayable;
-                    return TrySlide(cmd.Slot) ? CommandReject.None : CommandReject.InvalidValue;
+                    return RunWithExpeditionTarget(cmd, () => TrySlide(cmd.Slot) ? CommandReject.None : CommandReject.InvalidValue);
                 }
                 case BattleCommandKind.DriveBegin:
                 {

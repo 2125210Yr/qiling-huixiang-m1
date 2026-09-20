@@ -30,6 +30,7 @@ namespace Resonance.Battle
         public ExpeditionRelicParameters RelicParameters;
         public bool IsBoss;
         public BossEncounterDef Boss;
+        public EliteEncounterDef Elite;
         public bool EnableDrive = false;
         public bool EnableFever = false;
 
@@ -48,6 +49,7 @@ namespace Resonance.Battle
             copy.RelicIds = RelicIds == null ? null : (string[])RelicIds.Clone();
             copy.RelicParameters = RelicParameters == null ? null : RelicParameters.DeepClone();
             copy.Boss = Boss == null ? null : Boss.DeepClone();
+            copy.Elite = Elite == null ? null : Elite.DeepClone();
             return copy;
         }
 
@@ -121,6 +123,21 @@ namespace Resonance.Battle
             result.MaskSlots = MaskSlots == null ? null : (int[])MaskSlots.Clone();
             return result;
         }
+    }
+
+    /// <summary>N4's authored warning and attack clocks, frozen with the battle opening.</summary>
+    public sealed class EliteEncounterDef
+    {
+        public string Version = "prompter-v1";
+        public int CasterSlot = 0;
+        public string AutoSkillId = "OE_PROMPTER_auto";
+        public string AreaSkillId = "OE_PROMPTER_tap";
+        public float FirstIntentSec = 6f;
+        public float CastDurationSec = 3f;
+        public float IntervalSec = 12f;
+        public float AutoIntervalSec = 3f;
+
+        public EliteEncounterDef DeepClone() => (EliteEncounterDef)MemberwiseClone();
     }
 
     /// <summary>DESIGN_CANDIDATE_V1; resolved parameters travel with checkpoint and tape.</summary>

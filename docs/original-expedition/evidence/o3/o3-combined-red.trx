@@ -1,0 +1,956 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="cf330a75-365f-49be-b557-ff1f07140788" name="Administrator@DESKTOP-AKI3LSA 2026-09-21 00:57:20" runUser="DESKTOP-AKI3LSA\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-09-21T00:57:20.3609233+08:00" queuing="2026-09-21T00:57:20.3609246+08:00" start="2026-09-21T00:57:19.2467681+08:00" finish="2026-09-21T00:57:20.6214334+08:00" />
+  <TestSettings name="default" id="dce9f100-a9b1-4cb5-b69e-95abb03a4ef6">
+    <Deployment runDeploymentRoot="Administrator_DESKTOP-AKI3LSA_2026-09-21_00_57_20" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="2e678c14-d17b-4b32-bba4-ab6817929ae9" testId="5b0e9da3-3ab4-3b94-b5b3-73fd7caff0fa" testName="Resonance.Tests.OriginalBossControllerTests.StablePhaseBoundaryIsOnceAndDoesNotWaitForFirstIntent" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0018130" startTime="2026-09-21T00:57:20.5383715+08:00" endTime="2026-09-21T00:57:20.5383718+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2e678c14-d17b-4b32-bba4-ab6817929ae9">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: 2&#xD;
+Actual:   1</Message>
+          <StackTrace>   at Resonance.Tests.OriginalBossControllerTests.StablePhaseBoundaryIsOnceAndDoesNotWaitForFirstIntent() in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 100</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5e74888b-ef7e-4ef8-b89a-bedb5a7b3b8f" testId="c0dfb981-8610-e39e-b849-e2207f0b92bb" testName="Resonance.Tests.OriginalEncounterIntegrationTests.BossAndLastAllyDyingInOneRootIsVictory_AndCancelsPendingIntent" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0056039" startTime="2026-09-21T00:57:20.3758816+08:00" endTime="2026-09-21T00:57:20.3758818+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5e74888b-ef7e-4ef8-b89a-bedb5a7b3b8f">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.True() Failure&#xD;
+Expected: True&#xD;
+Actual:   False</Message>
+          <StackTrace>   at Resonance.Tests.OriginalEncounterIntegrationTests.BossAndLastAllyDyingInOneRootIsVictory_AndCancelsPendingIntent() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterIntegrationTests.cs:line 127</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="106f2fe5-db6b-4a68-8010-1822f65f1506" testId="3a3e8065-5533-0e69-4532-4f4236d8d773" testName="Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(dt: -1)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0002827" startTime="2026-09-21T00:57:20.5656704+08:00" endTime="2026-09-21T00:57:20.5656706+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="106f2fe5-db6b-4a68-8010-1822f65f1506">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Throws() Failure: No exception was thrown&#xD;
+Expected: typeof(System.ArgumentOutOfRangeException)</Message>
+          <StackTrace>   at Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(Single dt) in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 175</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="7e3d42c5-6d1d-4d22-a4ec-f0b63bda45d4" testId="eabb94bd-e633-af1c-28ef-378419489ffb" testName="Resonance.Tests.OriginalEncounterInputTests.SerializationPreservesEliteAsBattleInput" computerName="DESKTOP-AKI3LSA" duration="00:00:00.1341532" startTime="2026-09-21T00:57:20.5309273+08:00" endTime="2026-09-21T00:57:20.5309278+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7e3d42c5-6d1d-4d22-a4ec-f0b63bda45d4" />
+    <UnitTestResult executionId="4a359f54-34da-4012-9400-1e5155d0acd8" testId="94940be5-9327-1752-9688-93c7ca89c434" testName="Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: ActionLocked)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0003985" startTime="2026-09-21T00:57:20.3060040+08:00" endTime="2026-09-21T00:57:20.3060041+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4a359f54-34da-4012-9400-1e5155d0acd8">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: None&#xD;
+Actual:   InvalidValue</Message>
+          <StackTrace>   at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 254&#xD;
+   at Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(CommandReject reason) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 98</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5ccbeb51-672f-4b29-b08b-bc343fb0000b" testId="8f1f65bf-3462-4c5f-24c4-56758699c3bf" testName="Resonance.Tests.OriginalEncounterIntegrationTests.RemovingMaskDuringCastChangesActualAreaDamageAtResolution" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0116051" startTime="2026-09-21T00:57:20.3697702+08:00" endTime="2026-09-21T00:57:20.3697705+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5ccbeb51-672f-4b29-b08b-bc343fb0000b">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.True() Failure&#xD;
+Expected: True&#xD;
+Actual:   False</Message>
+          <StackTrace>   at Resonance.Tests.OriginalEncounterIntegrationTests.RemovingMaskDuringCastChangesActualAreaDamageAtResolution() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterIntegrationTests.cs:line 65</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="3e43bd66-1646-48ca-9e59-27035b64e67b" testId="4862840c-f04c-babf-894f-4850a96dbe0c" testName="Resonance.Tests.OriginalEncounterIntegrationTests.BossOwnsAllThreeSlots_UsesOneWorldClock_AndPauseFreezesIntent" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0067510" startTime="2026-09-21T00:57:20.3833233+08:00" endTime="2026-09-21T00:57:20.3833236+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3e43bd66-1646-48ca-9e59-27035b64e67b">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Empty() Failure: Collection was not empty&#xD;
+Collection: [CastFx { CasterAlly = False, CasterSlot = 0, Fever = False, Name = "普攻", SlideRank = 0, ··· }, CastFx { CasterAlly = False, CasterSlot = 0, Fever = False, Name = "指挥杖", SlideRank = 0, ··· }, CastFx { CasterAlly = False, CasterSlot = 1, Fever = False, Name = "普攻", SlideRank = 0, ··· }, CastFx { CasterAlly = False, CasterSlot = 1, Fever = False, Name = "静默", SlideRank = 0, ··· }, CastFx { CasterAlly = False, CasterSlot = 2, Fever = False, Name = "普攻", SlideRank = 0, ··· }, ···]</Message>
+          <StackTrace>   at Resonance.Tests.OriginalEncounterIntegrationTests.BossOwnsAllThreeSlots_UsesOneWorldClock_AndPauseFreezesIntent() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterIntegrationTests.cs:line 34</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="3dc44fe3-7433-490d-aa74-031db88b2b87" testId="f33e1ba0-7676-1643-c5e3-8dece70f579f" testName="Resonance.Tests.OriginalBossControllerTests.ActualCastUsesMasksStillAliveAtResolutionAndSnapshotUpdatesDuringCast" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0005423" startTime="2026-09-21T00:57:20.5464311+08:00" endTime="2026-09-21T00:57:20.5464313+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3dc44fe3-7433-490d-aa74-031db88b2b87">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: 1&#xD;
+Actual:   0</Message>
+          <StackTrace>   at Resonance.Tests.OriginalBossControllerTests.ActualCastUsesMasksStillAliveAtResolutionAndSnapshotUpdatesDuringCast() in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 73</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="3cf245f3-6640-41c1-90d3-a3e29a4e9088" testId="8c0d6b80-67ac-edee-d5fb-a43cd5571c65" testName="Resonance.Tests.OriginalExpeditionQueueTests.SameSlotWithANewGeneration_IsRejectedWithoutDamagingTheReplacement" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0012823" startTime="2026-09-21T00:57:20.3327423+08:00" endTime="2026-09-21T00:57:20.3327425+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3cf245f3-6640-41c1-90d3-a3e29a4e9088">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: None&#xD;
+Actual:   InvalidValue</Message>
+          <StackTrace>   at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 254&#xD;
+   at Resonance.Tests.OriginalExpeditionQueueTests.SameSlotWithANewGeneration_IsRejectedWithoutDamagingTheReplacement() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 169</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="7887e6c7-a586-4374-916f-399a2624536f" testId="c24cd4e0-b13d-c7fa-5dde-b9a59984da22" testName="Resonance.Tests.OriginalExpeditionQueueTests.OnlySingleEnemyDamageBindsFocus_SupportSweepAndUnfocusedCommandsDoNot" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0007960" startTime="2026-09-21T00:57:20.3033434+08:00" endTime="2026-09-21T00:57:20.3033435+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7887e6c7-a586-4374-916f-399a2624536f">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: None&#xD;
+Actual:   InvalidValue</Message>
+          <StackTrace>   at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 254&#xD;
+   at Resonance.Tests.OriginalExpeditionQueueTests.OnlySingleEnemyDamageBindsFocus_SupportSweepAndUnfocusedCommandsDoNot() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 187</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5a93e7bf-5227-4d53-b001-a566048e7e56" testId="e470312f-6b31-9399-32d8-38ce0346e24c" testName="Resonance.Tests.OriginalEncounterInputTests.EliteClocksMustRemainFinitePositiveAndBounded" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0008993" startTime="2026-09-21T00:57:20.5336718+08:00" endTime="2026-09-21T00:57:20.5336719+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5a93e7bf-5227-4d53-b001-a566048e7e56">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Throws() Failure: No exception was thrown&#xD;
+Expected: typeof(System.ArgumentException)</Message>
+          <StackTrace>   at Resonance.Tests.OriginalEncounterInputTests.EliteClocksMustRemainFinitePositiveAndBounded() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs:line 128</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="b84d7d81-7ebf-4978-bd81-302d6d78369f" testId="f3f9c642-a9f9-576d-d373-d101322e234a" testName="Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(dt: NaN)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0004518" startTime="2026-09-21T00:57:20.5642370+08:00" endTime="2026-09-21T00:57:20.5642371+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b84d7d81-7ebf-4978-bd81-302d6d78369f">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Throws() Failure: No exception was thrown&#xD;
+Expected: typeof(System.ArgumentOutOfRangeException)</Message>
+          <StackTrace>   at Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(Single dt) in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 175</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="cc5a8c06-dc93-4e08-b16d-122d168d7071" testId="e0e00737-647c-93c0-9e59-0542e2f33956" testName="Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: Silenced)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0002706" startTime="2026-09-21T00:57:20.3051076+08:00" endTime="2026-09-21T00:57:20.3051077+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cc5a8c06-dc93-4e08-b16d-122d168d7071">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: None&#xD;
+Actual:   InvalidValue</Message>
+          <StackTrace>   at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 254&#xD;
+   at Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(CommandReject reason) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 98</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c6b3bf81-70a4-4982-8839-3d9c8448bd5a" testId="42cce0a2-0087-9b5a-95a0-0affa189e0b7" testName="Resonance.Tests.OriginalEncounterInputTests.N7RequiresTheFixedBossAndTwoMasksAndSupportedVersion" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0006389" startTime="2026-09-21T00:57:20.5321471+08:00" endTime="2026-09-21T00:57:20.5321472+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c6b3bf81-70a4-4982-8839-3d9c8448bd5a">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Throws() Failure: No exception was thrown&#xD;
+Expected: typeof(System.ArgumentException)</Message>
+          <StackTrace>   at Resonance.Tests.OriginalEncounterInputTests.N7RequiresTheFixedBossAndTwoMasksAndSupportedVersion() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs:line 173</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c076c25d-fb1e-4ee1-b9cd-d96efa2650bd" testId="f409eea3-2cd4-e372-2043-35be40bfc045" testName="Resonance.Tests.OriginalExpeditionQueueTests.ClearForExitRemovesPendingAndPreviousResults_AndQueueApisRejectWrongModeOrState" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0005278" startTime="2026-09-21T00:57:20.3096781+08:00" endTime="2026-09-21T00:57:20.3096782+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c076c25d-fb1e-4ee1-b9cd-d96efa2650bd">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: SlotInvalid&#xD;
+Actual:   InvalidValue</Message>
+          <StackTrace>   at Resonance.Tests.OriginalExpeditionQueueTests.ClearForExitRemovesPendingAndPreviousResults_AndQueueApisRejectWrongModeOrState() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 205</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d482c0a0-bd65-4161-964b-7b9ef646bc63" testId="401bcc93-fe2e-dfbe-03bb-bc5d81342844" testName="Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Victory)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0001871" startTime="2026-09-21T00:57:20.5417802+08:00" endTime="2026-09-21T00:57:20.5417803+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d482c0a0-bd65-4161-964b-7b9ef646bc63">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.True() Failure&#xD;
+Expected: True&#xD;
+Actual:   False</Message>
+          <StackTrace>   at Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(BattleOutcome outcome) in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 126</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="68049938-7512-48ad-91f2-8b7f199c663a" testId="d1f01c9e-94ea-a7df-9ff2-71f9d7cce63a" testName="Resonance.Tests.OriginalEncounterInputTests.N4RejectsMissingOrMismatchedEliteIdentity" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0017948" startTime="2026-09-21T00:57:20.3949247+08:00" endTime="2026-09-21T00:57:20.3949248+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="68049938-7512-48ad-91f2-8b7f199c663a">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Throws() Failure: No exception was thrown&#xD;
+Expected: typeof(System.ArgumentException)</Message>
+          <StackTrace>   at Resonance.Tests.OriginalEncounterInputTests.N4RejectsMissingOrMismatchedEliteIdentity() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs:line 97</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="fc7f9e78-3458-48ba-91f3-3398cb9cca07" testId="57acdc9c-ac95-e360-f0da-c693e8a326ac" testName="Resonance.Tests.OriginalBossControllerTests.EliteIntentStartsAtSixAndAreaCompletesAtNineWithoutOwningAdds" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0018378" startTime="2026-09-21T00:57:20.5442804+08:00" endTime="2026-09-21T00:57:20.5442806+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fc7f9e78-3458-48ba-91f3-3398cb9cca07">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Single() Failure: The collection was empty</Message>
+          <StackTrace>   at Resonance.Tests.OriginalBossControllerTests.EliteIntentStartsAtSixAndAreaCompletesAtNineWithoutOwningAdds() in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 141</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="356a47d9-bae1-4528-8c3b-72cd7245ec98" testId="b095b2c1-7216-7b47-acae-35add89402e9" testName="Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Defeat)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0004323" startTime="2026-09-21T00:57:20.5408376+08:00" endTime="2026-09-21T00:57:20.5408378+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="356a47d9-bae1-4528-8c3b-72cd7245ec98">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.True() Failure&#xD;
+Expected: True&#xD;
+Actual:   False</Message>
+          <StackTrace>   at Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(BattleOutcome outcome) in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 126</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5464798a-e612-40e2-9a1e-cdab69e978ec" testId="c351d233-994d-d58c-3762-e6e978d7d7ce" testName="Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(dt: ∞)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0002888" startTime="2026-09-21T00:57:20.5648840+08:00" endTime="2026-09-21T00:57:20.5648841+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5464798a-e612-40e2-9a1e-cdab69e978ec">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Throws() Failure: No exception was thrown&#xD;
+Expected: typeof(System.ArgumentOutOfRangeException)</Message>
+          <StackTrace>   at Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(Single dt) in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 175</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="15bc0caf-1537-4022-aa6d-5566509da29f" testId="0bb73a4a-a21c-0ab4-ea31-ec4df2b3ebcd" testName="Resonance.Tests.OriginalExpeditionQueueTests.PausedQueueEditingAndTicks_DoNotAdvanceAnyCapturedBattleState" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0556098" startTime="2026-09-21T00:57:20.2962748+08:00" endTime="2026-09-21T00:57:20.2962895+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="15bc0caf-1537-4022-aa6d-5566509da29f">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: None&#xD;
+Actual:   InvalidValue</Message>
+          <StackTrace>   at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 254&#xD;
+   at Resonance.Tests.OriginalExpeditionQueueTests.PausedQueueEditingAndTicks_DoNotAdvanceAnyCapturedBattleState() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 51</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="e1aaa4df-db90-450e-b3ae-09992155957e" testId="d24ced3d-6313-c58b-8db2-e9d6a30a7ca7" testName="Resonance.Tests.OriginalExpeditionQueueTests.QueueReplacementPreservesOrder_ClearThenReinsertMovesToEnd_AndSnapshotsAreStable" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0009264" startTime="2026-09-21T00:57:20.3527834+08:00" endTime="2026-09-21T00:57:20.3527836+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e1aaa4df-db90-450e-b3ae-09992155957e">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: None&#xD;
+Actual:   InvalidValue</Message>
+          <StackTrace>   at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 254&#xD;
+   at Resonance.Tests.OriginalExpeditionQueueTests.QueueReplacementPreservesOrder_ClearThenReinsertMovesToEnd_AndSnapshotsAreStable() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 20</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a89bce6c-d514-447d-974f-bbbe107ae70a" testId="8cc9cd1d-d8d6-261a-cb84-75d9c0a9458e" testName="Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: UnitDead)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0003882" startTime="2026-09-21T00:57:20.3068931+08:00" endTime="2026-09-21T00:57:20.3068933+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a89bce6c-d514-447d-974f-bbbe107ae70a">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: None&#xD;
+Actual:   InvalidValue</Message>
+          <StackTrace>   at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 254&#xD;
+   at Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(CommandReject reason) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 98</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="6caafacf-f2c8-4eb3-9771-44c28ae4d43f" testId="5d8968c0-c446-ccfb-f986-c84f2c662c6b" testName="Resonance.Tests.OriginalExpeditionQueueTests.EarlierQueuedKill_InvalidatesLaterBoundTarget_WhileSupportAndGlobalFocusRemainIndependent" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0008554" startTime="2026-09-21T00:57:20.3541041+08:00" endTime="2026-09-21T00:57:20.3541042+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6caafacf-f2c8-4eb3-9771-44c28ae4d43f">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: None&#xD;
+Actual:   InvalidValue</Message>
+          <StackTrace>   at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 254&#xD;
+   at Resonance.Tests.OriginalExpeditionQueueTests.EarlierQueuedKill_InvalidatesLaterBoundTarget_WhileSupportAndGlobalFocusRemainIndependent() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 143</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="95c3bf0b-47de-4066-a1d1-02d9274558d1" testId="26a35c74-2a72-7cb9-8c44-4e19480d72a6" testName="Resonance.Tests.OriginalEncounterInputTests.EncounterDefinitionsCannotAppearOnUnrelatedNodes" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0005156" startTime="2026-09-21T00:57:20.3966396+08:00" endTime="2026-09-21T00:57:20.3966397+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="95c3bf0b-47de-4066-a1d1-02d9274558d1">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Throws() Failure: No exception was thrown&#xD;
+Expected: typeof(System.ArgumentException)</Message>
+          <StackTrace>   at Resonance.Tests.OriginalEncounterInputTests.EncounterDefinitionsCannotAppearOnUnrelatedNodes() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs:line 109</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="7e40b8bc-8254-44fe-a038-a5ac5e59e8b6" testId="72a92f12-8a56-e5c8-9acf-394d91937dc1" testName="Resonance.Tests.OriginalExpeditionQueueTests.ResumeIsLoggedBeforeQueuedActions_AndAllDrainBeforeTheNextTick" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0013033" startTime="2026-09-21T00:57:20.3087275+08:00" endTime="2026-09-21T00:57:20.3087276+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7e40b8bc-8254-44fe-a038-a5ac5e59e8b6">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: None&#xD;
+Actual:   InvalidValue</Message>
+          <StackTrace>   at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 254&#xD;
+   at Resonance.Tests.OriginalExpeditionQueueTests.ResumeIsLoggedBeforeQueuedActions_AndAllDrainBeforeTheNextTick() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 66</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="8b54aaed-a53c-484f-bed8-0370b2e0fa86" testId="0e63d672-77d0-c70f-38fe-7494a545e3ce" testName="Resonance.Tests.OriginalBossControllerTests.OwnsExactlyAuthoredSlots" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0122770" startTime="2026-09-21T00:57:20.5592142+08:00" endTime="2026-09-21T00:57:20.5592145+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8b54aaed-a53c-484f-bed8-0370b2e0fa86">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Collections differ&#xD;
+                                        ↓ (pos 0)&#xD;
+Expected: int[]                        [0, 1, 2]&#xD;
+Actual:   WhereEnumerableIterator&lt;int&gt; []</Message>
+          <StackTrace>   at Resonance.Tests.OriginalBossControllerTests.OwnsExactlyAuthoredSlots() in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 49</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="621e25d3-9275-41b9-a354-97daeaf9111b" testId="925e78d4-a4d0-74a0-d680-86952376b1f9" testName="Resonance.Tests.OriginalEncounterInputTests.DeepCloneDetachesTheFrozenEliteDefinition" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0004877" startTime="2026-09-21T00:57:20.3957771+08:00" endTime="2026-09-21T00:57:20.3957772+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="621e25d3-9275-41b9-a354-97daeaf9111b">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.NotSame() Failure: Values are the same instance</Message>
+          <StackTrace>   at Resonance.Tests.OriginalEncounterInputTests.DeepCloneDetachesTheFrozenEliteDefinition() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs:line 37</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="f2d3286e-a762-4c98-8ac0-abd39100feef" testId="8764e17e-8358-23e6-1d11-112a2f1be01c" testName="Resonance.Tests.OriginalExpeditionQueueTests.NotReadyAtResume_IsConsumedWithoutRefillOrAutomaticRetryWhenChargeLaterBecomesReady" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0008235" startTime="2026-09-21T00:57:20.3019337+08:00" endTime="2026-09-21T00:57:20.3019338+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f2d3286e-a762-4c98-8ac0-abd39100feef">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: None&#xD;
+Actual:   InvalidValue</Message>
+          <StackTrace>   at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 254&#xD;
+   at Resonance.Tests.OriginalExpeditionQueueTests.NotReadyAtResume_IsConsumedWithoutRefillOrAutomaticRetryWhenChargeLaterBecomesReady() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 123</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="e85f51de-fb07-4849-bbf1-778698bdef2c" testId="a557fc78-3542-aab2-c15b-4506d3623aea" testName="Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Failed)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0001997" startTime="2026-09-21T00:57:20.5413121+08:00" endTime="2026-09-21T00:57:20.5413123+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e85f51de-fb07-4849-bbf1-778698bdef2c">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.True() Failure&#xD;
+Expected: True&#xD;
+Actual:   False</Message>
+          <StackTrace>   at Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(BattleOutcome outcome) in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 126</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="84b64dda-8716-4bc9-a26e-58dda5d2be0c" testId="62133377-ddbc-8186-8493-e9a62230a6c5" testName="Resonance.Tests.OriginalEncounterInputTests.N4FreezesTheDeclaredEliteTimingAndSkillIdentity" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0005453" startTime="2026-09-21T00:57:20.3926735+08:00" endTime="2026-09-21T00:57:20.3926737+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="84b64dda-8716-4bc9-a26e-58dda5d2be0c">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.NotNull() Failure: Value is null</Message>
+          <StackTrace>   at Resonance.Tests.OriginalEncounterInputTests.N4FreezesTheDeclaredEliteTimingAndSkillIdentity() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs:line 18</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="1e44c0cd-5823-4d4a-b722-542b14638a89" testId="066ca07b-9c5f-447c-5969-8af0c281bbc0" testName="Resonance.Tests.OriginalBossControllerTests.DeadBossCancelsEvenWhenMasksAndInProgressRemain" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0005105" startTime="2026-09-21T00:57:20.5454154+08:00" endTime="2026-09-21T00:57:20.5454155+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1e44c0cd-5823-4d4a-b722-542b14638a89">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.True() Failure&#xD;
+Expected: True&#xD;
+Actual:   False</Message>
+          <StackTrace>   at Resonance.Tests.OriginalBossControllerTests.DeadBossCancelsEvenWhenMasksAndInProgressRemain() in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 134</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="6bd167db-831a-4f0a-9d9a-d240374fd32e" testId="5d2113f8-6187-890e-11da-b6261ebbd1cd" testName="Resonance.Tests.OriginalBossControllerTests.FrozenDefinitionAndOneVsTwoSpeedHaveSameGameTimeActions" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0008184" startTime="2026-09-21T00:57:20.5672234+08:00" endTime="2026-09-21T00:57:20.5672235+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6bd167db-831a-4f0a-9d9a-d240374fd32e">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: 3&#xD;
+Actual:   0</Message>
+          <StackTrace>   at Resonance.Tests.OriginalBossControllerTests.FrozenDefinitionAndOneVsTwoSpeedHaveSameGameTimeActions() in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 164</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ee8bb5bd-f982-41e5-9cee-d18a6f2d8b9f" testId="f980593d-90a3-9281-ea37-005d3ed6ee5a" testName="Resonance.Tests.OriginalBossControllerTests.ReentrantBoundaryFromAreaDefersRebuildUntilAttackCallbackReturns" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0006796" startTime="2026-09-21T00:57:20.5399411+08:00" endTime="2026-09-21T00:57:20.5399412+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ee8bb5bd-f982-41e5-9cee-d18a6f2d8b9f">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.True() Failure&#xD;
+Expected: True&#xD;
+Actual:   False</Message>
+          <StackTrace>   at Resonance.Tests.OriginalBossControllerTests.ReentrantBoundaryFromAreaDefersRebuildUntilAttackCallbackReturns() in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 115</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="71f54056-c7be-4a2a-b606-7c72ae342dcb" testId="ffc87ed9-016c-6ea1-59ef-8fe8bb206b25" testName="Resonance.Tests.OriginalEncounterIntegrationTests.HalfHealthDuringCastDefersOnePhaseChange_AndRebuildsOnlyDeadMask" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0025213" startTime="2026-09-21T00:57:20.3864420+08:00" endTime="2026-09-21T00:57:20.3864422+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="71f54056-c7be-4a2a-b606-7c72ae342dcb">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.True() Failure&#xD;
+Expected: True&#xD;
+Actual:   False</Message>
+          <StackTrace>   at Resonance.Tests.OriginalEncounterIntegrationTests.HalfHealthDuringCastDefersOnePhaseChange_AndRebuildsOnlyDeadMask() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterIntegrationTests.cs:line 92</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4ea62824-38b9-4218-a323-3a33dce50220" testId="a8f21e81-32ee-fe28-cdce-b635a4f4af95" testName="Resonance.Tests.OriginalEncounterInputTests.EncounterAutoAndAreaCannotSilentlyChangeTheirTargetContract" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0012633" startTime="2026-09-21T00:57:20.5355653+08:00" endTime="2026-09-21T00:57:20.5355654+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4ea62824-38b9-4218-a323-3a33dce50220">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Throws() Failure: No exception was thrown&#xD;
+Expected: typeof(System.ArgumentException)</Message>
+          <StackTrace>   at Resonance.Tests.OriginalEncounterInputTests.EncounterAutoAndAreaCannotSilentlyChangeTheirTargetContract() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs:line 151</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d47dbc31-ca5a-46f6-9bc8-92017e6885e7" testId="fba768f6-c969-1df0-d53e-c447ea151ea2" testName="Resonance.Tests.OriginalExpeditionQueueTests.ScopedTargetRestoresEvenWhenTheActionThrows_AndUnboundTapUsesGlobalFocus" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0178240" startTime="2026-09-21T00:57:20.3512550+08:00" endTime="2026-09-21T00:57:20.3512554+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d47dbc31-ca5a-46f6-9bc8-92017e6885e7" />
+    <UnitTestResult executionId="da3adadd-f73e-47ff-a3f3-f22451dea53a" testId="c0a6b992-524c-6765-bde8-1f55c48bd438" testName="Resonance.Tests.OriginalBossControllerTests.BossClockHasTwoAutosThenVisibleFourSecondCastWithoutExtraAuto" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0007655" startTime="2026-09-21T00:57:20.5606157+08:00" endTime="2026-09-21T00:57:20.5606159+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="da3adadd-f73e-47ff-a3f3-f22451dea53a">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: 2&#xD;
+Actual:   0</Message>
+          <StackTrace>   at Resonance.Tests.OriginalBossControllerTests.BossClockHasTwoAutosThenVisibleFourSecondCastWithoutExtraAuto() in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 57</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ace958cf-e574-48a0-ad4f-ea5a063d5563" testId="a53c7008-a01b-24c2-7244-1b5da7a912cf" testName="Resonance.Tests.OriginalBossControllerTests.ActionLockDefersDueActionsAndSilenceDefersAreaButAllowsAuto" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0004452" startTime="2026-09-21T00:57:20.5634310+08:00" endTime="2026-09-21T00:57:20.5634311+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ace958cf-e574-48a0-ad4f-ea5a063d5563">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: 2&#xD;
+Actual:   0</Message>
+          <StackTrace>   at Resonance.Tests.OriginalBossControllerTests.ActionLockDefersDueActionsAndSilenceDefersAreaButAllowsAuto() in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 151</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="41da3881-c735-4df6-8c2b-0aa5d3f9e6cd" testId="9b1149a4-fc7f-e429-de50-4fb73003e0ec" testName="Resonance.Tests.OriginalEncounterInputTests.EliteChangesContentCompatibilityAndItsOwnInputFingerprint" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0035576" startTime="2026-09-21T00:57:20.3906503+08:00" endTime="2026-09-21T00:57:20.3906505+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="41da3881-c735-4df6-8c2b-0aa5d3f9e6cd">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.NotEqual() Failure: Strings are equal&#xD;
+Expected: Not "03a8cc088289181ba9ba9c2f2cdee6de52b1bd6e191aabdd86"···&#xD;
+Actual:       "03a8cc088289181ba9ba9c2f2cdee6de52b1bd6e191aabdd86"···</Message>
+          <StackTrace>   at Resonance.Tests.OriginalEncounterInputTests.EliteChangesContentCompatibilityAndItsOwnInputFingerprint() in F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs:line 68</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="90ba6d0c-40a5-4904-b761-be8ec3b85618" testId="8f8134c3-e006-c7fa-9eb3-984501f6f529" testName="Resonance.Tests.OriginalBossControllerTests.PhaseChangeDuringCastWaitsThenRebuildsOnlyDeadMaskWithoutHealingSurvivor" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0010301" startTime="2026-09-21T00:57:20.5624770+08:00" endTime="2026-09-21T00:57:20.5624771+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="90ba6d0c-40a5-4904-b761-be8ec3b85618">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.True() Failure&#xD;
+Expected: True&#xD;
+Actual:   False</Message>
+          <StackTrace>   at Resonance.Tests.OriginalBossControllerTests.PhaseChangeDuringCastWaitsThenRebuildsOnlyDeadMaskWithoutHealingSurvivor() in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 83</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="96b367ba-f477-4687-bc4f-67b8dfef1013" testId="d70fc7ec-584b-d0f0-84e3-a09bbf97e7e5" testName="Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: NotCharged)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0006863" startTime="2026-09-21T00:57:20.3045226+08:00" endTime="2026-09-21T00:57:20.3045227+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="96b367ba-f477-4687-bc4f-67b8dfef1013">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: None&#xD;
+Actual:   InvalidValue</Message>
+          <StackTrace>   at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 254&#xD;
+   at Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(CommandReject reason) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs:line 98</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.ReentrantBoundaryFromAreaDefersRebuildUntilAttackCallbackReturns" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="f980593d-90a3-9281-ea37-005d3ed6ee5a">
+      <Execution id="ee8bb5bd-f982-41e5-9cee-d18a6f2d8b9f" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="ReentrantBoundaryFromAreaDefersRebuildUntilAttackCallbackReturns" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalEncounterInputTests.DeepCloneDetachesTheFrozenEliteDefinition" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="925e78d4-a4d0-74a0-d680-86952376b1f9">
+      <Execution id="621e25d3-9275-41b9-a354-97daeaf9111b" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalEncounterInputTests" name="DeepCloneDetachesTheFrozenEliteDefinition" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalEncounterIntegrationTests.BossOwnsAllThreeSlots_UsesOneWorldClock_AndPauseFreezesIntent" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="4862840c-f04c-babf-894f-4850a96dbe0c">
+      <Execution id="3e43bd66-1646-48ca-9e59-27035b64e67b" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalEncounterIntegrationTests" name="BossOwnsAllThreeSlots_UsesOneWorldClock_AndPauseFreezesIntent" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.PhaseChangeDuringCastWaitsThenRebuildsOnlyDeadMaskWithoutHealingSurvivor" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="8f8134c3-e006-c7fa-9eb3-984501f6f529">
+      <Execution id="90ba6d0c-40a5-4904-b761-be8ec3b85618" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="PhaseChangeDuringCastWaitsThenRebuildsOnlyDeadMaskWithoutHealingSurvivor" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionQueueTests.PausedQueueEditingAndTicks_DoNotAdvanceAnyCapturedBattleState" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="0bb73a4a-a21c-0ab4-ea31-ec4df2b3ebcd">
+      <Execution id="15bc0caf-1537-4022-aa6d-5566509da29f" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionQueueTests" name="PausedQueueEditingAndTicks_DoNotAdvanceAnyCapturedBattleState" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: ActionLocked)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="94940be5-9327-1752-9688-93c7ca89c434">
+      <Execution id="4a359f54-34da-4012-9400-1e5155d0acd8" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionQueueTests" name="ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(dt: ∞)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="c351d233-994d-d58c-3762-e6e978d7d7ce">
+      <Execution id="5464798a-e612-40e2-9a1e-cdab69e978ec" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="InvalidElapsedInputFailsBeforeStateAdvances" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Victory)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="401bcc93-fe2e-dfbe-03bb-bc5d81342844">
+      <Execution id="d482c0a0-bd65-4161-964b-7b9ef646bc63" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="TerminalOutcomeCancelsPendingCastAndPhase" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(dt: NaN)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="f3f9c642-a9f9-576d-d373-d101322e234a">
+      <Execution id="b84d7d81-7ebf-4978-bd81-302d6d78369f" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="InvalidElapsedInputFailsBeforeStateAdvances" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.BossClockHasTwoAutosThenVisibleFourSecondCastWithoutExtraAuto" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="c0a6b992-524c-6765-bde8-1f55c48bd438">
+      <Execution id="da3adadd-f73e-47ff-a3f3-f22451dea53a" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="BossClockHasTwoAutosThenVisibleFourSecondCastWithoutExtraAuto" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalEncounterInputTests.EncounterAutoAndAreaCannotSilentlyChangeTheirTargetContract" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="a8f21e81-32ee-fe28-cdce-b635a4f4af95">
+      <Execution id="4ea62824-38b9-4218-a323-3a33dce50220" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalEncounterInputTests" name="EncounterAutoAndAreaCannotSilentlyChangeTheirTargetContract" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionQueueTests.EarlierQueuedKill_InvalidatesLaterBoundTarget_WhileSupportAndGlobalFocusRemainIndependent" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="5d8968c0-c446-ccfb-f986-c84f2c662c6b">
+      <Execution id="6caafacf-f2c8-4eb3-9771-44c28ae4d43f" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionQueueTests" name="EarlierQueuedKill_InvalidatesLaterBoundTarget_WhileSupportAndGlobalFocusRemainIndependent" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalEncounterIntegrationTests.BossAndLastAllyDyingInOneRootIsVictory_AndCancelsPendingIntent" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="c0dfb981-8610-e39e-b849-e2207f0b92bb">
+      <Execution id="5e74888b-ef7e-4ef8-b89a-bedb5a7b3b8f" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalEncounterIntegrationTests" name="BossAndLastAllyDyingInOneRootIsVictory_AndCancelsPendingIntent" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionQueueTests.NotReadyAtResume_IsConsumedWithoutRefillOrAutomaticRetryWhenChargeLaterBecomesReady" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="8764e17e-8358-23e6-1d11-112a2f1be01c">
+      <Execution id="f2d3286e-a762-4c98-8ac0-abd39100feef" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionQueueTests" name="NotReadyAtResume_IsConsumedWithoutRefillOrAutomaticRetryWhenChargeLaterBecomesReady" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalEncounterInputTests.N4FreezesTheDeclaredEliteTimingAndSkillIdentity" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="62133377-ddbc-8186-8493-e9a62230a6c5">
+      <Execution id="84b64dda-8716-4bc9-a26e-58dda5d2be0c" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalEncounterInputTests" name="N4FreezesTheDeclaredEliteTimingAndSkillIdentity" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.ActualCastUsesMasksStillAliveAtResolutionAndSnapshotUpdatesDuringCast" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="f33e1ba0-7676-1643-c5e3-8dece70f579f">
+      <Execution id="3dc44fe3-7433-490d-aa74-031db88b2b87" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="ActualCastUsesMasksStillAliveAtResolutionAndSnapshotUpdatesDuringCast" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalEncounterInputTests.N7RequiresTheFixedBossAndTwoMasksAndSupportedVersion" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="42cce0a2-0087-9b5a-95a0-0affa189e0b7">
+      <Execution id="c6b3bf81-70a4-4982-8839-3d9c8448bd5a" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalEncounterInputTests" name="N7RequiresTheFixedBossAndTwoMasksAndSupportedVersion" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionQueueTests.ClearForExitRemovesPendingAndPreviousResults_AndQueueApisRejectWrongModeOrState" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="f409eea3-2cd4-e372-2043-35be40bfc045">
+      <Execution id="c076c25d-fb1e-4ee1-b9cd-d96efa2650bd" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionQueueTests" name="ClearForExitRemovesPendingAndPreviousResults_AndQueueApisRejectWrongModeOrState" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Defeat)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="b095b2c1-7216-7b47-acae-35add89402e9">
+      <Execution id="356a47d9-bae1-4528-8c3b-72cd7245ec98" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="TerminalOutcomeCancelsPendingCastAndPhase" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: NotCharged)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="d70fc7ec-584b-d0f0-84e3-a09bbf97e7e5">
+      <Execution id="96b367ba-f477-4687-bc4f-67b8dfef1013" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionQueueTests" name="ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.StablePhaseBoundaryIsOnceAndDoesNotWaitForFirstIntent" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="5b0e9da3-3ab4-3b94-b5b3-73fd7caff0fa">
+      <Execution id="2e678c14-d17b-4b32-bba4-ab6817929ae9" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="StablePhaseBoundaryIsOnceAndDoesNotWaitForFirstIntent" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: Silenced)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="e0e00737-647c-93c0-9e59-0542e2f33956">
+      <Execution id="cc5a8c06-dc93-4e08-b16d-122d168d7071" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionQueueTests" name="ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalEncounterIntegrationTests.HalfHealthDuringCastDefersOnePhaseChange_AndRebuildsOnlyDeadMask" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="ffc87ed9-016c-6ea1-59ef-8fe8bb206b25">
+      <Execution id="71f54056-c7be-4a2a-b606-7c72ae342dcb" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalEncounterIntegrationTests" name="HalfHealthDuringCastDefersOnePhaseChange_AndRebuildsOnlyDeadMask" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalEncounterInputTests.EncounterDefinitionsCannotAppearOnUnrelatedNodes" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="26a35c74-2a72-7cb9-8c44-4e19480d72a6">
+      <Execution id="95c3bf0b-47de-4066-a1d1-02d9274558d1" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalEncounterInputTests" name="EncounterDefinitionsCannotAppearOnUnrelatedNodes" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalEncounterInputTests.N4RejectsMissingOrMismatchedEliteIdentity" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="d1f01c9e-94ea-a7df-9ff2-71f9d7cce63a">
+      <Execution id="68049938-7512-48ad-91f2-8b7f199c663a" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalEncounterInputTests" name="N4RejectsMissingOrMismatchedEliteIdentity" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionQueueTests.SameSlotWithANewGeneration_IsRejectedWithoutDamagingTheReplacement" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="8c0d6b80-67ac-edee-d5fb-a43cd5571c65">
+      <Execution id="3cf245f3-6640-41c1-90d3-a3e29a4e9088" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionQueueTests" name="SameSlotWithANewGeneration_IsRejectedWithoutDamagingTheReplacement" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionQueueTests.OnlySingleEnemyDamageBindsFocus_SupportSweepAndUnfocusedCommandsDoNot" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="c24cd4e0-b13d-c7fa-5dde-b9a59984da22">
+      <Execution id="7887e6c7-a586-4374-916f-399a2624536f" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionQueueTests" name="OnlySingleEnemyDamageBindsFocus_SupportSweepAndUnfocusedCommandsDoNot" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.DeadBossCancelsEvenWhenMasksAndInProgressRemain" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="066ca07b-9c5f-447c-5969-8af0c281bbc0">
+      <Execution id="1e44c0cd-5823-4d4a-b722-542b14638a89" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="DeadBossCancelsEvenWhenMasksAndInProgressRemain" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(dt: -1)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="3a3e8065-5533-0e69-4532-4f4236d8d773">
+      <Execution id="106f2fe5-db6b-4a68-8010-1822f65f1506" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="InvalidElapsedInputFailsBeforeStateAdvances" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalEncounterInputTests.EliteClocksMustRemainFinitePositiveAndBounded" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="e470312f-6b31-9399-32d8-38ce0346e24c">
+      <Execution id="5a93e7bf-5227-4d53-b001-a566048e7e56" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalEncounterInputTests" name="EliteClocksMustRemainFinitePositiveAndBounded" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Failed)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="a557fc78-3542-aab2-c15b-4506d3623aea">
+      <Execution id="e85f51de-fb07-4849-bbf1-778698bdef2c" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="TerminalOutcomeCancelsPendingCastAndPhase" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.FrozenDefinitionAndOneVsTwoSpeedHaveSameGameTimeActions" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="5d2113f8-6187-890e-11da-b6261ebbd1cd">
+      <Execution id="6bd167db-831a-4f0a-9d9a-d240374fd32e" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="FrozenDefinitionAndOneVsTwoSpeedHaveSameGameTimeActions" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.ActionLockDefersDueActionsAndSilenceDefersAreaButAllowsAuto" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="a53c7008-a01b-24c2-7244-1b5da7a912cf">
+      <Execution id="ace958cf-e574-48a0-ad4f-ea5a063d5563" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="ActionLockDefersDueActionsAndSilenceDefersAreaButAllowsAuto" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionQueueTests.QueueReplacementPreservesOrder_ClearThenReinsertMovesToEnd_AndSnapshotsAreStable" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="d24ced3d-6313-c58b-8db2-e9d6a30a7ca7">
+      <Execution id="e1aaa4df-db90-450e-b3ae-09992155957e" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionQueueTests" name="QueueReplacementPreservesOrder_ClearThenReinsertMovesToEnd_AndSnapshotsAreStable" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalEncounterInputTests.EliteChangesContentCompatibilityAndItsOwnInputFingerprint" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="9b1149a4-fc7f-e429-de50-4fb73003e0ec">
+      <Execution id="41da3881-c735-4df6-8c2b-0aa5d3f9e6cd" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalEncounterInputTests" name="EliteChangesContentCompatibilityAndItsOwnInputFingerprint" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionQueueTests.ScopedTargetRestoresEvenWhenTheActionThrows_AndUnboundTapUsesGlobalFocus" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="fba768f6-c969-1df0-d53e-c447ea151ea2">
+      <Execution id="d47dbc31-ca5a-46f6-9bc8-92017e6885e7" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionQueueTests" name="ScopedTargetRestoresEvenWhenTheActionThrows_AndUnboundTapUsesGlobalFocus" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: UnitDead)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="8cc9cd1d-d8d6-261a-cb84-75d9c0a9458e">
+      <Execution id="a89bce6c-d514-447d-974f-bbbe107ae70a" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionQueueTests" name="ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.EliteIntentStartsAtSixAndAreaCompletesAtNineWithoutOwningAdds" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="57acdc9c-ac95-e360-f0da-c693e8a326ac">
+      <Execution id="fc7f9e78-3458-48ba-91f3-3398cb9cca07" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="EliteIntentStartsAtSixAndAreaCompletesAtNineWithoutOwningAdds" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalEncounterInputTests.SerializationPreservesEliteAsBattleInput" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="eabb94bd-e633-af1c-28ef-378419489ffb">
+      <Execution id="7e3d42c5-6d1d-4d22-a4ec-f0b63bda45d4" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalEncounterInputTests" name="SerializationPreservesEliteAsBattleInput" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.OwnsExactlyAuthoredSlots" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="0e63d672-77d0-c70f-38fe-7494a545e3ce">
+      <Execution id="8b54aaed-a53c-484f-bed8-0370b2e0fa86" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="OwnsExactlyAuthoredSlots" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalEncounterIntegrationTests.RemovingMaskDuringCastChangesActualAreaDamageAtResolution" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="8f1f65bf-3462-4c5f-24c4-56758699c3bf">
+      <Execution id="5ccbeb51-672f-4b29-b08b-bc343fb0000b" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalEncounterIntegrationTests" name="RemovingMaskDuringCastChangesActualAreaDamageAtResolution" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionQueueTests.ResumeIsLoggedBeforeQueuedActions_AndAllDrainBeforeTheNextTick" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="72a92f12-8a56-e5c8-9acf-394d91937dc1">
+      <Execution id="7e40b8bc-8254-44fe-a038-a5ac5e59e8b6" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionQueueTests" name="ResumeIsLoggedBeforeQueuedActions_AndAllDrainBeforeTheNextTick" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="5b0e9da3-3ab4-3b94-b5b3-73fd7caff0fa" executionId="2e678c14-d17b-4b32-bba4-ab6817929ae9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c0dfb981-8610-e39e-b849-e2207f0b92bb" executionId="5e74888b-ef7e-4ef8-b89a-bedb5a7b3b8f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3a3e8065-5533-0e69-4532-4f4236d8d773" executionId="106f2fe5-db6b-4a68-8010-1822f65f1506" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eabb94bd-e633-af1c-28ef-378419489ffb" executionId="7e3d42c5-6d1d-4d22-a4ec-f0b63bda45d4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="94940be5-9327-1752-9688-93c7ca89c434" executionId="4a359f54-34da-4012-9400-1e5155d0acd8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8f1f65bf-3462-4c5f-24c4-56758699c3bf" executionId="5ccbeb51-672f-4b29-b08b-bc343fb0000b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4862840c-f04c-babf-894f-4850a96dbe0c" executionId="3e43bd66-1646-48ca-9e59-27035b64e67b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f33e1ba0-7676-1643-c5e3-8dece70f579f" executionId="3dc44fe3-7433-490d-aa74-031db88b2b87" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8c0d6b80-67ac-edee-d5fb-a43cd5571c65" executionId="3cf245f3-6640-41c1-90d3-a3e29a4e9088" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c24cd4e0-b13d-c7fa-5dde-b9a59984da22" executionId="7887e6c7-a586-4374-916f-399a2624536f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e470312f-6b31-9399-32d8-38ce0346e24c" executionId="5a93e7bf-5227-4d53-b001-a566048e7e56" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f3f9c642-a9f9-576d-d373-d101322e234a" executionId="b84d7d81-7ebf-4978-bd81-302d6d78369f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e0e00737-647c-93c0-9e59-0542e2f33956" executionId="cc5a8c06-dc93-4e08-b16d-122d168d7071" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="42cce0a2-0087-9b5a-95a0-0affa189e0b7" executionId="c6b3bf81-70a4-4982-8839-3d9c8448bd5a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f409eea3-2cd4-e372-2043-35be40bfc045" executionId="c076c25d-fb1e-4ee1-b9cd-d96efa2650bd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="401bcc93-fe2e-dfbe-03bb-bc5d81342844" executionId="d482c0a0-bd65-4161-964b-7b9ef646bc63" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d1f01c9e-94ea-a7df-9ff2-71f9d7cce63a" executionId="68049938-7512-48ad-91f2-8b7f199c663a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="57acdc9c-ac95-e360-f0da-c693e8a326ac" executionId="fc7f9e78-3458-48ba-91f3-3398cb9cca07" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b095b2c1-7216-7b47-acae-35add89402e9" executionId="356a47d9-bae1-4528-8c3b-72cd7245ec98" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c351d233-994d-d58c-3762-e6e978d7d7ce" executionId="5464798a-e612-40e2-9a1e-cdab69e978ec" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0bb73a4a-a21c-0ab4-ea31-ec4df2b3ebcd" executionId="15bc0caf-1537-4022-aa6d-5566509da29f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d24ced3d-6313-c58b-8db2-e9d6a30a7ca7" executionId="e1aaa4df-db90-450e-b3ae-09992155957e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8cc9cd1d-d8d6-261a-cb84-75d9c0a9458e" executionId="a89bce6c-d514-447d-974f-bbbe107ae70a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5d8968c0-c446-ccfb-f986-c84f2c662c6b" executionId="6caafacf-f2c8-4eb3-9771-44c28ae4d43f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="26a35c74-2a72-7cb9-8c44-4e19480d72a6" executionId="95c3bf0b-47de-4066-a1d1-02d9274558d1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="72a92f12-8a56-e5c8-9acf-394d91937dc1" executionId="7e40b8bc-8254-44fe-a038-a5ac5e59e8b6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0e63d672-77d0-c70f-38fe-7494a545e3ce" executionId="8b54aaed-a53c-484f-bed8-0370b2e0fa86" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="925e78d4-a4d0-74a0-d680-86952376b1f9" executionId="621e25d3-9275-41b9-a354-97daeaf9111b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8764e17e-8358-23e6-1d11-112a2f1be01c" executionId="f2d3286e-a762-4c98-8ac0-abd39100feef" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a557fc78-3542-aab2-c15b-4506d3623aea" executionId="e85f51de-fb07-4849-bbf1-778698bdef2c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="62133377-ddbc-8186-8493-e9a62230a6c5" executionId="84b64dda-8716-4bc9-a26e-58dda5d2be0c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="066ca07b-9c5f-447c-5969-8af0c281bbc0" executionId="1e44c0cd-5823-4d4a-b722-542b14638a89" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5d2113f8-6187-890e-11da-b6261ebbd1cd" executionId="6bd167db-831a-4f0a-9d9a-d240374fd32e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f980593d-90a3-9281-ea37-005d3ed6ee5a" executionId="ee8bb5bd-f982-41e5-9cee-d18a6f2d8b9f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ffc87ed9-016c-6ea1-59ef-8fe8bb206b25" executionId="71f54056-c7be-4a2a-b606-7c72ae342dcb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a8f21e81-32ee-fe28-cdce-b635a4f4af95" executionId="4ea62824-38b9-4218-a323-3a33dce50220" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fba768f6-c969-1df0-d53e-c447ea151ea2" executionId="d47dbc31-ca5a-46f6-9bc8-92017e6885e7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c0a6b992-524c-6765-bde8-1f55c48bd438" executionId="da3adadd-f73e-47ff-a3f3-f22451dea53a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a53c7008-a01b-24c2-7244-1b5da7a912cf" executionId="ace958cf-e574-48a0-ad4f-ea5a063d5563" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9b1149a4-fc7f-e429-de50-4fb73003e0ec" executionId="41da3881-c735-4df6-8c2b-0aa5d3f9e6cd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8f8134c3-e006-c7fa-9eb3-984501f6f529" executionId="90ba6d0c-40a5-4904-b761-be8ec3b85618" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d70fc7ec-584b-d0f0-84e3-a09bbf97e7e5" executionId="96b367ba-f477-4687-bc4f-67b8dfef1013" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="42" executed="42" passed="2" failed="40" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 6.0.33)&#xD;
+[xUnit.net 00:00:00.11]   Discovering: BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.20]   Discovered:  BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.20]   Starting:    BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.35]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.35]       Expected: None&#xD;
+[xUnit.net 00:00:00.35]       Actual:   InvalidValue&#xD;
+[xUnit.net 00:00:00.35]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.35]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs(254,0): at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot)&#xD;
+[xUnit.net 00:00:00.35]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs(51,0): at Resonance.Tests.OriginalExpeditionQueueTests.PausedQueueEditingAndTicks_DoNotAdvanceAnyCapturedBattleState()&#xD;
+[xUnit.net 00:00:00.36]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.36]       Expected: None&#xD;
+[xUnit.net 00:00:00.36]       Actual:   InvalidValue&#xD;
+[xUnit.net 00:00:00.36]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs(254,0): at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot)&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs(123,0): at Resonance.Tests.OriginalExpeditionQueueTests.NotReadyAtResume_IsConsumedWithoutRefillOrAutomaticRetryWhenChargeLaterBecomesReady()&#xD;
+[xUnit.net 00:00:00.36]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.36]       Expected: None&#xD;
+[xUnit.net 00:00:00.36]       Actual:   InvalidValue&#xD;
+[xUnit.net 00:00:00.36]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs(254,0): at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot)&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs(187,0): at Resonance.Tests.OriginalExpeditionQueueTests.OnlySingleEnemyDamageBindsFocus_SupportSweepAndUnfocusedCommandsDoNot()&#xD;
+[xUnit.net 00:00:00.36]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.36]       Expected: None&#xD;
+[xUnit.net 00:00:00.36]       Actual:   InvalidValue&#xD;
+[xUnit.net 00:00:00.36]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs(254,0): at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot)&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs(98,0): at Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(CommandReject reason)&#xD;
+[xUnit.net 00:00:00.36]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.36]       Expected: None&#xD;
+[xUnit.net 00:00:00.36]       Actual:   InvalidValue&#xD;
+[xUnit.net 00:00:00.36]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs(254,0): at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot)&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs(98,0): at Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(CommandReject reason)&#xD;
+[xUnit.net 00:00:00.36]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.36]       Expected: None&#xD;
+[xUnit.net 00:00:00.36]       Actual:   InvalidValue&#xD;
+[xUnit.net 00:00:00.36]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs(254,0): at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot)&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs(98,0): at Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(CommandReject reason)&#xD;
+[xUnit.net 00:00:00.36]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.36]       Expected: None&#xD;
+[xUnit.net 00:00:00.36]       Actual:   InvalidValue&#xD;
+[xUnit.net 00:00:00.36]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs(254,0): at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot)&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs(98,0): at Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(CommandReject reason)&#xD;
+[xUnit.net 00:00:00.36]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.36]       Expected: None&#xD;
+[xUnit.net 00:00:00.36]       Actual:   InvalidValue&#xD;
+[xUnit.net 00:00:00.36]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs(254,0): at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot)&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs(66,0): at Resonance.Tests.OriginalExpeditionQueueTests.ResumeIsLoggedBeforeQueuedActions_AndAllDrainBeforeTheNextTick()&#xD;
+[xUnit.net 00:00:00.36]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.36]       Expected: SlotInvalid&#xD;
+[xUnit.net 00:00:00.36]       Actual:   InvalidValue&#xD;
+[xUnit.net 00:00:00.36]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.36]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs(205,0): at Resonance.Tests.OriginalExpeditionQueueTests.ClearForExitRemovesPendingAndPreviousResults_AndQueueApisRejectWrongModeOrState()&#xD;
+[xUnit.net 00:00:00.39]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.39]       Expected: None&#xD;
+[xUnit.net 00:00:00.39]       Actual:   InvalidValue&#xD;
+[xUnit.net 00:00:00.39]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.39]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs(254,0): at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot)&#xD;
+[xUnit.net 00:00:00.39]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs(169,0): at Resonance.Tests.OriginalExpeditionQueueTests.SameSlotWithANewGeneration_IsRejectedWithoutDamagingTheReplacement()&#xD;
+[xUnit.net 00:00:00.41]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.41]       Expected: None&#xD;
+[xUnit.net 00:00:00.41]       Actual:   InvalidValue&#xD;
+[xUnit.net 00:00:00.41]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.41]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs(254,0): at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot)&#xD;
+[xUnit.net 00:00:00.41]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs(20,0): at Resonance.Tests.OriginalExpeditionQueueTests.QueueReplacementPreservesOrder_ClearThenReinsertMovesToEnd_AndSnapshotsAreStable()&#xD;
+[xUnit.net 00:00:00.41]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.41]       Expected: None&#xD;
+[xUnit.net 00:00:00.41]       Actual:   InvalidValue&#xD;
+[xUnit.net 00:00:00.41]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.41]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs(254,0): at Resonance.Tests.OriginalExpeditionQueueTests.Enqueue(BattleSim sim, Int32 slot)&#xD;
+[xUnit.net 00:00:00.41]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionQueueTests.cs(143,0): at Resonance.Tests.OriginalExpeditionQueueTests.EarlierQueuedKill_InvalidatesLaterBoundTarget_WhileSupportAndGlobalFocusRemainIndependent()&#xD;
+[xUnit.net 00:00:00.42]       Assert.True() Failure&#xD;
+[xUnit.net 00:00:00.42]       Expected: True&#xD;
+[xUnit.net 00:00:00.42]       Actual:   False&#xD;
+[xUnit.net 00:00:00.42]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.42]         F:\天命之子\tools\BattleSim.Tests\OriginalEncounterIntegrationTests.cs(65,0): at Resonance.Tests.OriginalEncounterIntegrationTests.RemovingMaskDuringCastChangesActualAreaDamageAtResolution()&#xD;
+[xUnit.net 00:00:00.43]       Assert.True() Failure&#xD;
+[xUnit.net 00:00:00.43]       Expected: True&#xD;
+[xUnit.net 00:00:00.43]       Actual:   False&#xD;
+[xUnit.net 00:00:00.43]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.43]         F:\天命之子\tools\BattleSim.Tests\OriginalEncounterIntegrationTests.cs(127,0): at Resonance.Tests.OriginalEncounterIntegrationTests.BossAndLastAllyDyingInOneRootIsVictory_AndCancelsPendingIntent()&#xD;
+[xUnit.net 00:00:00.44]       Assert.Empty() Failure: Collection was not empty&#xD;
+[xUnit.net 00:00:00.44]       Collection: [CastFx { CasterAlly = False, CasterSlot = 0, Fever = False, Name = "普攻", SlideRank = 0, ··· }, CastFx { CasterAlly = False, CasterSlot = 0, Fever = False, Name = "指挥杖", SlideRank = 0, ··· }, CastFx { CasterAlly = False, CasterSlot = 1, Fever = False, Name = "普攻", SlideRank = 0, ··· }, CastFx { CasterAlly = False, CasterSlot = 1, Fever = False, Name = "静默", SlideRank = 0, ··· }, CastFx { CasterAlly = False, CasterSlot = 2, Fever = False, Name = "普攻", SlideRank = 0, ··· }, ···]&#xD;
+[xUnit.net 00:00:00.44]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.44]         F:\天命之子\tools\BattleSim.Tests\OriginalEncounterIntegrationTests.cs(34,0): at Resonance.Tests.OriginalEncounterIntegrationTests.BossOwnsAllThreeSlots_UsesOneWorldClock_AndPauseFreezesIntent()&#xD;
+[xUnit.net 00:00:00.44]       Assert.True() Failure&#xD;
+[xUnit.net 00:00:00.44]       Expected: True&#xD;
+[xUnit.net 00:00:00.44]       Actual:   False&#xD;
+[xUnit.net 00:00:00.44]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.44]         F:\天命之子\tools\BattleSim.Tests\OriginalEncounterIntegrationTests.cs(92,0): at Resonance.Tests.OriginalEncounterIntegrationTests.HalfHealthDuringCastDefersOnePhaseChange_AndRebuildsOnlyDeadMask()&#xD;
+[xUnit.net 00:00:00.44]       Assert.NotEqual() Failure: Strings are equal&#xD;
+[xUnit.net 00:00:00.44]       Expected: Not "03a8cc088289181ba9ba9c2f2cdee6de52b1bd6e191aabdd86"···&#xD;
+[xUnit.net 00:00:00.44]       Actual:       "03a8cc088289181ba9ba9c2f2cdee6de52b1bd6e191aabdd86"···&#xD;
+[xUnit.net 00:00:00.44]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.45]         F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs(68,0): at Resonance.Tests.OriginalEncounterInputTests.EliteChangesContentCompatibilityAndItsOwnInputFingerprint()&#xD;
+[xUnit.net 00:00:00.45]       Assert.NotNull() Failure: Value is null&#xD;
+[xUnit.net 00:00:00.45]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.45]         F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs(18,0): at Resonance.Tests.OriginalEncounterInputTests.N4FreezesTheDeclaredEliteTimingAndSkillIdentity()&#xD;
+[xUnit.net 00:00:00.45]       Assert.Throws() Failure: No exception was thrown&#xD;
+[xUnit.net 00:00:00.45]       Expected: typeof(System.ArgumentException)&#xD;
+[xUnit.net 00:00:00.45]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.45]         F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs(97,0): at Resonance.Tests.OriginalEncounterInputTests.N4RejectsMissingOrMismatchedEliteIdentity()&#xD;
+[xUnit.net 00:00:00.45]       Assert.NotSame() Failure: Values are the same instance&#xD;
+[xUnit.net 00:00:00.45]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.45]         F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs(37,0): at Resonance.Tests.OriginalEncounterInputTests.DeepCloneDetachesTheFrozenEliteDefinition()&#xD;
+[xUnit.net 00:00:00.45]       Assert.Throws() Failure: No exception was thrown&#xD;
+[xUnit.net 00:00:00.45]       Expected: typeof(System.ArgumentException)&#xD;
+[xUnit.net 00:00:00.45]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.45]         F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs(109,0): at Resonance.Tests.OriginalEncounterInputTests.EncounterDefinitionsCannotAppearOnUnrelatedNodes()&#xD;
+[xUnit.net 00:00:00.59]       Assert.Throws() Failure: No exception was thrown&#xD;
+[xUnit.net 00:00:00.59]       Expected: typeof(System.ArgumentException)&#xD;
+[xUnit.net 00:00:00.59]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.59]         F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs(173,0): at Resonance.Tests.OriginalEncounterInputTests.N7RequiresTheFixedBossAndTwoMasksAndSupportedVersion()&#xD;
+[xUnit.net 00:00:00.59]       Assert.Throws() Failure: No exception was thrown&#xD;
+[xUnit.net 00:00:00.59]       Expected: typeof(System.ArgumentException)&#xD;
+[xUnit.net 00:00:00.59]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.59]         F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs(128,0): at Resonance.Tests.OriginalEncounterInputTests.EliteClocksMustRemainFinitePositiveAndBounded()&#xD;
+[xUnit.net 00:00:00.59]       Assert.Throws() Failure: No exception was thrown&#xD;
+[xUnit.net 00:00:00.59]       Expected: typeof(System.ArgumentException)&#xD;
+[xUnit.net 00:00:00.59]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.59]         F:\天命之子\tools\BattleSim.Tests\OriginalEncounterInputTests.cs(151,0): at Resonance.Tests.OriginalEncounterInputTests.EncounterAutoAndAreaCannotSilentlyChangeTheirTargetContract()&#xD;
+[xUnit.net 00:00:00.59]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.59]       Expected: 2&#xD;
+[xUnit.net 00:00:00.59]       Actual:   1&#xD;
+[xUnit.net 00:00:00.59]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.59]         F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs(100,0): at Resonance.Tests.OriginalBossControllerTests.StablePhaseBoundaryIsOnceAndDoesNotWaitForFirstIntent()&#xD;
+[xUnit.net 00:00:00.59]       Assert.True() Failure&#xD;
+[xUnit.net 00:00:00.59]       Expected: True&#xD;
+[xUnit.net 00:00:00.59]       Actual:   False&#xD;
+[xUnit.net 00:00:00.59]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.59]         F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs(115,0): at Resonance.Tests.OriginalBossControllerTests.ReentrantBoundaryFromAreaDefersRebuildUntilAttackCallbackReturns()&#xD;
+[xUnit.net 00:00:00.60]       Assert.True() Failure&#xD;
+[xUnit.net 00:00:00.60]       Expected: True&#xD;
+[xUnit.net 00:00:00.60]       Actual:   False&#xD;
+[xUnit.net 00:00:00.60]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.60]         F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs(126,0): at Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(BattleOutcome outcome)&#xD;
+[xUnit.net 00:00:00.60]       Assert.True() Failure&#xD;
+[xUnit.net 00:00:00.60]       Expected: True&#xD;
+[xUnit.net 00:00:00.60]       Actual:   False&#xD;
+[xUnit.net 00:00:00.60]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.60]         F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs(126,0): at Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(BattleOutcome outcome)&#xD;
+[xUnit.net 00:00:00.60]       Assert.True() Failure&#xD;
+[xUnit.net 00:00:00.60]       Expected: True&#xD;
+[xUnit.net 00:00:00.60]       Actual:   False&#xD;
+[xUnit.net 00:00:00.60]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.60]         F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs(126,0): at Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(BattleOutcome outcome)&#xD;
+[xUnit.net 00:00:00.60]       Assert.Single() Failure: The collection was empty&#xD;
+[xUnit.net 00:00:00.60]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.60]         F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs(141,0): at Resonance.Tests.OriginalBossControllerTests.EliteIntentStartsAtSixAndAreaCompletesAtNineWithoutOwningAdds()&#xD;
+[xUnit.net 00:00:00.60]       Assert.True() Failure&#xD;
+[xUnit.net 00:00:00.60]       Expected: True&#xD;
+[xUnit.net 00:00:00.60]       Actual:   False&#xD;
+[xUnit.net 00:00:00.60]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.60]         F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs(134,0): at Resonance.Tests.OriginalBossControllerTests.DeadBossCancelsEvenWhenMasksAndInProgressRemain()&#xD;
+[xUnit.net 00:00:00.60]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.60]       Expected: 1&#xD;
+[xUnit.net 00:00:00.60]       Actual:   0&#xD;
+[xUnit.net 00:00:00.60]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.60]         F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs(73,0): at Resonance.Tests.OriginalBossControllerTests.ActualCastUsesMasksStillAliveAtResolutionAndSnapshotUpdatesDuringCast()&#xD;
+[xUnit.net 00:00:00.61]       Assert.Equal() Failure: Collections differ&#xD;
+[xUnit.net 00:00:00.61]                                               ↓ (pos 0)&#xD;
+[xUnit.net 00:00:00.61]       Expected: int[]                        [0, 1, 2]&#xD;
+[xUnit.net 00:00:00.61]       Actual:   WhereEnumerableIterator&lt;int&gt; []&#xD;
+[xUnit.net 00:00:00.61]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.61]         F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs(49,0): at Resonance.Tests.OriginalBossControllerTests.OwnsExactlyAuthoredSlots()&#xD;
+[xUnit.net 00:00:00.61]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.61]       Expected: 2&#xD;
+[xUnit.net 00:00:00.61]       Actual:   0&#xD;
+[xUnit.net 00:00:00.61]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.61]         F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs(57,0): at Resonance.Tests.OriginalBossControllerTests.BossClockHasTwoAutosThenVisibleFourSecondCastWithoutExtraAuto()&#xD;
+[xUnit.net 00:00:00.62]       Assert.True() Failure&#xD;
+[xUnit.net 00:00:00.62]       Expected: True&#xD;
+[xUnit.net 00:00:00.62]       Actual:   False&#xD;
+[xUnit.net 00:00:00.62]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.62]         F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs(83,0): at Resonance.Tests.OriginalBossControllerTests.PhaseChangeDuringCastWaitsThenRebuildsOnlyDeadMaskWithoutHealingSurvivor()&#xD;
+[xUnit.net 00:00:00.62]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.62]       Expected: 2&#xD;
+[xUnit.net 00:00:00.62]       Actual:   0&#xD;
+[xUnit.net 00:00:00.62]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.62]         F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs(151,0): at Resonance.Tests.OriginalBossControllerTests.ActionLockDefersDueActionsAndSilenceDefersAreaButAllowsAuto()&#xD;
+[xUnit.net 00:00:00.62]       Assert.Throws() Failure: No exception was thrown&#xD;
+[xUnit.net 00:00:00.62]       Expected: typeof(System.ArgumentOutOfRangeException)&#xD;
+[xUnit.net 00:00:00.62]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.62]         F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs(175,0): at Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(Single dt)&#xD;
+[xUnit.net 00:00:00.62]       Assert.Throws() Failure: No exception was thrown&#xD;
+[xUnit.net 00:00:00.62]       Expected: typeof(System.ArgumentOutOfRangeException)&#xD;
+[xUnit.net 00:00:00.62]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.62]         F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs(175,0): at Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(Single dt)&#xD;
+[xUnit.net 00:00:00.62]       Assert.Throws() Failure: No exception was thrown&#xD;
+[xUnit.net 00:00:00.62]       Expected: typeof(System.ArgumentOutOfRangeException)&#xD;
+[xUnit.net 00:00:00.62]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.62]         F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs(175,0): at Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(Single dt)&#xD;
+[xUnit.net 00:00:00.62]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.62]       Expected: 3&#xD;
+[xUnit.net 00:00:00.62]       Actual:   0&#xD;
+[xUnit.net 00:00:00.62]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.62]         F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs(164,0): at Resonance.Tests.OriginalBossControllerTests.FrozenDefinitionAndOneVsTwoSpeedHaveSameGameTimeActions()&#xD;
+[xUnit.net 00:00:00.62]   Finished:    BattleSim.Tests&#xD;
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.2933094+08:00">
+        <Text>[xUnit.net 00:00:00.35]     Resonance.Tests.OriginalExpeditionQueueTests.PausedQueueEditingAndTicks_DoNotAdvanceAnyCapturedBattleState [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.3019537+08:00">
+        <Text>[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalExpeditionQueueTests.NotReadyAtResume_IsConsumedWithoutRefillOrAutomaticRetryWhenChargeLaterBecomesReady [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.3033278+08:00">
+        <Text>[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalExpeditionQueueTests.OnlySingleEnemyDamageBindsFocus_SupportSweepAndUnfocusedCommandsDoNot [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.3044992+08:00">
+        <Text>[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: NotCharged) [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.3050791+08:00">
+        <Text>[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: Silenced) [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.3059445+08:00">
+        <Text>[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: ActionLocked) [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.3068342+08:00">
+        <Text>[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalExpeditionQueueTests.ResumeRevalidatesCurrentActorState_RejectsWithoutBlockingIndependentCommands(reason: UnitDead) [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.3087791+08:00">
+        <Text>[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalExpeditionQueueTests.ResumeIsLoggedBeforeQueuedActions_AndAllDrainBeforeTheNextTick [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.3096574+08:00">
+        <Text>[xUnit.net 00:00:00.36]     Resonance.Tests.OriginalExpeditionQueueTests.ClearForExitRemovesPendingAndPreviousResults_AndQueueApisRejectWrongModeOrState [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.3726679+08:00">
+        <Text>[xUnit.net 00:00:00.39]     Resonance.Tests.OriginalExpeditionQueueTests.SameSlotWithANewGeneration_IsRejectedWithoutDamagingTheReplacement [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.3727016+08:00">
+        <Text>[xUnit.net 00:00:00.41]     Resonance.Tests.OriginalExpeditionQueueTests.QueueReplacementPreservesOrder_ClearThenReinsertMovesToEnd_AndSnapshotsAreStable [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.3727286+08:00">
+        <Text>[xUnit.net 00:00:00.41]     Resonance.Tests.OriginalExpeditionQueueTests.EarlierQueuedKill_InvalidatesLaterBoundTarget_WhileSupportAndGlobalFocusRemainIndependent [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.3727625+08:00">
+        <Text>[xUnit.net 00:00:00.42]     Resonance.Tests.OriginalEncounterIntegrationTests.RemovingMaskDuringCastChangesActualAreaDamageAtResolution [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.3758941+08:00">
+        <Text>[xUnit.net 00:00:00.43]     Resonance.Tests.OriginalEncounterIntegrationTests.BossAndLastAllyDyingInOneRootIsVictory_AndCancelsPendingIntent [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.3832559+08:00">
+        <Text>[xUnit.net 00:00:00.44]     Resonance.Tests.OriginalEncounterIntegrationTests.BossOwnsAllThreeSlots_UsesOneWorldClock_AndPauseFreezesIntent [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.3864571+08:00">
+        <Text>[xUnit.net 00:00:00.44]     Resonance.Tests.OriginalEncounterIntegrationTests.HalfHealthDuringCastDefersOnePhaseChange_AndRebuildsOnlyDeadMask [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.3906730+08:00">
+        <Text>[xUnit.net 00:00:00.44]     Resonance.Tests.OriginalEncounterInputTests.EliteChangesContentCompatibilityAndItsOwnInputFingerprint [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.3929691+08:00">
+        <Text>[xUnit.net 00:00:00.45]     Resonance.Tests.OriginalEncounterInputTests.N4FreezesTheDeclaredEliteTimingAndSkillIdentity [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.3949499+08:00">
+        <Text>[xUnit.net 00:00:00.45]     Resonance.Tests.OriginalEncounterInputTests.N4RejectsMissingOrMismatchedEliteIdentity [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.3957914+08:00">
+        <Text>[xUnit.net 00:00:00.45]     Resonance.Tests.OriginalEncounterInputTests.DeepCloneDetachesTheFrozenEliteDefinition [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.3966060+08:00">
+        <Text>[xUnit.net 00:00:00.45]     Resonance.Tests.OriginalEncounterInputTests.EncounterDefinitionsCannotAppearOnUnrelatedNodes [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.5321105+08:00">
+        <Text>[xUnit.net 00:00:00.59]     Resonance.Tests.OriginalEncounterInputTests.N7RequiresTheFixedBossAndTwoMasksAndSupportedVersion [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.5336595+08:00">
+        <Text>[xUnit.net 00:00:00.59]     Resonance.Tests.OriginalEncounterInputTests.EliteClocksMustRemainFinitePositiveAndBounded [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.5355636+08:00">
+        <Text>[xUnit.net 00:00:00.59]     Resonance.Tests.OriginalEncounterInputTests.EncounterAutoAndAreaCannotSilentlyChangeTheirTargetContract [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.5382480+08:00">
+        <Text>[xUnit.net 00:00:00.59]     Resonance.Tests.OriginalBossControllerTests.StablePhaseBoundaryIsOnceAndDoesNotWaitForFirstIntent [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.5399559+08:00">
+        <Text>[xUnit.net 00:00:00.59]     Resonance.Tests.OriginalBossControllerTests.ReentrantBoundaryFromAreaDefersRebuildUntilAttackCallbackReturns [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.5408224+08:00">
+        <Text>[xUnit.net 00:00:00.60]     Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Defeat) [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.5412878+08:00">
+        <Text>[xUnit.net 00:00:00.60]     Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Failed) [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.5417414+08:00">
+        <Text>[xUnit.net 00:00:00.60]     Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Victory) [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.5442795+08:00">
+        <Text>[xUnit.net 00:00:00.60]     Resonance.Tests.OriginalBossControllerTests.EliteIntentStartsAtSixAndAreaCompletesAtNineWithoutOwningAdds [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.5453854+08:00">
+        <Text>[xUnit.net 00:00:00.60]     Resonance.Tests.OriginalBossControllerTests.DeadBossCancelsEvenWhenMasksAndInProgressRemain [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.5463709+08:00">
+        <Text>[xUnit.net 00:00:00.60]     Resonance.Tests.OriginalBossControllerTests.ActualCastUsesMasksStillAliveAtResolutionAndSnapshotUpdatesDuringCast [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.5592175+08:00">
+        <Text>[xUnit.net 00:00:00.61]     Resonance.Tests.OriginalBossControllerTests.OwnsExactlyAuthoredSlots [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.5605580+08:00">
+        <Text>[xUnit.net 00:00:00.61]     Resonance.Tests.OriginalBossControllerTests.BossClockHasTwoAutosThenVisibleFourSecondCastWithoutExtraAuto [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.5624638+08:00">
+        <Text>[xUnit.net 00:00:00.62]     Resonance.Tests.OriginalBossControllerTests.PhaseChangeDuringCastWaitsThenRebuildsOnlyDeadMaskWithoutHealingSurvivor [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.5632712+08:00">
+        <Text>[xUnit.net 00:00:00.62]     Resonance.Tests.OriginalBossControllerTests.ActionLockDefersDueActionsAndSilenceDefersAreaButAllowsAuto [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.5642431+08:00">
+        <Text>[xUnit.net 00:00:00.62]     Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(dt: NaN) [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.5648280+08:00">
+        <Text>[xUnit.net 00:00:00.62]     Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(dt: ∞) [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.5655692+08:00">
+        <Text>[xUnit.net 00:00:00.62]     Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(dt: -1) [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:57:20.5671032+08:00">
+        <Text>[xUnit.net 00:00:00.62]     Resonance.Tests.OriginalBossControllerTests.FrozenDefinitionAndOneVsTwoSpeedHaveSameGameTimeActions [FAIL]</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>

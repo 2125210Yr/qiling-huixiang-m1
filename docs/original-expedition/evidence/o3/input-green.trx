@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="eaec9a59-553d-4ebd-ab8c-f231467eb2bd" name="Administrator@DESKTOP-AKI3LSA 2026-09-21 01:41:33" runUser="DESKTOP-AKI3LSA\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-09-21T01:41:33.6821096+08:00" queuing="2026-09-21T01:41:33.6821098+08:00" start="2026-09-21T01:41:32.8405305+08:00" finish="2026-09-21T01:41:33.6906544+08:00" />
+  <TestSettings name="default" id="89c6bd7d-3dbd-435b-a09d-6494c2ffd289">
+    <Deployment runDeploymentRoot="Administrator_DESKTOP-AKI3LSA_2026-09-21_01_41_33" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="c81fc653-15fa-4d53-b382-a63fb2f65bdd" testId="62133377-ddbc-8186-8493-e9a62230a6c5" testName="Resonance.Tests.OriginalEncounterInputTests.N4FreezesTheDeclaredEliteTimingAndSkillIdentity" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0035669" startTime="2026-09-21T01:41:33.5161250+08:00" endTime="2026-09-21T01:41:33.5161254+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c81fc653-15fa-4d53-b382-a63fb2f65bdd" />
+    <UnitTestResult executionId="545e8479-cfdf-4b96-84af-27ce6d32e087" testId="d1f01c9e-94ea-a7df-9ff2-71f9d7cce63a" testName="Resonance.Tests.OriginalEncounterInputTests.N4RejectsMissingOrMismatchedEliteIdentity" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0009568" startTime="2026-09-21T01:41:33.5172065+08:00" endTime="2026-09-21T01:41:33.5172067+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="545e8479-cfdf-4b96-84af-27ce6d32e087" />
+    <UnitTestResult executionId="6d659b4f-3f77-4ac9-a313-7fdfc622099e" testId="eabb94bd-e633-af1c-28ef-378419489ffb" testName="Resonance.Tests.OriginalEncounterInputTests.SerializationPreservesEliteAsBattleInput" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0856716" startTime="2026-09-21T01:41:33.6045074+08:00" endTime="2026-09-21T01:41:33.6045075+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6d659b4f-3f77-4ac9-a313-7fdfc622099e" />
+    <UnitTestResult executionId="cbc43de8-1e0e-40da-9e1b-9b2c2ee4910b" testId="9b1149a4-fc7f-e429-de50-4fb73003e0ec" testName="Resonance.Tests.OriginalEncounterInputTests.EliteChangesContentCompatibilityAndItsOwnInputFingerprint" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0327396" startTime="2026-09-21T01:41:33.5095225+08:00" endTime="2026-09-21T01:41:33.5095365+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cbc43de8-1e0e-40da-9e1b-9b2c2ee4910b" />
+    <UnitTestResult executionId="50f8ef97-d3a4-4388-998a-669ee357dbee" testId="42cce0a2-0087-9b5a-95a0-0affa189e0b7" testName="Resonance.Tests.OriginalEncounterInputTests.N7RequiresTheFixedBossAndTwoMasksAndSupportedVersion" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0010451" startTime="2026-09-21T01:41:33.6056319+08:00" endTime="2026-09-21T01:41:33.6056320+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="50f8ef97-d3a4-4388-998a-669ee357dbee" />
+    <UnitTestResult executionId="88ed268f-dc16-47cd-be44-0a3faa681653" testId="e470312f-6b31-9399-32d8-38ce0346e24c" testName="Resonance.Tests.OriginalEncounterInputTests.EliteClocksMustRemainFinitePositiveAndBounded" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0005870" startTime="2026-09-21T01:41:33.6062910+08:00" endTime="2026-09-21T01:41:33.6062912+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="88ed268f-dc16-47cd-be44-0a3faa681653" />
+    <UnitTestResult executionId="9408b46e-be24-468b-b34c-d193a86efbd6" testId="26a35c74-2a72-7cb9-8c44-4e19480d72a6" testName="Resonance.Tests.OriginalEncounterInputTests.EncounterDefinitionsCannotAppearOnUnrelatedNodes" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0004434" startTime="2026-09-21T01:41:33.5187664+08:00" endTime="2026-09-21T01:41:33.5187666+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9408b46e-be24-468b-b34c-d193a86efbd6" />
+    <UnitTestResult executionId="e9481789-604a-4157-b0fe-42a28f7d468a" testId="a8f21e81-32ee-fe28-cdce-b635a4f4af95" testName="Resonance.Tests.OriginalEncounterInputTests.EncounterAutoAndAreaCannotSilentlyChangeTheirTargetContract" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0010552" startTime="2026-09-21T01:41:33.6074144+08:00" endTime="2026-09-21T01:41:33.6074146+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e9481789-604a-4157-b0fe-42a28f7d468a" />
+    <UnitTestResult executionId="ac06e074-9b54-4dbb-8fc9-368b3a7a596a" testId="925e78d4-a4d0-74a0-d680-86952376b1f9" testName="Resonance.Tests.OriginalEncounterInputTests.DeepCloneDetachesTheFrozenEliteDefinition" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0009767" startTime="2026-09-21T01:41:33.5182601+08:00" endTime="2026-09-21T01:41:33.5182603+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ac06e074-9b54-4dbb-8fc9-368b3a7a596a" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Resonance.Tests.OriginalEncounterInputTests.SerializationPreservesEliteAsBattleInput" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="eabb94bd-e633-af1c-28ef-378419489ffb">
+      <Execution id="6d659b4f-3f77-4ac9-a313-7fdfc622099e" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalEncounterInputTests" name="SerializationPreservesEliteAsBattleInput" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalEncounterInputTests.EncounterDefinitionsCannotAppearOnUnrelatedNodes" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="26a35c74-2a72-7cb9-8c44-4e19480d72a6">
+      <Execution id="9408b46e-be24-468b-b34c-d193a86efbd6" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalEncounterInputTests" name="EncounterDefinitionsCannotAppearOnUnrelatedNodes" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalEncounterInputTests.N4RejectsMissingOrMismatchedEliteIdentity" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="d1f01c9e-94ea-a7df-9ff2-71f9d7cce63a">
+      <Execution id="545e8479-cfdf-4b96-84af-27ce6d32e087" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalEncounterInputTests" name="N4RejectsMissingOrMismatchedEliteIdentity" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalEncounterInputTests.N7RequiresTheFixedBossAndTwoMasksAndSupportedVersion" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="42cce0a2-0087-9b5a-95a0-0affa189e0b7">
+      <Execution id="50f8ef97-d3a4-4388-998a-669ee357dbee" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalEncounterInputTests" name="N7RequiresTheFixedBossAndTwoMasksAndSupportedVersion" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalEncounterInputTests.EliteChangesContentCompatibilityAndItsOwnInputFingerprint" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="9b1149a4-fc7f-e429-de50-4fb73003e0ec">
+      <Execution id="cbc43de8-1e0e-40da-9e1b-9b2c2ee4910b" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalEncounterInputTests" name="EliteChangesContentCompatibilityAndItsOwnInputFingerprint" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalEncounterInputTests.EncounterAutoAndAreaCannotSilentlyChangeTheirTargetContract" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="a8f21e81-32ee-fe28-cdce-b635a4f4af95">
+      <Execution id="e9481789-604a-4157-b0fe-42a28f7d468a" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalEncounterInputTests" name="EncounterAutoAndAreaCannotSilentlyChangeTheirTargetContract" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalEncounterInputTests.N4FreezesTheDeclaredEliteTimingAndSkillIdentity" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="62133377-ddbc-8186-8493-e9a62230a6c5">
+      <Execution id="c81fc653-15fa-4d53-b382-a63fb2f65bdd" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalEncounterInputTests" name="N4FreezesTheDeclaredEliteTimingAndSkillIdentity" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalEncounterInputTests.DeepCloneDetachesTheFrozenEliteDefinition" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="925e78d4-a4d0-74a0-d680-86952376b1f9">
+      <Execution id="ac06e074-9b54-4dbb-8fc9-368b3a7a596a" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalEncounterInputTests" name="DeepCloneDetachesTheFrozenEliteDefinition" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalEncounterInputTests.EliteClocksMustRemainFinitePositiveAndBounded" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="e470312f-6b31-9399-32d8-38ce0346e24c">
+      <Execution id="88ed268f-dc16-47cd-be44-0a3faa681653" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalEncounterInputTests" name="EliteClocksMustRemainFinitePositiveAndBounded" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="62133377-ddbc-8186-8493-e9a62230a6c5" executionId="c81fc653-15fa-4d53-b382-a63fb2f65bdd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d1f01c9e-94ea-a7df-9ff2-71f9d7cce63a" executionId="545e8479-cfdf-4b96-84af-27ce6d32e087" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eabb94bd-e633-af1c-28ef-378419489ffb" executionId="6d659b4f-3f77-4ac9-a313-7fdfc622099e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9b1149a4-fc7f-e429-de50-4fb73003e0ec" executionId="cbc43de8-1e0e-40da-9e1b-9b2c2ee4910b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="42cce0a2-0087-9b5a-95a0-0affa189e0b7" executionId="50f8ef97-d3a4-4388-998a-669ee357dbee" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e470312f-6b31-9399-32d8-38ce0346e24c" executionId="88ed268f-dc16-47cd-be44-0a3faa681653" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="26a35c74-2a72-7cb9-8c44-4e19480d72a6" executionId="9408b46e-be24-468b-b34c-d193a86efbd6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a8f21e81-32ee-fe28-cdce-b635a4f4af95" executionId="e9481789-604a-4157-b0fe-42a28f7d468a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="925e78d4-a4d0-74a0-d680-86952376b1f9" executionId="ac06e074-9b54-4dbb-8fc9-368b3a7a596a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="9" executed="9" passed="9" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 6.0.33)&#xD;
+[xUnit.net 00:00:00.09]   Discovering: BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.16]   Discovered:  BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.16]   Starting:    BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.34]   Finished:    BattleSim.Tests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

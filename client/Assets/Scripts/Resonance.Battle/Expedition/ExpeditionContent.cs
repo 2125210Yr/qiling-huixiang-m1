@@ -259,7 +259,7 @@ namespace Resonance.Battle
             for (int i = 0; i < Nodes.Length; i++) stages[i] = CreateStage(Nodes[i]);
             return Fingerprint(new object[] { Version, RulesetId, ChapterId, Party, CreateCharacters(),
                 CreateSkills(SinglePreset), CreateSkills(SweepPreset), CreateEffects(), stages, RelicTable,
-                new ExpeditionRelicParameters(), new BossEncounterDef(), CreateClocks(),
+                new ExpeditionRelicParameters(), new BossEncounterDef(), new EliteEncounterDef(), CreateClocks(),
                 FormulaProfile.JP_LEGACY_EMPIRICAL, false, false });
         }
 

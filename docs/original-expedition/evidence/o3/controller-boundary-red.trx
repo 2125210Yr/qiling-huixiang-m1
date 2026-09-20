@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="e5d41630-5415-4985-82e0-3fbb6b0efb3d" name="Administrator@DESKTOP-AKI3LSA 2026-09-21 01:45:34" runUser="DESKTOP-AKI3LSA\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-09-21T01:45:34.3520035+08:00" queuing="2026-09-21T01:45:34.3520038+08:00" start="2026-09-21T01:45:33.6346672+08:00" finish="2026-09-21T01:45:34.4350697+08:00" />
+  <TestSettings name="default" id="f41d9181-7568-41d3-b262-ee7ab6cd311e">
+    <Deployment runDeploymentRoot="Administrator_DESKTOP-AKI3LSA_2026-09-21_01_45_34" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="22c817c8-2b00-4a06-8041-e9aa90d24709" testId="a53c7008-a01b-24c2-7244-1b5da7a912cf" testName="Resonance.Tests.OriginalBossControllerTests.ActionLockDefersDueActionsAndSilenceDefersAreaButAllowsAuto" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0002916" startTime="2026-09-21T01:45:34.3805621+08:00" endTime="2026-09-21T01:45:34.3805624+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="22c817c8-2b00-4a06-8041-e9aa90d24709" />
+    <UnitTestResult executionId="98efbc5f-dd2a-4ef7-bf7e-81e42faf35bf" testId="ff389eb8-d527-bee1-84ab-12f97668a91d" testName="Resonance.Tests.OriginalBossControllerTests.NoWorldTickLeavesAllIntentStateUnchangedAndSnapshotsAreCopies" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0118384" startTime="2026-09-21T01:45:34.2994622+08:00" endTime="2026-09-21T01:45:34.2994760+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="98efbc5f-dd2a-4ef7-bf7e-81e42faf35bf" />
+    <UnitTestResult executionId="15ccfa9c-a6cf-4e0c-8e9f-4565252588d4" testId="066ca07b-9c5f-447c-5969-8af0c281bbc0" testName="Resonance.Tests.OriginalBossControllerTests.DeadBossCancelsEvenWhenMasksAndInProgressRemain" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0001738" startTime="2026-09-21T01:45:34.3104814+08:00" endTime="2026-09-21T01:45:34.3104814+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="15ccfa9c-a6cf-4e0c-8e9f-4565252588d4" />
+    <UnitTestResult executionId="26ddb4ed-11a0-4300-9236-b7af06b438ed" testId="d0fa5288-a4a8-f8f6-3b81-f10acba82bff" testName="Resonance.Tests.OriginalBossControllerTests.BossDeathInsideAreaCallbackCancelsRebuildAndPreservesHistoricalCounters" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0003277" startTime="2026-09-21T01:45:34.3763260+08:00" endTime="2026-09-21T01:45:34.3763261+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="26ddb4ed-11a0-4300-9236-b7af06b438ed" />
+    <UnitTestResult executionId="4d75af99-4eae-4579-ba8d-df5517f697e6" testId="401bcc93-fe2e-dfbe-03bb-bc5d81342844" testName="Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Victory)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0000770" startTime="2026-09-21T01:45:34.3075125+08:00" endTime="2026-09-21T01:45:34.3075126+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4d75af99-4eae-4579-ba8d-df5517f697e6" />
+    <UnitTestResult executionId="728c3958-7537-4ac8-84e6-b5cfe3c6504e" testId="f3f9c642-a9f9-576d-d373-d101322e234a" testName="Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(dt: NaN)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0004081" startTime="2026-09-21T01:45:34.3810371+08:00" endTime="2026-09-21T01:45:34.3810372+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="728c3958-7537-4ac8-84e6-b5cfe3c6504e" />
+    <UnitTestResult executionId="7125cc39-ecec-4a65-b225-e287f8613e36" testId="f002b4fb-0289-391d-42dd-87152a6c32f6" testName="Resonance.Tests.OriginalBossControllerTests.PendingPhaseRemainsPendingIfBossHealsBeforeItsCastCompletes" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0001789" startTime="2026-09-21T01:45:34.3759486+08:00" endTime="2026-09-21T01:45:34.3759487+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7125cc39-ecec-4a65-b225-e287f8613e36" />
+    <UnitTestResult executionId="20b7e0f5-c7d1-4254-89f1-ea3f1698746d" testId="c351d233-994d-d58c-3762-e6e978d7d7ce" testName="Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(dt: ∞)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0000294" startTime="2026-09-21T01:45:34.3811078+08:00" endTime="2026-09-21T01:45:34.3811078+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="20b7e0f5-c7d1-4254-89f1-ea3f1698746d" />
+    <UnitTestResult executionId="534b538b-f1e9-4035-9b9d-e0673022f68b" testId="57acdc9c-ac95-e360-f0da-c693e8a326ac" testName="Resonance.Tests.OriginalBossControllerTests.EliteIntentStartsAtSixAndAreaCompletesAtNineWithoutOwningAdds" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0013085" startTime="2026-09-21T01:45:34.3102410+08:00" endTime="2026-09-21T01:45:34.3102413+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="534b538b-f1e9-4035-9b9d-e0673022f68b" />
+    <UnitTestResult executionId="cbfbed7b-fe31-4c71-b512-67886feaa2d6" testId="5b0e9da3-3ab4-3b94-b5b3-73fd7caff0fa" testName="Resonance.Tests.OriginalBossControllerTests.StablePhaseBoundaryIsOnceAndDoesNotWaitForFirstIntent" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0035469" startTime="2026-09-21T01:45:34.3062209+08:00" endTime="2026-09-21T01:45:34.3062211+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cbfbed7b-fe31-4c71-b512-67886feaa2d6" />
+    <UnitTestResult executionId="26b889fd-678a-4aac-aa26-0366e510e086" testId="c0a6b992-524c-6765-bde8-1f55c48bd438" testName="Resonance.Tests.OriginalBossControllerTests.BossClockHasTwoAutosThenVisibleFourSecondCastWithoutExtraAuto" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0032007" startTime="2026-09-21T01:45:34.3756844+08:00" endTime="2026-09-21T01:45:34.3756851+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="26b889fd-678a-4aac-aa26-0366e510e086" />
+    <UnitTestResult executionId="4bd9a58d-fcea-4798-b540-3cbd484c1bb2" testId="087b22fa-0b20-2892-af7e-5100b5b4145b" testName="Resonance.Tests.OriginalBossControllerTests.StunnedAutoDefersOnceWithoutAccumulatedBurstAfterUnlock" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0012852" startTime="2026-09-21T01:45:34.3088543+08:00" endTime="2026-09-21T01:45:34.3088545+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4bd9a58d-fcea-4798-b540-3cbd484c1bb2" />
+    <UnitTestResult executionId="ecc7f20d-7598-494a-bf07-a85f06340d08" testId="f980593d-90a3-9281-ea37-005d3ed6ee5a" testName="Resonance.Tests.OriginalBossControllerTests.ReentrantBoundaryFromAreaDefersRebuildUntilAttackCallbackReturns" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0004752" startTime="2026-09-21T01:45:34.3068339+08:00" endTime="2026-09-21T01:45:34.3068340+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ecc7f20d-7598-494a-bf07-a85f06340d08" />
+    <UnitTestResult executionId="9be4057c-0bfa-4fa3-9bcf-cbd36fe1db94" testId="44ca2be8-adfb-daf3-c82b-a4200bb62d29" testName="Resonance.Tests.OriginalBossControllerTests.PhaseAfterCompletedAreaShortensExistingNextIntervalFromTheCompletion" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0022223" startTime="2026-09-21T01:45:34.3651073+08:00" endTime="2026-09-21T01:45:34.3651076+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9be4057c-0bfa-4fa3-9bcf-cbd36fe1db94" />
+    <UnitTestResult executionId="4395ed84-4eb3-496e-92be-944396965258" testId="c759f392-8374-e7e2-cdbf-373f1fc784df" testName="Resonance.Tests.OriginalBossControllerTests.SubsequentAreaAndAutoScheduleFromCompletionWithNoSameFrameAuto" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0022523" startTime="2026-09-21T01:45:34.3836292+08:00" endTime="2026-09-21T01:45:34.3836293+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4395ed84-4eb3-496e-92be-944396965258" />
+    <UnitTestResult executionId="3193aba6-5d72-4a3c-bd51-04de3c0e2be5" testId="3a3e8065-5533-0e69-4532-4f4236d8d773" testName="Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(dt: -1)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0000128" startTime="2026-09-21T01:45:34.3811447+08:00" endTime="2026-09-21T01:45:34.3811448+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3193aba6-5d72-4a3c-bd51-04de3c0e2be5" />
+    <UnitTestResult executionId="ad8f3fad-7c3f-4e62-90da-9d55c0c9915c" testId="b53ad2e9-490e-42b2-5864-4d9b5913089e" testName="Resonance.Tests.OriginalBossControllerTests.CoreReportedFailureWithoutThrowDoesNotCountAreaCompletion" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0045656" startTime="2026-09-21T01:45:34.3611696+08:00" endTime="2026-09-21T01:45:34.3611698+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ad8f3fad-7c3f-4e62-90da-9d55c0c9915c">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: 0&#xD;
+Actual:   1</Message>
+          <StackTrace>   at Resonance.Tests.OriginalBossControllerTests.CoreReportedFailureWithoutThrowDoesNotCountAreaCompletion() in F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs:line 240</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="09bc8544-0d53-4615-acf9-a462ed0d5242" testId="cd76b8fb-a249-977b-7906-b2b04eac7e3d" testName="Resonance.Tests.OriginalBossControllerTests.PhaseWithBothMasksLivingStillTransitionsOnceAndCountsNoRebuild" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0010234" startTime="2026-09-21T01:45:34.3624468+08:00" endTime="2026-09-21T01:45:34.3624472+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="09bc8544-0d53-4615-acf9-a462ed0d5242" />
+    <UnitTestResult executionId="625757fa-1bee-4630-80a4-5502c3d5ebf7" testId="f33e1ba0-7676-1643-c5e3-8dece70f579f" testName="Resonance.Tests.OriginalBossControllerTests.ActualCastUsesMasksStillAliveAtResolutionAndSnapshotUpdatesDuringCast" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0002550" startTime="2026-09-21T01:45:34.3627998+08:00" endTime="2026-09-21T01:45:34.3627998+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="625757fa-1bee-4630-80a4-5502c3d5ebf7" />
+    <UnitTestResult executionId="7672c946-0190-4f96-bf1b-90e1edbc5e0e" testId="b095b2c1-7216-7b47-acae-35add89402e9" testName="Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Defeat)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0003599" startTime="2026-09-21T01:45:34.3072718+08:00" endTime="2026-09-21T01:45:34.3072719+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7672c946-0190-4f96-bf1b-90e1edbc5e0e" />
+    <UnitTestResult executionId="fe5b8eac-c1f7-4eb5-8b63-b700efc1aae1" testId="5d2113f8-6187-890e-11da-b6261ebbd1cd" testName="Resonance.Tests.OriginalBossControllerTests.FrozenDefinitionAndOneVsTwoSpeedHaveSameGameTimeActions" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0021882" startTime="2026-09-21T01:45:34.3864208+08:00" endTime="2026-09-21T01:45:34.3864210+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fe5b8eac-c1f7-4eb5-8b63-b700efc1aae1" />
+    <UnitTestResult executionId="15b75d01-2749-4faa-891f-7bc833719ebd" testId="0e63d672-77d0-c70f-38fe-7494a545e3ce" testName="Resonance.Tests.OriginalBossControllerTests.OwnsExactlyAuthoredSlots" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0071605" startTime="2026-09-21T01:45:34.3723768+08:00" endTime="2026-09-21T01:45:34.3723770+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="15b75d01-2749-4faa-891f-7bc833719ebd" />
+    <UnitTestResult executionId="2e7e6f43-9fd8-4b8a-8dc5-944e8d6d432d" testId="85d0c8f4-7b2c-4637-e180-08603b254aa0" testName="Resonance.Tests.OriginalBossControllerTests.MissingMaskUsesGenerationZeroAndLivingMasksAreNotRefilled" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0001518" startTime="2026-09-21T01:45:34.3813294+08:00" endTime="2026-09-21T01:45:34.3813295+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2e7e6f43-9fd8-4b8a-8dc5-944e8d6d432d" />
+    <UnitTestResult executionId="8a61ebb5-14a4-49ea-ac02-ccc8bc335d20" testId="8f8134c3-e006-c7fa-9eb3-984501f6f529" testName="Resonance.Tests.OriginalBossControllerTests.PhaseChangeDuringCastWaitsThenRebuildsOnlyDeadMaskWithoutHealingSurvivor" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0026548" startTime="2026-09-21T01:45:34.3790584+08:00" endTime="2026-09-21T01:45:34.3790589+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8a61ebb5-14a4-49ea-ac02-ccc8bc335d20" />
+    <UnitTestResult executionId="53542761-a23b-4537-983b-97b8e8c44064" testId="a557fc78-3542-aab2-c15b-4506d3623aea" testName="Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Failed)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0000816" startTime="2026-09-21T01:45:34.3074020+08:00" endTime="2026-09-21T01:45:34.3074021+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="53542761-a23b-4537-983b-97b8e8c44064" />
+    <UnitTestResult executionId="c91aaa0e-0df3-4591-bf02-96b8d20c2380" testId="48384487-5b83-1e63-41c9-4ff1deb7f2fd" testName="Resonance.Tests.OriginalBossControllerTests.FailedApplyCancelsAndPropagatesInsteadOfPretendingAreaSucceeded" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0004133" startTime="2026-09-21T01:45:34.3841553+08:00" endTime="2026-09-21T01:45:34.3841554+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c91aaa0e-0df3-4591-bf02-96b8d20c2380" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.ReentrantBoundaryFromAreaDefersRebuildUntilAttackCallbackReturns" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="f980593d-90a3-9281-ea37-005d3ed6ee5a">
+      <Execution id="ecc7f20d-7598-494a-bf07-a85f06340d08" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="ReentrantBoundaryFromAreaDefersRebuildUntilAttackCallbackReturns" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.FailedApplyCancelsAndPropagatesInsteadOfPretendingAreaSucceeded" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="48384487-5b83-1e63-41c9-4ff1deb7f2fd">
+      <Execution id="c91aaa0e-0df3-4591-bf02-96b8d20c2380" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="FailedApplyCancelsAndPropagatesInsteadOfPretendingAreaSucceeded" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.PhaseChangeDuringCastWaitsThenRebuildsOnlyDeadMaskWithoutHealingSurvivor" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="8f8134c3-e006-c7fa-9eb3-984501f6f529">
+      <Execution id="8a61ebb5-14a4-49ea-ac02-ccc8bc335d20" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="PhaseChangeDuringCastWaitsThenRebuildsOnlyDeadMaskWithoutHealingSurvivor" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(dt: ∞)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="c351d233-994d-d58c-3762-e6e978d7d7ce">
+      <Execution id="20b7e0f5-c7d1-4254-89f1-ea3f1698746d" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="InvalidElapsedInputFailsBeforeStateAdvances" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Victory)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="401bcc93-fe2e-dfbe-03bb-bc5d81342844">
+      <Execution id="4d75af99-4eae-4579-ba8d-df5517f697e6" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="TerminalOutcomeCancelsPendingCastAndPhase" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.PhaseAfterCompletedAreaShortensExistingNextIntervalFromTheCompletion" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="44ca2be8-adfb-daf3-c82b-a4200bb62d29">
+      <Execution id="9be4057c-0bfa-4fa3-9bcf-cbd36fe1db94" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="PhaseAfterCompletedAreaShortensExistingNextIntervalFromTheCompletion" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(dt: NaN)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="f3f9c642-a9f9-576d-d373-d101322e234a">
+      <Execution id="728c3958-7537-4ac8-84e6-b5cfe3c6504e" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="InvalidElapsedInputFailsBeforeStateAdvances" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.BossClockHasTwoAutosThenVisibleFourSecondCastWithoutExtraAuto" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="c0a6b992-524c-6765-bde8-1f55c48bd438">
+      <Execution id="26b889fd-678a-4aac-aa26-0366e510e086" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="BossClockHasTwoAutosThenVisibleFourSecondCastWithoutExtraAuto" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.StunnedAutoDefersOnceWithoutAccumulatedBurstAfterUnlock" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="087b22fa-0b20-2892-af7e-5100b5b4145b">
+      <Execution id="4bd9a58d-fcea-4798-b540-3cbd484c1bb2" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="StunnedAutoDefersOnceWithoutAccumulatedBurstAfterUnlock" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.ActualCastUsesMasksStillAliveAtResolutionAndSnapshotUpdatesDuringCast" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="f33e1ba0-7676-1643-c5e3-8dece70f579f">
+      <Execution id="625757fa-1bee-4630-80a4-5502c3d5ebf7" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="ActualCastUsesMasksStillAliveAtResolutionAndSnapshotUpdatesDuringCast" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.PendingPhaseRemainsPendingIfBossHealsBeforeItsCastCompletes" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="f002b4fb-0289-391d-42dd-87152a6c32f6">
+      <Execution id="7125cc39-ecec-4a65-b225-e287f8613e36" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="PendingPhaseRemainsPendingIfBossHealsBeforeItsCastCompletes" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.BossDeathInsideAreaCallbackCancelsRebuildAndPreservesHistoricalCounters" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="d0fa5288-a4a8-f8f6-3b81-f10acba82bff">
+      <Execution id="26ddb4ed-11a0-4300-9236-b7af06b438ed" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="BossDeathInsideAreaCallbackCancelsRebuildAndPreservesHistoricalCounters" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Defeat)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="b095b2c1-7216-7b47-acae-35add89402e9">
+      <Execution id="7672c946-0190-4f96-bf1b-90e1edbc5e0e" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="TerminalOutcomeCancelsPendingCastAndPhase" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.StablePhaseBoundaryIsOnceAndDoesNotWaitForFirstIntent" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="5b0e9da3-3ab4-3b94-b5b3-73fd7caff0fa">
+      <Execution id="cbfbed7b-fe31-4c71-b512-67886feaa2d6" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="StablePhaseBoundaryIsOnceAndDoesNotWaitForFirstIntent" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.MissingMaskUsesGenerationZeroAndLivingMasksAreNotRefilled" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="85d0c8f4-7b2c-4637-e180-08603b254aa0">
+      <Execution id="2e7e6f43-9fd8-4b8a-8dc5-944e8d6d432d" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="MissingMaskUsesGenerationZeroAndLivingMasksAreNotRefilled" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.DeadBossCancelsEvenWhenMasksAndInProgressRemain" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="066ca07b-9c5f-447c-5969-8af0c281bbc0">
+      <Execution id="15ccfa9c-a6cf-4e0c-8e9f-4565252588d4" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="DeadBossCancelsEvenWhenMasksAndInProgressRemain" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.InvalidElapsedInputFailsBeforeStateAdvances(dt: -1)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="3a3e8065-5533-0e69-4532-4f4236d8d773">
+      <Execution id="3193aba6-5d72-4a3c-bd51-04de3c0e2be5" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="InvalidElapsedInputFailsBeforeStateAdvances" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.CoreReportedFailureWithoutThrowDoesNotCountAreaCompletion" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="b53ad2e9-490e-42b2-5864-4d9b5913089e">
+      <Execution id="ad8f3fad-7c3f-4e62-90da-9d55c0c9915c" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="CoreReportedFailureWithoutThrowDoesNotCountAreaCompletion" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.TerminalOutcomeCancelsPendingCastAndPhase(outcome: Failed)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="a557fc78-3542-aab2-c15b-4506d3623aea">
+      <Execution id="53542761-a23b-4537-983b-97b8e8c44064" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="TerminalOutcomeCancelsPendingCastAndPhase" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.FrozenDefinitionAndOneVsTwoSpeedHaveSameGameTimeActions" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="5d2113f8-6187-890e-11da-b6261ebbd1cd">
+      <Execution id="fe5b8eac-c1f7-4eb5-8b63-b700efc1aae1" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="FrozenDefinitionAndOneVsTwoSpeedHaveSameGameTimeActions" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.NoWorldTickLeavesAllIntentStateUnchangedAndSnapshotsAreCopies" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="ff389eb8-d527-bee1-84ab-12f97668a91d">
+      <Execution id="98efbc5f-dd2a-4ef7-bf7e-81e42faf35bf" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="NoWorldTickLeavesAllIntentStateUnchangedAndSnapshotsAreCopies" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.ActionLockDefersDueActionsAndSilenceDefersAreaButAllowsAuto" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="a53c7008-a01b-24c2-7244-1b5da7a912cf">
+      <Execution id="22c817c8-2b00-4a06-8041-e9aa90d24709" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="ActionLockDefersDueActionsAndSilenceDefersAreaButAllowsAuto" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.EliteIntentStartsAtSixAndAreaCompletesAtNineWithoutOwningAdds" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="57acdc9c-ac95-e360-f0da-c693e8a326ac">
+      <Execution id="534b538b-f1e9-4035-9b9d-e0673022f68b" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="EliteIntentStartsAtSixAndAreaCompletesAtNineWithoutOwningAdds" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.PhaseWithBothMasksLivingStillTransitionsOnceAndCountsNoRebuild" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="cd76b8fb-a249-977b-7906-b2b04eac7e3d">
+      <Execution id="09bc8544-0d53-4615-acf9-a462ed0d5242" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="PhaseWithBothMasksLivingStillTransitionsOnceAndCountsNoRebuild" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.SubsequentAreaAndAutoScheduleFromCompletionWithNoSameFrameAuto" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="c759f392-8374-e7e2-cdbf-373f1fc784df">
+      <Execution id="4395ed84-4eb3-496e-92be-944396965258" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="SubsequentAreaAndAutoScheduleFromCompletionWithNoSameFrameAuto" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalBossControllerTests.OwnsExactlyAuthoredSlots" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="0e63d672-77d0-c70f-38fe-7494a545e3ce">
+      <Execution id="15b75d01-2749-4faa-891f-7bc833719ebd" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalBossControllerTests" name="OwnsExactlyAuthoredSlots" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="a53c7008-a01b-24c2-7244-1b5da7a912cf" executionId="22c817c8-2b00-4a06-8041-e9aa90d24709" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ff389eb8-d527-bee1-84ab-12f97668a91d" executionId="98efbc5f-dd2a-4ef7-bf7e-81e42faf35bf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="066ca07b-9c5f-447c-5969-8af0c281bbc0" executionId="15ccfa9c-a6cf-4e0c-8e9f-4565252588d4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d0fa5288-a4a8-f8f6-3b81-f10acba82bff" executionId="26ddb4ed-11a0-4300-9236-b7af06b438ed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="401bcc93-fe2e-dfbe-03bb-bc5d81342844" executionId="4d75af99-4eae-4579-ba8d-df5517f697e6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f3f9c642-a9f9-576d-d373-d101322e234a" executionId="728c3958-7537-4ac8-84e6-b5cfe3c6504e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f002b4fb-0289-391d-42dd-87152a6c32f6" executionId="7125cc39-ecec-4a65-b225-e287f8613e36" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c351d233-994d-d58c-3762-e6e978d7d7ce" executionId="20b7e0f5-c7d1-4254-89f1-ea3f1698746d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="57acdc9c-ac95-e360-f0da-c693e8a326ac" executionId="534b538b-f1e9-4035-9b9d-e0673022f68b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5b0e9da3-3ab4-3b94-b5b3-73fd7caff0fa" executionId="cbfbed7b-fe31-4c71-b512-67886feaa2d6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c0a6b992-524c-6765-bde8-1f55c48bd438" executionId="26b889fd-678a-4aac-aa26-0366e510e086" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="087b22fa-0b20-2892-af7e-5100b5b4145b" executionId="4bd9a58d-fcea-4798-b540-3cbd484c1bb2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f980593d-90a3-9281-ea37-005d3ed6ee5a" executionId="ecc7f20d-7598-494a-bf07-a85f06340d08" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="44ca2be8-adfb-daf3-c82b-a4200bb62d29" executionId="9be4057c-0bfa-4fa3-9bcf-cbd36fe1db94" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c759f392-8374-e7e2-cdbf-373f1fc784df" executionId="4395ed84-4eb3-496e-92be-944396965258" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3a3e8065-5533-0e69-4532-4f4236d8d773" executionId="3193aba6-5d72-4a3c-bd51-04de3c0e2be5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b53ad2e9-490e-42b2-5864-4d9b5913089e" executionId="ad8f3fad-7c3f-4e62-90da-9d55c0c9915c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cd76b8fb-a249-977b-7906-b2b04eac7e3d" executionId="09bc8544-0d53-4615-acf9-a462ed0d5242" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f33e1ba0-7676-1643-c5e3-8dece70f579f" executionId="625757fa-1bee-4630-80a4-5502c3d5ebf7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b095b2c1-7216-7b47-acae-35add89402e9" executionId="7672c946-0190-4f96-bf1b-90e1edbc5e0e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5d2113f8-6187-890e-11da-b6261ebbd1cd" executionId="fe5b8eac-c1f7-4eb5-8b63-b700efc1aae1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0e63d672-77d0-c70f-38fe-7494a545e3ce" executionId="15b75d01-2749-4faa-891f-7bc833719ebd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="85d0c8f4-7b2c-4637-e180-08603b254aa0" executionId="2e7e6f43-9fd8-4b8a-8dc5-944e8d6d432d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8f8134c3-e006-c7fa-9eb3-984501f6f529" executionId="8a61ebb5-14a4-49ea-ac02-ccc8bc335d20" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a557fc78-3542-aab2-c15b-4506d3623aea" executionId="53542761-a23b-4537-983b-97b8e8c44064" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="48384487-5b83-1e63-41c9-4ff1deb7f2fd" executionId="c91aaa0e-0df3-4591-bf02-96b8d20c2380" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="26" executed="26" passed="25" failed="1" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 6.0.33)&#xD;
+[xUnit.net 00:00:00.08]   Discovering: BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.16]   Discovered:  BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.16]   Starting:    BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.28]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.28]       Expected: 0&#xD;
+[xUnit.net 00:00:00.28]       Actual:   1&#xD;
+[xUnit.net 00:00:00.28]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.28]         F:\天命之子\tools\BattleSim.Tests\OriginalBossControllerTests.cs(240,0): at Resonance.Tests.OriginalBossControllerTests.CoreReportedFailureWithoutThrowDoesNotCountAreaCompletion()&#xD;
+[xUnit.net 00:00:00.31]   Finished:    BattleSim.Tests&#xD;
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T01:45:34.3625174+08:00">
+        <Text>[xUnit.net 00:00:00.28]     Resonance.Tests.OriginalBossControllerTests.CoreReportedFailureWithoutThrowDoesNotCountAreaCompletion [FAIL]</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>

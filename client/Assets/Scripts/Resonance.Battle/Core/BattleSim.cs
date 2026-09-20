@@ -460,6 +460,7 @@ namespace Resonance.Battle
             if (!IsOriginalExpedition) { TickCore(); return; }
             try { TickCore(); }
             catch (Exception error) { FailOriginalRule(error); }
+            finally { if (Outcome != BattleOutcome.InProgress) OriginalEncounter?.Cancel(); }
         }
 
         void TickCore()
@@ -480,6 +481,8 @@ namespace Resonance.Battle
             if (IsOriginalExpedition)
             {
                 SettleOriginalBoundary();
+                if (Outcome != BattleOutcome.InProgress) return;
+                AdvanceOriginalEncounter(stageDt);
                 if (Outcome != BattleOutcome.InProgress) return;
             }
             TickSlideClocks(ScaleClock(dt, Clocks != null && Clocks.SlideCdScalesWithSpeed));
@@ -871,6 +874,7 @@ namespace Resonance.Battle
         void TickUnit(UnitState u, bool ally, float chargeDt, float autoDt)
         {
             if (IsOriginalExpedition && Outcome != BattleOutcome.InProgress) return;
+            if (!ally && OriginalEncounter != null && u != null && OriginalEncounter.OwnsEnemySlot(u.Slot)) return;
             if (u == null || u.Def == null || !u.Alive) return;
             if (u.ActionLocked) return;
             var chargePerSec = (100f / Math.Max(0.01f, u.Def.ChargeTimeSec)) * u.ChargeSpeedMul;
@@ -1702,10 +1706,11 @@ namespace Resonance.Battle
         {
             ClearDeadFocus();
             var buf = new List<UnitState>(8);
-            if (rule != TargetRule.AllEnemies && count <= 1 && FocusEnemySlot >= 0
-                && FocusEnemySlot < Enemies.Count)
+            var focusSlot = IsOriginalExpedition && _expeditionRequiredEnemySlot >= 0 ? _expeditionRequiredEnemySlot : FocusEnemySlot;
+            if (rule != TargetRule.AllEnemies && count <= 1 && focusSlot >= 0
+                && focusSlot < Enemies.Count)
             {
-                var focus = Enemies[FocusEnemySlot];
+                var focus = Enemies[focusSlot];
                 if (focus != null && focus.Alive)
                 {
                     buf.Add(focus);

@@ -10,7 +10,8 @@ namespace Resonance.Tests
     {
         static BattleSim ShieldFixture(int incoming, params string[] relics)
         {
-            var input = RunBattleFactory.CreateInput("N4", "single", 71041, relics, null);
+            // Keep this arithmetic fixture on an unscripted encounter; N4 has its own O3 intent clock.
+            var input = RunBattleFactory.CreateInput("N1", "single", 71041, relics, null);
             input.Stage.Wave0 = new[] { "OE_PROMPTER", "OE_USHER", "OE_CHORUS" };
             foreach (var c in input.Characters)
             {
