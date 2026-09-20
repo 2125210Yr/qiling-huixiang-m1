@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-09-21T03:07:20.1120432+08:00",
+  "sourceCommit": "7a25e67a",
+  "request": "User explicitly requested one retry",
+  "outcome": "BLOCKED_BEFORE_PROJECT_LOAD",
+  "licensingError": "Timed-out after 30.00s waiting for HandshakeResponse",
+  "licensingInitializationSeconds": 30.47,
+  "wmiProbeAt": "2026-09-21T03:04:55.7479425+08:00",
+  "wmiProbeOutcome": "TIMED_OUT",
+  "wmiProbeElapsedMs": 5094,
+  "testsStarted": false,
+  "testResultXmlExists": false,
+  "editorPid": 28932,
+  "licensingClientPid": 9956,
+  "ownProcessesStoppedAfterFailure": true,
+  "ownProcessIdsStillPresent": [],
+  "runExitCode": -1,
+  "exitCodeMeaning": "Explicit cleanup after authoritative licensing-initialization failure; not a Unity test result",
+  "editorLogSha256": "F29110BDFAD4CA9C686663C64E5D9562BF05C8AE5AB3EE731B334304793DF14F"
+}

@@ -1,0 +1,130 @@
+{
+  "schema": "original-expedition-delivery-tests-v1",
+  "phase": "RED",
+  "purpose": "FIXTURE_ONLY_NOT_REAL_UNITY_PLAYER_VALIDATION",
+  "createdUtc": "2026-09-20T19:23:16.9249956Z",
+  "fixtureRoot": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\OriginalExpedition-Delivery-FIXTURE-37ed58c0b6c54e058b0a1ff28c9c4638",
+  "fixturesRetained": true,
+  "unityExecuted": false,
+  "playerExecuted": false,
+  "total": 23,
+  "passed": 0,
+  "failed": 23,
+  "results": [
+    {
+      "name": "valid FIXTURE is copied, manifested, zipped and independently verified",
+      "result": "FAIL",
+      "error": "Package tool has not been implemented."
+    },
+    {
+      "name": "FAIL audit is rejected before destination creation",
+      "result": "FAIL",
+      "error": "Unexpected rejection: Package tool has not been implemented."
+    },
+    {
+      "name": "commit mismatch is rejected",
+      "result": "FAIL",
+      "error": "Unexpected rejection: Package tool has not been implemented."
+    },
+    {
+      "name": "content mismatch is rejected",
+      "result": "FAIL",
+      "error": "Unexpected rejection: Package tool has not been implemented."
+    },
+    {
+      "name": "modified file is rejected",
+      "result": "FAIL",
+      "error": "Unexpected rejection: Package tool has not been implemented."
+    },
+    {
+      "name": "missing audited file is rejected without deleting any fixture",
+      "result": "FAIL",
+      "error": "Unexpected rejection: Package tool has not been implemented."
+    },
+    {
+      "name": "extra file is rejected",
+      "result": "FAIL",
+      "error": "Unexpected rejection: Package tool has not been implemented."
+    },
+    {
+      "name": "input manifest audit hash is required",
+      "result": "FAIL",
+      "error": "Unexpected rejection: Package tool has not been implemented."
+    },
+    {
+      "name": "required third party notice must be audited",
+      "result": "FAIL",
+      "error": "Unexpected rejection: Package tool has not been implemented."
+    },
+    {
+      "name": "unsafe output path is rejected: ../outside.txt",
+      "result": "FAIL",
+      "error": "Unexpected rejection: Package tool has not been implemented."
+    },
+    {
+      "name": "unsafe output path is rejected: /absolute.txt",
+      "result": "FAIL",
+      "error": "Unexpected rejection: Package tool has not been implemented."
+    },
+    {
+      "name": "unsafe output path is rejected: C:/escape.txt",
+      "result": "FAIL",
+      "error": "Unexpected rejection: Package tool has not been implemented."
+    },
+    {
+      "name": "unsafe output path is rejected: data.txt:stream",
+      "result": "FAIL",
+      "error": "Unexpected rejection: Package tool has not been implemented."
+    },
+    {
+      "name": "unsafe output path is rejected: folder/../escape.txt",
+      "result": "FAIL",
+      "error": "Unexpected rejection: Package tool has not been implemented."
+    },
+    {
+      "name": "unsafe output path is rejected: NUL.txt",
+      "result": "FAIL",
+      "error": "Unexpected rejection: Package tool has not been implemented."
+    },
+    {
+      "name": "unsafe output path is rejected: trailing. /file.txt",
+      "result": "FAIL",
+      "error": "Unexpected rejection: Package tool has not been implemented."
+    },
+    {
+      "name": "unsafe output path is rejected: double//slash.txt",
+      "result": "FAIL",
+      "error": "Unexpected rejection: Package tool has not been implemented."
+    },
+    {
+      "name": "case duplicate output is rejected",
+      "result": "FAIL",
+      "error": "Unexpected rejection: Package tool has not been implemented."
+    },
+    {
+      "name": "audited exe must be OriginalExpedition.exe",
+      "result": "FAIL",
+      "error": "Unexpected rejection: Package tool has not been implemented."
+    },
+    {
+      "name": "existing destination is preserved",
+      "result": "FAIL",
+      "error": "Unexpected rejection: Package tool has not been implemented."
+    },
+    {
+      "name": "existing sibling ZIP is preserved",
+      "result": "FAIL",
+      "error": "Unexpected rejection: Package tool has not been implemented."
+    },
+    {
+      "name": "destination inside source Player is rejected",
+      "result": "FAIL",
+      "error": "Unexpected rejection: Package tool has not been implemented."
+    },
+    {
+      "name": "source reparse directory is rejected",
+      "result": "FAIL",
+      "error": "Unexpected rejection: Package tool has not been implemented."
+    }
+  ]
+}

@@ -12,6 +12,7 @@
 - 随后以 `1ae47287` 为基线创建新候选副本 `dist/original-expedition-v01/prepare-1ae47287`，499 文件、11,448,923 字节，包含最终一次构建入口修改。输入清单 SHA-256 为 `09a2d0844a2b39a36dd445bf0b1c60c9579ca846fdf78d0a3bf1457d6f72425f`；它仍是预备源码快照，不是 Player 或已通过 UI 验收的最终包。
 - 新副本独立核对 499/499 文件的源／目标 SHA 和大小全部匹配；247 个 meta 的 GUID 无重复或无效。Git 来源检查发现 487 项在基线已跟踪，另 12 个现有 Inochi 托管运行时 `.meta` 被第三方目录 `*.meta` 规则忽略；已精准补跟踪这 12 个原文件，保留现有 GUID 与字节，以便从版本历史重建相同输入。见 `evidence/o5/package-1ae47287-validation.json`。
 - 新 `OriginalExpeditionBuild.BuildAndExit` 只接受已声明的物理副本和输入清单；验证文件 SHA、场景依赖、所有 Resources 和实际 packedAssets。成功构建后复制许可文本，并对整个 Player 输出逐文件 SHA。该入口已用本机 Unity API 编译，尚未真实构建。
+- 后续补齐独立 .NET 回放 CLI 与 PowerShell Player 交付打包脚本；分别通过 8 项命令测试和 23 项打包夹具，CLI 另有 5 次实际进程调用。没有修改 Unity 生产代码，也没有生成真实新 Player。详见 [离线工具检查点](OFFLINE-TOOLS-CHECKPOINT.md)。
 
 ## 实际验证
 
@@ -38,11 +39,13 @@ Unity 两次在本机许可证握手阶段停住，未进入项目编译。系�
 
 代码提交后 02:47 的重新检查仍超时，耗时 5,058 ms，系统持续运行约 620.8 分钟；见 `evidence/o5/post-checkpoint-wmi-20260921.json`。当时没有存活的 Unity／许可进程，未再次拉起编辑器。
 
+03:05 按用户要求再次启动真实 Unity 套件，许可握手 30 秒超时、初始化失败，未进入测试；只终止了本次核验过路径及启动时间的两个进程。退出码 -1 来自失败后的显式清理，不代表测试失败。见 `evidence/o5/unity-retry-20260921-0305-result.json` 及同名前缀原始 log/run.json。
+
 需要在保存工作后正常重启 Windows。恢复后按以下顺序继续，不重复未变化的核心验证：
 
 1. 先确认 WMI 查询与 Unity 许可握手恢复；执行真实 `Resonance.EditorTests` EditMode 套件，重点补 O3 的 8 项和 O4 的 6 项 UI 用例。如有真实失败，只修对应问题，再跑受影响检查。
 2. 从最终已提交源码重新执行 `evidence/prepare-package-project.ps1` 到**全新物理目录**，传完整 SourceCommit；运行该副本的 `OriginalExpeditionBuild.BuildAndExit`，检查 BuildAudit 结果和实际输出文件。
-3. 将本次 Player 完整输出及 notices、玩法说明复制到独立交付位置。正常无参数启动，录制 N0→N7→结算→返回→新趟的连续五战，并另录同版首领败北→原样重试→胜利。只能真实 UI 操作，不能设置战中 HP、充能或胜负。
-4. 对应 Player 的真实回放必须生成并重放匹配，检查日志中 `ORIGINAL_REPLAY_MATCH`，不得把本页 fixture tape 换名代替。记录 EXE／源码／内容版本和录像哈希；更新独立验收结果后交用户体验验收。
+3. 按 `tools/OriginalExpedition.Delivery/README.md` 对真实 PASS BuildAudit 调用打包脚本，显式传入确认过的完整源码 SHA 和内容哈希，生成全新交付候选目录及 ZIP。正常无参数启动，录制 N0→N7→结算→返回→新趟的连续五战，并另录同版首领败北→原样重试→胜利。只能真实 UI 操作，不能设置战中 HP、充能或胜负。
+4. 对应 Player 的真实回放必须生成并重放匹配，检查日志中 `ORIGINAL_REPLAY_MATCH`，再按 `tools/OriginalReplay.Verify/README.md` 用独立 CLI 读取磁盘记录并保存 JSON 结果；不得把本页 fixture tape 换名代替。记录 EXE／源码／内容版本和录像哈希；更新独立验收结果后交用户体验验收。
 
 没有推送 GitHub、发布、覆盖旧 ZIP/视频或清理历史素材。当前普通 UI 最远证据仍是 O0/O1 开发包的一场前厅胜利与领取奖励，不声称新首领已经在普通界面玩过。

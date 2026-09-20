@@ -1,0 +1,23 @@
+{
+  "started": "2026-09-20T19:05:40.2819559Z",
+  "finished": "2026-09-20T19:06:51.5446235Z",
+  "exitCode": -1,
+  "mode": "tests",
+  "name": "unity-retry-20260921-0305",
+  "arguments": [
+    "-batchmode",
+    "-projectPath",
+    "\"F:\\Resonance\\client\"",
+    "-giCustomCacheLocation",
+    "\"F:\\Resonance\\client\\Temp\\GICache-Original\"",
+    "-logFile",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\unity-retry-20260921-0305.log\"",
+    "-runTests",
+    "-testPlatform",
+    "EditMode",
+    "-testFilter",
+    "Resonance.EditorTests",
+    "-testResults",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\unity-retry-20260921-0305.xml\""
+  ]
+}

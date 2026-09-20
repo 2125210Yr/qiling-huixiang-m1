@@ -164,6 +164,37 @@
       "reason": "最初 AssertClean 错误要求盟方充能为 0；规格第 3.1 节要求每场重新初始化，既有 BattleSim.NewUnit 盟方开局值为 35。仅把夹具预期更正为 35，并加强旧模拟存在 Charge != 35 的断言；生产代码未修改。原始失败 log/TRX 保留，不将其称为生产缺陷修复或抹去。"
     }
   },
+  "offline_tool_evidence": {
+    "checkpoint": "docs/original-expedition/OFFLINE-TOOLS-CHECKPOINT.md",
+    "production_source_hashes_checked": 203,
+    "production_source_hash_differences": 0,
+    "counting_note": "新增工具测试独立记账；复用既有核心结果，不声称重跑全量核心或执行 Unity。工具准备不升级原 38 项验收状态。",
+    "replay_cli": {
+      "commit": "e8f0b7f9",
+      "unit_tests_passed": 8,
+      "unit_tests_failed": 0,
+      "unit_report": "docs/original-expedition/evidence/o5/replay-cli-green.trx",
+      "release_build_warnings": 0,
+      "release_build_errors": 0,
+      "process_calls": 5,
+      "process_report": "docs/original-expedition/evidence/o5/replay-cli-process-results.json",
+      "input_kind": "CONTROLLED_FIXTURES_NOT_PLAYER_TAPES"
+    },
+    "player_packager": {
+      "script": "tools/OriginalExpedition.Delivery/package-player.ps1",
+      "fixture_tests_passed": 23,
+      "fixture_tests_failed": 0,
+      "report": "tools/OriginalExpedition.Delivery/tests/evidence/green-20260920T192553031Z.json",
+      "input_kind": "FIXTURE_ONLY_NOT_REAL_UNITY_PLAYER_VALIDATION",
+      "actual_player_packaged": false
+    },
+    "latest_unity_retry": {
+      "report": "docs/original-expedition/evidence/o5/unity-retry-20260921-0305-result.json",
+      "outcome": "BLOCKED_BEFORE_PROJECT_LOAD",
+      "tests_started": false,
+      "test_result_xml_exists": false
+    }
+  },
   "global_limitations": [
     "当前 O3/O4 Unity UI 执行、截图和教程回归均 NOT_RUN；C# 引用编译不是 Unity 测试。",
     "没有完整 N0→N7 普通流程录像、普通失败重试录像或最终 Win64 交付包。",
