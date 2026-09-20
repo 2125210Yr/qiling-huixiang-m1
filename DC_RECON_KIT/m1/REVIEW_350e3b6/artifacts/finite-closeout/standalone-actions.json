@@ -1,0 +1,71 @@
+{
+  "sourceHead": "672cdff6a7a821347cb14ab75e11760cc1b9fe6d",
+  "start": "2026-09-20T10:01:07.884Z",
+  "recorder": {
+    "code": 0,
+    "signal": null,
+    "at": "2026-09-20T10:03:14.016Z"
+  },
+  "actions": [
+    {
+      "at": "2026-09-20T10:01:07.886Z",
+      "phase": "Home visible in packaged player; default starter profile; no test flags"
+    },
+    {
+      "at": "2026-09-20T10:01:14.210Z",
+      "action": "OS click Home stage button",
+      "x": 203,
+      "y": 1068
+    },
+    {
+      "at": "2026-09-20T10:01:24.244Z",
+      "action": "OS click FIGHT; normal stage 01; starter level 1; Manual x1"
+    },
+    {
+      "at": "2026-09-20T10:01:34.142Z",
+      "action": "OS click middle enemy to focus"
+    },
+    {
+      "at": "2026-09-20T10:01:44.477Z",
+      "action": "OS upward drag second portrait for Slide"
+    },
+    {
+      "at": "2026-09-20T10:01:54.601Z",
+      "action": "OS click first portrait (Drive ready at preceding observation)"
+    },
+    {
+      "at": "2026-09-20T10:02:19.449Z",
+      "observed": "First battle CLEAR result; preceding portrait click occurred after result and is not credited as a skill"
+    },
+    {
+      "at": "2026-09-20T10:02:19.551Z",
+      "action": "OS click NEXT from first CLEAR"
+    },
+    {
+      "at": "2026-09-20T10:02:26.410Z",
+      "action": "OS click third portrait during second battle"
+    },
+    {
+      "at": "2026-09-20T10:02:37.612Z",
+      "action": "OS click Drive QTE button; no forced timing or grade"
+    },
+    {
+      "at": "2026-09-20T10:02:50.092Z",
+      "action": "OS click PAUSE in second battle after entering phase 2"
+    },
+    {
+      "at": "2026-09-20T10:03:01.358Z",
+      "observed": "Second battle paused at phase 2/2, time 01:06, enemy HP 54%; no second result claimed"
+    },
+    {
+      "at": "2026-09-20T10:03:01.456Z",
+      "action": "OS click HOME from pause"
+    },
+    {
+      "at": "2026-09-20T10:03:13.499Z",
+      "observed": "Home visible after returning from second battle; ordinary flow complete"
+    }
+  ],
+  "coverage": "First battle CLEAR; NEXT second stage reached phase 2/2 then paused at 01:06 enemy HP 54% and returned Home; no second terminal result claimed",
+  "input": "@oai/sky OS pointer clicks and upward drag; no smoke/natural flags and no battle-state injection"
+}

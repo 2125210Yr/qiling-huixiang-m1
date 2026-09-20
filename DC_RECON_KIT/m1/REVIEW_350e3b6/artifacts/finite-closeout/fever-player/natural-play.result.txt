@@ -1,0 +1,39 @@
+FAIL TapToStage
+historical_baseline=DC_RECON_KIT/m1/G2_REVIEW_20260913/artifacts/natural-play/run7
+historical_verdict=FAIL BattlePlay missing=Tap,Slide
+historical_note=run7 kept as FAIL; this session does not rewrite it to PASS
+pointer=UnityEngine.EventSystem
+os_touch=NOT_CLAIMED
+provenance=DESIGN_PLACEHOLDER
+schema=G2R14-NP-1
+plan=np.fever.v1
+session=np-20260920T095821
+battle_ids=
+catalog=DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.fever.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok
+captures=
+screen=Home
+title=
+
+phase	expected	observed	frame	ms
+VerificationCatalog	DESIGN_PLACEHOLDER before FIGHT	DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.fever.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok	1	0
+HomeVisible	screen=Home	screen=Home	3119	2000
+TapToStage	raycast hits 关卡	raycast=	3119	2000
+
+--- inputs ---
+note natural-play start
+note historical_baseline=DC_RECON_KIT/m1/G2_REVIEW_20260913/artifacts/natural-play/run7 verdict=FAIL BattlePlay missing=Tap,Slide (kept; not rewritten)
+note pointer=UnityEngine.EventSystem os_touch=NOT_CLAIMED
+note plan mode=np.fever.v1 fights=1 provenance=DESIGN_PLACEHOLDER schema=G2R14-NP-1
+note catalog DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.fever.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok
+note ok VerificationCatalog DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.fever.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok
+note ok HomeVisible screen=Home
+note fail TapToStage raycast=
+
+--- frozen battle headers (authoritative) ---
+(none)
+
+--- live RunHeader (current GameRoot.Battle; may be fight 2) ---
+(unavailable)
+
+--- live CommandLog (current GameRoot.Battle; per-fight files are authoritative) ---
+(unavailable or empty)

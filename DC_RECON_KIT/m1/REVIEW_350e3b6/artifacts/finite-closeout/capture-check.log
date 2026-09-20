@@ -1,0 +1,39 @@
+[in#0 @ 000001a46a2e3440] Found window 契灵回响, capturing 756x1344x32 at (0,0)
+[in#0/gdigrab @ 000001a46a2e3440] Stream #0: not enough frames to estimate rate; consider increasing probesize
+Input #0, gdigrab, from 'title=契灵回响':
+  Duration: N/A, start: 1789897443.187739, bitrate: 325144 kb/s
+  Stream #0:0: Video: bmp, bgra, 756x1344, 325144 kb/s, 10 fps, 1000k tbr, 1000k tbn, start 1789897443.187739
+Stream mapping:
+  Stream #0:0 -> #0:0 (bmp (native) -> h264 (libx264))
+Press [q] to stop, [?] for help
+[libx264 @ 000001a46a382800] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[libx264 @ 000001a46a382800] profile High, level 3.2, 4:2:0, 8-bit
+[libx264 @ 000001a46a382800] 264 - core 165 r3223 0480cb0 - H.264/MPEG-4 AVC codec - Copyleft 2003-2025 - http://www.videolan.org/x264.html - options: cabac=1 ref=1 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=2 psy=1 psy_rd=1.00:0.00 mixed_ref=0 me_range=16 chroma_me=1 trellis=0 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=0 threads=24 lookahead_threads=8 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=1 keyint=250 keyint_min=10 scenecut=40 intra_refresh=0 rc_lookahead=10 rc=crf mbtree=1 crf=23.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to 'F:\天命之子\DC_RECON_KIT\m1\REVIEW_350e3b6\artifacts\finite-closeout\raw\capture-check.mp4':
+  Metadata:
+    encoder         : Lavf62.12.101
+  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(tv, progressive), 756x1344, q=2-31, 10 fps, 10240 tbn
+    Metadata:
+      encoder         : Lavc62.28.101 libx264
+    Side data:
+      CPB properties: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+frame=    0 fps=0.0 q=0.0 size=       0KiB time=N/A bitrate=N/A speed=N/A elapsed=0:00:00.50    
+frame=    0 fps=0.0 q=0.0 size=       0KiB time=N/A bitrate=N/A speed=N/A elapsed=0:00:01.02    
+frame=    0 fps=0.0 q=0.0 size=       0KiB time=N/A bitrate=N/A speed=N/A elapsed=0:00:01.53    
+[out#0/mp4 @ 000001a46a304b00] video:5KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 21.442610%
+frame=   20 fps= 10 q=-1.0 Lsize=       6KiB time=00:00:01.70 bitrate=  29.1kbits/s speed=0.852x elapsed=0:00:01.99    
+[libx264 @ 000001a46a382800] frame I:1     Avg QP: 6.27  size:  3477
+[libx264 @ 000001a46a382800] frame P:5     Avg QP: 9.92  size:    59
+[libx264 @ 000001a46a382800] frame B:14    Avg QP:11.05  size:    45
+[libx264 @ 000001a46a382800] consecutive B-frames:  5.0%  0.0% 15.0% 80.0%
+[libx264 @ 000001a46a382800] mb I  I16..4: 98.3%  0.4%  1.2%
+[libx264 @ 000001a46a382800] mb P  I16..4:  0.0%  0.0%  0.0%  P16..4:  0.0%  0.0%  0.0%  0.0%  0.0%    skip:99.9%
+[libx264 @ 000001a46a382800] mb B  I16..4:  0.0%  0.0%  0.0%  B16..8:  0.0%  0.0%  0.0%  direct: 0.0%  skip:100.0%  L0:36.4% L1:63.6% BI: 0.0%
+[libx264 @ 000001a46a382800] 8x8 transform intra:0.4% inter:0.0%
+[libx264 @ 000001a46a382800] coded y,uvDC,uvAC intra: 1.0% 1.8% 1.6% inter: 0.0% 0.0% 0.0%
+[libx264 @ 000001a46a382800] i16 v,h,dc,p: 99%  0%  1%  0%
+[libx264 @ 000001a46a382800] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 10% 17% 15% 17%  4% 11% 14%  7%  6%
+[libx264 @ 000001a46a382800] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 25% 33% 24%  2%  3%  2%  4%  3%  3%
+[libx264 @ 000001a46a382800] i8c dc,h,v,p: 98%  1%  1%  0%
+[libx264 @ 000001a46a382800] Weighted P-Frames: Y:0.0% UV:0.0%
+[libx264 @ 000001a46a382800] kb/s:17.60

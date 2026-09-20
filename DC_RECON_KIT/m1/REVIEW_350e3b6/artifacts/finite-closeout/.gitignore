@@ -1,0 +1,6 @@
+pre-play-save/
+raw/
+*.mp4
+*.dll
+*.exe
+*.pdb

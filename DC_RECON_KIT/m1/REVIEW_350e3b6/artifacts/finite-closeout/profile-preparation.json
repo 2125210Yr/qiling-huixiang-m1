@@ -1,0 +1,39 @@
+{
+  "preparedAt": "2026-09-20T09:41:23.5777565Z",
+  "purpose": "Default new-game profile prepared before launch using SaveBlob + EnsureStarterKit + Serialize; no live battle mutation",
+  "original": [
+    {
+      "Path": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\finite-closeout\\pre-play-save\\save.json",
+      "Hash": "624CC9C6882BB512A7EFFE419F3B47332747BE33A33726796DF611612E55C2A7"
+    },
+    {
+      "Path": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\finite-closeout\\pre-play-save\\save.json.bak",
+      "Hash": "624CC9C6882BB512A7EFFE419F3B47332747BE33A33726796DF611612E55C2A7"
+    }
+  ],
+  "starter": "8BC64F32085BC83A620255B97BE4C5D64408DD9DB898DE44628C967579F25058",
+  "auto": "Manual",
+  "speed": 1,
+  "levels": [
+    {
+      "id": "C001",
+      "level": 1
+    },
+    {
+      "id": "C007",
+      "level": 1
+    },
+    {
+      "id": "C010",
+      "level": 1
+    },
+    {
+      "id": "C003",
+      "level": 1
+    },
+    {
+      "id": "C005",
+      "level": 1
+    }
+  ]
+}

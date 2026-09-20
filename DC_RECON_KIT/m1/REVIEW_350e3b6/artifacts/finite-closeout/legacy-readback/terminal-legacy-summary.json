@@ -1,0 +1,143 @@
+{
+  "scope": "Additional negative compatibility control; separate from the original nine tape results. No rebuild or archive changes.",
+  "startedAtUtc": "2026-09-20T10:00:06.9415057Z",
+  "completedAtUtc": "2026-09-20T10:00:07.1617593Z",
+  "repositoryHead": "672cdff6a7a821347cb14ab75e11760cc1b9fe6d",
+  "readerPath": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_a82801b\\readback\\bin\\Debug\\net6.0\\Readback.dll",
+  "readerSha256Before": "30A6873E54C159A717EC5A85B054051EF0AE3BAEE27A55150C004202AE5732E6",
+  "readerSha256After": "30A6873E54C159A717EC5A85B054051EF0AE3BAEE27A55150C004202AE5732E6",
+  "readerUnchanged": true,
+  "readerMatchesNineTapeRun": true,
+  "battlePath": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T064419-np_fever_v1\\battles\\np-20260920T064437-001",
+  "readbackExitCode": 1,
+  "readback": {
+    "dir": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T064419-np_fever_v1\\battles\\np-20260920T064437-001",
+    "catalog": "DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.fever.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok",
+    "openingSource": "input",
+    "openingMods": "food=1.000;carta=1.000",
+    "recovered": "C001:lv=1;g0=EQ_WPN;g3=SC006;r=TSTEE|C007:lv=1;g1=EQ_ARM;r=TTEEE|C010:lv=1;g2=EQ_ACC;r=SSTEE|C003:lv=1;g3=SC006;r=TEEEE|C005:lv=1;g0=EQ_WPN;r=ESTEE",
+    "NamedOpeningDiff": "null",
+    "battle_id": "np-20260920T064437-001",
+    "scenario": "np.fever.v1",
+    "Match": "False",
+    "Ok": "False",
+    "CommandDiff": "1",
+    "Unconsumed": "0",
+    "DigestDiff": "3",
+    "EventDiff": "1",
+    "VersionDiff": "0",
+    "FirstEventDivergence": "878",
+    "ExpectedEventCount": "879",
+    "ActualEventCount": "878"
+  },
+  "diffLines": [
+    "diff FeverActive: 0 != 1",
+    "diff FeverHitsLeft: 0 != 68",
+    "diff Events.Count: 879 != 878",
+    "diff Events.Count 879 != 878",
+    "diff TerminalFeverTicks: legacy record has no terminal Fever clock boundary."
+  ],
+  "expectedFailureObserved": true,
+  "boundaryRowCount": 0,
+  "recordedBoundaryEvents": [
+    {
+      "rec": "event",
+      "tick": 2101,
+      "phase": "end",
+      "kind": "result",
+      "opcode": "clear",
+      "amount": 1,
+      "casterSlot": -1,
+      "targetSlot": -1
+    },
+    {
+      "rec": "event",
+      "tick": 2101,
+      "phase": "end",
+      "kind": "fever_end",
+      "opcode": "TimeUp",
+      "amount": 0,
+      "casterSlot": -1,
+      "targetSlot": -1
+    }
+  ],
+  "recordedDigest": {
+    "rec": "digest",
+    "tickIndex": 2101,
+    "outcome": "Victory",
+    "waveIndex": 1,
+    "speed": 1,
+    "auto": "Manual",
+    "drive": "34.000",
+    "feverGauge": "0.000",
+    "feverActive": false,
+    "feverHitsLeft": 0,
+    "timeLeft": "111.956",
+    "eventCount": 879,
+    "sha256": "2e94b5ead7ce963260f342c66e22e074356dc8903e40610f9cc55cafcb0a6048"
+  },
+  "archiveFilesBefore": [
+    {
+      "name": "commands.txt",
+      "sha256": "B9C88DD59EA067751219352B4D19CEB5FC87C3878B26C735FEC1E565D31CB5ED"
+    },
+    {
+      "name": "digest.txt",
+      "sha256": "C04EC1B25F838A2B051A47348BFEC5D2FD0A60B16A3C44964B5B4748F74F3747"
+    },
+    {
+      "name": "events.txt",
+      "sha256": "CE2057C36C65A4270BCFE4DB1CA3BD63A75ACE12F4FEB99D54A0BE2A18A75D09"
+    },
+    {
+      "name": "header.txt",
+      "sha256": "0F989AF62283EEE48E4E354AA52B7947127A08CA1753C71C160901EDAD392342"
+    },
+    {
+      "name": "replay.jsonl",
+      "sha256": "FEBC650477FD6AE0A4155BD9FB1CFC3EE286730356FC049F1C0549BAD3721783"
+    },
+    {
+      "name": "result.txt",
+      "sha256": "9A6A5FD1B0481AAC229A3E8BFA170E18BB8EEDC733D705379E68C31FE199796D"
+    },
+    {
+      "name": "scenario.txt",
+      "sha256": "7C23145754875CC7577A9E20C46A3C6AF09C17B5C204E92FF04FEDA6B355DF45"
+    }
+  ],
+  "archiveFilesAfter": [
+    {
+      "name": "commands.txt",
+      "sha256": "B9C88DD59EA067751219352B4D19CEB5FC87C3878B26C735FEC1E565D31CB5ED"
+    },
+    {
+      "name": "digest.txt",
+      "sha256": "C04EC1B25F838A2B051A47348BFEC5D2FD0A60B16A3C44964B5B4748F74F3747"
+    },
+    {
+      "name": "events.txt",
+      "sha256": "CE2057C36C65A4270BCFE4DB1CA3BD63A75ACE12F4FEB99D54A0BE2A18A75D09"
+    },
+    {
+      "name": "header.txt",
+      "sha256": "0F989AF62283EEE48E4E354AA52B7947127A08CA1753C71C160901EDAD392342"
+    },
+    {
+      "name": "replay.jsonl",
+      "sha256": "FEBC650477FD6AE0A4155BD9FB1CFC3EE286730356FC049F1C0549BAD3721783"
+    },
+    {
+      "name": "result.txt",
+      "sha256": "9A6A5FD1B0481AAC229A3E8BFA170E18BB8EEDC733D705379E68C31FE199796D"
+    },
+    {
+      "name": "scenario.txt",
+      "sha256": "7C23145754875CC7577A9E20C46A3C6AF09C17B5C204E92FF04FEDA6B355DF45"
+    }
+  ],
+  "archiveUnchanged": true,
+  "stdoutFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\finite-closeout\\legacy-readback\\terminal-legacy-fever-001.stdout.txt",
+  "stderrFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\finite-closeout\\legacy-readback\\terminal-legacy-fever-001.stderr.txt",
+  "exitCodeFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\finite-closeout\\legacy-readback\\terminal-legacy-fever-001.exit-code.txt"
+}

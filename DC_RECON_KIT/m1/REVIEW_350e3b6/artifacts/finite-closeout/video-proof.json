@@ -1,0 +1,27 @@
+{
+  "sourceHead": "672cdff6a7a821347cb14ab75e11760cc1b9fe6d",
+  "deliveredPath": "F:\\Resonance\\deliveries\\G2-PathA-20260920\\试玩实录.mp4",
+  "sha256": "3A1644CCF8BDDA305F2D612671E0240478C2D1B6F406062AC10EB6ADD874A837",
+  "bytes": 20305282,
+  "durationSeconds": 125.9,
+  "codec": "h264",
+  "width": 756,
+  "height": 1344,
+  "audioStreams": 0,
+  "continuousUneditedCopy": true,
+  "sourceHash": "3A1644CCF8BDDA305F2D612671E0240478C2D1B6F406062AC10EB6ADD874A837",
+  "capture": "GDI desktop region limited to visible game client: x903 y47 width756 height1344",
+  "fullDecode": "ffmpeg decode completed with exit 0; video-decode.json and video-decode.log",
+  "visualInspection": "Inspected contact sheets sampled at every 1 second throughout 0-125 seconds; seven key frames and full-resolution result/next frames. All inspected real frames show game client; no desktop occlusion observed. This is sampled inspection, not manual inspection of every frame.",
+  "keyFrameEvidence": [
+    "video-frames/key-frames.jpg",
+    "video-frames/result-47s.png",
+    "video-frames/next-74s.png"
+  ],
+  "input": "@oai/sky OS mouse clicks and upward drag; normal executable with no flags; no battle-state injection",
+  "coverage": "Home -> normal first stage -> Slide -> CLEAR -> NEXT -> second stage phase 2/2 -> Pause at 01:06, enemy HP 54% -> Home. Second battle did not reach a terminal result.",
+  "exclusions": "Does not certify accepted enemy focus, a Tap skill, Fever/Auto coverage, QTE grade, or original-game fidelity.",
+  "processEvidence": "standalone-process.json",
+  "actionEvidence": "standalone-actions.json",
+  "runtimeManifest": "package-runtime-manifest.json"
+}

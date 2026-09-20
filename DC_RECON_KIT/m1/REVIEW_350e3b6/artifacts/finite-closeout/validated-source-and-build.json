@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-09-20T09:57:35.0118989Z",
+  "head": "672cdff6a7a821347cb14ab75e11760cc1b9fe6d",
+  "sourceCount": 225,
+  "differenceCount": 0,
+  "differences": [],
+  "binaryHashes": [
+    {
+      "Path": "F:\\Resonance\\client\\Builds\\Win64\\Resonance_Data\\Managed\\Resonance.Battle.dll",
+      "Hash": "8D87435CA8BE5B8B82F59610C8DE0E407C989BF4CC3172798EC077DA1161A723"
+    },
+    {
+      "Path": "F:\\Resonance\\client\\Builds\\Win64\\Resonance_Data\\Managed\\Resonance.App.dll",
+      "Hash": "E6B5BCE1A4CA2B43967B73F0BB0ADC572FE4B6CADE1E60C7F6DBEEEA2A1E2FB6"
+    }
+  ]
+}

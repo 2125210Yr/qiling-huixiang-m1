@@ -1,6 +1,15 @@
-# D 批修复状态 — 2026-09-20
+# G2 路 A 有限收口状态 — 2026-09-20
 
-D1–D3 限定事项已完成：默认开局恢复、真实点敌、三种场景的可见录像与同场首场回放。D1 / D2 基础修复提交：`40ab2fb`；终局 Fever 与 D3 收口提交：`60962824`。本轮继续修复了 NEXT 续战成长的跨运行时舍入差异，保留旧 Unity 数值；7 份旧档案和 2 份新档案全部精确读回。最新全量核心测试 **284 通过 / 0 失败 / 1 既有跳过**，Win64 构建成功。本批没有启动 G3，也没有宣称整个 PATH_A 或原作还原验收通过。
+本轮 G2 路 A 有限收口已完成，最终代码提交为 `672cdff6`。现代记录的 Fever 终局重放改用独立录制的时钟边界，预期 digest 和事件只作比较；普通旧档仍保留旧结束 tick 的兼容路径。D1 默认开局、D2 真实点敌与 NEXT 成长舍入修复保留。最新全量核心测试 **310 通过 / 0 失败 / 1 既有跳过**，225 项事前冻结输入在验证后 **0 差异**，Win64 构建成功。独立试玩程序经无参数普通入口和 OS 鼠标完成首场结算、NEXT 第二场第二波、暂停及返回首页，第二场未结算。交付入口、录像与完整版本指纹见 [DELIVERY.md](artifacts/finite-closeout/DELIVERY.md)。
+
+| 状态 | 结论与范围 |
+|---|---|
+| `PATH_A_ENGINEERING` | `PASS_WITH_RECORDED_LIMITATIONS`，仅限本轮 G2 有限收口与独立试玩交付；限制见下文 |
+| `M1_FIDELITY` | `DEFERRED_NOT_REMOVED`，原作像素、精确时序与数值等延期项仍在最终分母 |
+| `G3` | `NOT_STARTED` |
+| `REMOTE_SYNC` | `NOT_PUSHED` |
+
+D1 / D2 基础修复为 `40ab2fb`，历史 D3 为 `60962824`，成长舍入修复为 `38629718`。其中 `60962824` 以 FinalDigest 决定终局 Fever 推进的实现已被本轮替换，旧绿色输出仅作为历史证据保留。
 
 ## 已完成的修复
 
@@ -9,7 +18,7 @@ D1–D3 限定事项已完成：默认开局恢复、真实点敌、三种场景
 - basic 自然场景经已有 EventSystem 的 down/up/click 点击非首个存活敌人的 `focusHit`，检查新接受的 `Player FocusEnemy`、焦点变化、`commands.txt` 与解析后的 `replay.jsonl`；保留其余原有流程。
 - 测试保留模式 `RESONANCE_KEEP_TEST_ARTIFACTS=1` 仅跳过递归清理，全部测试与断言仍执行。符合用户不批量删除文件的要求。
 - `launch/在电脑上看.cmd` 现在先找 `client/Builds/Win64/Resonance.exe`，再回退 `dist/windows`，两者都不存在时明确退出。之前启动脚本优先命中 08-30 旧 DLL 的问题已改。
-- `BattleReplayer` 现在按 FinalDigest 的边界补齐终局 Fever 收尾：仅在记录明确要求 Fever 已关闭且终局 Outcome / Tick 一致时调用真实 `TickFeverOnly`，保留仍活跃的终局快照。没有改战斗数值或放宽事件比较。
+- `BattleReplayer` 对现代记录按独立录制的战斗结束 tick、终局 Fever 时钟次数和终局命令偏移重建收尾，保留调速与时钟推进的实际交错。现代记录的 FinalDigest 和预期事件不再决定模拟推进；缺少独立终局时钟的旧尾段明确报错，不回填原件或放宽比较。普通旧档保留以旧 digest.TickIndex 定位结束的兼容路径。
 - `Growth` 明确倍率组成与属性乘积的精度边界，`Bond` 为成长计算提供共享原系数的内部精度路径；Unity Mono 与 .NET 现在得到相同成长属性，保持旧 Unity 数值与到偶数舍入。新增 6 项固定数值回归，录制脚本同时记录 Growth / Bond 源文件哈希。
 
 ## 真实执行结果
@@ -19,21 +28,26 @@ D1–D3 限定事项已完成：默认开局恢复、真实点敌、三种场景
 | D1 红灯 | 4 失败 / 2 通过，失败对应新输入来源及 null 槽缺陷 | `artifacts/D1/D1-red.trx`、`.log` |
 | D1 修复后 | 6 通过 / 0 失败 | `artifacts/D1/D1-green.trx`、`.log` |
 | D1 后无 filter 全量核心测试 | 276 通过 / 0 失败 / 1 跳过 / 总数 277，退出 0 | `artifacts/tests/D-full.trx`、`D-full.console.txt`、`D-full-run.json` |
-| 终局 Fever 回归红→绿 | 新回归先 1 失败 / 1 通过；修复后相关回归 14/14 通过 | `artifacts/tests/fever-terminal-{red,green}.{log,trx}` |
-| 终局 Fever 后无 filter 全量核心测试 | 278 通过 / 0 失败 / 1 跳过 / 总数 279，退出 0 | `artifacts/tests/D-final.trx`、`D-final.console.txt`、`D-final-run.json` |
-| 最新成长修复后无 filter 全量核心测试 | **284 通过 / 0 失败 / 1 既有跳过 / 总数 285**，退出 0 | `artifacts/growth-rounding/rounding-full.trx`、`rounding-full.log`、`full-run.json` |
-| 同一新游戏 DLL 跨运行时属性矩阵 | **5,625 组 / 0 差异；相对旧 Unity 也 0 差异** | `artifacts/growth-rounding/after-summary.json` 与前后运行输出 |
+| 历史 FinalDigest 驱动的终局 Fever 回归 | 当时先 1 失败 / 1 通过，后相关回归 14/14；实现已被本轮替换 | `artifacts/tests/fever-terminal-{red,green}.{log,trx}` |
+| 历史终局 Fever 后无 filter 全量核心测试 | 278 通过 / 0 失败 / 1 跳过 / 总数 279，退出 0 | `artifacts/tests/D-final.trx`、`D-final.console.txt`、`D-final-run.json` |
+| 历史成长修复后无 filter 全量核心测试 | 284 通过 / 0 失败 / 1 既有跳过 / 总数 285，退出 0 | `artifacts/growth-rounding/rounding-full.trx`、`rounding-full.log`、`full-run.json` |
+| 成长修复时同一 DLL 跨运行时属性矩阵 | **5,625 组 / 0 差异；相对旧 Unity 也 0 差异**，作为未改成长计算的历史证据复用 | `artifacts/growth-rounding/after-summary.json` 与前后运行输出 |
 | 成长修复后的旧档案精确读回 | **7/7 Match=True**，包括两份此前失败的 NEXT 场；所有差异 0，原件未改 | `artifacts/growth-rounding/readback/summary.json` |
-| 新 Unity 续战及两场读回 | **场景 PASS；2/2 Match=True**，事件 132/132 与 8/8，截图 HP 3283 | `artifacts/natural-play/20260920T080750-np_basic_v1/`、`artifacts/growth-rounding/readback/fresh-next-summary.json` |
+| 成长修复时 Unity 续战及两场读回 | **场景 PASS；2/2 Match=True**；首场 132/132，第二场 8/8 仅为开局与暂停短片段，截图 HP 3283 | `artifacts/natural-play/20260920T080750-np_basic_v1/`、`artifacts/growth-rounding/readback/fresh-next-summary.json` |
 | 独立代码审查 | 未发现阻塞问题；确认中途 Persist 后结果页仍会更新最终 tape | 审查范围为 6 个生产/测试/启动文件；没有用审查代替运行 |
 | 新 Unity basic | **PASS**，Editor 退出 0；Victory→NEXT→Pause→Home | `artifacts/natural-play/20260920T050523-np_basic_focus/` |
 | 新首场回放 | **Match=True**，Command/Unconsumed/Digest/Event/Version 差异全 0 | `artifacts/readback/np-20260920T050557-001.txt` |
 | 旧可播录像所对应的第二批首场 tapes | basic / fever / auto 均 **Match=True**，差异全 0 | `artifacts/readback/second-{basic,fever,auto}.txt` |
-| 可见补录 basic / Fever / Auto 首场 | 新读回器全部 **Match=True**，分别 155/155、879/879、69/69 事件，差异全 0 | `artifacts/readback/visible-{basic,fever,auto}-final.txt`、`visible-final-summary.json` |
-| 最终 Fever 重录首场 | **Match=True**，1141/1141 事件，差异全 0，1159 行 JSON 无错误 | `artifacts/readback/visible-fever-new.txt`、`visible-fever-new-summary.json` |
-| 最新 Unity Win64 构建 | **成功**，退出 0 | `artifacts/growth-rounding/build-run.json`、`win64-build.log` |
+| 历史可见补录 basic / Fever / Auto 首场 | 当时分别 155/155、879/879、69/69；879 事件旧终局 Fever 的绿色结果已被当前严格负向对照取代 | `artifacts/readback/visible-{basic,fever,auto}-final.txt`、`visible-final-summary.json` |
+| 最终 Fever 重录首场 | **1141/1141 Match=True**；Fever 在 Victory 前结束，本轮严格读回仍通过 | 历史 `artifacts/readback/visible-fever-new.txt`；当前 `artifacts/finite-closeout/legacy-readback/d3-fever-001.stdout.txt` |
+| 历史成长修复 Win64 构建 | 成功，退出 0；已被本轮构建替代 | `artifacts/growth-rounding/build-run.json`、`win64-build.log` |
+| 最新无 filter 全量核心测试 | **310 通过 / 0 失败 / 1 既有跳过 / 总数 311**，退出 0 | `artifacts/finite-closeout/full.trx`、`full-test.log`、`full-test-run.json` |
+| 最终源码与构建绑定 | **225 项事前冻结输入 / 0 差异**，代码 `672cdff6`；Win64 构建退出 0 | `artifacts/finite-closeout/frozen-source-hashes.json`、`validated-source-and-build.json`、`build-run.json` |
+| 最终 reader 读回原有 9 份档案 | **9/9 Match=True、Ok=True、全部差异 0**；63 个原件文件指纹不变 | `artifacts/finite-closeout/legacy-readback/summary.json`、`README.md` |
+| 879 事件旧终局 Fever 负向对照 | **按预期拒绝**：缺独立终局时钟，Match=False / exit 1；不属于上行 9 份有效档案 | `artifacts/finite-closeout/legacy-readback/terminal-legacy-summary.json` |
+| 独立程序普通操作与录像 | 无参数、OS 鼠标；首场 Victory→NEXT→第二场第二波→Pause→Home；第二场未结算；录像 **125.9 秒** | `artifacts/finite-closeout/standalone-process.json`、`standalone-actions.json`、`standalone-video-probe.json`、[交付报告](artifacts/finite-closeout/DELIVERY.md) |
 
-全量核心测试的唯一跳过仍是 `N01_N02_N03_NaturalPlayContract_DocumentedNotFaked`，它要求 Unity 真实操作，不能由核心测试伪造通过。本次 Unity basic / Fever / Auto 已另行实际运行，但没有将此 xUnit 跳过改为通过。
+全量核心测试的唯一跳过仍是 `N01_N02_N03_NaturalPlayContract_DocumentedNotFaked`，它要求 Unity 真实操作，不能由核心测试伪造通过。D 批已有 Unity basic / Fever / Auto 证据；本轮另外执行了独立普通程序操作，但不把这些证据改写成该 xUnit 已执行。内部 `NaturalPlayRuntime` 的 standalone 尝试在 `TapToStage` 失败，没有产出本轮新的成功自然 Fever 场景；程序退出码 0 不能覆盖场景失败。失败原件见 `artifacts/finite-closeout/fever-player/natural-play.result.txt` 与 `fever-player.log`。随后无参数普通入口的独立操作成功，二者分别记录。
 
 ## D2 点敌证据
 
@@ -63,22 +77,28 @@ commands=True replay=True
 
 三份派生片段均已独立抽帧与完整解码通过：basic 10.9 秒，Auto 5.5 秒，最终 Fever 110.766667 秒。Fever 包含实际 Fever HUD 和 CLEAR 结算，最后一帧仍显示首页；其后的 Game view 清空和桌面没有纳入。完整映射见 `artifacts/video-check/D3-visible-recordings.md`，失败尝试见 `artifacts/natural-play/VISIBLE_ATTEMPTS.md`。录制前的 15 个 captures 摘要、截图和索引均已恢复并逐一核对 SHA 相同，记录在 `artifacts/natural-play/capture-restoration-check.json`。
 
-## 本轮发现并修复的终局 Fever 边界
+## 终局 Fever：历史实现及本轮替换
 
 `np-20260920T064437-001` 首次读回只少 `fever_end/TimeUp`，Digest 差异为 FeverActive、FeverHitsLeft、事件数量。Unity 的 `GameRoot` 会在终局后继续 `TickFeverOnly`，其间 TickIndex 固定；旧 replayer 到 FinalDigest.TickIndex 即停止，未复现这段收尾。
 
-新增回归先复现同样三项差异，再通过 `FinishRecordedFever` 有条件推进真实时钟解决。另一个测试保证终局仍活跃的快照不被推进；无 FinalDigest 的旧 Run 路径不受影响。修复前失败保留在 `visible-fever.txt`，修复后同一原件 `visible-fever-final.txt` 为 **Match=True / 879 对 879 / 全差异 0**。独立只读审查未发现阻塞问题；全量测试已对新源码重跑。
+历史实现通过 `FinishRecordedFever` 读取预期 FinalDigest 后有条件推进时钟，当时 `visible-fever-final.txt` 得到 879/879。该结果只能保留为历史：本轮反例证明，仅改变预期 FeverActive 就会改变实际重演输出，即使最终仍判 Match=False，也违反预期只用于比较的要求。
+
+最终 `672cdff6` 改为独立录制与读取战斗结束 tick、终局 Fever 时钟及命令偏移。旧 `np-20260920T064437-001` 的 879 事件原件没有这一独立边界，当前 reader 正确报告 `TerminalFeverTicks: legacy record has no terminal Fever clock boundary.`，实际 878、预期 879，Match=False / exit 1。原件不回填、不修改。它是单独的负向对照，不在原有 9 份有效档案中。
+
+原有 9 份档案本轮均严格通过。其最终 Fever 录像所对应的 `np-20260920T071843-001` 在 tick 2263 已记录 `fever_end/TimeUp`，tick 3268 才 `result/clear`，不存在缺时钟的终局尾段；1141 条事件继续通过是正确结果。诊断、当前回归与兼容范围见 [AUDIT.md](artifacts/finite-closeout/AUDIT.md)、[legacy-readback/README.md](artifacts/finite-closeout/legacy-readback/README.md) 和 [DELIVERY.md](artifacts/finite-closeout/DELIVERY.md)。
 
 ## 构建与环境
 
-实际新构建：`F:\Resonance\client\Builds\Win64\Resonance.exe`。
+最终构建：`F:\Resonance\client\Builds\Win64\Resonance.exe`。实际独立试玩：`F:\Resonance\deliveries\G2-PathA-20260920\Resonance.exe`，无启动参数；包内程序身份见交付清单。
 
 | 内容 | SHA-256 |
 |---|---|
-| `Resonance.App.dll` | `C9C1E4A79C5E26A567BE7869A6A0201F25DDE08DE38A14269203485D0CD73F6F` |
-| `Resonance.Battle.dll` | `0258465CAB197DC8D837C61BAA533FFD1FA3D187A869B46BE23F9A2E741923BC` |
+| `Resonance.App.dll` | `E6B5BCE1A4CA2B43967B73F0BB0ADC572FE4B6CADE1E60C7F6DBEEEA2A1E2FB6` |
+| `Resonance.Battle.dll` | `8D87435CA8BE5B8B82F59610C8DE0E407C989BF4CC3172798EC077DA1161A723` |
 
-最新构建于 09-20 16:06:40+08 完成；Battle DLL 修改时间 16:06:33+08，未变更的 App DLL 沿用 13:14:39+08 产物。exe 是 Unity 引擎壳，不能以 exe 单独判断源码版本。最新记录在 `artifacts/growth-rounding/build-run.json` 与 `after-summary.json`，此前 D1 / D3 构建记录保留为历史证据。
+最新构建于 `2026-09-20T09:57:19.7446406Z`（17:57:19+08）完成，绑定最终代码 `672cdff6`。exe 是 Unity 引擎壳，不能以 exe 单独判断源码版本。最新记录在 `artifacts/finite-closeout/build-run.json` 与 `validated-source-and-build.json`；此前 D1 / D3 / Growth 构建记录保留为历史证据。
+
+独立普通试玩使用启动前生成的默认新档，未在开战后注入 HP、充能、Drive、时间或胜负。真实 OS 点击与上滑完成首场 Slide、Victory、NEXT，第二场到达 PHASE 2/2 后暂停、返回 Home；不声称第二场完成结算。125.9 秒录像与操作记录分开绑定，试玩后原 `save.json` 和 `.bak` 已恢复、SHA 与备份一致，见 `artifacts/finite-closeout/save-restoration.json`。
 
 首次构建在默认 GI Cache 路径反复失败，已停止该次专属进程并保留日志；该目录当前可写，未武断认定为旧的缺失 junction 目标问题。重试只为本次 Editor 进程增加 `-giCustomCacheLocation F:/Resonance/client/Temp/GICache-D-batch` 后成功，没有修改全局偏好或注册表。该参数的会话范围见 [Unity 6000.3 官方文档](https://docs.unity3d.com/6000.3/Documentation/Manual/EditorCommandLineArguments.html)。
 
@@ -88,6 +108,6 @@ commands=True replay=True
 
 同一旧游戏 DLL 在 Mono / .NET 的 5,625 组输入中有 529 组属性差异。问题同时涉及 Body 倍率、好感与 Bond 倍率组成，以及 `Math.Round(int * float)` 乘积的中间精度。现在显式保留旧 float 系数的二进制值，以 double 完成中间计算并固定转换边界；新 DLL 的同一矩阵跨运行时 0 差异、相对旧 Unity 0 差异。全部 5,460 种 Body 系数组合与 101 档好感也逐值对照旧 Mono 一致。
 
-新 Unity session `np-20260920T080808` 实际完成胜利 → NEXT → 第二场 → 暂停 → 首页；第二场 C003 HP 为 3283。首场 132 条事件、第二场 8 条事件均精确匹配。包含旧档案在内共 9 份录制读回全部通过，原件指纹不变。独立只读代码审查未发现阻塞问题，运行前的 15 个 captures 文件已逐文件恢复并核对 SHA。
+成长修复时 Unity session `np-20260920T080808` 实际完成胜利 → NEXT → 第二场 → 暂停 → 首页；第二场 C003 HP 为 3283。首场 132 条事件、第二场 8 条事件均精确匹配。其中第二场 TickIndex=8、Outcome=InProgress，8 条事件全部是 tick 0 的开局波次/状态，唯一命令为 tick 8 Pause：它证明准确开局与已录短片段，不能证明第二场完整战斗。包含旧档案在内共 9 份录制在本轮最终 reader 下仍全部通过，原件指纹不变。此前运行前的 15 个 captures 文件已逐文件恢复并核对 SHA。
 
-完整诊断、回归与版本指纹见 [growth-rounding/README.md](artifacts/growth-rounding/README.md)。没有更改 RulesVersion、录制格式或比较标准，也未为任意按旧 .NET 错误数值生成的档案增加迁移。此轮验证覆盖成长精度与实际续战回放，不代表整个养成系统或原作还原已完成。
+成长修复的诊断、回归与版本指纹见 [growth-rounding/README.md](artifacts/growth-rounding/README.md)。该历史成长修复没有更改 RulesVersion、录制格式或比较标准，也未为任意按旧 .NET 错误数值生成的档案增加迁移；本轮新增的独立终局时钟记录另见交付报告。上述验证不代表整个养成系统或原作还原已完成。后续最多三项体验候选见 [NEXT_EXPERIENCE_CANDIDATES.md](artifacts/finite-closeout/NEXT_EXPERIENCE_CANDIDATES.md)，仅列候选，不自动开工。

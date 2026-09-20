@@ -1,0 +1,10 @@
+{
+  "head": "672cdff6a7a821347cb14ab75e11760cc1b9fe6d",
+  "started": "2026-09-20T09:56:43.8479767Z",
+  "finished": "2026-09-20T09:56:47.4678929Z",
+  "exitCode": 0,
+  "filter": null,
+  "keepArtifacts": "1",
+  "sourceManifest": "frozen-source-hashes.json",
+  "testAssembly": "E1BB30DEC3E9FF4E4F64CD78F0E68CD082D9FF6F9856CEB06865029CCF72E83A"
+}

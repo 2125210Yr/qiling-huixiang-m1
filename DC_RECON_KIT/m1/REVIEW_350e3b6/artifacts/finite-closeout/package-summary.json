@@ -1,0 +1,31 @@
+{
+  "createdAt": "2026-09-20T10:12:21.9158619Z",
+  "sourceHead": "672cdff6a7a821347cb14ab75e11760cc1b9fe6d",
+  "path": "F:\\Resonance\\deliveries\\G2-PathA-20260920.zip",
+  "bytes": 150719098,
+  "sha256": "B3368D3740D68A74EB42DB6F141895B5D5D12D4AD146F07A964BC4717C55EB2E",
+  "folder": "F:\\Resonance\\deliveries\\G2-PathA-20260920",
+  "runtimeFiles": 170,
+  "zipFileCount": 174,
+  "zipContentHashesVerified": 174,
+  "allZipFileHashesMatch": true,
+  "actualPlayerRun": "standalone-process.json, standalone-actions.json, video-proof.json",
+  "requiredContents": [
+    "Resonance.exe",
+    "UnityPlayer.dll",
+    "UnityCrashHandler64.exe",
+    "Resonance_Data/",
+    "MonoBleedingEdge/",
+    "D3D12/",
+    "Assets/Content/catalog.json",
+    "开始试玩.cmd",
+    "试玩说明.md",
+    "试玩实录.mp4"
+  ],
+  "sourceManifest": "frozen-source-hashes.json",
+  "runtimeManifest": "package-runtime-manifest.json",
+  "deliveryManifest": "delivery-files-manifest.json",
+  "videoSha256": "3A1644CCF8BDDA305F2D612671E0240478C2D1B6F406062AC10EB6ADD874A837",
+  "originalSavesIncluded": false,
+  "remotePushed": false
+}

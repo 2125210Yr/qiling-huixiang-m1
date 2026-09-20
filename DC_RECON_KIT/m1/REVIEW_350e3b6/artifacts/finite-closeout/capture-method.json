@@ -1,0 +1,19 @@
+{
+  "testedAt": "2026-09-20T09:45:11.6780854Z",
+  "titleCapture": "REJECTED: GDI surface frozen at splash while real game is at Home",
+  "acceptedMethod": "gdigrab desktop restricted to observed game client",
+  "observedWindow": {
+    "width": 758,
+    "x": 902,
+    "height": 1376,
+    "y": 16
+  },
+  "clientCrop": {
+    "width": 756,
+    "x": 903,
+    "height": 1344,
+    "y": 47
+  },
+  "preview": "raw/capture-region-check.png",
+  "privacy": "client only; raw remains local; final proof requires inspection"
+}
