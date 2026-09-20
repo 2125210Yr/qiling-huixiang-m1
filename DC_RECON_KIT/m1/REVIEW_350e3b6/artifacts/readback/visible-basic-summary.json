@@ -1,0 +1,31 @@
+{
+  "scenario": "basic",
+  "battlePath": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T062640-np_basic_v1\\battles\\np-20260920T062700-001",
+  "readbackExecutable": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_a82801b\\readback\\bin\\Debug\\net6.0\\Readback.dll",
+  "readbackExitCode": 0,
+  "outputFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\readback\\visible-basic.txt",
+  "replay": {
+    "path": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T062640-np_basic_v1\\battles\\np-20260920T062700-001\\replay.jsonl",
+    "totalLines": 168,
+    "nonEmptyLines": 168,
+    "jsonErrorCount": 0,
+    "jsonErrors": []
+  },
+  "checkedAtUtc": "2026-09-20T06:40:47.4099798Z",
+  "readback": {
+    "openingSource": "input",
+    "NamedOpeningDiff": null,
+    "battle_id": "np-20260920T062700-001",
+    "scenario": "np.basic.v1",
+    "Match": true,
+    "Ok": true,
+    "CommandDiff": 0,
+    "Unconsumed": 0,
+    "DigestDiff": 0,
+    "EventDiff": 0,
+    "VersionDiff": 0,
+    "FirstEventDivergence": -1,
+    "ExpectedEventCount": 155,
+    "ActualEventCount": 155
+  }
+}

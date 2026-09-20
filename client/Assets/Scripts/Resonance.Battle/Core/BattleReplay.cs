@@ -2610,12 +2610,36 @@ namespace Resonance.Battle
                         break;
                 }
                 DrainAt(sim, external, ref cursor, sim.TickIndex, session);
+                FinishRecordedFever(sim, rec.FinalDigest);
                 CollectUnconsumed(external, cursor, session);
                 return sim;
             }
             finally
             {
                 PublishSession(session);
+            }
+        }
+
+        static void FinishRecordedFever(BattleSim sim, BattleStateDigest final)
+        {
+            // GameRoot keeps the Fever clock running after result without advancing
+            // TickIndex. Only reproduce that tail when the recorded snapshot is settled;
+            // a terminal snapshot with Fever still active must stay at its capture boundary.
+            if (final == null || final.Outcome == BattleOutcome.InProgress || final.FeverActive
+                || sim.Outcome != final.Outcome || sim.TickIndex != final.TickIndex
+                || !sim.FeverActive || sim.Paused)
+                return;
+
+            var left = sim.FeverLeft;
+            if (float.IsNaN(left) || float.IsInfinity(left)) return;
+            // TickFeverOnly advances by at least TickDt under every speed/clock policy.
+            // Keep a finite budget plus a progress check for invalid or stalled clocks.
+            var ticksLeft = Math.Ceiling(Math.Max(0d, left) / BattleSim.TickDt) + 2d;
+            while (ticksLeft-- > 0d && sim.FeverActive && !sim.Paused)
+            {
+                var before = sim.FeverLeft;
+                sim.TickFeverOnly();
+                if (sim.FeverActive && !(sim.FeverLeft < before)) break;
             }
         }
 

@@ -1,0 +1,256 @@
+{
+  "schema_version": 1,
+  "scenario": "np.fever.v1",
+  "session": "np-20260920T071843",
+  "scenario_result": "PASS",
+  "video_status": "ACCEPTED_VISUAL_GAMEPLAY_EXCERPT",
+  "created_at": "2026-09-20T15:33:41.5545283+08:00",
+  "source": {
+    "path": "basic-focus.mp4",
+    "sha256": "1A63DDC28615BBDB70C6015BDBC38B1D4D673FC286DC0D1A33B313D5EAAC39ED",
+    "bytes": 11370751,
+    "preserved_unmodified": true,
+    "container_duration_seconds": 118.2,
+    "frames": 3225,
+    "stream_start_time_seconds": "0.100000",
+    "time_base": "1/15360",
+    "r_frame_rate": "30/1",
+    "note": "Source timestamps are not uniformly spaced. Nominal 30 fps was not used to infer frame indices. The original file was read only and its SHA-256 was checked before and after excerpt creation."
+  },
+  "trim": {
+    "time_base": "1/15360",
+    "start_pts_inclusive": 89088,
+    "end_pts_exclusive": 1790464,
+    "start_seconds_inclusive": "5.800000",
+    "end_seconds_exclusive": "116.566667",
+    "first_included_source_pts": 89088,
+    "last_included_source_pts": 1789952,
+    "last_included_source_seconds": "116.533333",
+    "output_time_origin": "setpts=PTS-STARTPTS",
+    "contiguous": true,
+    "reason": "Retain home, stage entry, continuous battle with Fever, CLEAR result, rematch/pause and home return. Exclude initial loading and the source frames at or after 116.566667, when the Game view clears before the desktop appears."
+  },
+  "output": {
+    "path": "gameplay-proof.mp4",
+    "sha256": "21A3EDEFE5B26F5A5EBEE85312EAF7FDEB95AD8F084FA9E589C8B120D83D0950",
+    "bytes": 14596197,
+    "width": 2560,
+    "height": 1348,
+    "codec": "h264",
+    "duration_seconds": "110.766667",
+    "frames": 3025,
+    "first_pts": 0,
+    "last_pts": 1700864,
+    "time_base": "1/15360",
+    "nominal_frame_rate": "30/1",
+    "average_frame_rate": "90750/3323",
+    "audio_streams": 0,
+    "visual_region": "Full original recorded rectangle; no spatial crop, overlays or synthetic frames added to the proof video.",
+    "pts_preservation": "All 3025 output frames compared: output PTS equals the corresponding selected source PTS minus 89088.",
+    "pts_mismatch_count": 0
+  },
+  "commands": {
+    "working_directory": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T071823-np_fever_v1",
+    "trim": [
+      "ffmpeg",
+      "-hide_banner",
+      "-loglevel",
+      "info",
+      "-y",
+      "-copyts",
+      "-i",
+      "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T071823-np_fever_v1\\basic-focus.mp4",
+      "-map",
+      "0:v:0",
+      "-vf",
+      "trim=start_pts=89088:end_pts=1790464,setpts=PTS-STARTPTS",
+      "-an",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "18",
+      "-preset",
+      "veryfast",
+      "-threads",
+      "4",
+      "-pix_fmt",
+      "yuv420p",
+      "-fps_mode",
+      "passthrough",
+      "-movflags",
+      "+faststart",
+      "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T071823-np_fever_v1\\gameplay-proof.mp4"
+    ],
+    "full_decode": [
+      "ffmpeg",
+      "-hide_banner",
+      "-v",
+      "error",
+      "-xerror",
+      "-i",
+      "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T071823-np_fever_v1\\gameplay-proof.mp4",
+      "-map",
+      "0:v:0",
+      "-f",
+      "null",
+      "NUL"
+    ],
+    "output_probe": [
+      "ffprobe",
+      "-v",
+      "error",
+      "-select_streams",
+      "v:0",
+      "-show_frames",
+      "-show_entries",
+      "format=duration,size:stream=index,codec_name,width,height,r_frame_rate,avg_frame_rate,time_base,start_time,nb_frames:frame=pts,pts_time,pkt_duration_time",
+      "-of",
+      "json",
+      "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T071823-np_fever_v1\\gameplay-proof.mp4"
+    ],
+    "exact_output_samples": [
+      "ffmpeg",
+      "-hide_banner",
+      "-v",
+      "error",
+      "-copyts",
+      "-i",
+      "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T071823-np_fever_v1\\gameplay-proof.mp4",
+      "-vf",
+      "select=eq(pts\\,0)+eq(pts\\,986624)+eq(pts\\,1683456)+eq(pts\\,1700864)",
+      "-fps_mode",
+      "passthrough",
+      "-frames:v",
+      "4",
+      "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T071823-np_fever_v1\\video-check\\fever-proof-output-%02d.png"
+    ],
+    "encode_log": "video-check/fever-proof-encode.log"
+  },
+  "visual_inspection": {
+    "method": "Actual ffmpeg extraction followed by Codex view_image inspection. Source overview, boundary and Fever sequences plus four exact final-output samples were viewed. This is sample review and endpoint inspection, not a claim that every frame was visually reviewed.",
+    "source_overview": {
+      "image": "video-check/fever-proof-overview.png",
+      "selection": "fps=1/5, 4x6 grid in chronological order; full recorded rectangle scaled for inspection. Resampled grid times are approximate selection times."
+    },
+    "source_start_overview": {
+      "selection": "Original PTS [0,5), fps=4. Initial editor/loading views.",
+      "image": "video-check/fever-proof-start-overview.png"
+    },
+    "source_start_game": {
+      "selection": "Original PTS [5,8), fps=5. Home, stage selection, then battle.",
+      "image": "video-check/fever-proof-start-game.png"
+    },
+    "source_fever_sequence": {
+      "selection": "Original PTS [65,74), fps=1. QTE/Perfect and Fever battle sequence; labels are resampled grid PTS.",
+      "image": "video-check/fever-proof-fever-sequence.png"
+    },
+    "source_end_overview": {
+      "selection": "Original PTS [112,118), fps=5. Phase transition, CLEAR result, rematch, pause, home, Game view clearing, then desktop.",
+      "image": "video-check/fever-proof-end-overview.png"
+    },
+    "exact_end_boundary": {
+      "observation": "Home remains visible through 116.533333; Game view is cleared at 116.566667.",
+      "selection": "Every available source frame in PTS seconds [116.3,116.7), exact PTS labels, no fps resampling.",
+      "image": "video-check/fever-proof-end-boundary.png"
+    },
+    "exact_source_fever": {
+      "source_pts": 1075712,
+      "source_seconds": "70.033333",
+      "image": "video-check/fever-proof-source-fever.png"
+    },
+    "exact_source_result": {
+      "source_pts": 1772544,
+      "source_seconds": "115.400000",
+      "image": "video-check/fever-proof-source-result.png"
+    },
+    "samples": [
+      {
+        "name": "first",
+        "image": "video-check/fever-proof-output-01.png",
+        "source_pts": 89088,
+        "source_seconds": 5.8,
+        "output_pts": 0,
+        "output_seconds": 0.0,
+        "output_frame_index_zero_based": 0,
+        "observation": "Exact first output frame: game home visible in Unity Game view."
+      },
+      {
+        "name": "fever",
+        "image": "video-check/fever-proof-output-02.png",
+        "source_pts": 1075712,
+        "source_seconds": 70.033333,
+        "output_pts": 986624,
+        "output_seconds": 64.233333,
+        "output_frame_index_zero_based": 1751,
+        "observation": "Fever battle HUD with purple Fever time bar, active battle effects and the in-game Activate Fever Time tutorial panel; Unity remains visible."
+      },
+      {
+        "name": "result",
+        "image": "video-check/fever-proof-output-03.png",
+        "source_pts": 1772544,
+        "source_seconds": 115.4,
+        "output_pts": 1683456,
+        "output_seconds": 109.6,
+        "output_frame_index_zero_based": 2991,
+        "observation": "CLEAR!! result panel with HOME and NEXT buttons in Unity Game view."
+      },
+      {
+        "name": "last",
+        "image": "video-check/fever-proof-output-04.png",
+        "source_pts": 1789952,
+        "source_seconds": 116.533333,
+        "output_pts": 1700864,
+        "output_seconds": 110.733333,
+        "output_frame_index_zero_based": 3024,
+        "observation": "Exact last output frame: game home remains visible. The editor stop control has changed, but the Game view has not yet cleared; no desktop is present."
+      }
+    ],
+    "recorded_foreground_warning": "run.json reports foreground warnings. The accepted excerpt is supported by inspected visible game content, exact endpoint checks and full decoding.",
+    "conclusion": "PASS: continuous recorded Unity gameplay excerpt includes Fever HUD and battle effects, CLEAR result and home return. Inspected samples and exact output endpoints contain game content with no desktop."
+  },
+  "decoding": {
+    "encode_exit_code": 0,
+    "proof_exit_code": 0,
+    "proof_error_log": "video-check/fever-proof-decode.log",
+    "proof_error_log_bytes": 0,
+    "proof_verified_at": "2026-09-20T15:25:35.7558798+08:00",
+    "scope": "All 3025 final-output frames decoded with -xerror; no decoding errors reported.",
+    "timestamp_probe": "video-check/fever-proof-output-probe.json",
+    "source_frame_pts": "video-check/fever-proof-source-pts.json",
+    "ffmpeg_version": "ffmpeg version 8.1.1-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers"
+  },
+  "corroboration": {
+    "run_file": "run.json",
+    "run_sha256": "F0EA71E79C06F7C2AE0D79345446C7CD852D9D17ADD14D89E834ED9CDF58FE59",
+    "result_file": "natural-play.result.txt",
+    "result_sha256": "43406066ABB60D64979A5F77C28021EF3F3A48D5830E336E2AA9362DCBD795CC",
+    "result_session": "np-20260920T071843",
+    "first_battle": "np-20260920T071843-001",
+    "first_battle_outcome": "Victory",
+    "second_battle": "np-20260920T071843-002",
+    "second_battle_outcome": "InProgress",
+    "runtime_milestones": [
+      {
+        "runtime_seconds": 65.855,
+        "evidence": "Fever via QTE Submit (not injected); fever=True; DriveResolve accepted=True timing=Perfect",
+        "event": "FeverReached"
+      },
+      {
+        "runtime_seconds": 66.848,
+        "evidence": "slots=0,1; FeverTap slot=1 accepted=True; fever=True",
+        "event": "FeverPlay"
+      },
+      {
+        "runtime_seconds": 113.191,
+        "evidence": "screen=Result title=CLEAR!!",
+        "event": "ResultVisible"
+      },
+      {
+        "runtime_seconds": 114.041,
+        "evidence": "screen=Home",
+        "event": "HomeReturn"
+      }
+    ],
+    "note": "Runtime milestone times are not video timestamps. Logs corroborate accepted Fever interactions; video samples establish visible game content. OS touch input is not claimed."
+  }
+}

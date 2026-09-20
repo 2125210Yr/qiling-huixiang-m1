@@ -1,0 +1,27 @@
+{
+  "head": "11aa4e33b5e27506dbe4370cfb0c87e554e85df7",
+  "startedAt": "2026-09-20T15:18:23.6476103+08:00",
+  "recordedAt": "2026-09-20T15:18:38.3855573+08:00",
+  "finishedAt": "2026-09-20T15:20:36.9012528+08:00",
+  "unityExitCode": 0,
+  "recorderExitCode": 0,
+  "videoStatus": "REQUIRES_VISUAL_VERIFICATION",
+  "recordingIssues": [
+    "Unity was not foreground at recording start; inspect the captured region for occlusion",
+    "Unity lost foreground during the scenario"
+  ],
+  "session": "np-20260920T071843",
+  "battles": [
+    "np-20260920T071843-001",
+    "np-20260920T071843-002"
+  ],
+  "video": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T071823-np_fever_v1\\basic-focus.mp4",
+  "windowTitle": "client - Untitled - Windows, Mac, Linux - Unity 6.3 LTS (6000.3.23f1) <DX12>",
+  "captureRegion": {
+    "x": 0,
+    "y": 43,
+    "width": 2560,
+    "height": 1349
+  },
+  "result": "PASS"
+}

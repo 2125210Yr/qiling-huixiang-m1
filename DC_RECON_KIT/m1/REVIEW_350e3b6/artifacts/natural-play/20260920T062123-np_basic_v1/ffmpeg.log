@@ -1,0 +1,41 @@
+[in#0 @ 0000015298be37c0] Found window client - Untitled - Windows, Mac, Linux - Unity 6.3 LTS (6000.3.23f1) <DX12>, capturing 1024x768x32 at (0,0)
+[in#0/gdigrab @ 0000015298be37c0] Stream #0: not enough frames to estimate rate; consider increasing probesize
+Input #0, gdigrab, from 'title=client - Untitled - Windows, Mac, Linux - Unity 6.3 LTS (6000.3.23f1) <DX12>':
+  Duration: N/A, start: 1789885293.810568, bitrate: 754987 kb/s
+  Stream #0:0: Video: bmp, bgr0, 1024x768, 754987 kb/s, 30 fps, 1000k tbr, 1000k tbn, start 1789885293.810568
+Stream mapping:
+  Stream #0:0 -> #0:0 (bmp (native) -> h264 (libx264))
+Press [q] to stop, [?] for help
+[libx264 @ 0000015298c81fc0] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[libx264 @ 0000015298c81fc0] profile High, level 3.1, 4:2:0, 8-bit
+[libx264 @ 0000015298c81fc0] 264 - core 165 r3223 0480cb0 - H.264/MPEG-4 AVC codec - Copyleft 2003-2025 - http://www.videolan.org/x264.html - options: cabac=1 ref=1 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=2 psy=1 psy_rd=1.00:0.00 mixed_ref=0 me_range=16 chroma_me=1 trellis=0 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=0 threads=24 lookahead_threads=6 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=1 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=10 rc=crf mbtree=1 crf=23.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to 'F:\天命之子\DC_RECON_KIT\m1\REVIEW_350e3b6\artifacts\natural-play\20260920T062123-np_basic_v1\basic-focus.mp4':
+  Metadata:
+    encoder         : Lavf62.12.101
+  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(tv, progressive), 1024x768, q=2-31, 30 fps, 15360 tbn
+    Metadata:
+      encoder         : Lavc62.28.101 libx264
+    Side data:
+      CPB properties: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+frame=    0 fps=0.0 q=0.0 size=       0KiB time=N/A bitrate=N/A speed=N/A elapsed=0:00:00.51    frame=    0 fps=0.0 q=0.0 size=       0KiB time=N/A bitrate=N/A speed=N/A elapsed=0:00:01.02    frame=    9 fps=5.8 q=29.0 size=       0KiB time=00:00:00.20 bitrate=   1.4kbits/s speed=0.13x elapsed=0:00:01.54    frame=   25 fps= 12 q=29.0 size=       0KiB time=00:00:00.73 bitrate=   0.4kbits/s speed=0.357x elapsed=0:00:02.05    frame=   40 fps= 16 q=29.0 size=       0KiB time=00:00:01.23 bitrate=   0.2kbits/s speed=0.48x elapsed=0:00:02.56    frame=   56 fps= 18 q=29.0 size=       0KiB time=00:00:01.76 bitrate=   0.2kbits/s speed=0.574x elapsed=0:00:03.08    frame=   71 fps= 20 q=29.0 size=       0KiB time=00:00:02.26 bitrate=   0.1kbits/s speed=0.628x elapsed=0:00:03.60    frame=   87 fps= 21 q=29.0 size=       0KiB time=00:00:02.80 bitrate=   0.1kbits/s speed=0.679x elapsed=0:00:04.12    frame=  102 fps= 22 q=29.0 size=       0KiB time=00:00:03.30 bitrate=   0.1kbits/s speed=0.712x elapsed=0:00:04.63    frame=  118 fps= 23 q=29.0 size=       0KiB time=00:00:03.83 bitrate=   0.1kbits/s speed=0.745x elapsed=0:00:05.14    frame=  133 fps= 23 q=29.0 size=       0KiB time=00:00:04.33 bitrate=   0.1kbits/s speed=0.765x elapsed=0:00:05.66    frame=  148 fps= 24 q=29.0 size=       0KiB time=00:00:04.83 bitrate=   0.1kbits/s speed=0.783x elapsed=0:00:06.17    frame=  164 fps= 25 q=29.0 size=       0KiB time=00:00:05.36 bitrate=   0.1kbits/s speed=0.802x elapsed=0:00:06.69    frame=  179 fps= 25 q=29.0 size=       0KiB time=00:00:05.86 bitrate=   0.0kbits/s speed=0.814x elapsed=0:00:07.20    frame=  194 fps= 25 q=29.0 size=       0KiB time=00:00:06.36 bitrate=   0.0kbits/s dup=0 drop=1 speed=0.825x elapsed=0:00:07.72    frame=  208 fps= 25 q=29.0 size=       0KiB time=00:00:06.83 bitrate=   0.0kbits/s dup=0 drop=2 speed=0.829x elapsed=0:00:08.24    frame=  224 fps= 26 q=29.0 size=       0KiB time=00:00:07.36 bitrate=   0.0kbits/s dup=0 drop=2 speed=0.841x elapsed=0:00:08.76    frame=  239 fps= 26 q=29.0 size=       0KiB time=00:00:07.93 bitrate=   0.0kbits/s dup=0 drop=2 speed=0.855x elapsed=0:00:09.27    frame=  255 fps= 26 q=29.0 size=       0KiB time=00:00:08.46 bitrate=   0.0kbits/s dup=0 drop=2 speed=0.865x elapsed=0:00:09.78    frame=  270 fps= 26 q=29.0 size=       0KiB time=00:00:08.96 bitrate=   0.0kbits/s dup=0 drop=2 speed=0.87x elapsed=0:00:10.30    frame=  286 fps= 26 q=29.0 size=       0KiB time=00:00:09.50 bitrate=   0.0kbits/s dup=0 drop=2 speed=0.878x elapsed=0:00:10.81    frame=  300 fps= 26 q=29.0 size=       0KiB time=00:00:09.96 bitrate=   0.0kbits/s dup=0 drop=3 speed=0.879x elapsed=0:00:11.34    frame=  316 fps= 27 q=29.0 size=       0KiB time=00:00:10.50 bitrate=   0.0kbits/s dup=0 drop=3 speed=0.886x elapsed=0:00:11.85    frame=  331 fps= 27 q=29.0 size=       0KiB time=00:00:11.03 bitrate=   0.0kbits/s dup=0 drop=3 speed=0.892x elapsed=0:00:12.37    frame=  347 fps= 27 q=29.0 size=       0KiB time=00:00:11.56 bitrate=   0.0kbits/s dup=0 drop=3 speed=0.898x elapsed=0:00:12.88    frame=  362 fps= 27 q=29.0 size=       0KiB time=00:00:12.06 bitrate=   0.0kbits/s dup=0 drop=3 speed= 0.9x elapsed=0:00:13.40    frame=  378 fps= 27 q=29.0 size=       0KiB time=00:00:12.60 bitrate=   0.0kbits/s dup=0 drop=3 speed=0.905x elapsed=0:00:13.91    frame=  393 fps= 27 q=29.0 size=       0KiB time=00:00:13.10 bitrate=   0.0kbits/s dup=0 drop=3 speed=0.908x elapsed=0:00:14.42    frame=  408 fps= 27 q=29.0 size=       0KiB time=00:00:13.60 bitrate=   0.0kbits/s dup=0 drop=3 speed=0.91x elapsed=0:00:14.94    frame=  423 fps= 27 q=29.0 size=       0KiB time=00:00:14.10 bitrate=   0.0kbits/s dup=0 drop=4 speed=0.912x elapsed=0:00:15.46    frame=  439 fps= 27 q=29.0 size=       0KiB time=00:00:14.63 bitrate=   0.0kbits/s dup=0 drop=4 speed=0.916x elapsed=0:00:15.97    frame=  454 fps= 28 q=29.0 size=       0KiB time=00:00:15.13 bitrate=   0.0kbits/s dup=0 drop=4 speed=0.918x elapsed=0:00:16.49    frame=  469 fps= 28 q=29.0 size=       0KiB time=00:00:15.66 bitrate=   0.0kbits/s dup=0 drop=4 speed=0.921x elapsed=0:00:17.01    frame=  485 fps= 28 q=29.0 size=       0KiB time=00:00:16.20 bitrate=   0.0kbits/s dup=0 drop=4 speed=0.924x elapsed=0:00:17.52    frame=  500 fps= 28 q=29.0 size=       0KiB time=00:00:16.70 bitrate=   0.0kbits/s dup=0 drop=4 speed=0.926x elapsed=0:00:18.03    [vf#0:0 @ 0000015298c829c0] Reconfiguring filter graph because video parameters changed to bgra(unknown, unknown), 1024x768, unspecified alph
+[vf#0:0 @ 0000015298c829c0] Reconfiguring filter graph because video parameters changed to bgr0(unknown, unknown), 1024x768, unspecified alph
+[in#0/gdigrab @ 0000015298be37c0] Failed to capture image (error 8)
+[in#0/gdigrab @ 0000015298c3a6c0] Error during demuxing: I/O error
+[out#0/mp4 @ 0000015298c03dc0] video:20KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 38.072132%
+frame=  547 fps= 30 q=-1.0 Lsize=      27KiB time=00:00:18.26 bitrate=  12.1kbits/s dup=0 drop=4 speed=0.996x elapsed=0:00:18.34    
+[libx264 @ 0000015298c81fc0] frame I:3     Avg QP: 8.00  size:   198
+[libx264 @ 0000015298c81fc0] frame P:139   Avg QP:11.01  size:    37
+[libx264 @ 0000015298c81fc0] frame B:405   Avg QP:13.66  size:    34
+[libx264 @ 0000015298c81fc0] consecutive B-frames:  1.3%  0.0%  0.0% 98.7%
+[libx264 @ 0000015298c81fc0] mb I  I16..4: 100.0%  0.0%  0.0%
+[libx264 @ 0000015298c81fc0] mb P  I16..4:  0.0%  0.0%  0.0%  P16..4:  0.0%  0.0%  0.0%  0.0%  0.0%    skip:100.0%
+[libx264 @ 0000015298c81fc0] mb B  I16..4:  0.0%  0.0%  0.0%  B16..8:  0.0%  0.0%  0.0%  direct: 0.0%  skip:100.0%
+[libx264 @ 0000015298c81fc0] 8x8 transform intra:0.0%
+[libx264 @ 0000015298c81fc0] coded y,uvDC,uvAC intra: 0.0% 0.0% 0.0% inter: 0.0% 0.0% 0.0%
+[libx264 @ 0000015298c81fc0] i16 v,h,dc,p: 98%  0%  2%  0%
+[libx264 @ 0000015298c81fc0] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 50% 25% 25%  0%  0%  0%  0%  0%  0%
+[libx264 @ 0000015298c81fc0] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu:  1%  0% 95%  2%  0%  0%  1%  0%  0%
+[libx264 @ 0000015298c81fc0] i8c dc,h,v,p: 100%  0%  0%  0%
+[libx264 @ 0000015298c81fc0] Weighted P-Frames: Y:0.7% UV:0.0%
+[libx264 @ 0000015298c81fc0] kb/s:8.41
+

@@ -1,0 +1,101 @@
+{
+  "readbackExecutable": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_a82801b\\readback\\bin\\Debug\\net6.0\\Readback.dll",
+  "readerSha256": "77D38EFC3023D53614B007D5B47AF106E8FC6E85654D7FF225511B9C297B0348",
+  "battleReplaySource": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Core\\BattleReplay.cs",
+  "battleReplaySha256": "96A476683FBA85898CAC5F4F7CB81D346D54B7E6E1BA4B16D8136F5B073FDBC6",
+  "runs": [
+    {
+      "scenario": "basic",
+      "battlePath": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T062640-np_basic_v1\\battles\\np-20260920T062700-001",
+      "readbackExitCode": 0,
+      "outputFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\readback\\visible-basic-final.txt",
+      "replay": {
+        "path": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T062640-np_basic_v1\\battles\\np-20260920T062700-001\\replay.jsonl",
+        "sha256": "2591850577397A60939D46AC8FF7BB9B9FDD301FAAAA47A80958E74AB9128BA9",
+        "totalLines": 168,
+        "nonEmptyLines": 168,
+        "jsonErrorCount": 0,
+        "jsonErrors": []
+      },
+      "checkedAtUtc": "2026-09-20T07:18:56.0371034Z",
+      "readback": {
+        "openingSource": "input",
+        "NamedOpeningDiff": null,
+        "battle_id": "np-20260920T062700-001",
+        "scenario": "np.basic.v1",
+        "Match": true,
+        "Ok": true,
+        "CommandDiff": 0,
+        "Unconsumed": 0,
+        "DigestDiff": 0,
+        "EventDiff": 0,
+        "VersionDiff": 0,
+        "FirstEventDivergence": -1,
+        "ExpectedEventCount": 155,
+        "ActualEventCount": 155
+      }
+    },
+    {
+      "scenario": "fever",
+      "battlePath": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T064419-np_fever_v1\\battles\\np-20260920T064437-001",
+      "readbackExitCode": 0,
+      "outputFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\readback\\visible-fever-final.txt",
+      "replay": {
+        "path": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T064419-np_fever_v1\\battles\\np-20260920T064437-001\\replay.jsonl",
+        "sha256": "FEBC650477FD6AE0A4155BD9FB1CFC3EE286730356FC049F1C0549BAD3721783",
+        "totalLines": 897,
+        "nonEmptyLines": 897,
+        "jsonErrorCount": 0,
+        "jsonErrors": []
+      },
+      "checkedAtUtc": "2026-09-20T07:18:56.2667984Z",
+      "readback": {
+        "openingSource": "input",
+        "NamedOpeningDiff": null,
+        "battle_id": "np-20260920T064437-001",
+        "scenario": "np.fever.v1",
+        "Match": true,
+        "Ok": true,
+        "CommandDiff": 0,
+        "Unconsumed": 0,
+        "DigestDiff": 0,
+        "EventDiff": 0,
+        "VersionDiff": 0,
+        "FirstEventDivergence": -1,
+        "ExpectedEventCount": 879,
+        "ActualEventCount": 879
+      }
+    },
+    {
+      "scenario": "auto",
+      "battlePath": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T064643-np_auto_v1\\battles\\np-20260920T064701-001",
+      "readbackExitCode": 0,
+      "outputFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\readback\\visible-auto-final.txt",
+      "replay": {
+        "path": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T064643-np_auto_v1\\battles\\np-20260920T064701-001\\replay.jsonl",
+        "sha256": "774AD36A770C0F48B73394C43A31FE1C5E2337F4A95C4393917A629366C3E20C",
+        "totalLines": 102,
+        "nonEmptyLines": 102,
+        "jsonErrorCount": 0,
+        "jsonErrors": []
+      },
+      "checkedAtUtc": "2026-09-20T07:18:56.4489342Z",
+      "readback": {
+        "openingSource": "input",
+        "NamedOpeningDiff": null,
+        "battle_id": "np-20260920T064701-001",
+        "scenario": "np.auto.v1",
+        "Match": true,
+        "Ok": true,
+        "CommandDiff": 0,
+        "Unconsumed": 0,
+        "DigestDiff": 0,
+        "EventDiff": 0,
+        "VersionDiff": 0,
+        "FirstEventDivergence": -1,
+        "ExpectedEventCount": 69,
+        "ActualEventCount": 69
+      }
+    }
+  ]
+}

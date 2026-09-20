@@ -1,0 +1,34 @@
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'F:\天命之子\DC_RECON_KIT\m1\REVIEW_350e3b6\artifacts\natural-play\20260920T064643-np_auto_v1\basic-focus.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso6iso2avc1mp41
+    encoder         : Lavf62.12.101
+  Duration: 00:00:12.93, start: 0.066667, bitrate: 616 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 2560x1348, 613 kb/s, 28.07 fps, 30 tbr, 15360 tbn, start 0.066667 (default)
+    Metadata:
+      handler_name    : VideoHandler
+      encoder         : Lavc62.28.101 libx264
+Stream mapping:
+  Stream #0:0 -> #0:0 (h264 (native) -> png (native))
+Press [q] to stop, [?] for help
+[Parsed_showinfo_1 @ 000001da15bed700] config in time_base: 1/15360, frame_rate: 30/1
+[Parsed_showinfo_1 @ 000001da15bed700] config out time_base: 0/0, frame_rate: 0/0
+[Parsed_showinfo_1 @ 000001da15bed700] n:   0 pts: 102912 pts_time:6.7     duration:    512 duration_time:0.0333333 fmt:yuv420p cl:left sar:0/1 s:2560x1348 i:P iskey:0 type:B checksum:5AF38DE8 plane_checksum:[C0E75AA4 749EF529 9A8C3E0C] mean:[51 128 128] stdev:[15.2 3.5 3.2]
+[Parsed_showinfo_1 @ 000001da15bed700] color_range:unknown color_space:unknown color_primaries:unknown color_trc:unknown
+Output #0, image2, to 'F:\天命之子\DC_RECON_KIT\m1\REVIEW_350e3b6\artifacts\natural-play\20260920T064643-np_auto_v1\video-check\auto-proof-frame-6p7.png':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso6iso2avc1mp41
+    encoder         : Lavf62.12.101
+  Stream #0:0(und): Video: png, rgb24(pc, gbr/unknown/unknown, progressive), 2560x1348, q=2-31, 200 kb/s, 30 fps, 30 tbn (default)
+    Metadata:
+      encoder         : Lavc62.28.101 png
+      handler_name    : VideoHandler
+[Parsed_showinfo_1 @ 000001da15bed700] n:   1 pts: 103424 pts_time:6.733333 duration:    512 duration_time:0.0333333 fmt:yuv420p cl:left sar:0/1 s:2560x1348 i:P iskey:0 type:B checksum:63A899A4 plane_checksum:[448D626A 72E7F77F 41683FAC] mean:[51 128 128] stdev:[15.2 3.5 3.2]
+[Parsed_showinfo_1 @ 000001da15bed700] color_range:unknown color_space:unknown color_primaries:unknown color_trc:unknown
+[image2 @ 000001da13463980] The specified filename 'F:\天命之子\DC_RECON_KIT\m1\REVIEW_350e3b6\artifacts\natural-play\20260920T064643-np_auto_v1\video-check\auto-proof-frame-6p7.png' does not contain an image sequence pattern or a pattern is invalid.
+[image2 @ 000001da13463980] Use a pattern such as %03d for an image sequence or use the -update option (with -frames:v 1 if needed) to write a single image.
+[out#0/image2 @ 000001da15bed1c0] video:401KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+frame=    1 fps=0.0 q=-0.0 Lsize=N/A time=00:00:00.00 bitrate=N/A speed=   0x elapsed=0:00:00.15    

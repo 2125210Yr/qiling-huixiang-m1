@@ -1,0 +1,17 @@
+[
+  {
+    "Algorithm": "SHA256",
+    "Hash": "81CC57FB651A1FD82C3BA58654CF8384A9D140D1C3B581BAA8666A964F06D1C6",
+    "Path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Core\\BattleReplay.cs"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "F7C45364A9074EB219727B357B3F49102A9205A5F5F74A505EE272AFB849B27D",
+    "Path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Debug\\NaturalPlayRuntime.cs"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "387FDA21E7303B1215398F7BB370ED3BCB528A85A446136F85B3EC074863312B",
+    "Path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Debug\\NaturalPlayBattleEvidence.cs"
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "scenario": "fever",
+  "battlePath": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T071823-np_fever_v1\\battles\\np-20260920T071843-001",
+  "readbackExecutable": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_a82801b\\readback\\bin\\Debug\\net6.0\\Readback.dll",
+  "readerSha256": "77D38EFC3023D53614B007D5B47AF106E8FC6E85654D7FF225511B9C297B0348",
+  "battleReplaySource": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Core\\BattleReplay.cs",
+  "battleReplaySha256": "96A476683FBA85898CAC5F4F7CB81D346D54B7E6E1BA4B16D8136F5B073FDBC6",
+  "readbackExitCode": 0,
+  "outputFile": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\readback\\visible-fever-new.txt",
+  "replay": {
+    "path": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T071823-np_fever_v1\\battles\\np-20260920T071843-001\\replay.jsonl",
+    "sha256": "57AE1FFA2E628482083AAD8B14CBF6AEDF3C421F04E9B2CC28F449BC4DB05D38",
+    "totalLines": 1159,
+    "nonEmptyLines": 1159,
+    "jsonErrorCount": 0,
+    "jsonErrors": []
+  },
+  "checkedAtUtc": "2026-09-20T07:21:56.8587997Z",
+  "readback": {
+    "openingSource": "input",
+    "NamedOpeningDiff": null,
+    "battle_id": "np-20260920T071843-001",
+    "scenario": "np.fever.v1",
+    "Match": true,
+    "Ok": true,
+    "CommandDiff": 0,
+    "Unconsumed": 0,
+    "DigestDiff": 0,
+    "EventDiff": 0,
+    "VersionDiff": 0,
+    "FirstEventDivergence": -1,
+    "ExpectedEventCount": 1141,
+    "ActualEventCount": 1141
+  }
+}

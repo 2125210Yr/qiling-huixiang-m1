@@ -1,0 +1,128 @@
+{
+  "schema": "gameplay-video-proof-v1",
+  "createdAt": "2026-09-20T14:51:02.3875339+08:00",
+  "session": "np-20260920T062700",
+  "scenario": "np.basic.v1",
+  "source": {
+    "file": "basic-focus.mp4",
+    "sha256": "1d2463a21214038ee41665a8fe6b13282d84a1a67dec7a3b2b3f79d260ba7bb2",
+    "bytes": 1609159,
+    "containerDurationSeconds": 23.133333,
+    "firstFramePtsSeconds": 0.233333,
+    "frames": 624,
+    "nominalFrameRate": "30/1",
+    "note": "Source has irregular frame timestamps / capture gaps; nominal 30 fps must not be used to calculate frame indices.",
+    "unchanged": true
+  },
+  "selection": {
+    "timeBasis": "Seconds relative to first decoded video frame, normalized with setpts=PTS-STARTPTS before trim.",
+    "startSecondsInclusive": 7.0,
+    "endSecondsExclusive": 17.9,
+    "sourceFirstFrameIndexZeroBased": 187,
+    "sourceEndFrameIndexExclusiveZeroBased": 490,
+    "firstSourceFramePtsSeconds": 7.233333,
+    "lastSourceFramePtsSeconds": 18.1,
+    "lastNormalizedSourceFrameSeconds": 17.866667,
+    "contiguous": true,
+    "reason": "Continuous stage FIGHT, first battle, CLEAR result, rematch pause and home return inside Unity Play mode. Stops before Play mode exit and later Chrome desktop.",
+    "transformations": [
+      "Trim only by presentation time",
+      "Reset output timestamps to zero",
+      "H.264 re-encode; full original 2560x1348 frame retained",
+      "Preserve source frame intervals; no inferred constant-frame-rate timing"
+    ]
+  },
+  "output": {
+    "file": "gameplay-proof.mp4",
+    "sha256": "8c20a11cb42ce61f8d64aa415aa4374a32194cd878a8f0434c65441447166c54",
+    "bytes": 1593839,
+    "durationSeconds": 10.9,
+    "frames": 303,
+    "codec": "h264",
+    "width": 2560,
+    "height": 1348,
+    "nominalFrameRate": "30/1",
+    "averageFrameRate": "3030/109",
+    "audioStreams": 0
+  },
+  "commands": {
+    "encode": "ffmpeg -hide_banner -y -i \"basic-focus.mp4\" -map 0:v:0 -an -vf \"setpts=PTS-STARTPTS,trim=start=7:end=17.9,setpts=PTS-STARTPTS\" -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -fps_mode passthrough -movflags +faststart \"gameplay-proof.mp4\"",
+    "decode": "ffmpeg -hide_banner -v error -xerror -i \"gameplay-proof.mp4\" -map 0:v:0 -f null -",
+    "probe": "ffprobe -v error -count_frames -show_entries format=duration,size:stream=index,codec_name,width,height,r_frame_rate,avg_frame_rate,start_time,nb_read_frames -of json \"gameplay-proof.mp4\"",
+    "workingDirectory": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T062640-np_basic_v1",
+    "encodeLog": "../../video-check/basic-proof-encode.log",
+    "decodeLog": "../../video-check/basic-proof-decode.log"
+  },
+  "validation": {
+    "encodeExitCode": 0,
+    "fullDecodeExitCode": 0,
+    "fullDecodeErrorLogBytes": 0,
+    "fullDecodeScope": "All 303 output frames decoded with -xerror.",
+    "visualMethod": "ffmpeg frame extraction followed by actual Codex view_image inspection of source overview, end sequence and seven final-output samples.",
+    "sourceOverview": "../../video-check/basic-proof-contact-1fps.jpg",
+    "sourceEndSequence": "../../video-check/basic-proof-endgame-contact.jpg",
+    "samples": [
+      {
+        "file": "../../video-check/basic-proof-output-sample-01.png",
+        "sourceNormalizedSeconds": 7.0,
+        "outputSeconds": 0.0,
+        "observed": "Stage selection with FIGHT button; Unity Play mode active."
+      },
+      {
+        "file": "../../video-check/basic-proof-output-sample-02.png",
+        "sourceNormalizedSeconds": 8.0,
+        "outputSeconds": 1.0,
+        "observed": "First battle HUD, three enemy sprites and five party characters."
+      },
+      {
+        "file": "../../video-check/basic-proof-output-sample-03.png",
+        "sourceNormalizedSeconds": 11.0,
+        "outputSeconds": 4.0,
+        "observed": "Battle effects and damage numbers over enemy and party HUD."
+      },
+      {
+        "file": "../../video-check/basic-proof-output-sample-04.png",
+        "sourceNormalizedSeconds": 15.0,
+        "outputSeconds": 8.0,
+        "observed": "Late battle effects, PHASE 2 transition and party portraits."
+      },
+      {
+        "file": "../../video-check/basic-proof-output-sample-05.png",
+        "sourceNormalizedSeconds": 17.1,
+        "outputSeconds": 10.1,
+        "observed": "CLEAR!! result panel with HOME and NEXT buttons."
+      },
+      {
+        "file": "../../video-check/basic-proof-output-sample-06.png",
+        "sourceNormalizedSeconds": 17.5,
+        "outputSeconds": 10.5,
+        "observed": "Rematch battle PAUSE panel with HOME, CONTINUE and Repeat."
+      },
+      {
+        "file": "../../video-check/basic-proof-output-sample-07.png",
+        "sourceNormalizedSeconds": 17.866667,
+        "outputSeconds": 10.866667,
+        "outputFrameIndexZeroBased": 302,
+        "observed": "Exact final output frame: character home page, Unity Play mode still active; no desktop."
+      }
+    ],
+    "conclusion": "PASS: real continuous Unity gameplay, clear result and home return are visible; sampled frames and exact output endpoints contain no Chrome desktop. The later desktop portion is excluded by the timestamp trim."
+  },
+  "corroboration": {
+    "runFile": "run.json",
+    "runSha256": "3a77531b6077d1ea8d8eb5fc5d9883b757a221f35e7cab3b9f48ecdff816ba05",
+    "resultFile": "natural-play.result.txt",
+    "resultSha256": "2a03662b552a89c318f674c2a17f1767ec544966524c50689ff9b063fb7ceaab",
+    "resultSession": "np-20260920T062700",
+    "firstBattle": "np-20260920T062700-001",
+    "firstBattleOutcome": "Victory",
+    "secondBattle": "np-20260920T062700-002",
+    "loggedMilestones": [
+      "BattleVisible screen=Battle",
+      "ResultVisible screen=Result title=CLEAR!!",
+      "Rematch tap NEXT",
+      "HomeReturn screen=Home"
+    ],
+    "note": "Same archive run.json links this session and original video. Logs corroborate the visual sequence; this proof does not claim OS touch input or Fever."
+  }
+}

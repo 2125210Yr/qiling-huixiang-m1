@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "scenario": "np.auto.v1",
+  "session": "np-20260920T064701",
+  "scenario_result": "PASS",
+  "video_status": "ACCEPTED_VISUAL_GAMEPLAY_EXCERPT",
+  "created_at": "2026-09-20T14:54:29.5969495+08:00",
+  "source": {
+    "path": "basic-focus.mp4",
+    "sha256": "0DBEA2BC9733186200986DE7378A82D8C70BBFA9527061186B47CF246ED00F46",
+    "bytes": 996855,
+    "preserved_unmodified": true,
+    "stream_start_time_seconds": "0.066667",
+    "time_base": "1/15360",
+    "r_frame_rate": "30/1",
+    "note": "Nominal 30 fps does not imply uniform source PTS. Trim uses original integer PTS with -copyts."
+  },
+  "trim": {
+    "time_base": "1/15360",
+    "start_pts_inclusive": 86016,
+    "end_pts_exclusive": 170496,
+    "start_seconds_inclusive": "5.600000",
+    "end_seconds_exclusive": "11.100000",
+    "first_included_source_pts": 86016,
+    "last_included_source_pts": 169984,
+    "last_included_source_seconds": "11.066667",
+    "output_time_origin": "setpts=PTS-STARTPTS",
+    "reason": "Exclude editor loading at 5.500/5.566667 and later Unity-exit browser desktop. Retain home, battle entry, Auto cycle and return home."
+  },
+  "output": {
+    "path": "gameplay-proof.mp4",
+    "sha256": "743725914F9FDF00AFC780007DEF8255160A768B41EF72B114367592A4A98E09",
+    "bytes": 752773,
+    "width": 2560,
+    "height": 1348,
+    "duration_seconds": "5.500000",
+    "frames": 158,
+    "first_pts": 0,
+    "last_pts": 83968,
+    "time_base": "1/15360",
+    "visual_region": "Full original recorded rectangle; no spatial crop, no overlays, no synthetic frames",
+    "pts_preservation": "Every output frame PTS equals selected source frame PTS minus 86016; all 158 compared successfully."
+  },
+  "commands": {
+    "working_directory": "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T064643-np_auto_v1",
+    "trim": [
+      "ffmpeg",
+      "-hide_banner",
+      "-loglevel",
+      "info",
+      "-y",
+      "-copyts",
+      "-i",
+      "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T064643-np_auto_v1\\basic-focus.mp4",
+      "-map",
+      "0:v:0",
+      "-vf",
+      "trim=start_pts=86016:end_pts=170496,setpts=PTS-STARTPTS",
+      "-an",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "18",
+      "-preset",
+      "veryfast",
+      "-pix_fmt",
+      "yuv420p",
+      "-fps_mode",
+      "passthrough",
+      "-movflags",
+      "+faststart",
+      "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T064643-np_auto_v1\\gameplay-proof.mp4"
+    ],
+    "full_decode": [
+      "ffmpeg",
+      "-hide_banner",
+      "-v",
+      "error",
+      "-xerror",
+      "-i",
+      "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T064643-np_auto_v1\\gameplay-proof.mp4",
+      "-map",
+      "0:v:0",
+      "-f",
+      "null",
+      "NUL"
+    ],
+    "source_full_decode": [
+      "ffmpeg",
+      "-hide_banner",
+      "-v",
+      "error",
+      "-xerror",
+      "-i",
+      "F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\natural-play\\20260920T064643-np_auto_v1\\basic-focus.mp4",
+      "-map",
+      "0:v:0",
+      "-f",
+      "null",
+      "NUL"
+    ]
+  },
+  "visual_inspection": {
+    "method": "Actual ffmpeg extraction followed by view_image inspection. Sample review plus exact first/last output frames; not a claim of frame-by-frame review of the entire clip.",
+    "overview": {
+      "image": "video-check/auto-proof-overview.png",
+      "selection": "Full raw source, fps=1, full-window overview. Resampled positions are approximate source selection times."
+    },
+    "dense": {
+      "image": "video-check/auto-proof-dense-5-11.png",
+      "selection": "Original PTS [5,11), fps=4; game-region crop for inspection only. Labels are resampled fps-grid PTS, not exact source-frame PTS."
+    },
+    "exact_start_boundary": {
+      "image": "video-check/auto-proof-start-boundary.png",
+      "selection": "Every available source frame PTS from 5.500000 through 6.000000; exact PTS labels",
+      "observation": "5.500000 and 5.566667 are empty loading views; 5.600000 onward is the game home."
+    },
+    "exact_end_boundary": {
+      "image": "video-check/auto-proof-end-boundary.png",
+      "selection": "Every available source frame PTS from 10.600000 through 11.133333; full-window views with exact PTS labels",
+      "observation": "Pause, then home; no exit desktop in this reviewed boundary range."
+    },
+    "first_output_frame": {
+      "image": "video-check/auto-proof-first.png",
+      "source_pts": 86016,
+      "source_seconds": "5.600000",
+      "output_pts": 0,
+      "observation": "Game home visible in Unity Game view."
+    },
+    "last_output_frame": {
+      "image": "video-check/auto-proof-last.png",
+      "source_pts": 169984,
+      "source_seconds": "11.066667",
+      "output_pts": 83968,
+      "observation": "Game home visible; browser desktop excluded."
+    },
+    "auto_hud": {
+      "image": "video-check/auto-proof-auto-hud.png",
+      "selection": "Exact original integer PTS 102400,106496,114688,155648; crop=408:716:1016:84 for inspection only",
+      "observations": [
+        "6.666667: MANUAL",
+        "6.933333: SEMI AUTO",
+        "7.466667: FULL AUTO and battle effects",
+        "10.133333: MANUAL and battle effects"
+      ]
+    },
+    "recorded_foreground_warning": "run.json reports foreground warnings; acceptance is based on visible game content in the inspected source/excerpt frames and full decoding."
+  },
+  "decoding": {
+    "proof_exit_code": 0,
+    "proof_error_log": "video-check/auto-proof-decode.log",
+    "proof_error_log_bytes": 0,
+    "proof_verified_at": "2026-09-20T14:53:01.5935767+08:00",
+    "source_exit_code": 0,
+    "source_error_log": "video-check/auto-proof-raw-decode.log",
+    "source_error_log_bytes": 0,
+    "timestamp_probe": "video-check/auto-proof-output-probe.json",
+    "source_frame_pts": "video-check/auto-proof-frame-pts.json",
+    "ffmpeg_version": "ffmpeg version 8.1.1-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers"
+  }
+}

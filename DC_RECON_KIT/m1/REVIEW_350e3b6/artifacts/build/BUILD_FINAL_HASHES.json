@@ -1,0 +1,20 @@
+[
+  {
+    "path": "F:\\Resonance\\client\\Builds\\Win64\\Resonance.exe",
+    "sha256": "82EFD5A8C297A5046F6BB72C240DAB8972E64003851935EBA0A46AD121CE0305",
+    "lastWriteTime": "2026-09-16T16:52:37.4977709+08:00",
+    "bytes": 667136
+  },
+  {
+    "path": "F:\\Resonance\\client\\Builds\\Win64\\Resonance_Data\\Managed\\Resonance.App.dll",
+    "sha256": "C9C1E4A79C5E26A567BE7869A6A0201F25DDE08DE38A14269203485D0CD73F6F",
+    "lastWriteTime": "2026-09-20T13:14:39.1575013+08:00",
+    "bytes": 774656
+  },
+  {
+    "path": "F:\\Resonance\\client\\Builds\\Win64\\Resonance_Data\\Managed\\Resonance.Battle.dll",
+    "sha256": "C05D101F9EC0270200B6AE8821A6F89767E511E497A03AC1C3C379A3B8271508",
+    "lastWriteTime": "2026-09-20T15:21:57.4695142+08:00",
+    "bytes": 226304
+  }
+]

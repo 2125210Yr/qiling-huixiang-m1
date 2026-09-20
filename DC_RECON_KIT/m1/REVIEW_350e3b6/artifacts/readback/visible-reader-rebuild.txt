@@ -1,0 +1,8 @@
+MSBuild version 17.3.2+561848881 for .NET
+  Readback -> F:\天命之子\DC_RECON_KIT\m1\REVIEW_a82801b\readback\bin\Debug\net6.0\Readback.dll
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:00.87

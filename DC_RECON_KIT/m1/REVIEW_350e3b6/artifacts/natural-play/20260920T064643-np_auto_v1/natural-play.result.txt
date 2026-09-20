@@ -1,0 +1,100 @@
+PASS
+historical_baseline=DC_RECON_KIT/m1/G2_REVIEW_20260913/artifacts/natural-play/run7
+historical_verdict=FAIL BattlePlay missing=Tap,Slide
+historical_note=run7 kept as FAIL; this session does not rewrite it to PASS
+pointer=UnityEngine.EventSystem
+os_touch=NOT_CLAIMED
+provenance=DESIGN_PLACEHOLDER
+schema=G2R14-NP-1
+plan=np.auto.v1
+session=np-20260920T064701
+battle_ids=np-20260920T064701-001
+battle_1=np-20260920T064701-001 scenario=np.auto.v1 stage=NP-AUTO persisted=1 outcome=InProgress digest=3110ea2ffd1b9eb891dd02338c27650df2976731b79730150c142badddcf1641 dir=F:\Resonance\client\captures\natural-play\battles\np-20260920T064701-001
+catalog=DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.auto.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok
+captures=np_01_battle.png,np_11_home.png
+screen=Home
+title=
+drive=94 fever=False ever=False speed=1 auto=Manual outcome=InProgress wave=0
+
+phase	expected	observed	frame	ms
+VerificationCatalog	DESIGN_PLACEHOLDER before FIGHT	DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.auto.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok	1	0
+HomeVisible	screen=Home	screen=Home	2	3847
+TapToStage	tap 关卡	tapped GameRoot/Canvas/首页/关卡	3	4014
+StageVisible	screen=Stage	screen=Stage	24	4138
+TapStart	tap FIGHT	tapped GameRoot/Canvas/StageBoard/WavePreview/FIGHT	26	4469
+BattleVisible	screen=Battle hud=p0	screen=Battle hud=p0 wave=0	50	4595
+BattleId	unique battle_id + frozen BattleInitialHeader + RunHeader	id=np-20260920T064701-001 scenario=np.auto.v1 frozen=True header=seed=721812;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=1;forceNoCrit=0;stage=NP-AUTO;data=g2id1-dbfa64e196f584025943736445090dfa152b741de36c5d6c817cf5e8130136c3;party=C001,C007,C010,C003,C005	51	4601
+AutoFullTap	tap > MANUAL	tapped GameRoot/Canvas/> MANUAL	53	4717
+AutoFullTap	tap > MANUAL	tapped GameRoot/Canvas/> MANUAL	107	5111
+AutoFull	Auto=Full via HUD	Auto=Full	132	5406
+AutoSkillObserved	auto policy fired (cast/charge)	screen=Battle last=TAP  森语引路者  路引 drive=94 qte=-1 fever=False feverEver=False feverGauge=0 paused=False speed=1 auto=Full focus=-1 wave=0 outcome=InProgress cmd=seq=12 tick=107 kind=Tap slot=4 source=Auto accepted=True reason=None timing=Bad value=0	551	7950
+AutoSubmit	CommandLog Source=Auto skill	screen=Battle last=TAP  森语引路者  路引 drive=94 qte=-1 fever=False feverEver=False feverGauge=0 paused=False speed=1 auto=Full focus=-1 wave=0 outcome=InProgress cmd=seq=12 tick=107 kind=Tap slot=4 source=Auto accepted=True reason=None timing=Bad value=0	551	7950
+AutoManualTap	tap > MANUAL	tapped GameRoot/Canvas/> MANUAL	552	7974
+AutoManual	Auto=Manual via HUD	Auto=Manual	571	8251
+ExitPause	tap || PAUSE	tapped GameRoot/Canvas/|| PAUSE	572	8285
+ExitPause	PauseBoard + Paused	PauseBoard Paused=true	588	8412
+ExitHome	tap HOME	tapped GameRoot/Canvas/PauseBoard/HOME	590	8584
+HomeReturn	screen=Home	screen=Home	614	8708
+
+--- inputs ---
+note natural-play start
+note historical_baseline=DC_RECON_KIT/m1/G2_REVIEW_20260913/artifacts/natural-play/run7 verdict=FAIL BattlePlay missing=Tap,Slide (kept; not rewritten)
+note pointer=UnityEngine.EventSystem os_touch=NOT_CLAIMED
+note plan mode=np.auto.v1 fights=1 provenance=DESIGN_PLACEHOLDER schema=G2R14-NP-1
+note catalog DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.auto.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok
+note ok VerificationCatalog DESIGN_PLACEHOLDER G2R14-NP-1 mode=np.auto.v1+A53_SUB_STRIP_DOT_FLAME sub=A53_SUB_STRIP_DOT_FLAME fights=1 chargeSec=1.25 declaredAutoDriveGain=2 honorDeclared=True tickUnitFloor=Math.Max(14f,DriveGain) until integrator hunk roster=ok
+note ok HomeVisible screen=Home
+frame=2 t=3.847 kind=tap pos=289,438 target=none after=battle=null screen=Stage
+note ok TapToStage tapped GameRoot/Canvas/首页/关卡
+note ok StageVisible screen=Stage
+frame=25 t=4.142 kind=tap pos=540,250 target=none after=screen=Battle last=第一波 drive=0 qte=-1 fever=False feverEver=False feverGauge=0 paused=False speed=1 auto=Manual focus=-1 wave=0 outcome=InProgress
+note ok TapStart tapped GameRoot/Canvas/StageBoard/WavePreview/FIGHT
+note ok BattleVisible screen=Battle hud=p0 wave=0
+note ok BattleId id=np-20260920T064701-001 scenario=np.auto.v1 frozen=True header=seed=721812;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=1;forceNoCrit=0;stage=NP-AUTO;data=g2id1-dbfa64e196f584025943736445090dfa152b741de36c5d6c817cf5e8130136c3;party=C001,C007,C010,C003,C005
+note shot np_01_battle.png
+frame=52 t=4.701 kind=tap pos=983,1824 target=GameRoot/Canvas/> MANUAL after=screen=Battle last=第一波 drive=0 qte=-1 fever=False feverEver=False feverGauge=0 paused=False speed=1 auto=Semi focus=-1 wave=0 outcome=InProgress cmd=seq=1 tick=16 kind=SetAuto slot=0 source=Player accepted=True reason=None timing=Bad value=1
+note ok AutoFullTap tapped GameRoot/Canvas/> MANUAL
+frame=106 t=4.977 kind=tap pos=983,1824 target=GameRoot/Canvas/> MANUAL after=screen=Battle last=SLIDE  森语引路者  棘径加攻 drive=46 qte=-1 fever=False feverEver=False feverGauge=0 paused=False speed=1 auto=Full focus=-1 wave=0 outcome=InProgress cmd=seq=7 tick=25 kind=SetAuto slot=0 source=Player accepted=True reason=None timing=Bad value=2
+note ok AutoFullTap tapped GameRoot/Canvas/> MANUAL
+note ok AutoFull Auto=Full
+note ok AutoSkillObserved screen=Battle last=TAP  森语引路者  路引 drive=94 qte=-1 fever=False feverEver=False feverGauge=0 paused=False speed=1 auto=Full focus=-1 wave=0 outcome=InProgress cmd=seq=12 tick=107 kind=Tap slot=4 source=Auto accepted=True reason=None timing=Bad value=0
+note ok AutoSubmit screen=Battle last=TAP  森语引路者  路引 drive=94 qte=-1 fever=False feverEver=False feverGauge=0 paused=False speed=1 auto=Full focus=-1 wave=0 outcome=InProgress cmd=seq=12 tick=107 kind=Tap slot=4 source=Auto accepted=True reason=None timing=Bad value=0
+frame=551 t=7.951 kind=tap pos=983,1824 target=GameRoot/Canvas/> MANUAL after=screen=Battle last=TAP  森语引路者  路引 drive=94 qte=-1 fever=False feverEver=False feverGauge=0 paused=False speed=1 auto=Manual focus=-1 wave=0 outcome=InProgress cmd=seq=13 tick=114 kind=SetAuto slot=0 source=Player accepted=True reason=None timing=Bad value=0
+note ok AutoManualTap tapped GameRoot/Canvas/> MANUAL
+note ok AutoManual Auto=Manual
+note persist np-20260920T064701-001 why=auto-exit status=F:\Resonance\client\captures\natural-play\battles\np-20260920T064701-001 outcome=InProgress digest=c3924ea8f43f673b65ce062f2b73765f4ae21e3fcaa93079ef4539b159e2191c replay=F:\Resonance\client\captures\natural-play\battles\np-20260920T064701-001\replay.jsonl
+frame=571 t=8.251 kind=tap pos=97,1824 target=GameRoot/Canvas/|| PAUSE after=screen=Battle last=TAP  森语引路者  路引 drive=94 qte=-1 fever=False feverEver=False feverGauge=0 paused=True speed=1 auto=Manual focus=-1 wave=0 outcome=InProgress cmd=seq=14 tick=123 kind=Pause slot=0 source=Player accepted=True reason=None timing=Bad value=0
+note ok ExitPause tapped GameRoot/Canvas/|| PAUSE
+note ok ExitPause PauseBoard Paused=true
+note persist np-20260920T064701-001 why=pre-home status=F:\Resonance\client\captures\natural-play\battles\np-20260920T064701-001 outcome=InProgress digest=3110ea2ffd1b9eb891dd02338c27650df2976731b79730150c142badddcf1641 replay=F:\Resonance\client\captures\natural-play\battles\np-20260920T064701-001\replay.jsonl
+frame=589 t=8.420 kind=tap pos=238,538 target=none after=screen=Home last=TAP  森语引路者  路引 drive=94 qte=-1 fever=False feverEver=False feverGauge=0 paused=True speed=1 auto=Manual focus=-1 wave=0 outcome=InProgress cmd=seq=14 tick=123 kind=Pause slot=0 source=Player accepted=True reason=None timing=Bad value=0
+note ok ExitHome tapped GameRoot/Canvas/PauseBoard/HOME
+note ok HomeReturn screen=Home
+note shot np_11_home.png
+note persist np-20260920T064701-001 why=quit status=F:\Resonance\client\captures\natural-play\battles\np-20260920T064701-001 outcome=InProgress digest=3110ea2ffd1b9eb891dd02338c27650df2976731b79730150c142badddcf1641 replay=F:\Resonance\client\captures\natural-play\battles\np-20260920T064701-001\replay.jsonl
+
+--- frozen battle headers (authoritative) ---
+np-20260920T064701-001	seed=721812;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=1;forceNoCrit=0;stage=NP-AUTO;data=g2id1-dbfa64e196f584025943736445090dfa152b741de36c5d6c817cf5e8130136c3;party=C001,C007,C010,C003,C005
+
+--- live RunHeader (current GameRoot.Battle; may be fight 2) ---
+seed=721812;rules=g2-patha-2026-09-13;profile=JP_LEGACY_EMPIRICAL;auto=Manual;speed=1;forceNoCrit=0;stage=NP-AUTO;data=g2id1-739d8b44874327aba5cc7bbf1de521bdd7e524983b1452f749fcacbf4d40f054;party=C001,C007,C010,C003,C005
+
+--- live CommandLog (current GameRoot.Battle; per-fight files are authoritative) ---
+seq=1 tick=16 kind=SetAuto slot=0 source=Player accepted=True reason=None timing=Bad value=1
+seq=2 tick=25 kind=Tap slot=0 source=Auto accepted=True reason=None timing=Bad value=0
+seq=3 tick=25 kind=Tap slot=1 source=Auto accepted=True reason=None timing=Bad value=0
+seq=4 tick=25 kind=Slide slot=2 source=Auto accepted=True reason=None timing=Bad value=0
+seq=5 tick=25 kind=Tap slot=3 source=Auto accepted=True reason=None timing=Bad value=0
+seq=6 tick=25 kind=Slide slot=4 source=Auto accepted=True reason=None timing=Bad value=0
+seq=7 tick=25 kind=SetAuto slot=0 source=Player accepted=True reason=None timing=Bad value=2
+seq=8 tick=107 kind=Slide slot=0 source=Auto accepted=True reason=None timing=Bad value=0
+seq=9 tick=107 kind=Tap slot=1 source=Auto accepted=True reason=None timing=Bad value=0
+seq=10 tick=107 kind=Tap slot=2 source=Auto accepted=True reason=None timing=Bad value=0
+seq=11 tick=107 kind=Tap slot=3 source=Auto accepted=True reason=None timing=Bad value=0
+seq=12 tick=107 kind=Tap slot=4 source=Auto accepted=True reason=None timing=Bad value=0
+seq=13 tick=114 kind=SetAuto slot=0 source=Player accepted=True reason=None timing=Bad value=0
+seq=14 tick=123 kind=Pause slot=0 source=Player accepted=True reason=None timing=Bad value=0
+
+--- reflection (read-only) ---
+BattleSim.CommandLog (public, read-only)
+BattleSim.RunHeader() (read-only)

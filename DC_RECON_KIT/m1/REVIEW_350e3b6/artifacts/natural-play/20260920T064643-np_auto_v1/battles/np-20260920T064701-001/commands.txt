@@ -1,0 +1,14 @@
+seq=1 tick=16 kind=SetAuto slot=0 source=Player accepted=True reason=None timing=Bad value=1
+seq=2 tick=25 kind=Tap slot=0 source=Auto accepted=True reason=None timing=Bad value=0
+seq=3 tick=25 kind=Tap slot=1 source=Auto accepted=True reason=None timing=Bad value=0
+seq=4 tick=25 kind=Slide slot=2 source=Auto accepted=True reason=None timing=Bad value=0
+seq=5 tick=25 kind=Tap slot=3 source=Auto accepted=True reason=None timing=Bad value=0
+seq=6 tick=25 kind=Slide slot=4 source=Auto accepted=True reason=None timing=Bad value=0
+seq=7 tick=25 kind=SetAuto slot=0 source=Player accepted=True reason=None timing=Bad value=2
+seq=8 tick=107 kind=Slide slot=0 source=Auto accepted=True reason=None timing=Bad value=0
+seq=9 tick=107 kind=Tap slot=1 source=Auto accepted=True reason=None timing=Bad value=0
+seq=10 tick=107 kind=Tap slot=2 source=Auto accepted=True reason=None timing=Bad value=0
+seq=11 tick=107 kind=Tap slot=3 source=Auto accepted=True reason=None timing=Bad value=0
+seq=12 tick=107 kind=Tap slot=4 source=Auto accepted=True reason=None timing=Bad value=0
+seq=13 tick=114 kind=SetAuto slot=0 source=Player accepted=True reason=None timing=Bad value=0
+seq=14 tick=123 kind=Pause slot=0 source=Player accepted=True reason=None timing=Bad value=0
