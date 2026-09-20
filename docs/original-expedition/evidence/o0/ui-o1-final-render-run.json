@@ -1,0 +1,18 @@
+{
+  "started": "2026-09-20T16:27:26.8946163Z",
+  "finished": "2026-09-20T16:27:38.4197349Z",
+  "exitCode": 0,
+  "mode": "render",
+  "name": "ui-o1-final-render",
+  "arguments": [
+    "-batchmode",
+    "-projectPath",
+    "\"F:\\Resonance\\client\"",
+    "-giCustomCacheLocation",
+    "\"F:\\Resonance\\client\\Temp\\GICache-Original\"",
+    "-logFile",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o0\\ui-o1-final-render.log\"",
+    "-executeMethod",
+    "Resonance.EditorTools.OriginalExpeditionVerification.RunAndExit"
+  ]
+}

@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="bbc3b4a3-de95-4aea-ad92-f22b7ea501ff" name="Administrator@DESKTOP-AKI3LSA 2026-09-21 00:11:23" runUser="DESKTOP-AKI3LSA\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-09-21T00:11:23.6975556+08:00" queuing="2026-09-21T00:11:23.6975559+08:00" start="2026-09-21T00:11:22.9764807+08:00" finish="2026-09-21T00:11:23.8606852+08:00" />
+  <TestSettings name="default" id="25e35878-aaa6-4c8b-bdce-3ba0e831817f">
+    <Deployment runDeploymentRoot="Administrator_DESKTOP-AKI3LSA_2026-09-21_00_11_23" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="33b96dc5-d6ae-45a6-b45b-a9f2caeaaf19" testId="9b1d06e4-a383-bf8f-91fe-1be67c81a6c0" testName="Resonance.Tests.OriginalExpeditionContentTests.ValidateRejectsVersionMismatchAndUnreachableRelics" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0007009" startTime="2026-09-21T00:11:23.6449676+08:00" endTime="2026-09-21T00:11:23.6449677+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="33b96dc5-d6ae-45a6-b45b-a9f2caeaaf19" />
+    <UnitTestResult executionId="f30909a2-9733-46e9-9548-f6ab2768fd8c" testId="4bf932ef-a957-878e-df44-b6b799f90a8f" testName="Resonance.Tests.OriginalExpeditionContentTests.ValidateRejectsMissingReferencesAndUnsupportedSkills" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0008179" startTime="2026-09-21T00:11:23.8063973+08:00" endTime="2026-09-21T00:11:23.8063976+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f30909a2-9733-46e9-9548-f6ab2768fd8c">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Throws() Failure: No exception was thrown&#xD;
+Expected: typeof(System.ArgumentException)</Message>
+          <StackTrace>   at Resonance.Tests.OriginalExpeditionContentTests.ValidateRejectsMissingReferencesAndUnsupportedSkills() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionContentTests.cs:line 212</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="e241a9a0-a48e-4f04-9c47-fa20b05202aa" testId="f5562005-93db-3c46-093f-040d993e320e" testName="Resonance.Tests.OriginalExpeditionContentTests.EveryEncounterUsesSelfContainedPlayableOriginalContent(node: &quot;N5&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0000496" startTime="2026-09-21T00:11:23.6431723+08:00" endTime="2026-09-21T00:11:23.6431723+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e241a9a0-a48e-4f04-9c47-fa20b05202aa" />
+    <UnitTestResult executionId="b98beef0-2a7e-4f70-bb77-c757bd93b0b2" testId="15553563-4d16-90ca-158c-964fee7f16ac" testName="Resonance.Tests.OriginalExpeditionContentTests.EveryRelicHasAReachablePrerequisiteChainAndRejectsDuplicates" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0007415" startTime="2026-09-21T00:11:23.6442032+08:00" endTime="2026-09-21T00:11:23.6442033+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b98beef0-2a7e-4f70-bb77-c757bd93b0b2" />
+    <UnitTestResult executionId="c7dcc7df-9a16-4444-8014-5873093c7f6d" testId="d1d95d29-04d2-1d17-decb-fb649f7a3f86" testName="Resonance.Tests.OriginalExpeditionContentTests.EveryEncounterUsesSelfContainedPlayableOriginalContent(node: &quot;N4&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0000316" startTime="2026-09-21T00:11:23.6432793+08:00" endTime="2026-09-21T00:11:23.6432794+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c7dcc7df-9a16-4444-8014-5873093c7f6d" />
+    <UnitTestResult executionId="3e58a350-34a2-4b1e-9300-c63705eb6b01" testId="53521d3b-dfa2-35c6-e9d8-c950e55e261b" testName="Resonance.Tests.OriginalExpeditionContentTests.ContentFingerprintIncludesNumbersAndNestedConfiguration" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0013052" startTime="2026-09-21T00:11:23.8108585+08:00" endTime="2026-09-21T00:11:23.8108587+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3e58a350-34a2-4b1e-9300-c63705eb6b01" />
+    <UnitTestResult executionId="d52286c5-1a63-4ca2-90ed-f256f62ed7b3" testId="622bd035-3bf1-3445-2ffc-d53170d21081" testName="Resonance.Tests.OriginalExpeditionContentTests.ValidateRejectsNonFiniteOrUnboundedCombatNumbers" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0025257" startTime="2026-09-21T00:11:23.8048572+08:00" endTime="2026-09-21T00:11:23.8048575+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d52286c5-1a63-4ca2-90ed-f256f62ed7b3">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Throws() Failure: No exception was thrown&#xD;
+Expected: typeof(System.ArgumentException)</Message>
+          <StackTrace>   at Resonance.Tests.OriginalExpeditionContentTests.ValidateRejectsNonFiniteOrUnboundedCombatNumbers() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionContentTests.cs:line 193</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="7b3db141-db88-4636-b864-01e478b5334f" testId="0b1fe39a-89a2-c0dd-1f32-a00625864f9b" testName="Resonance.Tests.OriginalExpeditionContentTests.EveryEncounterUsesSelfContainedPlayableOriginalContent(node: &quot;N2-backstage&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0000396" startTime="2026-09-21T00:11:23.6430955+08:00" endTime="2026-09-21T00:11:23.6430955+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7b3db141-db88-4636-b864-01e478b5334f" />
+    <UnitTestResult executionId="5043597d-5e67-46af-9307-ecabea899889" testId="bd6408e4-4a39-2664-9bb0-323a094492f9" testName="Resonance.Tests.OriginalExpeditionContentTests.EveryEncounterUsesSelfContainedPlayableOriginalContent(node: &quot;N7&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0343957" startTime="2026-09-21T00:11:23.6398013+08:00" endTime="2026-09-21T00:11:23.6398151+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5043597d-5e67-46af-9307-ecabea899889" />
+    <UnitTestResult executionId="9daf3de1-ccfb-4c7a-aff0-52ba0cc9b538" testId="67e7fba2-54e4-daa2-61e9-37afb55fed5a" testName="Resonance.Tests.OriginalExpeditionContentTests.OpeningHpPreservesDownedMembersAndRejectsInvalidState" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0003635" startTime="2026-09-21T00:11:23.6453931+08:00" endTime="2026-09-21T00:11:23.6453932+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9daf3de1-ccfb-4c7a-aff0-52ba0cc9b538" />
+    <UnitTestResult executionId="9bcfa8c3-0eba-42d2-86d0-1cbdb629db70" testId="12279371-72a9-3c3c-7167-e3b3fd56236e" testName="Resonance.Tests.OriginalExpeditionContentTests.EveryEncounterUsesSelfContainedPlayableOriginalContent(node: &quot;N1&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0001044" startTime="2026-09-21T00:11:23.6429977+08:00" endTime="2026-09-21T00:11:23.6429977+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9bcfa8c3-0eba-42d2-86d0-1cbdb629db70" />
+    <UnitTestResult executionId="fa97831c-c945-44a4-8e62-7dcfeec71f98" testId="f08bca9e-ec54-b578-896a-e9fc71661da1" testName="Resonance.Tests.OriginalExpeditionContentTests.EveryEncounterUsesSelfContainedPlayableOriginalContent(node: &quot;N2-audience&quot;)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0000321" startTime="2026-09-21T00:11:23.6432287+08:00" endTime="2026-09-21T00:11:23.6432287+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fa97831c-c945-44a4-8e62-7dcfeec71f98" />
+    <UnitTestResult executionId="35f08b01-9e83-4eba-be64-5123b9aad73b" testId="3909f142-b356-4de5-34d2-e0603474d432" testName="Resonance.Tests.OriginalExpeditionContentTests.PresetIsEquivalentBudgetAndDoesNotModifyOtherBattles" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0097231" startTime="2026-09-21T00:11:23.7812790+08:00" endTime="2026-09-21T00:11:23.7812794+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="35f08b01-9e83-4eba-be64-5123b9aad73b" />
+    <UnitTestResult executionId="a5c65826-19e5-416f-8d33-a9f3b6b5bd61" testId="fa68a9ad-bf8f-8204-0a20-f3e7afe132b9" testName="Resonance.Tests.OriginalExpeditionContentTests.BossAndPresetAreSerializedAsRealInputs" computerName="DESKTOP-AKI3LSA" duration="00:00:00.1030939" startTime="2026-09-21T00:11:23.7712106+08:00" endTime="2026-09-21T00:11:23.7712112+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a5c65826-19e5-416f-8d33-a9f3b6b5bd61" />
+    <UnitTestResult executionId="87b207c0-e67e-41dc-8792-498e2220f4f7" testId="cfdbde99-ee18-14c3-1827-0d739ca4e00e" testName="Resonance.Tests.OriginalExpeditionContentTests.DeepCloneSeversAllMutableArraysAndNestedDefinitions" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0029262" startTime="2026-09-21T00:11:23.8094485+08:00" endTime="2026-09-21T00:11:23.8094489+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="87b207c0-e67e-41dc-8792-498e2220f4f7" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionContentTests.EveryEncounterUsesSelfContainedPlayableOriginalContent(node: &quot;N5&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="f5562005-93db-3c46-093f-040d993e320e">
+      <Execution id="e241a9a0-a48e-4f04-9c47-fa20b05202aa" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionContentTests" name="EveryEncounterUsesSelfContainedPlayableOriginalContent" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionContentTests.EveryRelicHasAReachablePrerequisiteChainAndRejectsDuplicates" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="15553563-4d16-90ca-158c-964fee7f16ac">
+      <Execution id="b98beef0-2a7e-4f70-bb77-c757bd93b0b2" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionContentTests" name="EveryRelicHasAReachablePrerequisiteChainAndRejectsDuplicates" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionContentTests.DeepCloneSeversAllMutableArraysAndNestedDefinitions" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="cfdbde99-ee18-14c3-1827-0d739ca4e00e">
+      <Execution id="87b207c0-e67e-41dc-8792-498e2220f4f7" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionContentTests" name="DeepCloneSeversAllMutableArraysAndNestedDefinitions" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionContentTests.ValidateRejectsMissingReferencesAndUnsupportedSkills" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="4bf932ef-a957-878e-df44-b6b799f90a8f">
+      <Execution id="f30909a2-9733-46e9-9548-f6ab2768fd8c" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionContentTests" name="ValidateRejectsMissingReferencesAndUnsupportedSkills" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionContentTests.BossAndPresetAreSerializedAsRealInputs" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="fa68a9ad-bf8f-8204-0a20-f3e7afe132b9">
+      <Execution id="a5c65826-19e5-416f-8d33-a9f3b6b5bd61" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionContentTests" name="BossAndPresetAreSerializedAsRealInputs" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionContentTests.EveryEncounterUsesSelfContainedPlayableOriginalContent(node: &quot;N2-audience&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="f08bca9e-ec54-b578-896a-e9fc71661da1">
+      <Execution id="fa97831c-c945-44a4-8e62-7dcfeec71f98" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionContentTests" name="EveryEncounterUsesSelfContainedPlayableOriginalContent" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionContentTests.EveryEncounterUsesSelfContainedPlayableOriginalContent(node: &quot;N4&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="d1d95d29-04d2-1d17-decb-fb649f7a3f86">
+      <Execution id="c7dcc7df-9a16-4444-8014-5873093c7f6d" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionContentTests" name="EveryEncounterUsesSelfContainedPlayableOriginalContent" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionContentTests.ValidateRejectsVersionMismatchAndUnreachableRelics" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="9b1d06e4-a383-bf8f-91fe-1be67c81a6c0">
+      <Execution id="33b96dc5-d6ae-45a6-b45b-a9f2caeaaf19" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionContentTests" name="ValidateRejectsVersionMismatchAndUnreachableRelics" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionContentTests.EveryEncounterUsesSelfContainedPlayableOriginalContent(node: &quot;N1&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="12279371-72a9-3c3c-7167-e3b3fd56236e">
+      <Execution id="9bcfa8c3-0eba-42d2-86d0-1cbdb629db70" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionContentTests" name="EveryEncounterUsesSelfContainedPlayableOriginalContent" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionContentTests.OpeningHpPreservesDownedMembersAndRejectsInvalidState" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="67e7fba2-54e4-daa2-61e9-37afb55fed5a">
+      <Execution id="9daf3de1-ccfb-4c7a-aff0-52ba0cc9b538" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionContentTests" name="OpeningHpPreservesDownedMembersAndRejectsInvalidState" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionContentTests.ValidateRejectsNonFiniteOrUnboundedCombatNumbers" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="622bd035-3bf1-3445-2ffc-d53170d21081">
+      <Execution id="d52286c5-1a63-4ca2-90ed-f256f62ed7b3" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionContentTests" name="ValidateRejectsNonFiniteOrUnboundedCombatNumbers" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionContentTests.PresetIsEquivalentBudgetAndDoesNotModifyOtherBattles" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="3909f142-b356-4de5-34d2-e0603474d432">
+      <Execution id="35f08b01-9e83-4eba-be64-5123b9aad73b" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionContentTests" name="PresetIsEquivalentBudgetAndDoesNotModifyOtherBattles" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionContentTests.ContentFingerprintIncludesNumbersAndNestedConfiguration" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="53521d3b-dfa2-35c6-e9d8-c950e55e261b">
+      <Execution id="3e58a350-34a2-4b1e-9300-c63705eb6b01" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionContentTests" name="ContentFingerprintIncludesNumbersAndNestedConfiguration" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionContentTests.EveryEncounterUsesSelfContainedPlayableOriginalContent(node: &quot;N7&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="bd6408e4-4a39-2664-9bb0-323a094492f9">
+      <Execution id="5043597d-5e67-46af-9307-ecabea899889" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionContentTests" name="EveryEncounterUsesSelfContainedPlayableOriginalContent" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalExpeditionContentTests.EveryEncounterUsesSelfContainedPlayableOriginalContent(node: &quot;N2-backstage&quot;)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="0b1fe39a-89a2-c0dd-1f32-a00625864f9b">
+      <Execution id="7b3db141-db88-4636-b864-01e478b5334f" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalExpeditionContentTests" name="EveryEncounterUsesSelfContainedPlayableOriginalContent" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="9b1d06e4-a383-bf8f-91fe-1be67c81a6c0" executionId="33b96dc5-d6ae-45a6-b45b-a9f2caeaaf19" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4bf932ef-a957-878e-df44-b6b799f90a8f" executionId="f30909a2-9733-46e9-9548-f6ab2768fd8c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f5562005-93db-3c46-093f-040d993e320e" executionId="e241a9a0-a48e-4f04-9c47-fa20b05202aa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="15553563-4d16-90ca-158c-964fee7f16ac" executionId="b98beef0-2a7e-4f70-bb77-c757bd93b0b2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d1d95d29-04d2-1d17-decb-fb649f7a3f86" executionId="c7dcc7df-9a16-4444-8014-5873093c7f6d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="53521d3b-dfa2-35c6-e9d8-c950e55e261b" executionId="3e58a350-34a2-4b1e-9300-c63705eb6b01" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="622bd035-3bf1-3445-2ffc-d53170d21081" executionId="d52286c5-1a63-4ca2-90ed-f256f62ed7b3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0b1fe39a-89a2-c0dd-1f32-a00625864f9b" executionId="7b3db141-db88-4636-b864-01e478b5334f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bd6408e4-4a39-2664-9bb0-323a094492f9" executionId="5043597d-5e67-46af-9307-ecabea899889" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="67e7fba2-54e4-daa2-61e9-37afb55fed5a" executionId="9daf3de1-ccfb-4c7a-aff0-52ba0cc9b538" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="12279371-72a9-3c3c-7167-e3b3fd56236e" executionId="9bcfa8c3-0eba-42d2-86d0-1cbdb629db70" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f08bca9e-ec54-b578-896a-e9fc71661da1" executionId="fa97831c-c945-44a4-8e62-7dcfeec71f98" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3909f142-b356-4de5-34d2-e0603474d432" executionId="35f08b01-9e83-4eba-be64-5123b9aad73b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fa68a9ad-bf8f-8204-0a20-f3e7afe132b9" executionId="a5c65826-19e5-416f-8d33-a9f3b6b5bd61" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cfdbde99-ee18-14c3-1827-0d739ca4e00e" executionId="87b207c0-e67e-41dc-8792-498e2220f4f7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="15" executed="15" passed="13" failed="2" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 6.0.33)&#xD;
+[xUnit.net 00:00:00.08]   Discovering: BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.15]   Discovered:  BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.16]   Starting:    BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.40]       Assert.Throws() Failure: No exception was thrown&#xD;
+[xUnit.net 00:00:00.40]       Expected: typeof(System.ArgumentException)&#xD;
+[xUnit.net 00:00:00.40]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.40]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionContentTests.cs(193,0): at Resonance.Tests.OriginalExpeditionContentTests.ValidateRejectsNonFiniteOrUnboundedCombatNumbers()&#xD;
+[xUnit.net 00:00:00.41]       Assert.Throws() Failure: No exception was thrown&#xD;
+[xUnit.net 00:00:00.41]       Expected: typeof(System.ArgumentException)&#xD;
+[xUnit.net 00:00:00.41]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.41]         F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionContentTests.cs(212,0): at Resonance.Tests.OriginalExpeditionContentTests.ValidateRejectsMissingReferencesAndUnsupportedSkills()&#xD;
+[xUnit.net 00:00:00.42]   Finished:    BattleSim.Tests&#xD;
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:11:23.8017632+08:00">
+        <Text>[xUnit.net 00:00:00.40]     Resonance.Tests.OriginalExpeditionContentTests.ValidateRejectsNonFiniteOrUnboundedCombatNumbers [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:11:23.8063710+08:00">
+        <Text>[xUnit.net 00:00:00.41]     Resonance.Tests.OriginalExpeditionContentTests.ValidateRejectsMissingReferencesAndUnsupportedSkills [FAIL]</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>

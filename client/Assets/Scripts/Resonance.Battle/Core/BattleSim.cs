@@ -329,14 +329,14 @@ namespace Resonance.Battle
         {
             if (string.IsNullOrEmpty(id) || skill == null) return;
             if (_skillOverlay == null) _skillOverlay = new Dictionary<string, SkillDef>();
-            _skillOverlay[id] = skill;
+            _skillOverlay[id] = IsOriginalExpedition ? Catalog.CloneSkill(skill) : skill;
         }
 
         public void OverlayEffect(string id, EffectDef fx)
         {
             if (string.IsNullOrEmpty(id) || fx == null) return;
             if (_effectOverlay == null) _effectOverlay = new Dictionary<string, EffectDef>();
-            _effectOverlay[id] = fx;
+            _effectOverlay[id] = IsOriginalExpedition ? ExpeditionBattleInput.CloneEffect(fx) : fx;
         }
 
         /// <summary>Per-fight skill replacements consumed by ResolveSkill. Null when none applied.</summary>
@@ -345,7 +345,7 @@ namespace Resonance.Battle
         public IReadOnlyDictionary<string, EffectDef> EffectOverlays => _effectOverlay;
 
         /// <summary>Stage this fight is running. Same object as ctor <c>_stage</c> (VerticalSlice fallback). No copy.</summary>
-        public StageDef ActiveStage => _stage;
+        public StageDef ActiveStage => IsOriginalExpedition ? ExpeditionBattleInput.CloneStage(_stage) : _stage;
 
         /// <summary>
         /// C3: the actual opening <see cref="UnitProgress"/> rows this fight was built from
@@ -362,7 +362,7 @@ namespace Resonance.Battle
             if (_skillOverlay != null && !string.IsNullOrEmpty(id)
                 && _skillOverlay.TryGetValue(id, out var over) && over != null)
                 return over;
-            return Catalog.TrySkill(id);
+            return IsOriginalExpedition ? null : Catalog.TrySkill(id);
         }
 
         EffectDef ResolveEffect(string id)
@@ -370,7 +370,7 @@ namespace Resonance.Battle
             if (_effectOverlay != null && !string.IsNullOrEmpty(id)
                 && _effectOverlay.TryGetValue(id, out var over) && over != null)
                 return over;
-            return Catalog.TryEffect(id);
+            return IsOriginalExpedition ? null : Catalog.TryEffect(id);
         }
 
         CapabilityVerdict CheckFightSkill(SkillDef sk)
@@ -386,8 +386,25 @@ namespace Resonance.Battle
         public BattleSim(string[] partyIds, int leaderSlot, int seed)
             : this(partyIds, leaderSlot, seed, null, null) { }
 
-        public BattleSim(string[] partyIds, int leaderSlot, int seed, StageDef stage, UnitProgress[] growth, BattleMods mods = null)
+        public BattleSim(ExpeditionBattleInput input)
+            : this(null, 0, 0, null, null, null, input ?? throw new ArgumentNullException(nameof(input))) { }
+
+        public BattleSim(string[] partyIds, int leaderSlot, int seed, StageDef stage, UnitProgress[] growth, BattleMods mods = null, ExpeditionBattleInput expedition = null)
         {
+            if (expedition != null)
+            {
+                _expeditionInput = expedition.DeepClone();
+                RunBattleFactory.Validate(_expeditionInput);
+                partyIds = _expeditionInput.PartyIds;
+                seed = _expeditionInput.Seed;
+                stage = _expeditionInput.Stage;
+                growth = _expeditionInput.Growth;
+                mods = _expeditionInput.Mods;
+                Profile = _expeditionInput.Profile;
+                Clocks = _expeditionInput.Clocks;
+                foreach (var skill in _expeditionInput.Skills) OverlaySkill(skill.Id, skill);
+                foreach (var effect in _expeditionInput.Effects) OverlayEffect(effect.Id, effect);
+            }
             Seed = seed;
             _rng = new Random(seed);
             _stage = stage ?? Catalog.VerticalSliceStage;
@@ -405,7 +422,7 @@ namespace Resonance.Battle
             for (int i = 0; i < partyN; i++)
             {
                 var id = partyIds[i];
-                var src = Catalog.TryChar(id);
+                var src = ResolveCharacter(id);
                 if (src == null) continue;
                 var p = growth != null && i < growth.Length ? growth[i] : null;
                 var grown = Growth.Apply(src, p);
@@ -426,9 +443,11 @@ namespace Resonance.Battle
                     unit.IgnAglAdd = bonus.Agl;
                 }
                 Allies[i] = unit;
+                if (IsOriginalExpedition)
+                    unit.Hp = Math.Max(0, Math.Min(unit.MaxHp, _expeditionInput.OpeningHp[i]));
             }
             LoadWave(0);
-            ApplyLeader();
+            if (!IsOriginalExpedition) ApplyLeader();
         }
 
         public void Tick()
@@ -653,6 +672,7 @@ namespace Resonance.Battle
 
         void AutoFireDrive()
         {
+            if (IsOriginalExpedition) return;
             if (Auto != AutoMode.Full || Drive < 100f) return;
             for (int i = 0; i < Allies.Length; i++)
             {
@@ -666,6 +686,7 @@ namespace Resonance.Battle
 
         void AutoFireSkills()
         {
+            if (IsOriginalExpedition) return;
             if (Auto == AutoMode.Manual) return;
             for (int i = 0; i < Allies.Length; i++)
             {
@@ -708,6 +729,7 @@ namespace Resonance.Battle
 
         public bool TryPortraitTap(int slot)
         {
+            if (IsOriginalExpedition) return TryTap(slot);
             if (FeverActive) return TryFeverTap(slot);
             if (Drive >= 100f && TryBeginDrive(slot)) return true;
             return TryTap(slot);
@@ -740,6 +762,7 @@ namespace Resonance.Battle
 
         public bool TryBeginDrive(int slot)
         {
+            if (IsOriginalExpedition) return false;
             if (!CanAcceptSkillInput(slot, out _)) return false;
             if (Drive < 100f) return false;
             var unit = Allies[slot];
@@ -759,6 +782,7 @@ namespace Resonance.Battle
         /// <summary>Q03/Q04: late or terminal callbacks are rejected without side effects.</summary>
         public DriveResolveResult ResolveDriveChecked(DriveTiming timing)
         {
+            if (IsOriginalExpedition) return DriveResolveResult.NoPending;
             if (PendingDriveSlot < 0)
             {
                 _requestDriveHold = false;
@@ -850,7 +874,7 @@ namespace Resonance.Battle
                     if (autoSkill != null)
                     {
                         Cast(u, ally, autoSkill, 1f);
-                        if (ally)
+                        if (ally && !IsOriginalExpedition)
                         {
                             // DESIGN_PLACEHOLDER: honor declared auto DriveGain when verification
                             // policy is bound, or when this auto skill is an explicit overlay (N04).
@@ -941,6 +965,7 @@ namespace Resonance.Battle
         public bool TryFeverTap(int slot, out CommandReject reason)
         {
             reason = CommandReject.None;
+            if (IsOriginalExpedition) { reason = CommandReject.ModeDisabled; return false; }
             if (Outcome != BattleOutcome.InProgress) { reason = CommandReject.NotInProgress; return false; }
             if (Paused) { reason = CommandReject.Paused; return false; }
             if (!FeverActive) { reason = CommandReject.FeverNotActive; return false; }
@@ -1020,7 +1045,7 @@ namespace Resonance.Battle
             if (!FightSkillReady(skill)) return false;
             u.Charge = 0f;
             if (type == SkillType.Slide) u.SlideCd = SlideCdDurationSec;
-            Drive = Math.Min(100f, Drive + skill.DriveGain);
+            if (!IsOriginalExpedition) Drive = Math.Min(100f, Drive + skill.DriveGain);
             Cast(u, true, skill, 1f);
             LastEvent = VisualTag(skill.Type) + "  " + u.Def.Name + "  " + skill.Name;
             if (type == SkillType.Slide)
@@ -1740,6 +1765,7 @@ namespace Resonance.Battle
 
         void AddFever(float amount)
         {
+            if (IsOriginalExpedition) return;
             if (FeverActive) return;
             FeverGauge = Math.Min(100f, FeverGauge + amount);
             if (FeverGauge >= 100f)
@@ -1778,7 +1804,7 @@ namespace Resonance.Battle
             {
                 for (int i = 0; i < ids.Length; i++)
                 {
-                    var src = Catalog.TryChar(ids[i]);
+                    var src = ResolveCharacter(ids[i]);
                     if (src == null) continue;
                     Enemies.Add(Spawn(Growth.ScaleEnemy(src, _stage), i, false));
                 }
@@ -1812,7 +1838,7 @@ namespace Resonance.Battle
                 if (Enemies[i] != null && Enemies[i].Alive) { any = true; break; }
             if (any) return;
             SweepDeaths();
-            if (WaveIndex == 0)
+            if (WaveIndex == 0 && !IsOriginalExpedition)
             {
                 LoadWave(1);
                 return;

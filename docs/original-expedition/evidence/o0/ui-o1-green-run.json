@@ -1,0 +1,23 @@
+{
+  "started": "2026-09-20T16:22:28.2486071Z",
+  "finished": "2026-09-20T16:22:45.5044384Z",
+  "exitCode": 0,
+  "mode": "tests",
+  "name": "ui-o1-green",
+  "arguments": [
+    "-batchmode",
+    "-projectPath",
+    "\"F:\\Resonance\\client\"",
+    "-giCustomCacheLocation",
+    "\"F:\\Resonance\\client\\Temp\\GICache-Original\"",
+    "-logFile",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o0\\ui-o1-green.log\"",
+    "-runTests",
+    "-testPlatform",
+    "EditMode",
+    "-testFilter",
+    "Resonance.EditorTests",
+    "-testResults",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o0\\ui-o1-green.xml\""
+  ]
+}

@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="61" result="Passed" total="61" passed="61" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:27:00Z" duration="0.7800364">
+  <test-suite type="TestSuite" id="1000" name="契灵回响" fullname="契灵回响" runstate="Runnable" testcasecount="61" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:27:00Z" duration="0.780036" total="61" passed="61" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1075" name="Resonance.EditorTests.dll" fullname="F:/Resonance/client/Library/ScriptAssemblies/Resonance.EditorTests.dll" runstate="Runnable" testcasecount="61" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:27:00Z" duration="0.773153" total="61" passed="61" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="47268" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1076" name="Resonance" fullname="Resonance" runstate="Runnable" testcasecount="61" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:27:00Z" duration="0.772246" total="61" passed="61" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1077" name="EditorTests" fullname="Resonance.EditorTests" runstate="Runnable" testcasecount="61" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:27:00Z" duration="0.771575" total="61" passed="61" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1001" name="BattleTutorialPresentationTests" fullname="Resonance.EditorTests.BattleTutorialPresentationTests" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" testcasecount="27" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.173913" total="27" passed="27" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1009" name="BeginShowtime_ImmediatelySuppressesAnAlreadyVisibleTutorial" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.BeginShowtime_ImmediatelySuppressesAnAlreadyVisibleTutorial" methodname="BeginShowtime_ImmediatelySuppressesAnAlreadyVisibleTutorial" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="913355931" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.079536" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1014" name="BlockingPresentation_HidesExistingTipWithoutChangingBattleState" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.BlockingPresentation_HidesExistingTipWithoutChangingBattleState" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.012565" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1010" name="BlockingPresentation_HidesExistingTipWithoutChangingBattleState(&quot;paused&quot;)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.BlockingPresentation_HidesExistingTipWithoutChangingBattleState(&quot;paused&quot;)" methodname="BlockingPresentation_HidesExistingTipWithoutChangingBattleState" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="277589550" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.005434" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1011" name="BlockingPresentation_HidesExistingTipWithoutChangingBattleState(&quot;terminal&quot;)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.BlockingPresentation_HidesExistingTipWithoutChangingBattleState(&quot;terminal&quot;)" methodname="BlockingPresentation_HidesExistingTipWithoutChangingBattleState" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="615342783" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.001170" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1012" name="BlockingPresentation_HidesExistingTipWithoutChangingBattleState(&quot;qte&quot;)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.BlockingPresentation_HidesExistingTipWithoutChangingBattleState(&quot;qte&quot;)" methodname="BlockingPresentation_HidesExistingTipWithoutChangingBattleState" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="138801813" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.000959" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1013" name="BlockingPresentation_HidesExistingTipWithoutChangingBattleState(&quot;pending-drive&quot;)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.BlockingPresentation_HidesExistingTipWithoutChangingBattleState(&quot;pending-drive&quot;)" methodname="BlockingPresentation_HidesExistingTipWithoutChangingBattleState" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="1152290324" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.000900" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1008" name="DestroyingThePreviousRoot_DoesNotSuppressATipOnTheNextRoot" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.DestroyingThePreviousRoot_DoesNotSuppressATipOnTheNextRoot" methodname="DestroyingThePreviousRoot_DoesNotSuppressATipOnTheNextRoot" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="2055797643" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.002588" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1031" name="EnemySkillOrBasicAutoAttack_DoesNotConsumePlayerOperationLessons" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.EnemySkillOrBasicAutoAttack_DoesNotConsumePlayerOperationLessons" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.007336" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1029" name="EnemySkillOrBasicAutoAttack_DoesNotConsumePlayerOperationLessons(False,Slide)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.EnemySkillOrBasicAutoAttack_DoesNotConsumePlayerOperationLessons(False,Slide)" methodname="EnemySkillOrBasicAutoAttack_DoesNotConsumePlayerOperationLessons" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="1515504665" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.003333" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1030" name="EnemySkillOrBasicAutoAttack_DoesNotConsumePlayerOperationLessons(True,Auto)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.EnemySkillOrBasicAutoAttack_DoesNotConsumePlayerOperationLessons(True,Auto)" methodname="EnemySkillOrBasicAutoAttack_DoesNotConsumePlayerOperationLessons" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="1595744840" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.001597" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1033" name="FeverActivation_StillAdvancesToRatesAfterTemporarySuppression" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.FeverActivation_StillAdvancesToRatesAfterTemporarySuppression" methodname="FeverActivation_StillAdvancesToRatesAfterTemporarySuppression" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="1336333237" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.011873" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1007" name="OrdinaryTipAfterFever_IsNotProtectedAsAFeverSession" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.OrdinaryTipAfterFever_IsNotProtectedAsAFeverSession" methodname="OrdinaryTipAfterFever_IsNotProtectedAsAFeverSession" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="20721844" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.001797" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1022" name="OverdueTutorial_RetriesAfterAnotherTipExpires" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.OverdueTutorial_RetriesAfterAnotherTipExpires" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.008720" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1016" name="OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipTapShown&quot;,&quot;_tipTapDelay&quot;,null,0.0f)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipTapShown&quot;,&quot;_tipTapDelay&quot;,null,0.0f)" methodname="OverdueTutorial_RetriesAfterAnotherTipExpires" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="742667707" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.001699" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1017" name="OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipTapShown&quot;,&quot;_tipTapDelay&quot;,null,-0.1f)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipTapShown&quot;,&quot;_tipTapDelay&quot;,null,-0.1f)" methodname="OverdueTutorial_RetriesAfterAnotherTipExpires" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="17863862" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.001111" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1018" name="OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipKeepShown&quot;,&quot;_tipKeepDelay&quot;,&quot;_tipTapShown&quot;,0.0f)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipKeepShown&quot;,&quot;_tipKeepDelay&quot;,&quot;_tipTapShown&quot;,0.0f)" methodname="OverdueTutorial_RetriesAfterAnotherTipExpires" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="52984165" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.001107" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1019" name="OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipTeamHpShown&quot;,&quot;_tipTeamHpDelay&quot;,&quot;_tipKeepShown&quot;,0.0f)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipTeamHpShown&quot;,&quot;_tipTeamHpDelay&quot;,&quot;_tipKeepShown&quot;,0.0f)" methodname="OverdueTutorial_RetriesAfterAnotherTipExpires" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="406120590" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.001024" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1020" name="OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipChildsShown&quot;,&quot;_tipChildsDelay&quot;,&quot;_tipTeamHpShown&quot;,0.0f)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipChildsShown&quot;,&quot;_tipChildsDelay&quot;,&quot;_tipTeamHpShown&quot;,0.0f)" methodname="OverdueTutorial_RetriesAfterAnotherTipExpires" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="350440867" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.001021" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1021" name="OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipChildsMoreShown&quot;,&quot;_tipChildsMoreDelay&quot;,&quot;_tipChildsShown&quot;,0.0f)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipChildsMoreShown&quot;,&quot;_tipChildsMoreDelay&quot;,&quot;_tipChildsShown&quot;,0.0f)" methodname="OverdueTutorial_RetriesAfterAnotherTipExpires" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="859795523" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.001067" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1015" name="Qte_DoesNotGenerateAnOverdueTip_AndRetriesAfterClosing" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.Qte_DoesNotGenerateAnOverdueTip_AndRetriesAfterClosing" methodname="Qte_DoesNotGenerateAnOverdueTip_AndRetriesAfterClosing" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="1941254994" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.001563" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1028" name="RejectedSlide_DoesNotConsumeTheInstruction" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.RejectedSlide_DoesNotConsumeTheInstruction" methodname="RejectedSlide_DoesNotConsumeTheInstruction" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="865850072" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.001910" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1006" name="ReplacingATipWhileSuppressed_DoesNotExposeTheNewPlate" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.ReplacingATipWhileSuppressed_DoesNotExposeTheNewPlate" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.004959" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1004" name="ReplacingATipWhileSuppressed_DoesNotExposeTheNewPlate(False)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.ReplacingATipWhileSuppressed_DoesNotExposeTheNewPlate(False)" methodname="ReplacingATipWhileSuppressed_DoesNotExposeTheNewPlate" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="1613584090" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.002897" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1005" name="ReplacingATipWhileSuppressed_DoesNotExposeTheNewPlate(True)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.ReplacingATipWhileSuppressed_DoesNotExposeTheNewPlate(True)" methodname="ReplacingATipWhileSuppressed_DoesNotExposeTheNewPlate" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="2097582950" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.001012" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="ParameterizedMethod" id="1026" name="SuccessfulPlayerSkill_ConsumesObsoleteOperationLessons" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.SuccessfulPlayerSkill_ConsumesObsoleteOperationLessons" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.021500" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1023" name="SuccessfulPlayerSkill_ConsumesObsoleteOperationLessons(Tap)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.SuccessfulPlayerSkill_ConsumesObsoleteOperationLessons(Tap)" methodname="SuccessfulPlayerSkill_ConsumesObsoleteOperationLessons" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="1231884583" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.004385" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1024" name="SuccessfulPlayerSkill_ConsumesObsoleteOperationLessons(Slide)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.SuccessfulPlayerSkill_ConsumesObsoleteOperationLessons(Slide)" methodname="SuccessfulPlayerSkill_ConsumesObsoleteOperationLessons" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="1726578586" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.001457" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1025" name="SuccessfulPlayerSkill_ConsumesObsoleteOperationLessons(Drive)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.SuccessfulPlayerSkill_ConsumesObsoleteOperationLessons(Drive)" methodname="SuccessfulPlayerSkill_ConsumesObsoleteOperationLessons" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="126951504" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.014577" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+]]></output>
+              </test-case>
+            </test-suite>
+            <test-case id="1032" name="SuccessfulSkill_DoesNotDiscardTheFeverTipChain" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.SuccessfulSkill_DoesNotDiscardTheFeverTipChain" methodname="SuccessfulSkill_DoesNotDiscardTheFeverTipChain" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="1208063767" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.001407" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1027" name="SuccessfulTap_KeepsUsefulTeamHpLessonVisible" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.SuccessfulTap_KeepsUsefulTeamHpLessonVisible" methodname="SuccessfulTap_KeepsUsefulTeamHpLessonVisible" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="421771827" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.001586" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1002" name="Suppression_HidesImmediately_PreservesRemainingLife_AndRestoresTheSameTip" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.Suppression_HidesImmediately_PreservesRemainingLife_AndRestoresTheSameTip" methodname="Suppression_HidesImmediately_PreservesRemainingLife_AndRestoresTheSameTip" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="1013664492" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.001475" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1003" name="Suppression_RestoresTheRemainingFadeWithoutFlashingAtFullOpacity" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.Suppression_RestoresTheRemainingFadeWithoutFlashingAtFullOpacity" methodname="Suppression_RestoresTheRemainingFadeWithoutFlashingAtFullOpacity" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="2094707555" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.001396" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1034" name="OriginalExpeditionHudTests" fullname="Resonance.EditorTests.OriginalExpeditionHudTests" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" testcasecount="19" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:27:00Z" duration="0.394625" total="19" passed="19" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1039" name="BattleControls_ForwardCallbacks_AndNeverChangeClockOrPause" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.BattleControls_ForwardCallbacks_AndNeverChangeClockOrPause" methodname="BattleControls_ForwardCallbacks_AndNeverChangeClockOrPause" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="1983521932" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:26:59Z" duration="0.043921" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1052" name="BattleTitle_GeneratesEveryVisibleGlyph_WithinReservedHeader" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.BattleTitle_GeneratesEveryVisibleGlyph_WithinReservedHeader" methodname="BattleTitle_GeneratesEveryVisibleGlyph_WithinReservedHeader" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="547275433" result="Passed" start-time="2026-09-20 16:26:59Z" end-time="2026-09-20 16:27:00Z" duration="0.078026" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[ORIGINAL_UI_GLYPH_CHECK BattleTitle: font=NotoSansSC, size=48, box=73, preferred=70, visibleGlyphs=5, expected=5
+]]></output>
+            </test-case>
+            <test-case id="1036" name="BattleToMapTransition_RemovesSkills_AndClearsBattleFlag" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.BattleToMapTransition_RemovesSkills_AndClearsBattleFlag" methodname="BattleToMapTransition_RemovesSkills_AndClearsBattleFlag" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="837649683" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.064180" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1042" name="DeadMember_DisablesSkill_AndDeadEnemyDisablesTarget" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.DeadMember_DisablesSkill_AndDeadEnemyDisablesTarget" methodname="DeadMember_DisablesSkill_AndDeadEnemyDisablesTarget" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="1037053088" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.027185" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1050" name="Decoration_DoesNotInterceptRaycasts" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.Decoration_DoesNotInterceptRaycasts" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.024195" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1048" name="Decoration_DoesNotInterceptRaycasts(False)" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.Decoration_DoesNotInterceptRaycasts(False)" methodname="Decoration_DoesNotInterceptRaycasts" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="825552741" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.009360" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1049" name="Decoration_DoesNotInterceptRaycasts(True)" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.Decoration_DoesNotInterceptRaycasts(True)" methodname="Decoration_DoesNotInterceptRaycasts" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="293021055" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.013539" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1038" name="EnemySelection_ForwardsSlot_WithoutDirectlyChangingFocus" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.EnemySelection_ForwardsSlot_WithoutDirectlyChangingFocus" methodname="EnemySelection_ForwardsSlot_WithoutDirectlyChangingFocus" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="746372891" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.014367" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1037" name="FiveSkills_ForwardExactSlots_WithoutMutatingSimulation" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.FiveSkills_ForwardExactSlots_WithoutMutatingSimulation" methodname="FiveSkills_ForwardExactSlots_WithoutMutatingSimulation" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="1117468675" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.012997" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1043" name="IntentProgress_UsesSuppliedSnapshot_AndDoesNotAdvanceOnRefresh" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.IntentProgress_UsesSuppliedSnapshot_AndDoesNotAdvanceOnRefresh" methodname="IntentProgress_UsesSuppliedSnapshot_AndDoesNotAdvanceOnRefresh" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="64535175" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.013519" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1045" name="LongDetails_ExpandInsideScroll_WithoutClippingParagraph" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.LongDetails_ExpandInsideScroll_WithoutClippingParagraph" methodname="LongDetails_ExpandInsideScroll_WithoutClippingParagraph" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="1462302985" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.012122" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1047" name="Map_ShowsBothMutuallyExclusiveBranchesSideBySide" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.Map_ShowsBothMutuallyExclusiveBranchesSideBySide" methodname="Map_ShowsBothMutuallyExclusiveBranchesSideBySide" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="1705090580" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.007376" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1054" name="PausedClearControls_AndNotice_DoNotOverlapOrLeavePortraitFrame" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.PausedClearControls_AndNotice_DoNotOverlapOrLeavePortraitFrame" methodname="PausedClearControls_AndNotice_DoNotOverlapOrLeavePortraitFrame" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="1101773392" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.026552" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1040" name="PauseQueue_ClearIsVisibleOnlyForQueuedMembers_AndForwardsExactSlot" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.PauseQueue_ClearIsVisibleOnlyForQueuedMembers_AndForwardsExactSlot" methodname="PauseQueue_ClearIsVisibleOnlyForQueuedMembers_AndForwardsExactSlot" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="1011475177" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.012690" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1041" name="RefreshBattle_ReusesObjects_AndShowsExactUnitIdentityAndHealth" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.RefreshBattle_ReusesObjects_AndShowsExactUnitIdentityAndHealth" methodname="RefreshBattle_ReusesObjects_AndShowsExactUnitIdentityAndHealth" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="1826351172" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.013159" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1044" name="RelicFeedback_UsesProvidedRealResultText_AndOnlySuppliedIconIds" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.RelicFeedback_UsesProvidedRealResultText_AndOnlySuppliedIconIds" methodname="RelicFeedback_UsesProvidedRealResultText_AndOnlySuppliedIconIds" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="1936745511" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.012441" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1046" name="RewardSelection_ForwardsOnlySpecifiedCallback_AndDisabledChoiceStaysDisabled" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.RewardSelection_ForwardsOnlySpecifiedCallback_AndDisabledChoiceStaysDisabled" methodname="RewardSelection_ForwardsOnlySpecifiedCallback_AndDisabledChoiceStaysDisabled" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="817448268" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.005391" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1051" name="ScreenTitle_GeneratesEveryVisibleGlyph_WithinReservedHeader" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.ScreenTitle_GeneratesEveryVisibleGlyph_WithinReservedHeader" methodname="ScreenTitle_GeneratesEveryVisibleGlyph_WithinReservedHeader" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="1203921311" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.002844" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[ORIGINAL_UI_GLYPH_CHECK ScreenTitle: font=NotoSansSC, size=54, box=81, preferred=79, visibleGlyphs=4, expected=4
+]]></output>
+            </test-case>
+            <test-case id="1035" name="ScreenTransition_RemovesOldInteractiveRoot_AndDisposeLeavesNone" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.ScreenTransition_RemovesOldInteractiveRoot_AndDisposeLeavesNone" methodname="ScreenTransition_RemovesOldInteractiveRoot_AndDisposeLeavesNone" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="2119445839" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.003559" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1053" name="TwoLineRelicState_GeneratesBothLines_WithoutOverlappingIcons" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.TwoLineRelicState_GeneratesBothLines_WithoutOverlappingIcons" methodname="TwoLineRelicState_GeneratesBothLines_WithoutOverlappingIcons" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="676821584" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.015880" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[ORIGINAL_UI_GLYPH_CHECK RelicState: font=NotoSansSC, size=28, box=87, preferred=85, visibleGlyphs=13, expected=13
+]]></output>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1055" name="OriginalExpeditionRecoveryTests" fullname="Resonance.EditorTests.OriginalExpeditionRecoveryTests" classname="Resonance.EditorTests.OriginalExpeditionRecoveryTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.157865" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1057" name="ExplicitEndRun_FromIncompatibleRecoveryUi_CommitsOnceAndPreservesDiscoveries" fullname="Resonance.EditorTests.OriginalExpeditionRecoveryTests.ExplicitEndRun_FromIncompatibleRecoveryUi_CommitsOnceAndPreservesDiscoveries" methodname="ExplicitEndRun_FromIncompatibleRecoveryUi_CommitsOnceAndPreservesDiscoveries" classname="Resonance.EditorTests.OriginalExpeditionRecoveryTests" runstate="Runnable" seed="827294010" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.129044" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1056" name="PriorContentWithHigherHp_RendersIncompatibilityAndRecoveryActions_WithoutSaving" fullname="Resonance.EditorTests.OriginalExpeditionRecoveryTests.PriorContentWithHigherHp_RendersIncompatibilityAndRecoveryActions_WithoutSaving" methodname="PriorContentWithHigherHp_RendersIncompatibilityAndRecoveryActions_WithoutSaving" classname="Resonance.EditorTests.OriginalExpeditionRecoveryTests" runstate="Runnable" seed="837470118" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.026980" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1058" name="OriginalModeIsolationTests" fullname="Resonance.EditorTests.OriginalModeIsolationTests" classname="Resonance.EditorTests.OriginalModeIsolationTests" runstate="Runnable" testcasecount="13" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.043578" total="13" passed="13" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1066" name="OriginalEntry_BlocksLegacyMutationAndAutomaticOwnershipMethods" fullname="Resonance.EditorTests.OriginalModeIsolationTests.OriginalEntry_BlocksLegacyMutationAndAutomaticOwnershipMethods" methodname="OriginalEntry_BlocksLegacyMutationAndAutomaticOwnershipMethods" classname="Resonance.EditorTests.OriginalModeIsolationTests" runstate="Runnable" seed="1198217282" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.004309" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1065" name="OriginalFocusAndPause_DoNotWriteLegacyProfile" fullname="Resonance.EditorTests.OriginalModeIsolationTests.OriginalFocusAndPause_DoNotWriteLegacyProfile" classname="Resonance.EditorTests.OriginalModeIsolationTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.007053" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1063" name="OriginalFocusAndPause_DoNotWriteLegacyProfile(&quot;OnApplicationPause&quot;,True)" fullname="Resonance.EditorTests.OriginalModeIsolationTests.OriginalFocusAndPause_DoNotWriteLegacyProfile(&quot;OnApplicationPause&quot;,True)" methodname="OriginalFocusAndPause_DoNotWriteLegacyProfile" classname="Resonance.EditorTests.OriginalModeIsolationTests" runstate="Runnable" seed="1638140585" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.003340" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1064" name="OriginalFocusAndPause_DoNotWriteLegacyProfile(&quot;OnApplicationFocus&quot;,False)" fullname="Resonance.EditorTests.OriginalModeIsolationTests.OriginalFocusAndPause_DoNotWriteLegacyProfile(&quot;OnApplicationFocus&quot;,False)" methodname="OriginalFocusAndPause_DoNotWriteLegacyProfile" classname="Resonance.EditorTests.OriginalModeIsolationTests" runstate="Runnable" seed="1926487146" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.002673" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="ParameterizedMethod" id="1062" name="OriginalLifecycle_DoesNotWriteTheLegacyProfile" fullname="Resonance.EditorTests.OriginalModeIsolationTests.OriginalLifecycle_DoesNotWriteTheLegacyProfile" classname="Resonance.EditorTests.OriginalModeIsolationTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.010047" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1059" name="OriginalLifecycle_DoesNotWriteTheLegacyProfile(&quot;Persist&quot;)" fullname="Resonance.EditorTests.OriginalModeIsolationTests.OriginalLifecycle_DoesNotWriteTheLegacyProfile(&quot;Persist&quot;)" methodname="OriginalLifecycle_DoesNotWriteTheLegacyProfile" classname="Resonance.EditorTests.OriginalModeIsolationTests" runstate="Runnable" seed="689473955" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.002894" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1060" name="OriginalLifecycle_DoesNotWriteTheLegacyProfile(&quot;OnApplicationQuit&quot;)" fullname="Resonance.EditorTests.OriginalModeIsolationTests.OriginalLifecycle_DoesNotWriteTheLegacyProfile(&quot;OnApplicationQuit&quot;)" methodname="OriginalLifecycle_DoesNotWriteTheLegacyProfile" classname="Resonance.EditorTests.OriginalModeIsolationTests" runstate="Runnable" seed="2144049230" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.003028" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1061" name="OriginalLifecycle_DoesNotWriteTheLegacyProfile(&quot;OnDestroy&quot;)" fullname="Resonance.EditorTests.OriginalModeIsolationTests.OriginalLifecycle_DoesNotWriteTheLegacyProfile(&quot;OnDestroy&quot;)" methodname="OriginalLifecycle_DoesNotWriteTheLegacyProfile" classname="Resonance.EditorTests.OriginalModeIsolationTests" runstate="Runnable" seed="1227488162" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.003237" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="ParameterizedMethod" id="1074" name="OriginalNavigation_CannotEnterLegacyScreens" fullname="Resonance.EditorTests.OriginalModeIsolationTests.OriginalNavigation_CannotEnterLegacyScreens" classname="Resonance.EditorTests.OriginalModeIsolationTests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.020363" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1067" name="OriginalNavigation_CannotEnterLegacyScreens(&quot;Shop&quot;)" fullname="Resonance.EditorTests.OriginalModeIsolationTests.OriginalNavigation_CannotEnterLegacyScreens(&quot;Shop&quot;)" methodname="OriginalNavigation_CannotEnterLegacyScreens" classname="Resonance.EditorTests.OriginalModeIsolationTests" runstate="Runnable" seed="1081202481" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.003694" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1068" name="OriginalNavigation_CannotEnterLegacyScreens(&quot;Summon&quot;)" fullname="Resonance.EditorTests.OriginalModeIsolationTests.OriginalNavigation_CannotEnterLegacyScreens(&quot;Summon&quot;)" methodname="OriginalNavigation_CannotEnterLegacyScreens" classname="Resonance.EditorTests.OriginalModeIsolationTests" runstate="Runnable" seed="1253803870" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.002440" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1069" name="OriginalNavigation_CannotEnterLegacyScreens(&quot;Daily&quot;)" fullname="Resonance.EditorTests.OriginalModeIsolationTests.OriginalNavigation_CannotEnterLegacyScreens(&quot;Daily&quot;)" methodname="OriginalNavigation_CannotEnterLegacyScreens" classname="Resonance.EditorTests.OriginalModeIsolationTests" runstate="Runnable" seed="1529419888" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.002442" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1070" name="OriginalNavigation_CannotEnterLegacyScreens(&quot;Mail&quot;)" fullname="Resonance.EditorTests.OriginalModeIsolationTests.OriginalNavigation_CannotEnterLegacyScreens(&quot;Mail&quot;)" methodname="OriginalNavigation_CannotEnterLegacyScreens" classname="Resonance.EditorTests.OriginalModeIsolationTests" runstate="Runnable" seed="355423427" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.003025" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1071" name="OriginalNavigation_CannotEnterLegacyScreens(&quot;Characters&quot;)" fullname="Resonance.EditorTests.OriginalModeIsolationTests.OriginalNavigation_CannotEnterLegacyScreens(&quot;Characters&quot;)" methodname="OriginalNavigation_CannotEnterLegacyScreens" classname="Resonance.EditorTests.OriginalModeIsolationTests" runstate="Runnable" seed="1307065027" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.002652" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1072" name="OriginalNavigation_CannotEnterLegacyScreens(&quot;Stage&quot;)" fullname="Resonance.EditorTests.OriginalModeIsolationTests.OriginalNavigation_CannotEnterLegacyScreens(&quot;Stage&quot;)" methodname="OriginalNavigation_CannotEnterLegacyScreens" classname="Resonance.EditorTests.OriginalModeIsolationTests" runstate="Runnable" seed="2002338335" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.002322" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1073" name="OriginalNavigation_CannotEnterLegacyScreens(&quot;Result&quot;)" fullname="Resonance.EditorTests.OriginalModeIsolationTests.OriginalNavigation_CannotEnterLegacyScreens(&quot;Result&quot;)" methodname="OriginalNavigation_CannotEnterLegacyScreens" classname="Resonance.EditorTests.OriginalModeIsolationTests" runstate="Runnable" seed="1458242081" result="Passed" start-time="2026-09-20 16:27:00Z" end-time="2026-09-20 16:27:00Z" duration="0.002387" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[Saving results to: C:/Users/Administrator/AppData/LocalLow/Resonance/契灵回响\TestResults.xml
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

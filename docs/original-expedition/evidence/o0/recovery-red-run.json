@@ -1,0 +1,23 @@
+{
+  "started": "2026-09-20T16:21:46.6553937Z",
+  "finished": "2026-09-20T16:22:03.3848548Z",
+  "exitCode": 2,
+  "mode": "tests",
+  "name": "recovery-red",
+  "arguments": [
+    "-batchmode",
+    "-projectPath",
+    "\"F:\\Resonance\\client\"",
+    "-giCustomCacheLocation",
+    "\"F:\\Resonance\\client\\Temp\\GICache-Original\"",
+    "-logFile",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o0\\recovery-red.log\"",
+    "-runTests",
+    "-testPlatform",
+    "EditMode",
+    "-testFilter",
+    "Resonance.EditorTests.OriginalExpeditionRecoveryTests",
+    "-testResults",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o0\\recovery-red.xml\""
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "started": "2026-09-20T16:23:18.7526157Z",
+  "finished": "2026-09-20T16:23:50.8239195Z",
+  "exitCode": 0,
+  "mode": "build",
+  "name": "dev-o1-build",
+  "arguments": [
+    "-batchmode",
+    "-projectPath",
+    "\"F:\\Resonance\\client\"",
+    "-giCustomCacheLocation",
+    "\"F:\\Resonance\\client\\Temp\\GICache-Original\"",
+    "-logFile",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o0\\dev-o1-build.log\"",
+    "-executeMethod",
+    "Resonance.EditorTools.WindowsBuild.BuildAndExit"
+  ]
+}

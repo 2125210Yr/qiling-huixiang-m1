@@ -1,5 +1,7 @@
 # 开发状态 — 2026-09-20
 
+当前任务已切换至 [原创章节远征 MVP](../../../docs/original-expedition/DIRECTION_CHANGE.md)（2026-09-21，开发中）。该规格替代旧 SHOWTIME 单项任务与原作保真前置闸门；以下旧版结论、测试与交付记录作为历史保留，不代表原创模式已验证。主分支基线 `8e56ee7c` 已于上轮推送，本次原创开发不自动推送。
+
 最新推进：用户要求继续开发后，已完成体验候选第 1 项「教程提示避让技能演出」。提示在 SHOWTIME / QTE / 评分 / 暂停等阶段隐藏并保留余时，空闲后恢复；修复到期提示丢失，成功释放技能后撤下过时教学。Unity UI 回归 **27/27 通过**，6 个完整 HUD 渲染夹具已核验，最新 Win64 构建成功（20:34:48+08）。详情及证据见 [tutorial-presentation/README.md](artifacts/tutorial-presentation/README.md)。
 
 当前程序：`F:/Resonance/client/Builds/Win64/Resonance.exe`，App DLL 为 `B60C9FEBE10CD33995CC68A40A9B0128FEDFC1734A0ADBB04579BAA6A4EC8A08`。Battle DLL 与下文 G2 版本一致，83 项核心输入未变，复用此前 310/0/1 核心验证；本轮新跑的是 Unity UI 测试。本轮未录制普通试玩，也未替换旧交付包；下文 125.9 秒视频与 ZIP 仍对应 `672cdff6`。其余体验候选尚未实施，G3 未启动，未推送。

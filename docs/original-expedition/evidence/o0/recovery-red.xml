@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="2" result="Failed(Child)" total="2" passed="0" failed="2" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-20 16:21:59Z" end-time="2026-09-20 16:21:59Z" duration="0.1769244">
+  <test-suite type="TestSuite" id="1000" name="契灵回响" fullname="契灵回响" runstate="Runnable" testcasecount="58" result="Failed" site="Child" start-time="2026-09-20 16:21:59Z" end-time="2026-09-20 16:21:59Z" duration="0.176924" total="2" passed="0" failed="2" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1072" name="Resonance.EditorTests.dll" fullname="F:/Resonance/client/Library/ScriptAssemblies/Resonance.EditorTests.dll" runstate="Runnable" testcasecount="58" result="Failed" site="Child" start-time="2026-09-20 16:21:59Z" end-time="2026-09-20 16:21:59Z" duration="0.170388" total="2" passed="0" failed="2" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="37800" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1073" name="Resonance" fullname="Resonance" runstate="Runnable" testcasecount="58" result="Failed" site="Child" start-time="2026-09-20 16:21:59Z" end-time="2026-09-20 16:21:59Z" duration="0.169342" total="2" passed="0" failed="2" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1074" name="EditorTests" fullname="Resonance.EditorTests" runstate="Runnable" testcasecount="58" result="Failed" site="Child" start-time="2026-09-20 16:21:59Z" end-time="2026-09-20 16:21:59Z" duration="0.168505" total="2" passed="0" failed="2" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestFixture" id="1052" name="OriginalExpeditionRecoveryTests" fullname="Resonance.EditorTests.OriginalExpeditionRecoveryTests" classname="Resonance.EditorTests.OriginalExpeditionRecoveryTests" runstate="Runnable" testcasecount="2" result="Failed" site="Child" start-time="2026-09-20 16:21:59Z" end-time="2026-09-20 16:21:59Z" duration="0.166984" total="2" passed="0" failed="2" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="1054" name="ExplicitEndRun_FromIncompatibleRecoveryUi_CommitsOnceAndPreservesDiscoveries" fullname="Resonance.EditorTests.OriginalExpeditionRecoveryTests.ExplicitEndRun_FromIncompatibleRecoveryUi_CommitsOnceAndPreservesDiscoveries" methodname="ExplicitEndRun_FromIncompatibleRecoveryUi_CommitsOnceAndPreservesDiscoveries" classname="Resonance.EditorTests.OriginalExpeditionRecoveryTests" runstate="Runnable" seed="194783043" result="Failed" start-time="2026-09-20 16:21:59Z" end-time="2026-09-20 16:21:59Z" duration="0.137807" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[  The recovery screen must be selected before AddOriginalParty validates old HP against current MaxHP.
+  Expected: No Exception to be thrown
+  But was:  <System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ArgumentException: Opening HP outside frozen character range at slot 0
+Parameter name: openingHp
+  at Resonance.Battle.RunBattleFactory.CreateInput (System.String nodeId, System.String presetId, System.Int32 seed, System.String[] relicIds, System.Int32[] openingHp) [0x001bf] in F:\Resonance\client\Assets\Scripts\Resonance.Battle\Expedition\RunBattleFactory.cs:34 
+  at Resonance.App.GameRoot.AddOriginalParty (Resonance.App.ExpeditionHud+ScreenModel model, System.String preset, System.Int32[] hp) [0x00000] in F:\Resonance\client\Assets\Scripts\Resonance.App\Core\GameRoot.Expedition.cs:207 
+  at Resonance.App.GameRoot.ShowOriginalExpedition () [0x003b4] in F:\Resonance\client\Assets\Scripts\Resonance.App\Core\GameRoot.Expedition.cs:118 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <d49d4cb128564ee1b54a84338c98d353>:0 
+   --- End of inner exception stack trace ---
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00083] in <d49d4cb128564ee1b54a84338c98d353>:0 
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <d49d4cb128564ee1b54a84338c98d353>:0 
+  at Resonance.EditorTests.OriginalExpeditionRecoveryTests.<ShowRecovery>b__16_0 () [0x00000] in F:\Resonance\client\Assets\Tests\Editor\OriginalExpeditionRecoveryTests.cs:125 
+  at NUnit.Framework.Constraints.ThrowsConstraint+VoidInvocationDescriptor.Invoke () [0x00000] in <f577cd9686154d6ab10efd7e65e64366>:0 
+  at NUnit.Framework.Constraints.ThrowsConstraint+ExceptionInterceptor.Intercept (System.Object invocation) [0x00041] in <f577cd9686154d6ab10efd7e65e64366>:0 >
+]]></message>
+                <stack-trace><![CDATA[at Resonance.EditorTests.OriginalExpeditionRecoveryTests.ShowRecovery () [0x00000] in F:\Resonance\client\Assets\Tests\Editor\OriginalExpeditionRecoveryTests.cs:125
+at Resonance.EditorTests.OriginalExpeditionRecoveryTests.ExplicitEndRun_FromIncompatibleRecoveryUi_CommitsOnceAndPreservesDiscoveries () [0x00000] in F:\Resonance\client\Assets\Tests\Editor\OriginalExpeditionRecoveryTests.cs:102
+]]></stack-trace>
+              </failure>
+            </test-case>
+            <test-case id="1053" name="PriorContentWithHigherHp_RendersIncompatibilityAndRecoveryActions_WithoutSaving" fullname="Resonance.EditorTests.OriginalExpeditionRecoveryTests.PriorContentWithHigherHp_RendersIncompatibilityAndRecoveryActions_WithoutSaving" methodname="PriorContentWithHigherHp_RendersIncompatibilityAndRecoveryActions_WithoutSaving" classname="Resonance.EditorTests.OriginalExpeditionRecoveryTests" runstate="Runnable" seed="1846839283" result="Failed" start-time="2026-09-20 16:21:59Z" end-time="2026-09-20 16:21:59Z" duration="0.017581" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[  The recovery screen must be selected before AddOriginalParty validates old HP against current MaxHP.
+  Expected: No Exception to be thrown
+  But was:  <System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ArgumentException: Opening HP outside frozen character range at slot 0
+Parameter name: openingHp
+  at Resonance.Battle.RunBattleFactory.CreateInput (System.String nodeId, System.String presetId, System.Int32 seed, System.String[] relicIds, System.Int32[] openingHp) [0x001bf] in F:\Resonance\client\Assets\Scripts\Resonance.Battle\Expedition\RunBattleFactory.cs:34 
+  at Resonance.App.GameRoot.AddOriginalParty (Resonance.App.ExpeditionHud+ScreenModel model, System.String preset, System.Int32[] hp) [0x00000] in F:\Resonance\client\Assets\Scripts\Resonance.App\Core\GameRoot.Expedition.cs:207 
+  at Resonance.App.GameRoot.ShowOriginalExpedition () [0x003b4] in F:\Resonance\client\Assets\Scripts\Resonance.App\Core\GameRoot.Expedition.cs:118 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <d49d4cb128564ee1b54a84338c98d353>:0 
+   --- End of inner exception stack trace ---
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00083] in <d49d4cb128564ee1b54a84338c98d353>:0 
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <d49d4cb128564ee1b54a84338c98d353>:0 
+  at Resonance.EditorTests.OriginalExpeditionRecoveryTests.<ShowRecovery>b__16_0 () [0x00000] in F:\Resonance\client\Assets\Tests\Editor\OriginalExpeditionRecoveryTests.cs:125 
+  at NUnit.Framework.Constraints.ThrowsConstraint+VoidInvocationDescriptor.Invoke () [0x00000] in <f577cd9686154d6ab10efd7e65e64366>:0 
+  at NUnit.Framework.Constraints.ThrowsConstraint+ExceptionInterceptor.Intercept (System.Object invocation) [0x00041] in <f577cd9686154d6ab10efd7e65e64366>:0 >
+]]></message>
+                <stack-trace><![CDATA[at Resonance.EditorTests.OriginalExpeditionRecoveryTests.ShowRecovery () [0x00000] in F:\Resonance\client\Assets\Tests\Editor\OriginalExpeditionRecoveryTests.cs:125
+at Resonance.EditorTests.OriginalExpeditionRecoveryTests.PriorContentWithHigherHp_RendersIncompatibilityAndRecoveryActions_WithoutSaving () [0x00000] in F:\Resonance\client\Assets\Tests\Editor\OriginalExpeditionRecoveryTests.cs:83
+]]></stack-trace>
+              </failure>
+              <output><![CDATA[Saving results to: C:/Users/Administrator/AppData/LocalLow/Resonance/契灵回响\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

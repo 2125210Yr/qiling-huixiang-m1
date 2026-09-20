@@ -1,0 +1,32 @@
+[
+  {
+    "Path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Expedition\\ExpeditionState.cs",
+    "SHA256": "5C6B2103AA7049A8EEA0C462D75B12C6293ED64452148BF9DDBE98D8EE5ED51E",
+    "MatchesBefore": true
+  },
+  {
+    "Path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Expedition\\ExpeditionFlow.cs",
+    "SHA256": "C0A7CE84E1848A6F8C4CE638AA07B979A533A2F733181EBEA0689BCCB3570200",
+    "MatchesBefore": true
+  },
+  {
+    "Path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Expedition\\RewardDraft.cs",
+    "SHA256": "E03036DE452B82003AA3348A2D6A4E1ECA6DB9C2064F375CC02D5EEFE479AE11",
+    "MatchesBefore": true
+  },
+  {
+    "Path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.Battle\\Expedition\\OriginalProfileStore.cs",
+    "SHA256": "AB437E18CA01444365E19ABD0FA3733EF618789D0EDCEDA917E91E57CC2E0637",
+    "MatchesBefore": true
+  },
+  {
+    "Path": "F:\\天命之子\\tools\\BattleSim.Tests\\OriginalExpeditionFlowTests.cs",
+    "SHA256": "9309E12BF0CC0F3F499B7E181A2CB5B790B8CCF7A286BFD6509CA728F06C4097",
+    "MatchesBefore": true
+  },
+  {
+    "Path": "F:\\天命之子\\tools\\BattleSim.Tests\\OriginalProfileStoreTests.cs",
+    "SHA256": "82B9DD97A3034C54F222A01D756AD7E69F57333C61CEC0E9626344968E7CB5FB",
+    "MatchesBefore": true
+  }
+]

@@ -7,12 +7,12 @@ using UnityEngine.UI;
 
 namespace Resonance.App
 {
-    public sealed class GameRoot : MonoBehaviour
+    public sealed partial class GameRoot : MonoBehaviour
     {
         enum ScreenId { Boot, Home, Characters, Team, Stage, Battle, Result, Archive, Library, Deep, Settings, Summon, Daily, Shop, Mail, Achieve, Title, Friend, Rest, Food, Pvp, Tutorial, Costume }
 
         public static GameRoot Live { get; private set; }
-        public string CurrentScreen => _screen.ToString();
+        public string CurrentScreen => _originalMode ? (_originalBattleActive ? "OriginalBattle" : "Original") : _screen.ToString();
         public SaveBlob SaveData => _save;
         public BattleSim Battle => _battle;
         public bool QteOpen => _hud != null && _hud.QteOpen;
@@ -62,6 +62,14 @@ namespace Resonance.App
             Live = this;
             DontDestroyOnLoad(gameObject);
             Application.runInBackground = true;
+            _originalMode = OriginalModeSelection.UseOriginal(Environment.GetCommandLineArgs());
+            if (_originalMode)
+            {
+                EnsureEventSystem();
+                BuildCanvas();
+                InitializeOriginalExpedition();
+                return;
+            }
             _save = SaveStore.LoadOrNew(SavePath());
             EnsureEventSystem();
             BuildCanvas();
@@ -99,12 +107,14 @@ namespace Resonance.App
 
         public void StartVsBattle()
         {
+            if (_originalMode) return;
             _save.UseHard = false;
             StartBattleAt(0);
         }
 
         public void SetLeader(int slot)
         {
+            if (_originalMode) return;
             _save.LeaderSlot = _save.ClampLeaderSlot(slot);
             Persist();
             Show(ScreenId.Team);
@@ -112,6 +122,7 @@ namespace Resonance.App
 
         public void Inspect(string id)
         {
+            if (_originalMode) return;
             if (string.IsNullOrEmpty(id) || Catalog.Characters == null || !Catalog.Characters.ContainsKey(id))
                 return;
             _inspectId = id;
@@ -152,6 +163,7 @@ namespace Resonance.App
 
         public void EnsureAutoOn()
         {
+            if (_originalMode) return;
             if (_save.Auto == AutoMode.Full) return;
             _save.Auto = AutoMode.Full;
             if (_battle != null) _battle.Auto = AutoMode.Full;
@@ -166,12 +178,14 @@ namespace Resonance.App
 
         public bool FireDrivePerfect()
         {
+            if (_originalMode) return false;
             if (_hud != null) return _hud.FirePerfect();
             return SliceDriveSequence.TryFirePerfect(_battle);
         }
 
         public void CycleBattleAuto()
         {
+            if (_originalMode) return;
             var n = ((int)_save.Auto + 1) % 3;
             _save.Auto = (AutoMode)n;
             if (_battle != null)
@@ -183,7 +197,7 @@ namespace Resonance.App
         {
             if (_battle == null) return;
             // Primary GT (hgq Robin): battle chrome shows >> 3x SPEED. Cycle 1→2→3→1.
-            var next = _battle.Speed >= 3 ? 1 : _battle.Speed + 1;
+            var next = _battle.Speed >= (_originalMode ? 2 : 3) ? 1 : _battle.Speed + 1;
             SetBattleSpeed(next);
         }
 
@@ -191,14 +205,15 @@ namespace Resonance.App
         {
             if (_battle == null) return;
             if (speed < 1) speed = 1;
-            if (speed > 3) speed = 3;
+            if (speed > (_originalMode ? 2 : 3)) speed = _originalMode ? 2 : 3;
             _battle.Submit(new BattleCommand { Kind = BattleCommandKind.SetSpeed, Value = speed, Source = CommandSource.Player });
-            _save.Speed = _battle.Speed;
+            if (!_originalMode) _save.Speed = _battle.Speed;
             Persist();
         }
 
         public void ToggleBattlePause()
         {
+            if (_originalMode) { ToggleOriginalPause(); return; }
             if (_battle == null || _screen != ScreenId.Battle) return;
             if (_battle.Paused)
             {
@@ -215,6 +230,7 @@ namespace Resonance.App
         /// <summary>Primary GT red <c>Repeat</c> chip: restart the active stage (engineering).</summary>
         public void RepeatCurrentBattle()
         {
+            if (_originalMode) return;
             if (_screen != ScreenId.Battle) return;
             if (_battle != null) _battle.Paused = false;
             var overlay = Root().Find("PauseBoard");
@@ -224,6 +240,7 @@ namespace Resonance.App
 
         void Update()
         {
+            if (_originalMode) { UpdateOriginalExpedition(); return; }
             if (_screen == ScreenId.Boot)
                 return;
             if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
@@ -265,6 +282,7 @@ namespace Resonance.App
 
         void Persist()
         {
+            if (_originalMode) return; // Original transitions commit synchronously before UI publication.
             if (_save == null) return;
             Costume.WriteTo(_save.Skins);
             try { SaveStore.Write(_save, SavePath()); }
@@ -394,6 +412,7 @@ namespace Resonance.App
 
         void Show(ScreenId id)
         {
+            if (_originalMode) { ShowOriginalExpedition(); return; }
             _screen = id;
             _skillOpen = false;
             _costumeOpen = false;
@@ -1165,6 +1184,7 @@ namespace Resonance.App
 
         void StartBattleAt(int index)
         {
+            if (_originalMode) return;
             var table = Catalog.Chapter(_save.UseHard);
             if (table == null || table.Length == 0)
             {

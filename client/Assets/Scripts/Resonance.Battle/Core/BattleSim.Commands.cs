@@ -16,7 +16,7 @@ namespace Resonance.Battle
         None, NotInProgress, Paused, QtePending, NoQtePending, SlotInvalid, UnitDead,
         ActionLocked, Silenced, NotCharged, SlideOnCooldown, DriveNotReady, FeverNotActive, FeverThrottled,
         FeverBudgetExhausted, AutoOwnsInput, InvalidValue,
-        Unplayable
+        Unplayable, ModeDisabled
     }
 
     public struct BattleCommand
@@ -137,10 +137,12 @@ namespace Resonance.Battle
         CommandReject Execute(BattleCommand cmd)
         {
             var kind = cmd.Kind;
+            if (IsOriginalExpedition && (kind == BattleCommandKind.DriveBegin || kind == BattleCommandKind.DriveResolve || kind == BattleCommandKind.FeverTap))
+                return CommandReject.ModeDisabled;
             var isCombatInput = kind == BattleCommandKind.Tap || kind == BattleCommandKind.Slide
                 || kind == BattleCommandKind.DriveBegin || kind == BattleCommandKind.DriveResolve
                 || kind == BattleCommandKind.FeverTap;
-            if (isCombatInput && cmd.Source == CommandSource.Player && Auto == AutoMode.Full)
+            if (isCombatInput && cmd.Source == CommandSource.Player && Auto == AutoMode.Full && !IsOriginalExpedition)
                 return CommandReject.AutoOwnsInput;
 
             switch (kind)
@@ -211,12 +213,13 @@ namespace Resonance.Battle
                 }
                 case BattleCommandKind.SetSpeed:
                 {
-                    if (cmd.Value < 1 || cmd.Value > 3) return CommandReject.InvalidValue;
+                    if (cmd.Value < 1 || cmd.Value > (IsOriginalExpedition ? 2 : 3)) return CommandReject.InvalidValue;
                     Speed = cmd.Value;
                     return CommandReject.None;
                 }
                 case BattleCommandKind.SetAuto:
                 {
+                    if (IsOriginalExpedition && cmd.Value != (int)AutoMode.Manual) return CommandReject.ModeDisabled;
                     if (cmd.Value < 0 || cmd.Value > 2) return CommandReject.InvalidValue;
                     Auto = (AutoMode)cmd.Value;
                     return CommandReject.None;

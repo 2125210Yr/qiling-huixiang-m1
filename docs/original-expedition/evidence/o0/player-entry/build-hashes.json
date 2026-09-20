@@ -1,0 +1,14 @@
+[
+  {
+    "Path": "F:\\Resonance\\client\\Builds\\Win64\\Resonance.exe",
+    "Hash": "82EFD5A8C297A5046F6BB72C240DAB8972E64003851935EBA0A46AD121CE0305"
+  },
+  {
+    "Path": "F:\\Resonance\\client\\Builds\\Win64\\Resonance_Data\\Managed\\Resonance.App.dll",
+    "Hash": "77ECC835E1B084021CF7DE2D2278A17C8A3261CC6229593A00F03A8A1A6D8DBB"
+  },
+  {
+    "Path": "F:\\Resonance\\client\\Builds\\Win64\\Resonance_Data\\Managed\\Resonance.Battle.dll",
+    "Hash": "3D5B799D733E5DCA0D0F136EC3963B1248475AA5B6FB1897BD701EED657153FA"
+  }
+]

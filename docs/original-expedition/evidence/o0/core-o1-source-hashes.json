@@ -1,0 +1,378 @@
+{
+  "capturedAfterTests": "2026-09-20T16:14:47.6545762Z",
+  "testReport": "core-o1.trx",
+  "inputs": [
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/VfxGoodWindowTests.cs",
+      "sha256": "1F2A7F4C8B7BF7FA94D341CF190AEDC8E2F3A6C0F53E35590600BE413A8E6E31"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/OriginalProfileStoreTests.cs",
+      "sha256": "82B9DD97A3034C54F222A01D756AD7E69F57333C61CEC0E9626344968E7CB5FB"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/OriginalExpeditionModeTests.cs",
+      "sha256": "012E8EA51BBED386CF13957CF589DAAB24E6FA1FF1AA1ADE7C714E8F5F65ED77"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/OriginalExpeditionLoopIntegrationTests.cs",
+      "sha256": "3A6702A324A6DAE46D4A583384E3D390EC0D5CB8941CB614EC9FAF808DD1F218"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/OriginalExpeditionFlowTests.cs",
+      "sha256": "9309E12BF0CC0F3F499B7E181A2CB5B790B8CCF7A286BFD6509CA728F06C4097"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/OriginalExpeditionContentTests.cs",
+      "sha256": "E29767F8A5575629503C78C2D6B106C3C32E72E6C9508DC7990427707FA88856"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/M1TargetingTests.cs",
+      "sha256": "64DA9BFFB3FC33F4E3644E63699286364614F555BF4640089849CF20A7F820B0"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/M1SaveIdempotencyTests.cs",
+      "sha256": "28CEEE889AAA537C1F81BF7F62C6E0572AF0FF7B7FE5FF8FB7179FBE20F6F80C"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/M1RepairQaTests.cs",
+      "sha256": "D24480D37AEB1EEF9A7CA9B2DF28E9E880B6892C75FF11CAD5FDACBC54751A43"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/M1FormulaIsolationTests.cs",
+      "sha256": "DD34208B26E794B0506A60AFDC89EC6D805075FAC27E132B8D16A45719B879E0"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/M1EventLogTests.cs",
+      "sha256": "B92EA47C86DA692CD939E149E2059AA919B4B6297C9AFF2ED9E30DC3B4CB960F"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/M1EffectOrderTests.cs",
+      "sha256": "C11E51E090736513410B64D744C53115C0078C1CB479287C2AFD30E8C824DAF8"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/M1CoreSliceTests.cs",
+      "sha256": "B5C6DF0EBC18141DBC258606CFC7D44EDBC262CFCEF764E815B69D995BE05CBB"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/M1ClockModeTests.cs",
+      "sha256": "0C85FF5D0BFCBEE637943FFBC31B814B6BC78F0135C20AA649E142A434162158"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/IgnitionTests.cs",
+      "sha256": "203278C712004D34138D13AB2E7663B218B83B9AFD07D9849C730A6F999A6AE0"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/GrowthRuntimeRoundingTests.cs",
+      "sha256": "E443530D4446E14E6F7D644F107AA2AB2AAE3334C7C6AD819A11AFE9EA95D0A6"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2TerminalFeverReplayTests.cs",
+      "sha256": "5705438D2A88330912F308D7DEA8485B981B775D2597E88D086466773E42FFDD"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2ReviewRngReplayTests.cs",
+      "sha256": "431585263ED613FA6A9F1858BB3AD433841A723235001A05613C7E96ABE96796"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2ReviewReplayTests.cs",
+      "sha256": "8BC299502318DDF8761E3E12A757738F2512407D323943854D63762F75F6D806"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2ReviewReplayComponentTests.cs",
+      "sha256": "6CBFD7B8B8C58500A7139F526D1DF0C60AFBA6CC26575ECE4D78B2427A1F20DC"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2ReviewQteClockTests.cs",
+      "sha256": "41364C42D763ADA2011410F2FF97E717625884AF275216FAE7179620F56A7D72"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2ReviewProvenanceTests.cs",
+      "sha256": "C735B204B2EA50E4E57B08244026B1A0B129CEFBF44F2C7850D0C9D6E51CA2E8"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2ReviewFixtures.cs",
+      "sha256": "4C3C3E608D97D273C3FF40BB8E2BF595DE5342B2A368D76BCBD3112893AD0FF1"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2ReviewFeverTests.cs",
+      "sha256": "A72FE9E2464997DDBE73B5DFF58D5ACE64640D1E5560579CCB2E2BC2202CA341"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2ReviewEffectLifecycleTests.cs",
+      "sha256": "A4CCE6012672545F5869B0A81181085599667DC92FBFC44259C7A80C47D3509D"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2ReviewCapabilityTests.cs",
+      "sha256": "6398A2E4F0A40A5C52BEC308C54660A0A965798B0372F52DD134144F3CC13992"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2RecheckReplayContractTests.cs",
+      "sha256": "9442C836131513A07541531A834E1F5A7E03727D92E03418531D0F6D51CA8719"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2RecheckQteClockTests.cs",
+      "sha256": "D99BC073AC57061B9AAC2B11FD4867E9491E88E25FD445B5F6F9567D5B8BBEA4"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2RecheckProvenanceTests.cs",
+      "sha256": "1D936C8C2067626EC0089C20301C7D06CF1872EDE0E73BFBA962B43976D4A438"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2RecheckNaturalContractTests.cs",
+      "sha256": "E96EFFB4BFF7CA78EB3CB1D37DCE3B4636B4B39CA9D4F8A78DF486F4D8E9B55A"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2RecheckImportGateTests.cs",
+      "sha256": "68D0D08C0ABB32AC0A4FB033C0B837E073EE704BABB174E5E1E02B3855D2EBAF"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2RecheckFixtures.cs",
+      "sha256": "05293D9F0FDA2A530FEEC89DED79EBA0F6ACD83A30C61F0211D9E576159A431E"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2RecheckEvidenceContractTests.cs",
+      "sha256": "FBFBEC427160E167EA29EBC30E6793A9C301AF676DA342CBBBCF8B7CF742A305"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2RecheckEffectPathTests.cs",
+      "sha256": "45F111B02438273098624D68B8E880C26F91131EEC7B33C6F394B0D38CF0D01E"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2RecheckDriveGainTests.cs",
+      "sha256": "513CCC8B5247D6F4BB0570B449D3242D67672C0225954F7680DED2D34DFE1059"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2OpeningDefaultsAuditTests.cs",
+      "sha256": "59EEEBF08DE2CE8C80957E667BFB53B99993450B30BE251E28901F70F7357E5B"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2C3OpeningInputTests.cs",
+      "sha256": "9E74F3080676FE19958668FD2C3F61A127F30E45CE0288439AEF2DB65E0E8D36"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2C2HoldPolicyTests.cs",
+      "sha256": "64CC136D42FD9086295065B364F19340FC5A83ACF6B57AA70E0FB08009F510E4"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2C2FocusCommandTests.cs",
+      "sha256": "D5E07B76C2C2DBD0459D8C7F7794AA015DCE5CF4288C37A0D1DA6EF820137EA9"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2C1CloneTargetTests.cs",
+      "sha256": "C14392233C48D1657A72AF31FE34BBC1899552F12D062C77BC536CA27E393C33"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2B1VerificationEntryTests.cs",
+      "sha256": "2E528E993A3A4963A2AB62115699B44DF6D28672DD2664F24B3508E887E990E4"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2B1StageIdentityTests.cs",
+      "sha256": "1AF92DFB823EAF5109162B819E0961EA3ACCDF1AD1B8B55ED28684AF15A937C9"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2B1FactoryReadbackTests.cs",
+      "sha256": "9C6470CF69950FEB75ABA14666F762625DA1CF475BE5DF3ADA75536ED4ABE349"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2A53PlayableGateTests.cs",
+      "sha256": "13A35EFB9EF67E2263E50614268EC8D0FF106B5C619CF2ECD0B4B5CF79D3A136"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2A53JsonHasTargetTests.cs",
+      "sha256": "9BD4D5B1A6A7573715FBB051519BC2DF1E1FDBB3003652E2A5E849A991C8E401"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2A53IdentityTests.cs",
+      "sha256": "04DAB3411A53A33B258DC6741593E6362A9F1F799C0FD8E1B2D7A209416A208B"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2A53EvidenceTests.cs",
+      "sha256": "205015E798566374DA1D78A1BA40575ACA82C5A8319875FC3D5C0BF96E362D2A"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2A53EvidenceTape.cs",
+      "sha256": "8CAE78EFD5768071527B596EA955F497C6723B8975D75CA064EF56DAA4901A20"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/G2A53AssemblyIsolation.cs",
+      "sha256": "1122415AC592F1A0D07986D8E99CACB5B05594C3BDCAE7099F368291D26B38EC"
+    },
+    {
+      "path": "F:/天命之子/tools/BattleSim.Tests/BattleSimTests.cs",
+      "sha256": "790BDD2235B5CF968D962024B8F6261926235316F79E289F6A219FD67D5449BC"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Save/SaveStore.cs",
+      "sha256": "D1BE1A4F8237D5992188BAB06307C22C51BE892AC7679A3C4424336ED9E59FD3"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Progression/StageMode.cs",
+      "sha256": "A6FAD305976C19CEF978DE8F9A10054FA6C14155693A1FB13D37E6141DF760EF"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Progression/PvpRules.cs",
+      "sha256": "D56EE36DBB6434C36DFF4DBC6C3E2281764751F4F05CE0904E165EBB3A6DE04B"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Progression/Puppets.cs",
+      "sha256": "13FCA9D0B1E3A8C0D92D7ED64E8F1DFE028226D97DCA8FA1C9CF735B2622C528"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Progression/Ignition.cs",
+      "sha256": "D9D68936A99992571EA430F8119A9F48D82D5099C5D2466AF9EC31C83834A33E"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Progression/Growth.cs",
+      "sha256": "E92CA5973FE65C1F5AF9901E4B5C4A239AEF11A4592052ECCB2EBCE011196010"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Progression/Gear.cs",
+      "sha256": "6ABDA25BB9FB73CEAC156E01A70564A69DE26869A44007737F5192FEEE7F5C2F"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Progression/Food.cs",
+      "sha256": "99E4D45A2A7E283DE3DE71700E55B267BF2DADEFB9B5952A00EE89F4B9938A0A"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Progression/Equipment.cs",
+      "sha256": "8F2F6837B72F53FDAADC52F0C490BCBC5A486EE9C8BE69A49C560FA0A5039D37"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Progression/Costume.cs",
+      "sha256": "B16A60CE9EA8DC34579131F4D412FE3E6C0F5664383CDD5E13323A9BEA471A3A"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Progression/Bond.cs",
+      "sha256": "3AD72CBC3260C205A11A3A7C4D29595FCF406638928FB1FC9785130B6EA05E7E"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Loop/MvpLoop.cs",
+      "sha256": "D82D24FB5EAB3386D868691C54757AC2E7D52E944F73D94F9BC9AD3DD69B8E81"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Expedition/RunBattleFactory.cs",
+      "sha256": "1B3BAD6CBB7B9D06D40138F0B0321D94053B5EFED1CAD1ECF92F85DF31FDCD89"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Expedition/RewardDraft.cs",
+      "sha256": "E03036DE452B82003AA3348A2D6A4E1ECA6DB9C2064F375CC02D5EEFE479AE11"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Expedition/OriginalProfileStore.cs",
+      "sha256": "AB437E18CA01444365E19ABD0FA3733EF618789D0EDCEDA917E91E57CC2E0637"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Expedition/OriginalModeSelection.cs",
+      "sha256": "E965312C4218F24E8D367FDC70F2FAD8687565144770A6B7F993FC982BE36AB4"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Expedition/ExpeditionState.cs",
+      "sha256": "5C6B2103AA7049A8EEA0C462D75B12C6293ED64452148BF9DDBE98D8EE5ED51E"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Expedition/ExpeditionFlow.cs",
+      "sha256": "C0A7CE84E1848A6F8C4CE638AA07B979A533A2F733181EBEA0689BCCB3570200"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Expedition/ExpeditionContent.cs",
+      "sha256": "2ACED5CCB5CDCFDD98D17F0667FEA3FEB101E119E745D525F0B20B3FF4FF8BE8"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Expedition/ExpeditionBattleInput.cs",
+      "sha256": "2D73E2CB4B04F9634A5EA434052D8018FFB37A5E72E9663626882066F476A044"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Core/VfxGoodWindow.cs",
+      "sha256": "8C2A6202038139C3D212755B2B22541191D64A736339250031851A3ECC0C5831"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Core/TargetSemantics.cs",
+      "sha256": "A5D33DF5F603CC20E545948AC65D9F6DC57351CD9E5F1B688C496B2CD4787B84"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Core/SliceDriveSequence.cs",
+      "sha256": "AB1D441DDE998AA0F56BBC256E4FFB0328B7C02650B60D93EB2D76437AF6EAFD"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Core/LeaderSkill.cs",
+      "sha256": "046702D5325EA4A847DFFBDA29115A8979F8E2F3C231567C371BE5705042C84F"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Core/FormulaProfile.cs",
+      "sha256": "67CEC8FC03D678E0A04BA0E683457686A2416EB5FC3183685064CAFF6D0F9CD5"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Core/FightStats.cs",
+      "sha256": "E65990A57326351C5EA0A0127748BC27C1A584A16384A1FDC4DE9D19E91A5C9E"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Core/Enums.cs",
+      "sha256": "F44E942CCFF5266B8D8AB884DC8059A01164F8FEF77FFBFB11C0E90938BEBDBA"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Core/EffectOpcodes.cs",
+      "sha256": "DD6D45AD44E97D01B486DA5B222217A0005B90490C8D49DAB4B846315D20FBBB"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Core/EffectCapability.cs",
+      "sha256": "6FACDB402938AD6D1E9F03AD826AEE38E3302B15621475F58448CDD719A6633A"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Core/Definitions.cs",
+      "sha256": "A78183B13AF3EBCBF575C12A8B68034A09BCC6CE4F4B637A845B4610CD868E06"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Core/DamageMath.cs",
+      "sha256": "FC2931923AB4A4CDB6B6B8D95D1C905C31BDE02026BE1A04522FD0BE2B6D2AD8"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Core/BattleSim.Expedition.cs",
+      "sha256": "3184AB7429F87E05D8DE7A2EFB72897132186B410E10853B397502E6D36AD36D"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Core/BattleSim.cs",
+      "sha256": "3D38D4D7B61413361A5FC69BBE601A08CF621ECF7DE4FD2E44E2406167879EFF"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Core/BattleSim.Commands.cs",
+      "sha256": "5B94842C74E2C95AB48D16BB9AFA411876F09951AF213AB85252DF135287C335"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Core/BattleReplay.cs",
+      "sha256": "F760A5E4A2C8C2F370EEFA43A10B3D3E736F79CF557EF4AA98A604021B8504A1"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Core/BattleEventLog.cs",
+      "sha256": "DAE85A5544DCDD41E7A99C31CC62D77A8B0EC064662DEDB62C04C6396F65760D"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Content/Catalog.cs",
+      "sha256": "D3C1C11FBA42387D89E782DE50E632F5B090878D5DDF8ACF663B9035891FBFD5"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Content/VerificationScenario.cs",
+      "sha256": "0B87F448382B85920E112393BE0BF0BD1EFEC814A8F0DF898B6161C0B0636E1C"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Content/BuffCatalog.cs",
+      "sha256": "98C823384AD274174D3F6CFC236C06B73F135EA3B6D4CEAFC7F7814CE2A22361"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Content/DesignPlaceholderPolicy.cs",
+      "sha256": "6332FD315D9FA5006B56F53BE6109929913FCB5F4137D784C95A40D39470257C"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Content/SkillTags.cs",
+      "sha256": "48BE279D2F00CA01B2CBF340108791D8187A9E482F5B9EA3B9B003BB3B05241A"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Content/VerificationCatalog.cs",
+      "sha256": "F5B9ED8B4A7CB4103B733C0F84CF7C5CC8AA9471364E25AA77B553A54BDD336A"
+    },
+    {
+      "path": "F:/Resonance/client/Assets/Scripts/Resonance.Battle/Content/CatalogJson.cs",
+      "sha256": "87D3B42763FB0EC111C0F50B72911F0ED6DCE25CFB54E140DB4D1B0411FD47DA"
+    }
+  ]
+}

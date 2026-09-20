@@ -1,0 +1,4 @@
+All six PNGs are synthetic EditMode UI fixtures at 1080x1920.
+No GameRoot lifecycle, profile IO, normal expedition input, or gameplay video is exercised.
+Battle health/charge, intent text, contribution text, queue and result facts are controlled display samples.
+The real content table supplies character/relic identities and the ordinary RunBattleFactory supplies unit definitions.

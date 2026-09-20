@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="19" result="Failed(Child)" total="19" passed="16" failed="3" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-20 16:25:27Z" end-time="2026-09-20 16:25:28Z" duration="0.6428903">
+  <test-suite type="TestSuite" id="1000" name="契灵回响" fullname="契灵回响" runstate="Runnable" testcasecount="61" result="Failed" site="Child" start-time="2026-09-20 16:25:27Z" end-time="2026-09-20 16:25:28Z" duration="0.642890" total="19" passed="16" failed="3" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1075" name="Resonance.EditorTests.dll" fullname="F:/Resonance/client/Library/ScriptAssemblies/Resonance.EditorTests.dll" runstate="Runnable" testcasecount="61" result="Failed" site="Child" start-time="2026-09-20 16:25:27Z" end-time="2026-09-20 16:25:28Z" duration="0.634070" total="19" passed="16" failed="3" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="48984" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1076" name="Resonance" fullname="Resonance" runstate="Runnable" testcasecount="61" result="Failed" site="Child" start-time="2026-09-20 16:25:27Z" end-time="2026-09-20 16:25:28Z" duration="0.632658" total="19" passed="16" failed="3" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1077" name="EditorTests" fullname="Resonance.EditorTests" runstate="Runnable" testcasecount="61" result="Failed" site="Child" start-time="2026-09-20 16:25:27Z" end-time="2026-09-20 16:25:28Z" duration="0.631824" total="19" passed="16" failed="3" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestFixture" id="1034" name="OriginalExpeditionHudTests" fullname="Resonance.EditorTests.OriginalExpeditionHudTests" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" testcasecount="19" result="Failed" site="Child" start-time="2026-09-20 16:25:27Z" end-time="2026-09-20 16:25:28Z" duration="0.630260" total="19" passed="16" failed="3" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="1039" name="BattleControls_ForwardCallbacks_AndNeverChangeClockOrPause" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.BattleControls_ForwardCallbacks_AndNeverChangeClockOrPause" methodname="BattleControls_ForwardCallbacks_AndNeverChangeClockOrPause" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="1260739360" result="Passed" start-time="2026-09-20 16:25:27Z" end-time="2026-09-20 16:25:27Z" duration="0.133195" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1052" name="BattleTitle_GeneratesEveryVisibleGlyph_WithinReservedHeader" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.BattleTitle_GeneratesEveryVisibleGlyph_WithinReservedHeader" methodname="BattleTitle_GeneratesEveryVisibleGlyph_WithinReservedHeader" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="689324236" result="Failed" start-time="2026-09-20 16:25:27Z" end-time="2026-09-20 16:25:28Z" duration="0.109498" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[  BattleTitle: font=NotoSansSC, size=48, box=67, preferred=70, visibleGlyphs=0, expected=5
+  Expected: 5
+  But was:  0
+]]></message>
+                <stack-trace><![CDATA[at Resonance.EditorTests.OriginalExpeditionHudTests.AssertEveryGlyphVisible (UnityEngine.UI.Text text) [0x001df] in F:\Resonance\client\Assets\Tests\Editor\OriginalExpeditionHudTests.cs:352
+at Resonance.EditorTests.OriginalExpeditionHudTests.BattleTitle_GeneratesEveryVisibleGlyph_WithinReservedHeader () [0x0002c] in F:\Resonance\client\Assets\Tests\Editor\OriginalExpeditionHudTests.cs:267
+]]></stack-trace>
+              </failure>
+              <output><![CDATA[ORIGINAL_UI_GLYPH_CHECK BattleTitle: font=NotoSansSC, size=48, box=67, preferred=70, visibleGlyphs=0, expected=5
+]]></output>
+            </test-case>
+            <test-case id="1036" name="BattleToMapTransition_RemovesSkills_AndClearsBattleFlag" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.BattleToMapTransition_RemovesSkills_AndClearsBattleFlag" methodname="BattleToMapTransition_RemovesSkills_AndClearsBattleFlag" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="987961785" result="Passed" start-time="2026-09-20 16:25:28Z" end-time="2026-09-20 16:25:28Z" duration="0.049479" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1042" name="DeadMember_DisablesSkill_AndDeadEnemyDisablesTarget" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.DeadMember_DisablesSkill_AndDeadEnemyDisablesTarget" methodname="DeadMember_DisablesSkill_AndDeadEnemyDisablesTarget" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="1054032893" result="Passed" start-time="2026-09-20 16:25:28Z" end-time="2026-09-20 16:25:28Z" duration="0.018619" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1050" name="Decoration_DoesNotInterceptRaycasts" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.Decoration_DoesNotInterceptRaycasts" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-20 16:25:28Z" end-time="2026-09-20 16:25:28Z" duration="0.033663" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1048" name="Decoration_DoesNotInterceptRaycasts(False)" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.Decoration_DoesNotInterceptRaycasts(False)" methodname="Decoration_DoesNotInterceptRaycasts" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="1314927172" result="Passed" start-time="2026-09-20 16:25:28Z" end-time="2026-09-20 16:25:28Z" duration="0.012741" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1049" name="Decoration_DoesNotInterceptRaycasts(True)" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.Decoration_DoesNotInterceptRaycasts(True)" methodname="Decoration_DoesNotInterceptRaycasts" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="1005041726" result="Passed" start-time="2026-09-20 16:25:28Z" end-time="2026-09-20 16:25:28Z" duration="0.017812" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1038" name="EnemySelection_ForwardsSlot_WithoutDirectlyChangingFocus" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.EnemySelection_ForwardsSlot_WithoutDirectlyChangingFocus" methodname="EnemySelection_ForwardsSlot_WithoutDirectlyChangingFocus" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="826203418" result="Passed" start-time="2026-09-20 16:25:28Z" end-time="2026-09-20 16:25:28Z" duration="0.020622" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1037" name="FiveSkills_ForwardExactSlots_WithoutMutatingSimulation" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.FiveSkills_ForwardExactSlots_WithoutMutatingSimulation" methodname="FiveSkills_ForwardExactSlots_WithoutMutatingSimulation" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="712647894" result="Passed" start-time="2026-09-20 16:25:28Z" end-time="2026-09-20 16:25:28Z" duration="0.017349" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1043" name="IntentProgress_UsesSuppliedSnapshot_AndDoesNotAdvanceOnRefresh" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.IntentProgress_UsesSuppliedSnapshot_AndDoesNotAdvanceOnRefresh" methodname="IntentProgress_UsesSuppliedSnapshot_AndDoesNotAdvanceOnRefresh" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="675649401" result="Passed" start-time="2026-09-20 16:25:28Z" end-time="2026-09-20 16:25:28Z" duration="0.018080" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1045" name="LongDetails_ExpandInsideScroll_WithoutClippingParagraph" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.LongDetails_ExpandInsideScroll_WithoutClippingParagraph" methodname="LongDetails_ExpandInsideScroll_WithoutClippingParagraph" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="1293894713" result="Passed" start-time="2026-09-20 16:25:28Z" end-time="2026-09-20 16:25:28Z" duration="0.018199" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1047" name="Map_ShowsBothMutuallyExclusiveBranchesSideBySide" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.Map_ShowsBothMutuallyExclusiveBranchesSideBySide" methodname="Map_ShowsBothMutuallyExclusiveBranchesSideBySide" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="1814355145" result="Passed" start-time="2026-09-20 16:25:28Z" end-time="2026-09-20 16:25:28Z" duration="0.009278" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1054" name="PausedClearControls_AndNotice_DoNotOverlapOrLeavePortraitFrame" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.PausedClearControls_AndNotice_DoNotOverlapOrLeavePortraitFrame" methodname="PausedClearControls_AndNotice_DoNotOverlapOrLeavePortraitFrame" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="508149035" result="Passed" start-time="2026-09-20 16:25:28Z" end-time="2026-09-20 16:25:28Z" duration="0.035750" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1040" name="PauseQueue_ClearIsVisibleOnlyForQueuedMembers_AndForwardsExactSlot" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.PauseQueue_ClearIsVisibleOnlyForQueuedMembers_AndForwardsExactSlot" methodname="PauseQueue_ClearIsVisibleOnlyForQueuedMembers_AndForwardsExactSlot" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="1914437666" result="Passed" start-time="2026-09-20 16:25:28Z" end-time="2026-09-20 16:25:28Z" duration="0.021482" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1041" name="RefreshBattle_ReusesObjects_AndShowsExactUnitIdentityAndHealth" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.RefreshBattle_ReusesObjects_AndShowsExactUnitIdentityAndHealth" methodname="RefreshBattle_ReusesObjects_AndShowsExactUnitIdentityAndHealth" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="1243888292" result="Passed" start-time="2026-09-20 16:25:28Z" end-time="2026-09-20 16:25:28Z" duration="0.019120" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1044" name="RelicFeedback_UsesProvidedRealResultText_AndOnlySuppliedIconIds" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.RelicFeedback_UsesProvidedRealResultText_AndOnlySuppliedIconIds" methodname="RelicFeedback_UsesProvidedRealResultText_AndOnlySuppliedIconIds" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="567345709" result="Passed" start-time="2026-09-20 16:25:28Z" end-time="2026-09-20 16:25:28Z" duration="0.036525" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1046" name="RewardSelection_ForwardsOnlySpecifiedCallback_AndDisabledChoiceStaysDisabled" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.RewardSelection_ForwardsOnlySpecifiedCallback_AndDisabledChoiceStaysDisabled" methodname="RewardSelection_ForwardsOnlySpecifiedCallback_AndDisabledChoiceStaysDisabled" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="1031012333" result="Passed" start-time="2026-09-20 16:25:28Z" end-time="2026-09-20 16:25:28Z" duration="0.015776" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1051" name="ScreenTitle_GeneratesEveryVisibleGlyph_WithinReservedHeader" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.ScreenTitle_GeneratesEveryVisibleGlyph_WithinReservedHeader" methodname="ScreenTitle_GeneratesEveryVisibleGlyph_WithinReservedHeader" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="281867724" result="Failed" start-time="2026-09-20 16:25:28Z" end-time="2026-09-20 16:25:28Z" duration="0.005485" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[  ScreenTitle: font=NotoSansSC, size=54, box=72, preferred=79, visibleGlyphs=0, expected=4
+  Expected: 4
+  But was:  0
+]]></message>
+                <stack-trace><![CDATA[at Resonance.EditorTests.OriginalExpeditionHudTests.AssertEveryGlyphVisible (UnityEngine.UI.Text text) [0x001df] in F:\Resonance\client\Assets\Tests\Editor\OriginalExpeditionHudTests.cs:352
+at Resonance.EditorTests.OriginalExpeditionHudTests.ScreenTitle_GeneratesEveryVisibleGlyph_WithinReservedHeader () [0x00028] in F:\Resonance\client\Assets\Tests\Editor\OriginalExpeditionHudTests.cs:259
+]]></stack-trace>
+              </failure>
+              <output><![CDATA[ORIGINAL_UI_GLYPH_CHECK ScreenTitle: font=NotoSansSC, size=54, box=72, preferred=79, visibleGlyphs=0, expected=4
+]]></output>
+            </test-case>
+            <test-case id="1035" name="ScreenTransition_RemovesOldInteractiveRoot_AndDisposeLeavesNone" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.ScreenTransition_RemovesOldInteractiveRoot_AndDisposeLeavesNone" methodname="ScreenTransition_RemovesOldInteractiveRoot_AndDisposeLeavesNone" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="537407303" result="Passed" start-time="2026-09-20 16:25:28Z" end-time="2026-09-20 16:25:28Z" duration="0.007340" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1053" name="TwoLineRelicState_GeneratesBothLines_WithoutOverlappingIcons" fullname="Resonance.EditorTests.OriginalExpeditionHudTests.TwoLineRelicState_GeneratesBothLines_WithoutOverlappingIcons" methodname="TwoLineRelicState_GeneratesBothLines_WithoutOverlappingIcons" classname="Resonance.EditorTests.OriginalExpeditionHudTests" runstate="Runnable" seed="2056362629" result="Failed" start-time="2026-09-20 16:25:28Z" end-time="2026-09-20 16:25:28Z" duration="0.039568" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[  RelicState: font=NotoSansSC, size=28, box=83, preferred=85, visibleGlyphs=6, expected=13
+  Expected: 13
+  But was:  6
+]]></message>
+                <stack-trace><![CDATA[at Resonance.EditorTests.OriginalExpeditionHudTests.AssertEveryGlyphVisible (UnityEngine.UI.Text text) [0x001df] in F:\Resonance\client\Assets\Tests\Editor\OriginalExpeditionHudTests.cs:352
+at Resonance.EditorTests.OriginalExpeditionHudTests.TwoLineRelicState_GeneratesBothLines_WithoutOverlappingIcons () [0x0004e] in F:\Resonance\client\Assets\Tests\Editor\OriginalExpeditionHudTests.cs:277
+]]></stack-trace>
+              </failure>
+              <output><![CDATA[ORIGINAL_UI_GLYPH_CHECK RelicState: font=NotoSansSC, size=28, box=83, preferred=85, visibleGlyphs=6, expected=13
+Saving results to: C:/Users/Administrator/AppData/LocalLow/Resonance/契灵回响\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
