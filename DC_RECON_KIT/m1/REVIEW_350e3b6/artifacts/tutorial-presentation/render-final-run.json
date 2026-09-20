@@ -1,0 +1,18 @@
+{
+  "started": "2026-09-20T12:33:18.9114961Z",
+  "finished": "2026-09-20T12:33:32.2146002Z",
+  "exitCode": 0,
+  "mode": "render",
+  "name": "render-final",
+  "arguments": [
+    "-batchmode",
+    "-projectPath",
+    "\"F:\\Resonance\\client\"",
+    "-giCustomCacheLocation",
+    "\"F:\\Resonance\\client\\Temp\\GICache-D-batch\"",
+    "-logFile",
+    "\"F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\tutorial-presentation\\render-final.log\"",
+    "-executeMethod",
+    "Resonance.EditorTools.TutorialPresentationVerification.RunAndExit"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "checkedAt": "2026-09-20T12:28:10.0215708Z",
+  "count": 83,
+  "differenceCount": 0,
+  "differences": [],
+  "reusedResult": "../finite-closeout/full.trx",
+  "result": "310 passed / 0 failed / 1 existing skipped",
+  "scope": "Unchanged core inputs only; does not cover changed HUD",
+  "thisTurnReranCoreTests": false
+}

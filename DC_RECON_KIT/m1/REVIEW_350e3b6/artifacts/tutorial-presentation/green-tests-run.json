@@ -1,0 +1,23 @@
+{
+  "started": "2026-09-20T12:25:57.5559834Z",
+  "finished": "2026-09-20T12:26:10.5355601Z",
+  "exitCode": 2,
+  "mode": "tests",
+  "name": "green-tests",
+  "arguments": [
+    "-batchmode",
+    "-projectPath",
+    "\"F:\\Resonance\\client\"",
+    "-giCustomCacheLocation",
+    "\"F:\\Resonance\\client\\Temp\\GICache-D-batch\"",
+    "-logFile",
+    "\"F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\tutorial-presentation\\green-tests.log\"",
+    "-runTests",
+    "-testPlatform",
+    "EditMode",
+    "-testFilter",
+    "Resonance.EditorTests.BattleTutorialPresentationTests",
+    "-testResults",
+    "\"F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\tutorial-presentation\\green-tests.xml\""
+  ]
+}

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="20" result="Failed(Child)" total="20" passed="19" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.1350264">
+  <test-suite type="TestSuite" id="1000" name="契灵回响" fullname="契灵回响" runstate="Runnable" testcasecount="20" result="Failed" site="Child" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.135026" total="20" passed="19" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1025" name="Resonance.EditorTests.dll" fullname="F:/Resonance/client/Library/ScriptAssemblies/Resonance.EditorTests.dll" runstate="Runnable" testcasecount="20" result="Failed" site="Child" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.129420" total="20" passed="19" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="35948" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1026" name="Resonance" fullname="Resonance" runstate="Runnable" testcasecount="20" result="Failed" site="Child" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.128950" total="20" passed="19" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1027" name="EditorTests" fullname="Resonance.EditorTests" runstate="Runnable" testcasecount="20" result="Failed" site="Child" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.128608" total="20" passed="19" failed="1" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestFixture" id="1001" name="BattleTutorialPresentationTests" fullname="Resonance.EditorTests.BattleTutorialPresentationTests" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" testcasecount="20" result="Failed" site="Child" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.127879" total="20" passed="19" failed="1" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="1003" name="BeginShowtime_ImmediatelySuppressesAnAlreadyVisibleTutorial" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.BeginShowtime_ImmediatelySuppressesAnAlreadyVisibleTutorial" methodname="BeginShowtime_ImmediatelySuppressesAnAlreadyVisibleTutorial" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="1100019814" result="Passed" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.062871" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1008" name="BlockingPresentation_HidesExistingTipWithoutChangingBattleState" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.BlockingPresentation_HidesExistingTipWithoutChangingBattleState" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.010934" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1004" name="BlockingPresentation_HidesExistingTipWithoutChangingBattleState(&quot;paused&quot;)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.BlockingPresentation_HidesExistingTipWithoutChangingBattleState(&quot;paused&quot;)" methodname="BlockingPresentation_HidesExistingTipWithoutChangingBattleState" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="835316988" result="Passed" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.004407" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1005" name="BlockingPresentation_HidesExistingTipWithoutChangingBattleState(&quot;terminal&quot;)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.BlockingPresentation_HidesExistingTipWithoutChangingBattleState(&quot;terminal&quot;)" methodname="BlockingPresentation_HidesExistingTipWithoutChangingBattleState" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="143636109" result="Passed" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.000880" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1006" name="BlockingPresentation_HidesExistingTipWithoutChangingBattleState(&quot;qte&quot;)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.BlockingPresentation_HidesExistingTipWithoutChangingBattleState(&quot;qte&quot;)" methodname="BlockingPresentation_HidesExistingTipWithoutChangingBattleState" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="1181405406" result="Passed" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.001109" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1007" name="BlockingPresentation_HidesExistingTipWithoutChangingBattleState(&quot;pending-drive&quot;)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.BlockingPresentation_HidesExistingTipWithoutChangingBattleState(&quot;pending-drive&quot;)" methodname="BlockingPresentation_HidesExistingTipWithoutChangingBattleState" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="641429674" result="Passed" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.001005" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1024" name="FeverActivation_StillAdvancesToRatesAfterTemporarySuppression" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.FeverActivation_StillAdvancesToRatesAfterTemporarySuppression" methodname="FeverActivation_StillAdvancesToRatesAfterTemporarySuppression" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="135318241" result="Passed" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.011440" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1016" name="OverdueTutorial_RetriesAfterAnotherTipExpires" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.OverdueTutorial_RetriesAfterAnotherTipExpires" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.007427" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1010" name="OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipTapShown&quot;,&quot;_tipTapDelay&quot;,null,0.0f)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipTapShown&quot;,&quot;_tipTapDelay&quot;,null,0.0f)" methodname="OverdueTutorial_RetriesAfterAnotherTipExpires" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="1313554286" result="Passed" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.001779" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1011" name="OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipTapShown&quot;,&quot;_tipTapDelay&quot;,null,-0.1f)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipTapShown&quot;,&quot;_tipTapDelay&quot;,null,-0.1f)" methodname="OverdueTutorial_RetriesAfterAnotherTipExpires" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="1110624111" result="Passed" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.000884" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1012" name="OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipKeepShown&quot;,&quot;_tipKeepDelay&quot;,&quot;_tipTapShown&quot;,0.0f)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipKeepShown&quot;,&quot;_tipKeepDelay&quot;,&quot;_tipTapShown&quot;,0.0f)" methodname="OverdueTutorial_RetriesAfterAnotherTipExpires" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="560843592" result="Passed" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.000835" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1013" name="OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipTeamHpShown&quot;,&quot;_tipTeamHpDelay&quot;,&quot;_tipKeepShown&quot;,0.0f)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipTeamHpShown&quot;,&quot;_tipTeamHpDelay&quot;,&quot;_tipKeepShown&quot;,0.0f)" methodname="OverdueTutorial_RetriesAfterAnotherTipExpires" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="751218691" result="Passed" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.000835" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1014" name="OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipChildsShown&quot;,&quot;_tipChildsDelay&quot;,&quot;_tipTeamHpShown&quot;,0.0f)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipChildsShown&quot;,&quot;_tipChildsDelay&quot;,&quot;_tipTeamHpShown&quot;,0.0f)" methodname="OverdueTutorial_RetriesAfterAnotherTipExpires" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="1001498774" result="Passed" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.000826" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1015" name="OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipChildsMoreShown&quot;,&quot;_tipChildsMoreDelay&quot;,&quot;_tipChildsShown&quot;,0.0f)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.OverdueTutorial_RetriesAfterAnotherTipExpires(&quot;_tipChildsMoreShown&quot;,&quot;_tipChildsMoreDelay&quot;,&quot;_tipChildsShown&quot;,0.0f)" methodname="OverdueTutorial_RetriesAfterAnotherTipExpires" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="521963865" result="Passed" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.000804" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1009" name="Qte_DoesNotGenerateAnOverdueTip_AndRetriesAfterClosing" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.Qte_DoesNotGenerateAnOverdueTip_AndRetriesAfterClosing" methodname="Qte_DoesNotGenerateAnOverdueTip_AndRetriesAfterClosing" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="559835930" result="Passed" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.001025" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1022" name="RejectedSlide_DoesNotConsumeTheInstruction" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.RejectedSlide_DoesNotConsumeTheInstruction" methodname="RejectedSlide_DoesNotConsumeTheInstruction" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="900543822" result="Passed" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.001865" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1020" name="SuccessfulPlayerSkill_ConsumesObsoleteOperationLessons" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.SuccessfulPlayerSkill_ConsumesObsoleteOperationLessons" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" testcasecount="3" result="Failed" site="Child" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.017704" total="3" passed="2" failed="1" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-case id="1017" name="SuccessfulPlayerSkill_ConsumesObsoleteOperationLessons(Tap)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.SuccessfulPlayerSkill_ConsumesObsoleteOperationLessons(Tap)" methodname="SuccessfulPlayerSkill_ConsumesObsoleteOperationLessons" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="98424796" result="Passed" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.003104" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1018" name="SuccessfulPlayerSkill_ConsumesObsoleteOperationLessons(Slide)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.SuccessfulPlayerSkill_ConsumesObsoleteOperationLessons(Slide)" methodname="SuccessfulPlayerSkill_ConsumesObsoleteOperationLessons" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="1735528482" result="Passed" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.001148" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1019" name="SuccessfulPlayerSkill_ConsumesObsoleteOperationLessons(Drive)" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.SuccessfulPlayerSkill_ConsumesObsoleteOperationLessons(Drive)" methodname="SuccessfulPlayerSkill_ConsumesObsoleteOperationLessons" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="253744548" result="Failed" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.012532" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <failure>
+                  <message><![CDATA[Unhandled log message: '[Error] Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+                  <stack-trace><![CDATA[UnityEngine.Object:Destroy (UnityEngine.Object,single)
+Resonance.App.CombatFeel:DriveCrush (UnityEngine.Transform,UnityEngine.Vector2) (at Assets/Scripts/Resonance.App/Battle/CombatFeel.cs:315)
+Resonance.App.BattleHud:DrainCasts () (at Assets/Scripts/Resonance.App/Battle/BattleHud.cs:1860)
+System.Reflection.MethodBase:Invoke (object,object[])
+Resonance.EditorTests.BattleTutorialPresentationTests:Invoke (object,string,object[]) (at Assets/Tests/Editor/BattleTutorialPresentationTests.cs:315)
+Resonance.EditorTests.BattleTutorialPresentationTests:SuccessfulPlayerSkill_ConsumesObsoleteOperationLessons (Resonance.Battle.SkillType) (at Assets/Tests/Editor/BattleTutorialPresentationTests.cs:174)
+System.Reflection.MethodBase:Invoke (object,object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod (System.Reflection.MethodInfo,object,object[])
+NUnit.Framework.Internal.MethodWrapper:Invoke (object,object[])
+NUnit.Framework.Internal.Commands.TestMethodCommand:RunNonAsyncTestMethod (NUnit.Framework.Internal.ITestExecutionContext)
+NUnit.Framework.Internal.Commands.TestMethodCommand:RunTestMethod (NUnit.Framework.Internal.ITestExecutionContext)
+NUnit.Framework.Internal.Commands.TestMethodCommand:Execute (NUnit.Framework.Internal.ITestExecutionContext)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+]]></stack-trace>
+                </failure>
+                <output><![CDATA[Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+]]></output>
+              </test-case>
+            </test-suite>
+            <test-case id="1023" name="SuccessfulSkill_DoesNotDiscardTheFeverTipChain" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.SuccessfulSkill_DoesNotDiscardTheFeverTipChain" methodname="SuccessfulSkill_DoesNotDiscardTheFeverTipChain" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="437123264" result="Passed" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.001187" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1021" name="SuccessfulTap_KeepsUsefulTeamHpLessonVisible" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.SuccessfulTap_KeepsUsefulTeamHpLessonVisible" methodname="SuccessfulTap_KeepsUsefulTeamHpLessonVisible" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="1049689181" result="Passed" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.001288" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1002" name="Suppression_HidesImmediately_PreservesRemainingLife_AndRestoresTheSameTip" fullname="Resonance.EditorTests.BattleTutorialPresentationTests.Suppression_HidesImmediately_PreservesRemainingLife_AndRestoresTheSameTip" methodname="Suppression_HidesImmediately_PreservesRemainingLife_AndRestoresTheSameTip" classname="Resonance.EditorTests.BattleTutorialPresentationTests" runstate="Runnable" seed="1968628384" result="Passed" start-time="2026-09-20 12:26:06Z" end-time="2026-09-20 12:26:06Z" duration="0.001185" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: C:/Users/Administrator/AppData/LocalLow/Resonance/契灵回响\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

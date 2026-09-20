@@ -1,4 +1,10 @@
-# G2 路 A 有限收口状态 — 2026-09-20
+# 开发状态 — 2026-09-20
+
+最新推进：用户要求继续开发后，已完成体验候选第 1 项「教程提示避让技能演出」。提示在 SHOWTIME / QTE / 评分 / 暂停等阶段隐藏并保留余时，空闲后恢复；修复到期提示丢失，成功释放技能后撤下过时教学。Unity UI 回归 **27/27 通过**，6 个完整 HUD 渲染夹具已核验，最新 Win64 构建成功（20:34:48+08）。详情及证据见 [tutorial-presentation/README.md](artifacts/tutorial-presentation/README.md)。
+
+当前程序：`F:/Resonance/client/Builds/Win64/Resonance.exe`，App DLL 为 `B60C9FEBE10CD33995CC68A40A9B0128FEDFC1734A0ADBB04579BAA6A4EC8A08`。Battle DLL 与下文 G2 版本一致，83 项核心输入未变，复用此前 310/0/1 核心验证；本轮新跑的是 Unity UI 测试。本轮未录制普通试玩，也未替换旧交付包；下文 125.9 秒视频与 ZIP 仍对应 `672cdff6`。其余体验候选尚未实施，G3 未启动，未推送。
+
+## 上一轮 G2 有限收口与独立交付（历史冻结版本）
 
 本轮 G2 路 A 有限收口已完成，最终代码提交为 `672cdff6`。现代记录的 Fever 终局重放改用独立录制的时钟边界，预期 digest 和事件只作比较；普通旧档仍保留旧结束 tick 的兼容路径。D1 默认开局、D2 真实点敌与 NEXT 成长舍入修复保留。最新全量核心测试 **310 通过 / 0 失败 / 1 既有跳过**，225 项事前冻结输入在验证后 **0 差异**，Win64 构建成功。独立试玩程序经无参数普通入口和 OS 鼠标完成首场结算、NEXT 第二场第二波、暂停及返回首页，第二场未结算。交付入口、录像与完整版本指纹见 [DELIVERY.md](artifacts/finite-closeout/DELIVERY.md)。
 

@@ -1,0 +1,18 @@
+{
+  "started": "2026-09-20T12:34:18.3995590Z",
+  "finished": "2026-09-20T12:34:48.6470769Z",
+  "exitCode": 0,
+  "mode": "build",
+  "name": "win64-build",
+  "arguments": [
+    "-batchmode",
+    "-projectPath",
+    "\"F:\\Resonance\\client\"",
+    "-giCustomCacheLocation",
+    "\"F:\\Resonance\\client\\Temp\\GICache-D-batch\"",
+    "-logFile",
+    "\"F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\tutorial-presentation\\win64-build.log\"",
+    "-executeMethod",
+    "Resonance.EditorTools.WindowsBuild.BuildAndExit"
+  ]
+}

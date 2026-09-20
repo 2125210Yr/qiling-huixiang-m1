@@ -30,6 +30,7 @@ namespace Resonance.App
         bool _chainRates;
         bool _feverSession;
         bool _showArt;
+        bool _suppressed;
 
         public static bool AnyLive()
         {
@@ -65,8 +66,26 @@ namespace Resonance.App
         {
             if (parent == null) return;
             var fx = Ensure(parent);
+            fx._feverSession = false;
             fx._chainRates = false;
             fx.Begin(title, body, LifeSec, tipArt: false);
+        }
+
+        /// <summary>Yield to combat presentation without consuming the lesson's remaining lifetime.</summary>
+        public static void SetSuppressed(bool suppressed)
+        {
+            if (_live == null) return;
+            _live._suppressed = suppressed;
+            if (_live._group != null)
+                _live._group.alpha = suppressed ? 0f : Mathf.Clamp01(_live._life / 0.55f);
+        }
+
+        public static void HideIfShowing(string title, string body)
+        {
+            if (_live == null || _live._feverSession) return;
+            if (_live._title != null && _live._title.text == title
+                && _live._body != null && _live._body.text == body)
+                Hide();
         }
 
         public static void Hide()
@@ -195,7 +214,7 @@ namespace Resonance.App
                 }
             }
             _life = life > 0.05f ? life : LifeSec;
-            if (_group != null) _group.alpha = 1f;
+            if (_group != null) _group.alpha = _suppressed ? 0f : 1f;
             transform.SetAsLastSibling();
         }
 
@@ -207,6 +226,11 @@ namespace Resonance.App
 
         void LateUpdate()
         {
+            if (_suppressed)
+            {
+                if (_group != null) _group.alpha = 0f;
+                return;
+            }
             if (_life <= 0f)
             {
                 if (_group != null && _group.alpha > 0f) _group.alpha = 0f;

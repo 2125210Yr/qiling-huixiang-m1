@@ -740,7 +740,6 @@ namespace Resonance.App
         void TickQte(BattleSim battle)
         {
             if (battle == null || battle.Paused) return;
-            TickOverlays();
             if (battle.PendingDriveSlot < 0)
             {
                 if (QteOpen && battle.LastDriveResolveTick >= 0 && battle.LastDriveResolveTick != _judgeShownForTick)
@@ -855,6 +854,7 @@ namespace Resonance.App
             if (_host == null) return;
             var battle = _host.Battle;
             if (battle == null) return;
+            VfxTipPlate.SetSuppressed(TutorialPresentationBlocked(battle));
             if (_fieldWave != battle.WaveIndex) SpawnEnemies();
 
             int hpNow = 0, hpMax = 0, phpNow = 0, phpMax = 0;
@@ -1132,7 +1132,7 @@ namespace Resonance.App
                         _feverToward.color = VisualTokens.SlideGreen;
                         // P0 tip t420: gauge tip once while banking.
                         if (!_tipFeverGaugeShown && g >= 40 && g < 100
-                            && !VfxTipPlate.AnyLive())
+                            && CanShowTutorialTip(battle))
                         {
                             _tipFeverGaugeShown = true;
                             VfxTipPlate.Show(_root, BattleCueCopy.TipFeverActivate,
@@ -1224,6 +1224,8 @@ namespace Resonance.App
             DrainCasts();
             RefreshPortraits();
             RefreshDriveSelect(battle);
+            // A cast/grade may have started after the first check in this same frame.
+            VfxTipPlate.SetSuppressed(TutorialPresentationBlocked(battle));
         }
 
         void RefreshPortraits()
@@ -1244,7 +1246,7 @@ namespace Resonance.App
                 if (driveReady && (_driveWas == null || !_driveWas[i]))
                     VfxDriveReady.Play(_root, port);
                 // Tutorial tip plates (inventory copy). Once each; skip during Fever tip chain.
-                if (!battle.FeverActive && !VfxTipPlate.AnyLive())
+                if (CanShowTutorialTip(battle))
                 {
                     if (tapReady && !_tipSkillReadyShown && _tipChildsShown)
                     {
@@ -1516,8 +1518,28 @@ namespace Resonance.App
             return BattleCueCopy.PortraitMaxBadge(_host.SaveData.GetUnit(unitId).Level);
         }
 
+        bool TutorialPresentationBlocked(BattleSim battle)
+        {
+            return battle == null || battle.Paused || battle.Outcome != BattleOutcome.InProgress
+                || QteOpen || battle.PendingDriveSlot >= 0 || battle.HoldLeftSec > 0f
+                || _cutHoldT > 0f || _showtimeT > 0f
+                || (_pix != null && _pix.Showing)
+                || VfxShowtime.AnyLive() || VfxJudge.AnyLive()
+                || WavePreview.VisibleKind != WaveCueKind.None;
+        }
+
+        bool CanShowTutorialTip(BattleSim battle)
+        {
+            return battle != null && !battle.FeverActive && !VfxTipPlate.AnyLive()
+                && !TutorialPresentationBlocked(battle);
+        }
+
         void TickOverlays()
         {
+            var battle = _host != null ? _host.Battle : null;
+            var tutorialBlocked = TutorialPresentationBlocked(battle);
+            VfxTipPlate.SetSuppressed(tutorialBlocked);
+            var advanceTutorial = !tutorialBlocked && !battle.FeverActive;
             if (_feverCueQueued)
             {
                 _feverCueDelay -= Time.unscaledDeltaTime;
@@ -1530,9 +1552,10 @@ namespace Resonance.App
                 }
             }
             // P0 tip t58: Tap skill tip first, then Keep attacking (t60), Team HP (t345), Childs (t250).
-            if (!_tipTapShown && _tipTapDelay > 0f)
+            // An elapsed delay stays pending until the other plate has finished.
+            if (advanceTutorial && !_tipTapShown)
             {
-                _tipTapDelay -= Time.unscaledDeltaTime;
+                _tipTapDelay = Mathf.Max(0f, _tipTapDelay - Time.unscaledDeltaTime);
                 if (_tipTapDelay <= 0f
                     && !VfxTipPlate.AnyLive()
                     && (_host == null || _host.Battle == null || !_host.Battle.FeverActive))
@@ -1542,9 +1565,9 @@ namespace Resonance.App
                     VfxTipPlate.Show(_root, BattleCueCopy.TipTapSkill, BattleCueCopy.TipTapSkillBody);
                 }
             }
-            if (_tipTapShown && !_tipKeepShown && _tipKeepDelay > 0f)
+            if (advanceTutorial && _tipTapShown && !_tipKeepShown)
             {
-                _tipKeepDelay -= Time.unscaledDeltaTime;
+                _tipKeepDelay = Mathf.Max(0f, _tipKeepDelay - Time.unscaledDeltaTime);
                 if (_tipKeepDelay <= 0f
                     && !VfxTipPlate.AnyLive()
                     && (_host == null || _host.Battle == null || !_host.Battle.FeverActive))
@@ -1554,9 +1577,9 @@ namespace Resonance.App
                     VfxTipPlate.Show(_root, BattleCueCopy.TipKeepAttacking, "");
                 }
             }
-            if (_tipKeepShown && !_tipTeamHpShown && _tipTeamHpDelay > 0f)
+            if (advanceTutorial && _tipKeepShown && !_tipTeamHpShown)
             {
-                _tipTeamHpDelay -= Time.unscaledDeltaTime;
+                _tipTeamHpDelay = Mathf.Max(0f, _tipTeamHpDelay - Time.unscaledDeltaTime);
                 if (_tipTeamHpDelay <= 0f
                     && !VfxTipPlate.AnyLive()
                     && (_host == null || _host.Battle == null || !_host.Battle.FeverActive))
@@ -1567,9 +1590,9 @@ namespace Resonance.App
                 }
             }
             // P0 cont34 t250: Childs tray tip after Team HP tip.
-            if (_tipTeamHpShown && !_tipChildsShown && _tipChildsDelay > 0f)
+            if (advanceTutorial && _tipTeamHpShown && !_tipChildsShown)
             {
-                _tipChildsDelay -= Time.unscaledDeltaTime;
+                _tipChildsDelay = Mathf.Max(0f, _tipChildsDelay - Time.unscaledDeltaTime);
                 if (_tipChildsDelay <= 0f
                     && !VfxTipPlate.AnyLive()
                     && (_host == null || _host.Battle == null || !_host.Battle.FeverActive))
@@ -1580,9 +1603,9 @@ namespace Resonance.App
                 }
             }
             // P0 t344: more Childs tip after tray tip.
-            if (_tipChildsShown && !_tipChildsMoreShown && _tipChildsMoreDelay > 0f)
+            if (advanceTutorial && _tipChildsShown && !_tipChildsMoreShown)
             {
-                _tipChildsMoreDelay -= Time.unscaledDeltaTime;
+                _tipChildsMoreDelay = Mathf.Max(0f, _tipChildsMoreDelay - Time.unscaledDeltaTime);
                 if (_tipChildsMoreDelay <= 0f
                     && !VfxTipPlate.AnyLive()
                     && (_host == null || _host.Battle == null || !_host.Battle.FeverActive))
@@ -1737,6 +1760,33 @@ namespace Resonance.App
             }
         }
 
+        void CompleteTutorialSkill(SkillType skill)
+        {
+            if (skill != SkillType.Tap && skill != SkillType.Slide && skill != SkillType.Drive) return;
+            if (!_tipTapShown)
+            {
+                _tipTapShown = true;
+                _tipKeepDelay = 4.40f;
+            }
+            _tipSkillReadyShown = true;
+            VfxTipPlate.HideIfShowing(BattleCueCopy.TipTapSkill, BattleCueCopy.TipTapSkillBody);
+            VfxTipPlate.HideIfShowing(BattleCueCopy.MonaTipsHeader, BattleCueCopy.TipSkillReadyMonaBody);
+            if (skill == SkillType.Slide)
+            {
+                _tipSlideShown = _tipSlideMonaShown = _tipSlidePowerShown = true;
+                VfxTipPlate.HideIfShowing(BattleCueCopy.TipSlideSkill, BattleCueCopy.TipSlideSkillBody);
+                VfxTipPlate.HideIfShowing(BattleCueCopy.MonaTipsHeader, BattleCueCopy.TipSlideMonaBody);
+                VfxTipPlate.HideIfShowing(BattleCueCopy.TipSlidePower, BattleCueCopy.TipSlidePowerBody);
+            }
+            if (skill == SkillType.Drive)
+            {
+                _tipDriveShown = _tipDriveTimingShown = _tipDriveTablesShown = true;
+                VfxTipPlate.HideIfShowing(BattleCueCopy.TipDriveSkill, BattleCueCopy.TipDriveSkillBody);
+                VfxTipPlate.HideIfShowing(BattleCueCopy.TipDriveTiming, BattleCueCopy.TipDriveTimingBody);
+                VfxTipPlate.HideIfShowing(BattleCueCopy.TipDriveTables, BattleCueCopy.TipDriveTablesBody);
+            }
+        }
+
         void DrainCasts()
         {
             var battle = _host != null ? _host.Battle : null;
@@ -1746,6 +1796,7 @@ namespace Resonance.App
             {
                 var fx = log[_castCursor++];
                 if (fx == null) continue;
+                if (fx.CasterAlly && !fx.Fever) CompleteTutorialSkill(fx.Type);
                 BattleFighter caster = null;
                 if (fx.CasterAlly)
                 {
@@ -1879,6 +1930,7 @@ namespace Resonance.App
 
         void BeginShowtime(BattleFighter caster, string title, string skill, string badge, Color accent, float life, CombatCut kind, bool hold)
         {
+            VfxTipPlate.SetSuppressed(true);
             if (_pix != null && _pix.Showing) _pix.HideNow();
             var battle = _host != null ? _host.Battle : null;
             // Overlay lifetime only. Core owns the sim hold (C2); do not write HoldSim.
@@ -1926,6 +1978,7 @@ namespace Resonance.App
 
         void ShowCue(BattleCueCopy.Kind kind, float life, string sub)
         {
+            VfxTipPlate.SetSuppressed(true);
             if (ExclusiveOverShowtime(kind))
                 VfxShowtime.KillAll();
             if (kind == BattleCueCopy.Kind.FeverTime)

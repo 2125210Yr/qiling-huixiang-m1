@@ -1,0 +1,8 @@
+{
+  "started": "2026-09-20T12:20:59.4926116Z",
+  "finished": "2026-09-20T12:21:06.8819550Z",
+  "exitCode": 1,
+  "testFilter": "Resonance.EditorTests.BattleTutorialPresentationTests",
+  "phase": "red",
+  "testResults": "red.xml"
+}

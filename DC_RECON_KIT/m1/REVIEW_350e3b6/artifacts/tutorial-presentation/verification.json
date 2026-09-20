@@ -1,0 +1,51 @@
+{
+  "checkedAt": "2026-09-20T12:35:19.5528127Z",
+  "sourceCount": 228,
+  "sourceDifferences": [],
+  "sourceDifferenceCount": 0,
+  "binaries": [
+    {
+      "file": "Resonance.Battle.dll",
+      "sha256": "8D87435CA8BE5B8B82F59610C8DE0E407C989BF4CC3172798EC077DA1161A723"
+    },
+    {
+      "file": "Resonance.App.dll",
+      "sha256": "B60C9FEBE10CD33995CC68A40A9B0128FEDFC1734A0ADBB04579BAA6A4EC8A08"
+    }
+  ],
+  "frames": [
+    {
+      "file": "01-tip-visible.png",
+      "sha256": "AEC9DFFE401AFC02057C18EB4473E4A2EAE54EC865566F3B54C97078374A0B6B",
+      "bytes": 1221597
+    },
+    {
+      "file": "02-paused-tip-hidden.png",
+      "sha256": "D9CA98C03C4BF85C4F51CC51DEABA312E56D5C5E309B94B6A850817721EC4663",
+      "bytes": 1203319
+    },
+    {
+      "file": "03-tip-resumed.png",
+      "sha256": "AEC9DFFE401AFC02057C18EB4473E4A2EAE54EC865566F3B54C97078374A0B6B",
+      "bytes": 1221597
+    },
+    {
+      "file": "04-slide-no-stale-tip.png",
+      "sha256": "5452682E80E08D89624EAEC08C8E09BAD52CFED631E2788B3FA334FC04996E19",
+      "bytes": 1136097
+    },
+    {
+      "file": "05-qte-tip-hidden.png",
+      "sha256": "8A7EBD154FD04C90B000A688ED643503DA5D9AD209F221FC2743BF4CA1980C01",
+      "bytes": 1017147
+    },
+    {
+      "file": "06-judge-tip-hidden.png",
+      "sha256": "5D1B820315BA680623A1181AAFDB5A84C044A916659D86ADCE78C05DABA9E9E4",
+      "bytes": 1012619
+    }
+  ],
+  "renderScope": "Six actual HUD component fixtures at 1080x1920, not natural-play evidence",
+  "tests": "27 passed, 0 failed, 0 skipped",
+  "buildResult": "Succeeded; exit 0"
+}

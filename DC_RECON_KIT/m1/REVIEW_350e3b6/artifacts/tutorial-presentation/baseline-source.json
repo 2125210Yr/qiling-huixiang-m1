@@ -1,0 +1,15 @@
+{
+  "head": "92929d3f30166ef5070e6bedfbfcf7af1f80efa8",
+  "files": [
+    {
+      "Algorithm": "SHA256",
+      "Hash": "30D3C7AEDFB10D7B5D4749C881A1A8C22E446DD3A113DDE0FDE0D860C6C83E32",
+      "Path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\BattleHud.cs"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "A42E735F29B5C12E98C096CE073D8925D5CE2392AA42F457087088D348E6C8BC",
+      "Path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Battle\\Vfx\\VfxTipPlate.cs"
+    }
+  ]
+}

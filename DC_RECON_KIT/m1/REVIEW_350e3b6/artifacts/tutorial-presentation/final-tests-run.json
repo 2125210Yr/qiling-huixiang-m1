@@ -1,0 +1,23 @@
+{
+  "started": "2026-09-20T12:28:52.7596986Z",
+  "finished": "2026-09-20T12:29:08.8966886Z",
+  "exitCode": 0,
+  "mode": "tests",
+  "name": "final-tests",
+  "arguments": [
+    "-batchmode",
+    "-projectPath",
+    "\"F:\\Resonance\\client\"",
+    "-giCustomCacheLocation",
+    "\"F:\\Resonance\\client\\Temp\\GICache-D-batch\"",
+    "-logFile",
+    "\"F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\tutorial-presentation\\final-tests.log\"",
+    "-runTests",
+    "-testPlatform",
+    "EditMode",
+    "-testFilter",
+    "Resonance.EditorTests.BattleTutorialPresentationTests",
+    "-testResults",
+    "\"F:\\天命之子\\DC_RECON_KIT\\m1\\REVIEW_350e3b6\\artifacts\\tutorial-presentation\\final-tests.xml\""
+  ]
+}
