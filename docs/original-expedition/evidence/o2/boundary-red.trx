@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="ff090abf-5619-4b42-8cfc-e557fb32fafe" name="Administrator@DESKTOP-AKI3LSA 2026-09-21 00:45:44" runUser="DESKTOP-AKI3LSA\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-09-21T00:45:44.6906133+08:00" queuing="2026-09-21T00:45:44.6906135+08:00" start="2026-09-21T00:45:43.8334978+08:00" finish="2026-09-21T00:45:44.6992214+08:00" />
+  <TestSettings name="default" id="ab3c5a5d-43a2-47af-8ddb-a0d1ba400e46">
+    <Deployment runDeploymentRoot="Administrator_DESKTOP-AKI3LSA_2026-09-21_00_45_44" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="f661e67b-b861-4e90-8613-ab253d6ece26" testId="11f8078b-6a86-1fed-f8a9-19860d2cf4bb" testName="Resonance.Tests.OriginalRuleBoundaryTests.DefenseOverflowFailsBeforeDamageInsteadOfBecomingZeroDefense" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0602731" startTime="2026-09-21T00:45:44.5750729+08:00" endTime="2026-09-21T00:45:44.5750874+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f661e67b-b861-4e90-8613-ab253d6ece26">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: Failed&#xD;
+Actual:   InProgress</Message>
+          <StackTrace>   at Resonance.Tests.OriginalRuleBoundaryTests.DefenseOverflowFailsBeforeDamageInsteadOfBecomingZeroDefense() in F:\天命之子\tools\BattleSim.Tests\OriginalRuleBoundaryTests.cs:line 99</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="7e622589-8dde-4ed2-853a-d059c7de68c3" testId="e376a2fe-2dfe-d777-0068-b38772f46448" testName="Resonance.Tests.OriginalRuleBoundaryTests.PeriodicDotBossDeathSettlesBeforeAReadyMaskCanAttack" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0195625" startTime="2026-09-21T00:45:44.5982697+08:00" endTime="2026-09-21T00:45:44.5982699+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7e622589-8dde-4ed2-853a-d059c7de68c3">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Empty() Failure: Collection was not empty&#xD;
+Collection: [CastFx { CasterAlly = False, CasterSlot = 1, Fever = False, Name = "普攻", SlideRank = 0, ··· }]</Message>
+          <StackTrace>   at Resonance.Tests.OriginalRuleBoundaryTests.PeriodicDotBossDeathSettlesBeforeAReadyMaskCanAttack() in F:\天命之子\tools\BattleSim.Tests\OriginalRuleBoundaryTests.cs:line 51</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Resonance.Tests.OriginalRuleBoundaryTests.DefenseOverflowFailsBeforeDamageInsteadOfBecomingZeroDefense" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="11f8078b-6a86-1fed-f8a9-19860d2cf4bb">
+      <Execution id="f661e67b-b861-4e90-8613-ab253d6ece26" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalRuleBoundaryTests" name="DefenseOverflowFailsBeforeDamageInsteadOfBecomingZeroDefense" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalRuleBoundaryTests.PeriodicDotBossDeathSettlesBeforeAReadyMaskCanAttack" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="e376a2fe-2dfe-d777-0068-b38772f46448">
+      <Execution id="7e622589-8dde-4ed2-853a-d059c7de68c3" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalRuleBoundaryTests" name="PeriodicDotBossDeathSettlesBeforeAReadyMaskCanAttack" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="11f8078b-6a86-1fed-f8a9-19860d2cf4bb" executionId="f661e67b-b861-4e90-8613-ab253d6ece26" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e376a2fe-2dfe-d777-0068-b38772f46448" executionId="7e622589-8dde-4ed2-853a-d059c7de68c3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="2" executed="2" passed="0" failed="2" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 6.0.33)&#xD;
+[xUnit.net 00:00:00.10]   Discovering: BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.16]   Discovered:  BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.17]   Starting:    BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.29]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.29]       Expected: Failed&#xD;
+[xUnit.net 00:00:00.29]       Actual:   InProgress&#xD;
+[xUnit.net 00:00:00.29]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.29]         F:\天命之子\tools\BattleSim.Tests\OriginalRuleBoundaryTests.cs(99,0): at Resonance.Tests.OriginalRuleBoundaryTests.DefenseOverflowFailsBeforeDamageInsteadOfBecomingZeroDefense()&#xD;
+[xUnit.net 00:00:00.31]       Assert.Empty() Failure: Collection was not empty&#xD;
+[xUnit.net 00:00:00.31]       Collection: [CastFx { CasterAlly = False, CasterSlot = 1, Fever = False, Name = "普攻", SlideRank = 0, ··· }]&#xD;
+[xUnit.net 00:00:00.31]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.31]         F:\天命之子\tools\BattleSim.Tests\OriginalRuleBoundaryTests.cs(51,0): at Resonance.Tests.OriginalRuleBoundaryTests.PeriodicDotBossDeathSettlesBeforeAReadyMaskCanAttack()&#xD;
+[xUnit.net 00:00:00.32]   Finished:    BattleSim.Tests&#xD;
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:45:44.5722860+08:00">
+        <Text>[xUnit.net 00:00:00.29]     Resonance.Tests.OriginalRuleBoundaryTests.DefenseOverflowFailsBeforeDamageInsteadOfBecomingZeroDefense [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:45:44.5983609+08:00">
+        <Text>[xUnit.net 00:00:00.31]     Resonance.Tests.OriginalRuleBoundaryTests.PeriodicDotBossDeathSettlesBeforeAReadyMaskCanAttack [FAIL]</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>

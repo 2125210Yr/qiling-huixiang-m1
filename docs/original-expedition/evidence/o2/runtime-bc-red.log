@@ -1,0 +1,60 @@
+F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionRelicRuntimeTests.cs(20,41): warning CS0649: 从未对字段“OriginalExpeditionRelicRuntimeTests.Rig.AfterApply”赋值，字段将一直保持其默认值 null [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\tools\BattleSim.Tests\M1FormulaIsolationTests.cs(86,13): warning xUnit2000: The literal or constant value DamageMath.FeverChannelAtkCoef should be passed as the 'expected' argument in the call to 'Assert.NotEqual(expected, actual)' in method 'FeverDoesNotReadTapCoefficients' on type 'M1FormulaIsolationTests'. Swap the parameter values. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\tools\BattleSim.Tests\M1FormulaIsolationTests.cs(87,13): warning xUnit2000: The literal or constant value DamageMath.FeverChannelFlat should be passed as the 'expected' argument in the call to 'Assert.NotEqual(expected, actual)' in method 'FeverDoesNotReadTapCoefficients' on type 'M1FormulaIsolationTests'. Swap the parameter values. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+  BattleSim.Tests -> F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll
+F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll (.NETCoreApp,Version=v6.0)的测试运行
+Microsoft (R) 测试执行命令行工具版本 17.3.3 (x64)
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+正在启动测试执行，请稍候...
+总共 1 个测试文件与指定模式相匹配。
+[xUnit.net 00:00:00.26]     Resonance.Tests.OriginalExpeditionRelicRuntimeTests.BUsesFirstEffectivePreShieldHitOnceAndCopiesWithoutRecalculation(improved: True, expected: 700) [FAIL]
+[xUnit.net 00:00:00.27]     Resonance.Tests.OriginalExpeditionRelicRuntimeTests.BUsesFirstEffectivePreShieldHitOnceAndCopiesWithoutRecalculation(improved: False, expected: 400) [FAIL]
+[xUnit.net 00:00:00.27]     Resonance.Tests.OriginalExpeditionRelicRuntimeTests.CRelaySkipsFullAndDeadAndDoesNotSelectTheCaster(improved: True, charge: 20) [FAIL]
+[xUnit.net 00:00:00.27]     Resonance.Tests.OriginalExpeditionRelicRuntimeTests.CRelaySkipsFullAndDeadAndDoesNotSelectTheCaster(improved: False, charge: 12) [FAIL]
+[xUnit.net 00:00:00.28]     Resonance.Tests.OriginalExpeditionRelicRuntimeTests.B04RequiresNativeKillAndRechecksBossAfterScatter [FAIL]
+[xUnit.net 00:00:00.29]     Resonance.Tests.OriginalExpeditionRelicRuntimeTests.C04ArmsAfterThirdActorAndKeepsWholeActionBonusWhileConsumingOnlyOnce [FAIL]
+  失败 Resonance.Tests.OriginalExpeditionRelicRuntimeTests.BUsesFirstEffectivePreShieldHitOnceAndCopiesWithoutRecalculation(improved: True, expected: 700) [47 ms]
+  错误消息:
+   Assert.Equal() Failure: Collections differ
+                                                 ↓ (pos 0)
+Expected: int[]                                 [700, 700]
+Actual:   SelectListIterator<RelicRequest, int> []
+  堆栈跟踪:
+     at Resonance.Tests.OriginalExpeditionRelicRuntimeTests.BUsesFirstEffectivePreShieldHitOnceAndCopiesWithoutRecalculation(Boolean improved, Int32 expected) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionRelicRuntimeTests.cs:line 106
+  失败 Resonance.Tests.OriginalExpeditionRelicRuntimeTests.BUsesFirstEffectivePreShieldHitOnceAndCopiesWithoutRecalculation(improved: False, expected: 400) [< 1 ms]
+  错误消息:
+   Assert.Equal() Failure: Collections differ
+                                                 ↓ (pos 0)
+Expected: int[]                                 [400, 400]
+Actual:   SelectListIterator<RelicRequest, int> []
+  堆栈跟踪:
+     at Resonance.Tests.OriginalExpeditionRelicRuntimeTests.BUsesFirstEffectivePreShieldHitOnceAndCopiesWithoutRecalculation(Boolean improved, Int32 expected) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionRelicRuntimeTests.cs:line 106
+  失败 Resonance.Tests.OriginalExpeditionRelicRuntimeTests.CRelaySkipsFullAndDeadAndDoesNotSelectTheCaster(improved: True, charge: 20) [2 ms]
+  错误消息:
+   Assert.Single() Failure: The collection was empty
+  堆栈跟踪:
+     at Resonance.Tests.OriginalExpeditionRelicRuntimeTests.CRelaySkipsFullAndDeadAndDoesNotSelectTheCaster(Boolean improved, Single charge) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionRelicRuntimeTests.cs:line 130
+  失败 Resonance.Tests.OriginalExpeditionRelicRuntimeTests.CRelaySkipsFullAndDeadAndDoesNotSelectTheCaster(improved: False, charge: 12) [< 1 ms]
+  错误消息:
+   Assert.Single() Failure: The collection was empty
+  堆栈跟踪:
+     at Resonance.Tests.OriginalExpeditionRelicRuntimeTests.CRelaySkipsFullAndDeadAndDoesNotSelectTheCaster(Boolean improved, Single charge) in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionRelicRuntimeTests.cs:line 130
+  失败 Resonance.Tests.OriginalExpeditionRelicRuntimeTests.B04RequiresNativeKillAndRechecksBossAfterScatter [8 ms]
+  错误消息:
+   Assert.Equal() Failure: Collections differ
+                                                    ↓ (pos 0)
+Expected: string[]                                 ["B01", "B04"]
+Actual:   SelectListIterator<RelicRequest, string> []
+  堆栈跟踪:
+     at Resonance.Tests.OriginalExpeditionRelicRuntimeTests.B04RequiresNativeKillAndRechecksBossAfterScatter() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionRelicRuntimeTests.cs:line 117
+  失败 Resonance.Tests.OriginalExpeditionRelicRuntimeTests.C04ArmsAfterThirdActorAndKeepsWholeActionBonusWhileConsumingOnlyOnce [< 1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 1
+Actual:   0
+  堆栈跟踪:
+     at Resonance.Tests.OriginalExpeditionRelicRuntimeTests.C04ArmsAfterThirdActorAndKeepsWholeActionBonusWhileConsumingOnlyOnce() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionRelicRuntimeTests.cs:line 140
+结果文件: F:\天命之子\docs\original-expedition\evidence\o2\runtime-bc-red.trx
+
+失败!  - 失败:     6，通过:     3，已跳过:     0，总计:     9，持续时间: 24 ms - BattleSim.Tests.dll (net6.0)

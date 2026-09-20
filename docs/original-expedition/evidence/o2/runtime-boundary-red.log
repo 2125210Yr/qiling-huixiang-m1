@@ -1,0 +1,20 @@
+  正在确定要还原的项目…
+  所有项目均是最新的，无法还原。
+  BattleSim.Tests -> F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll
+F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll (.NETCoreApp,Version=v6.0)的测试运行
+Microsoft (R) 测试执行命令行工具版本 17.3.3 (x64)
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+正在启动测试执行，请稍候...
+总共 1 个测试文件与指定模式相匹配。
+[xUnit.net 00:00:00.29]     Resonance.Tests.OriginalExpeditionRelicRuntimeTests.ARejectsDotDerivedAndNonNativeTierAbsorptionAndDoesNotSpendWithoutEnemies [FAIL]
+  失败 Resonance.Tests.OriginalExpeditionRelicRuntimeTests.ARejectsDotDerivedAndNonNativeTierAbsorptionAndDoesNotSpendWithoutEnemies [1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 0
+Actual:   600
+  堆栈跟踪:
+     at Resonance.Tests.OriginalExpeditionRelicRuntimeTests.ARejectsDotDerivedAndNonNativeTierAbsorptionAndDoesNotSpendWithoutEnemies() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionRelicRuntimeTests.cs:line 182
+结果文件: F:\天命之子\docs\original-expedition\evidence\o2\runtime-boundary-red.trx
+
+失败!  - 失败:     1，通过:    27，已跳过:     0，总计:    28，持续时间: 60 ms - BattleSim.Tests.dll (net6.0)

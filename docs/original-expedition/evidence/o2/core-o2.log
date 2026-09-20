@@ -1,0 +1,27 @@
+  正在确定要还原的项目…
+  所有项目均是最新的，无法还原。
+F:\天命之子\tools\BattleSim.Tests\M1FormulaIsolationTests.cs(86,13): warning xUnit2000: The literal or constant value DamageMath.FeverChannelAtkCoef should be passed as the 'expected' argument in the call to 'Assert.NotEqual(expected, actual)' in method 'FeverDoesNotReadTapCoefficients' on type 'M1FormulaIsolationTests'. Swap the parameter values. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\tools\BattleSim.Tests\M1FormulaIsolationTests.cs(87,13): warning xUnit2000: The literal or constant value DamageMath.FeverChannelFlat should be passed as the 'expected' argument in the call to 'Assert.NotEqual(expected, actual)' in method 'FeverDoesNotReadTapCoefficients' on type 'M1FormulaIsolationTests'. Swap the parameter values. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+  BattleSim.Tests -> F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll
+F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll (.NETCoreApp,Version=v6.0)的测试运行
+Microsoft (R) 测试执行命令行工具版本 17.3.3 (x64)
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+正在启动测试执行，请稍候...
+总共 1 个测试文件与指定模式相匹配。
+Controlled flow fixture: core=C01 runSeed=0 route=N2-backstage workshop=rest R1=C02 R2=C03 R4=C04
+Controlled flow fixture: core=A01 runSeed=0 route=N2-backstage workshop=rest R1=A02 R2=A03 R4=A04
+Controlled flow fixture: core=B01 runSeed=3 route=N2-backstage workshop=rest R1=B02 R2=B03 R4=B04
+[xUnit.net 00:00:01.73]     Resonance.Tests.G2RecheckNaturalContractTests.N01_N02_N03_NaturalPlayContract_DocumentedNotFaked [SKIP]
+  已跳过 Resonance.Tests.G2RecheckNaturalContractTests.N01_N02_N03_NaturalPlayContract_DocumentedNotFaked [1 ms]
+[xUnit.net 00:00:04.32]     Resonance.Tests.M1CoreSliceTests.PoisonTriggersOnActionAndHitTakenNotPerSecond [FAIL]
+  失败 Resonance.Tests.M1CoreSliceTests.PoisonTriggersOnActionAndHitTakenNotPerSecond [2 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 1800
+Actual:   0
+  堆栈跟踪:
+     at Resonance.Tests.M1CoreSliceTests.PoisonTriggersOnActionAndHitTakenNotPerSecond() in F:\天命之子\tools\BattleSim.Tests\M1CoreSliceTests.cs:line 132
+结果文件: F:\天命之子\docs\original-expedition\evidence\o2\core-o2.trx
+
+失败!  - 失败:     1，通过:   423，已跳过:     1，总计:   425，持续时间: 4 s - BattleSim.Tests.dll (net6.0)

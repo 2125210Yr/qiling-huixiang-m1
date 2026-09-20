@@ -1,10 +1,11 @@
 param(
     [Parameter(Mandatory=$true)][string]$Name,
     [ValidateSet('tests','render','build')][string]$Mode='tests',
-    [string]$TestFilter='Resonance.EditorTests'
+    [string]$TestFilter='Resonance.EditorTests',
+    [ValidateSet('o0','o1','o2','o3','o4','o5')][string]$EvidenceGroup='o0'
 )
 $ErrorActionPreference='Stop'
-$evidenceRoot=Join-Path $PSScriptRoot 'o0'
+$evidenceRoot=Join-Path $PSScriptRoot $EvidenceGroup
 New-Item -ItemType Directory -Path $evidenceRoot -Force | Out-Null
 $runStarted=[DateTime]::UtcNow.ToString('o')
 $unityArgs=@('-batchmode','-projectPath','"F:\Resonance\client"','-giCustomCacheLocation','"F:\Resonance\client\Temp\GICache-Original"','-logFile',('"'+$evidenceRoot+'\'+$Name+'.log"'))

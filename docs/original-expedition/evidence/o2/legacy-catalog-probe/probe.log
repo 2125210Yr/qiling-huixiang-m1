@@ -1,0 +1,23 @@
+Same-process legacy Catalog contamination probe; no test or production source changes.
+Catalog.BuildBuiltin invoked.
+Catalog: C001_tap.Opcode=dmg.tap; stun.Opcode=control.apply; stun.Kind=Stun; stun.Magnitude=1; stun.DurationSec=3
+01 clean catalog: M1CoreSliceTests.PoisonTriggersOnActionAndHitTakenNotPerSecond
+PASS
+Catalog: C001_tap.Opcode=dmg.tap; stun.Opcode=control.apply; stun.Kind=Stun; stun.Magnitude=1; stun.DurationSec=3
+02 invoke BattleSimTests.CatalogJsonSerializeRoundtripKeepsOpcode
+Catalog: C001_tap.Opcode=dmg.fever_parts; stun.Opcode=poison.apply; stun.Kind=Stun; stun.Magnitude=1; stun.DurationSec=3
+03 after opcode roundtrip: M1CoreSliceTests.PoisonTriggersOnActionAndHitTakenNotPerSecond
+FAIL Xunit.Sdk.EqualException: Assert.Equal() Failure: Values differ
+Expected: 1800
+Actual:   0
+   at Xunit.Assert.Equal[T](T expected, T actual, IEqualityComparer`1 comparer) in /_/src/xunit.assert/Asserts/EqualityAsserts.cs:line 154
+   at Xunit.Assert.Equal[T](T expected, T actual) in /_/src/xunit.assert/Asserts/EqualityAsserts.cs:line 89
+   at Resonance.Tests.M1CoreSliceTests.PoisonTriggersOnActionAndHitTakenNotPerSecond() in F:\天命之子\tools\BattleSim.Tests\M1CoreSliceTests.cs:line 132
+   at Program.Poison(String step) in F:\天命之子\docs\original-expedition\evidence\o2\legacy-catalog-probe\Program.cs:line 39
+Catalog: C001_tap.Opcode=dmg.fever_parts; stun.Opcode=poison.apply; stun.Kind=Poison; stun.Magnitude=1; stun.DurationSec=3
+Catalog.BuildBuiltin invoked.
+Catalog: C001_tap.Opcode=dmg.tap; stun.Opcode=control.apply; stun.Kind=Stun; stun.Magnitude=1; stun.DurationSec=3
+04 after BuildBuiltin restoration: M1CoreSliceTests.PoisonTriggersOnActionAndHitTakenNotPerSecond
+PASS
+Catalog: C001_tap.Opcode=dmg.tap; stun.Opcode=control.apply; stun.Kind=Stun; stun.Magnitude=1; stun.DurationSec=3
+CONFIRMED pass -> fail -> pass: True

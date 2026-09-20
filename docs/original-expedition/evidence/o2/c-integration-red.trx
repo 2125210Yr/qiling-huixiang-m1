@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="deca6cc7-1711-44a2-a3f4-54050539e872" name="Administrator@DESKTOP-AKI3LSA 2026-09-21 00:38:37" runUser="DESKTOP-AKI3LSA\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-09-21T00:38:37.1962829+08:00" queuing="2026-09-21T00:38:37.1962831+08:00" start="2026-09-21T00:38:36.3416260+08:00" finish="2026-09-21T00:38:37.2055500+08:00" />
+  <TestSettings name="default" id="f6cde120-983b-4f75-843e-defd1ce25df6">
+    <Deployment runDeploymentRoot="Administrator_DESKTOP-AKI3LSA_2026-09-21_00_38_37" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="c297f148-ce97-49c8-b20e-9b4cc1d70537" testId="30925193-79ab-30a5-4dce-b954db0447f5" testName="Resonance.Tests.OriginalRelicCIntegrationTests.C04_AddsToExistingChannelBonus_AndAppliesToEveryHitOfOneNativeAction" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0035041" startTime="2026-09-21T00:38:37.1076687+08:00" endTime="2026-09-21T00:38:37.1076689+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c297f148-ce97-49c8-b20e-9b4cc1d70537">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.True() Failure&#xD;
+Expected: True&#xD;
+Actual:   False</Message>
+          <StackTrace>   at Resonance.Tests.OriginalRelicCIntegrationTests.C04_AddsToExistingChannelBonus_AndAppliesToEveryHitOfOneNativeAction() in F:\天命之子\tools\BattleSim.Tests\OriginalRelicCIntegrationTests.cs:line 109</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="6d326ef7-907b-44fa-a7fe-02c67a491c08" testId="b3b39b41-6f5d-83cc-96e9-da369e64d483" testName="Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(supportSlot: 2)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0003816" startTime="2026-09-21T00:38:37.1114902+08:00" endTime="2026-09-21T00:38:37.1114903+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6d326ef7-907b-44fa-a7fe-02c67a491c08">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.True() Failure&#xD;
+Expected: True&#xD;
+Actual:   False</Message>
+          <StackTrace>   at Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(Int32 supportSlot) in F:\天命之子\tools\BattleSim.Tests\OriginalRelicCIntegrationTests.cs:line 74</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="f685651b-78eb-4ca4-9395-c74e41ed098c" testId="f18c005b-0a3d-910e-cf2a-0acb2f5b0caf" testName="Resonance.Tests.OriginalRelicCIntegrationTests.C04_DamageThatFormsHarmony_IsNotBoostedByTheForteItCreates" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0014109" startTime="2026-09-21T00:38:37.1097012+08:00" endTime="2026-09-21T00:38:37.1097014+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f685651b-78eb-4ca4-9395-c74e41ed098c">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.True() Failure&#xD;
+Expected: True&#xD;
+Actual:   False</Message>
+          <StackTrace>   at Resonance.Tests.OriginalRelicCIntegrationTests.C04_DamageThatFormsHarmony_IsNotBoostedByTheForteItCreates() in F:\天命之子\tools\BattleSim.Tests\OriginalRelicCIntegrationTests.cs:line 61</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c6031b86-ee3b-48e4-a0b3-39b195f19a8d" testId="327e1829-ab31-eb44-bcaa-3a83d8f181ae" testName="Resonance.Tests.OriginalRelicCIntegrationTests.RejectedCommandsAndRealNativeAutoAttacks_DoNotAdvanceHarmonyOrRelay" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0517600" startTime="2026-09-21T00:38:37.0777345+08:00" endTime="2026-09-21T00:38:37.0777480+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c6031b86-ee3b-48e4-a0b3-39b195f19a8d" />
+    <UnitTestResult executionId="36ee59bd-640e-45f1-9555-bf876bc55cf5" testId="80050ead-7119-cc97-2376-d4a7a19c6ed4" testName="Resonance.Tests.OriginalRelicCIntegrationTests.C03_RepeatedActorDoesNotCountTwice_ThirdDistinctActorResetsAndChargesLivingParty" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0017107" startTime="2026-09-21T00:38:37.1136470+08:00" endTime="2026-09-21T00:38:37.1136472+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="36ee59bd-640e-45f1-9555-bf876bc55cf5">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: 2&#xD;
+Actual:   0</Message>
+          <StackTrace>   at Resonance.Tests.OriginalRelicCIntegrationTests.C03_RepeatedActorDoesNotCountTwice_ThirdDistinctActorResetsAndChargesLivingParty() in F:\天命之子\tools\BattleSim.Tests\OriginalRelicCIntegrationTests.cs:line 26</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="35d49ff8-1564-424a-9d3d-dc6a1596f565" testId="3e844600-06a6-4f73-86a9-c503ec70dbff" testName="Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(supportSlot: 1)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0007096" startTime="2026-09-21T00:38:37.1108233+08:00" endTime="2026-09-21T00:38:37.1108234+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="35d49ff8-1564-424a-9d3d-dc6a1596f565">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.True() Failure&#xD;
+Expected: True&#xD;
+Actual:   False</Message>
+          <StackTrace>   at Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(Int32 supportSlot) in F:\天命之子\tools\BattleSim.Tests\OriginalRelicCIntegrationTests.cs:line 74</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Resonance.Tests.OriginalRelicCIntegrationTests.C04_AddsToExistingChannelBonus_AndAppliesToEveryHitOfOneNativeAction" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="30925193-79ab-30a5-4dce-b954db0447f5">
+      <Execution id="c297f148-ce97-49c8-b20e-9b4cc1d70537" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalRelicCIntegrationTests" name="C04_AddsToExistingChannelBonus_AndAppliesToEveryHitOfOneNativeAction" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalRelicCIntegrationTests.RejectedCommandsAndRealNativeAutoAttacks_DoNotAdvanceHarmonyOrRelay" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="327e1829-ab31-eb44-bcaa-3a83d8f181ae">
+      <Execution id="c6031b86-ee3b-48e4-a0b3-39b195f19a8d" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalRelicCIntegrationTests" name="RejectedCommandsAndRealNativeAutoAttacks_DoNotAdvanceHarmonyOrRelay" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalRelicCIntegrationTests.C03_RepeatedActorDoesNotCountTwice_ThirdDistinctActorResetsAndChargesLivingParty" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="80050ead-7119-cc97-2376-d4a7a19c6ed4">
+      <Execution id="36ee59bd-640e-45f1-9555-bf876bc55cf5" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalRelicCIntegrationTests" name="C03_RepeatedActorDoesNotCountTwice_ThirdDistinctActorResetsAndChargesLivingParty" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalRelicCIntegrationTests.C04_DamageThatFormsHarmony_IsNotBoostedByTheForteItCreates" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="f18c005b-0a3d-910e-cf2a-0acb2f5b0caf">
+      <Execution id="f685651b-78eb-4ca4-9395-c74e41ed098c" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalRelicCIntegrationTests" name="C04_DamageThatFormsHarmony_IsNotBoostedByTheForteItCreates" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(supportSlot: 2)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="b3b39b41-6f5d-83cc-96e9-da369e64d483">
+      <Execution id="6d326ef7-907b-44fa-a7fe-02c67a491c08" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalRelicCIntegrationTests" name="C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(supportSlot: 1)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="3e844600-06a6-4f73-86a9-c503ec70dbff">
+      <Execution id="35d49ff8-1564-424a-9d3d-dc6a1596f565" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalRelicCIntegrationTests" name="C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="30925193-79ab-30a5-4dce-b954db0447f5" executionId="c297f148-ce97-49c8-b20e-9b4cc1d70537" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b3b39b41-6f5d-83cc-96e9-da369e64d483" executionId="6d326ef7-907b-44fa-a7fe-02c67a491c08" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f18c005b-0a3d-910e-cf2a-0acb2f5b0caf" executionId="f685651b-78eb-4ca4-9395-c74e41ed098c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="327e1829-ab31-eb44-bcaa-3a83d8f181ae" executionId="c6031b86-ee3b-48e4-a0b3-39b195f19a8d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="80050ead-7119-cc97-2376-d4a7a19c6ed4" executionId="36ee59bd-640e-45f1-9555-bf876bc55cf5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3e844600-06a6-4f73-86a9-c503ec70dbff" executionId="35d49ff8-1564-424a-9d3d-dc6a1596f565" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="6" executed="6" passed="1" failed="5" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 6.0.33)&#xD;
+[xUnit.net 00:00:00.08]   Discovering: BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.14]   Discovered:  BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.15]   Starting:    BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.27]       Assert.True() Failure&#xD;
+[xUnit.net 00:00:00.27]       Expected: True&#xD;
+[xUnit.net 00:00:00.27]       Actual:   False&#xD;
+[xUnit.net 00:00:00.27]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.27]         F:\天命之子\tools\BattleSim.Tests\OriginalRelicCIntegrationTests.cs(109,0): at Resonance.Tests.OriginalRelicCIntegrationTests.C04_AddsToExistingChannelBonus_AndAppliesToEveryHitOfOneNativeAction()&#xD;
+[xUnit.net 00:00:00.27]       Assert.True() Failure&#xD;
+[xUnit.net 00:00:00.27]       Expected: True&#xD;
+[xUnit.net 00:00:00.27]       Actual:   False&#xD;
+[xUnit.net 00:00:00.27]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.27]         F:\天命之子\tools\BattleSim.Tests\OriginalRelicCIntegrationTests.cs(61,0): at Resonance.Tests.OriginalRelicCIntegrationTests.C04_DamageThatFormsHarmony_IsNotBoostedByTheForteItCreates()&#xD;
+[xUnit.net 00:00:00.27]       Assert.True() Failure&#xD;
+[xUnit.net 00:00:00.27]       Expected: True&#xD;
+[xUnit.net 00:00:00.27]       Actual:   False&#xD;
+[xUnit.net 00:00:00.27]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.27]         F:\天命之子\tools\BattleSim.Tests\OriginalRelicCIntegrationTests.cs(74,0): at Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(Int32 supportSlot)&#xD;
+[xUnit.net 00:00:00.27]       Assert.True() Failure&#xD;
+[xUnit.net 00:00:00.27]       Expected: True&#xD;
+[xUnit.net 00:00:00.27]       Actual:   False&#xD;
+[xUnit.net 00:00:00.27]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.27]         F:\天命之子\tools\BattleSim.Tests\OriginalRelicCIntegrationTests.cs(74,0): at Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(Int32 supportSlot)&#xD;
+[xUnit.net 00:00:00.27]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.27]       Expected: 2&#xD;
+[xUnit.net 00:00:00.27]       Actual:   0&#xD;
+[xUnit.net 00:00:00.27]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.27]         F:\天命之子\tools\BattleSim.Tests\OriginalRelicCIntegrationTests.cs(26,0): at Resonance.Tests.OriginalRelicCIntegrationTests.C03_RepeatedActorDoesNotCountTwice_ThirdDistinctActorResetsAndChargesLivingParty()&#xD;
+[xUnit.net 00:00:00.28]   Finished:    BattleSim.Tests&#xD;
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:38:37.1051121+08:00">
+        <Text>[xUnit.net 00:00:00.27]     Resonance.Tests.OriginalRelicCIntegrationTests.C04_AddsToExistingChannelBonus_AndAppliesToEveryHitOfOneNativeAction [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:38:37.1096949+08:00">
+        <Text>[xUnit.net 00:00:00.27]     Resonance.Tests.OriginalRelicCIntegrationTests.C04_DamageThatFormsHarmony_IsNotBoostedByTheForteItCreates [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:38:37.1107646+08:00">
+        <Text>[xUnit.net 00:00:00.27]     Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(supportSlot: 1) [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:38:37.1114381+08:00">
+        <Text>[xUnit.net 00:00:00.27]     Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(supportSlot: 2) [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:38:37.1136135+08:00">
+        <Text>[xUnit.net 00:00:00.27]     Resonance.Tests.OriginalRelicCIntegrationTests.C03_RepeatedActorDoesNotCountTwice_ThirdDistinctActorResetsAndChargesLivingParty [FAIL]</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>

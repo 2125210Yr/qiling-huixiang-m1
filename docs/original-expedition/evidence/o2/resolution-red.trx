@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="015b4eae-fe22-4b97-a437-c7c2c48e1605" name="Administrator@DESKTOP-AKI3LSA 2026-09-21 00:33:06" runUser="DESKTOP-AKI3LSA\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-09-21T00:33:06.8783994+08:00" queuing="2026-09-21T00:33:06.8783998+08:00" start="2026-09-21T00:33:05.8362741+08:00" finish="2026-09-21T00:33:06.8886810+08:00" />
+  <TestSettings name="default" id="a3f10a89-876d-4341-981b-ec91a94bbd9f">
+    <Deployment runDeploymentRoot="Administrator_DESKTOP-AKI3LSA_2026-09-21_00_33_06" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="5dc19e02-a0f7-4191-a3b4-f45cebab0a46" testId="d0aebaa3-4474-7c1e-bd62-0d54d6815382" testName="Resonance.Tests.OriginalResolutionTests.FullyAbsorbedDamageStillContributesWithoutHpDamage" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0034041" startTime="2026-09-21T00:33:06.7470219+08:00" endTime="2026-09-21T00:33:06.7470221+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5dc19e02-a0f7-4191-a3b4-f45cebab0a46">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: 100&#xD;
+Actual:   0</Message>
+          <StackTrace>   at Resonance.Tests.OriginalResolutionTests.FullyAbsorbedDamageStillContributesWithoutHpDamage() in F:\天命之子\tools\BattleSim.Tests\OriginalResolutionTests.cs:line 37</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="295d170c-9e02-43f4-a8bf-e0a2c274d7a1" testId="7bd56c0b-65b1-1b90-03c8-610cace059fa" testName="Resonance.Tests.OriginalResolutionTests.ResultHasNoPublicMutableStateAndSerializationPreservesIt" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0300000" startTime="2026-09-21T00:33:06.7864398+08:00" endTime="2026-09-21T00:33:06.7864401+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="295d170c-9e02-43f4-a8bf-e0a2c274d7a1" />
+    <UnitTestResult executionId="a7161c35-00ea-4203-9b15-d14ae4e793c7" testId="ca57ccc2-0635-a326-ace9-caf76a6da971" testName="Resonance.Tests.OriginalResolutionTests.NumericalBoundariesFailExplicitlyInsteadOfWrappingOrSaturating" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0005121" startTime="2026-09-21T00:33:06.7555799+08:00" endTime="2026-09-21T00:33:06.7555800+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a7161c35-00ea-4203-9b15-d14ae4e793c7">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Throws() Failure: No exception was thrown&#xD;
+Expected: typeof(System.OverflowException)</Message>
+          <StackTrace>   at Resonance.Tests.OriginalResolutionTests.NumericalBoundariesFailExplicitlyInsteadOfWrappingOrSaturating() in F:\天命之子\tools\BattleSim.Tests\OriginalResolutionTests.cs:line 111</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="111ae0d7-9d09-4e2f-915e-4891dbd5ba90" testId="3abb2b91-76bb-8973-7627-fc6e6f051dd7" testName="Resonance.Tests.OriginalResolutionTests.AggregateTotalsUseLongRatherThanOverflowingInt" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0005998" startTime="2026-09-21T00:33:06.7491675+08:00" endTime="2026-09-21T00:33:06.7491677+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="111ae0d7-9d09-4e2f-915e-4891dbd5ba90">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: 6442450941&#xD;
+Actual:   0</Message>
+          <StackTrace>   at Resonance.Tests.OriginalResolutionTests.AggregateTotalsUseLongRatherThanOverflowingInt() in F:\天命之子\tools\BattleSim.Tests\OriginalResolutionTests.cs:line 103</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="1ff21e35-fbba-4852-a56f-4f83750517ec" testId="b9ca7cc6-3c1f-6614-cbe5-41696156bbdb" testName="Resonance.Tests.OriginalResolutionTests.InvalidOrInconsistentAmountsAreRejected" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0005246" startTime="2026-09-21T00:33:06.7480954+08:00" endTime="2026-09-21T00:33:06.7480956+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1ff21e35-fbba-4852-a56f-4f83750517ec">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Throws() Failure: No exception was thrown&#xD;
+Expected: typeof(System.ArgumentException)</Message>
+          <StackTrace>   at Resonance.Tests.OriginalResolutionTests.InvalidOrInconsistentAmountsAreRejected() in F:\天命之子\tools\BattleSim.Tests\OriginalResolutionTests.cs:line 78</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="475f9cc4-7336-4293-89d3-acd989740fea" testId="77d2984e-2546-a559-4451-0fa2e44203a3" testName="Resonance.Tests.OriginalResolutionTests.FullHpHealingRecordsOverhealAndShieldProductionIsNotAbsorption" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0004357" startTime="2026-09-21T00:33:06.7499755+08:00" endTime="2026-09-21T00:33:06.7499756+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="475f9cc4-7336-4293-89d3-acd989740fea">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: 700&#xD;
+Actual:   0</Message>
+          <StackTrace>   at Resonance.Tests.OriginalResolutionTests.FullHpHealingRecordsOverhealAndShieldProductionIsNotAbsorption() in F:\天命之子\tools\BattleSim.Tests\OriginalResolutionTests.cs:line 51</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4ea425d5-3089-49f7-89c9-ed6313bf39fb" testId="39d4be53-ef83-0f8e-6444-7fd9c65dcf18" testName="Resonance.Tests.OriginalResolutionTests.InvalidCausalityCannotPretendToBeNative" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0069727" startTime="2026-09-21T00:33:06.7395220+08:00" endTime="2026-09-21T00:33:06.7395371+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4ea425d5-3089-49f7-89c9-ed6313bf39fb">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Throws() Failure: No exception was thrown&#xD;
+Expected: typeof(System.ArgumentException)</Message>
+          <StackTrace>   at Resonance.Tests.OriginalResolutionTests.InvalidCausalityCannotPretendToBeNative() in F:\天命之子\tools\BattleSim.Tests\OriginalResolutionTests.cs:line 90</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="870b7415-f013-4f5e-8050-722482664145" testId="4e97ecd7-fdbc-eebf-91e7-e81dfddf0535" testName="Resonance.Tests.OriginalResolutionTests.ModelKeepsNativeDerivedAndDotAttributionDistinct" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0042293" startTime="2026-09-21T00:33:06.7546219+08:00" endTime="2026-09-21T00:33:06.7546224+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="870b7415-f013-4f5e-8050-722482664145" />
+    <UnitTestResult executionId="a0449f46-bb2c-4ae6-bc66-30cf7ef43833" testId="19a01bc0-50fc-b471-20a6-c91a73d895bd" testName="Resonance.Tests.OriginalResolutionTests.ContributionsAreActualShieldAndHpLossWithoutDoubleCountingOverkill" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0003870" startTime="2026-09-21T00:33:06.7563347+08:00" endTime="2026-09-21T00:33:06.7563348+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a0449f46-bb2c-4ae6-bc66-30cf7ef43833">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ&#xD;
+Expected: 100&#xD;
+Actual:   0</Message>
+          <StackTrace>   at Resonance.Tests.OriginalResolutionTests.ContributionsAreActualShieldAndHpLossWithoutDoubleCountingOverkill() in F:\天命之子\tools\BattleSim.Tests\OriginalResolutionTests.cs:line 23</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Resonance.Tests.OriginalResolutionTests.AggregateTotalsUseLongRatherThanOverflowingInt" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="3abb2b91-76bb-8973-7627-fc6e6f051dd7">
+      <Execution id="111ae0d7-9d09-4e2f-915e-4891dbd5ba90" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalResolutionTests" name="AggregateTotalsUseLongRatherThanOverflowingInt" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalResolutionTests.ContributionsAreActualShieldAndHpLossWithoutDoubleCountingOverkill" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="19a01bc0-50fc-b471-20a6-c91a73d895bd">
+      <Execution id="a0449f46-bb2c-4ae6-bc66-30cf7ef43833" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalResolutionTests" name="ContributionsAreActualShieldAndHpLossWithoutDoubleCountingOverkill" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalResolutionTests.InvalidCausalityCannotPretendToBeNative" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="39d4be53-ef83-0f8e-6444-7fd9c65dcf18">
+      <Execution id="4ea425d5-3089-49f7-89c9-ed6313bf39fb" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalResolutionTests" name="InvalidCausalityCannotPretendToBeNative" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalResolutionTests.InvalidOrInconsistentAmountsAreRejected" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="b9ca7cc6-3c1f-6614-cbe5-41696156bbdb">
+      <Execution id="1ff21e35-fbba-4852-a56f-4f83750517ec" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalResolutionTests" name="InvalidOrInconsistentAmountsAreRejected" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalResolutionTests.NumericalBoundariesFailExplicitlyInsteadOfWrappingOrSaturating" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="ca57ccc2-0635-a326-ace9-caf76a6da971">
+      <Execution id="a7161c35-00ea-4203-9b15-d14ae4e793c7" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalResolutionTests" name="NumericalBoundariesFailExplicitlyInsteadOfWrappingOrSaturating" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalResolutionTests.ResultHasNoPublicMutableStateAndSerializationPreservesIt" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="7bd56c0b-65b1-1b90-03c8-610cace059fa">
+      <Execution id="295d170c-9e02-43f4-a8bf-e0a2c274d7a1" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalResolutionTests" name="ResultHasNoPublicMutableStateAndSerializationPreservesIt" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalResolutionTests.FullHpHealingRecordsOverhealAndShieldProductionIsNotAbsorption" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="77d2984e-2546-a559-4451-0fa2e44203a3">
+      <Execution id="475f9cc4-7336-4293-89d3-acd989740fea" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalResolutionTests" name="FullHpHealingRecordsOverhealAndShieldProductionIsNotAbsorption" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalResolutionTests.ModelKeepsNativeDerivedAndDotAttributionDistinct" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="4e97ecd7-fdbc-eebf-91e7-e81dfddf0535">
+      <Execution id="870b7415-f013-4f5e-8050-722482664145" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalResolutionTests" name="ModelKeepsNativeDerivedAndDotAttributionDistinct" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalResolutionTests.FullyAbsorbedDamageStillContributesWithoutHpDamage" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="d0aebaa3-4474-7c1e-bd62-0d54d6815382">
+      <Execution id="5dc19e02-a0f7-4191-a3b4-f45cebab0a46" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalResolutionTests" name="FullyAbsorbedDamageStillContributesWithoutHpDamage" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="d0aebaa3-4474-7c1e-bd62-0d54d6815382" executionId="5dc19e02-a0f7-4191-a3b4-f45cebab0a46" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7bd56c0b-65b1-1b90-03c8-610cace059fa" executionId="295d170c-9e02-43f4-a8bf-e0a2c274d7a1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ca57ccc2-0635-a326-ace9-caf76a6da971" executionId="a7161c35-00ea-4203-9b15-d14ae4e793c7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3abb2b91-76bb-8973-7627-fc6e6f051dd7" executionId="111ae0d7-9d09-4e2f-915e-4891dbd5ba90" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b9ca7cc6-3c1f-6614-cbe5-41696156bbdb" executionId="1ff21e35-fbba-4852-a56f-4f83750517ec" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="77d2984e-2546-a559-4451-0fa2e44203a3" executionId="475f9cc4-7336-4293-89d3-acd989740fea" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="39d4be53-ef83-0f8e-6444-7fd9c65dcf18" executionId="4ea425d5-3089-49f7-89c9-ed6313bf39fb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4e97ecd7-fdbc-eebf-91e7-e81dfddf0535" executionId="870b7415-f013-4f5e-8050-722482664145" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="19a01bc0-50fc-b471-20a6-c91a73d895bd" executionId="a0449f46-bb2c-4ae6-bc66-30cf7ef43833" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="9" executed="9" passed="2" failed="7" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 6.0.33)&#xD;
+[xUnit.net 00:00:00.09]   Discovering: BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.16]   Discovered:  BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.17]   Starting:    BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.24]       Assert.Throws() Failure: No exception was thrown&#xD;
+[xUnit.net 00:00:00.24]       Expected: typeof(System.ArgumentException)&#xD;
+[xUnit.net 00:00:00.24]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.24]         F:\天命之子\tools\BattleSim.Tests\OriginalResolutionTests.cs(90,0): at Resonance.Tests.OriginalResolutionTests.InvalidCausalityCannotPretendToBeNative()&#xD;
+[xUnit.net 00:00:00.25]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.25]       Expected: 100&#xD;
+[xUnit.net 00:00:00.25]       Actual:   0&#xD;
+[xUnit.net 00:00:00.25]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.25]         F:\天命之子\tools\BattleSim.Tests\OriginalResolutionTests.cs(37,0): at Resonance.Tests.OriginalResolutionTests.FullyAbsorbedDamageStillContributesWithoutHpDamage()&#xD;
+[xUnit.net 00:00:00.25]       Assert.Throws() Failure: No exception was thrown&#xD;
+[xUnit.net 00:00:00.25]       Expected: typeof(System.ArgumentException)&#xD;
+[xUnit.net 00:00:00.25]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.25]         F:\天命之子\tools\BattleSim.Tests\OriginalResolutionTests.cs(78,0): at Resonance.Tests.OriginalResolutionTests.InvalidOrInconsistentAmountsAreRejected()&#xD;
+[xUnit.net 00:00:00.25]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.25]       Expected: 6442450941&#xD;
+[xUnit.net 00:00:00.25]       Actual:   0&#xD;
+[xUnit.net 00:00:00.25]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.25]         F:\天命之子\tools\BattleSim.Tests\OriginalResolutionTests.cs(103,0): at Resonance.Tests.OriginalResolutionTests.AggregateTotalsUseLongRatherThanOverflowingInt()&#xD;
+[xUnit.net 00:00:00.26]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.26]       Expected: 700&#xD;
+[xUnit.net 00:00:00.26]       Actual:   0&#xD;
+[xUnit.net 00:00:00.26]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.26]         F:\天命之子\tools\BattleSim.Tests\OriginalResolutionTests.cs(51,0): at Resonance.Tests.OriginalResolutionTests.FullHpHealingRecordsOverhealAndShieldProductionIsNotAbsorption()&#xD;
+[xUnit.net 00:00:00.26]       Assert.Throws() Failure: No exception was thrown&#xD;
+[xUnit.net 00:00:00.26]       Expected: typeof(System.OverflowException)&#xD;
+[xUnit.net 00:00:00.26]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.26]         F:\天命之子\tools\BattleSim.Tests\OriginalResolutionTests.cs(111,0): at Resonance.Tests.OriginalResolutionTests.NumericalBoundariesFailExplicitlyInsteadOfWrappingOrSaturating()&#xD;
+[xUnit.net 00:00:00.26]       Assert.Equal() Failure: Values differ&#xD;
+[xUnit.net 00:00:00.26]       Expected: 100&#xD;
+[xUnit.net 00:00:00.26]       Actual:   0&#xD;
+[xUnit.net 00:00:00.26]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.26]         F:\天命之子\tools\BattleSim.Tests\OriginalResolutionTests.cs(23,0): at Resonance.Tests.OriginalResolutionTests.ContributionsAreActualShieldAndHpLossWithoutDoubleCountingOverkill()&#xD;
+[xUnit.net 00:00:00.30]   Finished:    BattleSim.Tests&#xD;
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:33:06.7367266+08:00">
+        <Text>[xUnit.net 00:00:00.24]     Resonance.Tests.OriginalResolutionTests.InvalidCausalityCannotPretendToBeNative [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:33:06.7470569+08:00">
+        <Text>[xUnit.net 00:00:00.25]     Resonance.Tests.OriginalResolutionTests.FullyAbsorbedDamageStillContributesWithoutHpDamage [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:33:06.7481320+08:00">
+        <Text>[xUnit.net 00:00:00.25]     Resonance.Tests.OriginalResolutionTests.InvalidOrInconsistentAmountsAreRejected [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:33:06.7491760+08:00">
+        <Text>[xUnit.net 00:00:00.25]     Resonance.Tests.OriginalResolutionTests.AggregateTotalsUseLongRatherThanOverflowingInt [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:33:06.7499408+08:00">
+        <Text>[xUnit.net 00:00:00.26]     Resonance.Tests.OriginalResolutionTests.FullHpHealingRecordsOverhealAndShieldProductionIsNotAbsorption [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:33:06.7556609+08:00">
+        <Text>[xUnit.net 00:00:00.26]     Resonance.Tests.OriginalResolutionTests.NumericalBoundariesFailExplicitlyInsteadOfWrappingOrSaturating [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-AKI3LSA" outcome="Error" timestamp="2026-09-21T00:33:06.7563043+08:00">
+        <Text>[xUnit.net 00:00:00.26]     Resonance.Tests.OriginalResolutionTests.ContributionsAreActualShieldAndHpLossWithoutDoubleCountingOverkill [FAIL]</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>

@@ -1,0 +1,83 @@
+F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\ExpeditionRelicRuntime.cs(50,22): warning CS0649: 从未对字段“RelicNativeAction.FirstTargetGeneration”赋值，字段将一直保持其默认值 0 [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionRelicRuntimeTests.cs(20,41): warning CS0649: 从未对字段“OriginalExpeditionRelicRuntimeTests.Rig.AfterApply”赋值，字段将一直保持其默认值 null [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\ExpeditionRelicRuntime.cs(46,23): warning CS0649: 从未对字段“RelicNativeAction.ForteAtStart”赋值，字段将一直保持其默认值 false [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\ExpeditionRelicRuntime.cs(48,22): warning CS0649: 从未对字段“RelicNativeAction.FirstDamage”赋值，字段将一直保持其默认值 0 [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\ExpeditionRelicRuntime.cs(51,23): warning CS0649: 从未对字段“RelicNativeAction.NativeKill”赋值，字段将一直保持其默认值 false [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\ExpeditionRelicRuntime.cs(47,23): warning CS0649: 从未对字段“RelicNativeAction.ForteConsumed”赋值，字段将一直保持其默认值 false [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\client\Assets\Scripts\Resonance.Battle\Expedition\ExpeditionRelicRuntime.cs(52,23): warning CS0649: 从未对字段“RelicNativeAction.NativeShieldAbsorbed”赋值，字段将一直保持其默认值 0 [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\tools\BattleSim.Tests\M1FormulaIsolationTests.cs(86,13): warning xUnit2000: The literal or constant value DamageMath.FeverChannelAtkCoef should be passed as the 'expected' argument in the call to 'Assert.NotEqual(expected, actual)' in method 'FeverDoesNotReadTapCoefficients' on type 'M1FormulaIsolationTests'. Swap the parameter values. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\tools\BattleSim.Tests\M1FormulaIsolationTests.cs(87,13): warning xUnit2000: The literal or constant value DamageMath.FeverChannelFlat should be passed as the 'expected' argument in the call to 'Assert.NotEqual(expected, actual)' in method 'FeverDoesNotReadTapCoefficients' on type 'M1FormulaIsolationTests'. Swap the parameter values. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+  BattleSim.Tests -> F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll
+F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll (.NETCoreApp,Version=v6.0)的测试运行
+Microsoft (R) 测试执行命令行工具版本 17.3.3 (x64)
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+正在启动测试执行，请稍候...
+总共 1 个测试文件与指定模式相匹配。
+[xUnit.net 00:00:00.25]     Resonance.Tests.OriginalExpeditionRelicRuntimeTests.A01AggregatesOnlyActualEnemyNativeAbsorptionThenReleasesOneThreshold [FAIL]
+[xUnit.net 00:00:00.26]     Resonance.Tests.OriginalExpeditionRelicRuntimeTests.A04ReplacesNormalShockAndLeavesFractionalThreshold [FAIL]
+[xUnit.net 00:00:00.26]     Resonance.Tests.OriginalExpeditionRelicRuntimeTests.A02EnhancesOnlyAlliedProducedShield [FAIL]
+[xUnit.net 00:00:00.27]     Resonance.Tests.OriginalRelicIntegrationTests.B01_B02_UseTheSameNativeHitWithoutSecondDefenseOrCrit(improved: False, ratio: 0.40000000000000002) [FAIL]
+[xUnit.net 00:00:00.27]     Resonance.Tests.OriginalRelicIntegrationTests.B01_B02_UseTheSameNativeHitWithoutSecondDefenseOrCrit(improved: True, ratio: 0.69999999999999996) [FAIL]
+[xUnit.net 00:00:00.27]     Resonance.Tests.OriginalRelicIntegrationTests.C01_C02_AdvanceTheNextEligibleAllyWithoutAutoCasting(improved: True, bonus: 20) [FAIL]
+[xUnit.net 00:00:00.28]     Resonance.Tests.OriginalRelicIntegrationTests.C01_C02_AdvanceTheNextEligibleAllyWithoutAutoCasting(improved: False, bonus: 12) [FAIL]
+[xUnit.net 00:00:00.28]     Resonance.Tests.OriginalRelicIntegrationTests.A02_EnhancesTheActualLinkedTeamShieldExactlyOnce [FAIL]
+  失败 Resonance.Tests.OriginalExpeditionRelicRuntimeTests.A01AggregatesOnlyActualEnemyNativeAbsorptionThenReleasesOneThreshold [36 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 200
+Actual:   0
+  堆栈跟踪:
+     at Resonance.Tests.OriginalExpeditionRelicRuntimeTests.A01AggregatesOnlyActualEnemyNativeAbsorptionThenReleasesOneThreshold() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionRelicRuntimeTests.cs:line 67
+  失败 Resonance.Tests.OriginalExpeditionRelicRuntimeTests.A04ReplacesNormalShockAndLeavesFractionalThreshold [< 1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 3
+Actual:   0
+  堆栈跟踪:
+     at Resonance.Tests.OriginalExpeditionRelicRuntimeTests.A04ReplacesNormalShockAndLeavesFractionalThreshold() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionRelicRuntimeTests.cs:line 90
+  失败 Resonance.Tests.OriginalExpeditionRelicRuntimeTests.A02EnhancesOnlyAlliedProducedShield [< 1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 126
+Actual:   101
+  堆栈跟踪:
+     at Resonance.Tests.OriginalExpeditionRelicRuntimeTests.A02EnhancesOnlyAlliedProducedShield() in F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionRelicRuntimeTests.cs:line 79
+  失败 Resonance.Tests.OriginalRelicIntegrationTests.B01_B02_UseTheSameNativeHitWithoutSecondDefenseOrCrit(improved: False, ratio: 0.40000000000000002) [8 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 468
+Actual:   0
+  堆栈跟踪:
+     at Resonance.Tests.OriginalRelicIntegrationTests.B01_B02_UseTheSameNativeHitWithoutSecondDefenseOrCrit(Boolean improved, Double ratio) in F:\天命之子\tools\BattleSim.Tests\OriginalRelicIntegrationTests.cs:line 51
+  失败 Resonance.Tests.OriginalRelicIntegrationTests.B01_B02_UseTheSameNativeHitWithoutSecondDefenseOrCrit(improved: True, ratio: 0.69999999999999996) [< 1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 819
+Actual:   0
+  堆栈跟踪:
+     at Resonance.Tests.OriginalRelicIntegrationTests.B01_B02_UseTheSameNativeHitWithoutSecondDefenseOrCrit(Boolean improved, Double ratio) in F:\天命之子\tools\BattleSim.Tests\OriginalRelicIntegrationTests.cs:line 51
+  失败 Resonance.Tests.OriginalRelicIntegrationTests.C01_C02_AdvanceTheNextEligibleAllyWithoutAutoCasting(improved: True, bonus: 20) [3 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 60
+Actual:   40
+  堆栈跟踪:
+     at Resonance.Tests.OriginalRelicIntegrationTests.C01_C02_AdvanceTheNextEligibleAllyWithoutAutoCasting(Boolean improved, Single bonus) in F:\天命之子\tools\BattleSim.Tests\OriginalRelicIntegrationTests.cs:line 65
+  失败 Resonance.Tests.OriginalRelicIntegrationTests.C01_C02_AdvanceTheNextEligibleAllyWithoutAutoCasting(improved: False, bonus: 12) [< 1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 52
+Actual:   40
+  堆栈跟踪:
+     at Resonance.Tests.OriginalRelicIntegrationTests.C01_C02_AdvanceTheNextEligibleAllyWithoutAutoCasting(Boolean improved, Single bonus) in F:\天命之子\tools\BattleSim.Tests\OriginalRelicIntegrationTests.cs:line 65
+  失败 Resonance.Tests.OriginalRelicIntegrationTests.A02_EnhancesTheActualLinkedTeamShieldExactlyOnce [5 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 1430
+Actual:   1144
+  堆栈跟踪:
+     at Resonance.Tests.OriginalRelicIntegrationTests.A02_EnhancesTheActualLinkedTeamShieldExactlyOnce() in F:\天命之子\tools\BattleSim.Tests\OriginalRelicIntegrationTests.cs:line 32
+结果文件: F:\天命之子\docs\original-expedition\evidence\o2\runtime-integration-red.trx
+
+失败!  - 失败:     8，通过:     0，已跳过:     0，总计:     8，持续时间: 29 ms - BattleSim.Tests.dll (net6.0)

@@ -20,6 +20,9 @@ namespace Resonance.Battle
         public int ShieldLeft;
         /// <summary>Accumulator for <c>periodic</c> DoT triggers.</summary>
         public float PeriodAcc;
+        public int SourceSlot = -1;
+        public bool SourceAlly;
+        public string SourceSkillId;
         /// <summary>DurationSec &lt;= 0 → lives until consumed or dispelled.</summary>
         public bool Permanent => Def != null && Def.DurationSec <= 0f;
     }
@@ -29,6 +32,7 @@ namespace Resonance.Battle
         public CharacterDef Def;
         public int Slot;
         public bool Ally;
+        public int InstanceGeneration;
         public int MaxHp;
         public int Hp;
         /// <summary>Total shield = sum of live shield-status instances (lifetime follows the status).</summary>
@@ -448,9 +452,17 @@ namespace Resonance.Battle
             }
             LoadWave(0);
             if (!IsOriginalExpedition) ApplyLeader();
+            InitializeOriginalRuntime();
         }
 
         public void Tick()
+        {
+            if (!IsOriginalExpedition) { TickCore(); return; }
+            try { TickCore(); }
+            catch (Exception error) { FailOriginalRule(error); }
+        }
+
+        void TickCore()
         {
             if (Outcome != BattleOutcome.InProgress || Paused) return;
             // R02: first real tick freezes opening Speed/Auto/clocks after object initializers.
@@ -465,6 +477,11 @@ namespace Resonance.Battle
             if (!ReleaseBlocks(dt, stageDt)) return;
 
             TickStatus(ScaleClock(dt, Clocks != null && Clocks.StatusDurationScalesWithSpeed));
+            if (IsOriginalExpedition)
+            {
+                SettleOriginalBoundary();
+                if (Outcome != BattleOutcome.InProgress) return;
+            }
             TickSlideClocks(ScaleClock(dt, Clocks != null && Clocks.SlideCdScalesWithSpeed));
             if (FeverActive)
                 TickFever(ScaleClock(dt, Clocks != null && Clocks.FeverWindowScalesWithSpeed));
@@ -853,6 +870,7 @@ namespace Resonance.Battle
 
         void TickUnit(UnitState u, bool ally, float chargeDt, float autoDt)
         {
+            if (IsOriginalExpedition && Outcome != BattleOutcome.InProgress) return;
             if (u == null || u.Def == null || !u.Alive) return;
             if (u.ActionLocked) return;
             var chargePerSec = (100f / Math.Max(0.01f, u.Def.ChargeTimeSec)) * u.ChargeSpeedMul;
@@ -1017,6 +1035,7 @@ namespace Resonance.Battle
 
         void TickOne(UnitState u, float dt)
         {
+            if (IsOriginalExpedition && Outcome != BattleOutcome.InProgress) return;
             if (u == null || !u.Alive) return;
             TickPeriodicDots(u, dt);
             if (!u.Alive) return;
@@ -1047,6 +1066,7 @@ namespace Resonance.Battle
             if (type == SkillType.Slide) u.SlideCd = SlideCdDurationSec;
             if (!IsOriginalExpedition) Drive = Math.Min(100f, Drive + skill.DriveGain);
             Cast(u, true, skill, 1f);
+            if (IsOriginalExpedition && Outcome == BattleOutcome.Failed) return false;
             LastEvent = VisualTag(skill.Type) + "  " + u.Def.Name + "  " + skill.Name;
             if (type == SkillType.Slide)
             {
@@ -1139,7 +1159,7 @@ namespace Resonance.Battle
             return SkillType.Tap;
         }
 
-        void Cast(UnitState caster, bool casterAlly, SkillDef skill, float dmgMul)
+        void CastCore(UnitState caster, bool casterAlly, SkillDef skill, float dmgMul)
         {
             if (skill == null)
             {
@@ -1248,7 +1268,7 @@ namespace Resonance.Battle
                 {
                     var roll = _rng.NextDouble();
                     var crit = !ForceNoCrit && roll < DamageMath.CritChance(caster.Def.Crt);
-                    var extraMul = DamageMath.ExtraDmgMul(ExtraDmg(caster, t, skill.Type)) * _execMul;
+                    var extraMul = DamageMath.ExtraDmgMul(ExtraDmg(caster, t, skill.Type) + OriginalChannelBonus()) * _execMul;
                     extraMul *= IgnitionExtraMul(caster, t, crit);
                     if (TryResolveCombat(
                         skill.Type, caster, t, skill.AtkCoef, skill.FlatPower,
@@ -1287,10 +1307,12 @@ namespace Resonance.Battle
         {
             dmg = 0;
             var extraAtk = caster != null ? caster.ExtraAtk : 0;
-            var atk = caster != null ? caster.Atk : 0;
+            var atk = IsOriginalExpedition ? OriginalAttack(caster) : caster != null ? caster.Atk : 0;
             var atkEl = caster != null && caster.Def != null ? caster.Def.Element : Element.Fire;
             var defEl = t != null && t.Def != null ? t.Def.Element : Element.Fire;
-            var defense = t != null ? t.DefenseAgainst(atkEl) : 0;
+            var defense = IsOriginalExpedition ? OriginalDefense(t) : t != null ? t.DefenseAgainst(atkEl) : 0;
+            GuardOriginalFormula(atk, extraAtk, coef, flat, skillFlat, percentAtk,
+                DamageMath.ElemCritMultiplier(atkEl, defEl, crit), extraMul, feverMul);
             var result = DamageMath.Resolve(
                 Profile, type, atk, coef, flat, defense, atkEl, defEl,
                 crit, extraMul, 1f, feverMul, percentAtk, skillFlat, extraAtk: extraAtk);
@@ -1313,17 +1335,29 @@ namespace Resonance.Battle
                 NoteEvent("unresolved", DamageMath.ChannelOpcode(_activeKind), caster, t, 0, _activeKind);
                 return;
             }
-            var amt = (int)Math.Round(caster.Atk * skill.HealCoef + skill.FlatHeal + t.MaxHp * skill.HealMaxHpFrac);
+            var amt = IsOriginalExpedition
+                ? ResolutionMath.ToBattleInt(OriginalAttack(caster) * (double)skill.HealCoef + skill.FlatHeal + t.MaxHp * (double)skill.HealMaxHpFrac)
+                : (int)Math.Round(caster.Atk * skill.HealCoef + skill.FlatHeal + t.MaxHp * skill.HealMaxHpFrac);
             if (amt < 1) amt = 1;
-            t.Hp = Math.Min(t.MaxHp, t.Hp + amt);
-            Stats.NoteHeal(caster, t, amt);
+            var healed = Math.Min(amt, t.MaxHp - t.Hp);
+            if (IsOriginalExpedition)
+            {
+                if (healed < 0) throw new RelicRuleException("HP exceeds maximum during healing.");
+                t.Hp += healed;
+                RecordOriginalResult(caster, t, requestedHeal: amt, effectiveHeal: healed);
+            }
+            else
+            {
+                t.Hp = Math.Min(t.MaxHp, t.Hp + amt);
+                Stats.NoteHeal(caster, t, amt);
+            }
             Log.Add(new FloatText
             {
                 UnitSlot = t.Slot,
                 Ally = t.Ally,
                 CasterSlot = caster != null ? caster.Slot : -1,
                 CasterAlly = caster != null && caster.Ally,
-                Text = "+" + amt,
+                Text = "+" + (IsOriginalExpedition ? healed : amt),
                 Heal = true,
                 Kind = _activeKind
             });
@@ -1332,6 +1366,10 @@ namespace Resonance.Battle
         void ApplyDamage(UnitState caster, UnitState t, int dmg, bool crit)
         {
             if (t == null || !t.Alive) return;
+            if (IsOriginalExpedition && dmg < 0) throw new RelicRuleException("Negative damage.");
+            var requested = dmg;
+            var hpBefore = t.Hp;
+            var absorbed = 0;
             if (dmg > 0 && t.Shield > 0)
             {
                 // Consume shield instances in application order; drained permanent shields are released.
@@ -1342,6 +1380,7 @@ namespace Resonance.Battle
                     var absorb = Math.Min(st.ShieldLeft, dmg);
                     st.ShieldLeft -= absorb;
                     dmg -= absorb;
+                    if (IsOriginalExpedition) absorbed = checked(absorbed + absorb);
                     NoteEvent("absorb", EffectOpcodes.ShieldApply, caster, t, absorb, _activeKind);
                     if (st.ShieldLeft <= 0 && st.Permanent)
                     {
@@ -1350,15 +1389,22 @@ namespace Resonance.Battle
                     }
                 }
             }
-            if (dmg <= 0) return;
+            if (dmg <= 0)
+            {
+                RecordOriginalResult(caster, t, requestedDamage: requested, absorbed: absorbed);
+                return;
+            }
             t.Hp -= dmg;
             if (t.Hp < 0) t.Hp = 0;
             NoteDeathOnce(t);
             if (!t.Alive) ClearDeadFocus();
-            if (caster != null) StretchStun(t);
-            Stats.NoteDamage(caster, t, dmg);
-            NoteEvent("hit", DamageMath.ChannelOpcode(_activeKind), caster, t, dmg, _activeKind);
-            if (!_poisonResolving)
+            var hpDamage = hpBefore - t.Hp;
+            RecordOriginalResult(caster, t, requestedDamage: requested, absorbed: absorbed,
+                hpDamage: hpDamage, overkill: dmg - hpDamage, killed: !t.Alive);
+            if (caster != null && _originalRequest == null) StretchStun(t);
+            if (!IsOriginalExpedition) Stats.NoteDamage(caster, t, dmg);
+            NoteEvent("hit", DamageMath.ChannelOpcode(_activeKind), caster, t, IsOriginalExpedition ? hpDamage : dmg, _activeKind);
+            if (!_poisonResolving && _originalRequest == null)
                 TriggerPoisonOnHitTaken(t);
             Log.Add(new FloatText
             {
@@ -1366,7 +1412,7 @@ namespace Resonance.Battle
                 Ally = t.Ally,
                 CasterSlot = caster != null ? caster.Slot : -1,
                 CasterAlly = caster != null && caster.Ally,
-                Text = dmg.ToString(),
+                Text = (IsOriginalExpedition ? hpDamage : dmg).ToString(),
                 Crit = crit,
                 Fever = _feverHit,
                 Kind = _activeKind
@@ -1429,9 +1475,15 @@ namespace Resonance.Battle
                 NoteEvent("unresolved", EffectOpcodes.PoisonApply, u, u, 0, _activeKind);
                 return;
             }
-            var tick = Math.Max(1, (int)Math.Round(u.MaxHp * st.Def.Magnitude * st.Stacks));
-            ApplyDamage(null, u, tick, false);
+            var tick = IsOriginalExpedition
+                ? Math.Max(1, ResolutionMath.ToBattleInt(u.MaxHp * (double)st.Def.Magnitude * st.Stacks))
+                : Math.Max(1, (int)Math.Round(u.MaxHp * st.Def.Magnitude * st.Stacks));
+            var previousDot = _originalDotSource;
+            if (IsOriginalExpedition) _originalDotSource = st;
+            try { ApplyDamage(null, u, tick, false); }
+            finally { _originalDotSource = previousDot; }
             NoteEvent(trigger, EffectOpcodes.PoisonApply, u, u, tick, _activeKind);
+            if (IsOriginalExpedition && _originalAction == null) SettleOriginalBoundary();
         }
 
         void TickPeriodicDots(UnitState u, float dt)
@@ -1446,7 +1498,7 @@ namespace Resonance.Battle
                     if (st == null || st.Def == null || !EffectOpcodes.IsDotTriggerKind(st.Def.Kind)) continue;
                     if (!DotFiresOn(st.Def, EffectDef.TriggerPeriodic) || st.Def.PeriodSec <= 0f) continue;
                     st.PeriodAcc += dt;
-                    while (st.PeriodAcc >= st.Def.PeriodSec && u.Alive)
+                    while (st.PeriodAcc >= st.Def.PeriodSec && u.Alive && (!IsOriginalExpedition || Outcome == BattleOutcome.InProgress))
                     {
                         st.PeriodAcc -= st.Def.PeriodSec;
                         FireDot(u, st, EffectDef.TriggerPeriodic);
@@ -1579,14 +1631,32 @@ namespace Resonance.Battle
         void ApplyControlAndShield(UnitState t, StatusInst inst, EffectDef fx, string opcode)
         {
             if (t == null || fx == null) return;
+            if (IsOriginalExpedition && inst != null)
+            {
+                inst.SourceSlot = _originalAction?.SourceSlot ?? -1;
+                inst.SourceAlly = _originalAction?.SourceAlly ?? false;
+                inst.SourceSkillId = _originalAction?.SkillId;
+            }
             var shield = string.Equals(opcode, EffectOpcodes.ShieldApply, StringComparison.Ordinal)
                 || fx.Kind == EffectKind.Shield
                 || fx.Kind == EffectKind.Barrier;
             if (shield && inst != null)
             {
                 // E02: shield points live on the status instance; lifetime follows the status.
-                var pts = (int)Math.Round(t.MaxHp * fx.Magnitude) * Math.Max(1, inst.Stacks);
+                var pts = IsOriginalExpedition
+                    ? ResolutionMath.ToBattleInt(Math.Round(t.MaxHp * (double)fx.Magnitude, MidpointRounding.AwayFromZero) * Math.Max(1, inst.Stacks))
+                    : (int)Math.Round(t.MaxHp * fx.Magnitude) * Math.Max(1, inst.Stacks);
+                if (IsOriginalExpedition)
+                    pts = ExpeditionRelics.AdjustNativeShield(pts, _originalAction?.SourceAlly ?? false, t.Ally);
+                var before = inst.ShieldLeft;
                 inst.ShieldLeft = Math.Max(inst.ShieldLeft, pts);
+                if (IsOriginalExpedition)
+                {
+                    long total = 0;
+                    foreach (var status in t.Status) total = ResolutionMath.AddNonNegative(total, status.ShieldLeft);
+                    ResolutionMath.ToBattleInt(total);
+                    RecordOriginalResult(null, t, shieldProduced: inst.ShieldLeft - before);
+                }
             }
             var lockCharge = string.Equals(opcode, EffectOpcodes.ControlApply, StringComparison.Ordinal)
                 && (fx.Kind == EffectKind.Stun || fx.Kind == EffectKind.Freeze);

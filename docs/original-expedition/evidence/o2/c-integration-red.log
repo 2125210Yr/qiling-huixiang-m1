@@ -1,0 +1,53 @@
+F:\天命之子\tools\BattleSim.Tests\OriginalExpeditionRelicRuntimeTests.cs(20,41): warning CS0649: 从未对字段“OriginalExpeditionRelicRuntimeTests.Rig.AfterApply”赋值，字段将一直保持其默认值 null [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\tools\BattleSim.Tests\M1FormulaIsolationTests.cs(86,13): warning xUnit2000: The literal or constant value DamageMath.FeverChannelAtkCoef should be passed as the 'expected' argument in the call to 'Assert.NotEqual(expected, actual)' in method 'FeverDoesNotReadTapCoefficients' on type 'M1FormulaIsolationTests'. Swap the parameter values. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+F:\天命之子\tools\BattleSim.Tests\M1FormulaIsolationTests.cs(87,13): warning xUnit2000: The literal or constant value DamageMath.FeverChannelFlat should be passed as the 'expected' argument in the call to 'Assert.NotEqual(expected, actual)' in method 'FeverDoesNotReadTapCoefficients' on type 'M1FormulaIsolationTests'. Swap the parameter values. [F:\天命之子\tools\BattleSim.Tests\BattleSim.Tests.csproj]
+  BattleSim.Tests -> F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll
+F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll (.NETCoreApp,Version=v6.0)的测试运行
+Microsoft (R) 测试执行命令行工具版本 17.3.3 (x64)
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+正在启动测试执行，请稍候...
+总共 1 个测试文件与指定模式相匹配。
+[xUnit.net 00:00:00.27]     Resonance.Tests.OriginalRelicCIntegrationTests.C04_AddsToExistingChannelBonus_AndAppliesToEveryHitOfOneNativeAction [FAIL]
+[xUnit.net 00:00:00.27]     Resonance.Tests.OriginalRelicCIntegrationTests.C04_DamageThatFormsHarmony_IsNotBoostedByTheForteItCreates [FAIL]
+[xUnit.net 00:00:00.27]     Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(supportSlot: 1) [FAIL]
+[xUnit.net 00:00:00.27]     Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(supportSlot: 2) [FAIL]
+[xUnit.net 00:00:00.27]     Resonance.Tests.OriginalRelicCIntegrationTests.C03_RepeatedActorDoesNotCountTwice_ThirdDistinctActorResetsAndChargesLivingParty [FAIL]
+  失败 Resonance.Tests.OriginalRelicCIntegrationTests.C04_AddsToExistingChannelBonus_AndAppliesToEveryHitOfOneNativeAction [3 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at Resonance.Tests.OriginalRelicCIntegrationTests.C04_AddsToExistingChannelBonus_AndAppliesToEveryHitOfOneNativeAction() in F:\天命之子\tools\BattleSim.Tests\OriginalRelicCIntegrationTests.cs:line 109
+  失败 Resonance.Tests.OriginalRelicCIntegrationTests.C04_DamageThatFormsHarmony_IsNotBoostedByTheForteItCreates [1 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at Resonance.Tests.OriginalRelicCIntegrationTests.C04_DamageThatFormsHarmony_IsNotBoostedByTheForteItCreates() in F:\天命之子\tools\BattleSim.Tests\OriginalRelicCIntegrationTests.cs:line 61
+  失败 Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(supportSlot: 1) [< 1 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(Int32 supportSlot) in F:\天命之子\tools\BattleSim.Tests\OriginalRelicCIntegrationTests.cs:line 74
+  失败 Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(supportSlot: 2) [< 1 ms]
+  错误消息:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  堆栈跟踪:
+     at Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(Int32 supportSlot) in F:\天命之子\tools\BattleSim.Tests\OriginalRelicCIntegrationTests.cs:line 74
+  失败 Resonance.Tests.OriginalRelicCIntegrationTests.C03_RepeatedActorDoesNotCountTwice_ThirdDistinctActorResetsAndChargesLivingParty [1 ms]
+  错误消息:
+   Assert.Equal() Failure: Values differ
+Expected: 2
+Actual:   0
+  堆栈跟踪:
+     at Resonance.Tests.OriginalRelicCIntegrationTests.C03_RepeatedActorDoesNotCountTwice_ThirdDistinctActorResetsAndChargesLivingParty() in F:\天命之子\tools\BattleSim.Tests\OriginalRelicCIntegrationTests.cs:line 26
+结果文件: F:\天命之子\docs\original-expedition\evidence\o2\c-integration-red.trx
+
+失败!  - 失败:     5，通过:     1，已跳过:     0，总计:     6，持续时间: 35 ms - BattleSim.Tests.dll (net6.0)

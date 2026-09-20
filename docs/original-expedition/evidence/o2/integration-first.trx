@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="348520fe-1c52-4a28-87bd-6f290915d6af" name="Administrator@DESKTOP-AKI3LSA 2026-09-21 00:43:32" runUser="DESKTOP-AKI3LSA\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-09-21T00:43:32.2635524+08:00" queuing="2026-09-21T00:43:32.2635526+08:00" start="2026-09-21T00:43:31.4858000+08:00" finish="2026-09-21T00:43:32.2951049+08:00" />
+  <TestSettings name="default" id="142e9a95-25a2-41d7-a55a-66cdfecdfb4a">
+    <Deployment runDeploymentRoot="Administrator_DESKTOP-AKI3LSA_2026-09-21_00_43_32" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="fbef1d13-34ec-4e07-a0ea-c61ba2f75db4" testId="30925193-79ab-30a5-4dce-b954db0447f5" testName="Resonance.Tests.OriginalRelicCIntegrationTests.C04_AddsToExistingChannelBonus_AndAppliesToEveryHitOfOneNativeAction" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0092083" startTime="2026-09-21T00:43:32.1823500+08:00" endTime="2026-09-21T00:43:32.1823504+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fbef1d13-34ec-4e07-a0ea-c61ba2f75db4" />
+    <UnitTestResult executionId="9a101d73-6fb2-4136-8c1a-961018a445e4" testId="efec96a0-de11-c4d0-d4c5-e626b2a08e8a" testName="Resonance.Tests.OriginalResolutionIntegrationTests.A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy(hit: 449, energy: 2245)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0036615" startTime="2026-09-21T00:43:32.2466321+08:00" endTime="2026-09-21T00:43:32.2466323+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9a101d73-6fb2-4136-8c1a-961018a445e4" />
+    <UnitTestResult executionId="8e7892a6-6ffd-478b-b50f-57d0164c8fa2" testId="f18c005b-0a3d-910e-cf2a-0acb2f5b0caf" testName="Resonance.Tests.OriginalRelicCIntegrationTests.C04_DamageThatFormsHarmony_IsNotBoostedByTheForteItCreates" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0007203" startTime="2026-09-21T00:43:32.1831729+08:00" endTime="2026-09-21T00:43:32.1831731+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8e7892a6-6ffd-478b-b50f-57d0164c8fa2" />
+    <UnitTestResult executionId="fd7ca7f7-32f5-4d30-b405-745b9f4f0508" testId="b539be05-d23d-95c9-961e-0a9d7c60646c" testName="Resonance.Tests.OriginalRelicIntegrationTests.C01_C02_AdvanceTheNextEligibleAllyWithoutAutoCasting(improved: False, bonus: 12)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0001071" startTime="2026-09-21T00:43:32.2423013+08:00" endTime="2026-09-21T00:43:32.2423015+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fd7ca7f7-32f5-4d30-b405-745b9f4f0508" />
+    <UnitTestResult executionId="c779fda2-606a-491b-ac5d-1866de64d8eb" testId="9d02222e-1a8c-a77c-93c0-17fc24267a5f" testName="Resonance.Tests.OriginalRelicIntegrationTests.C01_C02_AdvanceTheNextEligibleAllyWithoutAutoCasting(improved: True, bonus: 20)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0002788" startTime="2026-09-21T00:43:32.2249401+08:00" endTime="2026-09-21T00:43:32.2249404+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c779fda2-606a-491b-ac5d-1866de64d8eb" />
+    <UnitTestResult executionId="03011161-87d5-4c6a-af40-460f7fa5df09" testId="9e8d0118-7d78-a041-37dd-16acbfabd4bb" testName="Resonance.Tests.OriginalResolutionIntegrationTests.NativeOverkillAndFullHealthHealing_DoNotInflateEffectiveContribution" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0004239" startTime="2026-09-21T00:43:32.2514225+08:00" endTime="2026-09-21T00:43:32.2514226+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="03011161-87d5-4c6a-af40-460f7fa5df09" />
+    <UnitTestResult executionId="8cf06bf7-9b18-42d1-abc1-9be5920ff91a" testId="4ef97b18-c6ef-64a4-9b79-02d04b6e05ed" testName="Resonance.Tests.OriginalResolutionIntegrationTests.A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy(hit: 1000, energy: 3360)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0004351" startTime="2026-09-21T00:43:32.2476639+08:00" endTime="2026-09-21T00:43:32.2476640+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8cf06bf7-9b18-42d1-abc1-9be5920ff91a" />
+    <UnitTestResult executionId="79fb41ec-65ac-4fcd-8b36-5701d50eb103" testId="80050ead-7119-cc97-2376-d4a7a19c6ed4" testName="Resonance.Tests.OriginalRelicCIntegrationTests.C03_RepeatedActorDoesNotCountTwice_ThirdDistinctActorResetsAndChargesLivingParty" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0351227" startTime="2026-09-21T00:43:32.2192548+08:00" endTime="2026-09-21T00:43:32.2192551+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="79fb41ec-65ac-4fcd-8b36-5701d50eb103" />
+    <UnitTestResult executionId="cbf054ca-26d2-4614-8f53-98ee8b038bd1" testId="654e981c-e57c-eaa4-9858-8f95626ff2b7" testName="Resonance.Tests.OriginalRelicIntegrationTests.A02_EnhancesTheActualLinkedTeamShieldExactlyOnce" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0003383" startTime="2026-09-21T00:43:32.2427836+08:00" endTime="2026-09-21T00:43:32.2427839+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cbf054ca-26d2-4614-8f53-98ee8b038bd1" />
+    <UnitTestResult executionId="382a817d-2b57-480c-8075-061e5928d9d4" testId="b3b39b41-6f5d-83cc-96e9-da369e64d483" testName="Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(supportSlot: 2)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0001724" startTime="2026-09-21T00:43:32.1840588+08:00" endTime="2026-09-21T00:43:32.1840589+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="382a817d-2b57-480c-8075-061e5928d9d4" />
+    <UnitTestResult executionId="92e24ac8-e64f-438e-8381-d99c3fa88a5e" testId="de44be2f-9b77-82ce-6297-3a7db36f66ed" testName="Resonance.Tests.OriginalResolutionIntegrationTests.A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy(hit: 223, energy: 1115)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0004093" startTime="2026-09-21T00:43:32.2481077+08:00" endTime="2026-09-21T00:43:32.2481078+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="92e24ac8-e64f-438e-8381-d99c3fa88a5e" />
+    <UnitTestResult executionId="8bc3ca3f-a3c8-427e-b4c4-00537e6e7ef1" testId="3e844600-06a6-4f73-86a9-c503ec70dbff" testName="Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(supportSlot: 1)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0006062" startTime="2026-09-21T00:43:32.1838426+08:00" endTime="2026-09-21T00:43:32.1838428+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8bc3ca3f-a3c8-427e-b4c4-00537e6e7ef1" />
+    <UnitTestResult executionId="c26b61f4-2122-4340-929f-56d8a9bcf94a" testId="327e1829-ab31-eb44-bcaa-3a83d8f181ae" testName="Resonance.Tests.OriginalRelicCIntegrationTests.RejectedCommandsAndRealNativeAutoAttacks_DoNotAdvanceHarmonyOrRelay" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0586822" startTime="2026-09-21T00:43:32.1698722+08:00" endTime="2026-09-21T00:43:32.1698860+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c26b61f4-2122-4340-929f-56d8a9bcf94a" />
+    <UnitTestResult executionId="f558500e-3ead-4981-a6f4-f7247452e487" testId="e690affb-512a-20cc-5395-94b4dd425410" testName="Resonance.Tests.OriginalResolutionIntegrationTests.A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy(hit: 224, energy: 1120)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0005898" startTime="2026-09-21T00:43:32.2487399+08:00" endTime="2026-09-21T00:43:32.2487403+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f558500e-3ead-4981-a6f4-f7247452e487" />
+    <UnitTestResult executionId="af53441d-d7bb-4af6-8fd0-3cd033236f6c" testId="7e35410e-0a62-f960-940e-731c99cd56f0" testName="Resonance.Tests.OriginalRelicIntegrationTests.B01_B02_UseTheSameNativeHitWithoutSecondDefenseOrCrit(improved: True, ratio: 0.69999999999999996)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0001387" startTime="2026-09-21T00:43:32.2246202+08:00" endTime="2026-09-21T00:43:32.2246203+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="af53441d-d7bb-4af6-8fd0-3cd033236f6c" />
+    <UnitTestResult executionId="ac483b8b-a50d-4818-ba44-8a20ed2d90d2" testId="aedea119-2b92-5ae8-3078-7d69ce59cf41" testName="Resonance.Tests.OriginalResolutionIntegrationTests.A04_ReplacesBaseShock_AndA03UsesComputedMainForceAfterNativeHeal" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0019977" startTime="2026-09-21T00:43:32.2545104+08:00" endTime="2026-09-21T00:43:32.2545106+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ac483b8b-a50d-4818-ba44-8a20ed2d90d2" />
+    <UnitTestResult executionId="27fd8333-61d8-45a7-b399-588908d0df6d" testId="e0cec942-761b-8f44-9b01-e36e9a12adbb" testName="Resonance.Tests.OriginalResolutionIntegrationTests.A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy(hit: 672, energy: 3360)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0004885" startTime="2026-09-21T00:43:32.2471837+08:00" endTime="2026-09-21T00:43:32.2471838+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="27fd8333-61d8-45a7-b399-588908d0df6d" />
+    <UnitTestResult executionId="72188665-5331-49c8-bc60-c993284c0949" testId="89be5fb4-d074-f8d6-1ff1-413eea7a8e36" testName="Resonance.Tests.OriginalResolutionIntegrationTests.ShieldReplacementExpiryAndDotAbsorption_DoNotChargeA01" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0020932" startTime="2026-09-21T00:43:32.2509210+08:00" endTime="2026-09-21T00:43:32.2509212+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="72188665-5331-49c8-bc60-c993284c0949" />
+    <UnitTestResult executionId="3eeb6df2-f517-4706-93b4-206631508f80" testId="7291ffaf-2ad9-de56-bd34-493831616627" testName="Resonance.Tests.OriginalRelicIntegrationTests.B01_B02_UseTheSameNativeHitWithoutSecondDefenseOrCrit(improved: False, ratio: 0.40000000000000002)" computerName="DESKTOP-AKI3LSA" duration="00:00:00.0018156" startTime="2026-09-21T00:43:32.2244313+08:00" endTime="2026-09-21T00:43:32.2244315+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3eeb6df2-f517-4706-93b4-206631508f80" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Resonance.Tests.OriginalRelicIntegrationTests.A02_EnhancesTheActualLinkedTeamShieldExactlyOnce" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="654e981c-e57c-eaa4-9858-8f95626ff2b7">
+      <Execution id="cbf054ca-26d2-4614-8f53-98ee8b038bd1" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalRelicIntegrationTests" name="A02_EnhancesTheActualLinkedTeamShieldExactlyOnce" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalResolutionIntegrationTests.NativeOverkillAndFullHealthHealing_DoNotInflateEffectiveContribution" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="9e8d0118-7d78-a041-37dd-16acbfabd4bb">
+      <Execution id="03011161-87d5-4c6a-af40-460f7fa5df09" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalResolutionIntegrationTests" name="NativeOverkillAndFullHealthHealing_DoNotInflateEffectiveContribution" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(supportSlot: 1)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="3e844600-06a6-4f73-86a9-c503ec70dbff">
+      <Execution id="8bc3ca3f-a3c8-427e-b4c4-00537e6e7ef1" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalRelicCIntegrationTests" name="C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalRelicCIntegrationTests.C04_AddsToExistingChannelBonus_AndAppliesToEveryHitOfOneNativeAction" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="30925193-79ab-30a5-4dce-b954db0447f5">
+      <Execution id="fbef1d13-34ec-4e07-a0ea-c61ba2f75db4" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalRelicCIntegrationTests" name="C04_AddsToExistingChannelBonus_AndAppliesToEveryHitOfOneNativeAction" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalResolutionIntegrationTests.A04_ReplacesBaseShock_AndA03UsesComputedMainForceAfterNativeHeal" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="aedea119-2b92-5ae8-3078-7d69ce59cf41">
+      <Execution id="ac483b8b-a50d-4818-ba44-8a20ed2d90d2" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalResolutionIntegrationTests" name="A04_ReplacesBaseShock_AndA03UsesComputedMainForceAfterNativeHeal" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalResolutionIntegrationTests.A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy(hit: 224, energy: 1120)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="e690affb-512a-20cc-5395-94b4dd425410">
+      <Execution id="f558500e-3ead-4981-a6f4-f7247452e487" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalResolutionIntegrationTests" name="A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalResolutionIntegrationTests.A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy(hit: 449, energy: 2245)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="efec96a0-de11-c4d0-d4c5-e626b2a08e8a">
+      <Execution id="9a101d73-6fb2-4136-8c1a-961018a445e4" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalResolutionIntegrationTests" name="A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalRelicCIntegrationTests.C03_RepeatedActorDoesNotCountTwice_ThirdDistinctActorResetsAndChargesLivingParty" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="80050ead-7119-cc97-2376-d4a7a19c6ed4">
+      <Execution id="79fb41ec-65ac-4fcd-8b36-5701d50eb103" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalRelicCIntegrationTests" name="C03_RepeatedActorDoesNotCountTwice_ThirdDistinctActorResetsAndChargesLivingParty" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalRelicCIntegrationTests.RejectedCommandsAndRealNativeAutoAttacks_DoNotAdvanceHarmonyOrRelay" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="327e1829-ab31-eb44-bcaa-3a83d8f181ae">
+      <Execution id="c26b61f4-2122-4340-929f-56d8a9bcf94a" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalRelicCIntegrationTests" name="RejectedCommandsAndRealNativeAutoAttacks_DoNotAdvanceHarmonyOrRelay" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalResolutionIntegrationTests.A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy(hit: 672, energy: 3360)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="e0cec942-761b-8f44-9b01-e36e9a12adbb">
+      <Execution id="27fd8333-61d8-45a7-b399-588908d0df6d" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalResolutionIntegrationTests" name="A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalResolutionIntegrationTests.A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy(hit: 1000, energy: 3360)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="4ef97b18-c6ef-64a4-9b79-02d04b6e05ed">
+      <Execution id="8cf06bf7-9b18-42d1-abc1-9be5920ff91a" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalResolutionIntegrationTests" name="A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalRelicCIntegrationTests.C04_DamageThatFormsHarmony_IsNotBoostedByTheForteItCreates" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="f18c005b-0a3d-910e-cf2a-0acb2f5b0caf">
+      <Execution id="8e7892a6-6ffd-478b-b50f-57d0164c8fa2" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalRelicCIntegrationTests" name="C04_DamageThatFormsHarmony_IsNotBoostedByTheForteItCreates" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalRelicIntegrationTests.B01_B02_UseTheSameNativeHitWithoutSecondDefenseOrCrit(improved: False, ratio: 0.40000000000000002)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="7291ffaf-2ad9-de56-bd34-493831616627">
+      <Execution id="3eeb6df2-f517-4706-93b4-206631508f80" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalRelicIntegrationTests" name="B01_B02_UseTheSameNativeHitWithoutSecondDefenseOrCrit" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalRelicCIntegrationTests.C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes(supportSlot: 2)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="b3b39b41-6f5d-83cc-96e9-da369e64d483">
+      <Execution id="382a817d-2b57-480c-8075-061e5928d9d4" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalRelicCIntegrationTests" name="C04_SupportSkillDoesNotConsumeForte_TheNextDamageActionDoes" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalRelicIntegrationTests.B01_B02_UseTheSameNativeHitWithoutSecondDefenseOrCrit(improved: True, ratio: 0.69999999999999996)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="7e35410e-0a62-f960-940e-731c99cd56f0">
+      <Execution id="af53441d-d7bb-4af6-8fd0-3cd033236f6c" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalRelicIntegrationTests" name="B01_B02_UseTheSameNativeHitWithoutSecondDefenseOrCrit" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalRelicIntegrationTests.C01_C02_AdvanceTheNextEligibleAllyWithoutAutoCasting(improved: True, bonus: 20)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="9d02222e-1a8c-a77c-93c0-17fc24267a5f">
+      <Execution id="c779fda2-606a-491b-ac5d-1866de64d8eb" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalRelicIntegrationTests" name="C01_C02_AdvanceTheNextEligibleAllyWithoutAutoCasting" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalRelicIntegrationTests.C01_C02_AdvanceTheNextEligibleAllyWithoutAutoCasting(improved: False, bonus: 12)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="b539be05-d23d-95c9-961e-0a9d7c60646c">
+      <Execution id="fd7ca7f7-32f5-4d30-b405-745b9f4f0508" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalRelicIntegrationTests" name="C01_C02_AdvanceTheNextEligibleAllyWithoutAutoCasting" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalResolutionIntegrationTests.ShieldReplacementExpiryAndDotAbsorption_DoNotChargeA01" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="89be5fb4-d074-f8d6-1ff1-413eea7a8e36">
+      <Execution id="72188665-5331-49c8-bc60-c993284c0949" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalResolutionIntegrationTests" name="ShieldReplacementExpiryAndDotAbsorption_DoNotChargeA01" />
+    </UnitTest>
+    <UnitTest name="Resonance.Tests.OriginalResolutionIntegrationTests.A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy(hit: 223, energy: 1115)" storage="f:\天命之子\tools\battlesim.tests\bin\debug\net6.0\battlesim.tests.dll" id="de44be2f-9b77-82ce-6297-3a7db36f66ed">
+      <Execution id="92e24ac8-e64f-438e-8381-d99c3fa88a5e" />
+      <TestMethod codeBase="F:\天命之子\tools\BattleSim.Tests\bin\Debug\net6.0\BattleSim.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Resonance.Tests.OriginalResolutionIntegrationTests" name="A01_FullyAbsorbedNativeGroupHit_RecordsEveryTargetAndCapsEnergy" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="30925193-79ab-30a5-4dce-b954db0447f5" executionId="fbef1d13-34ec-4e07-a0ea-c61ba2f75db4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="efec96a0-de11-c4d0-d4c5-e626b2a08e8a" executionId="9a101d73-6fb2-4136-8c1a-961018a445e4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f18c005b-0a3d-910e-cf2a-0acb2f5b0caf" executionId="8e7892a6-6ffd-478b-b50f-57d0164c8fa2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b539be05-d23d-95c9-961e-0a9d7c60646c" executionId="fd7ca7f7-32f5-4d30-b405-745b9f4f0508" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9d02222e-1a8c-a77c-93c0-17fc24267a5f" executionId="c779fda2-606a-491b-ac5d-1866de64d8eb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9e8d0118-7d78-a041-37dd-16acbfabd4bb" executionId="03011161-87d5-4c6a-af40-460f7fa5df09" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4ef97b18-c6ef-64a4-9b79-02d04b6e05ed" executionId="8cf06bf7-9b18-42d1-abc1-9be5920ff91a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="80050ead-7119-cc97-2376-d4a7a19c6ed4" executionId="79fb41ec-65ac-4fcd-8b36-5701d50eb103" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="654e981c-e57c-eaa4-9858-8f95626ff2b7" executionId="cbf054ca-26d2-4614-8f53-98ee8b038bd1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b3b39b41-6f5d-83cc-96e9-da369e64d483" executionId="382a817d-2b57-480c-8075-061e5928d9d4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="de44be2f-9b77-82ce-6297-3a7db36f66ed" executionId="92e24ac8-e64f-438e-8381-d99c3fa88a5e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3e844600-06a6-4f73-86a9-c503ec70dbff" executionId="8bc3ca3f-a3c8-427e-b4c4-00537e6e7ef1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="327e1829-ab31-eb44-bcaa-3a83d8f181ae" executionId="c26b61f4-2122-4340-929f-56d8a9bcf94a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e690affb-512a-20cc-5395-94b4dd425410" executionId="f558500e-3ead-4981-a6f4-f7247452e487" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7e35410e-0a62-f960-940e-731c99cd56f0" executionId="af53441d-d7bb-4af6-8fd0-3cd033236f6c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="aedea119-2b92-5ae8-3078-7d69ce59cf41" executionId="ac483b8b-a50d-4818-ba44-8a20ed2d90d2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e0cec942-761b-8f44-9b01-e36e9a12adbb" executionId="27fd8333-61d8-45a7-b399-588908d0df6d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="89be5fb4-d074-f8d6-1ff1-413eea7a8e36" executionId="72188665-5331-49c8-bc60-c993284c0949" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7291ffaf-2ad9-de56-bd34-493831616627" executionId="3eeb6df2-f517-4706-93b4-206631508f80" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="19" executed="19" passed="19" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 6.0.33)&#xD;
+[xUnit.net 00:00:00.08]   Discovering: BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.15]   Discovered:  BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.15]   Starting:    BattleSim.Tests&#xD;
+[xUnit.net 00:00:00.34]   Finished:    BattleSim.Tests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>
