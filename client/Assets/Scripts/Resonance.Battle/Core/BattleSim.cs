@@ -877,8 +877,19 @@ namespace Resonance.Battle
             if (!ally && OriginalEncounter != null && u != null && OriginalEncounter.OwnsEnemySlot(u.Slot)) return;
             if (u == null || u.Def == null || !u.Alive) return;
             if (u.ActionLocked) return;
-            var chargePerSec = (100f / Math.Max(0.01f, u.Def.ChargeTimeSec)) * u.ChargeSpeedMul;
-            u.Charge += chargePerSec * chargeDt;
+            if (IsOriginalExpedition)
+            {
+                // Explicit intermediate precision: Mono and .NET otherwise round float multiply-add
+                // at different points. Round once when storing each tick, with no replay tolerance.
+                double rate = 100d / Math.Max(0.01f, u.Def.ChargeTimeSec);
+                double delta = rate * (double)u.ChargeSpeedMul * (double)chargeDt;
+                u.Charge = (float)((double)u.Charge + delta);
+            }
+            else
+            {
+                var chargePerSec = (100f / Math.Max(0.01f, u.Def.ChargeTimeSec)) * u.ChargeSpeedMul;
+                u.Charge += chargePerSec * chargeDt;
+            }
             if (u.Charge > 100f) u.Charge = 100f;
 
             u.AutoTimer += autoDt;

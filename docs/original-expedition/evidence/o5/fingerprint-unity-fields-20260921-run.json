@@ -1,0 +1,23 @@
+{
+  "started": "2026-09-21T04:46:35.0934217Z",
+  "finished": "2026-09-21T04:46:47.7794857Z",
+  "exitCode": 0,
+  "mode": "tests",
+  "name": "fingerprint-unity-fields-20260921",
+  "arguments": [
+    "-batchmode",
+    "-projectPath",
+    "\"F:\\Resonance\\client\"",
+    "-giCustomCacheLocation",
+    "\"F:\\Resonance\\client\\Temp\\GICache-Original\"",
+    "-logFile",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\fingerprint-unity-fields-20260921.log\"",
+    "-runTests",
+    "-testPlatform",
+    "EditMode",
+    "-testFilter",
+    "Resonance.EditorTests.OriginalReplayPortabilityTests",
+    "-testResults",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\fingerprint-unity-fields-20260921.xml\""
+  ]
+}

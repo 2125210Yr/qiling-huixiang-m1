@@ -1,0 +1,26 @@
+{
+  "tool": "original-expedition-replay-verifier-v1",
+  "status": "MISMATCH",
+  "match": false,
+  "file": "F:\\\u5929\u547D\u4E4B\u5B50\\docs\\original-expedition\\evidence\\o5\\player-e04e49e9-n1.original-replay.json",
+  "fileSha256": "c6a6c19034c808a0ad2cff5e1975960ff09bdecb33472ddad5853920a8d8bfee",
+  "verifierContentHash": "5be148f01a9107e6c6d149cf95798e5e57d810832b071f0e237268398e7506f6",
+  "schemaVersion": 1,
+  "format": "original-expedition-replay-v1",
+  "modeId": "original-expedition",
+  "rulesetId": "original-expedition-v01",
+  "contentVersion": "original-expedition-content-v0.1.0",
+  "contentHash": "5be148f01a9107e6c6d149cf95798e5e57d810832b071f0e237268398e7506f6",
+  "runId": "ec3b80865dfb4cd48948212683669d50",
+  "encounterId": "ec3b80865dfb4cd48948212683669d50/N1/1",
+  "attemptId": "98fb1a7f68ee43ddbce33be1b1fb2205",
+  "battleOrdinal": 1,
+  "inputHash": "98f9fe1facbbd17cf2c2e7a4b8af429b366e1a8202f816c540793f73cb9aa0f5",
+  "endTick": 670,
+  "replayedOutcome": "Victory",
+  "replayedEndTick": 670,
+  "replayedEventHash": "f9e0346ff3a6850b1fd95fde91fc1126f2da2df4fdcbe426626de226bbcf13a3",
+  "differences": [
+    "FinalState mismatch."
+  ]
+}

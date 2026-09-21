@@ -1,0 +1,82 @@
+{
+  "checkedAt": "2026-09-21T04:51:12.5844160Z",
+  "scope": "Controlled family boss fixtures, not ordinary Player play",
+  "cliSha256": "8DD4971F1EF08A421E436559386AF1F653FADD5B9ED0610D622FD8703B6B3D1E",
+  "unityVersion": "6000.3.23f1",
+  "replayFormat": "original-expedition-replay-v2",
+  "contentVersion": "original-expedition-content-v0.1.1",
+  "results": [
+    {
+      "producer": "unity",
+      "family": "a",
+      "exitCode": 0,
+      "status": "MATCH",
+      "tape": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\family-tapes-v2-unity-final\\fixture-a-boss.original-replay.json",
+      "fileSha256": "9e85f609e4ebb7258d77af367d854ea5b62a90d911e95f6bfa28046fd58d797c",
+      "contentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd",
+      "endTick": 1141,
+      "eventHash": "d883c1c0effcbd54aaba027772c3b0ee1a3e99c832b27da7143fe4ac8becdfdb",
+      "report": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\replay-v2-unity-a-cli-final.json"
+    },
+    {
+      "producer": "unity",
+      "family": "b",
+      "exitCode": 0,
+      "status": "MATCH",
+      "tape": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\family-tapes-v2-unity-final\\fixture-b-boss.original-replay.json",
+      "fileSha256": "0b7d96f44512db7189576970b14cc54f0bb02d7264df863368f3977a7a5de3a5",
+      "contentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd",
+      "endTick": 1675,
+      "eventHash": "c73fb8fa480a79a5001f888b2208d62e068f737fd4a6e29242d11f1ae9ef4914",
+      "report": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\replay-v2-unity-b-cli-final.json"
+    },
+    {
+      "producer": "unity",
+      "family": "c",
+      "exitCode": 0,
+      "status": "MATCH",
+      "tape": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\family-tapes-v2-unity-final\\fixture-c-boss.original-replay.json",
+      "fileSha256": "a08ad86b24212616eac114afed8685e042e760df03ffcb2259ea0668e2fb2f13",
+      "contentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd",
+      "endTick": 1899,
+      "eventHash": "c0f107ee459d51360ffb127331a80af87ba98db9878a9d5ecb75f334d4ffcc13",
+      "report": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\replay-v2-unity-c-cli-final.json"
+    },
+    {
+      "producer": "net6",
+      "family": "a",
+      "exitCode": 0,
+      "status": "MATCH",
+      "tape": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\family-tapes-v2-net6-final\\fixture-a-boss.original-replay.json",
+      "fileSha256": "5f05a72307858aeba42d41827588390a656590cf70f2c00ea015f850adaf0050",
+      "contentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd",
+      "endTick": 1141,
+      "eventHash": "d883c1c0effcbd54aaba027772c3b0ee1a3e99c832b27da7143fe4ac8becdfdb",
+      "report": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\replay-v2-net6-a-cli-final.json"
+    },
+    {
+      "producer": "net6",
+      "family": "b",
+      "exitCode": 0,
+      "status": "MATCH",
+      "tape": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\family-tapes-v2-net6-final\\fixture-b-boss.original-replay.json",
+      "fileSha256": "0fc5887e957e1e2081565eb73ca4dbab43541754bffeac96a22edb3af9213ade",
+      "contentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd",
+      "endTick": 1675,
+      "eventHash": "c73fb8fa480a79a5001f888b2208d62e068f737fd4a6e29242d11f1ae9ef4914",
+      "report": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\replay-v2-net6-b-cli-final.json"
+    },
+    {
+      "producer": "net6",
+      "family": "c",
+      "exitCode": 0,
+      "status": "MATCH",
+      "tape": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\family-tapes-v2-net6-final\\fixture-c-boss.original-replay.json",
+      "fileSha256": "c45036eeff11ac6d158e44f1696f3f2a38f8c94f5b2c384fab4cae9ececfae54",
+      "contentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd",
+      "endTick": 1899,
+      "eventHash": "c0f107ee459d51360ffb127331a80af87ba98db9878a9d5ecb75f334d4ffcc13",
+      "report": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\replay-v2-net6-c-cli-final.json"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Text.Json;
+class Program {
+ static void Main() {
+  var c=CultureInfo.InvariantCulture;
+  var singles=new List<object>(); var doubles=new List<object>();
+  foreach(var f in new[]{1f/3f,1.001953125f,1048576.125f,float.MaxValue,float.MinValue,float.Epsilon,-0f,1.63333309f,0.000000123456789f}) {
+   var low=f.ToString("G7",c); var high=f.ToString("G9",c); bool roundtrip=float.TryParse(low,NumberStyles.Float,c,out var p)&&p==f;
+   singles.Add(new {bits=BitConverter.SingleToInt32Bits(f).ToString("x8"),r=f.ToString("R",c),low,high,chosen=f==0?"0":roundtrip?low:high});
+  }
+  foreach(var d in new[]{1d/3d,1.0000000000000002d,double.MaxValue,double.MinValue,double.Epsilon,-0d}) {
+   var low=d.ToString("G15",c); var high=d.ToString("G17",c); bool roundtrip=double.TryParse(low,NumberStyles.Float,c,out var p)&&p==d;
+   doubles.Add(new {bits=BitConverter.DoubleToInt64Bits(d).ToString("x16"),r=d.ToString("R",c),low,high,chosen=d==0?"0":roundtrip?low:high});
+  }
+  Console.WriteLine(JsonSerializer.Serialize(new{runtime=Environment.Version.ToString(),singles,doubles},new JsonSerializerOptions{WriteIndented=true}));
+ }
+}

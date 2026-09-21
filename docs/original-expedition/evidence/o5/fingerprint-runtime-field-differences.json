@@ -1,0 +1,20 @@
+[
+  {
+    "family": "b",
+    "path": "Allies[1].Charge",
+    "unity": "4287da09",
+    "net6": "4287da0b"
+  },
+  {
+    "family": "c",
+    "path": "Allies[1].Charge",
+    "unity": "4178e387",
+    "net6": "4178e396"
+  },
+  {
+    "family": "c",
+    "path": "Allies[4].Charge",
+    "unity": "3fa00001",
+    "net6": "3fa00000"
+  }
+]

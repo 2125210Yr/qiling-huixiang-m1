@@ -1,0 +1,26 @@
+{
+  "tool": "original-expedition-replay-verifier-v2",
+  "status": "MISMATCH",
+  "match": false,
+  "file": "F:\\\u5929\u547D\u4E4B\u5B50\\docs\\original-expedition\\evidence\\o5\\family-tapes-v2-unity\\fixture-c-boss.original-replay.json",
+  "fileSha256": "e87b18b0118d032e90bff94a89f6802d1132a7a7ec103a1224e3c431d9b5f708",
+  "verifierContentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd",
+  "schemaVersion": 2,
+  "format": "original-expedition-replay-v2",
+  "modeId": "original-expedition",
+  "rulesetId": "original-expedition-v01",
+  "contentVersion": "original-expedition-content-v0.1.1",
+  "contentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd",
+  "runId": "unity-family-replay-fixture-C",
+  "encounterId": "unity-family-replay-fixture-C/N7/5",
+  "attemptId": "unity-family-C-attempt-1",
+  "battleOrdinal": 5,
+  "inputHash": "c79df858f665ae09e4643e13c30c074d36fa4d054b0a961b9afd080d996cbbde",
+  "endTick": 1899,
+  "replayedOutcome": "Victory",
+  "replayedEndTick": 1899,
+  "replayedEventHash": "c0f107ee459d51360ffb127331a80af87ba98db9878a9d5ecb75f334d4ffcc13",
+  "differences": [
+    "FinalState mismatch."
+  ]
+}

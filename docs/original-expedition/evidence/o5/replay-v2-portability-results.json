@@ -1,0 +1,85 @@
+{
+  "checkedAt": "2026-09-21T04:43:18.7726158Z",
+  "scope": "Controlled full family boss fixtures, not ordinary Player play",
+  "cliSha256": "F19E7E0E92BDF142760FCA76FFFFC2B8C05381D1C118224A48E11B001F30CAC4",
+  "newReplayFormat": "original-expedition-replay-v2",
+  "newContentVersion": "original-expedition-content-v0.1.1",
+  "results": [
+    {
+      "producer": "unity",
+      "family": "a",
+      "exitCode": 0,
+      "status": "MATCH",
+      "sourceTape": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\family-tapes-v2-unity\\fixture-a-boss.original-replay.json",
+      "fileSha256": "9e85f609e4ebb7258d77af367d854ea5b62a90d911e95f6bfa28046fd58d797c",
+      "contentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd",
+      "endTick": 1141,
+      "report": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\replay-v2-unity-a-cli.json"
+    },
+    {
+      "producer": "unity",
+      "family": "b",
+      "exitCode": 1,
+      "status": "MISMATCH",
+      "sourceTape": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\family-tapes-v2-unity\\fixture-b-boss.original-replay.json",
+      "fileSha256": "7772aeeb92de2a5ad02e2b86d222c59be2050284bd8b429e776c7ce8e05906c7",
+      "contentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd",
+      "endTick": 1675,
+      "report": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\replay-v2-unity-b-cli.json"
+    },
+    {
+      "producer": "unity",
+      "family": "c",
+      "exitCode": 1,
+      "status": "MISMATCH",
+      "sourceTape": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\family-tapes-v2-unity\\fixture-c-boss.original-replay.json",
+      "fileSha256": "e87b18b0118d032e90bff94a89f6802d1132a7a7ec103a1224e3c431d9b5f708",
+      "contentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd",
+      "endTick": 1899,
+      "report": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\replay-v2-unity-c-cli.json"
+    },
+    {
+      "producer": "net6",
+      "family": "a",
+      "exitCode": 0,
+      "status": "MATCH",
+      "sourceTape": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\family-tapes-v2-net6\\fixture-a-boss.original-replay.json",
+      "fileSha256": "5f05a72307858aeba42d41827588390a656590cf70f2c00ea015f850adaf0050",
+      "contentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd",
+      "endTick": 1141,
+      "report": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\replay-v2-net6-a-cli.json"
+    },
+    {
+      "producer": "net6",
+      "family": "b",
+      "exitCode": 0,
+      "status": "MATCH",
+      "sourceTape": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\family-tapes-v2-net6\\fixture-b-boss.original-replay.json",
+      "fileSha256": "0fc5887e957e1e2081565eb73ca4dbab43541754bffeac96a22edb3af9213ade",
+      "contentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd",
+      "endTick": 1675,
+      "report": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\replay-v2-net6-b-cli.json"
+    },
+    {
+      "producer": "net6",
+      "family": "c",
+      "exitCode": 0,
+      "status": "MATCH",
+      "sourceTape": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\family-tapes-v2-net6\\fixture-c-boss.original-replay.json",
+      "fileSha256": "a926ac27cdd074c7759e6a6d2e5b06094586fde8cd3e69a8b72d108a41b68183",
+      "contentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd",
+      "endTick": 1899,
+      "report": "F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\replay-v2-net6-c-cli.json"
+    }
+  ],
+  "legacyV1": {
+    "status": "REJECTED",
+    "previousUnitySelfVerification": "MATCH",
+    "exitCode": 1,
+    "reason": [
+      "Original replay rejected: ArgumentException: Unsupported original replay format or schema version."
+    ],
+    "sourceUnchanged": true,
+    "previousNet6Verification": "MISMATCH"
+  }
+}

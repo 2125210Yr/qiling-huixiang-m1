@@ -82,8 +82,8 @@ namespace Resonance.Battle
 
     public sealed class OriginalBattleRecord
     {
-        public int SchemaVersion = 1;
-        public string Format = "original-expedition-replay-v1";
+        public int SchemaVersion = 2;
+        public string Format = "original-expedition-replay-v2";
         public ExpeditionBattleInput Input;
         public string InputHash;
         /// <summary>Independent clock input, never recovered from expected final state.</summary>
@@ -162,7 +162,7 @@ namespace Resonance.Battle
         static void Validate(OriginalBattleRecord record)
         {
             if (record == null) throw new ArgumentNullException(nameof(record));
-            if (record.SchemaVersion != 1 || record.Format != "original-expedition-replay-v1")
+            if (record.SchemaVersion != 2 || record.Format != "original-expedition-replay-v2")
                 throw new ArgumentException("Unsupported original replay format or schema version.");
             RunBattleFactory.Validate(record.Input);
             if (string.IsNullOrEmpty(record.InputHash) || record.InputHash != ExpeditionContent.Fingerprint(record.Input))

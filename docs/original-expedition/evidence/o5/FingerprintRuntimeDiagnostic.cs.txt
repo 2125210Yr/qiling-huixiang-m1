@@ -1,0 +1,42 @@
+using System;
+using System.Globalization;
+using System.IO;
+using UnityEditor;
+using UnityEngine;
+
+namespace Resonance.EditorTools
+{
+    public static class FingerprintRuntimeDiagnostic
+    {
+        [Serializable] class Row { public string bits, r, low, high, chosen; }
+        [Serializable] class Report { public string runtime; public Row[] singles, doubles; }
+        public static void RunAndExit()
+        {
+            try
+            {
+                var c = CultureInfo.InvariantCulture;
+                var floats = new[] { 1f / 3f, 1.001953125f, 1048576.125f, float.MaxValue, float.MinValue, float.Epsilon, -0f, 1.63333309f, 0.000000123456789f };
+                var doubles = new[] { 1d / 3d, 1.0000000000000002d, double.MaxValue, double.MinValue, double.Epsilon, -0d };
+                var report = new Report { runtime = "Unity " + Application.unityVersion + "; " + Environment.Version,
+                    singles = new Row[floats.Length], doubles = new Row[doubles.Length] };
+                for (int i=0;i<floats.Length;i++)
+                {
+                    var f=floats[i]; var low=f.ToString("G7",c); var high=f.ToString("G9",c);
+                    bool roundtrip=float.TryParse(low, NumberStyles.Float,c,out var parsed) && parsed==f;
+                    report.singles[i]=new Row { bits=BitConverter.ToInt32(BitConverter.GetBytes(f),0).ToString("x8"),r=f.ToString("R",c),low=low,high=high,chosen=f==0?"0":roundtrip?low:high };
+                }
+                for (int i=0;i<doubles.Length;i++)
+                {
+                    var d=doubles[i]; var low=d.ToString("G15",c); var high=d.ToString("G17",c);
+                    bool roundtrip=double.TryParse(low, NumberStyles.Float,c,out var parsed) && parsed==d;
+                    report.doubles[i]=new Row { bits=BitConverter.DoubleToInt64Bits(d).ToString("x16"),r=d.ToString("R",c),low=low,high=high,chosen=d==0?"0":roundtrip?low:high };
+                }
+                var path="F:/天命之子/docs/original-expedition/evidence/o5/fingerprint-unity-numbers.json";
+                if(File.Exists(path)) throw new IOException("Diagnostic output exists");
+                File.WriteAllText(path,JsonUtility.ToJson(report,true));
+                EditorApplication.Exit(0);
+            }
+            catch(Exception error) { Debug.LogException(error); EditorApplication.Exit(1); }
+        }
+    }
+}

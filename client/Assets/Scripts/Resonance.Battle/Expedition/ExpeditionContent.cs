@@ -45,7 +45,7 @@ namespace Resonance.Battle
     /// </summary>
     public static class ExpeditionContent
     {
-        public const string Version = "original-expedition-content-v0.1.0";
+        public const string Version = "original-expedition-content-v0.1.1";
         public const string RulesetId = "original-expedition-v01";
         public const string ChapterId = "silent-theatre";
         public const string ChapterName = "失声剧院";
@@ -263,7 +263,7 @@ namespace Resonance.Battle
                 FormulaProfile.JP_LEGACY_EMPIRICAL, false, false });
         }
 
-        /// <summary>Stable invariant SHA-256 over public-field content DTOs, including nested arrays and numbers.</summary>
+        /// <summary>Invariant SHA-256 over public-field DTOs; floating-point numbers use their exact IEEE bit patterns.</summary>
         public static string Fingerprint(object value)
         {
             var builder = new StringBuilder();
@@ -283,8 +283,10 @@ namespace Resonance.Battle
             if (value is string text) { output.Append('s').Append(text.Length).Append(':').Append(text); return; }
             var type = value.GetType();
             if (type.IsEnum) { output.Append('e').Append(type.Name).Append(':').Append(Convert.ToInt64(value, CultureInfo.InvariantCulture)).Append(';'); return; }
-            if (value is float f) { output.Append('f').Append(f.ToString("R", CultureInfo.InvariantCulture)).Append(';'); return; }
-            if (value is double d) { output.Append('d').Append(d.ToString("R", CultureInfo.InvariantCulture)).Append(';'); return; }
+            // Mono and .NET disagree on both round-trip decimal formatting and midpoint rounding.
+            // Integer bit patterns avoid formatter and byte-order differences, without a tolerance.
+            if (value is float f) { output.Append('f').Append(BitConverter.SingleToInt32Bits(f).ToString("x8", CultureInfo.InvariantCulture)).Append(';'); return; }
+            if (value is double d) { output.Append('d').Append(BitConverter.DoubleToInt64Bits(d).ToString("x16", CultureInfo.InvariantCulture)).Append(';'); return; }
             if (type.IsPrimitive) { output.Append(type.Name).Append(':').Append(Convert.ToString(value, CultureInfo.InvariantCulture)).Append(';'); return; }
             if (value is IEnumerable sequence)
             {

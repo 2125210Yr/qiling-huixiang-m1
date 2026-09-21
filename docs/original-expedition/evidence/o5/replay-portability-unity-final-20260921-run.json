@@ -1,0 +1,23 @@
+{
+  "started": "2026-09-21T04:50:11.7243866Z",
+  "finished": "2026-09-21T04:50:27.3952670Z",
+  "exitCode": 0,
+  "mode": "tests",
+  "name": "replay-portability-unity-final-20260921",
+  "arguments": [
+    "-batchmode",
+    "-projectPath",
+    "\"F:\\Resonance\\client\"",
+    "-giCustomCacheLocation",
+    "\"F:\\Resonance\\client\\Temp\\GICache-Original\"",
+    "-logFile",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\replay-portability-unity-final-20260921.log\"",
+    "-runTests",
+    "-testPlatform",
+    "EditMode",
+    "-testFilter",
+    "Resonance.EditorTests",
+    "-testResults",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\replay-portability-unity-final-20260921.xml\""
+  ]
+}

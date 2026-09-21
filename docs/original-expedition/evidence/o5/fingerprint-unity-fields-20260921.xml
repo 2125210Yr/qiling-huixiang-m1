@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="3" result="Passed" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-21 04:46:43Z" end-time="2026-09-21 04:46:44Z" duration="1.0768946">
+  <test-suite type="TestSuite" id="1000" name="契灵回响" fullname="契灵回响" runstate="Runnable" testcasecount="90" result="Passed" start-time="2026-09-21 04:46:43Z" end-time="2026-09-21 04:46:44Z" duration="1.076895" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1115" name="Resonance.EditorTests.dll" fullname="F:/Resonance/client/Library/ScriptAssemblies/Resonance.EditorTests.dll" runstate="Runnable" testcasecount="90" result="Passed" start-time="2026-09-21 04:46:43Z" end-time="2026-09-21 04:46:44Z" duration="1.070245" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="32132" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1116" name="Resonance" fullname="Resonance" runstate="Runnable" testcasecount="90" result="Passed" start-time="2026-09-21 04:46:43Z" end-time="2026-09-21 04:46:44Z" duration="1.068765" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1117" name="EditorTests" fullname="Resonance.EditorTests" runstate="Runnable" testcasecount="90" result="Passed" start-time="2026-09-21 04:46:43Z" end-time="2026-09-21 04:46:44Z" duration="1.067454" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1110" name="OriginalReplayPortabilityTests" fullname="Resonance.EditorTests.OriginalReplayPortabilityTests" classname="Resonance.EditorTests.OriginalReplayPortabilityTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-09-21 04:46:43Z" end-time="2026-09-21 04:46:44Z" duration="1.065933" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="ParameterizedMethod" id="1114" name="CompleteFamilyBossVictory_RoundTripsAndExportsUnityTapeWhenRequested" fullname="Resonance.EditorTests.OriginalReplayPortabilityTests.CompleteFamilyBossVictory_RoundTripsAndExportsUnityTapeWhenRequested" classname="Resonance.EditorTests.OriginalReplayPortabilityTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-09-21 04:46:43Z" end-time="2026-09-21 04:46:44Z" duration="1.062866" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1111" name="CompleteFamilyBossVictory_RoundTripsAndExportsUnityTapeWhenRequested(&quot;A&quot;)" fullname="Resonance.EditorTests.OriginalReplayPortabilityTests.CompleteFamilyBossVictory_RoundTripsAndExportsUnityTapeWhenRequested(&quot;A&quot;)" methodname="CompleteFamilyBossVictory_RoundTripsAndExportsUnityTapeWhenRequested" classname="Resonance.EditorTests.OriginalReplayPortabilityTests" runstate="Runnable" seed="1199475258" result="Passed" start-time="2026-09-21 04:46:43Z" end-time="2026-09-21 04:46:43Z" duration="0.395857" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[scope=Unity-controlled-logic-fixture-not-ordinary-play-or-UI-video; unity=6000.3.23f1; family=A; outcome=Victory; endTick=1141; seed=260921; relics=A01,A02,A03,A04; contentVersion=original-expedition-content-v0.1.1; contentHash=69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd; inputHash=ffad11b202c6381747932edb0af4e9ef0f8248357ee9dbcb940e81cf76d7991a; eventHash=d883c1c0effcbd54aaba027772c3b0ee1a3e99c832b27da7143fe4ac8becdfdb; resolutionHash=77b5de4c0465316d6102999bb989bc1fdcddb4861134f7b47d20356142a772e8; harmonyEvents=0; forteConsumptions=0
+scope=Unity-controlled-logic-fixture-not-ordinary-play-or-UI-video; artifact=F:\天命之子\docs\original-expedition\evidence\o5\family-tapes-v2-unity-diagnostic\fixture-a-boss.original-replay.json; bytes=177004; sha256=9e85f609e4ebb7258d77af367d854ea5b62a90d911e95f6bfa28046fd58d797c
+scope=Unity-controlled-logic-fixture-not-ordinary-play-or-UI-video; artifact=F:\天命之子\docs\original-expedition\evidence\o5\family-tapes-v2-unity-diagnostic\fixture-a-state-bits.json; bytes=42371; sha256=2ec4b4a2588068d7fa68aa3bcae72a3a220f9407188f7c80eb948fcde08952ee
+]]></output>
+              </test-case>
+              <test-case id="1112" name="CompleteFamilyBossVictory_RoundTripsAndExportsUnityTapeWhenRequested(&quot;B&quot;)" fullname="Resonance.EditorTests.OriginalReplayPortabilityTests.CompleteFamilyBossVictory_RoundTripsAndExportsUnityTapeWhenRequested(&quot;B&quot;)" methodname="CompleteFamilyBossVictory_RoundTripsAndExportsUnityTapeWhenRequested" classname="Resonance.EditorTests.OriginalReplayPortabilityTests" runstate="Runnable" seed="590861297" result="Passed" start-time="2026-09-21 04:46:43Z" end-time="2026-09-21 04:46:44Z" duration="0.325479" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[scope=Unity-controlled-logic-fixture-not-ordinary-play-or-UI-video; unity=6000.3.23f1; family=B; outcome=Victory; endTick=1675; seed=260921; relics=B01,B02,B03,B04,C01; contentVersion=original-expedition-content-v0.1.1; contentHash=69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd; inputHash=d96ad9fc076aa33946e9fb61c580bc7bfca9f3c52b8acc68d69176d65837ec2a; eventHash=c73fb8fa480a79a5001f888b2208d62e068f737fd4a6e29242d11f1ae9ef4914; resolutionHash=7adb0dd4e29f8877268156ce7a1853e08efd6d9178dc3d95480dcd09299fff61; harmonyEvents=0; forteConsumptions=0
+scope=Unity-controlled-logic-fixture-not-ordinary-play-or-UI-video; artifact=F:\天命之子\docs\original-expedition\evidence\o5\family-tapes-v2-unity-diagnostic\fixture-b-boss.original-replay.json; bytes=290834; sha256=7772aeeb92de2a5ad02e2b86d222c59be2050284bd8b429e776c7ce8e05906c7
+scope=Unity-controlled-logic-fixture-not-ordinary-play-or-UI-video; artifact=F:\天命之子\docs\original-expedition\evidence\o5\family-tapes-v2-unity-diagnostic\fixture-b-state-bits.json; bytes=42374; sha256=e6a8d8a9c7a2ad273190931111c49c3c040cd37871124b412a95b919ba7b7bc2
+]]></output>
+              </test-case>
+              <test-case id="1113" name="CompleteFamilyBossVictory_RoundTripsAndExportsUnityTapeWhenRequested(&quot;C&quot;)" fullname="Resonance.EditorTests.OriginalReplayPortabilityTests.CompleteFamilyBossVictory_RoundTripsAndExportsUnityTapeWhenRequested(&quot;C&quot;)" methodname="CompleteFamilyBossVictory_RoundTripsAndExportsUnityTapeWhenRequested" classname="Resonance.EditorTests.OriginalReplayPortabilityTests" runstate="Runnable" seed="872526213" result="Passed" start-time="2026-09-21 04:46:44Z" end-time="2026-09-21 04:46:44Z" duration="0.333512" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[scope=Unity-controlled-logic-fixture-not-ordinary-play-or-UI-video; unity=6000.3.23f1; family=C; outcome=Victory; endTick=1899; seed=260921; relics=C01,C02,C03,C04; contentVersion=original-expedition-content-v0.1.1; contentHash=69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd; inputHash=c79df858f665ae09e4643e13c30c074d36fa4d054b0a961b9afd080d996cbbde; eventHash=c0f107ee459d51360ffb127331a80af87ba98db9878a9d5ecb75f334d4ffcc13; resolutionHash=d7d96f79d6f37a91eed22cf95907b0f09607d65d02618f2e4407345acca4a734; harmonyEvents=14; forteConsumptions=14
+scope=Unity-controlled-logic-fixture-not-ordinary-play-or-UI-video; artifact=F:\天命之子\docs\original-expedition\evidence\o5\family-tapes-v2-unity-diagnostic\fixture-c-boss.original-replay.json; bytes=275508; sha256=e87b18b0118d032e90bff94a89f6802d1132a7a7ec103a1224e3c431d9b5f708
+scope=Unity-controlled-logic-fixture-not-ordinary-play-or-UI-video; artifact=F:\天命之子\docs\original-expedition\evidence\o5\family-tapes-v2-unity-diagnostic\fixture-c-state-bits.json; bytes=42374; sha256=7b2a6a69e0d3acc20aba2c74b18e91eb5c4d3c9db4460a25246f1e78f92359be
+Saving results to: C:/Users/Administrator/AppData/LocalLow/Resonance/契灵回响\TestResults.xml
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

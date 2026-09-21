@@ -1,0 +1,2402 @@
+[
+  {
+    "path": "Allies[0].Ally",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[0].AutoTimer",
+    "type": "Single",
+    "value": "3f55555a"
+  },
+  {
+    "path": "Allies[0].Charge",
+    "type": "Single",
+    "value": "419c30c4"
+  },
+  {
+    "path": "Allies[0].DeathLogged",
+    "type": "Boolean",
+    "value": "False"
+  },
+  {
+    "path": "Allies[0].Def.Agl",
+    "type": "Int32",
+    "value": "420"
+  },
+  {
+    "path": "Allies[0].Def.Atk",
+    "type": "Int32",
+    "value": "700"
+  },
+  {
+    "path": "Allies[0].Def.AutoSkillId",
+    "type": "String",
+    "value": "OE_POINT_auto"
+  },
+  {
+    "path": "Allies[0].Def.BattleLevel",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[0].Def.ChargeTimeSec",
+    "type": "Single",
+    "value": "40e00000"
+  },
+  {
+    "path": "Allies[0].Def.Crt",
+    "type": "Int32",
+    "value": "250"
+  },
+  {
+    "path": "Allies[0].Def.Def",
+    "type": "Int32",
+    "value": "280"
+  },
+  {
+    "path": "Allies[0].Def.DriveSkillId",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Allies[0].Def.Element",
+    "type": "Element",
+    "value": "Fire"
+  },
+  {
+    "path": "Allies[0].Def.Hp",
+    "type": "Int32",
+    "value": "5200"
+  },
+  {
+    "path": "Allies[0].Def.Id",
+    "type": "String",
+    "value": "OE_POINT"
+  },
+  {
+    "path": "Allies[0].Def.IgnitionMax",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[0].Def.IsBoss",
+    "type": "Boolean",
+    "value": "False"
+  },
+  {
+    "path": "Allies[0].Def.IsEnemy",
+    "type": "Boolean",
+    "value": "False"
+  },
+  {
+    "path": "Allies[0].Def.LeaderSkillId",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Allies[0].Def.MaxStar",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[0].Def.Name",
+    "type": "String",
+    "value": "\u70EC\u7FBD"
+  },
+  {
+    "path": "Allies[0].Def.NativeStar",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[0].Def.Role",
+    "type": "Role",
+    "value": "Attacker"
+  },
+  {
+    "path": "Allies[0].Def.SlideSkillId",
+    "type": "String",
+    "value": "OE_POINT_slide"
+  },
+  {
+    "path": "Allies[0].Def.TapSkillId",
+    "type": "String",
+    "value": "OE_POINT_tap"
+  },
+  {
+    "path": "Allies[0].Def.UncapMax",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[0].ExtraAtk",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[0].Hp",
+    "type": "Int32",
+    "value": "5200"
+  },
+  {
+    "path": "Allies[0].IgnAglAdd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[0].IgnCrtAdd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[0].InstanceGeneration",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[0].MaxHp",
+    "type": "Int32",
+    "value": "5200"
+  },
+  {
+    "path": "Allies[0].ReserveCursor",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[0].SlideCd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[0].Slot",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[0].Status[0].Def.DurationSec",
+    "type": "Single",
+    "value": "41000000"
+  },
+  {
+    "path": "Allies[0].Status[0].Def.Group",
+    "type": "String",
+    "value": "oe.team.shield"
+  },
+  {
+    "path": "Allies[0].Status[0].Def.HasTarget",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[0].Status[0].Def.Id",
+    "type": "String",
+    "value": "OE_TEAM_SHIELD"
+  },
+  {
+    "path": "Allies[0].Status[0].Def.Kind",
+    "type": "EffectKind",
+    "value": "Shield"
+  },
+  {
+    "path": "Allies[0].Status[0].Def.Magnitude",
+    "type": "Single",
+    "value": "3e6147ae"
+  },
+  {
+    "path": "Allies[0].Status[0].Def.MaxStack",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[0].Status[0].Def.Opcode",
+    "type": "String",
+    "value": "shield.apply"
+  },
+  {
+    "path": "Allies[0].Status[0].Def.PeriodSec",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[0].Status[0].Def.Side",
+    "type": "TargetSide",
+    "value": "Ally"
+  },
+  {
+    "path": "Allies[0].Status[0].Def.SourceTier",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[0].Status[0].Def.Target",
+    "type": "TargetRule",
+    "value": "AllAllies"
+  },
+  {
+    "path": "Allies[0].Status[0].Def.Trigger",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Allies[0].Status[0].PeriodAcc",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[0].Status[0].Remaining",
+    "type": "Single",
+    "value": "403dddf2"
+  },
+  {
+    "path": "Allies[0].Status[0].ShieldLeft",
+    "type": "Int32",
+    "value": "141"
+  },
+  {
+    "path": "Allies[0].Status[0].SourceAlly",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[0].Status[0].SourceSkillId",
+    "type": "String",
+    "value": "OE_GUARD_tap"
+  },
+  {
+    "path": "Allies[0].Status[0].SourceSlot",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[0].Status[0].Stacks",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[0].Status[1].Def.DurationSec",
+    "type": "Single",
+    "value": "40e00000"
+  },
+  {
+    "path": "Allies[0].Status[1].Def.Group",
+    "type": "String",
+    "value": "oe.team.atk"
+  },
+  {
+    "path": "Allies[0].Status[1].Def.HasTarget",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[0].Status[1].Def.Id",
+    "type": "String",
+    "value": "OE_TEAM_ATK"
+  },
+  {
+    "path": "Allies[0].Status[1].Def.Kind",
+    "type": "EffectKind",
+    "value": "AtkBuff"
+  },
+  {
+    "path": "Allies[0].Status[1].Def.Magnitude",
+    "type": "Single",
+    "value": "3e4ccccd"
+  },
+  {
+    "path": "Allies[0].Status[1].Def.MaxStack",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[0].Status[1].Def.Opcode",
+    "type": "String",
+    "value": "status.apply"
+  },
+  {
+    "path": "Allies[0].Status[1].Def.PeriodSec",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[0].Status[1].Def.Side",
+    "type": "TargetSide",
+    "value": "Ally"
+  },
+  {
+    "path": "Allies[0].Status[1].Def.SourceTier",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[0].Status[1].Def.Target",
+    "type": "TargetRule",
+    "value": "AllAllies"
+  },
+  {
+    "path": "Allies[0].Status[1].Def.Trigger",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Allies[0].Status[1].PeriodAcc",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[0].Status[1].Remaining",
+    "type": "Single",
+    "value": "4084444a"
+  },
+  {
+    "path": "Allies[0].Status[1].ShieldLeft",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[0].Status[1].SourceAlly",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[0].Status[1].SourceSkillId",
+    "type": "String",
+    "value": "OE_GUIDE_tap"
+  },
+  {
+    "path": "Allies[0].Status[1].SourceSlot",
+    "type": "Int32",
+    "value": "4"
+  },
+  {
+    "path": "Allies[0].Status[1].Stacks",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[1].Ally",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[1].AutoTimer",
+    "type": "Single",
+    "value": "3f222224"
+  },
+  {
+    "path": "Allies[1].Charge",
+    "type": "Single",
+    "value": "4287da0b"
+  },
+  {
+    "path": "Allies[1].DeathLogged",
+    "type": "Boolean",
+    "value": "False"
+  },
+  {
+    "path": "Allies[1].Def.Agl",
+    "type": "Int32",
+    "value": "240"
+  },
+  {
+    "path": "Allies[1].Def.Atk",
+    "type": "Int32",
+    "value": "420"
+  },
+  {
+    "path": "Allies[1].Def.AutoSkillId",
+    "type": "String",
+    "value": "OE_GUARD_auto"
+  },
+  {
+    "path": "Allies[1].Def.BattleLevel",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[1].Def.ChargeTimeSec",
+    "type": "Single",
+    "value": "41100000"
+  },
+  {
+    "path": "Allies[1].Def.Crt",
+    "type": "Int32",
+    "value": "250"
+  },
+  {
+    "path": "Allies[1].Def.Def",
+    "type": "Int32",
+    "value": "480"
+  },
+  {
+    "path": "Allies[1].Def.DriveSkillId",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Allies[1].Def.Element",
+    "type": "Element",
+    "value": "Fire"
+  },
+  {
+    "path": "Allies[1].Def.Hp",
+    "type": "Int32",
+    "value": "6800"
+  },
+  {
+    "path": "Allies[1].Def.Id",
+    "type": "String",
+    "value": "OE_GUARD"
+  },
+  {
+    "path": "Allies[1].Def.IgnitionMax",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[1].Def.IsBoss",
+    "type": "Boolean",
+    "value": "False"
+  },
+  {
+    "path": "Allies[1].Def.IsEnemy",
+    "type": "Boolean",
+    "value": "False"
+  },
+  {
+    "path": "Allies[1].Def.LeaderSkillId",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Allies[1].Def.MaxStar",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[1].Def.Name",
+    "type": "String",
+    "value": "\u781A\u76FE"
+  },
+  {
+    "path": "Allies[1].Def.NativeStar",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[1].Def.Role",
+    "type": "Role",
+    "value": "Defender"
+  },
+  {
+    "path": "Allies[1].Def.SlideSkillId",
+    "type": "String",
+    "value": "OE_GUARD_slide"
+  },
+  {
+    "path": "Allies[1].Def.TapSkillId",
+    "type": "String",
+    "value": "OE_GUARD_tap"
+  },
+  {
+    "path": "Allies[1].Def.UncapMax",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[1].ExtraAtk",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[1].Hp",
+    "type": "Int32",
+    "value": "6800"
+  },
+  {
+    "path": "Allies[1].IgnAglAdd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[1].IgnCrtAdd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[1].InstanceGeneration",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[1].MaxHp",
+    "type": "Int32",
+    "value": "6800"
+  },
+  {
+    "path": "Allies[1].ReserveCursor",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[1].SlideCd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[1].Slot",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[1].Status[0].Def.DurationSec",
+    "type": "Single",
+    "value": "41000000"
+  },
+  {
+    "path": "Allies[1].Status[0].Def.Group",
+    "type": "String",
+    "value": "oe.team.shield"
+  },
+  {
+    "path": "Allies[1].Status[0].Def.HasTarget",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[1].Status[0].Def.Id",
+    "type": "String",
+    "value": "OE_TEAM_SHIELD"
+  },
+  {
+    "path": "Allies[1].Status[0].Def.Kind",
+    "type": "EffectKind",
+    "value": "Shield"
+  },
+  {
+    "path": "Allies[1].Status[0].Def.Magnitude",
+    "type": "Single",
+    "value": "3e6147ae"
+  },
+  {
+    "path": "Allies[1].Status[0].Def.MaxStack",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[1].Status[0].Def.Opcode",
+    "type": "String",
+    "value": "shield.apply"
+  },
+  {
+    "path": "Allies[1].Status[0].Def.PeriodSec",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[1].Status[0].Def.Side",
+    "type": "TargetSide",
+    "value": "Ally"
+  },
+  {
+    "path": "Allies[1].Status[0].Def.SourceTier",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[1].Status[0].Def.Target",
+    "type": "TargetRule",
+    "value": "AllAllies"
+  },
+  {
+    "path": "Allies[1].Status[0].Def.Trigger",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Allies[1].Status[0].PeriodAcc",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[1].Status[0].Remaining",
+    "type": "Single",
+    "value": "403dddf2"
+  },
+  {
+    "path": "Allies[1].Status[0].ShieldLeft",
+    "type": "Int32",
+    "value": "278"
+  },
+  {
+    "path": "Allies[1].Status[0].SourceAlly",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[1].Status[0].SourceSkillId",
+    "type": "String",
+    "value": "OE_GUARD_tap"
+  },
+  {
+    "path": "Allies[1].Status[0].SourceSlot",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[1].Status[0].Stacks",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[1].Status[1].Def.DurationSec",
+    "type": "Single",
+    "value": "40e00000"
+  },
+  {
+    "path": "Allies[1].Status[1].Def.Group",
+    "type": "String",
+    "value": "oe.team.atk"
+  },
+  {
+    "path": "Allies[1].Status[1].Def.HasTarget",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[1].Status[1].Def.Id",
+    "type": "String",
+    "value": "OE_TEAM_ATK"
+  },
+  {
+    "path": "Allies[1].Status[1].Def.Kind",
+    "type": "EffectKind",
+    "value": "AtkBuff"
+  },
+  {
+    "path": "Allies[1].Status[1].Def.Magnitude",
+    "type": "Single",
+    "value": "3e4ccccd"
+  },
+  {
+    "path": "Allies[1].Status[1].Def.MaxStack",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[1].Status[1].Def.Opcode",
+    "type": "String",
+    "value": "status.apply"
+  },
+  {
+    "path": "Allies[1].Status[1].Def.PeriodSec",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[1].Status[1].Def.Side",
+    "type": "TargetSide",
+    "value": "Ally"
+  },
+  {
+    "path": "Allies[1].Status[1].Def.SourceTier",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[1].Status[1].Def.Target",
+    "type": "TargetRule",
+    "value": "AllAllies"
+  },
+  {
+    "path": "Allies[1].Status[1].Def.Trigger",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Allies[1].Status[1].PeriodAcc",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[1].Status[1].Remaining",
+    "type": "Single",
+    "value": "4084444a"
+  },
+  {
+    "path": "Allies[1].Status[1].ShieldLeft",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[1].Status[1].SourceAlly",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[1].Status[1].SourceSkillId",
+    "type": "String",
+    "value": "OE_GUIDE_tap"
+  },
+  {
+    "path": "Allies[1].Status[1].SourceSlot",
+    "type": "Int32",
+    "value": "4"
+  },
+  {
+    "path": "Allies[1].Status[1].Stacks",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[2].Ally",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[2].AutoTimer",
+    "type": "Single",
+    "value": "3fb77777"
+  },
+  {
+    "path": "Allies[2].Charge",
+    "type": "Single",
+    "value": "42c80000"
+  },
+  {
+    "path": "Allies[2].DeathLogged",
+    "type": "Boolean",
+    "value": "False"
+  },
+  {
+    "path": "Allies[2].Def.Agl",
+    "type": "Int32",
+    "value": "300"
+  },
+  {
+    "path": "Allies[2].Def.Atk",
+    "type": "Int32",
+    "value": "360"
+  },
+  {
+    "path": "Allies[2].Def.AutoSkillId",
+    "type": "String",
+    "value": "OE_HEALER_auto"
+  },
+  {
+    "path": "Allies[2].Def.BattleLevel",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[2].Def.ChargeTimeSec",
+    "type": "Single",
+    "value": "41000000"
+  },
+  {
+    "path": "Allies[2].Def.Crt",
+    "type": "Int32",
+    "value": "250"
+  },
+  {
+    "path": "Allies[2].Def.Def",
+    "type": "Int32",
+    "value": "300"
+  },
+  {
+    "path": "Allies[2].Def.DriveSkillId",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Allies[2].Def.Element",
+    "type": "Element",
+    "value": "Fire"
+  },
+  {
+    "path": "Allies[2].Def.Hp",
+    "type": "Int32",
+    "value": "5600"
+  },
+  {
+    "path": "Allies[2].Def.Id",
+    "type": "String",
+    "value": "OE_HEALER"
+  },
+  {
+    "path": "Allies[2].Def.IgnitionMax",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[2].Def.IsBoss",
+    "type": "Boolean",
+    "value": "False"
+  },
+  {
+    "path": "Allies[2].Def.IsEnemy",
+    "type": "Boolean",
+    "value": "False"
+  },
+  {
+    "path": "Allies[2].Def.LeaderSkillId",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Allies[2].Def.MaxStar",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[2].Def.Name",
+    "type": "String",
+    "value": "\u6E05\u5F26"
+  },
+  {
+    "path": "Allies[2].Def.NativeStar",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[2].Def.Role",
+    "type": "Role",
+    "value": "Healer"
+  },
+  {
+    "path": "Allies[2].Def.SlideSkillId",
+    "type": "String",
+    "value": "OE_HEALER_slide"
+  },
+  {
+    "path": "Allies[2].Def.TapSkillId",
+    "type": "String",
+    "value": "OE_HEALER_tap"
+  },
+  {
+    "path": "Allies[2].Def.UncapMax",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[2].ExtraAtk",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[2].Hp",
+    "type": "Int32",
+    "value": "4936"
+  },
+  {
+    "path": "Allies[2].IgnAglAdd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[2].IgnCrtAdd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[2].InstanceGeneration",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[2].MaxHp",
+    "type": "Int32",
+    "value": "5600"
+  },
+  {
+    "path": "Allies[2].ReserveCursor",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[2].SlideCd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[2].Slot",
+    "type": "Int32",
+    "value": "2"
+  },
+  {
+    "path": "Allies[2].Status[0].Def.DurationSec",
+    "type": "Single",
+    "value": "41000000"
+  },
+  {
+    "path": "Allies[2].Status[0].Def.Group",
+    "type": "String",
+    "value": "oe.team.shield"
+  },
+  {
+    "path": "Allies[2].Status[0].Def.HasTarget",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[2].Status[0].Def.Id",
+    "type": "String",
+    "value": "OE_TEAM_SHIELD"
+  },
+  {
+    "path": "Allies[2].Status[0].Def.Kind",
+    "type": "EffectKind",
+    "value": "Shield"
+  },
+  {
+    "path": "Allies[2].Status[0].Def.Magnitude",
+    "type": "Single",
+    "value": "3e6147ae"
+  },
+  {
+    "path": "Allies[2].Status[0].Def.MaxStack",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[2].Status[0].Def.Opcode",
+    "type": "String",
+    "value": "shield.apply"
+  },
+  {
+    "path": "Allies[2].Status[0].Def.PeriodSec",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[2].Status[0].Def.Side",
+    "type": "TargetSide",
+    "value": "Ally"
+  },
+  {
+    "path": "Allies[2].Status[0].Def.SourceTier",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[2].Status[0].Def.Target",
+    "type": "TargetRule",
+    "value": "AllAllies"
+  },
+  {
+    "path": "Allies[2].Status[0].Def.Trigger",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Allies[2].Status[0].PeriodAcc",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[2].Status[0].Remaining",
+    "type": "Single",
+    "value": "403dddf2"
+  },
+  {
+    "path": "Allies[2].Status[0].ShieldLeft",
+    "type": "Int32",
+    "value": "236"
+  },
+  {
+    "path": "Allies[2].Status[0].SourceAlly",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[2].Status[0].SourceSkillId",
+    "type": "String",
+    "value": "OE_GUARD_tap"
+  },
+  {
+    "path": "Allies[2].Status[0].SourceSlot",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[2].Status[0].Stacks",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[2].Status[1].Def.DurationSec",
+    "type": "Single",
+    "value": "40e00000"
+  },
+  {
+    "path": "Allies[2].Status[1].Def.Group",
+    "type": "String",
+    "value": "oe.team.atk"
+  },
+  {
+    "path": "Allies[2].Status[1].Def.HasTarget",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[2].Status[1].Def.Id",
+    "type": "String",
+    "value": "OE_TEAM_ATK"
+  },
+  {
+    "path": "Allies[2].Status[1].Def.Kind",
+    "type": "EffectKind",
+    "value": "AtkBuff"
+  },
+  {
+    "path": "Allies[2].Status[1].Def.Magnitude",
+    "type": "Single",
+    "value": "3e4ccccd"
+  },
+  {
+    "path": "Allies[2].Status[1].Def.MaxStack",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[2].Status[1].Def.Opcode",
+    "type": "String",
+    "value": "status.apply"
+  },
+  {
+    "path": "Allies[2].Status[1].Def.PeriodSec",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[2].Status[1].Def.Side",
+    "type": "TargetSide",
+    "value": "Ally"
+  },
+  {
+    "path": "Allies[2].Status[1].Def.SourceTier",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[2].Status[1].Def.Target",
+    "type": "TargetRule",
+    "value": "AllAllies"
+  },
+  {
+    "path": "Allies[2].Status[1].Def.Trigger",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Allies[2].Status[1].PeriodAcc",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[2].Status[1].Remaining",
+    "type": "Single",
+    "value": "4084444a"
+  },
+  {
+    "path": "Allies[2].Status[1].ShieldLeft",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[2].Status[1].SourceAlly",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[2].Status[1].SourceSkillId",
+    "type": "String",
+    "value": "OE_GUIDE_tap"
+  },
+  {
+    "path": "Allies[2].Status[1].SourceSlot",
+    "type": "Int32",
+    "value": "4"
+  },
+  {
+    "path": "Allies[2].Status[1].Stacks",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[3].Ally",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[3].AutoTimer",
+    "type": "Single",
+    "value": "3f55555a"
+  },
+  {
+    "path": "Allies[3].Charge",
+    "type": "Single",
+    "value": "429adf2b"
+  },
+  {
+    "path": "Allies[3].DeathLogged",
+    "type": "Boolean",
+    "value": "False"
+  },
+  {
+    "path": "Allies[3].Def.Agl",
+    "type": "Int32",
+    "value": "460"
+  },
+  {
+    "path": "Allies[3].Def.Atk",
+    "type": "Int32",
+    "value": "720"
+  },
+  {
+    "path": "Allies[3].Def.AutoSkillId",
+    "type": "String",
+    "value": "OE_BLADE_auto"
+  },
+  {
+    "path": "Allies[3].Def.BattleLevel",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[3].Def.ChargeTimeSec",
+    "type": "Single",
+    "value": "40d00000"
+  },
+  {
+    "path": "Allies[3].Def.Crt",
+    "type": "Int32",
+    "value": "250"
+  },
+  {
+    "path": "Allies[3].Def.Def",
+    "type": "Int32",
+    "value": "260"
+  },
+  {
+    "path": "Allies[3].Def.DriveSkillId",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Allies[3].Def.Element",
+    "type": "Element",
+    "value": "Fire"
+  },
+  {
+    "path": "Allies[3].Def.Hp",
+    "type": "Int32",
+    "value": "5000"
+  },
+  {
+    "path": "Allies[3].Def.Id",
+    "type": "String",
+    "value": "OE_BLADE"
+  },
+  {
+    "path": "Allies[3].Def.IgnitionMax",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[3].Def.IsBoss",
+    "type": "Boolean",
+    "value": "False"
+  },
+  {
+    "path": "Allies[3].Def.IsEnemy",
+    "type": "Boolean",
+    "value": "False"
+  },
+  {
+    "path": "Allies[3].Def.LeaderSkillId",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Allies[3].Def.MaxStar",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[3].Def.Name",
+    "type": "String",
+    "value": "\u9010\u950B"
+  },
+  {
+    "path": "Allies[3].Def.NativeStar",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[3].Def.Role",
+    "type": "Role",
+    "value": "Attacker"
+  },
+  {
+    "path": "Allies[3].Def.SlideSkillId",
+    "type": "String",
+    "value": "OE_BLADE_slide"
+  },
+  {
+    "path": "Allies[3].Def.TapSkillId",
+    "type": "String",
+    "value": "OE_BLADE_tap"
+  },
+  {
+    "path": "Allies[3].Def.UncapMax",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[3].ExtraAtk",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[3].Hp",
+    "type": "Int32",
+    "value": "4495"
+  },
+  {
+    "path": "Allies[3].IgnAglAdd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[3].IgnCrtAdd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[3].InstanceGeneration",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[3].MaxHp",
+    "type": "Int32",
+    "value": "5000"
+  },
+  {
+    "path": "Allies[3].ReserveCursor",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[3].SlideCd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[3].Slot",
+    "type": "Int32",
+    "value": "3"
+  },
+  {
+    "path": "Allies[3].Status[0].Def.DurationSec",
+    "type": "Single",
+    "value": "41000000"
+  },
+  {
+    "path": "Allies[3].Status[0].Def.Group",
+    "type": "String",
+    "value": "oe.team.shield"
+  },
+  {
+    "path": "Allies[3].Status[0].Def.HasTarget",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[3].Status[0].Def.Id",
+    "type": "String",
+    "value": "OE_TEAM_SHIELD"
+  },
+  {
+    "path": "Allies[3].Status[0].Def.Kind",
+    "type": "EffectKind",
+    "value": "Shield"
+  },
+  {
+    "path": "Allies[3].Status[0].Def.Magnitude",
+    "type": "Single",
+    "value": "3e6147ae"
+  },
+  {
+    "path": "Allies[3].Status[0].Def.MaxStack",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[3].Status[0].Def.Opcode",
+    "type": "String",
+    "value": "shield.apply"
+  },
+  {
+    "path": "Allies[3].Status[0].Def.PeriodSec",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[3].Status[0].Def.Side",
+    "type": "TargetSide",
+    "value": "Ally"
+  },
+  {
+    "path": "Allies[3].Status[0].Def.SourceTier",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[3].Status[0].Def.Target",
+    "type": "TargetRule",
+    "value": "AllAllies"
+  },
+  {
+    "path": "Allies[3].Status[0].Def.Trigger",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Allies[3].Status[0].PeriodAcc",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[3].Status[0].Remaining",
+    "type": "Single",
+    "value": "403dddf2"
+  },
+  {
+    "path": "Allies[3].Status[0].ShieldLeft",
+    "type": "Int32",
+    "value": "90"
+  },
+  {
+    "path": "Allies[3].Status[0].SourceAlly",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[3].Status[0].SourceSkillId",
+    "type": "String",
+    "value": "OE_GUARD_tap"
+  },
+  {
+    "path": "Allies[3].Status[0].SourceSlot",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[3].Status[0].Stacks",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[3].Status[1].Def.DurationSec",
+    "type": "Single",
+    "value": "40e00000"
+  },
+  {
+    "path": "Allies[3].Status[1].Def.Group",
+    "type": "String",
+    "value": "oe.team.atk"
+  },
+  {
+    "path": "Allies[3].Status[1].Def.HasTarget",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[3].Status[1].Def.Id",
+    "type": "String",
+    "value": "OE_TEAM_ATK"
+  },
+  {
+    "path": "Allies[3].Status[1].Def.Kind",
+    "type": "EffectKind",
+    "value": "AtkBuff"
+  },
+  {
+    "path": "Allies[3].Status[1].Def.Magnitude",
+    "type": "Single",
+    "value": "3e4ccccd"
+  },
+  {
+    "path": "Allies[3].Status[1].Def.MaxStack",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[3].Status[1].Def.Opcode",
+    "type": "String",
+    "value": "status.apply"
+  },
+  {
+    "path": "Allies[3].Status[1].Def.PeriodSec",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[3].Status[1].Def.Side",
+    "type": "TargetSide",
+    "value": "Ally"
+  },
+  {
+    "path": "Allies[3].Status[1].Def.SourceTier",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[3].Status[1].Def.Target",
+    "type": "TargetRule",
+    "value": "AllAllies"
+  },
+  {
+    "path": "Allies[3].Status[1].Def.Trigger",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Allies[3].Status[1].PeriodAcc",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[3].Status[1].Remaining",
+    "type": "Single",
+    "value": "4084444a"
+  },
+  {
+    "path": "Allies[3].Status[1].ShieldLeft",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[3].Status[1].SourceAlly",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[3].Status[1].SourceSkillId",
+    "type": "String",
+    "value": "OE_GUIDE_tap"
+  },
+  {
+    "path": "Allies[3].Status[1].SourceSlot",
+    "type": "Int32",
+    "value": "4"
+  },
+  {
+    "path": "Allies[3].Status[1].Stacks",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[4].Ally",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[4].AutoTimer",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[4].Charge",
+    "type": "Single",
+    "value": "420f5553"
+  },
+  {
+    "path": "Allies[4].DeathLogged",
+    "type": "Boolean",
+    "value": "False"
+  },
+  {
+    "path": "Allies[4].Def.Agl",
+    "type": "Int32",
+    "value": "340"
+  },
+  {
+    "path": "Allies[4].Def.Atk",
+    "type": "Int32",
+    "value": "460"
+  },
+  {
+    "path": "Allies[4].Def.AutoSkillId",
+    "type": "String",
+    "value": "OE_GUIDE_auto"
+  },
+  {
+    "path": "Allies[4].Def.BattleLevel",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[4].Def.ChargeTimeSec",
+    "type": "Single",
+    "value": "41000000"
+  },
+  {
+    "path": "Allies[4].Def.Crt",
+    "type": "Int32",
+    "value": "250"
+  },
+  {
+    "path": "Allies[4].Def.Def",
+    "type": "Int32",
+    "value": "320"
+  },
+  {
+    "path": "Allies[4].Def.DriveSkillId",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Allies[4].Def.Element",
+    "type": "Element",
+    "value": "Fire"
+  },
+  {
+    "path": "Allies[4].Def.Hp",
+    "type": "Int32",
+    "value": "5400"
+  },
+  {
+    "path": "Allies[4].Def.Id",
+    "type": "String",
+    "value": "OE_GUIDE"
+  },
+  {
+    "path": "Allies[4].Def.IgnitionMax",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[4].Def.IsBoss",
+    "type": "Boolean",
+    "value": "False"
+  },
+  {
+    "path": "Allies[4].Def.IsEnemy",
+    "type": "Boolean",
+    "value": "False"
+  },
+  {
+    "path": "Allies[4].Def.LeaderSkillId",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Allies[4].Def.MaxStar",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[4].Def.Name",
+    "type": "String",
+    "value": "\u5F15\u706F"
+  },
+  {
+    "path": "Allies[4].Def.NativeStar",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[4].Def.Role",
+    "type": "Role",
+    "value": "Supporter"
+  },
+  {
+    "path": "Allies[4].Def.SlideSkillId",
+    "type": "String",
+    "value": "OE_GUIDE_slide"
+  },
+  {
+    "path": "Allies[4].Def.TapSkillId",
+    "type": "String",
+    "value": "OE_GUIDE_tap"
+  },
+  {
+    "path": "Allies[4].Def.UncapMax",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[4].ExtraAtk",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[4].Hp",
+    "type": "Int32",
+    "value": "5400"
+  },
+  {
+    "path": "Allies[4].IgnAglAdd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[4].IgnCrtAdd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[4].InstanceGeneration",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[4].MaxHp",
+    "type": "Int32",
+    "value": "5400"
+  },
+  {
+    "path": "Allies[4].ReserveCursor",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[4].SlideCd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[4].Slot",
+    "type": "Int32",
+    "value": "4"
+  },
+  {
+    "path": "Allies[4].Status[0].Def.DurationSec",
+    "type": "Single",
+    "value": "41000000"
+  },
+  {
+    "path": "Allies[4].Status[0].Def.Group",
+    "type": "String",
+    "value": "oe.team.shield"
+  },
+  {
+    "path": "Allies[4].Status[0].Def.HasTarget",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[4].Status[0].Def.Id",
+    "type": "String",
+    "value": "OE_TEAM_SHIELD"
+  },
+  {
+    "path": "Allies[4].Status[0].Def.Kind",
+    "type": "EffectKind",
+    "value": "Shield"
+  },
+  {
+    "path": "Allies[4].Status[0].Def.Magnitude",
+    "type": "Single",
+    "value": "3e6147ae"
+  },
+  {
+    "path": "Allies[4].Status[0].Def.MaxStack",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[4].Status[0].Def.Opcode",
+    "type": "String",
+    "value": "shield.apply"
+  },
+  {
+    "path": "Allies[4].Status[0].Def.PeriodSec",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[4].Status[0].Def.Side",
+    "type": "TargetSide",
+    "value": "Ally"
+  },
+  {
+    "path": "Allies[4].Status[0].Def.SourceTier",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[4].Status[0].Def.Target",
+    "type": "TargetRule",
+    "value": "AllAllies"
+  },
+  {
+    "path": "Allies[4].Status[0].Def.Trigger",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Allies[4].Status[0].PeriodAcc",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[4].Status[0].Remaining",
+    "type": "Single",
+    "value": "403dddf2"
+  },
+  {
+    "path": "Allies[4].Status[0].ShieldLeft",
+    "type": "Int32",
+    "value": "199"
+  },
+  {
+    "path": "Allies[4].Status[0].SourceAlly",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[4].Status[0].SourceSkillId",
+    "type": "String",
+    "value": "OE_GUARD_tap"
+  },
+  {
+    "path": "Allies[4].Status[0].SourceSlot",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[4].Status[0].Stacks",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[4].Status[1].Def.DurationSec",
+    "type": "Single",
+    "value": "40e00000"
+  },
+  {
+    "path": "Allies[4].Status[1].Def.Group",
+    "type": "String",
+    "value": "oe.team.atk"
+  },
+  {
+    "path": "Allies[4].Status[1].Def.HasTarget",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[4].Status[1].Def.Id",
+    "type": "String",
+    "value": "OE_TEAM_ATK"
+  },
+  {
+    "path": "Allies[4].Status[1].Def.Kind",
+    "type": "EffectKind",
+    "value": "AtkBuff"
+  },
+  {
+    "path": "Allies[4].Status[1].Def.Magnitude",
+    "type": "Single",
+    "value": "3e4ccccd"
+  },
+  {
+    "path": "Allies[4].Status[1].Def.MaxStack",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[4].Status[1].Def.Opcode",
+    "type": "String",
+    "value": "status.apply"
+  },
+  {
+    "path": "Allies[4].Status[1].Def.PeriodSec",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[4].Status[1].Def.Side",
+    "type": "TargetSide",
+    "value": "Ally"
+  },
+  {
+    "path": "Allies[4].Status[1].Def.SourceTier",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Allies[4].Status[1].Def.Target",
+    "type": "TargetRule",
+    "value": "AllAllies"
+  },
+  {
+    "path": "Allies[4].Status[1].Def.Trigger",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Allies[4].Status[1].PeriodAcc",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Allies[4].Status[1].Remaining",
+    "type": "Single",
+    "value": "4084444a"
+  },
+  {
+    "path": "Allies[4].Status[1].ShieldLeft",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Allies[4].Status[1].SourceAlly",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Allies[4].Status[1].SourceSkillId",
+    "type": "String",
+    "value": "OE_GUIDE_tap"
+  },
+  {
+    "path": "Allies[4].Status[1].SourceSlot",
+    "type": "Int32",
+    "value": "4"
+  },
+  {
+    "path": "Allies[4].Status[1].Stacks",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Enemies[0].Ally",
+    "type": "Boolean",
+    "value": "False"
+  },
+  {
+    "path": "Enemies[0].AutoTimer",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Enemies[0].Charge",
+    "type": "Single",
+    "value": "41200000"
+  },
+  {
+    "path": "Enemies[0].DeathLogged",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Enemies[0].Def.Agl",
+    "type": "Int32",
+    "value": "200"
+  },
+  {
+    "path": "Enemies[0].Def.Atk",
+    "type": "Int32",
+    "value": "760"
+  },
+  {
+    "path": "Enemies[0].Def.AutoSkillId",
+    "type": "String",
+    "value": "OE_BOSS_auto"
+  },
+  {
+    "path": "Enemies[0].Def.BattleLevel",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Enemies[0].Def.ChargeTimeSec",
+    "type": "Single",
+    "value": "41700000"
+  },
+  {
+    "path": "Enemies[0].Def.Crt",
+    "type": "Int32",
+    "value": "120"
+  },
+  {
+    "path": "Enemies[0].Def.Def",
+    "type": "Int32",
+    "value": "350"
+  },
+  {
+    "path": "Enemies[0].Def.DriveSkillId",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Enemies[0].Def.Element",
+    "type": "Element",
+    "value": "Fire"
+  },
+  {
+    "path": "Enemies[0].Def.Hp",
+    "type": "Int32",
+    "value": "45000"
+  },
+  {
+    "path": "Enemies[0].Def.Id",
+    "type": "String",
+    "value": "OE_BOSS"
+  },
+  {
+    "path": "Enemies[0].Def.IgnitionMax",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Enemies[0].Def.IsBoss",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Enemies[0].Def.IsEnemy",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Enemies[0].Def.LeaderSkillId",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Enemies[0].Def.MaxStar",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Enemies[0].Def.Name",
+    "type": "String",
+    "value": "\u767D\u9762\u6307\u6325\u8005"
+  },
+  {
+    "path": "Enemies[0].Def.NativeStar",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Enemies[0].Def.Role",
+    "type": "Role",
+    "value": "Attacker"
+  },
+  {
+    "path": "Enemies[0].Def.SlideSkillId",
+    "type": "String",
+    "value": "OE_BOSS_slide"
+  },
+  {
+    "path": "Enemies[0].Def.TapSkillId",
+    "type": "String",
+    "value": "OE_BOSS_tap"
+  },
+  {
+    "path": "Enemies[0].Def.UncapMax",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Enemies[0].ExtraAtk",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Enemies[0].Hp",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Enemies[0].IgnAglAdd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Enemies[0].IgnCrtAdd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Enemies[0].InstanceGeneration",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Enemies[0].MaxHp",
+    "type": "Int32",
+    "value": "45000"
+  },
+  {
+    "path": "Enemies[0].ReserveCursor",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Enemies[0].SlideCd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Enemies[0].Slot",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Enemies[1].Ally",
+    "type": "Boolean",
+    "value": "False"
+  },
+  {
+    "path": "Enemies[1].AutoTimer",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Enemies[1].Charge",
+    "type": "Single",
+    "value": "41200000"
+  },
+  {
+    "path": "Enemies[1].DeathLogged",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Enemies[1].Def.Agl",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Enemies[1].Def.Atk",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Enemies[1].Def.AutoSkillId",
+    "type": "String",
+    "value": "OE_MASK_auto"
+  },
+  {
+    "path": "Enemies[1].Def.BattleLevel",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Enemies[1].Def.ChargeTimeSec",
+    "type": "Single",
+    "value": "4479c000"
+  },
+  {
+    "path": "Enemies[1].Def.Crt",
+    "type": "Int32",
+    "value": "120"
+  },
+  {
+    "path": "Enemies[1].Def.Def",
+    "type": "Int32",
+    "value": "200"
+  },
+  {
+    "path": "Enemies[1].Def.DriveSkillId",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Enemies[1].Def.Element",
+    "type": "Element",
+    "value": "Fire"
+  },
+  {
+    "path": "Enemies[1].Def.Hp",
+    "type": "Int32",
+    "value": "7000"
+  },
+  {
+    "path": "Enemies[1].Def.Id",
+    "type": "String",
+    "value": "OE_MASK"
+  },
+  {
+    "path": "Enemies[1].Def.IgnitionMax",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Enemies[1].Def.IsBoss",
+    "type": "Boolean",
+    "value": "False"
+  },
+  {
+    "path": "Enemies[1].Def.IsEnemy",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Enemies[1].Def.LeaderSkillId",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Enemies[1].Def.MaxStar",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Enemies[1].Def.Name",
+    "type": "String",
+    "value": "\u5171\u9E23\u9762\u5177"
+  },
+  {
+    "path": "Enemies[1].Def.NativeStar",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Enemies[1].Def.Role",
+    "type": "Role",
+    "value": "Supporter"
+  },
+  {
+    "path": "Enemies[1].Def.SlideSkillId",
+    "type": "String",
+    "value": "OE_MASK_slide"
+  },
+  {
+    "path": "Enemies[1].Def.TapSkillId",
+    "type": "String",
+    "value": "OE_MASK_tap"
+  },
+  {
+    "path": "Enemies[1].Def.UncapMax",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Enemies[1].ExtraAtk",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Enemies[1].Hp",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Enemies[1].IgnAglAdd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Enemies[1].IgnCrtAdd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Enemies[1].InstanceGeneration",
+    "type": "Int32",
+    "value": "2"
+  },
+  {
+    "path": "Enemies[1].MaxHp",
+    "type": "Int32",
+    "value": "7000"
+  },
+  {
+    "path": "Enemies[1].ReserveCursor",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Enemies[1].SlideCd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Enemies[1].Slot",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Enemies[2].Ally",
+    "type": "Boolean",
+    "value": "False"
+  },
+  {
+    "path": "Enemies[2].AutoTimer",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Enemies[2].Charge",
+    "type": "Single",
+    "value": "41200000"
+  },
+  {
+    "path": "Enemies[2].DeathLogged",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Enemies[2].Def.Agl",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Enemies[2].Def.Atk",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Enemies[2].Def.AutoSkillId",
+    "type": "String",
+    "value": "OE_MASK_auto"
+  },
+  {
+    "path": "Enemies[2].Def.BattleLevel",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Enemies[2].Def.ChargeTimeSec",
+    "type": "Single",
+    "value": "4479c000"
+  },
+  {
+    "path": "Enemies[2].Def.Crt",
+    "type": "Int32",
+    "value": "120"
+  },
+  {
+    "path": "Enemies[2].Def.Def",
+    "type": "Int32",
+    "value": "200"
+  },
+  {
+    "path": "Enemies[2].Def.DriveSkillId",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Enemies[2].Def.Element",
+    "type": "Element",
+    "value": "Fire"
+  },
+  {
+    "path": "Enemies[2].Def.Hp",
+    "type": "Int32",
+    "value": "7000"
+  },
+  {
+    "path": "Enemies[2].Def.Id",
+    "type": "String",
+    "value": "OE_MASK"
+  },
+  {
+    "path": "Enemies[2].Def.IgnitionMax",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Enemies[2].Def.IsBoss",
+    "type": "Boolean",
+    "value": "False"
+  },
+  {
+    "path": "Enemies[2].Def.IsEnemy",
+    "type": "Boolean",
+    "value": "True"
+  },
+  {
+    "path": "Enemies[2].Def.LeaderSkillId",
+    "type": "null",
+    "value": "null"
+  },
+  {
+    "path": "Enemies[2].Def.MaxStar",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Enemies[2].Def.Name",
+    "type": "String",
+    "value": "\u5171\u9E23\u9762\u5177"
+  },
+  {
+    "path": "Enemies[2].Def.NativeStar",
+    "type": "Int32",
+    "value": "1"
+  },
+  {
+    "path": "Enemies[2].Def.Role",
+    "type": "Role",
+    "value": "Supporter"
+  },
+  {
+    "path": "Enemies[2].Def.SlideSkillId",
+    "type": "String",
+    "value": "OE_MASK_slide"
+  },
+  {
+    "path": "Enemies[2].Def.TapSkillId",
+    "type": "String",
+    "value": "OE_MASK_tap"
+  },
+  {
+    "path": "Enemies[2].Def.UncapMax",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Enemies[2].ExtraAtk",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Enemies[2].Hp",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Enemies[2].IgnAglAdd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Enemies[2].IgnCrtAdd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Enemies[2].InstanceGeneration",
+    "type": "Int32",
+    "value": "2"
+  },
+  {
+    "path": "Enemies[2].MaxHp",
+    "type": "Int32",
+    "value": "7000"
+  },
+  {
+    "path": "Enemies[2].ReserveCursor",
+    "type": "Int32",
+    "value": "0"
+  },
+  {
+    "path": "Enemies[2].SlideCd",
+    "type": "Single",
+    "value": "00000000"
+  },
+  {
+    "path": "Enemies[2].Slot",
+    "type": "Int32",
+    "value": "2"
+  }
+]

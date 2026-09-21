@@ -1,0 +1,11 @@
+{
+  "started": "2026-09-21T04:27:40.3583990Z",
+  "finished": "2026-09-21T04:27:40.7010099Z",
+  "exitCode": 1,
+  "cliSha256": "6F5444B48E853C75D895F9F5A251D3E987DAE3A8887C65955F14C4A5433EFB85",
+  "sourceTape": "C:/Users/Administrator/AppData/LocalLow/Resonance/契灵回响/OriginalExpedition/Replays/battle-d2f2185c4ac04d2aa19d36153c6a6cc6.original-replay.json",
+  "tapeSha256": "C6A6C19034C808A0AD2CFF5E1975960FF09BDECB33472DDAD5853920A8D8BFEE",
+  "sourceCommit": "e04e49e95e8de69ac7a677679d725cf0dd2d3be5",
+  "ordinaryVideo": "dist/original-expedition-v01/play-e04e49e9-20260921/partial-navigation-issue-e04e49e9.mp4",
+  "scope": "One ordinary N1 battle, not full expedition"
+}

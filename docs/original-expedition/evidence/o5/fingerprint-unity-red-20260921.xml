@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="3" result="Failed(Child)" total="3" passed="0" failed="3" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-21 04:40:58Z" end-time="2026-09-21 04:40:59Z" duration="0.0554652">
+  <test-suite type="TestSuite" id="1000" name="契灵回响" fullname="契灵回响" runstate="Runnable" testcasecount="87" result="Failed" site="Child" start-time="2026-09-21 04:40:58Z" end-time="2026-09-21 04:40:59Z" duration="0.055465" total="3" passed="0" failed="3" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1110" name="Resonance.EditorTests.dll" fullname="F:/Resonance/client/Library/ScriptAssemblies/Resonance.EditorTests.dll" runstate="Runnable" testcasecount="87" result="Failed" site="Child" start-time="2026-09-21 04:40:58Z" end-time="2026-09-21 04:40:59Z" duration="0.048595" total="3" passed="0" failed="3" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="26244" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1111" name="Resonance" fullname="Resonance" runstate="Runnable" testcasecount="87" result="Failed" site="Child" start-time="2026-09-21 04:40:58Z" end-time="2026-09-21 04:40:59Z" duration="0.047248" total="3" passed="0" failed="3" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1112" name="EditorTests" fullname="Resonance.EditorTests" runstate="Runnable" testcasecount="87" result="Failed" site="Child" start-time="2026-09-21 04:40:58Z" end-time="2026-09-21 04:40:59Z" duration="0.046140" total="3" passed="0" failed="3" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestFixture" id="1089" name="OriginalFingerprintPortabilityTests" fullname="Resonance.EditorTests.OriginalFingerprintPortabilityTests" classname="Resonance.EditorTests.OriginalFingerprintPortabilityTests" runstate="Runnable" testcasecount="3" result="Failed" site="Child" start-time="2026-09-21 04:40:58Z" end-time="2026-09-21 04:40:59Z" duration="0.044421" total="3" passed="0" failed="3" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="1091" name="AdjacentValuesAndSignedZeroRemainDistinct" fullname="Resonance.EditorTests.OriginalFingerprintPortabilityTests.AdjacentValuesAndSignedZeroRemainDistinct" methodname="AdjacentValuesAndSignedZeroRemainDistinct" classname="Resonance.EditorTests.OriginalFingerprintPortabilityTests" runstate="Runnable" seed="716175614" result="Failed" start-time="2026-09-21 04:40:59Z" end-time="2026-09-21 04:40:59Z" duration="0.030623" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[  f00000000 must differ from f80000000
+  Expected: not equal to "33cc4e2b152245418388f6524e24015f94a5ef69f8cbca1a150d81cdba44b5d2"
+  But was:  "33cc4e2b152245418388f6524e24015f94a5ef69f8cbca1a150d81cdba44b5d2"
+]]></message>
+                <stack-trace><![CDATA[at Resonance.EditorTests.OriginalFingerprintPortabilityTests.AssertDistinct (System.String left, System.String right) [0x00000] in F:\Resonance\client\Assets\Tests\Editor\OriginalFingerprintPortabilityTests.cs:86
+at Resonance.EditorTests.OriginalFingerprintPortabilityTests.AdjacentValuesAndSignedZeroRemainDistinct () [0x0002d] in F:\Resonance\client\Assets\Tests\Editor\OriginalFingerprintPortabilityTests.cs:49
+]]></stack-trace>
+              </failure>
+            </test-case>
+            <test-case id="1092" name="NumericFingerprintIsUnchangedByCurrentCulture" fullname="Resonance.EditorTests.OriginalFingerprintPortabilityTests.NumericFingerprintIsUnchangedByCurrentCulture" methodname="NumericFingerprintIsUnchangedByCurrentCulture" classname="Resonance.EditorTests.OriginalFingerprintPortabilityTests" runstate="Runnable" seed="915857594" result="Failed" start-time="2026-09-21 04:40:59Z" end-time="2026-09-21 04:40:59Z" duration="0.002748" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[  f3eaaaaab; culture=fr-FR
+  String lengths are both 64. Strings differ at index 0.
+  Expected: "6822f3ca32faee3fae5f36e0640139df909988fff63e280a427c7705f1a2d55c"
+  But was:  "ea8d1cbcd367ff25b5b4b8fd9bc96f430c3e11039cdbb7cb2a6e1273f85d1d5c"
+  -----------^
+]]></message>
+                <stack-trace><![CDATA[at Resonance.EditorTests.OriginalFingerprintPortabilityTests.AssertGoldenVectors () [0x0001b] in F:\Resonance\client\Assets\Tests\Editor\OriginalFingerprintPortabilityTests.cs:80
+at Resonance.EditorTests.OriginalFingerprintPortabilityTests.NumericFingerprintIsUnchangedByCurrentCulture () [0x0003f] in F:\Resonance\client\Assets\Tests\Editor\OriginalFingerprintPortabilityTests.cs:65
+]]></stack-trace>
+              </failure>
+            </test-case>
+            <test-case id="1090" name="NumericFingerprintMatchesFixedIeeeGoldenVectors" fullname="Resonance.EditorTests.OriginalFingerprintPortabilityTests.NumericFingerprintMatchesFixedIeeeGoldenVectors" methodname="NumericFingerprintMatchesFixedIeeeGoldenVectors" classname="Resonance.EditorTests.OriginalFingerprintPortabilityTests" runstate="Runnable" seed="373271582" result="Failed" start-time="2026-09-21 04:40:59Z" end-time="2026-09-21 04:40:59Z" duration="0.000195" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[  f3eaaaaab; culture=zh-CN
+  String lengths are both 64. Strings differ at index 0.
+  Expected: "6822f3ca32faee3fae5f36e0640139df909988fff63e280a427c7705f1a2d55c"
+  But was:  "ea8d1cbcd367ff25b5b4b8fd9bc96f430c3e11039cdbb7cb2a6e1273f85d1d5c"
+  -----------^
+]]></message>
+                <stack-trace><![CDATA[at Resonance.EditorTests.OriginalFingerprintPortabilityTests.AssertGoldenVectors () [0x0001b] in F:\Resonance\client\Assets\Tests\Editor\OriginalFingerprintPortabilityTests.cs:80
+at Resonance.EditorTests.OriginalFingerprintPortabilityTests.NumericFingerprintMatchesFixedIeeeGoldenVectors () [0x00000] in F:\Resonance\client\Assets\Tests\Editor\OriginalFingerprintPortabilityTests.cs:40
+]]></stack-trace>
+              </failure>
+              <output><![CDATA[Saving results to: C:/Users/Administrator/AppData/LocalLow/Resonance/契灵回响\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

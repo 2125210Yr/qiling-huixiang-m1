@@ -65,7 +65,7 @@ namespace Resonance.Tools
 
         sealed class VerificationOutput
         {
-            public string Tool { get; set; } = "original-expedition-replay-verifier-v1";
+            public string Tool { get; set; } = "original-expedition-replay-verifier-v2";
             public string Status { get; set; } = "ERROR";
             public bool Match { get; set; }
             public string File { get; set; }
