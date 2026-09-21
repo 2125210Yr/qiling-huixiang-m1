@@ -1,0 +1,9 @@
+{
+  "checkedAt": "2026-09-21T11:45:17.1296996+08:00",
+  "wmi": "PASS",
+  "lastBoot": "2026-09-21T11:22:06.5+08:00",
+  "freeMemoryKB": 14286200,
+  "unityResult": "75/75 PASS",
+  "sourceCommit": "8075dc35ae8158a1d4cca6b785b3b4229b2b32fa",
+  "report": "unity-after-reboot-20260921-1144.xml"
+}

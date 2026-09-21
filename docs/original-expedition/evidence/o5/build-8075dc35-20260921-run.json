@@ -1,0 +1,16 @@
+{
+  "started": "2026-09-21T11:46:02.7585806+08:00",
+  "finished": "2026-09-21T11:49:05.8951995+08:00",
+  "exitCode": -1,
+  "project": "F:/Resonance/OriginalExpeditionBuilds/8075dc35-20260921-1145",
+  "pid": 30480,
+  "arguments": [
+    "-batchmode",
+    "-projectPath",
+    "\"F:/Resonance/OriginalExpeditionBuilds/8075dc35-20260921-1145\"",
+    "-executeMethod",
+    "Resonance.EditorTools.OriginalExpeditionBuild.BuildAndExit",
+    "-logFile",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\build-8075dc35-20260921.log\""
+  ]
+}

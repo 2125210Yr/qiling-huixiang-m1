@@ -1,0 +1,18 @@
+{
+  "started": "2026-09-21T04:21:54.4307025Z",
+  "finished": "2026-09-21T04:23:27.9134889Z",
+  "exitCode": 0,
+  "project": "F:/Resonance/OriginalExpeditionBuilds/navigation-20260921-1222",
+  "sourceCommit": "567eec441911ef95df4a909432fbc6e699e8ad8c",
+  "arguments": [
+    "-batchmode",
+    "-projectPath",
+    "\"F:/Resonance/OriginalExpeditionBuilds/navigation-20260921-1222\"",
+    "-giCustomCacheLocation",
+    "\"F:/Resonance/OriginalExpeditionBuilds/navigation-20260921-1222/Temp/GICache-Original\"",
+    "-executeMethod",
+    "Resonance.EditorTools.OriginalExpeditionBuild.BuildAndExit",
+    "-logFile",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\build-567eec44-20260921.log\""
+  ]
+}

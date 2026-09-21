@@ -1,6 +1,6 @@
 {
   "document": "ORIGINAL-EXPEDITION-MVP v0.1 actual acceptance progress",
-  "generated_utc": "2026-09-20T18:55:35.0732298Z",
+  "generated_utc": "2026-09-21T04:58:22.3139316Z",
   "source_plan": "docs/original-expedition/spec/02_ACCEPTANCE_MATRIX.json",
   "source_plan_sha256": "b9e67b41b5335c7396cfb10be519056157f01eea839ab2d1fc224e3b46072162",
   "source_baseline": "8e56ee7c562c55ea336e3402f8c8c85d8c0223f4",
@@ -13,12 +13,85 @@
     "USER_REVIEW": "保留给明确交付后的用户体验评审；本轮没有宣称用户已验收。"
   },
   "counts": {
-    "PASS": 24,
-    "PARTIAL": 11,
-    "NOT_RUN": 3
+    "PASS": 26,
+    "PARTIAL": 10,
+    "NOT_RUN": 2
   },
   "core_evidence": {
     "latest_runs": [
+      {
+        "path": "docs/original-expedition/evidence/o5/replay-portability-core-final-20260921.trx",
+        "raw_counters": {
+          "total": "565",
+          "executed": "564",
+          "passed": "564",
+          "failed": "0",
+          "error": "0",
+          "timeout": "0",
+          "aborted": "0",
+          "inconclusive": "0",
+          "passedButRunAborted": "0",
+          "notRunnable": "0",
+          "notExecuted": "0",
+          "disconnected": "0",
+          "warning": "0",
+          "completed": "0",
+          "inProgress": "0",
+          "pending": "0"
+        },
+        "observed_result_outcomes": {
+          "NotExecuted": 1,
+          "Passed": 564
+        }
+      },
+      {
+        "path": "docs/original-expedition/evidence/o5/fingerprint-catalog-isolated-20260921.trx",
+        "raw_counters": {
+          "total": "1",
+          "executed": "1",
+          "passed": "1",
+          "failed": "0",
+          "error": "0",
+          "timeout": "0",
+          "aborted": "0",
+          "inconclusive": "0",
+          "passedButRunAborted": "0",
+          "notRunnable": "0",
+          "notExecuted": "0",
+          "disconnected": "0",
+          "warning": "0",
+          "completed": "0",
+          "inProgress": "0",
+          "pending": "0"
+        },
+        "observed_result_outcomes": {
+          "Passed": 1
+        }
+      }
+    ],
+    "total_listed_cases": 566,
+    "actually_executed": 565,
+    "passed": 565,
+    "failed": 0,
+    "observed_not_executed": 1,
+    "not_executed_test": "Resonance.Tests.G2RecheckNaturalContractTests.N01_N02_N03_NaturalPlayContract_DocumentedNotFaked",
+    "skip_count_note": "最终主套件 TRX 列入565项，564通过，UnitTestResult中1项既有NotExecuted；隔离Catalog另1通过。",
+    "legacy_catalog_order_dependency": "未经隔离的 O2 全套曾实际失败；探针确认既有 CatalogJsonSerializeRoundtripKeepsOpcode 全局污染。后续将该例单独进程运行，没有删除测试或把旧失败覆盖为通过。",
+    "aggregation_note": "v0.1.1最终主套件564通过、1既有跳过，加上已知旧Catalog隔离1通过，共565通过、1跳过。最后充能修复仅涉及Original分支，Catalog隔离用例对应路径未改，复用其有效结果；历史v0.1.0原件另存prior_v010_runs。",
+    "replay_cases_passed": 54,
+    "replay_count_note": "45 项基础与边界回放、4 项持久化回放、5 项家族与输入篡改定点，全部实际通过。",
+    "lifecycle_fixture_correction": {
+      "initial_run": "docs/original-expedition/evidence/o5/lifecycle-boundaries.trx",
+      "initial_outcomes": {
+        "Failed": 3
+      },
+      "corrected_run": "docs/original-expedition/evidence/o5/lifecycle-boundaries-green.trx",
+      "corrected_outcomes": {
+        "Passed": 3
+      },
+      "reason": "最初 AssertClean 错误要求盟方充能为 0；规格第 3.1 节要求每场重新初始化，既有 BattleSim.NewUnit 盟方开局值为 35。仅把夹具预期更正为 35，并加强旧模拟存在 Charge != 35 的断言；生产代码未修改。原始失败 log/TRX 保留，不将其称为生产缺陷修复或抹去。"
+    },
+    "prior_v010_runs": [
       {
         "path": "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
         "raw_counters": {
@@ -140,29 +213,7 @@
           "Passed": 3
         }
       }
-    ],
-    "total_listed_cases": 552,
-    "actually_executed": 551,
-    "passed": 551,
-    "failed": 0,
-    "observed_not_executed": 1,
-    "not_executed_test": "Resonance.Tests.G2RecheckNaturalContractTests.N01_N02_N03_NaturalPlayContract_DocumentedNotFaked",
-    "skip_count_note": "主 TRX total=539/executed=538；UnitTestResult 有 1 个 NotExecuted，即使其原始 counters.notExecuted 字段为 0，仍如实单列。",
-    "legacy_catalog_order_dependency": "未经隔离的 O2 全套曾实际失败；探针确认既有 CatalogJsonSerializeRoundtripKeepsOpcode 全局污染。后续将该例单独进程运行，没有删除测试或把旧失败覆盖为通过。",
-    "aggregation_note": "同一生产代码状态的主全套（538 通过、1 既有跳过）、隔离 Catalog 旧例（1 通过）、新增回放定点（5 通过）、遗物验收边界（4 通过）及生命周期边界（3 通过）五份报告汇总；不声称重新执行过单份 552 项全套。",
-    "replay_cases_passed": 54,
-    "replay_count_note": "45 项基础与边界回放、4 项持久化回放、5 项家族与输入篡改定点，全部实际通过。",
-    "lifecycle_fixture_correction": {
-      "initial_run": "docs/original-expedition/evidence/o5/lifecycle-boundaries.trx",
-      "initial_outcomes": {
-        "Failed": 3
-      },
-      "corrected_run": "docs/original-expedition/evidence/o5/lifecycle-boundaries-green.trx",
-      "corrected_outcomes": {
-        "Passed": 3
-      },
-      "reason": "最初 AssertClean 错误要求盟方充能为 0；规格第 3.1 节要求每场重新初始化，既有 BattleSim.NewUnit 盟方开局值为 35。仅把夹具预期更正为 35，并加强旧模拟存在 Charge != 35 的断言；生产代码未修改。原始失败 log/TRX 保留，不将其称为生产缺陷修复或抹去。"
-    }
+    ]
   },
   "offline_tool_evidence": {
     "checkpoint": "docs/original-expedition/OFFLINE-TOOLS-CHECKPOINT.md",
@@ -189,18 +240,26 @@
       "actual_player_packaged": false
     },
     "latest_unity_retry": {
+      "status": "PASS",
+      "report": "docs/original-expedition/evidence/o5/replay-portability-unity-final-20260921.xml",
+      "passed": 91,
+      "failed": 0,
+      "skipped": 0
+    },
+    "historical_unity_retry": {
       "report": "docs/original-expedition/evidence/o5/unity-retry-20260921-0305-result.json",
       "outcome": "BLOCKED_BEFORE_PROJECT_LOAD",
       "tests_started": false,
       "test_result_xml_exists": false
-    }
+    },
+    "scope_note": "原checkpoint与工具测试字段是v0.1.0历史验证；当前源码/CLI交叉核验/候选包分别以current_code_commit、replay_portability_evidence、current_package_evidence为准。原打包脚本未改，23项测试证据复用，且已用于当前真实Player。"
   },
   "global_limitations": [
-    "当前 O3/O4 Unity UI 执行、截图和教程回归均 NOT_RUN；C# 引用编译不是 Unity 测试。",
-    "没有完整 N0→N7 普通流程录像、普通失败重试录像或最终 Win64 交付包。",
-    "O0 单战普通 UI、O1/O2 Unity XML 是历史有界证据；不扩张为当前完整交付。",
-    "状态机注入终局、BattleSim 合法命令策略、固定平衡对照与普通玩家界面操作分开标注。",
-    "这份进度映射不修改原始 38 项输入清单，也不因缺口自动扩展代码或新增测试。"
+    "当前Unity自动回归91/91通过；普通输入、截图、不同实际渲染帧率对照和完整录像仍须各自证据。",
+    "v0.1.1源码7a6ede9b已完成真实Win64构建及新候选包核验；完整N0→N7与首领普通失败重试录像仍未完成，包本身不是整体验收通过。",
+    "e04e49e9普通试玩完成N1、B02领奖并到N2后提前结束，部分录像保留；v1真实回放的跨运行时缺陷已通过v2新格式修复，不能把旧录像当新版完整交付。",
+    "状态机注入终局、合法Submit/Tick首领逻辑夹具与普通玩家界面操作分开标注。",
+    "Computer Use报告物理Esc后未再操作桌面；已询问是否恢复普通游戏窗口操作，等待答复。"
   ],
   "checks": [
     {
@@ -219,7 +278,8 @@
         "docs/original-expedition/evidence/o0/player-entry/README.md",
         "docs/original-expedition/evidence/o0/player-entry/build-hashes.json",
         "docs/original-expedition/evidence/o0/legacy-profile-comparison.json",
-        "docs/original-expedition/evidence/o2/unity-o2.xml"
+        "docs/original-expedition/evidence/o2/unity-o2.xml",
+        "docs/original-expedition/evidence/o5/replay-portability-unity-final-20260921.xml"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalExpeditionModeTests.DefaultMode_IsOriginal_LegacyRequiresExplicitOptIn",
@@ -238,7 +298,7 @@
         }
       ],
       "remaining_requirements": [],
-      "current_unity_ui_execution": "HISTORICAL_O2_PASS_CURRENT_UI_NOT_RUN",
+      "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; SPECIFIC_ORDINARY_EVIDENCE_PENDING",
       "ordinary_play_execution": "HISTORICAL_O0_SINGLE_BATTLE_PASS"
     },
     {
@@ -255,7 +315,8 @@
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
         "docs/original-expedition/evidence/o2/unity-o2.xml",
-        "docs/original-expedition/O0-O1-CHECKPOINT.md"
+        "docs/original-expedition/O0-O1-CHECKPOINT.md",
+        "docs/original-expedition/evidence/o5/replay-portability-unity-final-20260921.xml"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalExpeditionModeTests.DefaultMode_IsOriginal_LegacyRequiresExplicitOptIn"
@@ -270,7 +331,7 @@
       "remaining_requirements": [
         "当前版本普通导航、热键及返回栈输入覆盖"
       ],
-      "current_unity_ui_execution": "HISTORICAL_O2_PASS_CURRENT_UI_NOT_RUN",
+      "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; SPECIFIC_ORDINARY_EVIDENCE_PENDING",
       "ordinary_play_execution": "NOT_RUN"
     },
     {
@@ -1087,7 +1148,8 @@
       "actual_result": "真实结果/账本区分请求、吸盾、HP 损失、过量与有效治疗；低血过杀/满血治疗不抬高有效贡献，单次与总计可重算。O4 面板实际数值及标注截图尚未在 Unity 运行。",
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
-        "docs/original-expedition/O4-CHECKPOINT.md"
+        "docs/original-expedition/O4-CHECKPOINT.md",
+        "docs/original-expedition/evidence/o5/replay-portability-unity-final-20260921.xml"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalResolutionIntegrationTests.NativeOverkillAndFullHealthHealing_DoNotInflateEffectiveContribution",
@@ -1120,7 +1182,7 @@
       "remaining_requirements": [
         "当前 Unity 贡献面板精确数值与单次/合计标注截图"
       ],
-      "current_unity_ui_execution": "NOT_RUN",
+      "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; SPECIFIC_ORDINARY_EVIDENCE_PENDING",
       "ordinary_play_execution": "NOT_APPLICABLE"
     },
     {
@@ -1231,7 +1293,8 @@
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
         "docs/original-expedition/O3-CHECKPOINT.md",
         "docs/original-expedition/evidence/o3/encounter-ui-red.log",
-        "docs/original-expedition/evidence/o3/encounter-ui-red-2.log"
+        "docs/original-expedition/evidence/o3/encounter-ui-red-2.log",
+        "docs/original-expedition/evidence/o5/replay-portability-unity-final-20260921.xml"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalBossControllerTests.ActualCastUsesMasksStillAliveAtResolutionAndSnapshotUpdatesDuringCast",
@@ -1258,7 +1321,7 @@
       "remaining_requirements": [
         "当前真实 UI 预警及面具变化画面"
       ],
-      "current_unity_ui_execution": "NOT_RUN",
+      "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; SPECIFIC_ORDINARY_EVIDENCE_PENDING",
       "ordinary_play_execution": "NOT_APPLICABLE"
     },
     {
@@ -1396,7 +1459,8 @@
       "actual_result": "1×/2×、政策停顿和暂停的模拟时钟/状态保持通过，真实速度指令按发生 tick 可回放；没有跨实际画面帧率的当前 Unity UI 对照。",
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
-        "docs/original-expedition/O3-CHECKPOINT.md"
+        "docs/original-expedition/O3-CHECKPOINT.md",
+        "docs/original-expedition/evidence/o5/replay-portability-unity-final-20260921.xml"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalBossControllerTests.FrozenDefinitionAndOneVsTwoSpeedHaveSameGameTimeActions",
@@ -1429,7 +1493,7 @@
       "remaining_requirements": [
         "不同实际画面帧率下的意图/倒计时/伤害时间对照"
       ],
-      "current_unity_ui_execution": "NOT_RUN",
+      "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; SPECIFIC_ORDINARY_EVIDENCE_PENDING",
       "ordinary_play_execution": "NOT_APPLICABLE"
     },
     {
@@ -1445,7 +1509,10 @@
       "actual_result": "队列同 slot 覆盖保序、清除重排、恢复先记 Resume 再统一 Submit、目标失效和角色状态拒绝、未就绪不自动重试均通过。当前普通 UI 编排输入片段未执行。",
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
-        "docs/original-expedition/O3-CHECKPOINT.md"
+        "docs/original-expedition/O3-CHECKPOINT.md",
+        "docs/original-expedition/evidence/o5/replay-portability-unity-final-20260921.xml",
+        "dist/original-expedition-v01/play-e04e49e9-20260921/ui-actions.json",
+        "dist/original-expedition-v01/play-e04e49e9-20260921/partial-navigation-issue-e04e49e9.mp4"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalExpeditionQueueTests.QueueReplacementPreservesOrder_ClearThenReinsertMovesToEnd_AndSnapshotsAreStable",
@@ -1502,8 +1569,8 @@
       "remaining_requirements": [
         "当前正常界面暂停、覆盖、恢复与拒绝反馈片段"
       ],
-      "current_unity_ui_execution": "NOT_RUN",
-      "ordinary_play_execution": "NOT_RUN"
+      "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; SPECIFIC_ORDINARY_EVIDENCE_PENDING",
+      "ordinary_play_execution": "PARTIAL_V1_N1_QUEUE_OVERWRITE_CLEAR_READD_RESUME"
     },
     {
       "id": "O-025",
@@ -1514,12 +1581,15 @@
       "expected": "新模式不进入隐藏QTE等待或Fever连点；普通攻击与玩家技能仍可用；legacy测试保持独立。",
       "evidence_required": "模式隔离回归",
       "original_plan_status": "NOT_RUN",
-      "actual_status": "PARTIAL",
-      "actual_result": "当前核心已有 Drive/Fever/旧自动所有权/3× 拒绝及 Tick 后不进入隐藏等待的模式测试；普通 Auto 仍运行。当前 O3/O4 HUD 刷新与整套 Unity 回归尚未执行，不能把 C# 引用编译当作 UI 通过。",
+      "actual_status": "PASS",
+      "actual_result": "当前核心已有 Drive/Fever/旧自动所有权/3× 拒绝及 Tick 后不进入隐藏等待的模式测试；普通 Auto 仍运行。当前 O3/O4 HUD 刷新与整套 Unity 回归尚未执行，不能把 C# 引用编译当作 UI 通过。 2026-09-21 重启后当前 Unity 75/75 通过，含 OriginalEntry_BlocksLegacyMutationAndAutomaticOwnershipMethods、ActualButtons_PauseQueueClearAndResume_ProduceOrderedSubmitResultsWithoutSaving 及 legacy 教程回归。结合既有高 Drive/Fever 核心测试，补齐分层模式隔离回归；不是一次普通高资源 UI 录像。",
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
         "docs/original-expedition/evidence/o2/unity-o2.xml",
-        "docs/original-expedition/O3-CHECKPOINT.md"
+        "docs/original-expedition/O3-CHECKPOINT.md",
+        "docs/original-expedition/evidence/o5/unity-after-reboot-20260921-1144.xml",
+        "docs/original-expedition/evidence/o5/replay-portability-core-final-20260921.trx",
+        "docs/original-expedition/evidence/o5/replay-portability-unity-final-20260921.xml"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalExpeditionModeTests.OriginalMode_RejectsDriveFeverAutoOwnershipAndThreeTimesSpeed",
@@ -1537,10 +1607,8 @@
           "outcome": "Passed"
         }
       ],
-      "remaining_requirements": [
-        "当前 HUD/旧自动路径组合的 Unity 模式隔离回归"
-      ],
-      "current_unity_ui_execution": "HISTORICAL_O2_PASS_CURRENT_UI_NOT_RUN",
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "PASS",
       "ordinary_play_execution": "NOT_APPLICABLE"
     },
     {
@@ -1598,7 +1666,8 @@
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
         "docs/original-expedition/evidence/o3/retry-contract.md",
-        "docs/original-expedition/evidence/o4/retry-comparison.trx"
+        "docs/original-expedition/evidence/o4/retry-comparison.trx",
+        "docs/original-expedition/evidence/o5/replay-portability-unity-final-20260921.xml"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalBossRetryStrategyTests.SamePersistedBossOpeningNaturallyLosesThenWinsWithLegalCommands",
@@ -1619,7 +1688,7 @@
       "remaining_requirements": [
         "普通界面失败、关闭重开、原样重试并改变操作的录像"
       ],
-      "current_unity_ui_execution": "NOT_RUN",
+      "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; SPECIFIC_ORDINARY_EVIDENCE_PENDING",
       "ordinary_play_execution": "NOT_RUN"
     },
     {
@@ -1709,7 +1778,8 @@
         "docs/original-expedition/evidence/o0/player-entry/README.md",
         "docs/original-expedition/O4-CHECKPOINT.md",
         "docs/original-expedition/evidence/o5/lifecycle-boundaries-green.trx",
-        "docs/original-expedition/evidence/o5/lifecycle-boundaries.trx"
+        "docs/original-expedition/evidence/o5/lifecycle-boundaries.trx",
+        "docs/original-expedition/evidence/o5/replay-portability-unity-final-20260921.xml"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalExpeditionFlowTests.FiveBattleLoopSettlesOnceAndNextRunClearsTemporaryState(reinforce: False, relicCount: 4)",
@@ -1748,7 +1818,7 @@
       "remaining_requirements": [
         "当前连续两趟及旧局摘要 UI 回归"
       ],
-      "current_unity_ui_execution": "NOT_RUN",
+      "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; SPECIFIC_ORDINARY_EVIDENCE_PENDING",
       "ordinary_play_execution": "HISTORICAL_O0_RESTART_ONLY"
     },
     {
@@ -1873,7 +1943,7 @@
       "evidence_required": "replay报告",
       "original_plan_status": "NOT_RUN",
       "actual_status": "PASS",
-      "actual_result": "A/B/C 三份完整家族 N7 首领逻辑样本均在默认暴击规则下通过真实命令取得 Victory，并证明本族实际触发；冻结输入序列化后 Verify 通过，最终状态、事件/结算哈希和触发序列一致。既有 case 另覆盖首领阶段、面具代数、蓄能/和声/强奏及暂停队列状态。三份 tape 为可核验的核心模拟样本，不代表普通 UI 实玩。",
+      "actual_result": "v0.1.1最终核心回放/负向用例通过；Unity6000.3.23f1实际合法Submit/Tick生成A/B/C首领v2磁盘回放，独立.NET6对原件严格验证三份均MATCH（1141/1675/1899tick），命令、事件、结算、完整终态位指纹全部比较。对应.NET三份也MATCH。此前真实Player v1 N1在Unity自验证MATCH、.NET FinalState mismatch的原件保留；诊断实证数字格式与自然充能中间精度差异，修复未增加容差。v1现在明确版本拒绝。这里通过的是录制/跨运行时验证合同，新版普通Player全流程回放仍待生成。",
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
         "docs/original-expedition/evidence/o5/replay-boundaries.trx",
@@ -1881,7 +1951,10 @@
         "docs/original-expedition/evidence/o5/replay-families.trx",
         "docs/original-expedition/evidence/o5/family-tapes/fixture-a-boss.original-replay.json",
         "docs/original-expedition/evidence/o5/family-tapes/fixture-b-boss.original-replay.json",
-        "docs/original-expedition/evidence/o5/family-tapes/fixture-c-boss.original-replay.json"
+        "docs/original-expedition/evidence/o5/family-tapes/fixture-c-boss.original-replay.json",
+        "docs/original-expedition/evidence/o5/replay-portability-fix.md",
+        "docs/original-expedition/evidence/o5/replay-v2-portability-results-final.json",
+        "docs/original-expedition/evidence/o5/replay-portability-core-final-20260921.trx"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalReplayTests.RecordedAcceptedAndRejectedCommandsRoundTripWithDefaultCriticalRolls",
@@ -2062,8 +2135,8 @@
       "expected": "不批量放宽断言；范围退出时保留旧测试并新增模式测试；真实报告跳过项。",
       "evidence_required": "测试原件与归类",
       "original_plan_status": "NOT_RUN",
-      "actual_status": "PARTIAL",
-      "actual_result": "最新核心主套件 538 通过、1 项 NotExecuted；已知污染 Catalog 的历史测试另进程 1/1 通过；同一生产代码状态新增回放定点 5/5、遗物验收边界 4/4、生命周期边界 3/3 通过。五份报告累计列项 552、实际执行并通过 551，保留 1 项既有跳过；这不是单次 552 项全套执行。生命周期首次 3 项失败来自错误的充能零值预期，按既有开局值 35 更正测试，原报告保留，生产未改。旧全套顺序污染和隔离原因保留。O2 Unity 61/61 是历史证据，O3/O4 改动后的教程/UI 回归仍未执行。",
+      "actual_status": "PASS",
+      "actual_result": "最新核心主套件 538 通过、1 项 NotExecuted；已知污染 Catalog 的历史测试另进程 1/1 通过；同一生产代码状态新增回放定点 5/5、遗物验收边界 4/4、生命周期边界 3/3 通过。五份报告累计列项 552、实际执行并通过 551，保留 1 项既有跳过；这不是单次 552 项全套执行。生命周期首次 3 项失败来自错误的充能零值预期，按既有开局值 35 更正测试，原报告保留，生产未改。旧全套顺序污染和隔离原因保留。O2 Unity 61/61 是历史证据，O3/O4 改动后的教程/UI 回归仍未执行。 2026-09-21 当前真实 Unity EditMode 75/75 通过、0 跳过，包含 27 项 legacy 教程和 14 项新增首领/反馈 UI；旧核心源码未变，复用前述核心结果。",
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-catalog-isolated.trx",
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
@@ -2075,7 +2148,10 @@
         "docs/original-expedition/evidence/o5/replay-families.trx",
         "docs/original-expedition/evidence/o5/relic-acceptance-boundaries.trx",
         "docs/original-expedition/evidence/o5/lifecycle-boundaries-green.trx",
-        "docs/original-expedition/evidence/o5/lifecycle-boundaries.trx"
+        "docs/original-expedition/evidence/o5/lifecycle-boundaries.trx",
+        "docs/original-expedition/evidence/o5/unity-after-reboot-20260921-1144.xml",
+        "docs/original-expedition/evidence/o5/replay-portability-core-final-20260921.trx",
+        "docs/original-expedition/evidence/o5/replay-portability-unity-final-20260921.xml"
       ],
       "exact_test_names": [
         "Resonance.Tests.BattleSimTests.CatalogJsonSerializeRoundtripKeepsOpcode",
@@ -2099,10 +2175,8 @@
           "outcome": "Passed"
         }
       ],
-      "remaining_requirements": [
-        "当前版本 Unity UI/教程全套回归"
-      ],
-      "current_unity_ui_execution": "HISTORICAL_O2_PASS_CURRENT_UI_NOT_RUN",
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "PASS",
       "ordinary_play_execution": "NOT_APPLICABLE"
     },
     {
@@ -2221,7 +2295,8 @@
         "docs/original-expedition/evidence/o3/unity-license-diagnosis.md",
         "docs/original-expedition/evidence/o3/encounter-ui-red.log",
         "docs/original-expedition/evidence/o3/encounter-ui-red-2.log",
-        "docs/original-expedition/evidence/o5/compile-03/compile-results.json"
+        "docs/original-expedition/evidence/o5/compile-03/compile-results.json",
+        "docs/original-expedition/evidence/o5/replay-portability-unity-final-20260921.xml"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalFeedbackTests.EveryRelicTriggeredByOneNativeActionRetainsItsOwnSerial_AndQueryCopiesStayUnchanged",
@@ -2243,7 +2318,7 @@
         "当前 O3/O4/O5 Unity UI 用例和真实截图",
         "暂停/退出/重试/重建后的普通交互核验"
       ],
-      "current_unity_ui_execution": "NOT_RUN",
+      "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; SPECIFIC_ORDINARY_EVIDENCE_PENDING",
       "ordinary_play_execution": "NOT_RUN"
     },
     {
@@ -2255,8 +2330,8 @@
       "expected": "不依赖F盘源码；包/源码/视频版本对应；历史ZIP不冒充新版；已知限制明确。",
       "evidence_required": "构建/包指纹＋连续录像",
       "original_plan_status": "NOT_RUN",
-      "actual_status": "NOT_RUN",
-      "actual_result": "已有中途快照保留；2026-09-21 02:48 以源码 1ae47287 为基线创建 prepare-1ae47287 候选副本，499 文件、11,448,923 字节，包含最后版本构建审计入口。独立核对所有源/副本 SHA 与大小相同，247 个 meta GUID 唯一。Git 来源检查发现 12 个既有运行时 meta 被第三方忽略，本次精准补跟踪；其余 487 项与基线一致。清单仍为预备源码快照。未启动 Unity 构建、未产出新版 EXE/ZIP，未执行离线完整流程和连续视频，不能引用历史包代替。",
+      "actual_status": "PARTIAL",
+      "actual_result": "源码7a6ede9b经新物理副本真实Unity构建exit0，BuildAudit PASS；499输入全部跟踪且源/副本哈希大小一致。candidate-7a6ede9b-20260921含170个Player文件、174个ZIP项，打包器逐文件和ZIP流核验通过。内容v0.1.1/hash69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd，回放v2。普通无参数离线五战录像与实际Player v2回放尚未执行，FinalAcceptancePassed=false；不以旧e04部分录像代替。",
       "evidence_paths": [
         "docs/original-expedition/PACKAGING-AUDIT.md",
         "docs/original-expedition/evidence/o5/package-preparation.md",
@@ -2265,17 +2340,58 @@
         "docs/original-expedition/evidence/o5/package-1ae47287-input-manifest.json",
         "docs/original-expedition/evidence/o5/package-1ae47287-preparation.json",
         "docs/original-expedition/evidence/o5/post-checkpoint-wmi-20260921.json",
-        "docs/original-expedition/evidence/o5/package-1ae47287-validation.json"
+        "docs/original-expedition/evidence/o5/package-1ae47287-validation.json",
+        "docs/original-expedition/evidence/o5/build-7a6ede9b-audit.json",
+        "docs/original-expedition/evidence/o5/build-7a6ede9b-source-validation.json",
+        "docs/original-expedition/evidence/o5/package-7a6ede9b-result.json",
+        "docs/original-expedition/evidence/o5/build-7a6ede9b-20260921-run.json"
       ],
       "exact_test_names": [],
       "test_evidence": [],
       "remaining_requirements": [
-        "完成 Unity 回归后确认最终源码并冻结交付用副本",
-        "真实 BuildReport 和新版 Win64 包/源码指纹",
-        "源码目录之外无参数离线全流程及对应连续录像"
+        "新版候选源码目录之外无参数离线完整普通五战、首领失败重试与对应连续录像",
+        "实际Player v2回放独立核验、源码/包/视频/回放身份对应"
       ],
       "current_unity_ui_execution": "NOT_RUN",
       "ordinary_play_execution": "NOT_RUN"
     }
-  ]
+  ],
+  "unity_after_reboot_evidence": {
+    "report": "docs/original-expedition/evidence/o5/replay-portability-unity-final-20260921.xml",
+    "result": "Passed",
+    "total": 91,
+    "passed": 91,
+    "failed": 0,
+    "skipped": 0,
+    "encounter_ui_passed": 8,
+    "feedback_ui_passed": 6,
+    "note": "真实Unity EditMode全套91/91；含跨运行时数值golden、合法技能后充能精度与三家族首领回放产物。受控逻辑夹具不替代普通输入/截图/不同渲染帧率/完整录像。"
+  },
+  "replay_portability_evidence": {
+    "source_commit": "7a6ede9b643a3470a9f0924d329a5ca769b40ce2",
+    "content_version": "original-expedition-content-v0.1.1",
+    "content_hash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd",
+    "replay_format": "original-expedition-replay-v2",
+    "report": "docs/original-expedition/evidence/o5/replay-v2-portability-results-final.json",
+    "unity_to_net6_matches": 3,
+    "net6_matches": 3,
+    "old_v1_policy": "Explicitly rejected before simulation; original files unchanged",
+    "ordinary_player_v2": "NOT_RUN"
+  },
+  "current_package_evidence": {
+    "Status": "BUILD_CANDIDATE_PACKAGED",
+    "Destination": "F:\\天命之子\\dist\\original-expedition-v01\\candidate-7a6ede9b-20260921",
+    "Zip": "F:\\天命之子\\dist\\original-expedition-v01\\candidate-7a6ede9b-20260921.zip",
+    "ZipSha256": "5b927cd0819540f02a4b73877bff25375d9a09abac8e332a6025da525cd84e2d",
+    "SourceCommit": "7a6ede9b643a3470a9f0924d329a5ca769b40ce2",
+    "ContentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd",
+    "PlayerFileCount": 170,
+    "ZipFileCount": 174,
+    "FinalAcceptancePassed": false,
+    "RemainingAcceptance": [
+      "UI inspection",
+      "Recorded playthrough"
+    ]
+  },
+  "current_code_commit": "7a6ede9b643a3470a9f0924d329a5ca769b40ce2"
 }

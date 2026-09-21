@@ -1,0 +1,11 @@
+{
+  "checkedAt": "2026-09-21T12:02:35.2969100+08:00",
+  "sourceCommit": "e04e49e95e8de69ac7a677679d725cf0dd2d3be5",
+  "inputCount": 499,
+  "allInputsTracked": true,
+  "inputDiffAgainstHead": [],
+  "project": "F:/Resonance/OriginalExpeditionBuilds/artifactfix-20260921-1201",
+  "manifestSha256": "A1841D9F3DE1746297487431C5DEE2CD763D4369E854F666C3CBC372FD6268DA",
+  "sharedPackagesUnchanged": true,
+  "note": "Snapshot manifest is pre-build provenance. Actual execution and result are recorded separately in BuildAudit."
+}

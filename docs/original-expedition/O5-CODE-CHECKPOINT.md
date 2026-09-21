@@ -1,51 +1,39 @@
-# O5 回放与交付准备代码检查点
+# O5 回放与交付检查点
 
-原创回放和隔离打包入口已实现，核心与 C# 编译验证通过。**最终独立 Win64 包、14 项新增 Unity UI 用例及完整普通录像仍未完成；项目目标保持进行中。**
+2026-09-21。**当前源码 `7a6ede9b643a3470a9f0924d329a5ca769b40ce2`：Unity 91/91 通过，.NET 合计 565 通过、1 既有跳过，真实 Win64 构建、审计与候选 ZIP 均完成。** 新包普通 UI、完整五战和首领失败重试录像仍未验收，整体目标未完成。
 
-## 已完成
+## 当前实现与版本
 
-- 独立 `original-expedition-replay-v1` 格式：保存完整冻结输入及其 SHA-256、外部操作意图、全部实际命令及拒绝原因、独立 EndTick、结算明细、事件与最终新状态。历史 legacy tape 的过滤、序列化和重放规则保持原入口。
-- 暂停编排的添加／替换／清除也进入意图记录；Resume 重建队列并自然产生子命令，避免重放两遍。终局同 tick 的拒绝输入仍处理。任何预期输出都不决定初始状态或结束 tick。
-- 最终比较包括首领阶段／时钟／意图、面具代数、单位状态精确散列、A 能量、C 和声／强奏、遗物触发与有限请求状态、待执行队列和执行结果。ResolutionResult 使用 DataMember 属性完整序列化，避免 public-field 散列漏掉伤害数字。
-- 普通原创战斗结算入口会录制、序列化再读取、重放核验，成功后以新文件保存到原创 profile 同级 `Replays`。保存失败仅记明确日志，不改变战斗结果或阻断原有进度提交；此入口已编译，尚未在新 Player 中实际执行。
-- 白名单准备脚本完成一次预备副本，499 个输入文件逐字节校验、无软链接，Resources 数据仅有已核验的 Noto 字体；原参考图片、模型和原生插件未复制。该副本是中途源码快照，之后构建审计入口又补了随包 notices 和最终文件清单，**不能拿旧预备副本直接作为最后版本**。
-- 随后以 `1ae47287` 为基线创建新候选副本 `dist/original-expedition-v01/prepare-1ae47287`，499 文件、11,448,923 字节，包含最终一次构建入口修改。输入清单 SHA-256 为 `09a2d0844a2b39a36dd445bf0b1c60c9579ca846fdf78d0a3bf1457d6f72425f`；它仍是预备源码快照，不是 Player 或已通过 UI 验收的最终包。
-- 新副本独立核对 499/499 文件的源／目标 SHA 和大小全部匹配；247 个 meta 的 GUID 无重复或无效。Git 来源检查发现 487 项在基线已跟踪，另 12 个现有 Inochi 托管运行时 `.meta` 被第三方目录 `*.meta` 规则忽略；已精准补跟踪这 12 个原文件，保留现有 GUID 与字节，以便从版本历史重建相同输入。见 `evidence/o5/package-1ae47287-validation.json`。
-- 新 `OriginalExpeditionBuild.BuildAndExit` 只接受已声明的物理副本和输入清单；验证文件 SHA、场景依赖、所有 Resources 和实际 packedAssets。成功构建后复制许可文本，并对整个 Player 输出逐文件 SHA。该入口已用本机 Unity API 编译，尚未真实构建。
-- 后续补齐独立 .NET 回放 CLI 与 PowerShell Player 交付打包脚本；分别通过 8 项命令测试和 23 项打包夹具，CLI 另有 5 次实际进程调用。没有修改 Unity 生产代码，也没有生成真实新 Player。详见 [离线工具检查点](OFFLINE-TOOLS-CHECKPOINT.md)。
+- 回放保存完整冻结输入及 SHA-256、操作意图、实际命令与拒绝原因、独立 EndTick、结算明细、事件及最终状态；暂停队列通过意图重建，预期输出不参与构造开局或结束 tick。普通终局核验后以新文件保存至原创 profile 同级 `Replays`，失败日志不阻断原进度提交。
+- `7a6ede9b` 修复两个跨运行时根因：浮点 `ToString("R")` 改为 IEEE 位模式指纹，保留正负零且不引入容差；原创自然充能从除法开始显式使用 double 中间运算，每 tick 写回 float 一次。legacy 充能分支不变。诊断原件及详细说明见 [回放一致性修复](evidence/o5/replay-portability-fix.md)。
+- 内容版本为 `original-expedition-content-v0.1.1`，内容 SHA-256 为 `69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd`；回放为 Schema 2 / `original-expedition-replay-v2`。v1 在模拟前明确拒绝；旧 Player tape、失败报告、旧验证器和候选包全部保留，不改写历史记录来取得匹配。
+- 原创 profile 的存档 Schema 与完整性算法未改。真实已结束 v0.1.0 档案的隔离副本可加载并新开 v0.1.1，永久记录保留、源字节未变；旧活动远征仍由版本检查拒绝，应在对应旧包继续或经普通界面结束后新开。个人 save.json 与备份保持保护。
+- 构建仍使用物理副本、输入白名单、场景依赖／Resources／packedAssets 审计、许可文本及逐文件 SHA。`e04e49e9` 保留移出构建时注入的精确性能测试资源，`567eec44` 将当前节点选项前移并增加滚动条；两项修复均在当前版本内，原说明分别见 `evidence/o5/build-artifact-fix.md`、`navigation-fix.md`。
 
-## 实际验证
+## 最终实际证据
 
 | 证据 | 结果与范围 |
 | --- | --- |
-| `evidence/o5/core-o5-isolated-suite.trx` | 538 通过、0 失败、1 项既有跳过；完整核心套件仅排除已知 Catalog 污染测试。 |
-| `evidence/o5/core-o5-catalog-isolated.trx` | 上述旧测试单独运行 1/1；这两次合计列入 540 项，539 通过、1 既有跳过。隔离依据见 O2，不隐瞒单进程顺序问题。 |
-| `evidence/o5/replay-boundaries.trx` | 45/45；含完整自然首领胜局重放、拒绝命令、编排、变速、版本拒绝、明细篡改与不可达边界。 |
-| 同上全量核心内 `OriginalReplayStoreTests` | 4/4；真实保存再读、重复不覆盖、损坏记录拒绝、IO 失败不改战斗及原 profile 字节。 |
-| `evidence/o5/replay-families.trx` | 另补规格要求的 5/5：完整 A/B/C 的实际首领胜局触发与回放，以及开局生命／遗物参数篡改拒绝。生产代码未改变，复用上述有效全量结果。 |
-| `evidence/o5/relic-acceptance-boundaries.trx` | 4/4；无结果／零有效结果不蓄能，完整 A 族单敌只释放一次 A04，以及预算 16→17 经生产 Submit 明确 Failed。后者注入预算前置条件；不是正常内容自然耗尽预算的证明。当前无通用未命中机制，前两例验证结算合同。 |
-| `evidence/o5/lifecycle-boundaries-green.trx` | 3/3；真实 Flow 的 N1→N2、成熟 N5→N7、EndRun→新趟，核对生命恢复及临时状态重建。前置战斗状态与胜利明确为夹具。最初 `lifecycle-boundaries.trx` 三项因测试误期待充能 0 失败；核对规格及既有开局值 35 后只修测试，保留原始报告。 |
-| `evidence/o5/fixture-boss-replay.json` | 新录制并重放匹配的首领逻辑夹具；开局来自测试工厂，非普通 UI 录像。 |
-| `evidence/o5/family-tapes/` | 三份真实录制后 JSON 再读取并匹配的家族首领逻辑夹具。A04 实际生命伤害 16219；B01 实际生命伤害 23259；C 形成和声并消费强奏各 14 次。仍为工厂开局／合法指令测试，非普通获取或 UI 录像。 |
-| `evidence/o5/compile-03/compile-results.json` | 使用本机 Unity 6000.3.23f1 项目引用编译 6 个程序集全部 exit 0；含 App、核心、Editor 和 UI 测试源码。没有执行 Unity、资产导入或 UI 断言。 |
-| `evidence/o5/package-preparation-*.json` | 复制护栏 12/12、一次真实复制与独立哈希／资源扫描通过；不是 Player 打包结果。 |
-| `evidence/o5/personal-save-hashes.json` | 个人 save.json 与备份仍均为 `624CC9C6882BB512A7EFFE419F3B47332747BE33A33726796DF611612E55C2A7`，与 O0 前一致。 |
+| `evidence/o5/replay-portability-core-final-20260921.trx` | 当前 .NET 主套件 564 通过、0 失败、1 个既有普通操作占位跳过。 |
+| `evidence/o5/fingerprint-catalog-isolated-20260921.trx` | 已知旧 Catalog 污染例单独 1/1；该路径不受最后原创充能分支改动影响，复用有效结果。与主套件合计 565 通过、1 跳过，不声称单次全套结果。 |
+| `evidence/o5/replay-portability-unity-final-20260921.xml` | Unity 6000.3.23f1 真实执行 91/91、0 跳过；涵盖既有 UI／教程、构建护栏、导航、固定数值指纹与自然充能位值回归。 |
+| `evidence/o5/replay-v2-portability-results-final.json` | Unity 生成 A/B/C 三份首领磁盘 tape，由新 .NET CLI 严格核验 3/3 MATCH；.NET 自生成三份也 3/3 MATCH。六份文件核验中三份跨运行时，含文件 SHA、版本、退出码及事件 hash。 |
+| `evidence/o5/family-tapes-v2-unity-final/`、`family-tapes-v2-net6-final/` | A/B/C 分别 1141／1675／1899 tick 胜利并实际触发家族效果；固定工厂开局、合法 Submit/Tick，未改战中生命、充能或胜负。**这些是受控逻辑夹具，不是普通 UI 录像。** |
+| `evidence/o5/profile-v011-copy-compatibility.json` | 真实已结束旧原创档副本新开 v0.1.1 成功，永久记录保留、源字节未改；不等同于修改用户活动存档。 |
+| `evidence/o5/build-7a6ede9b-20260921-run.json`、`build-7a6ede9b-audit.json` | 当前源码独立副本于 12:56 构建结束，退出码 0、BuildAudit PASS。 |
+| `evidence/o5/build-7a6ede9b-source-validation.json`、`package-7a6ede9b-result.json` | 499 个源输入复核匹配，170 个 Player 文件、174 个 ZIP 条目已核验，候选打包完成；`FinalAcceptancePassed=false`。 |
+| `evidence/o5/portability-save-integrity.json` | 个人 save.json 与备份仍与开工前字节／SHA 一致，实际原创 profile 自 Esc 后字节未变，此后未发送桌面输入。 |
 
-同一生产源码的上述五份不同用例报告合计列入 **552 项，551 通过、1 既有跳过**。这是有效结果的联合，不冒称在单次全套中得到；重复的定点回放报告不再计数。独立回放源码复核未发现确定且重要的新缺陷，范围见 `evidence/o5/replay-code-review.md`。
+`7a6ede9b` 交付候选已位于 `dist/original-expedition-v01/candidate-7a6ede9b-20260921` 及同名 ZIP，ZIP SHA-256 为 `5b927cd0819540f02a4b73877bff25375d9a09abac8e332a6025da525cd84e2d`。原 38 项验收当前为 **26 PASS / 10 PARTIAL / 2 NOT_RUN**；O-038 因缺普通完整流程仍为 PARTIAL，包生成不等于最终验收。
 
-## 环境阻塞与恢复后步骤
+原 551 通过／1 跳过的核心联合报告、75／82／84 项 Unity 报告、v1 tapes、诊断中途 B/C 不匹配和旧包都保留为历史证据，不能代替上述最终结果。旧普通 N1 tape 的 .NET `FinalState mismatch` 是本次修复的触发证据；它没有被改写，新验证器对其明确 REJECTED。原离线工具范围见 [离线工具检查点](OFFLINE-TOOLS-CHECKPOINT.md)，旧准备副本及 meta 来源检查见 `evidence/o5/package-1ae47287-validation.json`。
 
-Unity 两次在本机许可证握手阶段停住，未进入项目编译。系统此前发生内存不足，随后跨应用 WMI 查询异常；这是最强候选，尚没有线程栈证明完整因果。内存恢复后，2026-09-21 02:18（上海）独立只读 `Win32_OperatingSystem` 查询仍以 5 秒操作超时退出。见 `evidence/o3/unity-license-diagnosis.md` 与 `evidence/o5/wmi-health-probe*`。没有删除许可证、重新激活、重启服务或更改系统权限；只终止了本任务已核验身份的挂起 Unity/许可进程。
+## 普通试玩边界与下一步
 
-代码提交后 02:47 的重新检查仍超时，耗时 5,058 ms，系统持续运行约 620.8 分钟；见 `evidence/o5/post-checkpoint-wmi-20260921.json`。当时没有存活的 Unity／许可进程，未再次拉起编辑器。
+已有普通无参数试玩仅来自 `e04e49e9`：N1 胜利、领取 B02 并到 N2，因导航按钮埋底经普通界面提前结束。部分录像为仓库根下 `dist/original-expedition-v01/play-e04e49e9-20260921/partial-navigation-issue-e04e49e9.mp4`，不是完整远征或首领失败重试证据。
 
-03:05 按用户要求再次启动真实 Unity 套件，许可握手 30 秒超时、初始化失败，未进入测试；只终止了本次核验过路径及启动时间的两个进程。退出码 -1 来自失败后的显式清理，不代表测试失败。见 `evidence/o5/unity-retry-20260921-0305-result.json` 及同名前缀原始 log/run.json。
+用户重启后 WMI 与 Unity 已恢复，见 `evidence/o5/reboot-recovery-20260921.json`；此前许可失败只保留历史原件。目前仍等待用户回复是否恢复窗口操作：Computer Use 此前报告物理 Esc 停止，此后没有再调用。新包尚未进行普通 UI 验收。
 
-需要在保存工作后正常重启 Windows。恢复后按以下顺序继续，不重复未变化的核心验证：
+恢复窗口操作后，用新 `7a6ede9b` 包无参数启动，核验导航并完成 N0→N7→结算→返回→新趟的连续五战，另录同版首领败北→原样重试→胜利。真实 Player 产生的 v2 tapes 必须由新独立 CLI 从磁盘严格核验；受控逻辑夹具不能代替。记录源码、EXE、内容版本、录像及回放哈希，按原 38 项更新验收。普通试玩前后继续核对个人存档与备份，禁止战中设置生命、充能或胜负。
 
-1. 先确认 WMI 查询与 Unity 许可握手恢复；执行真实 `Resonance.EditorTests` EditMode 套件，重点补 O3 的 8 项和 O4 的 6 项 UI 用例。如有真实失败，只修对应问题，再跑受影响检查。
-2. 从最终已提交源码重新执行 `evidence/prepare-package-project.ps1` 到**全新物理目录**，传完整 SourceCommit；运行该副本的 `OriginalExpeditionBuild.BuildAndExit`，检查 BuildAudit 结果和实际输出文件。
-3. 按 `tools/OriginalExpedition.Delivery/README.md` 对真实 PASS BuildAudit 调用打包脚本，显式传入确认过的完整源码 SHA 和内容哈希，生成全新交付候选目录及 ZIP。正常无参数启动，录制 N0→N7→结算→返回→新趟的连续五战，并另录同版首领败北→原样重试→胜利。只能真实 UI 操作，不能设置战中 HP、充能或胜负。
-4. 对应 Player 的真实回放必须生成并重放匹配，检查日志中 `ORIGINAL_REPLAY_MATCH`，再按 `tools/OriginalReplay.Verify/README.md` 用独立 CLI 读取磁盘记录并保存 JSON 结果；不得把本页 fixture tape 换名代替。记录 EXE／源码／内容版本和录像哈希；更新独立验收结果后交用户体验验收。
-
-没有推送 GitHub、发布、覆盖旧 ZIP/视频或清理历史素材。当前普通 UI 最远证据仍是 O0/O1 开发包的一场前厅胜利与领取奖励，不声称新首领已经在普通界面玩过。
+源码与输入未改变时复用当前有效验证。只有新缺陷修复才重新执行受影响检查，并在全新物理目录构建、打包；构建继续显式传入 `-giCustomCacheLocation "<副本>/Temp/GICache-Original"`，保留默认缓存失败原件，不改系统权限。未推送 GitHub、未发布、未删除或覆盖旧素材、ZIP、视频；用户已有暂存改动保留。

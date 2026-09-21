@@ -1,0 +1,10 @@
+{
+  "checkedAt": "2026-09-21T11:50:35.9933452+08:00",
+  "sourceCommit": "8075dc35ae8158a1d4cca6b785b3b4229b2b32fa",
+  "inputCount": 499,
+  "matchesPreviouslyValidatedCommitInputs": true,
+  "differentFiles": 0,
+  "project": "F:/Resonance/OriginalExpeditionBuilds/8075dc35-20260921-1150",
+  "manifestSha256": "CE48DB9D9F11950747982E8D5E15B35717CEEC82CDFCF43804327DBF3D7E6394",
+  "previousValidation": "build-8075dc35-source-validation.json"
+}

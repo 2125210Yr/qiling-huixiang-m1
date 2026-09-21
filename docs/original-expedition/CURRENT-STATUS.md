@@ -1,22 +1,21 @@
 # 当前交接：原创远征 v0.1
 
-2026-09-21。主仓库 `F:/天命之子`，分支 `codex/original-expedition-v01`；实际 Unity 工程 `F:/Resonance/client`。继续本模式，不回到旧 SHOWTIME 单项工单。**整体目标仍未完成。**
+2026-09-21。主仓库 `F:/天命之子`，分支 `codex/original-expedition-v01`；实际 Unity 工程 `F:/Resonance/client`。**当前源码 `7a6ede9b` 已修复跨运行时回放差异，Unity 91/91 通过，新 Win64 候选目录与 ZIP 已生成；普通界面验收、完整五战及首领失败重试录像仍未完成。** 继续本模式，不回到旧 SHOWTIME 单项工单。
 
 已保存 O0/O1 入口闭环（`98e2dac0`）、O2 十二遗物及结算（`cc04ca14`）、O3 首领与编排（`a31c47ff`）、O4 真实贡献反馈（`d618adcd`）、O5 回放及打包准备（`1ae47287`）。未推送本模式、未发布。
 
-随后完成不依赖 Unity 启动的两项交付工具：独立磁盘回放核验命令（`e8f0b7f9`，8/8 用例通过，Release 程序实跑三份家族夹具均 MATCH），以及审计驱动的 Player 目录／ZIP 打包脚本（23/23 夹具通过）。使用与验证范围见 [离线工具检查点](OFFLINE-TOOLS-CHECKPOINT.md)。这些工具尚未用于新版真实 Player，验收仍为 24 PASS / 11 PARTIAL / 3 NOT_RUN。
+交付工具、构建资源排除与节点导航修复分别保存在 `e8f0b7f9`／`8075dc35`、`e04e49e9`、`567eec44`；工具原始验证范围见 [离线工具检查点](OFFLINE-TOOLS-CHECKPOINT.md)。最新 `7a6ede9b` 用 IEEE 位模式指纹取代跨运行时不一致的浮点格式化，并使原创自然充能显式以 double 计算、每 tick 写回 float；legacy 充能逻辑不变。
 
-- 当前核心证据：552 个用例，551 通过，1 个既有普通操作占位跳过；已知旧 Catalog 污染用例隔离执行。最近完整核心结果与随后 5 个家族回放、4 个遗物边界及 3 个生命周期补测对应相同生产代码。
-- 原创回放相关 54 项通过；A/B/C 和首领阶段均有实际录制再重放匹配的逻辑夹具。
-- 六个程序集使用本机 Unity 引用编译成功；这不是 Unity 资产导入、UI 测试或 Player 构建。
-- 最后一次真实 Unity 测试停在 O2 的 61/61。O3 的 8 项与 O4 的 6 项新增 UI 用例尚未在 Unity 执行。
-- 最后一次普通玩家界面证据仍是 O0/O1 开发包的一场前厅胜利、领奖、结束与重开。没有本版完整远征视频，没有本版首领失败重试视频，没有最终 Win64 包。
-- 个人 save.json 与备份的哈希仍与开工前一致。旧素材、旧视频和用户已有暂存内容未清理。
+- 当前 .NET 主套件 564 通过、1 个既有普通操作占位跳过；已知旧 Catalog 污染用例复用单独 1/1 的有效结果，合计 **565 通过、1 跳过**。真实 Unity 最终 **91/91、0 跳过**。原件见 `evidence/o5/replay-portability-core-final-20260921.trx`、`fingerprint-catalog-isolated-20260921.trx` 与 `replay-portability-unity-final-20260921.xml`。
+- Unity 生成的 A/B/C 首领磁盘回放由新 .NET CLI 严格核验 **3/3 MATCH**；.NET 自生成三份也 **3/3 MATCH**。它们是工厂开局、合法 Submit/Tick 的受控逻辑夹具，不是普通 UI 录像。根因与完整结果见 `evidence/o5/replay-portability-fix.md`、`replay-v2-portability-results-final.json`。
+- 当前内容为 `original-expedition-content-v0.1.1`，内容 SHA-256 为 `69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd`；回放为 Schema 2 / `original-expedition-replay-v2`。新验证器明确拒绝 v1；旧 tape、失败报告和旧包保留，不改写原件。
+- `7a6ede9b` 独立物理副本于 12:56 完成真实构建，退出码 0、BuildAudit PASS；499 个源输入复核匹配，170 个 Player 文件与 174 个 ZIP 条目已核验。候选目录为 `dist/original-expedition-v01/candidate-7a6ede9b-20260921`，同名 ZIP 的 SHA-256 为 `5b927cd0819540f02a4b73877bff25375d9a09abac8e332a6025da525cd84e2d`。见 `evidence/o5/package-7a6ede9b-result.json`；`FinalAcceptancePassed=false`。
+- `e04e49e9` 无参数普通试玩仅完成 N1 胜利、领取 B02 并到 N2；因继续按钮埋在长页面底部，经普通界面提前结束。录像保留在 `dist/original-expedition-v01/play-e04e49e9-20260921/partial-navigation-issue-e04e49e9.mp4`，不是完整远征或首领重试证据。
+- 当前仍等待用户回复是否恢复窗口操作；此前 Computer Use 启动时报告物理 Esc 停止，此后未再调用。新包普通 UI 与真实 Player v2 tape 尚未验收。
+- 已结束 v0.1.0 原创 profile 的真实隔离副本可新开 v0.1.1 远征，永久记录保留、源字节未改，见 `evidence/o5/profile-v011-copy-compatibility.json`。旧活动远征仍受版本检查保护。`evidence/o5/portability-save-integrity.json` 核实个人 save.json 与备份仍与开工前一致，实际原创 profile 自 Esc 后字节未变；旧素材、旧视频和用户已有暂存内容未清理。
 
-Unity 许可握手失败发生在项目编译之前；按用户要求于 2026-09-21 03:05 再试一次，仍在 30 秒握手超时后失败，没有开始测试或生成结果 XML。03:04 的独立 WMI 查询也在 5 秒后超时；二者的完整因果尚未证实。只停止了核验身份后的本次 Unity／许可进程。原始结果见 `evidence/o5/unity-retry-20260921-0305-result.json`。保存工作后需要正常重启 Windows，再先核验 WMI／许可、执行 Unity UI 套件。不要反复拉起挂住的编辑器、删除许可文件或更改系统权限。
+用户重启后 WMI 查询与 Unity 执行均已恢复，见 `evidence/o5/reboot-recovery-20260921.json`。此前许可握手失败仅作为历史记录保留在 `evidence/o5/unity-retry-20260921-0305-result.json`，不再是当前阻塞。
 
-重启后的准确后续顺序与证据位置见 [O5 代码检查点](O5-CODE-CHECKPOINT.md)。[验收进度](ACCEPTANCE-PROGRESS.json) 按原 38 项分别记录，原始 spec 清单保持不变。[玩法说明](PLAY-GUIDE.md) 已写好，正式包完成后随包交付。
+后续顺序与证据位置见 [O5 代码检查点](O5-CODE-CHECKPOINT.md)。[验收进度](ACCEPTANCE-PROGRESS.json) 为 **26 PASS / 10 PARTIAL / 2 NOT_RUN**，按原 38 项分别记录；O-038 已有真实构建与包证据，仍缺普通完整流程，保持 PARTIAL。原始 spec 清单不变，[玩法说明](PLAY-GUIDE.md) 已随候选包交付。
 
-已有 `dist/original-expedition-v01/prepare-20260921` 只是旧的中途代码物理副本，保持不动。必须在最终源码确定后，运行白名单脚本复制到一个**新的目录**，再调用 `OriginalExpeditionBuild.BuildAndExit`，保留真实 BuildAudit。完整普通录像、真实 Player 回放和包文件哈希齐全后才可交用户验收。
-
-02:48 已另外创建以 `1ae47287` 为基线的候选副本 `dist/original-expedition-v01/prepare-1ae47287`，含 499 文件、11,448,923 字节以及最后版本的构建审计入口。499 文件的源／副本哈希及大小均匹配。Git 来源复核发现 487 项已跟踪，另有 12 个现有 Inochi 托管运行时 `.meta` 被第三方忽略规则排除；本次将这 12 个原文件补入版本历史，保留其 GUID。副本 247 个 meta 的 GUID 全部有效且唯一。清单仍明确标记为预备快照；没有启动 Unity、生成 Player 或执行普通试玩。详见 `evidence/o5/package-1ae47287-*`。先完成阻塞的 Unity 回归，再冻结最终交付源码并建立对应版本的构建副本。
+下一步在窗口操作恢复后，用新 `7a6ede9b` 包核验普通 UI、完成 N0→N7 五战连续流程及同版首领失败→原样重试→胜利录像，并用新 CLI 严格核验真实 Player v2 tapes。历史准备副本、旧包及部分录像不冒充新版证据；没有新变更则复用当前有效验证。未推送 GitHub、未发布。

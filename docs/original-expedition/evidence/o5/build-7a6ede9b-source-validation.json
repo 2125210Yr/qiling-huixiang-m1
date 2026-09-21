@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-09-21T12:57:11.9012563+08:00",
+  "sourceCommit": "7a6ede9b643a3470a9f0924d329a5ca769b40ce2",
+  "headAtValidation": "7a6ede9b643a3470a9f0924d329a5ca769b40ce2",
+  "contentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd",
+  "inputCount": 499,
+  "allInputsTracked": true,
+  "inputDiffAgainstHead": [],
+  "sourceInputHashesAndSizesMatchManifest": true,
+  "copiedInputHashesAndSizesMatchManifest": true,
+  "sourceHashMismatches": [],
+  "copiedHashMismatches": [],
+  "project": "F:/Resonance/OriginalExpeditionBuilds/portability-20260921-1253",
+  "manifestSha256": "0CEF89BCDF534308B93F54E93E9EBF60B1431E926DF418220D8EF9367081512D",
+  "sharedPackagesUnchanged": true,
+  "guideSha256": "29EEEFA64237487629DFD8DE584653A2C40705C3338DBCD7B7B9373BEEDDC562",
+  "note": "All 499 manifest rows checked against physical source and post-build copied input bytes/sizes. Git tracking and HEAD differences checked in batch over mapped source paths. The delivery guide includes the root-confirmed 91/91 correction, to be committed separately; it is not a Player input. BuildAudit records actual Unity execution; this source check is not ordinary Player UI acceptance."
+}

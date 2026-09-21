@@ -1,0 +1,301 @@
+{
+  "initialMatch": false,
+  "fields": [
+    {
+      "field": "UnitStateHashes",
+      "expected": [
+        "7b2a245085366297d6f8fc6cf032de968c18cb2e3be6bd47904e9e025cb04f0c",
+        "1fc9cec7e44aee556f62f4f158b8360ab755b75f1868a095057db73155a2e690",
+        "ef8bf752e66250979a280944f9597458463e3a533275a2d1b838d608d7ae95da",
+        "54c2e7647525e3833017520f20fffa897e3eab1dc2b96792e817b1a1c2c6f5ca",
+        "eeab4809599c3e0a12469322132efd29347b481569444d33a5116ec6ad439740",
+        "6abf2437c6e909dedc72537a11f78cb8d9ece027118d0e434aafc445dca54f6c",
+        "46bf8bd99c170d63a708c3f6414d527054e6982314a10ccdc439982a5c32b814"
+      ],
+      "actual": [
+        "39cc33016e9778e468716398547b87c47dca840a9a719692f03db00aabefde6d",
+        "7889f4809558214ee9e6617622dededdda6c1e9e0546aa87c27e84e70beaed23",
+        "ef8bf752e66250979a280944f9597458463e3a533275a2d1b838d608d7ae95da",
+        "16d4b75b3bdb4a188c0e4695d707fc054b39832d370bc7c1abc3c895c8c0afb0",
+        "eeab4809599c3e0a12469322132efd29347b481569444d33a5116ec6ad439740",
+        "9d8a54bf10cdc837d6c096b4f16201936cf16f87ab459b1b41d1a46670983750",
+        "92b565d2a62166673155231218ae11aa7b75c238e8a27402fbcd151bb2227a2f"
+      ]
+    }
+  ],
+  "units": [
+    {
+      "index": 0,
+      "expected": "7b2a245085366297d6f8fc6cf032de968c18cb2e3be6bd47904e9e025cb04f0c",
+      "net": "39cc33016e9778e468716398547b87c47dca840a9a719692f03db00aabefde6d",
+      "monoCandidate": "7b2a245085366297d6f8fc6cf032de968c18cb2e3be6bd47904e9e025cb04f0c",
+      "monoMatches": true,
+      "floats": [
+        {
+          "field": "Charge",
+          "bits": "429e184b",
+          "netR": "79.04745",
+          "monoCandidate": "79.04745"
+        },
+        {
+          "field": "SlideCd",
+          "bits": "00000000",
+          "netR": "0",
+          "monoCandidate": "0"
+        },
+        {
+          "field": "AutoTimer",
+          "bits": "3eaaaaab",
+          "netR": "0.33333334",
+          "monoCandidate": "0.333333343"
+        },
+        {
+          "field": "IgnCrtAdd",
+          "bits": "00000000",
+          "netR": "0",
+          "monoCandidate": "0"
+        },
+        {
+          "field": "IgnAglAdd",
+          "bits": "00000000",
+          "netR": "0",
+          "monoCandidate": "0"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "expected": "1fc9cec7e44aee556f62f4f158b8360ab755b75f1868a095057db73155a2e690",
+      "net": "7889f4809558214ee9e6617622dededdda6c1e9e0546aa87c27e84e70beaed23",
+      "monoCandidate": "1fc9cec7e44aee556f62f4f158b8360ab755b75f1868a095057db73155a2e690",
+      "monoMatches": true,
+      "floats": [
+        {
+          "field": "Charge",
+          "bits": "42c80000",
+          "netR": "100",
+          "monoCandidate": "100"
+        },
+        {
+          "field": "SlideCd",
+          "bits": "00000000",
+          "netR": "0",
+          "monoCandidate": "0"
+        },
+        {
+          "field": "AutoTimer",
+          "bits": "3fd1110f",
+          "netR": "1.6333331",
+          "monoCandidate": "1.63333309"
+        },
+        {
+          "field": "IgnCrtAdd",
+          "bits": "00000000",
+          "netR": "0",
+          "monoCandidate": "0"
+        },
+        {
+          "field": "IgnAglAdd",
+          "bits": "00000000",
+          "netR": "0",
+          "monoCandidate": "0"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "expected": "ef8bf752e66250979a280944f9597458463e3a533275a2d1b838d608d7ae95da",
+      "net": "ef8bf752e66250979a280944f9597458463e3a533275a2d1b838d608d7ae95da",
+      "monoCandidate": "ef8bf752e66250979a280944f9597458463e3a533275a2d1b838d608d7ae95da",
+      "monoMatches": true,
+      "floats": [
+        {
+          "field": "Charge",
+          "bits": "428a555b",
+          "netR": "69.16671",
+          "monoCandidate": "69.16671"
+        },
+        {
+          "field": "SlideCd",
+          "bits": "00000000",
+          "netR": "0",
+          "monoCandidate": "0"
+        },
+        {
+          "field": "AutoTimer",
+          "bits": "3ff77773",
+          "netR": "1.9333328",
+          "monoCandidate": "1.9333328"
+        },
+        {
+          "field": "IgnCrtAdd",
+          "bits": "00000000",
+          "netR": "0",
+          "monoCandidate": "0"
+        },
+        {
+          "field": "IgnAglAdd",
+          "bits": "00000000",
+          "netR": "0",
+          "monoCandidate": "0"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "expected": "54c2e7647525e3833017520f20fffa897e3eab1dc2b96792e817b1a1c2c6f5ca",
+      "net": "16d4b75b3bdb4a188c0e4695d707fc054b39832d370bc7c1abc3c895c8c0afb0",
+      "monoCandidate": "54c2e7647525e3833017520f20fffa897e3eab1dc2b96792e817b1a1c2c6f5ca",
+      "monoMatches": true,
+      "floats": [
+        {
+          "field": "Charge",
+          "bits": "42aa419b",
+          "netR": "85.128136",
+          "monoCandidate": "85.1281357"
+        },
+        {
+          "field": "SlideCd",
+          "bits": "00000000",
+          "netR": "0",
+          "monoCandidate": "0"
+        },
+        {
+          "field": "AutoTimer",
+          "bits": "3eaaaaab",
+          "netR": "0.33333334",
+          "monoCandidate": "0.333333343"
+        },
+        {
+          "field": "IgnCrtAdd",
+          "bits": "00000000",
+          "netR": "0",
+          "monoCandidate": "0"
+        },
+        {
+          "field": "IgnAglAdd",
+          "bits": "00000000",
+          "netR": "0",
+          "monoCandidate": "0"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "expected": "eeab4809599c3e0a12469322132efd29347b481569444d33a5116ec6ad439740",
+      "net": "eeab4809599c3e0a12469322132efd29347b481569444d33a5116ec6ad439740",
+      "monoCandidate": "eeab4809599c3e0a12469322132efd29347b481569444d33a5116ec6ad439740",
+      "monoMatches": true,
+      "floats": [
+        {
+          "field": "Charge",
+          "bits": "428a555b",
+          "netR": "69.16671",
+          "monoCandidate": "69.16671"
+        },
+        {
+          "field": "SlideCd",
+          "bits": "00000000",
+          "netR": "0",
+          "monoCandidate": "0"
+        },
+        {
+          "field": "AutoTimer",
+          "bits": "00000000",
+          "netR": "0",
+          "monoCandidate": "0"
+        },
+        {
+          "field": "IgnCrtAdd",
+          "bits": "00000000",
+          "netR": "0",
+          "monoCandidate": "0"
+        },
+        {
+          "field": "IgnAglAdd",
+          "bits": "00000000",
+          "netR": "0",
+          "monoCandidate": "0"
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "expected": "6abf2437c6e909dedc72537a11f78cb8d9ece027118d0e434aafc445dca54f6c",
+      "net": "9d8a54bf10cdc837d6c096b4f16201936cf16f87ab459b1b41d1a46670983750",
+      "monoCandidate": "6abf2437c6e909dedc72537a11f78cb8d9ece027118d0e434aafc445dca54f6c",
+      "monoMatches": true,
+      "floats": [
+        {
+          "field": "Charge",
+          "bits": "427eaa91",
+          "netR": "63.66657",
+          "monoCandidate": "63.66657"
+        },
+        {
+          "field": "SlideCd",
+          "bits": "00000000",
+          "netR": "0",
+          "monoCandidate": "0"
+        },
+        {
+          "field": "AutoTimer",
+          "bits": "3fe2221f",
+          "netR": "1.7666663",
+          "monoCandidate": "1.76666629"
+        },
+        {
+          "field": "IgnCrtAdd",
+          "bits": "00000000",
+          "netR": "0",
+          "monoCandidate": "0"
+        },
+        {
+          "field": "IgnAglAdd",
+          "bits": "00000000",
+          "netR": "0",
+          "monoCandidate": "0"
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "expected": "46bf8bd99c170d63a708c3f6414d527054e6982314a10ccdc439982a5c32b814",
+      "net": "92b565d2a62166673155231218ae11aa7b75c238e8a27402fbcd151bb2227a2f",
+      "monoCandidate": "46bf8bd99c170d63a708c3f6414d527054e6982314a10ccdc439982a5c32b814",
+      "monoMatches": true,
+      "floats": [
+        {
+          "field": "Charge",
+          "bits": "414ba2e6",
+          "netR": "12.72727",
+          "monoCandidate": "12.72727"
+        },
+        {
+          "field": "SlideCd",
+          "bits": "00000000",
+          "netR": "0",
+          "monoCandidate": "0"
+        },
+        {
+          "field": "AutoTimer",
+          "bits": "3fa66667",
+          "netR": "1.3000001",
+          "monoCandidate": "1.30000007"
+        },
+        {
+          "field": "IgnCrtAdd",
+          "bits": "00000000",
+          "netR": "0",
+          "monoCandidate": "0"
+        },
+        {
+          "field": "IgnAglAdd",
+          "bits": "00000000",
+          "netR": "0",
+          "monoCandidate": "0"
+        }
+      ]
+    }
+  ]
+}

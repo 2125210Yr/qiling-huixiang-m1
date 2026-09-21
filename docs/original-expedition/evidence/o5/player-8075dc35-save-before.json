@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-09-21T11:48:27.5666236+08:00",
+  "phase": "BEFORE_NORMAL_PLAYER_RUN",
+  "files": [
+    {
+      "path": "C:\\Users\\Administrator\\AppData\\LocalLow\\Resonance\\契灵回响\\save.json",
+      "sha256": "624CC9C6882BB512A7EFFE419F3B47332747BE33A33726796DF611612E55C2A7",
+      "length": 2249,
+      "baselineMatch": true
+    },
+    {
+      "path": "C:\\Users\\Administrator\\AppData\\LocalLow\\Resonance\\契灵回响\\save.json.bak",
+      "sha256": "624CC9C6882BB512A7EFFE419F3B47332747BE33A33726796DF611612E55C2A7",
+      "length": 2249,
+      "baselineMatch": true
+    }
+  ]
+}

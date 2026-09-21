@@ -1,0 +1,9 @@
+{
+  "checkedAt": "2026-09-21T11:47:11.6424866+08:00",
+  "sourceCommit": "8075dc35ae8158a1d4cca6b785b3b4229b2b32fa",
+  "inputCount": 499,
+  "allInputsTracked": true,
+  "inputDiffAgainstHead": [],
+  "manifestSha256": "AD42F9BC7BCD491A90A4F4DA34C31BC0098BD82A62339037BDCDAED079E3A13F",
+  "note": "Preparation status describes pre-build snapshot only. This separate verification binds all copied input sources to committed HEAD; actual build status comes from BuildAudit."
+}

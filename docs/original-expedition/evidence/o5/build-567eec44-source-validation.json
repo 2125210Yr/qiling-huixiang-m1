@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-09-21T12:25:12.8873848+08:00",
+  "sourceCommit": "567eec441911ef95df4a909432fbc6e699e8ad8c",
+  "headAtValidation": "567eec441911ef95df4a909432fbc6e699e8ad8c",
+  "inputCount": 499,
+  "allInputsTracked": true,
+  "inputDiffAgainstHead": [],
+  "sourceInputHashesAndSizesMatchManifest": true,
+  "copiedInputHashesAndSizesMatchManifest": true,
+  "sourceHashMismatches": [],
+  "copiedHashMismatches": [],
+  "project": "F:/Resonance/OriginalExpeditionBuilds/navigation-20260921-1222",
+  "manifestSha256": "DD7A53A32E43F1D441C7B02A9068631583CA796C79EBCC228F4F700E0A114616",
+  "sharedPackagesUnchanged": true,
+  "note": "All 499 manifest rows were checked against the physical source and the post-build copied input bytes and sizes. Git tracking and HEAD differences were checked in batch over mapped source paths. BuildAudit independently records actual Unity execution; this source check is not ordinary Player UI acceptance."
+}

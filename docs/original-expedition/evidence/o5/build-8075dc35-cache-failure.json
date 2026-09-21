@@ -1,0 +1,9 @@
+{
+  "checkedAt": "2026-09-21T11:49:05.7113320+08:00",
+  "pid": 30480,
+  "reason": "Repeated default GICache creation failure during BuildPlayer; process stopped after path/start-time verification",
+  "project": "F:/Resonance/OriginalExpeditionBuilds/8075dc35-20260921-1145",
+  "partialOutputRetained": true,
+  "nextAction": "Fresh physical copy; explicit -giCustomCacheLocation under copied project Temp",
+  "unityUiTests": "75/75 PASS"
+}

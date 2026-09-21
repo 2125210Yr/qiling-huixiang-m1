@@ -1,0 +1,18 @@
+{
+  "started": "2026-09-21T12:01:50.7996410+08:00",
+  "finished": "2026-09-21T12:04:23.4966744+08:00",
+  "exitCode": 0,
+  "project": "F:/Resonance/OriginalExpeditionBuilds/artifactfix-20260921-1201",
+  "pid": 20884,
+  "arguments": [
+    "-batchmode",
+    "-projectPath",
+    "\"F:/Resonance/OriginalExpeditionBuilds/artifactfix-20260921-1201\"",
+    "-giCustomCacheLocation",
+    "\"F:/Resonance/OriginalExpeditionBuilds/artifactfix-20260921-1201/Temp/GICache-Original\"",
+    "-executeMethod",
+    "Resonance.EditorTools.OriginalExpeditionBuild.BuildAndExit",
+    "-logFile",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\build-e04e49e9-20260921.log\""
+  ]
+}
