@@ -134,6 +134,11 @@ namespace Resonance.App
             if (!string.IsNullOrEmpty(model.Notice)) Paragraph(content, "Notice", model.Notice, 28, Warning, true);
             if (!string.IsNullOrEmpty(model.Body)) Paragraph(content, "Body", model.Body, 30, Paper);
             if (model.Party.Count > 0) PartyRow(content, model.Party);
+            if (model.Options.Count > 0)
+            {
+                Section(content, model.Kind == ScreenKind.Home ? "选择出发配置与核心" : "当前选择");
+                foreach (var option in model.Options) ChoiceCard(content, option, true);
+            }
             if (model.Nodes.Count > 0) Map(content, model.Nodes);
             if (model.Facts.Count > 0)
             {
@@ -145,11 +150,6 @@ namespace Resonance.App
             {
                 Section(content, "当前构筑 · 仅本趟有效");
                 foreach (var relic in model.Relics) ChoiceCard(content, relic, false);
-            }
-            if (model.Options.Count > 0)
-            {
-                Section(content, model.Kind == ScreenKind.Home ? "选择出发配置与核心" : "当前选择");
-                foreach (var option in model.Options) ChoiceCard(content, option, true);
             }
             var footer = Box(_root.transform, "Footer", Ink, false);
             var fr = footer.GetComponent<RectTransform>();
@@ -426,6 +426,7 @@ namespace Resonance.App
             Stretch(rect); rect.offsetMin = new Vector2(28, bottom); rect.offsetMax = new Vector2(-28, -top);
             var viewport = Box(scroll.transform, "Viewport", Color.clear, true);
             Stretch(viewport.GetComponent<RectTransform>());
+            viewport.GetComponent<RectTransform>().offsetMax = new Vector2(-40, 0);
             viewport.AddComponent<RectMask2D>();
             var content = Box(viewport.transform, "Content", Color.clear, false);
             var cr = content.GetComponent<RectTransform>();
@@ -434,6 +435,18 @@ namespace Resonance.App
             Vertical(content, 0, 16); Fit(content);
             sr.viewport = viewport.GetComponent<RectTransform>(); sr.content = cr;
             sr.horizontal = false; sr.vertical = true; sr.movementType = ScrollRect.MovementType.Clamped;
+            var track = Box(scroll.transform, "ContentScrollbar", Panel, true);
+            var tr = track.GetComponent<RectTransform>();
+            tr.anchorMin = new Vector2(1, 0); tr.anchorMax = Vector2.one;
+            tr.offsetMin = new Vector2(-28, 0); tr.offsetMax = Vector2.zero;
+            var handle = Box(track.transform, "ScrollbarHandle", Muted, true);
+            Stretch(handle.GetComponent<RectTransform>());
+            var scrollbar = track.AddComponent<Scrollbar>();
+            scrollbar.handleRect = handle.GetComponent<RectTransform>();
+            scrollbar.targetGraphic = handle.GetComponent<Image>();
+            scrollbar.direction = Scrollbar.Direction.BottomToTop;
+            sr.verticalScrollbar = scrollbar;
+            sr.verticalScrollbarVisibility = ScrollRect.ScrollbarVisibility.AutoHide;
             sr.scrollSensitivity = 65; sr.verticalNormalizedPosition = 1;
             return content.transform;
         }

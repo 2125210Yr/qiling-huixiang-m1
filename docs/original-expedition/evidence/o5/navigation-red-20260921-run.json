@@ -1,0 +1,23 @@
+{
+  "started": "2026-09-21T04:19:27.5493977Z",
+  "finished": "2026-09-21T04:19:41.3998615Z",
+  "exitCode": 2,
+  "mode": "tests",
+  "name": "navigation-red-20260921",
+  "arguments": [
+    "-batchmode",
+    "-projectPath",
+    "\"F:\\Resonance\\client\"",
+    "-giCustomCacheLocation",
+    "\"F:\\Resonance\\client\\Temp\\GICache-Original\"",
+    "-logFile",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\navigation-red-20260921.log\"",
+    "-runTests",
+    "-testPlatform",
+    "EditMode",
+    "-testFilter",
+    "Resonance.EditorTests.OriginalExpeditionNavigationTests",
+    "-testResults",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\navigation-red-20260921.xml\""
+  ]
+}

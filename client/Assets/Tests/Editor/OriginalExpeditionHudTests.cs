@@ -248,7 +248,8 @@ namespace Resonance.EditorTests
             foreach (var text in _hud.Root.GetComponentsInChildren<Text>(true)) Assert.That(text.raycastTarget, Is.False, text.name);
             foreach (var graphic in _hud.Root.GetComponentsInChildren<Graphic>(true))
                 if (graphic.raycastTarget)
-                    Assert.That(graphic.GetComponent<Button>() != null || graphic.name == "Viewport", Is.True, graphic.name);
+                    Assert.That(graphic.GetComponent<Button>() != null || graphic.name == "Viewport"
+                        || graphic.GetComponentInParent<Scrollbar>() != null, Is.True, graphic.name);
         }
 
         [Test]
