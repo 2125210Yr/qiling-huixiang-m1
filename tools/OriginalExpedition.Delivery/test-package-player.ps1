@@ -58,9 +58,32 @@ function New-Fixture([string] $Name) {
 }
 function Invoke-Package($Fixture, [string] $ExpectedCommit = $commit, [string] $ExpectedContent = $contentHash) {
     if (-not (Test-Path -LiteralPath $tool -PathType Leaf)) { throw 'Package tool has not been implemented.' }
+    $optional = @{}
+    if ($Fixture.PSObject.Properties['AcceptancePath']) { $optional.AcceptanceSummaryPath = $Fixture.AcceptancePath }
     $json = & $tool -BuildAuditPath $Fixture.AuditPath -Destination $Fixture.Destination `
-        -ExpectedCommit $ExpectedCommit -ExpectedContentHash $ExpectedContent -GuidePath $Fixture.GuidePath
+        -ExpectedCommit $ExpectedCommit -ExpectedContentHash $ExpectedContent -GuidePath $Fixture.GuidePath @optional
     return ($json | ConvertFrom-Json)
+}
+function Add-AcceptanceFixture($Fixture) {
+    $evidencePath = Join-Path $Fixture.Root 'FIXTURE-evidence.txt'
+    Write-Text $evidencePath 'FIXTURE ONLY: synthetic passing report; NOT real acceptance evidence.'
+    $report = [ordered]@{
+        document = 'ORIGINAL-EXPEDITION-MVP v0.1 actual acceptance progress'
+        current_code_commit = 'later-docs-and-test-commit-does-not-relabel-player'
+        current_package_evidence = [ordered]@{ SourceCommit = $commit; ContentHash = $contentHash }
+        counts = [ordered]@{ PASS = 38; PARTIAL = 0; NOT_RUN = 0 }
+        checks = @(1..38 | ForEach-Object { [ordered]@{
+            id = ('O-{0:000}' -f $_); actual_status = 'PASS'
+            actual_result = 'FIXTURE ONLY; not proof of real behavior.'
+            evidence_paths = @($evidencePath); remaining_requirements = @()
+        } })
+    }
+    $Fixture | Add-Member NoteProperty AcceptancePath (Join-Path $Fixture.Root 'acceptance.json')
+    $Fixture | Add-Member NoteProperty Acceptance $report
+    Save-Acceptance $Fixture
+}
+function Save-Acceptance($Fixture) {
+    Write-Text $Fixture.AcceptancePath ($Fixture.Acceptance | ConvertTo-Json -Depth 12)
 }
 function Expect-Rejection($Fixture, [string] $Pattern, [string] $ExpectedCommit = $commit, [string] $ExpectedContent = $contentHash) {
     $rejected = $false
@@ -82,6 +105,7 @@ Test-Case 'valid FIXTURE is copied, manifested, zipped and independently verifie
     Assert-True ($result.Status -ceq 'BUILD_CANDIDATE_PACKAGED') 'Missing candidate status.'
     Assert-True ($result.ZipSha256 -ceq (Get-FileHash -LiteralPath ($f.Destination + '.zip')).Hash.ToLowerInvariant()) 'ZIP SHA mismatch.'
     Assert-True (-not $result.FinalAcceptancePassed) 'Must not claim UI or playthrough acceptance.'
+    Assert-True ($null -eq $result.PSObject.Properties['TechnicalAcceptancePassed']) 'Legacy invocation must keep its original result shape.'
     foreach ($row in $f.Audit.outputs) {
         $copy = Join-Path $f.Destination ('Player/' + $row.path)
         Assert-True ((Get-Item -LiteralPath $copy).Length -eq $row.bytes) 'Copied size differs.'
@@ -105,6 +129,74 @@ Test-Case 'valid FIXTURE is copied, manifested, zipped and independently verifie
     }
     finally { $zip.Dispose() }
     Assert-True ([IO.File]::ReadAllText((Join-Path $f.Destination 'Player/UnityThirdPartyNotices.txt')) -ceq 'FIXTURE UNITY NOTICE MUST BE PRESERVED') 'Unity notice lost.'
+}
+Test-Case 'complete 38-check FIXTURE report is preserved without claiming user acceptance or changing Player' {
+    $f = New-Fixture 'technical-report'; Add-AcceptanceFixture $f
+    # Also exercise repository-relative evidence resolution with an existing physical file.
+    $f.Acceptance.checks[0].evidence_paths = @('docs/original-expedition/spec/02_ACCEPTANCE_MATRIX.json')
+    Save-Acceptance $f
+    $reportHash = (Get-FileHash -LiteralPath $f.AcceptancePath).Hash.ToLowerInvariant()
+    $result = Invoke-Package $f
+    Assert-True ($result.TechnicalAcceptancePassed -eq $true) 'Technical report was not acknowledged.'
+    Assert-True ($result.UserAcceptance -ceq 'PENDING_USER_REVIEW') 'User decision must remain pending.'
+    Assert-True ($result.FinalAcceptancePassed -eq $false) 'Technical PASS must not become final/user acceptance.'
+    Assert-True ($result.RemainingAcceptance.Count -eq 1 -and $result.RemainingAcceptance[0] -ceq 'User experience review') 'Stale technical remaining tasks.'
+    Assert-True ($result.AcceptanceSummarySha256 -ceq $reportHash) 'Report fingerprint missing.'
+    $version = Get-Content -Raw -LiteralPath (Join-Path $f.Destination 'VERSION.json') | ConvertFrom-Json
+    Assert-True ($version.sourceCommit -ceq $commit) 'Player was relabelled with a later docs commit.'
+    Assert-True ($version.technicalAcceptancePassed -eq $true -and $version.finalAcceptancePassed -eq $false) 'Version conflates technical and final acceptance.'
+    Assert-True ($version.userAcceptance -ceq 'PENDING_USER_REVIEW') 'Version falsely claims user acceptance.'
+    Assert-True ($version.acceptanceSummary -ceq 'ACCEPTANCE-SUMMARY.json' -and $version.acceptanceSummarySha256 -ceq $reportHash) 'Version does not bind the original report.'
+    Assert-True ((Get-FileHash -LiteralPath (Join-Path $f.Destination 'ACCEPTANCE-SUMMARY.json')).Hash.ToLowerInvariant() -ceq $reportHash) 'Report bytes changed.'
+    foreach ($row in $f.Audit.outputs) {
+        Assert-True ((Get-FileHash -LiteralPath (Join-Path $f.Destination ('Player/' + $row.path))).Hash.ToLowerInvariant() -ceq $row.sha256) 'Technical report changed Player bytes.'
+    }
+    $manifest = Get-Content -Raw -LiteralPath (Join-Path $f.Destination 'FILE-HASHES.json') | ConvertFrom-Json
+    Assert-True ($manifest.files.Count -eq $f.Audit.outputs.Count + 4) 'Acceptance report must enter the file manifest.'
+    $row = @($manifest.files | Where-Object path -CEQ 'ACCEPTANCE-SUMMARY.json')
+    Assert-True ($row.Count -eq 1 -and $row[0].sha256 -ceq $reportHash) 'Report manifest hash differs.'
+    $zip = [IO.Compression.ZipFile]::OpenRead($f.Destination + '.zip')
+    try {
+        Assert-True ($zip.Entries.Count -eq $manifest.files.Count + 1) 'Report ZIP set differs.'
+        foreach ($entry in $zip.Entries) {
+            $stream = $entry.Open(); $algorithm = [Security.Cryptography.SHA256]::Create()
+            try { $sha = [BitConverter]::ToString($algorithm.ComputeHash($stream)).Replace('-', '').ToLowerInvariant() }
+            finally { $algorithm.Dispose(); $stream.Dispose() }
+            Assert-True ($sha -ceq (Get-FileHash -LiteralPath (Join-Path $f.Destination $entry.FullName)).Hash.ToLowerInvariant()) 'Report ZIP bytes differ.'
+        }
+    } finally { $zip.Dispose() }
+}
+foreach ($mutation in @('missing-check', 'duplicate-check', 'wrong-id', 'partial-check', 'missing-evidence',
+    'blank-result', 'remaining-work', 'wrong-count', 'wrong-commit', 'wrong-content', 'empty-path', 'directory-evidence', 'unsafe-evidence')) {
+    Test-Case ('invalid acceptance report is rejected before output creation: ' + $mutation) {
+        $f = New-Fixture ('acceptance-' + $mutation); Add-AcceptanceFixture $f
+        switch ($mutation) {
+            'missing-check' { $f.Acceptance.checks = @($f.Acceptance.checks | Select-Object -Skip 1) }
+            'duplicate-check' { $f.Acceptance.checks[37].id = 'O-001' }
+            'wrong-id' { $f.Acceptance.checks[37].id = 'O-039' }
+            'partial-check' { $f.Acceptance.checks[0].actual_status = 'PARTIAL' }
+            'missing-evidence' { $f.Acceptance.checks[0].evidence_paths = @(Join-Path $f.Root 'NOT-EXISTING.txt') }
+            'blank-result' { $f.Acceptance.checks[0].actual_result = ' ' }
+            'remaining-work' { $f.Acceptance.checks[0].remaining_requirements = @('Still need real video') }
+            'wrong-count' { $f.Acceptance.counts.PASS = 37 }
+            'wrong-commit' { $f.Acceptance.current_package_evidence.SourceCommit = 'wrong' }
+            'wrong-content' { $f.Acceptance.current_package_evidence.ContentHash = 'wrong' }
+            'empty-path' { $f.Acceptance.checks[0].evidence_paths = @() }
+            'directory-evidence' { $f.Acceptance.checks[0].evidence_paths = @($f.Root) }
+            'unsafe-evidence' { $f.Acceptance.checks[0].evidence_paths = @('../outside.txt') }
+        }
+        Save-Acceptance $f
+        Expect-Rejection $f 'Acceptance (report|evidence)'
+        Assert-True (-not (Test-Path -LiteralPath $f.Destination) -and -not (Test-Path -LiteralPath ($f.Destination + '.zip'))) 'Invalid report created output.'
+    }
+}
+Test-Case 'acceptance report reached through a junction is rejected before output creation' {
+    $f = New-Fixture 'acceptance-reparse'; Add-AcceptanceFixture $f
+    $linked = Join-Path $f.Root 'linked'
+    New-Item -ItemType Junction -Path $linked -Target $f.Root | Out-Null
+    $f.AcceptancePath = Join-Path $linked 'acceptance.json'
+    Expect-Rejection $f 'reparse|junction|link'
+    Assert-True (-not (Test-Path -LiteralPath $f.Destination)) 'Linked report created destination.'
 }
 Test-Case 'FAIL audit is rejected before destination creation' {
     $f = New-Fixture 'fail-audit'; $f.Audit.result = 'FAIL'; Save-Audit $f

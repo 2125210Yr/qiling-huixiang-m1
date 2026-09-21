@@ -22,12 +22,15 @@ Player 根目录由审计的 `exe` 推导；它必须指向已审计的 `Origina
 
 `Destination` 及其旁边的 `Destination.zip` 必须均不存在，且目标须在源 Player 之外。失败时保留现有文件和部分产物；脚本没有删除、清理或覆盖逻辑。重试请使用另一个全新目录。
 
+技术验收完成后可追加 `-AcceptanceSummaryPath F:/天命之子/docs/original-expedition/ACCEPTANCE-PROGRESS.json`。报告必须包含唯一的 O-001～O-038，全部为 PASS、实际结论非空、剩余要求为空，且每项证据指向现存物理文件；计数及 Player 的 commit/content 身份必须匹配。该检查验证报告结构和引用，不替代证据内容审查。
+
 ## 产物与核验
 
 ```text
 OriginalExpedition-candidate-001/
   Player/                   完整 Player 文件集及原有 notices
   PLAY-GUIDE.md
+  ACCEPTANCE-SUMMARY.json    仅传入验收报告时包含，保留输入原字节
   build-audit.json           原审计原字节副本
   VERSION.json               commit、content hash、候选状态与未完成验收项
   FILE-HASHES.json           文件相对路径、字节数、SHA-256
@@ -40,7 +43,7 @@ Player 必须含 `package-input-manifest.json` 和四份第三方声明：NotoSa
 
 复制后再次核验源 Player 和副本；ZIP 创建后逐项读取解压流，复核文件集合、字节数与 SHA-256，然后再次核验目录。`FILE-HASHES.json` 明确排除自身以避免循环哈希；它本身包含在 ZIP 验证及最终 ZIP SHA-256 中。
 
-成功输出 JSON，包含 `Status: BUILD_CANDIDATE_PACKAGED`、`Zip`、`ZipSha256` 和文件数。`FinalAcceptancePassed` 始终为 `false`；UI 检查与试玩录像仍须另外完成。脚本不判断构建时的依赖审计是否充分，也不运行游戏来验证体验。
+成功输出 JSON，包含 `Status: BUILD_CANDIDATE_PACKAGED`、`Zip`、`ZipSha256` 和文件数。未传报告时保留原有 UI 与录像待验收状态；传入完整报告时，输出和 VERSION 单列技术通过及 `PENDING_USER_REVIEW`，绑定报告 SHA-256。`FinalAcceptancePassed` 始终为 `false`，用户体验判断仍待用户给出。脚本不判断构建时的依赖审计是否充分，也不运行游戏来验证体验。
 
 ## 回归测试
 
@@ -49,5 +52,7 @@ pwsh -NoProfile -File F:/天命之子/tools/OriginalExpedition.Delivery/test-pac
 ```
 
 测试覆盖成功复制与 ZIP、独立复核 ZIP 流与哈希、FAIL 审计、commit/content 不符、同长度文件改写、缺失/额外文件、manifest 哈希、必需 notice、路径越界与 Windows 路径别名、大小写重复、错误 exe、已有目录/ZIP、源内目标和 junction。
+
+2026-09-21 新增报告校验回归后为 38/38 PASS（原 23 项及新增 15 项）。新增用例检查报告原字节入包、Player 不变、用户验收仍待定，并拒绝缺项、重复 ID、非 PASS、缺证据、遗留要求、错误计数/版本及链接路径。这 38 项是打包工具夹具测试，不是 MVP 的 38 项实机验收。
 
 `tests/evidence/*.json` 保存实际 RED/GREEN 结果。`-Phase` 只是证据标签，不改变测试内容。所有假 EXE、假 DLL 和 ZIP 均明确标记为 FIXTURE，写入带 GUID 的系统临时目录并保留；不执行它们，不将这些假 Player 产物加入 Git。

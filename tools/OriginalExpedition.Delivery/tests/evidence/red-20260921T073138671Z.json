@@ -1,0 +1,182 @@
+{
+  "schema": "original-expedition-delivery-tests-v1",
+  "phase": "RED",
+  "purpose": "FIXTURE_ONLY_NOT_REAL_UNITY_PLAYER_VALIDATION",
+  "createdUtc": "2026-09-21T07:31:38.6690163Z",
+  "fixtureRoot": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\OriginalExpedition-Delivery-FIXTURE-19da07ed6a7a4cb184edf83ba62630d5",
+  "fixturesRetained": true,
+  "unityExecuted": false,
+  "playerExecuted": false,
+  "total": 38,
+  "passed": 23,
+  "failed": 15,
+  "results": [
+    {
+      "name": "valid FIXTURE is copied, manifested, zipped and independently verified",
+      "result": "PASS"
+    },
+    {
+      "name": "complete 38-check FIXTURE report is preserved without claiming user acceptance or changing Player",
+      "result": "FAIL",
+      "error": "A parameter cannot be found that matches parameter name 'AcceptanceSummaryPath'."
+    },
+    {
+      "name": "invalid acceptance report is rejected before output creation: missing-check",
+      "result": "FAIL",
+      "error": "Unexpected rejection: A parameter cannot be found that matches parameter name 'AcceptanceSummaryPath'."
+    },
+    {
+      "name": "invalid acceptance report is rejected before output creation: duplicate-check",
+      "result": "FAIL",
+      "error": "Unexpected rejection: A parameter cannot be found that matches parameter name 'AcceptanceSummaryPath'."
+    },
+    {
+      "name": "invalid acceptance report is rejected before output creation: wrong-id",
+      "result": "FAIL",
+      "error": "Unexpected rejection: A parameter cannot be found that matches parameter name 'AcceptanceSummaryPath'."
+    },
+    {
+      "name": "invalid acceptance report is rejected before output creation: partial-check",
+      "result": "FAIL",
+      "error": "Unexpected rejection: A parameter cannot be found that matches parameter name 'AcceptanceSummaryPath'."
+    },
+    {
+      "name": "invalid acceptance report is rejected before output creation: missing-evidence",
+      "result": "FAIL",
+      "error": "Unexpected rejection: A parameter cannot be found that matches parameter name 'AcceptanceSummaryPath'."
+    },
+    {
+      "name": "invalid acceptance report is rejected before output creation: blank-result",
+      "result": "FAIL",
+      "error": "Unexpected rejection: A parameter cannot be found that matches parameter name 'AcceptanceSummaryPath'."
+    },
+    {
+      "name": "invalid acceptance report is rejected before output creation: remaining-work",
+      "result": "FAIL",
+      "error": "Unexpected rejection: A parameter cannot be found that matches parameter name 'AcceptanceSummaryPath'."
+    },
+    {
+      "name": "invalid acceptance report is rejected before output creation: wrong-count",
+      "result": "FAIL",
+      "error": "Unexpected rejection: A parameter cannot be found that matches parameter name 'AcceptanceSummaryPath'."
+    },
+    {
+      "name": "invalid acceptance report is rejected before output creation: wrong-commit",
+      "result": "FAIL",
+      "error": "Unexpected rejection: A parameter cannot be found that matches parameter name 'AcceptanceSummaryPath'."
+    },
+    {
+      "name": "invalid acceptance report is rejected before output creation: wrong-content",
+      "result": "FAIL",
+      "error": "Unexpected rejection: A parameter cannot be found that matches parameter name 'AcceptanceSummaryPath'."
+    },
+    {
+      "name": "invalid acceptance report is rejected before output creation: empty-path",
+      "result": "FAIL",
+      "error": "Unexpected rejection: A parameter cannot be found that matches parameter name 'AcceptanceSummaryPath'."
+    },
+    {
+      "name": "invalid acceptance report is rejected before output creation: directory-evidence",
+      "result": "FAIL",
+      "error": "Unexpected rejection: A parameter cannot be found that matches parameter name 'AcceptanceSummaryPath'."
+    },
+    {
+      "name": "invalid acceptance report is rejected before output creation: unsafe-evidence",
+      "result": "FAIL",
+      "error": "Unexpected rejection: A parameter cannot be found that matches parameter name 'AcceptanceSummaryPath'."
+    },
+    {
+      "name": "acceptance report reached through a junction is rejected before output creation",
+      "result": "FAIL",
+      "error": "Unexpected rejection: A parameter cannot be found that matches parameter name 'AcceptanceSummaryPath'."
+    },
+    {
+      "name": "FAIL audit is rejected before destination creation",
+      "result": "PASS"
+    },
+    {
+      "name": "commit mismatch is rejected",
+      "result": "PASS"
+    },
+    {
+      "name": "content mismatch is rejected",
+      "result": "PASS"
+    },
+    {
+      "name": "modified file is rejected",
+      "result": "PASS"
+    },
+    {
+      "name": "missing audited file is rejected without deleting any fixture",
+      "result": "PASS"
+    },
+    {
+      "name": "extra file is rejected",
+      "result": "PASS"
+    },
+    {
+      "name": "input manifest audit hash is required",
+      "result": "PASS"
+    },
+    {
+      "name": "required third party notice must be audited",
+      "result": "PASS"
+    },
+    {
+      "name": "unsafe output path is rejected: ../outside.txt",
+      "result": "PASS"
+    },
+    {
+      "name": "unsafe output path is rejected: /absolute.txt",
+      "result": "PASS"
+    },
+    {
+      "name": "unsafe output path is rejected: C:/escape.txt",
+      "result": "PASS"
+    },
+    {
+      "name": "unsafe output path is rejected: data.txt:stream",
+      "result": "PASS"
+    },
+    {
+      "name": "unsafe output path is rejected: folder/../escape.txt",
+      "result": "PASS"
+    },
+    {
+      "name": "unsafe output path is rejected: NUL.txt",
+      "result": "PASS"
+    },
+    {
+      "name": "unsafe output path is rejected: trailing. /file.txt",
+      "result": "PASS"
+    },
+    {
+      "name": "unsafe output path is rejected: double//slash.txt",
+      "result": "PASS"
+    },
+    {
+      "name": "case duplicate output is rejected",
+      "result": "PASS"
+    },
+    {
+      "name": "audited exe must be OriginalExpedition.exe",
+      "result": "PASS"
+    },
+    {
+      "name": "existing destination is preserved",
+      "result": "PASS"
+    },
+    {
+      "name": "existing sibling ZIP is preserved",
+      "result": "PASS"
+    },
+    {
+      "name": "destination inside source Player is rejected",
+      "result": "PASS"
+    },
+    {
+      "name": "source reparse directory is rejected",
+      "result": "PASS"
+    }
+  ]
+}

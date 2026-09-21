@@ -5,7 +5,9 @@ param(
     [Parameter(Mandatory = $true)][string] $Destination,
     [Parameter(Mandatory = $true)][string] $ExpectedCommit,
     [Parameter(Mandatory = $true)][string] $ExpectedContentHash,
-    [string] $GuidePath = (Join-Path $PSScriptRoot '../../docs/original-expedition/PLAY-GUIDE.md')
+    [string] $GuidePath = (Join-Path $PSScriptRoot '../../docs/original-expedition/PLAY-GUIDE.md'),
+    # Existing ACCEPTANCE-PROGRESS.json shape. This validates a report, not player enjoyment.
+    [string] $AcceptanceSummaryPath
 )
 
 Set-StrictMode -Version Latest
@@ -149,6 +151,65 @@ function Write-NewJson([string] $Path, $Value) {
     finally { $stream.Dispose() }
 }
 
+function Get-AcceptanceSummary([string] $Path, $Audit) {
+    try {
+        $physical = Get-PhysicalPath $Path $true
+        $record = Get-FileRecord $physical 'ACCEPTANCE-SUMMARY.json'
+        $report = [IO.File]::ReadAllText($physical) | ConvertFrom-Json -AsHashtable
+        if ($report -isnot [Collections.IDictionary] -or
+            $report.document -cne 'ORIGINAL-EXPEDITION-MVP v0.1 actual acceptance progress') {
+            throw 'Unsupported actual acceptance progress report.'
+        }
+        $identity = $report.current_package_evidence
+        if ($identity -isnot [Collections.IDictionary] -or
+            $identity.SourceCommit -cne $Audit.sourceCommit -or $identity.ContentHash -cne $Audit.contentHash) {
+            throw 'Report build commit/content must exactly match the audited Player.'
+        }
+        if ($report.counts -isnot [Collections.IDictionary]) { throw 'Report counts are required.' }
+        foreach ($name in @('PASS', 'PARTIAL', 'NOT_RUN')) {
+            $value = $report.counts[$name]
+            $expected = if ($name -ceq 'PASS') { 38 } else { 0 }
+            if (($value -isnot [int] -and $value -isnot [long]) -or $value -ne $expected) {
+                throw 'Report counts must be integer PASS=38, PARTIAL=0, NOT_RUN=0.'
+            }
+        }
+        if ($report.checks -isnot [array] -or $report.checks.Count -ne 38) { throw 'Exactly 38 checks are required.' }
+        $ids = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+        $evidenceFiles = [Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
+        $repository = Get-PhysicalPath (Join-Path $PSScriptRoot '../..') $true
+        foreach ($check in $report.checks) {
+            if ($check -isnot [Collections.IDictionary] -or $check.id -isnot [string] -or
+                $check.id -cnotmatch '^O-(00[1-9]|0[12][0-9]|03[0-8])$' -or -not $ids.Add($check.id)) {
+                throw 'Check IDs must be the unique exact set O-001 through O-038.'
+            }
+            if ($check.actual_status -cne 'PASS' -or $check.actual_result -isnot [string] -or
+                [string]::IsNullOrWhiteSpace($check.actual_result)) { throw "Check $($check.id) needs PASS and an actual result." }
+            if ($check.remaining_requirements -isnot [array] -or $check.remaining_requirements.Count -ne 0) {
+                throw "Check $($check.id) still has remaining requirements or omits their empty array."
+            }
+            if ($check.evidence_paths -isnot [array] -or $check.evidence_paths.Count -eq 0) {
+                throw "Check $($check.id) must cite evidence files."
+            }
+            foreach ($evidence in $check.evidence_paths) {
+                if ($evidence -isnot [string] -or [string]::IsNullOrWhiteSpace($evidence)) { throw 'Evidence path is empty or not text.' }
+                if ($evidenceFiles.Add($evidence)) {
+                    # Existing reports use repository-relative paths. Absolute local physical files are also allowed.
+                    $resolved = $evidence
+                    if ($evidence -notmatch '^[A-Za-z]:[\\/]') {
+                        Assert-RelativePath $evidence
+                        $resolved = Join-Path $repository $evidence
+                    }
+                    $resolved = Get-PhysicalPath $resolved $true
+                    if ((Get-Item -LiteralPath $resolved -Force).PSIsContainer) { throw 'Evidence must cite a file, not a directory.' }
+                }
+            }
+        }
+        # Existence/identity validation cannot establish the truth of written conclusions or user acceptance.
+        return [pscustomobject]@{ Path = $physical; Record = $record }
+    }
+    catch { throw "Acceptance report rejected: $($_.Exception.Message)" }
+}
+
 try {
     $auditPath = Get-PhysicalPath $BuildAuditPath $true
     $guide = Get-PhysicalPath $GuidePath $true
@@ -191,6 +252,12 @@ try {
         throw 'Input manifest hash differs from the build audit.'
     }
     Assert-FileSet $source $outputs
+    $acceptance = $null
+    $remainingAcceptance = @('UI inspection', 'Recorded playthrough')
+    if ($PSBoundParameters.ContainsKey('AcceptanceSummaryPath')) {
+        $acceptance = Get-AcceptanceSummary $AcceptanceSummaryPath $audit
+        $remainingAcceptance = @('User experience review')
+    }
 
     # All preflight checks finish before any destination writes. No cleanup, even on failure.
     foreach ($path in @($target, $zipPath)) {
@@ -214,14 +281,25 @@ try {
     Copy-NewFile $guide (Join-Path $target 'PLAY-GUIDE.md')
     $delivery.Add('build-audit.json', $auditRecord)
     $delivery.Add('PLAY-GUIDE.md', $guideRecord)
+    if ($null -ne $acceptance) {
+        Copy-NewFile $acceptance.Path (Join-Path $target 'ACCEPTANCE-SUMMARY.json')
+        $delivery.Add('ACCEPTANCE-SUMMARY.json', $acceptance.Record)
+    }
     $createdUtc = [DateTime]::UtcNow.ToString('o')
-    Write-NewJson (Join-Path $target 'VERSION.json') ([ordered]@{
+    $version = [ordered]@{
         schema = 'original-expedition-build-candidate-v1'; status = 'BUILD_CANDIDATE'; createdUtc = $createdUtc
         sourceCommit = $ExpectedCommit; contentHash = $ExpectedContentHash; inputManifestSha256 = $audit.inputManifestSha256
         buildAuditSha256 = $auditRecord.sha256; playerExe = 'Player/OriginalExpedition.exe'
-        finalAcceptancePassed = $false; remainingAcceptance = @('UI inspection', 'Recorded playthrough')
+        finalAcceptancePassed = $false; remainingAcceptance = $remainingAcceptance
         packagingScriptSha256 = (Get-FileRecord $PSCommandPath 'package-player.ps1').sha256
-    })
+    }
+    if ($null -ne $acceptance) {
+        $version.technicalAcceptancePassed = $true
+        $version.userAcceptance = 'PENDING_USER_REVIEW'
+        $version.acceptanceSummary = 'ACCEPTANCE-SUMMARY.json'
+        $version.acceptanceSummarySha256 = $acceptance.Record.sha256
+    }
+    Write-NewJson (Join-Path $target 'VERSION.json') $version
     $delivery.Add('VERSION.json', (Get-FileRecord (Join-Path $target 'VERSION.json') 'VERSION.json'))
     Write-NewJson (Join-Path $target 'FILE-HASHES.json') ([ordered]@{
         schema = 'original-expedition-delivery-files-v1'; algorithm = 'SHA-256'; createdUtc = $createdUtc
@@ -270,12 +348,18 @@ try {
     finally { $archive.Dispose() }
     Assert-FileSet $target $delivery
     Assert-FileSet $source $outputs
-    [pscustomobject]@{
+    $result = [ordered]@{
         Status = 'BUILD_CANDIDATE_PACKAGED'; Destination = $target; Zip = $zipPath
         ZipSha256 = (Get-FileRecord $zipPath ([IO.Path]::GetFileName($zipPath))).sha256
         SourceCommit = $ExpectedCommit; ContentHash = $ExpectedContentHash
         PlayerFileCount = $outputs.Count; ZipFileCount = $delivery.Count
-        FinalAcceptancePassed = $false; RemainingAcceptance = @('UI inspection', 'Recorded playthrough')
-    } | ConvertTo-Json -Depth 4
+        FinalAcceptancePassed = $false; RemainingAcceptance = $remainingAcceptance
+    }
+    if ($null -ne $acceptance) {
+        $result.TechnicalAcceptancePassed = $true
+        $result.UserAcceptance = 'PENDING_USER_REVIEW'
+        $result.AcceptanceSummarySha256 = $acceptance.Record.sha256
+    }
+    [pscustomobject]$result | ConvertTo-Json -Depth 4
 }
 catch { throw "Packaging stopped; existing and partial outputs retained. $($_.Exception.Message)" }
