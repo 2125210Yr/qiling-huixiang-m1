@@ -1,0 +1,108 @@
+{
+  "CapturedAtUtc": "2026-09-21T05:56:22.9173681Z",
+  "Scope": "Actual ordinary Player boss defeat tapes; independent .NET CLI strict verification. Both are Defeat; retry Victory remains unproven. Second attempt UI control interrupted by physical Esc as reported by parent.",
+  "RunId": "158dfbcbfa944ee5ad276bb015e20236",
+  "BeforeBossProfile": "F:\\天命之子\\dist\\original-expedition-v01\\play-7a6ede9b-20260921\\checkpoint-before-boss.json",
+  "BeforeBossFrozenInputHashIgnoringAttemptId": "485543c5495c5f0bf0a800742153568ac745ed05b8a1235b46489940605de5a8",
+  "Normalization": "Only AttemptId set to null on an in-memory DeepClone for comparison. Saved input/tape/profile bytes remain untouched.",
+  "Verifier": "F:/天命之子/tools/OriginalReplay.Verify/bin/Release/net6.0/OriginalReplay.Verify.dll",
+  "VerifierSha256": "8dd4971f1ef08a421e436559386af1f653fadd5b9ed0610d622fd8703b6b3d1e",
+  "Tapes": [
+    {
+      "Source": "C:\\Users\\Administrator\\AppData\\LocalLow\\Resonance\\契灵回响\\OriginalExpedition\\Replays\\battle-b9d8567a0af246aaacc8039ead085100.original-replay.json",
+      "Copy": "F:\\天命之子\\dist\\original-expedition-v01\\play-7a6ede9b-20260921\\replays\\battle-b9d8567a0af246aaacc8039ead085100.original-replay.json",
+      "Bytes": 235977,
+      "Sha256": "d334fbc6b00d20b66752996ca09234f47d558e1a1e0d07a8a41df1c5b29f511e",
+      "Report": "F:\\天命之子\\dist\\original-expedition-v01\\play-7a6ede9b-20260921\\replays\\battle-b9d8567a0af246aaacc8039ead085100.original-replay.json.verification.json",
+      "ExitCode": 0,
+      "Status": "MATCH",
+      "RunId": "158dfbcbfa944ee5ad276bb015e20236",
+      "EncounterId": "158dfbcbfa944ee5ad276bb015e20236/N7/5",
+      "AttemptId": "b1ff4b162d6b441a88468bfae50a03ec",
+      "BattleOrdinal": 5,
+      "EndTick": 2070,
+      "Outcome": "Defeat",
+      "InputHash": "4d1db75c0eaa6c58cf50619acd09e2fc48c23f6f28aa442f02ba9810f2e6674f",
+      "FrozenInputHashIgnoringAttemptId": "485543c5495c5f0bf0a800742153568ac745ed05b8a1235b46489940605de5a8",
+      "FrozenOpeningMatchesBeforeBoss": true,
+      "OpeningHp": [
+        5200,
+        6800,
+        5600,
+        5000,
+        5400
+      ],
+      "RelicIds": [
+        "B01",
+        "B02",
+        "B03",
+        "B04"
+      ],
+      "Seed": 1964763356,
+      "SuccessfulActiveCommands": 0,
+      "RejectedActiveCommands": 0,
+      "Commands": [],
+      "FinalForceNoCrit": false,
+      "FinalStateOutcome": "Outcome=Defeat",
+      "SourceUnchanged": true,
+      "CopyExact": true,
+      "VerifierFileHashMatches": true,
+      "VerifierContentHashMatches": true,
+      "Differences": [],
+      "ScopeNote": "First ordinary boss attempt; natural Defeat; no successful active skills."
+    },
+    {
+      "Source": "C:\\Users\\Administrator\\AppData\\LocalLow\\Resonance\\契灵回响\\OriginalExpedition\\Replays\\battle-f7f3cb7f912f4aa3a54da0880c447c89.original-replay.json",
+      "Copy": "F:\\天命之子\\dist\\original-expedition-v01\\play-7a6ede9b-20260921\\replays\\battle-f7f3cb7f912f4aa3a54da0880c447c89.original-replay.json",
+      "Bytes": 234114,
+      "Sha256": "6964911d1cd48f141ba1ca3a2684b0455cdbf6f45ae3f72bd19fcf8710f153a4",
+      "Report": "F:\\天命之子\\dist\\original-expedition-v01\\play-7a6ede9b-20260921\\replays\\battle-f7f3cb7f912f4aa3a54da0880c447c89.original-replay.json.verification.json",
+      "ExitCode": 0,
+      "Status": "MATCH",
+      "RunId": "158dfbcbfa944ee5ad276bb015e20236",
+      "EncounterId": "158dfbcbfa944ee5ad276bb015e20236/N7/5",
+      "AttemptId": "47e6604b198145499ba0356e901f96b2",
+      "BattleOrdinal": 5,
+      "EndTick": 2070,
+      "Outcome": "Defeat",
+      "InputHash": "54aeee4c4d2c0fef008326ee676faf6cc4a758ee6bc1ebe29327714a28875b96",
+      "FrozenInputHashIgnoringAttemptId": "485543c5495c5f0bf0a800742153568ac745ed05b8a1235b46489940605de5a8",
+      "FrozenOpeningMatchesBeforeBoss": true,
+      "OpeningHp": [
+        5200,
+        6800,
+        5600,
+        5000,
+        5400
+      ],
+      "RelicIds": [
+        "B01",
+        "B02",
+        "B03",
+        "B04"
+      ],
+      "Seed": 1964763356,
+      "SuccessfulActiveCommands": 0,
+      "RejectedActiveCommands": 0,
+      "Commands": [
+        {
+          "Tick": 172,
+          "Kind": 5,
+          "Slot": 1,
+          "Value": 0,
+          "Source": 0,
+          "Accepted": true,
+          "Reason": 0
+        }
+      ],
+      "FinalForceNoCrit": false,
+      "FinalStateOutcome": "Outcome=Defeat",
+      "SourceUnchanged": true,
+      "CopyExact": true,
+      "VerifierFileHashMatches": true,
+      "VerifierContentHashMatches": true,
+      "Differences": [],
+      "ScopeNote": "Second ordinary boss attempt after UI retry; parent observed focus-mask click then physical Esc rejected pause. Natural Defeat, not successful retry acceptance; no Victory."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "checkedUtc": "2026-09-21T06:07:06.5642093Z",
+  "status": "INVALID_STALE_CAPTURE",
+  "sourceVideoSha256": "61d59cad400a601ea0b242c8e576fb9ae92fa6ca595e3f7a6466be19904ff114",
+  "containerDecode": "PASS, but insufficient for visual acceptance",
+  "gameplayVideoAcceptance": false,
+  "currentCaptureBackend": "gdigrab title=契灵回响",
+  "sampledFrames": [
+    {
+      "seconds": 0.5,
+      "path": "video-samples/video-start.png",
+      "sha256": "23afcd150a63df6a9dcdb30a87e15f71471de6a11a7d5d600143fb4727478707",
+      "observation": "Stale ordinary entrance image; expected gameplay progress is absent"
+    },
+    {
+      "seconds": 341,
+      "path": "video-samples/video-B04-acquisition.png",
+      "sha256": "ca8fc6b1f17d66954e96892652d06bf90746d4fb400bc1a2c381112503aec969",
+      "observation": "Stale ordinary entrance image; expected gameplay progress is absent"
+    },
+    {
+      "seconds": 668,
+      "path": "video-samples/video-end.png",
+      "sha256": "02652e5726869f8067a7713905125e10d42dded51a11a17866b8b7a4135e7a29",
+      "observation": "Stale ordinary entrance image; expected gameplay progress is absent"
+    }
+  ],
+  "titleRegionFreeze": "Continuous unchanged title region after 16.666667 s through end; static entry title, despite real state transitions visible in independent Sky screenshots",
+  "freezeDiagnosticExitCode": 0,
+  "retainedValidEvidence": [
+    "14 independent Sky/WGC screenshots",
+    "6 strict MATCH ordinary Player tapes",
+    "51 successful UI input records"
+  ],
+  "nextBackend": "gfxcapture / Windows.Graphics.Capture, available in installed FFmpeg 8.1.1",
+  "nextBackendExecuted": false,
+  "requiredPreflight": "After window-control recovery, record a short normal UI transition, extract frames before and after, and compare against fresh Sky observations before recording the full run",
+  "officialReference": "https://ffmpeg.org/ffmpeg-filters.html#gfxcapture"
+}

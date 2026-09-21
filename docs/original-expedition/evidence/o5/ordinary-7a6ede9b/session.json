@@ -1,0 +1,10 @@
+{
+  "startedUtc": "2026-09-21T05:42:47.6677488Z",
+  "sourceCommit": "7a6ede9b643a3470a9f0924d329a5ca769b40ce2",
+  "contentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd",
+  "ordinaryUi": true,
+  "arguments": [],
+  "stateInjection": false,
+  "exe": "F:/天命之子/dist/original-expedition-v01/candidate-7a6ede9b-20260921/Player/OriginalExpedition.exe",
+  "exeSha256": "82EFD5A8C297A5046F6BB72C240DAB8972E64003851935EBA0A46AD121CE0305"
+}

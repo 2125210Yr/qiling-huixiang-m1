@@ -1,0 +1,53 @@
+{
+  "CapturedAtUtc": "2026-09-21T05:52:36.0254964Z",
+  "Scope": "Actual ordinary Player N4/N5 v2 replay files; independent .NET CLI verification; source tapes read only.",
+  "RunId": "158dfbcbfa944ee5ad276bb015e20236",
+  "Verifier": "F:/天命之子/tools/OriginalReplay.Verify/bin/Release/net6.0/OriginalReplay.Verify.dll",
+  "VerifierSha256": "8dd4971f1ef08a421e436559386af1f653fadd5b9ed0610d622fd8703b6b3d1e",
+  "Tapes": [
+    {
+      "Source": "C:\\Users\\Administrator\\AppData\\LocalLow\\Resonance\\契灵回响\\OriginalExpedition\\Replays\\battle-d0dbad8711a64004ba75514d842e3e7b.original-replay.json",
+      "Copy": "F:\\天命之子\\dist\\original-expedition-v01\\play-7a6ede9b-20260921\\replays\\battle-d0dbad8711a64004ba75514d842e3e7b.original-replay.json",
+      "Bytes": 146753,
+      "Sha256": "28ee5c7cdb6737a3c1ca9c222c9d1ce8a911848abab6c1927648ac9566025844",
+      "Report": "F:\\天命之子\\dist\\original-expedition-v01\\play-7a6ede9b-20260921\\replays\\battle-d0dbad8711a64004ba75514d842e3e7b.original-replay.json.verification.json",
+      "ExitCode": 0,
+      "Status": "MATCH",
+      "RunId": "158dfbcbfa944ee5ad276bb015e20236",
+      "EncounterId": "158dfbcbfa944ee5ad276bb015e20236/N4/3",
+      "AttemptId": "e029d0e758fb4022b0021185c6324c25",
+      "BattleOrdinal": 3,
+      "EndTick": 924,
+      "Outcome": "Victory",
+      "ContentVersion": "original-expedition-content-v0.1.1",
+      "ContentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd",
+      "SourceUnchanged": true,
+      "CopyExact": true,
+      "VerifierFileHashMatches": true,
+      "VerifierContentHashMatches": true,
+      "Differences": []
+    },
+    {
+      "Source": "C:\\Users\\Administrator\\AppData\\LocalLow\\Resonance\\契灵回响\\OriginalExpedition\\Replays\\battle-63552f0a3c734f7199d6514d11bb0fc0.original-replay.json",
+      "Copy": "F:\\天命之子\\dist\\original-expedition-v01\\play-7a6ede9b-20260921\\replays\\battle-63552f0a3c734f7199d6514d11bb0fc0.original-replay.json",
+      "Bytes": 169192,
+      "Sha256": "6c76fcb7e4ff357d11b2bc59e893db68bf8a006bc8e7c16190bb2ef5e24612c0",
+      "Report": "F:\\天命之子\\dist\\original-expedition-v01\\play-7a6ede9b-20260921\\replays\\battle-63552f0a3c734f7199d6514d11bb0fc0.original-replay.json.verification.json",
+      "ExitCode": 0,
+      "Status": "MATCH",
+      "RunId": "158dfbcbfa944ee5ad276bb015e20236",
+      "EncounterId": "158dfbcbfa944ee5ad276bb015e20236/N5/4",
+      "AttemptId": "0ceb4e48747c44989dd09e804eddd020",
+      "BattleOrdinal": 4,
+      "EndTick": 714,
+      "Outcome": "Victory",
+      "ContentVersion": "original-expedition-content-v0.1.1",
+      "ContentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd",
+      "SourceUnchanged": true,
+      "CopyExact": true,
+      "VerifierFileHashMatches": true,
+      "VerifierContentHashMatches": true,
+      "Differences": []
+    }
+  ]
+}

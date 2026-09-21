@@ -1,0 +1,111 @@
+{
+  "CheckedAtUtc": "2026-09-21T06:02:16.0366513Z",
+  "Scope": "Read-only screenshot observation and integer aggregation of existing strict-MATCH ordinary Player tapes; no new game execution, GUI action, state injection or tape modification.",
+  "SourceCommit": "7a6ede9b643a3470a9f0924d329a5ca769b40ce2",
+  "EffectiveDamage": "ShieldAbsorbed + EffectiveHpDamage, excludes Overkill; B02/B03 modify B01 and are never added twice.",
+  "Aggregation": "Sum ordered ResolutionResult rows through the stated RootActionId; take last B01 root for displayed latest-scatter target values. Source artifact hashes identify exact inputs.",
+  "Results": [
+    {
+      "Frame": "frames/029-B03-two-targets-N4-telegraph.jpg",
+      "FrameSha256": "33731f08339c01dd358636b443248516186b125dbb1d2f9ea6c4ef60e8063677",
+      "Tape": "replays/battle-d0dbad8711a64004ba75514d842e3e7b.original-replay.json",
+      "TapeSha256": "28ee5c7cdb6737a3c1ca9c222c9d1ce8a911848abab6c1927648ac9566025844",
+      "EncounterId": "158dfbcbfa944ee5ad276bb015e20236/N4/3",
+      "ObservedBy": "Visual inspection of original screenshot; labels and displayed integer values transcribed without image alteration",
+      "DisplayedTotals": {
+        "EnemyEffectiveDamage": 5990,
+        "AllyEffectiveHealing": 0,
+        "AllyShieldAbsorbed": 0
+      },
+      "DisplayedDamageCrosscheckFromEnemyHp": "(14000-12083)+(4500-2294)+(4500-2633)=5990",
+      "ResolutionPrefixThroughRootActionId": 22,
+      "PrefixRowCount": 52,
+      "ComputedTotals": {
+        "EnemyEffectiveDamage": 5990,
+        "AllyEffectiveHealing": 0,
+        "AllyShieldAbsorbed": 0
+      },
+      "LatestScatterRootActionId": 22,
+      "LatestScatter": [
+        {
+          "TargetSlot": 0,
+          "UiEnemyNumber": 1,
+          "EffectiveDamage": 95
+        },
+        {
+          "TargetSlot": 2,
+          "UiEnemyNumber": 3,
+          "EffectiveDamage": 95
+        }
+      ],
+      "Matched": true,
+      "Limit": "Resolution prefix matches displayed quantities; no claim of a complete frame-state or wall-clock reconstruction."
+    },
+    {
+      "Frame": "frames/042-N5-B04-trigger-visible.jpg",
+      "FrameSha256": "2621f2319cb6eb3bfa42db9f148cc9630378dea400a7e1bd5425ec38f9ff4631",
+      "Tape": "replays/battle-63552f0a3c734f7199d6514d11bb0fc0.original-replay.json",
+      "TapeSha256": "6c76fcb7e4ff357d11b2bc59e893db68bf8a006bc8e7c16190bb2ef5e24612c0",
+      "EncounterId": "158dfbcbfa944ee5ad276bb015e20236/N5/4",
+      "ObservedBy": "Visual inspection of original screenshot; labels and displayed integer values transcribed without image alteration",
+      "DisplayedTotals": {
+        "EnemyEffectiveDamage": 13699,
+        "AllyEffectiveHealing": 0,
+        "AllyShieldAbsorbed": 0
+      },
+      "DisplayedDamageCrosscheckFromEnemyHp": "4500+4500+(8200-4038)+(4500-3963)=13699",
+      "ResolutionPrefixThroughRootActionId": 64,
+      "PrefixRowCount": 134,
+      "ComputedTotals": {
+        "EnemyEffectiveDamage": 13699,
+        "AllyEffectiveHealing": 0,
+        "AllyShieldAbsorbed": 0
+      },
+      "LatestScatterRootActionId": 64,
+      "LatestScatter": [
+        {
+          "TargetSlot": 3,
+          "UiEnemyNumber": 4,
+          "EffectiveDamage": 91
+        }
+      ],
+      "Matched": true,
+      "Limit": "Resolution prefix matches displayed quantities; no claim of a complete frame-state or wall-clock reconstruction."
+    },
+    {
+      "Frame": "frames/023-queue-target-rejection.jpg",
+      "FrameSha256": "c81ec69013f37b5962bee09683489ac0f043444866990b6e74101c958f657ae3",
+      "Tape": "replays/battle-003b487d08e742c0845b301019d4e1a0.original-replay.json",
+      "TapeSha256": "f9a0ddb8a5f83c3b277faa4cf3fb82ccbe492a2f6ce1805a0e458e2f06e776be",
+      "EncounterId": "158dfbcbfa944ee5ad276bb015e20236/N2-audience/2",
+      "ObservedBy": "Visual inspection of original screenshot; labels and displayed integer values transcribed without image alteration",
+      "DisplayedTotals": {
+        "EnemyEffectiveDamage": 9880,
+        "AllyEffectiveHealing": 3522,
+        "AllyShieldAbsorbed": 0
+      },
+      "DisplayedDamageCrosscheckFromEnemyHp": "4500+(4500-1703)+(4500-2879)+(4500-3538)=9880",
+      "ResolutionPrefixThroughRootActionId": 55,
+      "PrefixRowCount": 90,
+      "ComputedTotals": {
+        "EnemyEffectiveDamage": 9880,
+        "AllyEffectiveHealing": 3522,
+        "AllyShieldAbsorbed": 0
+      },
+      "LatestScatterRootActionId": 55,
+      "LatestScatter": [
+        {
+          "TargetSlot": 1,
+          "UiEnemyNumber": 2,
+          "EffectiveDamage": 179
+        }
+      ],
+      "Matched": true,
+      "Limit": "Resolution prefix matches displayed quantities; no claim of a complete frame-state or wall-clock reconstruction."
+    }
+  ],
+  "Passed": 3,
+  "Failed": 0,
+  "Interpretation": "The per-target latest-scatter values are distinct from the battle-total label. Existing core boundary tests cover requests/effective/overflow; this artifact supplies actual UI numbers and corresponding ordinary tape rows.",
+  "ScreenshotProvenance": "Independent Sky/WGC screenshots. They were not extracted from the invalid GDI video; stale-video diagnosis does not invalidate these screenshots or their exact tape-row comparisons."
+}

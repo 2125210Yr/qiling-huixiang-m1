@@ -1,0 +1,222 @@
+[
+  {
+    "path": ".gitattributes",
+    "sha256": "238fafe8d995c622eb4a13fb8d5160d2b607b248bb6e832f9d9a29f8fce85728",
+    "bytes": 86
+  },
+  {
+    "path": "events.json",
+    "sha256": "b674ca765090ec760e9c3ddec487c13308d108c89a861be222dda98af3b45483",
+    "bytes": 7077
+  },
+  {
+    "path": "frames/000-ordinary-entry.jpg",
+    "sha256": "2e765972c94330f1653fb0b0b93f50d4932146029f0a1e22314aa4b4a5b505af",
+    "bytes": 122745
+  },
+  {
+    "path": "frames/001-B01-run-created.jpg",
+    "sha256": "5363b0aa156fe318769d237aa169ed4377af264ec2f7a8f0625847531215b911",
+    "bytes": 99245
+  },
+  {
+    "path": "frames/010-pause-queue-ordered.jpg",
+    "sha256": "2e31e63295d284de6d8573d2e7555760b171a2f5df0790fda65987ca8237e772",
+    "bytes": 114255
+  },
+  {
+    "path": "frames/012-N1-victory-reward.jpg",
+    "sha256": "05913e4e4bfdcff87fdbbe71a93ada3520cf200b78c395ccd80534aefb440f83",
+    "bytes": 110980
+  },
+  {
+    "path": "frames/023-queue-target-rejection.jpg",
+    "sha256": "c81ec69013f37b5962bee09683489ac0f043444866990b6e74101c958f657ae3",
+    "bytes": 121493
+  },
+  {
+    "path": "frames/025-N2-victory-reward.jpg",
+    "sha256": "240742a7a6f5f6655ff95a3d6ac2d08432565ce7e8dab76065edef91c554733c",
+    "bytes": 114927
+  },
+  {
+    "path": "frames/029-B03-two-targets-N4-telegraph.jpg",
+    "sha256": "33731f08339c01dd358636b443248516186b125dbb1d2f9ea6c4ef60e8063677",
+    "bytes": 124707
+  },
+  {
+    "path": "frames/038-B04-normal-reward-detail.jpg",
+    "sha256": "9f9528d104cfeb67c4604aa88af390ac91c479aed77205de714f2e545b9bf771",
+    "bytes": 121491
+  },
+  {
+    "path": "frames/040-N5-four-piece-entry.jpg",
+    "sha256": "5a24e8eb143b2b579b33c6d1d1b9d1bd3edfcecb6306386bf95a73eea73d66e0",
+    "bytes": 112469
+  },
+  {
+    "path": "frames/042-N5-B04-trigger-visible.jpg",
+    "sha256": "2621f2319cb6eb3bfa42db9f148cc9630378dea400a7e1bd5425ec38f9ff4631",
+    "bytes": 121772
+  },
+  {
+    "path": "frames/048-boss-door-party-restored.jpg",
+    "sha256": "bc972b456fd687dfcae06c4add470058c64b2007700430e15225c843c21cb934",
+    "bytes": 118376
+  },
+  {
+    "path": "frames/049-boss-first-attempt-natural.jpg",
+    "sha256": "1e6524c41d971c62fa791c80bb6753713c56c23478a9c959cc2dfb4b5c8755f7",
+    "bytes": 122377
+  },
+  {
+    "path": "frames/049-boss-natural-defeat.jpg",
+    "sha256": "66edb7fff6b216d872854d4e43d56b324de7311edf27c4ffe0ce430fb7abc246",
+    "bytes": 114670
+  },
+  {
+    "path": "frames/049-boss-zero-masks-telegraph.jpg",
+    "sha256": "aa2b20fa327ebce05e1f8d61ae8f974c2f1f589f5f1b8af2694397c2bb1b8c14",
+    "bytes": 120678
+  },
+  {
+    "path": "gfxcapture-local-help.txt",
+    "sha256": "cb934053ba45834a8a5e94d2cfeba69c4ed18dfd28dd216779142f00a643fb45",
+    "bytes": 3614
+  },
+  {
+    "path": "README.md",
+    "sha256": "230432a54fe1bc531c1f13652471fd73478ae74e212f55d6eb5d862d416b7550",
+    "bytes": 5860
+  },
+  {
+    "path": "recording-result.json",
+    "sha256": "ec0a3e1821ff6423b8fe272e06128b2408097b75d0fdbd267ed6333e3671a1e7",
+    "bytes": 1487
+  },
+  {
+    "path": "replays/battle-003b487d08e742c0845b301019d4e1a0.original-replay.json",
+    "sha256": "f9a0ddb8a5f83c3b277faa4cf3fb82ccbe492a2f6ce1805a0e458e2f06e776be",
+    "bytes": 151188
+  },
+  {
+    "path": "replays/battle-003b487d08e742c0845b301019d4e1a0.original-replay.json.verification.json",
+    "sha256": "8950a3f944be4a68b62d5196eee1e968b7d09d995d8fe29fa3f9170852ea88a3",
+    "bytes": 1207
+  },
+  {
+    "path": "replays/battle-04e7627c6dce4666822a19dbb16f4ccc.original-replay.json",
+    "sha256": "31c4a81492cbdb8eeca62dd3c631626a88004528a7572ed0f38a865c27623a53",
+    "bytes": 109073
+  },
+  {
+    "path": "replays/battle-04e7627c6dce4666822a19dbb16f4ccc.original-replay.json.verification.json",
+    "sha256": "0e61beca3e4d5524883527182c98cc4baafd8b890edb574722154f916363ae6f",
+    "bytes": 1198
+  },
+  {
+    "path": "replays/battle-63552f0a3c734f7199d6514d11bb0fc0.original-replay.json",
+    "sha256": "6c76fcb7e4ff357d11b2bc59e893db68bf8a006bc8e7c16190bb2ef5e24612c0",
+    "bytes": 169192
+  },
+  {
+    "path": "replays/battle-63552f0a3c734f7199d6514d11bb0fc0.original-replay.json.verification.json",
+    "sha256": "659ba3565075b8ad7cc59a8e2e7fc62d8db69a64dc8374f8637210d8201a428d",
+    "bytes": 1198
+  },
+  {
+    "path": "replays/battle-b9d8567a0af246aaacc8039ead085100.original-replay.json",
+    "sha256": "d334fbc6b00d20b66752996ca09234f47d558e1a1e0d07a8a41df1c5b29f511e",
+    "bytes": 235977
+  },
+  {
+    "path": "replays/battle-b9d8567a0af246aaacc8039ead085100.original-replay.json.verification.json",
+    "sha256": "3b071ebf12ae4311e844b27f9e6b503eae2a87f0ed39d22587c1199455978520",
+    "bytes": 1199
+  },
+  {
+    "path": "replays/battle-d0dbad8711a64004ba75514d842e3e7b.original-replay.json",
+    "sha256": "28ee5c7cdb6737a3c1ca9c222c9d1ce8a911848abab6c1927648ac9566025844",
+    "bytes": 146753
+  },
+  {
+    "path": "replays/battle-d0dbad8711a64004ba75514d842e3e7b.original-replay.json.verification.json",
+    "sha256": "ab11059895beff7224f93081cdd5db911e12feb1f5ae87664beb846cf6436b20",
+    "bytes": 1198
+  },
+  {
+    "path": "replays/battle-f7f3cb7f912f4aa3a54da0880c447c89.original-replay.json",
+    "sha256": "6964911d1cd48f141ba1ca3a2684b0455cdbf6f45ae3f72bd19fcf8710f153a4",
+    "bytes": 234114
+  },
+  {
+    "path": "replays/battle-f7f3cb7f912f4aa3a54da0880c447c89.original-replay.json.verification.json",
+    "sha256": "8c9d6aae153a3928b18e201d094c2704781aee5bc9fa88f39f76270b0503da35",
+    "bytes": 1199
+  },
+  {
+    "path": "replays/n4-n5-settlement-evidence.json",
+    "sha256": "5a65c824bfa26e03cae1e6332ca33b2565812b35be87ac44af32b3c4f6f41c2f",
+    "bytes": 48156
+  },
+  {
+    "path": "replays/ordinary-run-replay-summary.json",
+    "sha256": "95b8a9ac95738ad2495b476e6153c8da164fce51c866d29337a9115327418e5b",
+    "bytes": 7045
+  },
+  {
+    "path": "replays/verification-batch-01.json",
+    "sha256": "e65fdf515f92835fc0eb7801c96d5dea134931b7395df825254d15644c073cba",
+    "bytes": 3107
+  },
+  {
+    "path": "replays/verification-batch-02.json",
+    "sha256": "9b226fcc52dafc7f77b06c646aac1af6b2927c7347156e18e1cf3e87306c71c7",
+    "bytes": 2964
+  },
+  {
+    "path": "replays/verification-batch-03.json",
+    "sha256": "fe5709933077abc910209e972a0d8f23f8a5999dab3cf873da7c2d63eb4f1cec",
+    "bytes": 4939
+  },
+  {
+    "path": "saves-before.json",
+    "sha256": "8ca33fca224b10e689461bebd063d18aaf21e78547b78aec1c50556c8d2d61f8",
+    "bytes": 639
+  },
+  {
+    "path": "session.json",
+    "sha256": "ca24bd8bb47215c15118161eab2bd24a0702f59e0fa51aeb3ad66fa8218644c9",
+    "bytes": 474
+  },
+  {
+    "path": "ui-tape-crosscheck.json",
+    "sha256": "c8bdd846d08a46213188763823775cccb3942a5c5f4d4c29f88032e2a83aab83",
+    "bytes": 5330
+  },
+  {
+    "path": "video-freeze-diagnostic.log",
+    "sha256": "1bb669a5c8cf7c33c8e4e37ad79b7724274d25a48d0a72d1364dd1939900725b",
+    "bytes": 1895
+  },
+  {
+    "path": "video-samples/video-B04-acquisition.png",
+    "sha256": "ca8fc6b1f17d66954e96892652d06bf90746d4fb400bc1a2c381112503aec969",
+    "bytes": 312530
+  },
+  {
+    "path": "video-samples/video-end.png",
+    "sha256": "02652e5726869f8067a7713905125e10d42dded51a11a17866b8b7a4135e7a29",
+    "bytes": 312919
+  },
+  {
+    "path": "video-samples/video-start.png",
+    "sha256": "23afcd150a63df6a9dcdb30a87e15f71471de6a11a7d5d600143fb4727478707",
+    "bytes": 315423
+  },
+  {
+    "path": "video-visual-validation.json",
+    "sha256": "8f535946fa908fd6a94620109b57f79bd593c943efcf8b926dbda45605a6c5fe",
+    "bytes": 1958
+  }
+]

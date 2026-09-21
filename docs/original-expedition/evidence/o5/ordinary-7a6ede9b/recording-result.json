@@ -1,0 +1,42 @@
+{
+  "checkedUtc": "2026-09-21T05:57:25.1734381Z",
+  "video": "F:\\天命之子\\dist\\original-expedition-v01\\play-7a6ede9b-20260921\\ordinary-expedition-7a6ede9b.mp4",
+  "videoSha256": "61d59cad400a601ea0b242c8e576fb9ae92fa6ca595e3f7a6466be19904ff114",
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "width": 756,
+        "height": 1344,
+        "avg_frame_rate": "15/1",
+        "duration": "675.800000",
+        "nb_frames": "10137"
+      }
+    ],
+    "format": {
+      "duration": "675.800000",
+      "size": "3758308"
+    }
+  },
+  "recordingExitCode": 0,
+  "recordingStop": "stdin q after second Computer Use physical Esc report",
+  "fullDecodeExitCode": 0,
+  "scope": "PARTIAL: four ordinary victories, B01-B04 natural acquisition/use, boss natural Defeat, retry started but interrupted before active skill play",
+  "completeFiveBattleRun": false,
+  "bossRetryVictory": false,
+  "legacySaveChecks": [
+    {
+      "path": "C:/Users/Administrator/AppData/LocalLow/Resonance/契灵回响/save.json",
+      "sha256": "624CC9C6882BB512A7EFFE419F3B47332747BE33A33726796DF611612E55C2A7",
+      "matchesBaseline": true
+    },
+    {
+      "path": "C:/Users/Administrator/AppData/LocalLow/Resonance/契灵回响/save.json.bak",
+      "sha256": "624CC9C6882BB512A7EFFE419F3B47332747BE33A33726796DF611612E55C2A7",
+      "matchesBaseline": true
+    }
+  ]
+}

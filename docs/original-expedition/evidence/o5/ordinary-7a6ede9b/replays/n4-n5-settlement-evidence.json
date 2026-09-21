@@ -1,0 +1,1546 @@
+{
+  "CapturedAtUtc": "2026-09-21T05:54:56.8830045Z",
+  "Scope": "Independent integer aggregation of strict-MATCH ordinary Player tape ResolutionResult rows, with root/target/generation causal evidence. No UI icon inference and no controlled fixture.",
+  "EffectiveDamageDefinition": "ShieldAbsorbed + EffectiveHpDamage; excludes Overkill.",
+  "Battles": [
+    {
+      "Tape": "F:\\天命之子\\dist\\original-expedition-v01\\play-7a6ede9b-20260921\\replays\\battle-d0dbad8711a64004ba75514d842e3e7b.original-replay.json",
+      "TapeSha256": "28ee5c7cdb6737a3c1ca9c222c9d1ce8a911848abab6c1927648ac9566025844",
+      "EncounterId": "158dfbcbfa944ee5ad276bb015e20236/N4/3",
+      "EndTick": 924,
+      "RelicIds": [
+        "B01",
+        "B02",
+        "B03"
+      ],
+      "Totals": {
+        "EnemyEffectiveDamage": 23000,
+        "NativeEnemyEffectiveDamage": 15103,
+        "RelicDerivedEnemyDamage": 7897,
+        "AllyHpDamageTaken": 4063,
+        "AllyShieldAbsorbed": 2814,
+        "AllyEffectiveHealing": 1135,
+        "AllyOverheal": 3465,
+        "SuccessfulActiveCommands": 6,
+        "RejectedActiveCommands": 0
+      },
+      "BFamily": {
+        "B01ScatterRows": 40,
+        "B01ScatterEffectiveDamage": 7897,
+        "B03TwoDistinctEffectiveTargetsRootCount": 18,
+        "B03TwoTargetEvidence": [
+          {
+            "RootActionId": 1,
+            "SkillId": "OE_POINT_auto",
+            "SourceSlot": 0,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 148,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 148,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 148,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 148,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 2,
+            "SkillId": "OE_BLADE_auto",
+            "SourceSlot": 3,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 152,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 152,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 152,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 152,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 3,
+            "SkillId": "OE_GUIDE_auto",
+            "SourceSlot": 4,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 102,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 102,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 102,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 102,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 4,
+            "SkillId": "OE_HEALER_auto",
+            "SourceSlot": 2,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 83,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 83,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 83,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 83,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 7,
+            "SkillId": "OE_GUARD_auto",
+            "SourceSlot": 1,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 95,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 95,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 95,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 95,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 9,
+            "SkillId": "OE_POINT_auto",
+            "SourceSlot": 0,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 165,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 165,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 165,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 165,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 10,
+            "SkillId": "OE_BLADE_auto",
+            "SourceSlot": 3,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 152,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 152,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 152,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 152,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 11,
+            "SkillId": "OE_GUIDE_auto",
+            "SourceSlot": 4,
+            "Targets": [
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 100,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 100,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 100,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 100,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 12,
+            "SkillId": "OE_HEALER_auto",
+            "SourceSlot": 2,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 83,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 83,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 83,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 83,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 15,
+            "SkillId": "OE_GUARD_auto",
+            "SourceSlot": 1,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 95,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 95,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 95,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 95,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 16,
+            "SkillId": "OE_POINT_auto",
+            "SourceSlot": 0,
+            "Targets": [
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 145,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 145,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 145,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 145,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 17,
+            "SkillId": "OE_BLADE_auto",
+            "SourceSlot": 3,
+            "Targets": [
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 148,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 148,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 148,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 148,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 18,
+            "SkillId": "OE_GUIDE_auto",
+            "SourceSlot": 4,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 102,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 102,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 102,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 102,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 19,
+            "SkillId": "OE_HEALER_auto",
+            "SourceSlot": 2,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 83,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 83,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 83,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 83,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 22,
+            "SkillId": "OE_GUARD_auto",
+            "SourceSlot": 1,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 95,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 95,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 95,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 95,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 25,
+            "SkillId": "OE_POINT_tap",
+            "SourceSlot": 0,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 967,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 967,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 967,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 967,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 26,
+            "SkillId": "OE_BLADE_tap",
+            "SourceSlot": 3,
+            "Targets": [
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 876,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 876,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 876,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 876,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 27,
+            "SkillId": "OE_POINT_auto",
+            "SourceSlot": 0,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 174,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 174,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 174,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 37,
+                "Overkill": 137,
+                "Killed": true
+              }
+            ]
+          }
+        ],
+        "B04EchoRows": 0,
+        "B04EffectiveDamage": 0,
+        "B04CausalEvidence": [],
+        "FinalLastTriggerSerials": {
+          "B01": 61,
+          "B02": 62,
+          "B03": 54,
+          "B04": 0
+        },
+        "AttributionNote": "B02/B03 modify B01 scatter; their contribution is not added a second time. Trigger serials are last-trigger ordering values, not trigger counts."
+      }
+    },
+    {
+      "Tape": "F:\\天命之子\\dist\\original-expedition-v01\\play-7a6ede9b-20260921\\replays\\battle-63552f0a3c734f7199d6514d11bb0fc0.original-replay.json",
+      "TapeSha256": "6c76fcb7e4ff357d11b2bc59e893db68bf8a006bc8e7c16190bb2ef5e24612c0",
+      "EncounterId": "158dfbcbfa944ee5ad276bb015e20236/N5/4",
+      "EndTick": 714,
+      "RelicIds": [
+        "B01",
+        "B02",
+        "B03",
+        "B04"
+      ],
+      "Totals": {
+        "EnemyEffectiveDamage": 21700,
+        "NativeEnemyEffectiveDamage": 10171,
+        "RelicDerivedEnemyDamage": 11529,
+        "AllyHpDamageTaken": 5362,
+        "AllyShieldAbsorbed": 1891,
+        "AllyEffectiveHealing": 3603,
+        "AllyOverheal": 997,
+        "SuccessfulActiveCommands": 4,
+        "RejectedActiveCommands": 0
+      },
+      "BFamily": {
+        "B01ScatterRows": 86,
+        "B01ScatterEffectiveDamage": 11177,
+        "B03TwoDistinctEffectiveTargetsRootCount": 34,
+        "B03TwoTargetEvidence": [
+          {
+            "RootActionId": 1,
+            "SkillId": "OE_POINT_auto",
+            "SourceSlot": 0,
+            "Targets": [
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 148,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 148,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 148,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 148,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 2,
+            "SkillId": "OE_BLADE_auto",
+            "SourceSlot": 3,
+            "Targets": [
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 152,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 152,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 152,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 152,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 3,
+            "SkillId": "OE_GUIDE_auto",
+            "SourceSlot": 4,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 102,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 102,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 102,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 102,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 4,
+            "SkillId": "OE_HEALER_auto",
+            "SourceSlot": 2,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 83,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 83,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 83,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 83,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 8,
+            "SkillId": "OE_GUARD_auto",
+            "SourceSlot": 1,
+            "Targets": [
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 95,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 95,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 95,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 95,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 10,
+            "SkillId": "OE_POINT_auto",
+            "SourceSlot": 0,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 148,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 148,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 148,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 148,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 11,
+            "SkillId": "OE_BLADE_auto",
+            "SourceSlot": 3,
+            "Targets": [
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 152,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 152,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 152,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 152,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 12,
+            "SkillId": "OE_GUIDE_auto",
+            "SourceSlot": 4,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 102,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 102,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 102,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 102,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 13,
+            "SkillId": "OE_HEALER_auto",
+            "SourceSlot": 2,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 83,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 83,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 83,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 83,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 17,
+            "SkillId": "OE_GUARD_auto",
+            "SourceSlot": 1,
+            "Targets": [
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 95,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 95,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 95,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 95,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 19,
+            "SkillId": "OE_POINT_auto",
+            "SourceSlot": 0,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 142,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 142,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 142,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 142,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 20,
+            "SkillId": "OE_BLADE_auto",
+            "SourceSlot": 3,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 152,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 152,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 152,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 152,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 21,
+            "SkillId": "OE_GUIDE_auto",
+            "SourceSlot": 4,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 102,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 102,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 102,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 102,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 22,
+            "SkillId": "OE_HEALER_auto",
+            "SourceSlot": 2,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 80,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 80,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 80,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 80,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 26,
+            "SkillId": "OE_GUARD_auto",
+            "SourceSlot": 1,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 95,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 95,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 95,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 95,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 28,
+            "SkillId": "OE_POINT_auto",
+            "SourceSlot": 0,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 148,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 148,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 148,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 148,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 29,
+            "SkillId": "OE_BLADE_auto",
+            "SourceSlot": 3,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 146,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 146,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 146,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 146,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 30,
+            "SkillId": "OE_GUIDE_auto",
+            "SourceSlot": 4,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 98,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 98,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 98,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 98,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 34,
+            "SkillId": "OE_HEALER_auto",
+            "SourceSlot": 2,
+            "Targets": [
+              {
+                "TargetSlot": 0,
+                "TargetGeneration": 1,
+                "RequestedDamage": 80,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 80,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 80,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 80,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 38,
+            "SkillId": "OE_GUARD_auto",
+            "SourceSlot": 1,
+            "Targets": [
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 105,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 105,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 105,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 105,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 41,
+            "SkillId": "OE_POINT_auto",
+            "SourceSlot": 0,
+            "Targets": [
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 148,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 148,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 148,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 148,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 42,
+            "SkillId": "OE_BLADE_auto",
+            "SourceSlot": 3,
+            "Targets": [
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 152,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 152,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 152,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 152,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 43,
+            "SkillId": "OE_GUIDE_auto",
+            "SourceSlot": 4,
+            "Targets": [
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 102,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 102,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 102,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 102,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 44,
+            "SkillId": "OE_HEALER_auto",
+            "SourceSlot": 2,
+            "Targets": [
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 83,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 83,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 83,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 83,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 48,
+            "SkillId": "OE_GUARD_auto",
+            "SourceSlot": 1,
+            "Targets": [
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 95,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 95,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 95,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 95,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 50,
+            "SkillId": "OE_POINT_auto",
+            "SourceSlot": 0,
+            "Targets": [
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 148,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 148,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 148,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 148,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 51,
+            "SkillId": "OE_BLADE_auto",
+            "SourceSlot": 3,
+            "Targets": [
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 152,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 152,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 152,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 152,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 52,
+            "SkillId": "OE_GUIDE_auto",
+            "SourceSlot": 4,
+            "Targets": [
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 102,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 102,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 102,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 102,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 53,
+            "SkillId": "OE_HEALER_auto",
+            "SourceSlot": 2,
+            "Targets": [
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 83,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 83,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 83,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 83,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 57,
+            "SkillId": "OE_GUARD_auto",
+            "SourceSlot": 1,
+            "Targets": [
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 95,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 95,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 95,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 95,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 59,
+            "SkillId": "OE_POINT_auto",
+            "SourceSlot": 0,
+            "Targets": [
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 148,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 148,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 148,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 148,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 60,
+            "SkillId": "OE_BLADE_auto",
+            "SourceSlot": 3,
+            "Targets": [
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 152,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 152,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 152,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 152,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 61,
+            "SkillId": "OE_GUIDE_auto",
+            "SourceSlot": 4,
+            "Targets": [
+              {
+                "TargetSlot": 2,
+                "TargetGeneration": 1,
+                "RequestedDamage": 102,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 102,
+                "Overkill": 0,
+                "Killed": false
+              },
+              {
+                "TargetSlot": 3,
+                "TargetGeneration": 1,
+                "RequestedDamage": 102,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 102,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "RootActionId": 62,
+            "SkillId": "OE_HEALER_auto",
+            "SourceSlot": 2,
+            "Targets": [
+              {
+                "TargetSlot": 1,
+                "TargetGeneration": 1,
+                "RequestedDamage": 80,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 15,
+                "Overkill": 65,
+                "Killed": true
+              },
+              {
+                "TargetSlot": 3,
+                "TargetGeneration": 1,
+                "RequestedDamage": 80,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 80,
+                "Overkill": 0,
+                "Killed": false
+              }
+            ]
+          }
+        ],
+        "B04EchoRows": 2,
+        "B04EffectiveDamage": 352,
+        "B04CausalEvidence": [
+          {
+            "Echo": {
+              "Origin": 1,
+              "RootActionId": 60,
+              "ProcDepth": 1,
+              "SourceRelicId": "B04",
+              "SkillId": "OE_BLADE_auto",
+              "SourceSlot": 3,
+              "SourceAlly": true,
+              "TargetSlot": 1,
+              "TargetAlly": false,
+              "TargetGeneration": 1,
+              "RequestedDamage": 217,
+              "ShieldAbsorbed": 0,
+              "EffectiveHpDamage": 217,
+              "Overkill": 0,
+              "RequestedHeal": 0,
+              "EffectiveHeal": 0,
+              "Overheal": 0,
+              "ShieldProduced": 0,
+              "Killed": false
+            },
+            "SameRootNativeKills": [
+              {
+                "Origin": 0,
+                "RootActionId": 60,
+                "ProcDepth": 0,
+                "SourceRelicId": "",
+                "SkillId": "OE_BLADE_auto",
+                "SourceSlot": 3,
+                "SourceAlly": true,
+                "TargetSlot": 0,
+                "TargetAlly": false,
+                "TargetGeneration": 1,
+                "RequestedDamage": 217,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 9,
+                "Overkill": 208,
+                "RequestedHeal": 0,
+                "EffectiveHeal": 0,
+                "Overheal": 0,
+                "ShieldProduced": 0,
+                "Killed": true
+              }
+            ],
+            "SameRootScatter": [
+              {
+                "Origin": 1,
+                "RootActionId": 60,
+                "ProcDepth": 1,
+                "SourceRelicId": "B01",
+                "SkillId": "OE_BLADE_auto",
+                "SourceSlot": 3,
+                "SourceAlly": true,
+                "TargetSlot": 1,
+                "TargetAlly": false,
+                "TargetGeneration": 1,
+                "RequestedDamage": 152,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 152,
+                "Overkill": 0,
+                "RequestedHeal": 0,
+                "EffectiveHeal": 0,
+                "Overheal": 0,
+                "ShieldProduced": 0,
+                "Killed": false
+              },
+              {
+                "Origin": 1,
+                "RootActionId": 60,
+                "ProcDepth": 1,
+                "SourceRelicId": "B01",
+                "SkillId": "OE_BLADE_auto",
+                "SourceSlot": 3,
+                "SourceAlly": true,
+                "TargetSlot": 2,
+                "TargetAlly": false,
+                "TargetGeneration": 1,
+                "RequestedDamage": 152,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 152,
+                "Overkill": 0,
+                "RequestedHeal": 0,
+                "EffectiveHeal": 0,
+                "Overheal": 0,
+                "ShieldProduced": 0,
+                "Killed": false
+              }
+            ]
+          },
+          {
+            "Echo": {
+              "Origin": 1,
+              "RootActionId": 91,
+              "ProcDepth": 1,
+              "SourceRelicId": "B04",
+              "SkillId": "OE_GUARD_auto",
+              "SourceSlot": 1,
+              "SourceAlly": true,
+              "TargetSlot": 2,
+              "TargetAlly": false,
+              "TargetGeneration": 1,
+              "RequestedDamage": 135,
+              "ShieldAbsorbed": 0,
+              "EffectiveHpDamage": 135,
+              "Overkill": 0,
+              "RequestedHeal": 0,
+              "EffectiveHeal": 0,
+              "Overheal": 0,
+              "ShieldProduced": 0,
+              "Killed": false
+            },
+            "SameRootNativeKills": [
+              {
+                "Origin": 0,
+                "RootActionId": 91,
+                "ProcDepth": 0,
+                "SourceRelicId": "",
+                "SkillId": "OE_GUARD_auto",
+                "SourceSlot": 1,
+                "SourceAlly": true,
+                "TargetSlot": 3,
+                "TargetAlly": false,
+                "TargetGeneration": 1,
+                "RequestedDamage": 135,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 24,
+                "Overkill": 111,
+                "RequestedHeal": 0,
+                "EffectiveHeal": 0,
+                "Overheal": 0,
+                "ShieldProduced": 0,
+                "Killed": true
+              }
+            ],
+            "SameRootScatter": [
+              {
+                "Origin": 1,
+                "RootActionId": 91,
+                "ProcDepth": 1,
+                "SourceRelicId": "B01",
+                "SkillId": "OE_GUARD_auto",
+                "SourceSlot": 1,
+                "SourceAlly": true,
+                "TargetSlot": 2,
+                "TargetAlly": false,
+                "TargetGeneration": 1,
+                "RequestedDamage": 95,
+                "ShieldAbsorbed": 0,
+                "EffectiveHpDamage": 95,
+                "Overkill": 0,
+                "RequestedHeal": 0,
+                "EffectiveHeal": 0,
+                "Overheal": 0,
+                "ShieldProduced": 0,
+                "Killed": false
+              }
+            ]
+          }
+        ],
+        "FinalLastTriggerSerials": {
+          "B01": 138,
+          "B02": 139,
+          "B03": 103,
+          "B04": 140
+        },
+        "AttributionNote": "B02/B03 modify B01 scatter; their contribution is not added a second time. Trigger serials are last-trigger ordering values, not trigger counts."
+      }
+    }
+  ]
+}

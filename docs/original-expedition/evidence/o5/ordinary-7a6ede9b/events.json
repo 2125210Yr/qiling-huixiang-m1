@@ -1,0 +1,365 @@
+[
+  {
+    "at": "2026-09-21T05:43:55.379Z",
+    "action": "click",
+    "label": "choose B01 scatter core",
+    "x": 363,
+    "y": 1084
+  },
+  {
+    "at": "2026-09-21T05:44:01.406Z",
+    "action": "click",
+    "label": "enter N1 foyer",
+    "x": 366,
+    "y": 563
+  },
+  {
+    "at": "2026-09-21T05:44:10.595Z",
+    "action": "click",
+    "label": "pause N1 for command planning",
+    "x": 171,
+    "y": 1285
+  },
+  {
+    "at": "2026-09-21T05:44:16.049Z",
+    "action": "click",
+    "label": "queue guide buff",
+    "x": 670,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:44:26.616Z",
+    "action": "click",
+    "label": "replace existing guide command",
+    "x": 670,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:44:31.430Z",
+    "action": "click",
+    "label": "queue party shield",
+    "x": 234,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:44:39.774Z",
+    "action": "click",
+    "label": "clear guide command before readding",
+    "x": 669,
+    "y": 1185
+  },
+  {
+    "at": "2026-09-21T05:44:47.923Z",
+    "action": "click",
+    "label": "readd guide at queue tail",
+    "x": 669,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:44:54.672Z",
+    "action": "click",
+    "label": "queue point attack",
+    "x": 90,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:45:00.057Z",
+    "action": "click",
+    "label": "queue blade attack",
+    "x": 524,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:45:06.955Z",
+    "action": "click",
+    "label": "resume N1 ordered commands",
+    "x": 171,
+    "y": 1285
+  },
+  {
+    "at": "2026-09-21T05:45:13.246Z",
+    "action": "click",
+    "label": "heal party in N1",
+    "x": 379,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:45:35.396Z",
+    "action": "click",
+    "label": "choose B02 scatter damage upgrade",
+    "x": 365,
+    "y": 1158
+  },
+  {
+    "at": "2026-09-21T05:45:41.629Z",
+    "action": "click",
+    "label": "choose N2 audience branch",
+    "x": 365,
+    "y": 740
+  },
+  {
+    "at": "2026-09-21T05:45:49.861Z",
+    "action": "click",
+    "label": "enter N2 audience battle",
+    "x": 365,
+    "y": 563
+  },
+  {
+    "at": "2026-09-21T05:45:57.777Z",
+    "action": "click",
+    "label": "focus first chorus in N2",
+    "x": 89,
+    "y": 446
+  },
+  {
+    "at": "2026-09-21T05:46:02.983Z",
+    "action": "click",
+    "label": "pause N2",
+    "x": 171,
+    "y": 1285
+  },
+  {
+    "at": "2026-09-21T05:46:21.823Z",
+    "action": "click",
+    "label": "queue N2 healing",
+    "x": 379,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:46:28.370Z",
+    "action": "click",
+    "label": "queue N2 shield",
+    "x": 234,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:46:36.093Z",
+    "action": "click",
+    "label": "queue N2 guide buff",
+    "x": 670,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:46:41.270Z",
+    "action": "click",
+    "label": "queue attack at selected chorus",
+    "x": 90,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:46:50.727Z",
+    "action": "click",
+    "label": "queue blade at same selected chorus",
+    "x": 524,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:46:57.610Z",
+    "action": "click",
+    "label": "resume N2 queue target validation",
+    "x": 171,
+    "y": 1285
+  },
+  {
+    "at": "2026-09-21T05:47:03.133Z",
+    "action": "click",
+    "label": "retarget living N2 chorus",
+    "x": 379,
+    "y": 446
+  },
+  {
+    "at": "2026-09-21T05:47:08.225Z",
+    "action": "click",
+    "label": "release N2 blade after retarget",
+    "x": 524,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:47:34.081Z",
+    "action": "click",
+    "label": "choose B03 second scatter target",
+    "x": 365,
+    "y": 901
+  },
+  {
+    "at": "2026-09-21T05:47:40.639Z",
+    "action": "click",
+    "label": "choose workshop rest",
+    "x": 365,
+    "y": 563
+  },
+  {
+    "at": "2026-09-21T05:47:47.131Z",
+    "action": "click",
+    "label": "enter N4 rehearsal",
+    "x": 365,
+    "y": 563
+  },
+  {
+    "at": "2026-09-21T05:47:54.776Z",
+    "action": "click",
+    "label": "pause N4 on telegraph",
+    "x": 171,
+    "y": 1285
+  },
+  {
+    "at": "2026-09-21T05:48:01.782Z",
+    "action": "click",
+    "label": "queue N4 shield before group hit",
+    "x": 234,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:48:10.213Z",
+    "action": "click",
+    "label": "queue N4 guide",
+    "x": 670,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:48:16.513Z",
+    "action": "click",
+    "label": "queue N4 point",
+    "x": 90,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:48:21.407Z",
+    "action": "click",
+    "label": "queue N4 blade",
+    "x": 524,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:48:28.716Z",
+    "action": "click",
+    "label": "resume N4 shield and attacks",
+    "x": 171,
+    "y": 1285
+  },
+  {
+    "at": "2026-09-21T05:48:35.321Z",
+    "action": "click",
+    "label": "heal after N4 group impact",
+    "x": 379,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:48:43.004Z",
+    "action": "click",
+    "label": "cast N4 point attack",
+    "x": 90,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:48:58.897Z",
+    "action": "click",
+    "label": "cast N4 blade attack",
+    "x": 524,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:49:14.396Z",
+    "action": "drag",
+    "label": "scroll reward panel to B04",
+    "from": [
+      727,
+      590
+    ],
+    "to": [
+      727,
+      935
+    ]
+  },
+  {
+    "at": "2026-09-21T05:49:20.502Z",
+    "action": "click",
+    "label": "choose B04 completes scatter family",
+    "x": 365,
+    "y": 524
+  },
+  {
+    "at": "2026-09-21T05:49:27.961Z",
+    "action": "click",
+    "label": "enter N5 mature build battle",
+    "x": 365,
+    "y": 563
+  },
+  {
+    "at": "2026-09-21T05:49:38.552Z",
+    "action": "click",
+    "label": "focus N5 first chorus for native skill kill",
+    "x": 89,
+    "y": 446
+  },
+  {
+    "at": "2026-09-21T05:49:44.063Z",
+    "action": "click",
+    "label": "pause N5 before native skill kill",
+    "x": 171,
+    "y": 1285
+  },
+  {
+    "at": "2026-09-21T05:49:52.910Z",
+    "action": "click",
+    "label": "queue N5 heal",
+    "x": 379,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:49:59.092Z",
+    "action": "click",
+    "label": "queue N5 shield",
+    "x": 234,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:50:04.201Z",
+    "action": "click",
+    "label": "queue N5 point",
+    "x": 90,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:50:11.314Z",
+    "action": "click",
+    "label": "queue N5 blade",
+    "x": 524,
+    "y": 1105
+  },
+  {
+    "at": "2026-09-21T05:50:17.717Z",
+    "action": "click",
+    "label": "resume N5",
+    "x": 171,
+    "y": 1285
+  },
+  {
+    "at": "2026-09-21T05:50:24.961Z",
+    "action": "click",
+    "label": "switch N5 to 2x speed",
+    "x": 411,
+    "y": 1285
+  },
+  {
+    "at": "2026-09-21T05:50:49.762Z",
+    "action": "click",
+    "label": "freeze boss checkpoint",
+    "x": 365,
+    "y": 813
+  },
+  {
+    "at": "2026-09-21T05:52:38.068Z",
+    "action": "click",
+    "label": "retry boss from frozen checkpoint",
+    "x": 365,
+    "y": 637
+  },
+  {
+    "at": "2026-09-21T05:52:43.834Z",
+    "action": "click",
+    "label": "boss retry focus first mask",
+    "x": 234,
+    "y": 446
+  }
+]
