@@ -1,0 +1,23 @@
+{
+  "started": "2026-09-21T03:58:45.0073731Z",
+  "finished": "2026-09-21T03:59:59.2010567Z",
+  "exitCode": 0,
+  "mode": "tests",
+  "name": "unity-build-artifact-guard-green",
+  "arguments": [
+    "-batchmode",
+    "-projectPath",
+    "\"F:\\Resonance\\client\"",
+    "-giCustomCacheLocation",
+    "\"F:\\Resonance\\client\\Temp\\GICache-Original\"",
+    "-logFile",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\unity-build-artifact-guard-green.log\"",
+    "-runTests",
+    "-testPlatform",
+    "EditMode",
+    "-testFilter",
+    "Resonance.EditorTests",
+    "-testResults",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\unity-build-artifact-guard-green.xml\""
+  ]
+}

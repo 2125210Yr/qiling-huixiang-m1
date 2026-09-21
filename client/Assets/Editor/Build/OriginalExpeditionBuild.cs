@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using UnityEditor;
+using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
 
@@ -12,6 +13,45 @@ namespace Resonance.EditorTools
     /// <summary>Only runs in an independently copied, hash-manifested original-expedition project.</summary>
     public static class OriginalExpeditionBuild
     {
+        public static void PreserveInjectedPerformanceResources(string project)
+        {
+            project = Path.GetFullPath(project);
+            CheckPhysical(project);
+            var manifestPath = Path.Combine(project, "package-input-manifest.json");
+            CheckPhysical(manifestPath);
+            var manifest = JsonUtility.FromJson<InputManifest>(File.ReadAllText(manifestPath));
+            if (manifest == null || !SamePath(manifest.destination, project) || SamePath(manifest.sourceProject, project))
+                throw new InvalidOperationException("Generated artifacts may only be preserved in a declared independent project.");
+            var destination = Path.Combine(project, "BuildAudit", "ExcludedPerformanceTestAssets");
+            var existingParent = destination;
+            while (!Directory.Exists(existingParent) && !File.Exists(existingParent)) existingParent = Path.GetDirectoryName(existingParent);
+            CheckPhysical(existingParent);
+            if (!Directory.Exists(existingParent)) throw new InvalidOperationException("Artifact destination parent is not a directory.");
+            var moves = new List<KeyValuePair<string, string>>();
+            foreach (var name in PerformanceArtifacts)
+            {
+                var source = Path.Combine(project, "Assets", "Resources", name);
+                if (Directory.Exists(source)) throw new InvalidOperationException("Expected a generated file, not a directory: " + source);
+                if (!File.Exists(source)) continue;
+                CheckPhysical(source);
+                var target = Path.Combine(destination, name);
+                if (File.Exists(target) || Directory.Exists(target))
+                    throw new InvalidOperationException("Preserved artifact already exists; refusing overwrite: " + target);
+                moves.Add(new KeyValuePair<string, string>(source, target));
+            }
+            if (moves.Count == 0) return;
+            Directory.CreateDirectory(destination);
+            CheckPhysical(destination);
+            // All four explicit targets were checked before the first move. Failure preserves
+            // partial output for diagnosis; neither this guard nor the caller deletes files.
+            foreach (var move in moves)
+            {
+                CheckPhysical(move.Key);
+                CheckPhysical(destination);
+                File.Move(move.Key, move.Value);
+            }
+        }
+
         [Serializable] public sealed class InputFile { public string path, sha256; }
         [Serializable] public sealed class InputManifest
         { public string sourceProject, destination, sourceCommit; public InputFile[] files; }
@@ -23,6 +63,36 @@ namespace Resonance.EditorTools
             public string[] dependencies;
             public List<PackedRow> packed = new List<PackedRow>();
             public List<OutputRow> outputs = new List<OutputRow>();
+            public List<OutputRow> excludedBuildArtifacts = new List<OutputRow>();
+        }
+
+        static Audit activeAudit;
+        static readonly string[] PerformanceArtifacts = {
+            "PerformanceTestRunInfo.json", "PerformanceTestRunInfo.json.meta",
+            "PerformanceTestRunSettings.json", "PerformanceTestRunSettings.json.meta"
+        };
+
+        internal static void BeforeAuditedPlayerBuild()
+        {
+            if (activeAudit == null) return;
+            var project = Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
+            var manifest = JsonUtility.FromJson<InputManifest>(File.ReadAllText(Path.Combine(project, "package-input-manifest.json")));
+            if (!SamePath(activeAudit.project, project) || !SamePath(manifest.destination, project) || SamePath(manifest.sourceProject, project))
+                throw new InvalidOperationException("Performance artifact exclusion requires the active isolated build.");
+            foreach (var name in PerformanceArtifacts)
+                if (manifest.files.Any(f => f.path == "Assets/Resources/" + name))
+                    throw new InvalidOperationException("Performance artifact unexpectedly belongs to declared inputs: " + name);
+            PreserveInjectedPerformanceResources(project);
+            foreach (var name in PerformanceArtifacts)
+            {
+                var full = Path.Combine(project, "BuildAudit", "ExcludedPerformanceTestAssets", name);
+                if (File.Exists(full)) activeAudit.excludedBuildArtifacts.Add(new OutputRow {
+                    path = "BuildAudit/ExcludedPerformanceTestAssets/" + name,
+                    role = "preserved-generated-performance-test-artifact-not-player-input",
+                    sha256 = Hash(full), bytes = checked((ulong)new FileInfo(full).Length)
+                });
+            }
+            AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
         }
 
         public static void BuildAndExit()
@@ -63,12 +133,18 @@ namespace Resonance.EditorTools
                 PlayerSettings.visibleInBackground = true;
                 PlayerSettings.SplashScreen.show = false;
                 PlayerSettings.defaultInterfaceOrientation = UIOrientation.Portrait;
-                var report = BuildPipeline.BuildPlayer(new BuildPlayerOptions
+                BuildReport report;
+                activeAudit = audit;
+                try
                 {
-                    scenes = new[] { "Assets/Scenes/Boot.unity" }, locationPathName = exe,
-                    target = BuildTarget.StandaloneWindows64,
-                    options = BuildOptions.CompressWithLz4 | BuildOptions.DetailedBuildReport
-                });
+                    report = BuildPipeline.BuildPlayer(new BuildPlayerOptions
+                    {
+                        scenes = new[] { "Assets/Scenes/Boot.unity" }, locationPathName = exe,
+                        target = BuildTarget.StandaloneWindows64,
+                        options = BuildOptions.CompressWithLz4 | BuildOptions.DetailedBuildReport
+                    });
+                }
+                finally { activeAudit = null; }
                 audit.exe = exe;
                 foreach (var container in report.packedAssets)
                     foreach (var asset in container.contents)
@@ -173,5 +249,13 @@ namespace Resonance.EditorTools
             using (var stream = File.OpenRead(path))
             using (var sha = SHA256.Create()) return BitConverter.ToString(sha.ComputeHash(stream)).Replace("-", "").ToLowerInvariant();
         }
+    }
+
+    // The installed performance package injects Resources in its order-0 callback even for
+    // non-test builds. Preserve only those generated files outside Assets before collection.
+    public sealed class OriginalExpeditionPerformanceArtifactFilter : IPreprocessBuildWithReport
+    {
+        public int callbackOrder => int.MaxValue;
+        public void OnPreprocessBuild(BuildReport report) => OriginalExpeditionBuild.BeforeAuditedPlayerBuild();
     }
 }

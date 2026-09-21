@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="7" result="Failed(Child)" total="7" passed="0" failed="7" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-21 03:58:02Z" end-time="2026-09-21 03:58:02Z" duration="0.1447158">
+  <test-suite type="TestSuite" id="1000" name="契灵回响" fullname="契灵回响" runstate="Runnable" testcasecount="82" result="Failed" site="Child" start-time="2026-09-21 03:58:02Z" end-time="2026-09-21 03:58:02Z" duration="0.144716" total="7" passed="0" failed="7" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1103" name="Resonance.EditorTests.dll" fullname="F:/Resonance/client/Library/ScriptAssemblies/Resonance.EditorTests.dll" runstate="Runnable" testcasecount="82" result="Failed" site="Child" start-time="2026-09-21 03:58:02Z" end-time="2026-09-21 03:58:02Z" duration="0.134315" total="7" passed="0" failed="7" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="31384" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1104" name="Resonance" fullname="Resonance" runstate="Runnable" testcasecount="82" result="Failed" site="Child" start-time="2026-09-21 03:58:02Z" end-time="2026-09-21 03:58:02Z" duration="0.130666" total="7" passed="0" failed="7" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1105" name="EditorTests" fullname="Resonance.EditorTests" runstate="Runnable" testcasecount="82" result="Failed" site="Child" start-time="2026-09-21 03:58:02Z" end-time="2026-09-21 03:58:02Z" duration="0.123774" total="7" passed="0" failed="7" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestFixture" id="1034" name="OriginalBuildArtifactGuardTests" fullname="Resonance.EditorTests.OriginalBuildArtifactGuardTests" classname="Resonance.EditorTests.OriginalBuildArtifactGuardTests" runstate="Runnable" testcasecount="7" result="Failed" site="Child" start-time="2026-09-21 03:58:02Z" end-time="2026-09-21 03:58:02Z" duration="0.112757" total="7" passed="0" failed="7" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="1042" name="PreserveInjectedResources_AbsentCompanionFilesAreNotCreated" fullname="Resonance.EditorTests.OriginalBuildArtifactGuardTests.PreserveInjectedResources_AbsentCompanionFilesAreNotCreated" methodname="PreserveInjectedResources_AbsentCompanionFilesAreNotCreated" classname="Resonance.EditorTests.OriginalBuildArtifactGuardTests" runstate="Runnable" seed="1253875248" result="Failed" label="Error" start-time="2026-09-21 03:58:02Z" end-time="2026-09-21 03:58:02Z" duration="0.018999" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[System.NotImplementedException : Pending isolated build artifact regression.]]></message>
+                <stack-trace><![CDATA[  at Resonance.EditorTools.OriginalExpeditionBuild.PreserveInjectedPerformanceResources (System.String project) [0x00000] in F:\Resonance\client\Assets\Editor\Build\OriginalExpeditionBuild.cs:18 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <d49d4cb128564ee1b54a84338c98d353>:0 
+--- End of stack trace from previous location where exception was thrown ---
+
+  at Resonance.EditorTests.OriginalBuildArtifactGuardTests.PreserveInjectedResources () [0x000dd] in F:\Resonance\client\Assets\Tests\Editor\OriginalBuildArtifactGuardTests.cs:167 
+  at Resonance.EditorTests.OriginalBuildArtifactGuardTests.PreserveInjectedResources_AbsentCompanionFilesAreNotCreated () [0x0002a] in F:\Resonance\client\Assets\Tests\Editor\OriginalBuildArtifactGuardTests.cs:116 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <d49d4cb128564ee1b54a84338c98d353>:0 ]]></stack-trace>
+              </failure>
+              <output><![CDATA[Preserved build artifact fixture: C:\Users\ADMINI~1\AppData\Local\Temp\original-build-artifact-guard-1885e12679564c40811b3335d3f3ef49
+]]></output>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1041" name="PreserveInjectedResources_AnyOccupiedTargetRejectsBeforeMovingAnything" fullname="Resonance.EditorTests.OriginalBuildArtifactGuardTests.PreserveInjectedResources_AnyOccupiedTargetRejectsBeforeMovingAnything" classname="Resonance.EditorTests.OriginalBuildArtifactGuardTests" runstate="Runnable" testcasecount="4" result="Failed" site="Child" start-time="2026-09-21 03:58:02Z" end-time="2026-09-21 03:58:02Z" duration="0.060696" total="4" passed="0" failed="4" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-case id="1037" name="PreserveInjectedResources_AnyOccupiedTargetRejectsBeforeMovingAnything(&quot;PerformanceTestRunInfo.json&quot;)" fullname="Resonance.EditorTests.OriginalBuildArtifactGuardTests.PreserveInjectedResources_AnyOccupiedTargetRejectsBeforeMovingAnything(&quot;PerformanceTestRunInfo.json&quot;)" methodname="PreserveInjectedResources_AnyOccupiedTargetRejectsBeforeMovingAnything" classname="Resonance.EditorTests.OriginalBuildArtifactGuardTests" runstate="Runnable" seed="1838791180" result="Failed" start-time="2026-09-21 03:58:02Z" end-time="2026-09-21 03:58:02Z" duration="0.025012" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <failure>
+                  <message><![CDATA[  Expected: <System.InvalidOperationException>
+  But was:  <System.NotImplementedException: Pending isolated build artifact regression.
+  at Resonance.EditorTools.OriginalExpeditionBuild.PreserveInjectedPerformanceResources (System.String project) [0x00000] in F:\Resonance\client\Assets\Editor\Build\OriginalExpeditionBuild.cs:18 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <d49d4cb128564ee1b54a84338c98d353>:0 
+--- End of stack trace from previous location where exception was thrown ---
+
+  at Resonance.EditorTests.OriginalBuildArtifactGuardTests.PreserveInjectedResources () [0x000dd] in F:\Resonance\client\Assets\Tests\Editor\OriginalBuildArtifactGuardTests.cs:167 
+  at Resonance.EditorTests.OriginalBuildArtifactGuardTests.<PreserveInjectedResources_AnyOccupiedTargetRejectsBeforeMovingAnything>b__8_0 () [0x00000] in F:\Resonance\client\Assets\Tests\Editor\OriginalBuildArtifactGuardTests.cs:104 
+  at NUnit.Framework.Assert.Throws (NUnit.Framework.Constraints.IResolveConstraint expression, NUnit.Framework.TestDelegate code, System.String message, System.Object[] args) [0x0002f] in <f577cd9686154d6ab10efd7e65e64366>:0 >
+]]></message>
+                  <stack-trace><![CDATA[at Resonance.EditorTests.OriginalBuildArtifactGuardTests.PreserveInjectedResources_AnyOccupiedTargetRejectsBeforeMovingAnything (System.String occupiedName) [0x00046] in F:\Resonance\client\Assets\Tests\Editor\OriginalBuildArtifactGuardTests.cs:104
+]]></stack-trace>
+                </failure>
+                <output><![CDATA[Preserved build artifact fixture: C:\Users\ADMINI~1\AppData\Local\Temp\original-build-artifact-guard-aceb2a7e283b44b083fc2a8247f10fea
+]]></output>
+              </test-case>
+              <test-case id="1038" name="PreserveInjectedResources_AnyOccupiedTargetRejectsBeforeMovingAnything(&quot;PerformanceTestRunInfo.json.meta&quot;)" fullname="Resonance.EditorTests.OriginalBuildArtifactGuardTests.PreserveInjectedResources_AnyOccupiedTargetRejectsBeforeMovingAnything(&quot;PerformanceTestRunInfo.json.meta&quot;)" methodname="PreserveInjectedResources_AnyOccupiedTargetRejectsBeforeMovingAnything" classname="Resonance.EditorTests.OriginalBuildArtifactGuardTests" runstate="Runnable" seed="32740816" result="Failed" start-time="2026-09-21 03:58:02Z" end-time="2026-09-21 03:58:02Z" duration="0.011111" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <failure>
+                  <message><![CDATA[  Expected: <System.InvalidOperationException>
+  But was:  <System.NotImplementedException: Pending isolated build artifact regression.
+  at Resonance.EditorTools.OriginalExpeditionBuild.PreserveInjectedPerformanceResources (System.String project) [0x00000] in F:\Resonance\client\Assets\Editor\Build\OriginalExpeditionBuild.cs:18 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <d49d4cb128564ee1b54a84338c98d353>:0 
+--- End of stack trace from previous location where exception was thrown ---
+
+  at Resonance.EditorTests.OriginalBuildArtifactGuardTests.PreserveInjectedResources () [0x000dd] in F:\Resonance\client\Assets\Tests\Editor\OriginalBuildArtifactGuardTests.cs:167 
+  at Resonance.EditorTests.OriginalBuildArtifactGuardTests.<PreserveInjectedResources_AnyOccupiedTargetRejectsBeforeMovingAnything>b__8_0 () [0x00000] in F:\Resonance\client\Assets\Tests\Editor\OriginalBuildArtifactGuardTests.cs:104 
+  at NUnit.Framework.Assert.Throws (NUnit.Framework.Constraints.IResolveConstraint expression, NUnit.Framework.TestDelegate code, System.String message, System.Object[] args) [0x0002f] in <f577cd9686154d6ab10efd7e65e64366>:0 >
+]]></message>
+                  <stack-trace><![CDATA[at Resonance.EditorTests.OriginalBuildArtifactGuardTests.PreserveInjectedResources_AnyOccupiedTargetRejectsBeforeMovingAnything (System.String occupiedName) [0x00046] in F:\Resonance\client\Assets\Tests\Editor\OriginalBuildArtifactGuardTests.cs:104
+]]></stack-trace>
+                </failure>
+                <output><![CDATA[Preserved build artifact fixture: C:\Users\ADMINI~1\AppData\Local\Temp\original-build-artifact-guard-fab8884610524e829afef661b9803a9b
+]]></output>
+              </test-case>
+              <test-case id="1039" name="PreserveInjectedResources_AnyOccupiedTargetRejectsBeforeMovingAnything(&quot;PerformanceTestRunSettings.json&quot;)" fullname="Resonance.EditorTests.OriginalBuildArtifactGuardTests.PreserveInjectedResources_AnyOccupiedTargetRejectsBeforeMovingAnything(&quot;PerformanceTestRunSettings.json&quot;)" methodname="PreserveInjectedResources_AnyOccupiedTargetRejectsBeforeMovingAnything" classname="Resonance.EditorTests.OriginalBuildArtifactGuardTests" runstate="Runnable" seed="132704848" result="Failed" start-time="2026-09-21 03:58:02Z" end-time="2026-09-21 03:58:02Z" duration="0.011069" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <failure>
+                  <message><![CDATA[  Expected: <System.InvalidOperationException>
+  But was:  <System.NotImplementedException: Pending isolated build artifact regression.
+  at Resonance.EditorTools.OriginalExpeditionBuild.PreserveInjectedPerformanceResources (System.String project) [0x00000] in F:\Resonance\client\Assets\Editor\Build\OriginalExpeditionBuild.cs:18 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <d49d4cb128564ee1b54a84338c98d353>:0 
+--- End of stack trace from previous location where exception was thrown ---
+
+  at Resonance.EditorTests.OriginalBuildArtifactGuardTests.PreserveInjectedResources () [0x000dd] in F:\Resonance\client\Assets\Tests\Editor\OriginalBuildArtifactGuardTests.cs:167 
+  at Resonance.EditorTests.OriginalBuildArtifactGuardTests.<PreserveInjectedResources_AnyOccupiedTargetRejectsBeforeMovingAnything>b__8_0 () [0x00000] in F:\Resonance\client\Assets\Tests\Editor\OriginalBuildArtifactGuardTests.cs:104 
+  at NUnit.Framework.Assert.Throws (NUnit.Framework.Constraints.IResolveConstraint expression, NUnit.Framework.TestDelegate code, System.String message, System.Object[] args) [0x0002f] in <f577cd9686154d6ab10efd7e65e64366>:0 >
+]]></message>
+                  <stack-trace><![CDATA[at Resonance.EditorTests.OriginalBuildArtifactGuardTests.PreserveInjectedResources_AnyOccupiedTargetRejectsBeforeMovingAnything (System.String occupiedName) [0x00046] in F:\Resonance\client\Assets\Tests\Editor\OriginalBuildArtifactGuardTests.cs:104
+]]></stack-trace>
+                </failure>
+                <output><![CDATA[Preserved build artifact fixture: C:\Users\ADMINI~1\AppData\Local\Temp\original-build-artifact-guard-a79ccf2ee1e74419b39f04835be40f37
+]]></output>
+              </test-case>
+              <test-case id="1040" name="PreserveInjectedResources_AnyOccupiedTargetRejectsBeforeMovingAnything(&quot;PerformanceTestRunSettings.json.meta&quot;)" fullname="Resonance.EditorTests.OriginalBuildArtifactGuardTests.PreserveInjectedResources_AnyOccupiedTargetRejectsBeforeMovingAnything(&quot;PerformanceTestRunSettings.json.meta&quot;)" methodname="PreserveInjectedResources_AnyOccupiedTargetRejectsBeforeMovingAnything" classname="Resonance.EditorTests.OriginalBuildArtifactGuardTests" runstate="Runnable" seed="382281228" result="Failed" start-time="2026-09-21 03:58:02Z" end-time="2026-09-21 03:58:02Z" duration="0.010841" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <failure>
+                  <message><![CDATA[  Expected: <System.InvalidOperationException>
+  But was:  <System.NotImplementedException: Pending isolated build artifact regression.
+  at Resonance.EditorTools.OriginalExpeditionBuild.PreserveInjectedPerformanceResources (System.String project) [0x00000] in F:\Resonance\client\Assets\Editor\Build\OriginalExpeditionBuild.cs:18 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <d49d4cb128564ee1b54a84338c98d353>:0 
+--- End of stack trace from previous location where exception was thrown ---
+
+  at Resonance.EditorTests.OriginalBuildArtifactGuardTests.PreserveInjectedResources () [0x000dd] in F:\Resonance\client\Assets\Tests\Editor\OriginalBuildArtifactGuardTests.cs:167 
+  at Resonance.EditorTests.OriginalBuildArtifactGuardTests.<PreserveInjectedResources_AnyOccupiedTargetRejectsBeforeMovingAnything>b__8_0 () [0x00000] in F:\Resonance\client\Assets\Tests\Editor\OriginalBuildArtifactGuardTests.cs:104 
+  at NUnit.Framework.Assert.Throws (NUnit.Framework.Constraints.IResolveConstraint expression, NUnit.Framework.TestDelegate code, System.String message, System.Object[] args) [0x0002f] in <f577cd9686154d6ab10efd7e65e64366>:0 >
+]]></message>
+                  <stack-trace><![CDATA[at Resonance.EditorTests.OriginalBuildArtifactGuardTests.PreserveInjectedResources_AnyOccupiedTargetRejectsBeforeMovingAnything (System.String occupiedName) [0x00046] in F:\Resonance\client\Assets\Tests\Editor\OriginalBuildArtifactGuardTests.cs:104
+]]></stack-trace>
+                </failure>
+                <output><![CDATA[Preserved build artifact fixture: C:\Users\ADMINI~1\AppData\Local\Temp\original-build-artifact-guard-e97893cbb3114005b082e62ddab5fc00
+]]></output>
+              </test-case>
+            </test-suite>
+            <test-case id="1035" name="PreserveInjectedResources_MovesOnlyExactArtifactsAndPreservesEveryByte" fullname="Resonance.EditorTests.OriginalBuildArtifactGuardTests.PreserveInjectedResources_MovesOnlyExactArtifactsAndPreservesEveryByte" methodname="PreserveInjectedResources_MovesOnlyExactArtifactsAndPreservesEveryByte" classname="Resonance.EditorTests.OriginalBuildArtifactGuardTests" runstate="Runnable" seed="2038590670" result="Failed" label="Error" start-time="2026-09-21 03:58:02Z" end-time="2026-09-21 03:58:02Z" duration="0.014541" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[System.NotImplementedException : Pending isolated build artifact regression.]]></message>
+                <stack-trace><![CDATA[  at Resonance.EditorTools.OriginalExpeditionBuild.PreserveInjectedPerformanceResources (System.String project) [0x00000] in F:\Resonance\client\Assets\Editor\Build\OriginalExpeditionBuild.cs:18 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <d49d4cb128564ee1b54a84338c98d353>:0 
+--- End of stack trace from previous location where exception was thrown ---
+
+  at Resonance.EditorTests.OriginalBuildArtifactGuardTests.PreserveInjectedResources () [0x000dd] in F:\Resonance\client\Assets\Tests\Editor\OriginalBuildArtifactGuardTests.cs:167 
+  at Resonance.EditorTests.OriginalBuildArtifactGuardTests.PreserveInjectedResources_MovesOnlyExactArtifactsAndPreservesEveryByte () [0x000dc] in F:\Resonance\client\Assets\Tests\Editor\OriginalBuildArtifactGuardTests.cs:65 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <d49d4cb128564ee1b54a84338c98d353>:0 ]]></stack-trace>
+              </failure>
+              <output><![CDATA[Preserved build artifact fixture: C:\Users\ADMINI~1\AppData\Local\Temp\original-build-artifact-guard-8f2feee75afd480191f35dd0dd7f52e8
+]]></output>
+            </test-case>
+            <test-case id="1036" name="PreserveInjectedResources_WhenArtifactsAreAbsent_DoesNotChangeProject" fullname="Resonance.EditorTests.OriginalBuildArtifactGuardTests.PreserveInjectedResources_WhenArtifactsAreAbsent_DoesNotChangeProject" methodname="PreserveInjectedResources_WhenArtifactsAreAbsent_DoesNotChangeProject" classname="Resonance.EditorTests.OriginalBuildArtifactGuardTests" runstate="Runnable" seed="1251171892" result="Failed" label="Error" start-time="2026-09-21 03:58:02Z" end-time="2026-09-21 03:58:02Z" duration="0.005979" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[System.NotImplementedException : Pending isolated build artifact regression.]]></message>
+                <stack-trace><![CDATA[  at Resonance.EditorTools.OriginalExpeditionBuild.PreserveInjectedPerformanceResources (System.String project) [0x00000] in F:\Resonance\client\Assets\Editor\Build\OriginalExpeditionBuild.cs:18 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <d49d4cb128564ee1b54a84338c98d353>:0 
+--- End of stack trace from previous location where exception was thrown ---
+
+  at Resonance.EditorTests.OriginalBuildArtifactGuardTests.PreserveInjectedResources () [0x000dd] in F:\Resonance\client\Assets\Tests\Editor\OriginalBuildArtifactGuardTests.cs:167 
+  at Resonance.EditorTests.OriginalBuildArtifactGuardTests.PreserveInjectedResources_WhenArtifactsAreAbsent_DoesNotChangeProject () [0x00048] in F:\Resonance\client\Assets\Tests\Editor\OriginalBuildArtifactGuardTests.cs:86 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <d49d4cb128564ee1b54a84338c98d353>:0 ]]></stack-trace>
+              </failure>
+              <output><![CDATA[Preserved build artifact fixture: C:\Users\ADMINI~1\AppData\Local\Temp\original-build-artifact-guard-3614bfa686354ab8b1f6e1ee725ddce6
+Saving results to: C:/Users/Administrator/AppData/LocalLow/Resonance/契灵回响\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

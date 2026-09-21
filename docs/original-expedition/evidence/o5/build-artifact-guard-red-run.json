@@ -1,0 +1,23 @@
+{
+  "started": "2026-09-21T03:57:50.8996976Z",
+  "finished": "2026-09-21T03:58:05.8738881Z",
+  "exitCode": 2,
+  "mode": "tests",
+  "name": "build-artifact-guard-red",
+  "arguments": [
+    "-batchmode",
+    "-projectPath",
+    "\"F:\\Resonance\\client\"",
+    "-giCustomCacheLocation",
+    "\"F:\\Resonance\\client\\Temp\\GICache-Original\"",
+    "-logFile",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\build-artifact-guard-red.log\"",
+    "-runTests",
+    "-testPlatform",
+    "EditMode",
+    "-testFilter",
+    "Resonance.EditorTests.OriginalBuildArtifactGuardTests",
+    "-testResults",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\build-artifact-guard-red.xml\""
+  ]
+}
