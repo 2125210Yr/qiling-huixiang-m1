@@ -1,0 +1,10 @@
+{
+  "scope": "offline-Roslyn-compilation-only-no-Unity-process-no-runtime-validation",
+  "directory": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\original-rendered-fps-compile-f1699b454ffd4c639c659673b1a08f81",
+  "exitCode": 0,
+  "source": "F:/Resonance/client/Assets/Tests/Editor/OriginalRenderedFrameRateTests.cs",
+  "sourceSha256": "65AA54F9D78AE6802791ADF07A0F688D607D79784955BAC5299621F5BC95D03A",
+  "compiler": "D:/Unity/Hub/Editor/6000.3.23f1/Editor/Data/DotNetSdkRoslyn/csc.dll",
+  "assemblySha256": "6049B4B3A6A4F002F2A5E3A3921C401887F0F53B57B80813FFB1ED53812B8D9A",
+  "output": ""
+}
