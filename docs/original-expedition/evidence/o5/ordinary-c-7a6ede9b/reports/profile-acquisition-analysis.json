@@ -1,0 +1,144 @@
+[
+  {
+    "File": "profile-C-four-relics-before-N5.json",
+    "Sha256": "8e67cc8b8d1c58bb550b65ae7f9490b4a1401cf2ea031fdee31518a617c26511",
+    "Bytes": 1835,
+    "StructuralValidation": "PASS",
+    "IntegrityMatches": true,
+    "StoredIntegritySha256": "8cb3b504e15fae56fdb317d85b3d063af2d6d835e3228bedd317f39693d08633",
+    "RecomputedIntegritySha256": "8cb3b504e15fae56fdb317d85b3d063af2d6d835e3228bedd317f39693d08633",
+    "Revision": 63,
+    "RunId": "a02aeb8c634c4ec2979f7fbbbd7026b4",
+    "RunSeed": 14556671,
+    "CurrentNode": "N5",
+    "Status": "Ready",
+    "BattleOrdinal": 3,
+    "OwnedRelicIds": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
+    "PartyHp": [
+      3379,
+      5776,
+      5324,
+      4614,
+      4141
+    ],
+    "SelectedChoices": [
+      "N0:C01",
+      "R1:C02",
+      "N2:N2-backstage",
+      "R2:C03",
+      "N3:rest",
+      "R4:C04"
+    ],
+    "SettledBattleIds": [
+      "a02aeb8c634c4ec2979f7fbbbd7026b4/N1/1",
+      "a02aeb8c634c4ec2979f7fbbbd7026b4/N2-backstage/2",
+      "a02aeb8c634c4ec2979f7fbbbd7026b4/N4/3"
+    ],
+    "VisitedNodeIds": [
+      "N0",
+      "N1",
+      "N2-backstage",
+      "N3",
+      "N4"
+    ],
+    "CurrentCheckpointIsNull": true,
+    "BossCheckpointIsNull": true,
+    "DiscoveredRelics": [
+      "A01",
+      "A03",
+      "B01",
+      "B02",
+      "B03",
+      "B04",
+      "A02",
+      "A04",
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
+    "UnlockedPresets": [
+      "single",
+      "sweep"
+    ],
+    "LastRunSummaryRunId": "439afa6220f34ece9f8d1c6762bcfae2",
+    "LastRunSummaryHash": "c1b4bb667afc48350653dfb88f8f9a7686e4caa9baad3a77501dd65fde7f2c1f"
+  },
+  {
+    "File": "profile-C-after-N5.json",
+    "Sha256": "58a7644d80e733ecd246d6c082d78bea9bfa4a66d097ffd5f13f451a30d15e9b",
+    "Bytes": 1882,
+    "StructuralValidation": "PASS",
+    "IntegrityMatches": true,
+    "StoredIntegritySha256": "023c5189c3ae42d6ca3f054affa849a9eed202c8374d99a0483256dc4f6f976f",
+    "RecomputedIntegritySha256": "023c5189c3ae42d6ca3f054affa849a9eed202c8374d99a0483256dc4f6f976f",
+    "Revision": 65,
+    "RunId": "a02aeb8c634c4ec2979f7fbbbd7026b4",
+    "RunSeed": 14556671,
+    "CurrentNode": "N6",
+    "Status": "Ready",
+    "BattleOrdinal": 4,
+    "OwnedRelicIds": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
+    "PartyHp": [
+      5200,
+      6800,
+      5600,
+      5000,
+      5400
+    ],
+    "SelectedChoices": [
+      "N0:C01",
+      "R1:C02",
+      "N2:N2-backstage",
+      "R2:C03",
+      "N3:rest",
+      "R4:C04"
+    ],
+    "SettledBattleIds": [
+      "a02aeb8c634c4ec2979f7fbbbd7026b4/N1/1",
+      "a02aeb8c634c4ec2979f7fbbbd7026b4/N2-backstage/2",
+      "a02aeb8c634c4ec2979f7fbbbd7026b4/N4/3",
+      "a02aeb8c634c4ec2979f7fbbbd7026b4/N5/4"
+    ],
+    "VisitedNodeIds": [
+      "N0",
+      "N1",
+      "N2-backstage",
+      "N3",
+      "N4",
+      "N5"
+    ],
+    "CurrentCheckpointIsNull": true,
+    "BossCheckpointIsNull": true,
+    "DiscoveredRelics": [
+      "A01",
+      "A03",
+      "B01",
+      "B02",
+      "B03",
+      "B04",
+      "A02",
+      "A04",
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
+    "UnlockedPresets": [
+      "single",
+      "sweep"
+    ],
+    "LastRunSummaryRunId": "439afa6220f34ece9f8d1c6762bcfae2",
+    "LastRunSummaryHash": "c1b4bb667afc48350653dfb88f8f9a7686e4caa9baad3a77501dd65fde7f2c1f"
+  }
+]

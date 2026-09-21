@@ -1,0 +1,277 @@
+{
+  "Scope": "All archive files except this manifest; original personal profiles and video remain outside Git.",
+  "Files": [
+    {
+      "Path": ".gitattributes",
+      "Bytes": 8,
+      "Sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "Path": "events.json",
+      "Bytes": 4956,
+      "Sha256": "f50945553673933fbc7d6112071985d52abf301c6a630a6ec48d3fad5924ce16"
+    },
+    {
+      "Path": "README.md",
+      "Bytes": 6584,
+      "Sha256": "6ac3f182f7155ca864ef77557fdc8a150629b22beab2dcbe5afec11f4c2d9832"
+    },
+    {
+      "Path": "replays/battle-01d69be1b02d4d5cb28c1aaa1ad4e467.original-replay.json",
+      "Bytes": 242799,
+      "Sha256": "62eb02c1673d7dd9a053c83af9dc2841eae74583abed2878be292351398a6716"
+    },
+    {
+      "Path": "replays/battle-167669bfd74d464b9f3384738e041ae9.original-replay.json",
+      "Bytes": 131442,
+      "Sha256": "9f1843e21cbc678559dfdb9a5f90b990fe0f9ccd5d5b706261eeef0727ff9d17"
+    },
+    {
+      "Path": "replays/battle-2248fe9cbb79421bbd0d21ef23950fb2.original-replay.json",
+      "Bytes": 238354,
+      "Sha256": "7795beeeb9f02e330e0c09bc24223ec9a9965ad8e87eab49a7ed97a083d5a25f"
+    },
+    {
+      "Path": "replays/battle-db0d55a8efa9457ea92db0e6132f724d.original-replay.json",
+      "Bytes": 171972,
+      "Sha256": "258c8f97140c0bcb859a290f15819e8a60b1630f573380c3c459a5d4ae395500"
+    },
+    {
+      "Path": "reports/01d69be1b02d4d5cb28c1aaa1ad4e467.input-trace.json",
+      "Bytes": 27971,
+      "Sha256": "4e36cb18b29e56de57b5ad49cc9c4aaa35718871354b9b38e885b344d3278d56"
+    },
+    {
+      "Path": "reports/01d69be1b02d4d5cb28c1aaa1ad4e467.verify.json",
+      "Bytes": 1183,
+      "Sha256": "41d8c6d9de213e7b593d36e9c10c01cf6d4b3f48331fdf3ee0d0871b98e7f8ff"
+    },
+    {
+      "Path": "reports/167669bfd74d464b9f3384738e041ae9.input-trace.json",
+      "Bytes": 16528,
+      "Sha256": "3a2de5072ac430c923bd8cbedc1c5554247b7028c45d0ad36214b248d06b0c68"
+    },
+    {
+      "Path": "reports/167669bfd74d464b9f3384738e041ae9.verify.json",
+      "Bytes": 1181,
+      "Sha256": "318d22ce0dedda6c96fd5c9a8b779880c35a3bbc52944cc8c1dc5db41f1f9b06"
+    },
+    {
+      "Path": "reports/2248fe9cbb79421bbd0d21ef23950fb2.input-trace.json",
+      "Bytes": 25284,
+      "Sha256": "009d64be342b317461c71563d94bdf051d09c879f7d1acb377c9c5eeaf5f3034"
+    },
+    {
+      "Path": "reports/2248fe9cbb79421bbd0d21ef23950fb2.verify.json",
+      "Bytes": 1183,
+      "Sha256": "d144c84c18fc27c9b71b55d5cc5ca743713ab0b3c2595338bd84f0178ef596d0"
+    },
+    {
+      "Path": "reports/battle-causal-analysis.json",
+      "Bytes": 11228,
+      "Sha256": "7f4a30abfb0720431c68c166a7e50545f04ac6b95eefc9c58ab0dc504cf42ecb"
+    },
+    {
+      "Path": "reports/build-analysis.ps1",
+      "Bytes": 7658,
+      "Sha256": "8d51d36cce193ddef4ca1e9410c9e00b4eb7d043743b781af569b028be1f3c78"
+    },
+    {
+      "Path": "reports/build-video-analysis.ps1",
+      "Bytes": 4673,
+      "Sha256": "5ba749f016e3414788fcdcec8f5d37a6986a8521fe2fb18c4b188b1669c3b236"
+    },
+    {
+      "Path": "reports/db0d55a8efa9457ea92db0e6132f724d.input-trace.json",
+      "Bytes": 9996,
+      "Sha256": "8c6414781b8a5ae2f72e02f78f55e20fddcc2739db7e5fde6637cd405a066835"
+    },
+    {
+      "Path": "reports/db0d55a8efa9457ea92db0e6132f724d.verify.json",
+      "Bytes": 1193,
+      "Sha256": "c39290081e813ed3cd764e5108066f8b6109d865df259cceb65164902f0ea08b"
+    },
+    {
+      "Path": "reports/profile-acquisition-analysis.json",
+      "Bytes": 3498,
+      "Sha256": "db35b5c1dcfba16be0068b4c02812bb7239065b7d539a848b0edffdbc0556b6c"
+    },
+    {
+      "Path": "reports/video-analysis.json",
+      "Bytes": 6809,
+      "Sha256": "c7a70ef5346ecf764f104b0c3ac6bea11273fa4a4410b24b8b5b5240eae30009"
+    },
+    {
+      "Path": "screens/000-C-N1-paused-after-full-A-video.jpg",
+      "Bytes": 108179,
+      "Sha256": "bdd1dd8487b2b7af3f1e4755585b697ff2eb269753009d07f87dc6c6eb634334"
+    },
+    {
+      "Path": "screens/004-C01-actual-relay.jpg",
+      "Bytes": 104823,
+      "Sha256": "d67de6dc04d2736f462337bf6dd2161dabebea6e62bdbeea2644f10d7066de96"
+    },
+    {
+      "Path": "screens/005-C-R1-C02-offered.jpg",
+      "Bytes": 114401,
+      "Sha256": "9833b93ec7a1544ff6dafc32a5893bd538c5cae85b683b4f0df82beea1ccd36e"
+    },
+    {
+      "Path": "screens/010-C02-upgraded-relay.jpg",
+      "Bytes": 108834,
+      "Sha256": "9c215e2ecc105eaa83e8e628770a6a3c9b3a3f0793e52c1f2732603b71ee8579"
+    },
+    {
+      "Path": "screens/011-C-R2-C03-offered.jpg",
+      "Bytes": 128325,
+      "Sha256": "547c35cdc4040b1054a34e0788329986f88f5fa62e04b904ce4c4f140efb38b3"
+    },
+    {
+      "Path": "screens/011-C02-guide-relay-flash.jpg",
+      "Bytes": 128325,
+      "Sha256": "547c35cdc4040b1054a34e0788329986f88f5fa62e04b904ce4c4f140efb38b3"
+    },
+    {
+      "Path": "screens/012-C01-C02-C03-owned-workshop.jpg",
+      "Bytes": 113977,
+      "Sha256": "4b7e5e4a2eed8bb4f24b68ee942e07e35b7d1be34e56fd732ce768e1bf60653a"
+    },
+    {
+      "Path": "screens/019-C03-harmony-actual-flash.jpg",
+      "Bytes": 116580,
+      "Sha256": "b579b18b3f481b6ab3e741e47851ca61957017c35f3df51d9768cc945676fa59"
+    },
+    {
+      "Path": "screens/023-C04-final-component-offered.jpg",
+      "Bytes": 115825,
+      "Sha256": "02ac1664ea28c8fe245e2168214584134738b5be6e26fca4dff4d84ff3967b5f"
+    },
+    {
+      "Path": "screens/025-C-N5-four-relics-start.jpg",
+      "Bytes": 111545,
+      "Sha256": "17e66cdba4df96453e444387b43a0b09dae74b8193e04b8d516f479b2eaa4459"
+    },
+    {
+      "Path": "screens/031-C-N5-harmony-forte-stored-actual.jpg",
+      "Bytes": 118043,
+      "Sha256": "806a72d7a2f1d40db61bec5862578c07c7f157967079b268e6088bfa38bada62"
+    },
+    {
+      "Path": "screens/032-C-N5-forte-stored-before-next-action.jpg",
+      "Bytes": 117549,
+      "Sha256": "6575b95f9faa39029fa2a35e96adf05ce25e1328c34b598980986df4ef9cbc9f"
+    },
+    {
+      "Path": "screens/035-C04-actual-damage-consumption.jpg",
+      "Bytes": 114880,
+      "Sha256": "c5905aeda5db1562f8df4ea39f073738f47b99579abd0dbf19f80ebc843828dd"
+    },
+    {
+      "Path": "screens/037-C-N5-victory-boss-door-restored.jpg",
+      "Bytes": 118719,
+      "Sha256": "98fd2cb50d812a6845bd2bc9a95e8576282efa58662179e01a7c104b147f8980"
+    },
+    {
+      "Path": "video-frames/c-005s.png",
+      "Bytes": 299460,
+      "Sha256": "e72c872f795288e10d7294387ad5c37cd3b99c7fba712405d6bb84973b544f84"
+    },
+    {
+      "Path": "video-frames/c-043s.png",
+      "Bytes": 300576,
+      "Sha256": "25eecb447a9ad6e17feb19a99f6c77a76d2a0b29b92e63754c8b7ee5a53a4cf5"
+    },
+    {
+      "Path": "video-frames/c-089s.png",
+      "Bytes": 245739,
+      "Sha256": "5a9ef8cca5ec073628fd6c1d9ee76e74168ea07c7fdcf1cf77074528e3e7fbbd"
+    },
+    {
+      "Path": "video-frames/c-134s.png",
+      "Bytes": 306331,
+      "Sha256": "49e758eabc906281038927df2e476befd49c1cd87d92fb7620e9029fd02fdd8a"
+    },
+    {
+      "Path": "video-frames/c-162s.png",
+      "Bytes": 348837,
+      "Sha256": "ae197129d4262f7f95400662b5bcc7c7a8f45292dc1bdc1c59db490265e52219"
+    },
+    {
+      "Path": "video-frames/c-193s.png",
+      "Bytes": 314856,
+      "Sha256": "e16e2ba76d4b3770e0ff84443cc76702d5d5567f205cf792e44011b02f8b2178"
+    },
+    {
+      "Path": "video-frames/c-248s.png",
+      "Bytes": 338942,
+      "Sha256": "c332133cfad3a7cc1e8dbfa6bea280ae1b32fe3239574c8f890abc58af2d23c3"
+    },
+    {
+      "Path": "video-frames/c-337s.png",
+      "Bytes": 282158,
+      "Sha256": "e55fe64305c1f0c95745c1da8a9469a88ca48bb283612012f718e90ed5fc5087"
+    },
+    {
+      "Path": "video-frames/c-359s.png",
+      "Bytes": 320845,
+      "Sha256": "6b23a97a95e075fd5973e354a491ee47630dc8fb781ddf10f4c06bb0172b7388"
+    },
+    {
+      "Path": "video-frames/c-420s.png",
+      "Bytes": 345293,
+      "Sha256": "908bce00c542a476c38a01678c8eea06ef1fff89bdaa152467bf23249805cc8d"
+    },
+    {
+      "Path": "video-frames/c-438s.png",
+      "Bytes": 349495,
+      "Sha256": "2cb203e8bb8171fe63923ec40d2192c59ebe5a0da790d2d33e54dea367c6ea1d"
+    },
+    {
+      "Path": "video-frames/c-452s.png",
+      "Bytes": 337456,
+      "Sha256": "6ec3c6cd730931d3c452ae055d6bc29a88885cd91e6ed7b2714f37e42cb10a6d"
+    },
+    {
+      "Path": "video-frames/c-488s.png",
+      "Bytes": 344498,
+      "Sha256": "edea144e9d325113040e1d6c783822991986d566c3af96c9d59eb463c7a1bb76"
+    },
+    {
+      "Path": "video-frames/c-490s.png",
+      "Bytes": 343338,
+      "Sha256": "21aa9c5a85a660c38d96c108257828fd352fe33c47f06c6bde3c42cebd663f7f"
+    },
+    {
+      "Path": "video-frames/c-493s.png",
+      "Bytes": 325108,
+      "Sha256": "e2d583c1fa5d0d2930e0f0b1005e28fb102a00e6d5117165e124fd6926b08808"
+    },
+    {
+      "Path": "video-frames/c-518s.png",
+      "Bytes": 301171,
+      "Sha256": "adeaf4da3e2604ee9fee03dc929994c68b623304b7f1ab0558e3e21f31e7381a"
+    },
+    {
+      "Path": "video-frames/c-543s.png",
+      "Bytes": 301367,
+      "Sha256": "d06a1e6ff95596f5bf0350e2194fbbe83ca75cb0add1e98688edd974e11f4f04"
+    }
+  ],
+  "ExternalLocalOriginals": [
+    {
+      "LocalOriginal": "F:\\天命之子\\dist\\original-expedition-v01\\ordinary-c-7a6ede9b-20260921-1526\\ordinary-c-acquisition.mp4",
+      "Bytes": 4087404,
+      "Sha256": "f1d95044a9a0e773288b0b7d414abb95304766eef42a3c57e41fa6ce9c720e1c"
+    },
+    {
+      "LocalOriginal": "F:\\天命之子\\dist\\original-expedition-v01\\ordinary-c-7a6ede9b-20260921-1526\\profile-C-four-relics-before-N5.json",
+      "Bytes": 1835,
+      "Sha256": "8e67cc8b8d1c58bb550b65ae7f9490b4a1401cf2ea031fdee31518a617c26511"
+    },
+    {
+      "LocalOriginal": "F:\\天命之子\\dist\\original-expedition-v01\\ordinary-c-7a6ede9b-20260921-1526\\profile-C-after-N5.json",
+      "Bytes": 1882,
+      "Sha256": "58a7644d80e733ecd246d6c082d78bea9bfa4a66d097ffd5f13f451a30d15e9b"
+    }
+  ]
+}

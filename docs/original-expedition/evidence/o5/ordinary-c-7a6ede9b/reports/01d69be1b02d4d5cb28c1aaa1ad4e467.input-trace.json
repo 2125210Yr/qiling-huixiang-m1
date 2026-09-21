@@ -1,0 +1,1192 @@
+{
+  "Tape": "battle-01d69be1b02d4d5cb28c1aaa1ad4e467.original-replay.json",
+  "Method": "Read-only .NET replay of exact actual Player Inputs; before/after instrumentation only. No altered inputs or state injection. Final state, commands, event hash and resolution hash rechecked against original.",
+  "TraceFinalMatchesOriginal": true,
+  "Trace": [
+    {
+      "Tick": 436,
+      "Kind": "Command",
+      "ActorSlot": 0,
+      "CommandKind": "Pause",
+      "CommandSlot": 0,
+      "Before": {
+        "Tick": 436,
+        "Paused": false,
+        "ForteStored": false,
+        "HarmonyActorMask": 0,
+        "TriggerSerials": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0
+        },
+        "AllyCharge": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "AllyChargeIeee": [
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000"
+        ],
+        "EnemyHp": [
+          2598,
+          3280,
+          6854,
+          4036
+        ],
+        "EffectiveEnemyDamage": 4932
+      },
+      "After": {
+        "Tick": 436,
+        "Paused": true,
+        "ForteStored": false,
+        "HarmonyActorMask": 0,
+        "TriggerSerials": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0
+        },
+        "AllyCharge": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "AllyChargeIeee": [
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000"
+        ],
+        "EnemyHp": [
+          2598,
+          3280,
+          6854,
+          4036
+        ],
+        "EffectiveEnemyDamage": 4932
+      },
+      "NewResolutions": []
+    },
+    {
+      "Tick": 436,
+      "Kind": "QueueTap",
+      "ActorSlot": 1,
+      "CommandKind": "Tap",
+      "CommandSlot": 0,
+      "Before": {
+        "Tick": 436,
+        "Paused": true,
+        "ForteStored": false,
+        "HarmonyActorMask": 0,
+        "TriggerSerials": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0
+        },
+        "AllyCharge": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "AllyChargeIeee": [
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000"
+        ],
+        "EnemyHp": [
+          2598,
+          3280,
+          6854,
+          4036
+        ],
+        "EffectiveEnemyDamage": 4932
+      },
+      "After": {
+        "Tick": 436,
+        "Paused": true,
+        "ForteStored": false,
+        "HarmonyActorMask": 0,
+        "TriggerSerials": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0
+        },
+        "AllyCharge": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "AllyChargeIeee": [
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000"
+        ],
+        "EnemyHp": [
+          2598,
+          3280,
+          6854,
+          4036
+        ],
+        "EffectiveEnemyDamage": 4932
+      },
+      "NewResolutions": []
+    },
+    {
+      "Tick": 436,
+      "Kind": "QueueTap",
+      "ActorSlot": 2,
+      "CommandKind": "Tap",
+      "CommandSlot": 0,
+      "Before": {
+        "Tick": 436,
+        "Paused": true,
+        "ForteStored": false,
+        "HarmonyActorMask": 0,
+        "TriggerSerials": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0
+        },
+        "AllyCharge": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "AllyChargeIeee": [
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000"
+        ],
+        "EnemyHp": [
+          2598,
+          3280,
+          6854,
+          4036
+        ],
+        "EffectiveEnemyDamage": 4932
+      },
+      "After": {
+        "Tick": 436,
+        "Paused": true,
+        "ForteStored": false,
+        "HarmonyActorMask": 0,
+        "TriggerSerials": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0
+        },
+        "AllyCharge": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "AllyChargeIeee": [
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000"
+        ],
+        "EnemyHp": [
+          2598,
+          3280,
+          6854,
+          4036
+        ],
+        "EffectiveEnemyDamage": 4932
+      },
+      "NewResolutions": []
+    },
+    {
+      "Tick": 436,
+      "Kind": "QueueTap",
+      "ActorSlot": 4,
+      "CommandKind": "Tap",
+      "CommandSlot": 0,
+      "Before": {
+        "Tick": 436,
+        "Paused": true,
+        "ForteStored": false,
+        "HarmonyActorMask": 0,
+        "TriggerSerials": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0
+        },
+        "AllyCharge": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "AllyChargeIeee": [
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000"
+        ],
+        "EnemyHp": [
+          2598,
+          3280,
+          6854,
+          4036
+        ],
+        "EffectiveEnemyDamage": 4932
+      },
+      "After": {
+        "Tick": 436,
+        "Paused": true,
+        "ForteStored": false,
+        "HarmonyActorMask": 0,
+        "TriggerSerials": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0
+        },
+        "AllyCharge": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "AllyChargeIeee": [
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000"
+        ],
+        "EnemyHp": [
+          2598,
+          3280,
+          6854,
+          4036
+        ],
+        "EffectiveEnemyDamage": 4932
+      },
+      "NewResolutions": []
+    },
+    {
+      "Tick": 436,
+      "Kind": "Command",
+      "ActorSlot": 0,
+      "CommandKind": "FocusEnemy",
+      "CommandSlot": 2,
+      "Before": {
+        "Tick": 436,
+        "Paused": true,
+        "ForteStored": false,
+        "HarmonyActorMask": 0,
+        "TriggerSerials": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0
+        },
+        "AllyCharge": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "AllyChargeIeee": [
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000"
+        ],
+        "EnemyHp": [
+          2598,
+          3280,
+          6854,
+          4036
+        ],
+        "EffectiveEnemyDamage": 4932
+      },
+      "After": {
+        "Tick": 436,
+        "Paused": true,
+        "ForteStored": false,
+        "HarmonyActorMask": 0,
+        "TriggerSerials": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0
+        },
+        "AllyCharge": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "AllyChargeIeee": [
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000"
+        ],
+        "EnemyHp": [
+          2598,
+          3280,
+          6854,
+          4036
+        ],
+        "EffectiveEnemyDamage": 4932
+      },
+      "NewResolutions": []
+    },
+    {
+      "Tick": 436,
+      "Kind": "Command",
+      "ActorSlot": 0,
+      "CommandKind": "Resume",
+      "CommandSlot": 0,
+      "Before": {
+        "Tick": 436,
+        "Paused": true,
+        "ForteStored": false,
+        "HarmonyActorMask": 0,
+        "TriggerSerials": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0
+        },
+        "AllyCharge": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "AllyChargeIeee": [
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000"
+        ],
+        "EnemyHp": [
+          2598,
+          3280,
+          6854,
+          4036
+        ],
+        "EffectiveEnemyDamage": 4932
+      },
+      "After": {
+        "Tick": 436,
+        "Paused": false,
+        "ForteStored": true,
+        "HarmonyActorMask": 0,
+        "TriggerSerials": {
+          "C01": 3,
+          "C02": 4,
+          "C03": 5,
+          "C04": 0
+        },
+        "AllyCharge": [
+          100.0,
+          50.0,
+          10.0,
+          100.0,
+          10.0
+        ],
+        "AllyChargeIeee": [
+          "42c80000",
+          "42480000",
+          "41200000",
+          "42c80000",
+          "41200000"
+        ],
+        "EnemyHp": [
+          2598,
+          3280,
+          6854,
+          4036
+        ],
+        "EffectiveEnemyDamage": 4932
+      },
+      "NewResolutions": [
+        {
+          "Origin": 0,
+          "RootActionId": 59,
+          "ProcDepth": 0,
+          "SourceRelicId": "",
+          "SkillId": "OE_GUARD_tap",
+          "SourceSlot": 1,
+          "SourceAlly": true,
+          "TargetSlot": 0,
+          "TargetAlly": true,
+          "TargetGeneration": 1,
+          "RequestedDamage": 0,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 0,
+          "Overkill": 0,
+          "RequestedHeal": 0,
+          "EffectiveHeal": 0,
+          "Overheal": 0,
+          "ShieldProduced": 1144,
+          "Killed": false,
+          "NativeKill": false,
+          "EffectiveDamage": 0
+        },
+        {
+          "Origin": 0,
+          "RootActionId": 59,
+          "ProcDepth": 0,
+          "SourceRelicId": "",
+          "SkillId": "OE_GUARD_tap",
+          "SourceSlot": 1,
+          "SourceAlly": true,
+          "TargetSlot": 1,
+          "TargetAlly": true,
+          "TargetGeneration": 1,
+          "RequestedDamage": 0,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 0,
+          "Overkill": 0,
+          "RequestedHeal": 0,
+          "EffectiveHeal": 0,
+          "Overheal": 0,
+          "ShieldProduced": 1496,
+          "Killed": false,
+          "NativeKill": false,
+          "EffectiveDamage": 0
+        },
+        {
+          "Origin": 0,
+          "RootActionId": 59,
+          "ProcDepth": 0,
+          "SourceRelicId": "",
+          "SkillId": "OE_GUARD_tap",
+          "SourceSlot": 1,
+          "SourceAlly": true,
+          "TargetSlot": 2,
+          "TargetAlly": true,
+          "TargetGeneration": 1,
+          "RequestedDamage": 0,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 0,
+          "Overkill": 0,
+          "RequestedHeal": 0,
+          "EffectiveHeal": 0,
+          "Overheal": 0,
+          "ShieldProduced": 1232,
+          "Killed": false,
+          "NativeKill": false,
+          "EffectiveDamage": 0
+        },
+        {
+          "Origin": 0,
+          "RootActionId": 59,
+          "ProcDepth": 0,
+          "SourceRelicId": "",
+          "SkillId": "OE_GUARD_tap",
+          "SourceSlot": 1,
+          "SourceAlly": true,
+          "TargetSlot": 3,
+          "TargetAlly": true,
+          "TargetGeneration": 1,
+          "RequestedDamage": 0,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 0,
+          "Overkill": 0,
+          "RequestedHeal": 0,
+          "EffectiveHeal": 0,
+          "Overheal": 0,
+          "ShieldProduced": 1100,
+          "Killed": false,
+          "NativeKill": false,
+          "EffectiveDamage": 0
+        },
+        {
+          "Origin": 0,
+          "RootActionId": 59,
+          "ProcDepth": 0,
+          "SourceRelicId": "",
+          "SkillId": "OE_GUARD_tap",
+          "SourceSlot": 1,
+          "SourceAlly": true,
+          "TargetSlot": 4,
+          "TargetAlly": true,
+          "TargetGeneration": 1,
+          "RequestedDamage": 0,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 0,
+          "Overkill": 0,
+          "RequestedHeal": 0,
+          "EffectiveHeal": 0,
+          "Overheal": 0,
+          "ShieldProduced": 1188,
+          "Killed": false,
+          "NativeKill": false,
+          "EffectiveDamage": 0
+        },
+        {
+          "Origin": 0,
+          "RootActionId": 60,
+          "ProcDepth": 0,
+          "SourceRelicId": "",
+          "SkillId": "OE_HEALER_tap",
+          "SourceSlot": 2,
+          "SourceAlly": true,
+          "TargetSlot": 0,
+          "TargetAlly": true,
+          "TargetGeneration": 1,
+          "RequestedDamage": 0,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 0,
+          "Overkill": 0,
+          "RequestedHeal": 860,
+          "EffectiveHeal": 860,
+          "Overheal": 0,
+          "ShieldProduced": 0,
+          "Killed": false,
+          "NativeKill": false,
+          "EffectiveDamage": 0
+        },
+        {
+          "Origin": 0,
+          "RootActionId": 60,
+          "ProcDepth": 0,
+          "SourceRelicId": "",
+          "SkillId": "OE_HEALER_tap",
+          "SourceSlot": 2,
+          "SourceAlly": true,
+          "TargetSlot": 1,
+          "TargetAlly": true,
+          "TargetGeneration": 1,
+          "RequestedDamage": 0,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 0,
+          "Overkill": 0,
+          "RequestedHeal": 1100,
+          "EffectiveHeal": 1100,
+          "Overheal": 0,
+          "ShieldProduced": 0,
+          "Killed": false,
+          "NativeKill": false,
+          "EffectiveDamage": 0
+        },
+        {
+          "Origin": 0,
+          "RootActionId": 60,
+          "ProcDepth": 0,
+          "SourceRelicId": "",
+          "SkillId": "OE_HEALER_tap",
+          "SourceSlot": 2,
+          "SourceAlly": true,
+          "TargetSlot": 2,
+          "TargetAlly": true,
+          "TargetGeneration": 1,
+          "RequestedDamage": 0,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 0,
+          "Overkill": 0,
+          "RequestedHeal": 920,
+          "EffectiveHeal": 920,
+          "Overheal": 0,
+          "ShieldProduced": 0,
+          "Killed": false,
+          "NativeKill": false,
+          "EffectiveDamage": 0
+        },
+        {
+          "Origin": 0,
+          "RootActionId": 60,
+          "ProcDepth": 0,
+          "SourceRelicId": "",
+          "SkillId": "OE_HEALER_tap",
+          "SourceSlot": 2,
+          "SourceAlly": true,
+          "TargetSlot": 3,
+          "TargetAlly": true,
+          "TargetGeneration": 1,
+          "RequestedDamage": 0,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 0,
+          "Overkill": 0,
+          "RequestedHeal": 830,
+          "EffectiveHeal": 830,
+          "Overheal": 0,
+          "ShieldProduced": 0,
+          "Killed": false,
+          "NativeKill": false,
+          "EffectiveDamage": 0
+        },
+        {
+          "Origin": 0,
+          "RootActionId": 60,
+          "ProcDepth": 0,
+          "SourceRelicId": "",
+          "SkillId": "OE_HEALER_tap",
+          "SourceSlot": 2,
+          "SourceAlly": true,
+          "TargetSlot": 4,
+          "TargetAlly": true,
+          "TargetGeneration": 1,
+          "RequestedDamage": 0,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 0,
+          "Overkill": 0,
+          "RequestedHeal": 890,
+          "EffectiveHeal": 890,
+          "Overheal": 0,
+          "ShieldProduced": 0,
+          "Killed": false,
+          "NativeKill": false,
+          "EffectiveDamage": 0
+        }
+      ]
+    },
+    {
+      "Tick": 832,
+      "Kind": "Command",
+      "ActorSlot": 0,
+      "CommandKind": "Pause",
+      "CommandSlot": 0,
+      "Before": {
+        "Tick": 832,
+        "Paused": false,
+        "ForteStored": true,
+        "HarmonyActorMask": 0,
+        "TriggerSerials": {
+          "C01": 3,
+          "C02": 4,
+          "C03": 5,
+          "C04": 0
+        },
+        "AllyCharge": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "AllyChargeIeee": [
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000"
+        ],
+        "EnemyHp": [
+          2598,
+          3280,
+          1670,
+          4036
+        ],
+        "EffectiveEnemyDamage": 10116
+      },
+      "After": {
+        "Tick": 832,
+        "Paused": true,
+        "ForteStored": true,
+        "HarmonyActorMask": 0,
+        "TriggerSerials": {
+          "C01": 3,
+          "C02": 4,
+          "C03": 5,
+          "C04": 0
+        },
+        "AllyCharge": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "AllyChargeIeee": [
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000"
+        ],
+        "EnemyHp": [
+          2598,
+          3280,
+          1670,
+          4036
+        ],
+        "EffectiveEnemyDamage": 10116
+      },
+      "NewResolutions": []
+    },
+    {
+      "Tick": 832,
+      "Kind": "Command",
+      "ActorSlot": 0,
+      "CommandKind": "FocusEnemy",
+      "CommandSlot": 3,
+      "Before": {
+        "Tick": 832,
+        "Paused": true,
+        "ForteStored": true,
+        "HarmonyActorMask": 0,
+        "TriggerSerials": {
+          "C01": 3,
+          "C02": 4,
+          "C03": 5,
+          "C04": 0
+        },
+        "AllyCharge": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "AllyChargeIeee": [
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000"
+        ],
+        "EnemyHp": [
+          2598,
+          3280,
+          1670,
+          4036
+        ],
+        "EffectiveEnemyDamage": 10116
+      },
+      "After": {
+        "Tick": 832,
+        "Paused": true,
+        "ForteStored": true,
+        "HarmonyActorMask": 0,
+        "TriggerSerials": {
+          "C01": 3,
+          "C02": 4,
+          "C03": 5,
+          "C04": 0
+        },
+        "AllyCharge": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "AllyChargeIeee": [
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000"
+        ],
+        "EnemyHp": [
+          2598,
+          3280,
+          1670,
+          4036
+        ],
+        "EffectiveEnemyDamage": 10116
+      },
+      "NewResolutions": []
+    },
+    {
+      "Tick": 832,
+      "Kind": "QueueTap",
+      "ActorSlot": 0,
+      "CommandKind": "Tap",
+      "CommandSlot": 0,
+      "Before": {
+        "Tick": 832,
+        "Paused": true,
+        "ForteStored": true,
+        "HarmonyActorMask": 0,
+        "TriggerSerials": {
+          "C01": 3,
+          "C02": 4,
+          "C03": 5,
+          "C04": 0
+        },
+        "AllyCharge": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "AllyChargeIeee": [
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000"
+        ],
+        "EnemyHp": [
+          2598,
+          3280,
+          1670,
+          4036
+        ],
+        "EffectiveEnemyDamage": 10116
+      },
+      "After": {
+        "Tick": 832,
+        "Paused": true,
+        "ForteStored": true,
+        "HarmonyActorMask": 0,
+        "TriggerSerials": {
+          "C01": 3,
+          "C02": 4,
+          "C03": 5,
+          "C04": 0
+        },
+        "AllyCharge": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "AllyChargeIeee": [
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000"
+        ],
+        "EnemyHp": [
+          2598,
+          3280,
+          1670,
+          4036
+        ],
+        "EffectiveEnemyDamage": 10116
+      },
+      "NewResolutions": []
+    },
+    {
+      "Tick": 832,
+      "Kind": "Command",
+      "ActorSlot": 0,
+      "CommandKind": "Resume",
+      "CommandSlot": 0,
+      "Before": {
+        "Tick": 832,
+        "Paused": true,
+        "ForteStored": true,
+        "HarmonyActorMask": 0,
+        "TriggerSerials": {
+          "C01": 3,
+          "C02": 4,
+          "C03": 5,
+          "C04": 0
+        },
+        "AllyCharge": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "AllyChargeIeee": [
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000"
+        ],
+        "EnemyHp": [
+          2598,
+          3280,
+          1670,
+          4036
+        ],
+        "EffectiveEnemyDamage": 10116
+      },
+      "After": {
+        "Tick": 832,
+        "Paused": false,
+        "ForteStored": false,
+        "HarmonyActorMask": 1,
+        "TriggerSerials": {
+          "C01": 3,
+          "C02": 4,
+          "C03": 5,
+          "C04": 6
+        },
+        "AllyCharge": [
+          0.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "AllyChargeIeee": [
+          "00000000",
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000"
+        ],
+        "EnemyHp": [
+          2598,
+          3280,
+          1670,
+          1462
+        ],
+        "EffectiveEnemyDamage": 12690
+      },
+      "NewResolutions": [
+        {
+          "Origin": 0,
+          "RootActionId": 119,
+          "ProcDepth": 0,
+          "SourceRelicId": "",
+          "SkillId": "OE_POINT_tap",
+          "SourceSlot": 0,
+          "SourceAlly": true,
+          "TargetSlot": 3,
+          "TargetAlly": false,
+          "TargetGeneration": 1,
+          "RequestedDamage": 2574,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 2574,
+          "Overkill": 0,
+          "RequestedHeal": 0,
+          "EffectiveHeal": 0,
+          "Overheal": 0,
+          "ShieldProduced": 0,
+          "Killed": false,
+          "NativeKill": false,
+          "EffectiveDamage": 2574
+        }
+      ]
+    },
+    {
+      "Tick": 1245,
+      "Kind": "Command",
+      "ActorSlot": 0,
+      "CommandKind": "Tap",
+      "CommandSlot": 2,
+      "Before": {
+        "Tick": 1245,
+        "Paused": false,
+        "ForteStored": false,
+        "HarmonyActorMask": 1,
+        "TriggerSerials": {
+          "C01": 3,
+          "C02": 4,
+          "C03": 5,
+          "C04": 6
+        },
+        "AllyCharge": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "AllyChargeIeee": [
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000",
+          "42c80000"
+        ],
+        "EnemyHp": [
+          1631,
+          1868,
+          606,
+          0
+        ],
+        "EffectiveEnemyDamage": 17595
+      },
+      "After": {
+        "Tick": 1245,
+        "Paused": false,
+        "ForteStored": false,
+        "HarmonyActorMask": 5,
+        "TriggerSerials": {
+          "C01": 3,
+          "C02": 4,
+          "C03": 5,
+          "C04": 6
+        },
+        "AllyCharge": [
+          100.0,
+          100.0,
+          0.0,
+          100.0,
+          100.0
+        ],
+        "AllyChargeIeee": [
+          "42c80000",
+          "42c80000",
+          "00000000",
+          "42c80000",
+          "42c80000"
+        ],
+        "EnemyHp": [
+          1631,
+          1868,
+          606,
+          0
+        ],
+        "EffectiveEnemyDamage": 17595
+      },
+      "NewResolutions": [
+        {
+          "Origin": 0,
+          "RootActionId": 175,
+          "ProcDepth": 0,
+          "SourceRelicId": "",
+          "SkillId": "OE_HEALER_tap",
+          "SourceSlot": 2,
+          "SourceAlly": true,
+          "TargetSlot": 0,
+          "TargetAlly": true,
+          "TargetGeneration": 1,
+          "RequestedDamage": 0,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 0,
+          "Overkill": 0,
+          "RequestedHeal": 860,
+          "EffectiveHeal": 860,
+          "Overheal": 0,
+          "ShieldProduced": 0,
+          "Killed": false,
+          "NativeKill": false,
+          "EffectiveDamage": 0
+        },
+        {
+          "Origin": 0,
+          "RootActionId": 175,
+          "ProcDepth": 0,
+          "SourceRelicId": "",
+          "SkillId": "OE_HEALER_tap",
+          "SourceSlot": 2,
+          "SourceAlly": true,
+          "TargetSlot": 1,
+          "TargetAlly": true,
+          "TargetGeneration": 1,
+          "RequestedDamage": 0,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 0,
+          "Overkill": 0,
+          "RequestedHeal": 1100,
+          "EffectiveHeal": 1100,
+          "Overheal": 0,
+          "ShieldProduced": 0,
+          "Killed": false,
+          "NativeKill": false,
+          "EffectiveDamage": 0
+        },
+        {
+          "Origin": 0,
+          "RootActionId": 175,
+          "ProcDepth": 0,
+          "SourceRelicId": "",
+          "SkillId": "OE_HEALER_tap",
+          "SourceSlot": 2,
+          "SourceAlly": true,
+          "TargetSlot": 2,
+          "TargetAlly": true,
+          "TargetGeneration": 1,
+          "RequestedDamage": 0,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 0,
+          "Overkill": 0,
+          "RequestedHeal": 920,
+          "EffectiveHeal": 920,
+          "Overheal": 0,
+          "ShieldProduced": 0,
+          "Killed": false,
+          "NativeKill": false,
+          "EffectiveDamage": 0
+        },
+        {
+          "Origin": 0,
+          "RootActionId": 175,
+          "ProcDepth": 0,
+          "SourceRelicId": "",
+          "SkillId": "OE_HEALER_tap",
+          "SourceSlot": 2,
+          "SourceAlly": true,
+          "TargetSlot": 3,
+          "TargetAlly": true,
+          "TargetGeneration": 1,
+          "RequestedDamage": 0,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 0,
+          "Overkill": 0,
+          "RequestedHeal": 830,
+          "EffectiveHeal": 830,
+          "Overheal": 0,
+          "ShieldProduced": 0,
+          "Killed": false,
+          "NativeKill": false,
+          "EffectiveDamage": 0
+        },
+        {
+          "Origin": 0,
+          "RootActionId": 175,
+          "ProcDepth": 0,
+          "SourceRelicId": "",
+          "SkillId": "OE_HEALER_tap",
+          "SourceSlot": 2,
+          "SourceAlly": true,
+          "TargetSlot": 4,
+          "TargetAlly": true,
+          "TargetGeneration": 1,
+          "RequestedDamage": 0,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 0,
+          "Overkill": 0,
+          "RequestedHeal": 890,
+          "EffectiveHeal": 890,
+          "Overheal": 0,
+          "ShieldProduced": 0,
+          "Killed": false,
+          "NativeKill": false,
+          "EffectiveDamage": 0
+        }
+      ]
+    }
+  ]
+}

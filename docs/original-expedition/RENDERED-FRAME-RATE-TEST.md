@@ -1,6 +1,6 @@
 # O-023：真实渲染帧率对照夹具
 
-这是**受控 Unity Play Mode 渲染测试**，不是普通 Player 试玩，也不是录屏 FPS 检查。当前只完成代码与离线编译，尚未运行 Play Mode；不能据此把 O-023 标为通过。
+这是**受控 Unity Play Mode 渲染测试**，不是普通 Player 试玩，也不是录屏 FPS 检查。2026-09-21 首次实际执行通过，覆盖 O-023 的不同实际画面帧率子项；完整记录见下方“已执行证据”。
 
 入口：`Resonance.EditorTests.OriginalRenderedFrameRateTests.SameFrozenBossAndTickZeroCommandsMatchAtTwoActualRenderedFrameRates`。代码位于 `client/Assets/Tests/Editor/OriginalRenderedFrameRateTests.cs`，复用既有 EditorTests asmdef，不修改生产代码、Packages 或发布包。
 
@@ -20,12 +20,17 @@
 
 ```powershell
 $evidencePath = 'F:\天命之子\docs\original-expedition\evidence\o5\rendered-fps-UNIQUE-RUN'
-if (Test-Path -LiteralPath $evidencePath) { throw '请使用新的证据目录' }
+foreach ($path in @($evidencePath, ($evidencePath + '.xml'), ($evidencePath + '.log'))) {
+    if (Test-Path -LiteralPath $path) { throw '请使用新的证据目录和结果文件路径' }
+}
+$giCachePath = Join-Path ([IO.Path]::GetTempPath()) ('original-rendered-fps-gi-' + [Guid]::NewGuid().ToString('N'))
+New-Item -ItemType Directory -Path $giCachePath | Out-Null
 $previousSetting = [Environment]::GetEnvironmentVariable('RESONANCE_ORIGINAL_RENDERED_FPS_DIRECTORY', 'Process')
 try {
     [Environment]::SetEnvironmentVariable('RESONANCE_ORIGINAL_RENDERED_FPS_DIRECTORY', $evidencePath, 'Process')
     & 'D:\Unity\Hub\Editor\6000.3.23f1\Editor\Unity.exe' `
         -projectPath 'F:\Resonance\client' `
+        -giCustomCacheLocation $giCachePath `
         -runTests -testPlatform EditMode `
         -testFilter 'Resonance.EditorTests.OriginalRenderedFrameRateTests.SameFrozenBossAndTickZeroCommandsMatchAtTwoActualRenderedFrameRates' `
         -testResults ($evidencePath + '.xml') `
@@ -51,7 +56,7 @@ try {
 4. 两秒真实渲染暂停期间，完整战斗快照哈希保持不变。
 5. 每档有首次预告、结算前一秒、第一次群攻后三张真实 Game View 截图。截图元数据记录**请求捕获**的帧/tick；截图 API 异步完成，不把该值伪称为精确像素采样帧。
 
-若 Editor 被遮挡或失焦降速，两档实际 FPS 不分离、没有真实渲染回调、输出不完整、或同 tick 数据不同，测试会失败，不用目标 FPS 或容差补成通过。测试主协程使用正常帧让步；渲染回调停止超过八秒会报错。实际 GUI/域重载/渲染行为尚待第一次真实执行验证。
+若 Editor 被遮挡或失焦降速，两档实际 FPS 不分离、没有真实渲染回调、输出不完整、或同 tick 数据不同，测试会失败，不用目标 FPS 或容差补成通过。测试主协程使用正常帧让步；渲染回调停止超过八秒会报错。
 
 ## 产物与边界
 
@@ -59,5 +64,20 @@ try {
 - `30/`、`120/`：逐渲染帧 JSON、帧间隔 CSV、三张 PNG、完整 v2 回放。单档失败保留已有帧数据并标记 `INCOMPLETE`；单档通过也只标记 `PASS_SINGLE_RENDER_RUN`。
 - `comparison.json` 的 `PASS` 才表示本项两档实际渲染对照通过；缺失该文件不能判通过。
 - 它补齐 O-023 的不同画面帧率子项及这次受控暂停；1×/2×逻辑关系和政策停顿仍引用已有专门证据，不冒称本测试覆盖它们。
+
+## 已执行证据
+
+2026-09-21 07:02–07:03 UTC，在可见并激活的 Unity 6000.3.23f1 Game View 中首次运行；3840×2160、DX12、独立 GI 缓存。未使用 batch mode，无夹具修改或重试。测试执行前确认无 Player、Unity、ffmpeg；测试完成后 Editor 自行正常退出，退出码 0，XML 为 1/1 Passed。
+
+证据目录：[rendered-fps-20260921-37245ba5](evidence/o5/rendered-fps-20260921-37245ba5/)。[comparison.json](evidence/o5/rendered-fps-20260921-37245ba5/rendered/comparison.json)、[test-results.xml](evidence/o5/rendered-fps-20260921-37245ba5/test-results.xml)、[运行摘要](evidence/o5/rendered-fps-20260921-37245ba5/RUN-SUMMARY.md)保留原始结果。
+
+| 目标 FPS | 实测中位 FPS | 实测平均 FPS | 真实相机帧 | 暂停帧 |
+| --- | ---: | ---: | ---: | ---: |
+| 30 | 29.9938 | 29.6646 | 874 | 61 |
+| 120 | 116.8238 | 118.1572 | 3482 | 239 |
+
+808 个共同逻辑 tick（其中 230 个蓄势 tick）的意图和 HUD 倒计时严格相等。129 条伤害事件及其 tick、全部指令、事件、结算和最终状态哈希一致；两档均在 tick 825 自然败北。各三张截图完整，人工查看了两档实时 Game View 和代表性截图。
+
+个人 `OriginalExpedition` 目录执行前后均为 12 个文件，路径、大小、SHA256 全部相同；[postflight.json](evidence/o5/rendered-fps-20260921-37245ba5/postflight.json)还记录结束后无相关进程。测试框架另按 Unity 默认行为写入用户持久化目录根部的 `TestResults.xml`，不是游戏档案；本次 CLI 指定的独立结果文件也已生成。没有改动生产代码或个人存档。
 
 API 依据：[targetFrameRate](https://docs.unity.com/en-us/engine/6000.0/script-reference/unityengine/application/targetframerate)、[URP endCameraRendering](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Rendering.RenderPipelineManager-endCameraRendering.html)。

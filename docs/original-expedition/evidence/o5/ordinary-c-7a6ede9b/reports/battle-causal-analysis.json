@@ -1,0 +1,433 @@
+{
+  "VerifierSha256": "8dd4971f1ef08a421e436559386af1f653fadd5b9ed0610d622fd8703b6b3d1e",
+  "RunSeed": 14556671,
+  "Scope": "Four completed battles to N6, not boss completion. All four independent CLI reports MATCH. Charge grants and forte do not emit independent damage resolutions; input traces expose unchanged replay runtime state transitions.",
+  "Battles": [
+    {
+      "Tape": "battle-167669bfd74d464b9f3384738e041ae9.original-replay.json",
+      "Sha256": "9f1843e21cbc678559dfdb9a5f90b990fe0f9ccd5d5b706261eeef0727ff9d17",
+      "RunId": "a02aeb8c634c4ec2979f7fbbbd7026b4",
+      "EncounterId": "a02aeb8c634c4ec2979f7fbbbd7026b4/N1/1",
+      "Seed": 1837075788,
+      "OpeningHp": [
+        5200,
+        6800,
+        5600,
+        5000,
+        5400
+      ],
+      "RelicIds": [
+        "C01"
+      ],
+      "EndTick": 990,
+      "Outcome": "Victory",
+      "EffectiveEnemyDamage": 12700,
+      "ShieldAbsorbed": 1137,
+      "EffectiveHealing": 2040,
+      "Overhealing": 2560,
+      "ActiveAccepted": 4,
+      "ActiveRejected": 0,
+      "FinalTriggerSerials": {
+        "C01": 2,
+        "C02": 0,
+        "C03": 0,
+        "C04": 0
+      },
+      "FinalHarmonyMask": 0,
+      "FinalForteStored": false,
+      "FrozenCParameters": {
+        "RelayCharge": 12.0,
+        "ImprovedRelayCharge": 20.0,
+        "HarmonyCharge": 10.0,
+        "ForteDamageBonus": 1.2
+      },
+      "Commands": [
+        {
+          "Seq": 1,
+          "Tick": 315,
+          "Kind": "Pause",
+          "Slot": 0,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        },
+        {
+          "Seq": 2,
+          "Tick": 315,
+          "Kind": "Resume",
+          "Slot": 0,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        },
+        {
+          "Seq": 3,
+          "Tick": 315,
+          "Kind": "Tap",
+          "Slot": 1,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        },
+        {
+          "Seq": 4,
+          "Tick": 315,
+          "Kind": "Tap",
+          "Slot": 2,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        },
+        {
+          "Seq": 5,
+          "Tick": 315,
+          "Kind": "Tap",
+          "Slot": 4,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        },
+        {
+          "Seq": 6,
+          "Tick": 898,
+          "Kind": "Tap",
+          "Slot": 0,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        }
+      ],
+      "TraceFinalMatchesOriginal": true
+    },
+    {
+      "Tape": "battle-db0d55a8efa9457ea92db0e6132f724d.original-replay.json",
+      "Sha256": "258c8f97140c0bcb859a290f15819e8a60b1630f573380c3c459a5d4ae395500",
+      "RunId": "a02aeb8c634c4ec2979f7fbbbd7026b4",
+      "EncounterId": "a02aeb8c634c4ec2979f7fbbbd7026b4/N2-backstage/2",
+      "Seed": 1184936602,
+      "OpeningHp": [
+        5200,
+        6800,
+        5600,
+        4739,
+        5089
+      ],
+      "RelicIds": [
+        "C01",
+        "C02"
+      ],
+      "EndTick": 1407,
+      "Outcome": "Victory",
+      "EffectiveEnemyDamage": 16400,
+      "ShieldAbsorbed": 1057,
+      "EffectiveHealing": 4071,
+      "Overhealing": 529,
+      "ActiveAccepted": 2,
+      "ActiveRejected": 0,
+      "FinalTriggerSerials": {
+        "C01": 0,
+        "C02": 0,
+        "C03": 0,
+        "C04": 0
+      },
+      "FinalHarmonyMask": 0,
+      "FinalForteStored": false,
+      "FrozenCParameters": {
+        "RelayCharge": 12.0,
+        "ImprovedRelayCharge": 20.0,
+        "HarmonyCharge": 10.0,
+        "ForteDamageBonus": 1.2
+      },
+      "Commands": [
+        {
+          "Seq": 1,
+          "Tick": 373,
+          "Kind": "Tap",
+          "Slot": 1,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        },
+        {
+          "Seq": 2,
+          "Tick": 644,
+          "Kind": "Tap",
+          "Slot": 2,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        }
+      ],
+      "TraceFinalMatchesOriginal": true
+    },
+    {
+      "Tape": "battle-2248fe9cbb79421bbd0d21ef23950fb2.original-replay.json",
+      "Sha256": "7795beeeb9f02e330e0c09bc24223ec9a9965ad8e87eab49a7ed97a083d5a25f",
+      "RunId": "a02aeb8c634c4ec2979f7fbbbd7026b4",
+      "EncounterId": "a02aeb8c634c4ec2979f7fbbbd7026b4/N4/3",
+      "Seed": 413455745,
+      "OpeningHp": [
+        5036,
+        6771,
+        5521,
+        4521,
+        5400
+      ],
+      "RelicIds": [
+        "C01",
+        "C02",
+        "C03"
+      ],
+      "EndTick": 1716,
+      "Outcome": "Victory",
+      "EffectiveEnemyDamage": 23000,
+      "ShieldAbsorbed": 1865,
+      "EffectiveHealing": 8849,
+      "Overhealing": 351,
+      "ActiveAccepted": 6,
+      "ActiveRejected": 0,
+      "FinalTriggerSerials": {
+        "C01": 3,
+        "C02": 4,
+        "C03": 6,
+        "C04": 0
+      },
+      "FinalHarmonyMask": 0,
+      "FinalForteStored": false,
+      "FrozenCParameters": {
+        "RelayCharge": 12.0,
+        "ImprovedRelayCharge": 20.0,
+        "HarmonyCharge": 10.0,
+        "ForteDamageBonus": 1.2
+      },
+      "Commands": [
+        {
+          "Seq": 1,
+          "Tick": 307,
+          "Kind": "Pause",
+          "Slot": 0,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        },
+        {
+          "Seq": 2,
+          "Tick": 307,
+          "Kind": "Resume",
+          "Slot": 0,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        },
+        {
+          "Seq": 3,
+          "Tick": 307,
+          "Kind": "Tap",
+          "Slot": 1,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        },
+        {
+          "Seq": 4,
+          "Tick": 307,
+          "Kind": "Tap",
+          "Slot": 2,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        },
+        {
+          "Seq": 5,
+          "Tick": 307,
+          "Kind": "Tap",
+          "Slot": 4,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        },
+        {
+          "Seq": 6,
+          "Tick": 616,
+          "Kind": "FocusEnemy",
+          "Slot": 0,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        },
+        {
+          "Seq": 7,
+          "Tick": 883,
+          "Kind": "Tap",
+          "Slot": 0,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        },
+        {
+          "Seq": 8,
+          "Tick": 1259,
+          "Kind": "Tap",
+          "Slot": 3,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        },
+        {
+          "Seq": 9,
+          "Tick": 1668,
+          "Kind": "Tap",
+          "Slot": 2,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        }
+      ],
+      "TraceFinalMatchesOriginal": true
+    },
+    {
+      "Tape": "battle-01d69be1b02d4d5cb28c1aaa1ad4e467.original-replay.json",
+      "Sha256": "62eb02c1673d7dd9a053c83af9dc2841eae74583abed2878be292351398a6716",
+      "RunId": "a02aeb8c634c4ec2979f7fbbbd7026b4",
+      "EncounterId": "a02aeb8c634c4ec2979f7fbbbd7026b4/N5/4",
+      "Seed": 516739039,
+      "OpeningHp": [
+        3379,
+        5776,
+        5324,
+        4614,
+        4141
+      ],
+      "RelicIds": [
+        "C01",
+        "C02",
+        "C03",
+        "C04"
+      ],
+      "EndTick": 1584,
+      "Outcome": "Victory",
+      "EffectiveEnemyDamage": 21700,
+      "ShieldAbsorbed": 3216,
+      "EffectiveHealing": 9200,
+      "Overhealing": 0,
+      "ActiveAccepted": 5,
+      "ActiveRejected": 0,
+      "FinalTriggerSerials": {
+        "C01": 3,
+        "C02": 4,
+        "C03": 5,
+        "C04": 6
+      },
+      "FinalHarmonyMask": 5,
+      "FinalForteStored": false,
+      "FrozenCParameters": {
+        "RelayCharge": 12.0,
+        "ImprovedRelayCharge": 20.0,
+        "HarmonyCharge": 10.0,
+        "ForteDamageBonus": 1.2
+      },
+      "Commands": [
+        {
+          "Seq": 1,
+          "Tick": 436,
+          "Kind": "Pause",
+          "Slot": 0,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        },
+        {
+          "Seq": 2,
+          "Tick": 436,
+          "Kind": "FocusEnemy",
+          "Slot": 2,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        },
+        {
+          "Seq": 3,
+          "Tick": 436,
+          "Kind": "Resume",
+          "Slot": 0,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        },
+        {
+          "Seq": 4,
+          "Tick": 436,
+          "Kind": "Tap",
+          "Slot": 1,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        },
+        {
+          "Seq": 5,
+          "Tick": 436,
+          "Kind": "Tap",
+          "Slot": 2,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        },
+        {
+          "Seq": 6,
+          "Tick": 436,
+          "Kind": "Tap",
+          "Slot": 4,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        },
+        {
+          "Seq": 7,
+          "Tick": 832,
+          "Kind": "Pause",
+          "Slot": 0,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        },
+        {
+          "Seq": 8,
+          "Tick": 832,
+          "Kind": "FocusEnemy",
+          "Slot": 3,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        },
+        {
+          "Seq": 9,
+          "Tick": 832,
+          "Kind": "Resume",
+          "Slot": 0,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        },
+        {
+          "Seq": 10,
+          "Tick": 832,
+          "Kind": "Tap",
+          "Slot": 0,
+          "Accepted": true,
+          "RequiredEnemySlot": 3,
+          "RequiredEnemyGeneration": 1
+        },
+        {
+          "Seq": 11,
+          "Tick": 1245,
+          "Kind": "Tap",
+          "Slot": 2,
+          "Accepted": true,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        }
+      ],
+      "TraceFinalMatchesOriginal": true
+    }
+  ]
+}

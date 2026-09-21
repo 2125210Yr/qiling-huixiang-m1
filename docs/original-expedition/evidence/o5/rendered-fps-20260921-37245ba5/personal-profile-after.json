@@ -1,0 +1,62 @@
+[
+  {
+    "path": "C:\\Users\\Administrator\\AppData\\LocalLow\\Resonance\\契灵回响\\OriginalExpedition\\profile.v1.json",
+    "bytes": 1015,
+    "sha256": "05CD4B68967181BC852CD3D5CDE85E8765A86D70399D8D23D96CB151BAB3CC19"
+  },
+  {
+    "path": "C:\\Users\\Administrator\\AppData\\LocalLow\\Resonance\\契灵回响\\OriginalExpedition\\profile.v1.json.bak",
+    "bytes": 38177,
+    "sha256": "DBF30AFFDBA6BD76E9AA419D913161BE6216F886ED7993D52475D818222D4670"
+  },
+  {
+    "path": "C:\\Users\\Administrator\\AppData\\LocalLow\\Resonance\\契灵回响\\OriginalExpedition\\profile.v1.json.lock",
+    "bytes": 0,
+    "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+  },
+  {
+    "path": "C:\\Users\\Administrator\\AppData\\LocalLow\\Resonance\\契灵回响\\OriginalExpedition\\Replays\\battle-003b487d08e742c0845b301019d4e1a0.original-replay.json",
+    "bytes": 151188,
+    "sha256": "F9A0DDB8A5F83C3B277FAA4CF3FB82CCBE492A2F6CE1805A0E458E2F06E776BE"
+  },
+  {
+    "path": "C:\\Users\\Administrator\\AppData\\LocalLow\\Resonance\\契灵回响\\OriginalExpedition\\Replays\\battle-04e7627c6dce4666822a19dbb16f4ccc.original-replay.json",
+    "bytes": 109073,
+    "sha256": "31C4A81492CBDB8EECA62DD3C631626A88004528A7572ED0F38A865C27623A53"
+  },
+  {
+    "path": "C:\\Users\\Administrator\\AppData\\LocalLow\\Resonance\\契灵回响\\OriginalExpedition\\Replays\\battle-0aed9659585c4708995d6c591a206753.original-replay.json",
+    "bytes": 235977,
+    "sha256": "BB81448629333C5734CE2F20B3AE760BCA010FB1FDA14187B6424B89A2A04849"
+  },
+  {
+    "path": "C:\\Users\\Administrator\\AppData\\LocalLow\\Resonance\\契灵回响\\OriginalExpedition\\Replays\\battle-5481ae3998634dd98a63671583599c11.original-replay.json",
+    "bytes": 396757,
+    "sha256": "A343FD11F50A964CB185BDBE9CE1EFB6E8829838A7709DE06BBD079C427D0F25"
+  },
+  {
+    "path": "C:\\Users\\Administrator\\AppData\\LocalLow\\Resonance\\契灵回响\\OriginalExpedition\\Replays\\battle-63552f0a3c734f7199d6514d11bb0fc0.original-replay.json",
+    "bytes": 169192,
+    "sha256": "6C76FCB7E4FF357D11B2BC59E893DB68BF8A006BC8E7C16190BB2EF5E24612C0"
+  },
+  {
+    "path": "C:\\Users\\Administrator\\AppData\\LocalLow\\Resonance\\契灵回响\\OriginalExpedition\\Replays\\battle-b9d8567a0af246aaacc8039ead085100.original-replay.json",
+    "bytes": 235977,
+    "sha256": "D334FBC6B00D20B66752996CA09234F47D558E1A1E0D07A8A41DF1C5B29F511E"
+  },
+  {
+    "path": "C:\\Users\\Administrator\\AppData\\LocalLow\\Resonance\\契灵回响\\OriginalExpedition\\Replays\\battle-d0dbad8711a64004ba75514d842e3e7b.original-replay.json",
+    "bytes": 146753,
+    "sha256": "28EE5C7CDB6737A3C1CA9C222C9D1CE8A911848ABAB6C1927648AC9566025844"
+  },
+  {
+    "path": "C:\\Users\\Administrator\\AppData\\LocalLow\\Resonance\\契灵回响\\OriginalExpedition\\Replays\\battle-d2f2185c4ac04d2aa19d36153c6a6cc6.original-replay.json",
+    "bytes": 111658,
+    "sha256": "C6A6C19034C808A0AD2CFF5E1975960FF09BDECB33472DDAD5853920A8D8BFEE"
+  },
+  {
+    "path": "C:\\Users\\Administrator\\AppData\\LocalLow\\Resonance\\契灵回响\\OriginalExpedition\\Replays\\battle-f7f3cb7f912f4aa3a54da0880c447c89.original-replay.json",
+    "bytes": 234114,
+    "sha256": "6964911D1CD48F141BA1CA3A2684B0455CDBF6F45AE3F72BD19FCF8710F153A4"
+  }
+]

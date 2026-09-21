@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-21 07:02:10Z" end-time="2026-09-21 07:03:16Z" duration="66.2761105">
+  <test-suite type="TestSuite" id="1000" name="契灵回响" fullname="契灵回响" runstate="Runnable" testcasecount="92" result="Passed" start-time="2026-09-21 07:02:10Z" end-time="2026-09-21 07:03:16Z" duration="66.276111" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1118" name="Resonance.EditorTests.dll" fullname="F:/Resonance/client/Library/ScriptAssemblies/Resonance.EditorTests.dll" runstate="Runnable" testcasecount="92" result="Passed" start-time="2026-09-21 07:02:10Z" end-time="2026-09-21 07:03:16Z" duration="66.213339" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="37228" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1119" name="Resonance" fullname="Resonance" runstate="Runnable" testcasecount="92" result="Passed" start-time="2026-09-21 07:02:10Z" end-time="2026-09-21 07:03:16Z" duration="66.205164" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1120" name="EditorTests" fullname="Resonance.EditorTests" runstate="Runnable" testcasecount="92" result="Passed" start-time="2026-09-21 07:02:10Z" end-time="2026-09-21 07:03:16Z" duration="66.194762" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1111" name="OriginalRenderedFrameRateTests" fullname="Resonance.EditorTests.OriginalRenderedFrameRateTests" classname="Resonance.EditorTests.OriginalRenderedFrameRateTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-09-21 07:02:10Z" end-time="2026-09-21 07:03:16Z" duration="66.183207" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1112" name="SameFrozenBossAndTickZeroCommandsMatchAtTwoActualRenderedFrameRates" fullname="Resonance.EditorTests.OriginalRenderedFrameRateTests.SameFrozenBossAndTickZeroCommandsMatchAtTwoActualRenderedFrameRates" methodname="SameFrozenBossAndTickZeroCommandsMatchAtTwoActualRenderedFrameRates" classname="Resonance.EditorTests.OriginalRenderedFrameRateTests" runstate="Runnable" seed="1252492140" result="Passed" start-time="2026-09-21 07:02:06Z" end-time="2026-09-21 07:03:16Z" duration="70.201523" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="Timeout" value="240000" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[ORIGINAL_REPLAY_MATCH path=C:\Users\ADMINI~1\AppData\Local\Temp\original-rendered-fps-b66aadce52f341969043dbbd9e345d7d\30\Replays\battle-08df911833f44228ac99b9b86c002ab9.original-replay.json input=d5e056caa2c082d6648354594da253477cd86b3ea8f6cd5cc04543fa3e689bf0 ticks=825 events=c040946d9899bb1e0f5a147c657df6437a822fd0b4087428b403e1e92f22c6fd resolutions=3ef339287b70fee30c71465addf4ed24227629cc9d4ba3b9d02eb5e722d64d5e
+ORIGINAL_REPLAY_MATCH path=C:\Users\ADMINI~1\AppData\Local\Temp\original-rendered-fps-b66aadce52f341969043dbbd9e345d7d\120\Replays\battle-ea27735f8bff46b2accb8f719784b1e0.original-replay.json input=d5e056caa2c082d6648354594da253477cd86b3ea8f6cd5cc04543fa3e689bf0 ticks=825 events=c040946d9899bb1e0f5a147c657df6437a822fd0b4087428b403e1e92f22c6fd resolutions=3ef339287b70fee30c71465addf4ed24227629cc9d4ba3b9d02eb5e722d64d5e
+Rendered O-023 fixture: low=29.99fps high=116.82fps commonTicks=808; evidence=F:\天命之子\docs\original-expedition\evidence\o5\rendered-fps-20260921-37245ba5\rendered
+Saving results to: C:/Users/Administrator/AppData/LocalLow/Resonance/契灵回响\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

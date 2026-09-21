@@ -1,0 +1,25 @@
+{
+    "contentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd",
+    "files": [
+        {
+            "path": "F:\\Resonance\\client\\Library\\ScriptAssemblies\\Resonance.App.dll",
+            "sha256": "8aed743bdce100a3b8cdf794b4abeecd3d09684f3301a2416016017f11ea0208"
+        },
+        {
+            "path": "F:\\Resonance\\client\\Library\\ScriptAssemblies\\Resonance.Battle.dll",
+            "sha256": "4c03896a19dd707c347e66df40d711a832cf222e68be9182b1d6559c6242adbd"
+        },
+        {
+            "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Core\\GameRoot.Expedition.cs",
+            "sha256": "7e07d9cd93b1ae64df6d9b24f95a3f72c46e889640e2c03dafb30f848d759bd1"
+        },
+        {
+            "path": "F:\\Resonance\\client\\Assets\\Scripts\\Resonance.App\\Expedition\\ExpeditionHud.cs",
+            "sha256": "7fa542d2f2127d23ae853ee6249e9839a37f1258d17192eb54e7cde3466e7a2a"
+        },
+        {
+            "path": "F:\\Resonance\\client\\Assets\\Tests\\Editor\\OriginalRenderedFrameRateTests.cs",
+            "sha256": "65aa54f9d78ae6802791adf07a0f688d607d79784955bac5299621f5bc95d03a"
+        }
+    ]
+}

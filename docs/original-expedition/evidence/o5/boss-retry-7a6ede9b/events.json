@@ -1,0 +1,388 @@
+[
+  {
+    "at": "2026-09-21T06:47:04.300Z",
+    "action": "click",
+    "x": 370,
+    "y": 732,
+    "label": "preflight-open-B01-detail"
+  },
+  {
+    "at": "2026-09-21T06:48:06.855Z",
+    "action": "click",
+    "x": 365,
+    "y": 872,
+    "label": "preflight-collapse-B01-detail"
+  },
+  {
+    "at": "2026-09-21T06:49:01.164Z",
+    "action": "click",
+    "x": 365,
+    "y": 524,
+    "label": "recorded-boss-natural-defeat-start"
+  },
+  {
+    "at": "2026-09-21T06:50:37.727Z",
+    "action": "close-window",
+    "label": "ordinary-close-after-recorded-natural-defeat"
+  },
+  {
+    "at": "2026-09-21T06:50:59.438Z",
+    "action": "launch-app",
+    "label": "ordinary-no-argument-reopen-after-defeat"
+  },
+  {
+    "at": "2026-09-21T06:51:42.590Z",
+    "action": "click",
+    "x": 365,
+    "y": 637,
+    "label": "after-reopen-boss-retry-start"
+  },
+  {
+    "at": "2026-09-21T06:51:49.682Z",
+    "action": "click",
+    "x": 236,
+    "y": 446,
+    "label": "focus-first-mask"
+  },
+  {
+    "at": "2026-09-21T06:51:58.701Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "pause-first-boss-telegraph"
+  },
+  {
+    "at": "2026-09-21T06:52:07.211Z",
+    "action": "click",
+    "x": 668,
+    "y": 1105,
+    "label": "queue-guide-before-attacks"
+  },
+  {
+    "at": "2026-09-21T06:52:12.834Z",
+    "action": "click",
+    "x": 379,
+    "y": 1105,
+    "label": "queue-healer-after-first-group-hit"
+  },
+  {
+    "at": "2026-09-21T06:52:18.239Z",
+    "action": "click",
+    "x": 89,
+    "y": 1105,
+    "label": "queue-point-on-first-mask"
+  },
+  {
+    "at": "2026-09-21T06:52:24.808Z",
+    "action": "click",
+    "x": 89,
+    "y": 446,
+    "label": "bind-second-attacker-to-living-boss"
+  },
+  {
+    "at": "2026-09-21T06:52:31.261Z",
+    "action": "click",
+    "x": 525,
+    "y": 1105,
+    "label": "queue-blade-on-boss"
+  },
+  {
+    "at": "2026-09-21T06:52:39.048Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "execute-guide-heal-point-blade"
+  },
+  {
+    "at": "2026-09-21T06:52:47.000Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "pause-before-second-group-hit"
+  },
+  {
+    "at": "2026-09-21T06:52:56.818Z",
+    "action": "click",
+    "x": 234,
+    "y": 1105,
+    "label": "queue-guard-before-group-hit"
+  },
+  {
+    "at": "2026-09-21T06:53:02.476Z",
+    "action": "click",
+    "x": 89,
+    "y": 1105,
+    "label": "queue-point-second-volley"
+  },
+  {
+    "at": "2026-09-21T06:53:09.243Z",
+    "action": "click",
+    "x": 525,
+    "y": 1105,
+    "label": "queue-blade-second-volley"
+  },
+  {
+    "at": "2026-09-21T06:53:17.777Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "execute-shield-second-volley"
+  },
+  {
+    "at": "2026-09-21T06:53:26.718Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "pause-after-shielded-group-hit"
+  },
+  {
+    "at": "2026-09-21T06:53:39.829Z",
+    "action": "click",
+    "x": 668,
+    "y": 1105,
+    "label": "queue-guide-third-volley"
+  },
+  {
+    "at": "2026-09-21T06:53:45.979Z",
+    "action": "click",
+    "x": 379,
+    "y": 1105,
+    "label": "queue-heal-third-volley"
+  },
+  {
+    "at": "2026-09-21T06:53:51.125Z",
+    "action": "click",
+    "x": 89,
+    "y": 1105,
+    "label": "queue-point-third-volley"
+  },
+  {
+    "at": "2026-09-21T06:54:05.252Z",
+    "action": "click",
+    "x": 525,
+    "y": 1105,
+    "label": "queue-blade-third-volley"
+  },
+  {
+    "at": "2026-09-21T06:54:11.695Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "execute-third-volley"
+  },
+  {
+    "at": "2026-09-21T06:54:24.228Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "pause-next-telegraph"
+  },
+  {
+    "at": "2026-09-21T06:54:36.222Z",
+    "action": "click",
+    "x": 668,
+    "y": 1105,
+    "label": "queue-guide-for-phase-transition"
+  },
+  {
+    "at": "2026-09-21T06:54:52.902Z",
+    "action": "click",
+    "x": 379,
+    "y": 1105,
+    "label": "queue-heal-for-phase-transition"
+  },
+  {
+    "at": "2026-09-21T06:55:00.264Z",
+    "action": "click",
+    "x": 89,
+    "y": 1105,
+    "label": "queue-point-for-phase-transition"
+  },
+  {
+    "at": "2026-09-21T06:55:06.112Z",
+    "action": "click",
+    "x": 525,
+    "y": 1105,
+    "label": "queue-blade-for-phase-transition"
+  },
+  {
+    "at": "2026-09-21T06:55:14.385Z",
+    "action": "click",
+    "x": 234,
+    "y": 1105,
+    "label": "queue-guard-for-revived-masks"
+  },
+  {
+    "at": "2026-09-21T06:55:19.996Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "execute-phase-transition-volley"
+  },
+  {
+    "at": "2026-09-21T06:55:29.244Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "pause-phase-two-volley"
+  },
+  {
+    "at": "2026-09-21T06:55:44.846Z",
+    "action": "click",
+    "x": 234,
+    "y": 446,
+    "label": "phase-two-focus-revived-mask"
+  },
+  {
+    "at": "2026-09-21T06:55:53.601Z",
+    "action": "click",
+    "x": 668,
+    "y": 1105,
+    "label": "phase-two-queue-guide"
+  },
+  {
+    "at": "2026-09-21T06:56:01.584Z",
+    "action": "click",
+    "x": 379,
+    "y": 1105,
+    "label": "phase-two-queue-healer"
+  },
+  {
+    "at": "2026-09-21T06:56:09.770Z",
+    "action": "click",
+    "x": 89,
+    "y": 1105,
+    "label": "phase-two-queue-point-mask"
+  },
+  {
+    "at": "2026-09-21T06:56:16.080Z",
+    "action": "click",
+    "x": 525,
+    "y": 1105,
+    "label": "phase-two-queue-blade-mask"
+  },
+  {
+    "at": "2026-09-21T06:56:26.608Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "execute-revived-mask-volley"
+  },
+  {
+    "at": "2026-09-21T06:56:32.518Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "pause-phase-two-group-telegraph"
+  },
+  {
+    "at": "2026-09-21T06:56:41.139Z",
+    "action": "click",
+    "x": 234,
+    "y": 1105,
+    "label": "queue-shield-for-phase-two-group-hit"
+  },
+  {
+    "at": "2026-09-21T06:56:47.238Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "execute-phase-two-shield"
+  },
+  {
+    "at": "2026-09-21T06:56:53.472Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "pause-final-boss-cycle"
+  },
+  {
+    "at": "2026-09-21T06:57:01.867Z",
+    "action": "click",
+    "x": 89,
+    "y": 446,
+    "label": "refocus-boss-after-revived-masks-die"
+  },
+  {
+    "at": "2026-09-21T06:57:08.261Z",
+    "action": "click",
+    "x": 668,
+    "y": 1105,
+    "label": "queue-final-guide"
+  },
+  {
+    "at": "2026-09-21T06:57:15.328Z",
+    "action": "click",
+    "x": 379,
+    "y": 1105,
+    "label": "queue-final-healer"
+  },
+  {
+    "at": "2026-09-21T06:57:24.074Z",
+    "action": "click",
+    "x": 89,
+    "y": 1105,
+    "label": "queue-final-point"
+  },
+  {
+    "at": "2026-09-21T06:57:31.418Z",
+    "action": "click",
+    "x": 525,
+    "y": 1105,
+    "label": "queue-final-blade"
+  },
+  {
+    "at": "2026-09-21T06:57:37.531Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "execute-final-volley"
+  },
+  {
+    "at": "2026-09-21T06:57:43.450Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "pause-last-shield-cycle"
+  },
+  {
+    "at": "2026-09-21T06:57:49.613Z",
+    "action": "click",
+    "x": 234,
+    "y": 1105,
+    "label": "queue-last-group-shield"
+  },
+  {
+    "at": "2026-09-21T06:58:03.883Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "execute-last-shield"
+  },
+  {
+    "at": "2026-09-21T06:58:45.650Z",
+    "action": "click",
+    "x": 365,
+    "y": 1325,
+    "label": "victory-return-to-hub"
+  },
+  {
+    "at": "2026-09-21T06:58:54.283Z",
+    "action": "click",
+    "x": 365,
+    "y": 1325,
+    "label": "open-last-run-summary-after-victory"
+  },
+  {
+    "at": "2026-09-21T06:59:00.400Z",
+    "action": "click",
+    "x": 365,
+    "y": 1325,
+    "label": "return-from-last-run-summary"
+  },
+  {
+    "at": "2026-09-21T06:59:50.524Z",
+    "action": "close-window",
+    "label": "hub-close-before-isolated-render-test"
+  }
+]

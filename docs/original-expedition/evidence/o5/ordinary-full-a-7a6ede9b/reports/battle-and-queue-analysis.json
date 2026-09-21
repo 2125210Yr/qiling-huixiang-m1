@@ -1,0 +1,2166 @@
+{
+  "VerifierSha256": "8dd4971f1ef08a421e436559386af1f653fadd5b9ed0610d622fd8703b6b3d1e",
+  "RunSeed": 13486312,
+  "StrictVerification": "Five independent CLI reports have status MATCH and exit 0",
+  "Battles": [
+    {
+      "Tape": "battle-f8823184c2da44d2b2f208c9ce087ce3.original-replay.json",
+      "Sha256": "1de9ce8ce72d78227cdd1c2804a18b5064b79713b0386c0a167cc87d8dc6ff24",
+      "RunId": "439afa6220f34ece9f8d1c6762bcfae2",
+      "EncounterId": "439afa6220f34ece9f8d1c6762bcfae2/N1/1",
+      "BattleOrdinal": 1,
+      "Seed": 279698849,
+      "OpeningHp": [
+        5200,
+        6800,
+        5600,
+        5000,
+        5400
+      ],
+      "RelicIds": [
+        "A01"
+      ],
+      "EndTick": 685,
+      "Outcome": "Victory",
+      "EffectiveEnemyDamage": 12700,
+      "DerivedEffectiveEnemyDamage": 1120,
+      "AllyHpDamage": 1744,
+      "ShieldAbsorbed": 1827,
+      "EffectiveHealing": 817,
+      "Overhealing": 3783,
+      "ActiveAccepted": 6,
+      "ActiveRejected": 0,
+      "FinalBarrierThreshold": 1120,
+      "FinalBarrierEnergy": 707,
+      "FinalRelicTriggerSerials": {
+        "A01": 10,
+        "A02": 0,
+        "A03": 0,
+        "A04": 0
+      },
+      "RelicResolutionGroups": [
+        {
+          "RelicId": "A01",
+          "RootCount": 1,
+          "HitCount": 1,
+          "RequestedDamage": 1120,
+          "EffectiveDamage": 1120,
+          "Overkill": 0
+        }
+      ],
+      "DerivedResolutions": [
+        {
+          "Origin": 1,
+          "RootActionId": 49,
+          "ProcDepth": 1,
+          "SourceRelicId": "A01",
+          "SkillId": "OE_HEALER_tap",
+          "SourceSlot": 2,
+          "SourceAlly": true,
+          "TargetSlot": 0,
+          "TargetAlly": false,
+          "TargetGeneration": 1,
+          "RequestedDamage": 1120,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 1120,
+          "Overkill": 0,
+          "RequestedHeal": 0,
+          "EffectiveHeal": 0,
+          "Overheal": 0,
+          "ShieldProduced": 0,
+          "Killed": false,
+          "NativeKill": false,
+          "EffectiveDamage": 1120
+        }
+      ],
+      "NativeShieldRoots": [
+        {
+          "RootActionId": 20,
+          "SkillId": "OE_GUARD_tap",
+          "TotalShieldProduced": 6160,
+          "Targets": [
+            {
+              "TargetSlot": 0,
+              "ShieldProduced": 1144
+            },
+            {
+              "TargetSlot": 1,
+              "ShieldProduced": 1496
+            },
+            {
+              "TargetSlot": 2,
+              "ShieldProduced": 1232
+            },
+            {
+              "TargetSlot": 3,
+              "ShieldProduced": 1100
+            },
+            {
+              "TargetSlot": 4,
+              "ShieldProduced": 1188
+            }
+          ]
+        }
+      ],
+      "ActiveCommands": [
+        {
+          "Seq": 3,
+          "Tick": 206,
+          "Kind": "Tap",
+          "Slot": 1,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 4,
+          "Tick": 206,
+          "Kind": "Tap",
+          "Slot": 4,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 5,
+          "Tick": 206,
+          "Kind": "Tap",
+          "Slot": 0,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 6,
+          "Tick": 206,
+          "Kind": "Tap",
+          "Slot": 3,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 7,
+          "Tick": 457,
+          "Kind": "Tap",
+          "Slot": 2,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 8,
+          "Tick": 685,
+          "Kind": "Tap",
+          "Slot": 0,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        }
+      ],
+      "AllCommands": [
+        {
+          "Seq": 1,
+          "Tick": 206,
+          "Kind": "Pause",
+          "Slot": 0,
+          "Accepted": true
+        },
+        {
+          "Seq": 2,
+          "Tick": 206,
+          "Kind": "Resume",
+          "Slot": 0,
+          "Accepted": true
+        },
+        {
+          "Seq": 3,
+          "Tick": 206,
+          "Kind": "Tap",
+          "Slot": 1,
+          "Accepted": true
+        },
+        {
+          "Seq": 4,
+          "Tick": 206,
+          "Kind": "Tap",
+          "Slot": 4,
+          "Accepted": true
+        },
+        {
+          "Seq": 5,
+          "Tick": 206,
+          "Kind": "Tap",
+          "Slot": 0,
+          "Accepted": true
+        },
+        {
+          "Seq": 6,
+          "Tick": 206,
+          "Kind": "Tap",
+          "Slot": 3,
+          "Accepted": true
+        },
+        {
+          "Seq": 7,
+          "Tick": 457,
+          "Kind": "Tap",
+          "Slot": 2,
+          "Accepted": true
+        },
+        {
+          "Seq": 8,
+          "Tick": 685,
+          "Kind": "Tap",
+          "Slot": 0,
+          "Accepted": true
+        }
+      ],
+      "ReplayInputs": [
+        {
+          "Tick": 206,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 6,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 206,
+          "Kind": "QueueTap",
+          "ActorSlot": 1,
+          "Command": {
+            "Kind": 0,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 206,
+          "Kind": "QueueTap",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 0,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 206,
+          "Kind": "QueueTap",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 0,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 206,
+          "Kind": "QueueTap",
+          "ActorSlot": 4,
+          "Command": {
+            "Kind": 0,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 206,
+          "Kind": "ClearActor",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 0,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 206,
+          "Kind": "QueueTap",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 0,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 206,
+          "Kind": "QueueTap",
+          "ActorSlot": 3,
+          "Command": {
+            "Kind": 0,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 206,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 7,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 457,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 0,
+            "Slot": 2,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 685,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 0,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        }
+      ]
+    },
+    {
+      "Tape": "battle-cf4aed6fee7940b5aa2b27e0fc7eda93.original-replay.json",
+      "Sha256": "a442dce4eb2fa3c0b0917d4d1ca7f0b8f2285748a1d43089bc855804acce8074",
+      "RunId": "439afa6220f34ece9f8d1c6762bcfae2",
+      "EncounterId": "439afa6220f34ece9f8d1c6762bcfae2/N2-backstage/2",
+      "BattleOrdinal": 2,
+      "Seed": 1035020603,
+      "OpeningHp": [
+        5200,
+        6800,
+        5600,
+        5000,
+        5400
+      ],
+      "RelicIds": [
+        "A01",
+        "A02"
+      ],
+      "EndTick": 1320,
+      "Outcome": "Victory",
+      "EffectiveEnemyDamage": 16400,
+      "DerivedEffectiveEnemyDamage": 1120,
+      "AllyHpDamage": 6698,
+      "ShieldAbsorbed": 2151,
+      "EffectiveHealing": 2653,
+      "Overhealing": 1947,
+      "ActiveAccepted": 2,
+      "ActiveRejected": 0,
+      "FinalBarrierThreshold": 1120,
+      "FinalBarrierEnergy": 1031,
+      "FinalRelicTriggerSerials": {
+        "A01": 12,
+        "A02": 1,
+        "A03": 0,
+        "A04": 0
+      },
+      "RelicResolutionGroups": [
+        {
+          "RelicId": "A01",
+          "RootCount": 1,
+          "HitCount": 1,
+          "RequestedDamage": 1120,
+          "EffectiveDamage": 1120,
+          "Overkill": 0
+        }
+      ],
+      "DerivedResolutions": [
+        {
+          "Origin": 1,
+          "RootActionId": 86,
+          "ProcDepth": 1,
+          "SourceRelicId": "A01",
+          "SkillId": "OE_HEALER_tap",
+          "SourceSlot": 2,
+          "SourceAlly": true,
+          "TargetSlot": 0,
+          "TargetAlly": false,
+          "TargetGeneration": 1,
+          "RequestedDamage": 1120,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 1120,
+          "Overkill": 0,
+          "RequestedHeal": 0,
+          "EffectiveHeal": 0,
+          "Overheal": 0,
+          "ShieldProduced": 0,
+          "Killed": false,
+          "NativeKill": false,
+          "EffectiveDamage": 1120
+        }
+      ],
+      "NativeShieldRoots": [
+        {
+          "RootActionId": 57,
+          "SkillId": "OE_GUARD_tap",
+          "TotalShieldProduced": 7700,
+          "Targets": [
+            {
+              "TargetSlot": 0,
+              "ShieldProduced": 1430
+            },
+            {
+              "TargetSlot": 1,
+              "ShieldProduced": 1870
+            },
+            {
+              "TargetSlot": 2,
+              "ShieldProduced": 1540
+            },
+            {
+              "TargetSlot": 3,
+              "ShieldProduced": 1375
+            },
+            {
+              "TargetSlot": 4,
+              "ShieldProduced": 1485
+            }
+          ]
+        }
+      ],
+      "ActiveCommands": [
+        {
+          "Seq": 1,
+          "Tick": 557,
+          "Kind": "Tap",
+          "Slot": 1,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 2,
+          "Tick": 811,
+          "Kind": "Tap",
+          "Slot": 2,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        }
+      ],
+      "AllCommands": [
+        {
+          "Seq": 1,
+          "Tick": 557,
+          "Kind": "Tap",
+          "Slot": 1,
+          "Accepted": true
+        },
+        {
+          "Seq": 2,
+          "Tick": 811,
+          "Kind": "Tap",
+          "Slot": 2,
+          "Accepted": true
+        }
+      ],
+      "ReplayInputs": [
+        {
+          "Tick": 557,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 0,
+            "Slot": 1,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 811,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 0,
+            "Slot": 2,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        }
+      ]
+    },
+    {
+      "Tape": "battle-a532095270a243dbb179e4ddc6e09169.original-replay.json",
+      "Sha256": "4e4cea300c6f8c38a3a06f70b4fecaaa8e0f33ffc036977729f4689f87f7d45d",
+      "RunId": "439afa6220f34ece9f8d1c6762bcfae2",
+      "EncounterId": "439afa6220f34ece9f8d1c6762bcfae2/N4/3",
+      "BattleOrdinal": 3,
+      "Seed": 1574013780,
+      "OpeningHp": [
+        4994,
+        6700,
+        5600,
+        5000,
+        5335
+      ],
+      "RelicIds": [
+        "A01",
+        "A02",
+        "A04"
+      ],
+      "EndTick": 1452,
+      "Outcome": "Victory",
+      "EffectiveEnemyDamage": 23000,
+      "DerivedEffectiveEnemyDamage": 4480,
+      "AllyHpDamage": 10775,
+      "ShieldAbsorbed": 3233,
+      "EffectiveHealing": 4238,
+      "Overhealing": 362,
+      "ActiveAccepted": 4,
+      "ActiveRejected": 0,
+      "FinalBarrierThreshold": 1120,
+      "FinalBarrierEnergy": 993,
+      "FinalRelicTriggerSerials": {
+        "A01": 21,
+        "A02": 15,
+        "A03": 0,
+        "A04": 14
+      },
+      "RelicResolutionGroups": [
+        {
+          "RelicId": "A04",
+          "RootCount": 1,
+          "HitCount": 1,
+          "RequestedDamage": 4480,
+          "EffectiveDamage": 4480,
+          "Overkill": 0
+        }
+      ],
+      "DerivedResolutions": [
+        {
+          "Origin": 1,
+          "RootActionId": 92,
+          "ProcDepth": 1,
+          "SourceRelicId": "A04",
+          "SkillId": "OE_POINT_tap",
+          "SourceSlot": 0,
+          "SourceAlly": true,
+          "TargetSlot": 0,
+          "TargetAlly": false,
+          "TargetGeneration": 1,
+          "RequestedDamage": 4480,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 4480,
+          "Overkill": 0,
+          "RequestedHeal": 0,
+          "EffectiveHeal": 0,
+          "Overheal": 0,
+          "ShieldProduced": 0,
+          "Killed": false,
+          "NativeKill": false,
+          "EffectiveDamage": 4480
+        }
+      ],
+      "NativeShieldRoots": [
+        {
+          "RootActionId": 41,
+          "SkillId": "OE_GUARD_tap",
+          "TotalShieldProduced": 7700,
+          "Targets": [
+            {
+              "TargetSlot": 0,
+              "ShieldProduced": 1430
+            },
+            {
+              "TargetSlot": 1,
+              "ShieldProduced": 1870
+            },
+            {
+              "TargetSlot": 2,
+              "ShieldProduced": 1540
+            },
+            {
+              "TargetSlot": 3,
+              "ShieldProduced": 1375
+            },
+            {
+              "TargetSlot": 4,
+              "ShieldProduced": 1485
+            }
+          ]
+        },
+        {
+          "RootActionId": 142,
+          "SkillId": "OE_GUARD_tap",
+          "TotalShieldProduced": 7700,
+          "Targets": [
+            {
+              "TargetSlot": 0,
+              "ShieldProduced": 1430
+            },
+            {
+              "TargetSlot": 1,
+              "ShieldProduced": 1870
+            },
+            {
+              "TargetSlot": 2,
+              "ShieldProduced": 1540
+            },
+            {
+              "TargetSlot": 3,
+              "ShieldProduced": 1375
+            },
+            {
+              "TargetSlot": 4,
+              "ShieldProduced": 1485
+            }
+          ]
+        }
+      ],
+      "ActiveCommands": [
+        {
+          "Seq": 4,
+          "Tick": 395,
+          "Kind": "Tap",
+          "Slot": 1,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 5,
+          "Tick": 395,
+          "Kind": "Tap",
+          "Slot": 2,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 6,
+          "Tick": 800,
+          "Kind": "Tap",
+          "Slot": 0,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 7,
+          "Tick": 1194,
+          "Kind": "Tap",
+          "Slot": 1,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        }
+      ],
+      "AllCommands": [
+        {
+          "Seq": 1,
+          "Tick": 395,
+          "Kind": "Pause",
+          "Slot": 0,
+          "Accepted": true
+        },
+        {
+          "Seq": 2,
+          "Tick": 395,
+          "Kind": "FocusEnemy",
+          "Slot": 0,
+          "Accepted": true
+        },
+        {
+          "Seq": 3,
+          "Tick": 395,
+          "Kind": "Resume",
+          "Slot": 0,
+          "Accepted": true
+        },
+        {
+          "Seq": 4,
+          "Tick": 395,
+          "Kind": "Tap",
+          "Slot": 1,
+          "Accepted": true
+        },
+        {
+          "Seq": 5,
+          "Tick": 395,
+          "Kind": "Tap",
+          "Slot": 2,
+          "Accepted": true
+        },
+        {
+          "Seq": 6,
+          "Tick": 800,
+          "Kind": "Tap",
+          "Slot": 0,
+          "Accepted": true
+        },
+        {
+          "Seq": 7,
+          "Tick": 1194,
+          "Kind": "Tap",
+          "Slot": 1,
+          "Accepted": true
+        }
+      ],
+      "ReplayInputs": [
+        {
+          "Tick": 395,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 6,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 395,
+          "Kind": "QueueTap",
+          "ActorSlot": 1,
+          "Command": {
+            "Kind": 0,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 395,
+          "Kind": "QueueTap",
+          "ActorSlot": 2,
+          "Command": {
+            "Kind": 0,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 395,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 5,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 395,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 7,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 800,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 0,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 1194,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 0,
+            "Slot": 1,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        }
+      ]
+    },
+    {
+      "Tape": "battle-89e7096e93e7401ea58ac258a93f3768.original-replay.json",
+      "Sha256": "14be87a5ab0056478f7b37b1ddb401a7e407f8dd3ed38b95a4a84f71e58f5b9a",
+      "RunId": "439afa6220f34ece9f8d1c6762bcfae2",
+      "EncounterId": "439afa6220f34ece9f8d1c6762bcfae2/N5/4",
+      "BattleOrdinal": 4,
+      "Seed": 923452502,
+      "OpeningHp": [
+        4133,
+        6469,
+        4973,
+        4406,
+        5311
+      ],
+      "RelicIds": [
+        "A01",
+        "A02",
+        "A04",
+        "A03"
+      ],
+      "EndTick": 1809,
+      "Outcome": "Victory",
+      "EffectiveEnemyDamage": 21700,
+      "DerivedEffectiveEnemyDamage": 0,
+      "AllyHpDamage": 16351,
+      "ShieldAbsorbed": 3897,
+      "EffectiveHealing": 0,
+      "Overhealing": 0,
+      "ActiveAccepted": 1,
+      "ActiveRejected": 0,
+      "FinalBarrierThreshold": 1120,
+      "FinalBarrierEnergy": 3360,
+      "FinalRelicTriggerSerials": {
+        "A01": 20,
+        "A02": 1,
+        "A03": 0,
+        "A04": 0
+      },
+      "RelicResolutionGroups": [],
+      "DerivedResolutions": [],
+      "NativeShieldRoots": [
+        {
+          "RootActionId": 53,
+          "SkillId": "OE_GUARD_tap",
+          "TotalShieldProduced": 7700,
+          "Targets": [
+            {
+              "TargetSlot": 0,
+              "ShieldProduced": 1430
+            },
+            {
+              "TargetSlot": 1,
+              "ShieldProduced": 1870
+            },
+            {
+              "TargetSlot": 2,
+              "ShieldProduced": 1540
+            },
+            {
+              "TargetSlot": 3,
+              "ShieldProduced": 1375
+            },
+            {
+              "TargetSlot": 4,
+              "ShieldProduced": 1485
+            }
+          ]
+        }
+      ],
+      "ActiveCommands": [
+        {
+          "Seq": 4,
+          "Tick": 407,
+          "Kind": "Tap",
+          "Slot": 1,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        }
+      ],
+      "AllCommands": [
+        {
+          "Seq": 1,
+          "Tick": 407,
+          "Kind": "Pause",
+          "Slot": 0,
+          "Accepted": true
+        },
+        {
+          "Seq": 2,
+          "Tick": 407,
+          "Kind": "FocusEnemy",
+          "Slot": 2,
+          "Accepted": true
+        },
+        {
+          "Seq": 3,
+          "Tick": 407,
+          "Kind": "Resume",
+          "Slot": 0,
+          "Accepted": true
+        },
+        {
+          "Seq": 4,
+          "Tick": 407,
+          "Kind": "Tap",
+          "Slot": 1,
+          "Accepted": true
+        }
+      ],
+      "ReplayInputs": [
+        {
+          "Tick": 407,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 6,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 407,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 5,
+            "Slot": 2,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 407,
+          "Kind": "QueueTap",
+          "ActorSlot": 1,
+          "Command": {
+            "Kind": 0,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 407,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 7,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        }
+      ]
+    },
+    {
+      "Tape": "battle-f8e6b477c8cf4bfe8b367bc04719dcf2.original-replay.json",
+      "Sha256": "153d2b91055088220d9e685223608e7b5c61820ec420a1fb639859d31bb94ffe",
+      "RunId": "439afa6220f34ece9f8d1c6762bcfae2",
+      "EncounterId": "439afa6220f34ece9f8d1c6762bcfae2/N7/5",
+      "BattleOrdinal": 5,
+      "Seed": 1794740407,
+      "OpeningHp": [
+        5200,
+        6800,
+        5600,
+        5000,
+        5400
+      ],
+      "RelicIds": [
+        "A01",
+        "A02",
+        "A04",
+        "A03"
+      ],
+      "EndTick": 3331,
+      "Outcome": "Victory",
+      "EffectiveEnemyDamage": 65720,
+      "DerivedEffectiveEnemyDamage": 24034,
+      "AllyHpDamage": 46567,
+      "ShieldAbsorbed": 20963,
+      "EffectiveHealing": 25020,
+      "Overhealing": 0,
+      "ActiveAccepted": 16,
+      "ActiveRejected": 0,
+      "FinalBarrierThreshold": 1120,
+      "FinalBarrierEnergy": 0,
+      "FinalRelicTriggerSerials": {
+        "A01": 18,
+        "A02": 16,
+        "A03": 15,
+        "A04": 19
+      },
+      "RelicResolutionGroups": [
+        {
+          "RelicId": "A03",
+          "RootCount": 2,
+          "HitCount": 3,
+          "RequestedDamage": 10080,
+          "EffectiveDamage": 7357,
+          "Overkill": 2723
+        },
+        {
+          "RelicId": "A04",
+          "RootCount": 3,
+          "HitCount": 3,
+          "RequestedDamage": 20160,
+          "EffectiveDamage": 16677,
+          "Overkill": 3483
+        }
+      ],
+      "DerivedResolutions": [
+        {
+          "Origin": 1,
+          "RootActionId": 111,
+          "ProcDepth": 1,
+          "SourceRelicId": "A04",
+          "SkillId": "OE_POINT_tap",
+          "SourceSlot": 0,
+          "SourceAlly": true,
+          "TargetSlot": 0,
+          "TargetAlly": false,
+          "TargetGeneration": 1,
+          "RequestedDamage": 6720,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 6720,
+          "Overkill": 0,
+          "RequestedHeal": 0,
+          "EffectiveHeal": 0,
+          "Overheal": 0,
+          "ShieldProduced": 0,
+          "Killed": false,
+          "NativeKill": false,
+          "EffectiveDamage": 6720
+        },
+        {
+          "Origin": 1,
+          "RootActionId": 111,
+          "ProcDepth": 1,
+          "SourceRelicId": "A03",
+          "SkillId": "OE_POINT_tap",
+          "SourceSlot": 0,
+          "SourceAlly": true,
+          "TargetSlot": 1,
+          "TargetAlly": false,
+          "TargetGeneration": 1,
+          "RequestedDamage": 3360,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 637,
+          "Overkill": 2723,
+          "RequestedHeal": 0,
+          "EffectiveHeal": 0,
+          "Overheal": 0,
+          "ShieldProduced": 0,
+          "Killed": true,
+          "NativeKill": false,
+          "EffectiveDamage": 637
+        },
+        {
+          "Origin": 1,
+          "RootActionId": 236,
+          "ProcDepth": 1,
+          "SourceRelicId": "A04",
+          "SkillId": "OE_HEALER_tap",
+          "SourceSlot": 2,
+          "SourceAlly": true,
+          "TargetSlot": 0,
+          "TargetAlly": false,
+          "TargetGeneration": 1,
+          "RequestedDamage": 6720,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 6720,
+          "Overkill": 0,
+          "RequestedHeal": 0,
+          "EffectiveHeal": 0,
+          "Overheal": 0,
+          "ShieldProduced": 0,
+          "Killed": false,
+          "NativeKill": false,
+          "EffectiveDamage": 6720
+        },
+        {
+          "Origin": 1,
+          "RootActionId": 236,
+          "ProcDepth": 1,
+          "SourceRelicId": "A03",
+          "SkillId": "OE_HEALER_tap",
+          "SourceSlot": 2,
+          "SourceAlly": true,
+          "TargetSlot": 1,
+          "TargetAlly": false,
+          "TargetGeneration": 2,
+          "RequestedDamage": 3360,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 3360,
+          "Overkill": 0,
+          "RequestedHeal": 0,
+          "EffectiveHeal": 0,
+          "Overheal": 0,
+          "ShieldProduced": 0,
+          "Killed": false,
+          "NativeKill": false,
+          "EffectiveDamage": 3360
+        },
+        {
+          "Origin": 1,
+          "RootActionId": 236,
+          "ProcDepth": 1,
+          "SourceRelicId": "A03",
+          "SkillId": "OE_HEALER_tap",
+          "SourceSlot": 2,
+          "SourceAlly": true,
+          "TargetSlot": 2,
+          "TargetAlly": false,
+          "TargetGeneration": 2,
+          "RequestedDamage": 3360,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 3360,
+          "Overkill": 0,
+          "RequestedHeal": 0,
+          "EffectiveHeal": 0,
+          "Overheal": 0,
+          "ShieldProduced": 0,
+          "Killed": false,
+          "NativeKill": false,
+          "EffectiveDamage": 3360
+        },
+        {
+          "Origin": 1,
+          "RootActionId": 273,
+          "ProcDepth": 1,
+          "SourceRelicId": "A04",
+          "SkillId": "OE_HEALER_tap",
+          "SourceSlot": 2,
+          "SourceAlly": true,
+          "TargetSlot": 0,
+          "TargetAlly": false,
+          "TargetGeneration": 1,
+          "RequestedDamage": 6720,
+          "ShieldAbsorbed": 0,
+          "EffectiveHpDamage": 3237,
+          "Overkill": 3483,
+          "RequestedHeal": 0,
+          "EffectiveHeal": 0,
+          "Overheal": 0,
+          "ShieldProduced": 0,
+          "Killed": true,
+          "NativeKill": false,
+          "EffectiveDamage": 3237
+        }
+      ],
+      "NativeShieldRoots": [
+        {
+          "RootActionId": 40,
+          "SkillId": "OE_GUARD_tap",
+          "TotalShieldProduced": 7700,
+          "Targets": [
+            {
+              "TargetSlot": 0,
+              "ShieldProduced": 1430
+            },
+            {
+              "TargetSlot": 1,
+              "ShieldProduced": 1870
+            },
+            {
+              "TargetSlot": 2,
+              "ShieldProduced": 1540
+            },
+            {
+              "TargetSlot": 3,
+              "ShieldProduced": 1375
+            },
+            {
+              "TargetSlot": 4,
+              "ShieldProduced": 1485
+            }
+          ]
+        },
+        {
+          "RootActionId": 86,
+          "SkillId": "OE_GUARD_tap",
+          "TotalShieldProduced": 7700,
+          "Targets": [
+            {
+              "TargetSlot": 0,
+              "ShieldProduced": 1430
+            },
+            {
+              "TargetSlot": 1,
+              "ShieldProduced": 1870
+            },
+            {
+              "TargetSlot": 2,
+              "ShieldProduced": 1540
+            },
+            {
+              "TargetSlot": 3,
+              "ShieldProduced": 1375
+            },
+            {
+              "TargetSlot": 4,
+              "ShieldProduced": 1485
+            }
+          ]
+        },
+        {
+          "RootActionId": 158,
+          "SkillId": "OE_GUARD_tap",
+          "TotalShieldProduced": 7700,
+          "Targets": [
+            {
+              "TargetSlot": 0,
+              "ShieldProduced": 1430
+            },
+            {
+              "TargetSlot": 1,
+              "ShieldProduced": 1870
+            },
+            {
+              "TargetSlot": 2,
+              "ShieldProduced": 1540
+            },
+            {
+              "TargetSlot": 3,
+              "ShieldProduced": 1375
+            },
+            {
+              "TargetSlot": 4,
+              "ShieldProduced": 1485
+            }
+          ]
+        },
+        {
+          "RootActionId": 205,
+          "SkillId": "OE_GUARD_tap",
+          "TotalShieldProduced": 7700,
+          "Targets": [
+            {
+              "TargetSlot": 0,
+              "ShieldProduced": 1430
+            },
+            {
+              "TargetSlot": 1,
+              "ShieldProduced": 1870
+            },
+            {
+              "TargetSlot": 2,
+              "ShieldProduced": 1540
+            },
+            {
+              "TargetSlot": 3,
+              "ShieldProduced": 1375
+            },
+            {
+              "TargetSlot": 4,
+              "ShieldProduced": 1485
+            }
+          ]
+        },
+        {
+          "RootActionId": 253,
+          "SkillId": "OE_GUARD_tap",
+          "TotalShieldProduced": 4895,
+          "Targets": [
+            {
+              "TargetSlot": 1,
+              "ShieldProduced": 1870
+            },
+            {
+              "TargetSlot": 2,
+              "ShieldProduced": 1540
+            },
+            {
+              "TargetSlot": 4,
+              "ShieldProduced": 1485
+            }
+          ]
+        }
+      ],
+      "ActiveCommands": [
+        {
+          "Seq": 1,
+          "Tick": 503,
+          "Kind": "Tap",
+          "Slot": 1,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 2,
+          "Tick": 767,
+          "Kind": "Tap",
+          "Slot": 2,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 7,
+          "Tick": 1020,
+          "Kind": "Tap",
+          "Slot": 1,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 8,
+          "Tick": 1020,
+          "Kind": "Tap",
+          "Slot": 2,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 9,
+          "Tick": 1020,
+          "Kind": "Tap",
+          "Slot": 4,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 10,
+          "Tick": 1020,
+          "Kind": "Tap",
+          "Slot": 0,
+          "RequiredEnemySlot": 1,
+          "RequiredEnemyGeneration": 1,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 11,
+          "Tick": 1020,
+          "Kind": "Tap",
+          "Slot": 3,
+          "RequiredEnemySlot": 2,
+          "RequiredEnemyGeneration": 1,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 15,
+          "Tick": 1254,
+          "Kind": "Tap",
+          "Slot": 0,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 1,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 16,
+          "Tick": 1254,
+          "Kind": "Tap",
+          "Slot": 3,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 1,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 17,
+          "Tick": 1546,
+          "Kind": "Tap",
+          "Slot": 2,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 18,
+          "Tick": 1789,
+          "Kind": "Tap",
+          "Slot": 1,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 19,
+          "Tick": 2093,
+          "Kind": "Tap",
+          "Slot": 2,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 20,
+          "Tick": 2332,
+          "Kind": "Tap",
+          "Slot": 1,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 21,
+          "Tick": 2692,
+          "Kind": "Tap",
+          "Slot": 2,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 22,
+          "Tick": 2942,
+          "Kind": "Tap",
+          "Slot": 1,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        },
+        {
+          "Seq": 23,
+          "Tick": 3331,
+          "Kind": "Tap",
+          "Slot": 2,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0,
+          "Accepted": true,
+          "Reason": "None"
+        }
+      ],
+      "AllCommands": [
+        {
+          "Seq": 1,
+          "Tick": 503,
+          "Kind": "Tap",
+          "Slot": 1,
+          "Accepted": true
+        },
+        {
+          "Seq": 2,
+          "Tick": 767,
+          "Kind": "Tap",
+          "Slot": 2,
+          "Accepted": true
+        },
+        {
+          "Seq": 3,
+          "Tick": 1020,
+          "Kind": "Pause",
+          "Slot": 0,
+          "Accepted": true
+        },
+        {
+          "Seq": 4,
+          "Tick": 1020,
+          "Kind": "FocusEnemy",
+          "Slot": 1,
+          "Accepted": true
+        },
+        {
+          "Seq": 5,
+          "Tick": 1020,
+          "Kind": "FocusEnemy",
+          "Slot": 2,
+          "Accepted": true
+        },
+        {
+          "Seq": 6,
+          "Tick": 1020,
+          "Kind": "Resume",
+          "Slot": 0,
+          "Accepted": true
+        },
+        {
+          "Seq": 7,
+          "Tick": 1020,
+          "Kind": "Tap",
+          "Slot": 1,
+          "Accepted": true
+        },
+        {
+          "Seq": 8,
+          "Tick": 1020,
+          "Kind": "Tap",
+          "Slot": 2,
+          "Accepted": true
+        },
+        {
+          "Seq": 9,
+          "Tick": 1020,
+          "Kind": "Tap",
+          "Slot": 4,
+          "Accepted": true
+        },
+        {
+          "Seq": 10,
+          "Tick": 1020,
+          "Kind": "Tap",
+          "Slot": 0,
+          "Accepted": true
+        },
+        {
+          "Seq": 11,
+          "Tick": 1020,
+          "Kind": "Tap",
+          "Slot": 3,
+          "Accepted": true
+        },
+        {
+          "Seq": 12,
+          "Tick": 1254,
+          "Kind": "Pause",
+          "Slot": 0,
+          "Accepted": true
+        },
+        {
+          "Seq": 13,
+          "Tick": 1254,
+          "Kind": "FocusEnemy",
+          "Slot": 0,
+          "Accepted": true
+        },
+        {
+          "Seq": 14,
+          "Tick": 1254,
+          "Kind": "Resume",
+          "Slot": 0,
+          "Accepted": true
+        },
+        {
+          "Seq": 15,
+          "Tick": 1254,
+          "Kind": "Tap",
+          "Slot": 0,
+          "Accepted": true
+        },
+        {
+          "Seq": 16,
+          "Tick": 1254,
+          "Kind": "Tap",
+          "Slot": 3,
+          "Accepted": true
+        },
+        {
+          "Seq": 17,
+          "Tick": 1546,
+          "Kind": "Tap",
+          "Slot": 2,
+          "Accepted": true
+        },
+        {
+          "Seq": 18,
+          "Tick": 1789,
+          "Kind": "Tap",
+          "Slot": 1,
+          "Accepted": true
+        },
+        {
+          "Seq": 19,
+          "Tick": 2093,
+          "Kind": "Tap",
+          "Slot": 2,
+          "Accepted": true
+        },
+        {
+          "Seq": 20,
+          "Tick": 2332,
+          "Kind": "Tap",
+          "Slot": 1,
+          "Accepted": true
+        },
+        {
+          "Seq": 21,
+          "Tick": 2692,
+          "Kind": "Tap",
+          "Slot": 2,
+          "Accepted": true
+        },
+        {
+          "Seq": 22,
+          "Tick": 2942,
+          "Kind": "Tap",
+          "Slot": 1,
+          "Accepted": true
+        },
+        {
+          "Seq": 23,
+          "Tick": 3331,
+          "Kind": "Tap",
+          "Slot": 2,
+          "Accepted": true
+        }
+      ],
+      "ReplayInputs": [
+        {
+          "Tick": 503,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 0,
+            "Slot": 1,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 767,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 0,
+            "Slot": 2,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 1020,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 6,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 1020,
+          "Kind": "QueueTap",
+          "ActorSlot": 1,
+          "Command": {
+            "Kind": 0,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 1020,
+          "Kind": "QueueTap",
+          "ActorSlot": 2,
+          "Command": {
+            "Kind": 0,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 1020,
+          "Kind": "QueueTap",
+          "ActorSlot": 4,
+          "Command": {
+            "Kind": 0,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 1020,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 5,
+            "Slot": 1,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 1020,
+          "Kind": "QueueTap",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 0,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 1020,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 5,
+            "Slot": 2,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 1020,
+          "Kind": "QueueTap",
+          "ActorSlot": 3,
+          "Command": {
+            "Kind": 0,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 1020,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 7,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 1254,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 6,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 1254,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 5,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 1254,
+          "Kind": "QueueTap",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 0,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 1254,
+          "Kind": "QueueTap",
+          "ActorSlot": 3,
+          "Command": {
+            "Kind": 0,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 1254,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 7,
+            "Slot": 0,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 1546,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 0,
+            "Slot": 2,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 1789,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 0,
+            "Slot": 1,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 2093,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 0,
+            "Slot": 2,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 2332,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 0,
+            "Slot": 1,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 2692,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 0,
+            "Slot": 2,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 2942,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 0,
+            "Slot": 1,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        },
+        {
+          "Tick": 3331,
+          "Kind": "Command",
+          "ActorSlot": 0,
+          "Command": {
+            "Kind": 0,
+            "Slot": 2,
+            "Timing": 0,
+            "Value": 0,
+            "Source": 0,
+            "RequiredEnemySlot": 0,
+            "RequiredEnemyGeneration": 0
+          }
+        }
+      ]
+    }
+  ],
+  "N1Queue": {
+    "Tape": "battle-f8823184c2da44d2b2f208c9ce087ce3.original-replay.json",
+    "Tick": 206,
+    "RecordedInputOrder": [
+      {
+        "Tick": 206,
+        "Kind": "Command",
+        "ActorSlot": 0,
+        "Command": {
+          "Kind": 6,
+          "Slot": 0,
+          "Timing": 0,
+          "Value": 0,
+          "Source": 0,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        }
+      },
+      {
+        "Tick": 206,
+        "Kind": "QueueTap",
+        "ActorSlot": 1,
+        "Command": {
+          "Kind": 0,
+          "Slot": 0,
+          "Timing": 0,
+          "Value": 0,
+          "Source": 0,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        }
+      },
+      {
+        "Tick": 206,
+        "Kind": "QueueTap",
+        "ActorSlot": 0,
+        "Command": {
+          "Kind": 0,
+          "Slot": 0,
+          "Timing": 0,
+          "Value": 0,
+          "Source": 0,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        }
+      },
+      {
+        "Tick": 206,
+        "Kind": "QueueTap",
+        "ActorSlot": 0,
+        "Command": {
+          "Kind": 0,
+          "Slot": 0,
+          "Timing": 0,
+          "Value": 0,
+          "Source": 0,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        }
+      },
+      {
+        "Tick": 206,
+        "Kind": "QueueTap",
+        "ActorSlot": 4,
+        "Command": {
+          "Kind": 0,
+          "Slot": 0,
+          "Timing": 0,
+          "Value": 0,
+          "Source": 0,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        }
+      },
+      {
+        "Tick": 206,
+        "Kind": "ClearActor",
+        "ActorSlot": 0,
+        "Command": {
+          "Kind": 0,
+          "Slot": 0,
+          "Timing": 0,
+          "Value": 0,
+          "Source": 0,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        }
+      },
+      {
+        "Tick": 206,
+        "Kind": "QueueTap",
+        "ActorSlot": 0,
+        "Command": {
+          "Kind": 0,
+          "Slot": 0,
+          "Timing": 0,
+          "Value": 0,
+          "Source": 0,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        }
+      },
+      {
+        "Tick": 206,
+        "Kind": "QueueTap",
+        "ActorSlot": 3,
+        "Command": {
+          "Kind": 0,
+          "Slot": 0,
+          "Timing": 0,
+          "Value": 0,
+          "Source": 0,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        }
+      },
+      {
+        "Tick": 206,
+        "Kind": "Command",
+        "ActorSlot": 0,
+        "Command": {
+          "Kind": 7,
+          "Slot": 0,
+          "Timing": 0,
+          "Value": 0,
+          "Source": 0,
+          "RequiredEnemySlot": 0,
+          "RequiredEnemyGeneration": 0
+        }
+      }
+    ],
+    "ExpectedExecutedSlots": [
+      1,
+      4,
+      0,
+      3
+    ],
+    "ActualExecutedSlots": [
+      1,
+      4,
+      0,
+      3
+    ],
+    "ExactOrderMatches": true,
+    "Explanation": "Queue guard(1), point(0), overwrite point(0), guide(4), ClearActor point(0), re-add point(0), blade(3), Resume; exactly guard/guide/point/blade executed once each at tick 206. Both original UI inputs and resulting commands are covered by strict replay MATCH."
+  },
+  "Scope": "Settlements are per battle. RelicTriggerSerials are last global serial values, not trigger counts; counts come from distinct resolution roots. A02 changes native shield production rather than generating a separate relic-damage resolution."
+}

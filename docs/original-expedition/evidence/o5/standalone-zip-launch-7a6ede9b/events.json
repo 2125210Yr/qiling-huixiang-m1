@@ -1,0 +1,23 @@
+[
+  {
+    "at": "2026-09-21T07:40:15.249Z",
+    "action": "click",
+    "x": 734,
+    "y": 15,
+    "label": "ordinary-close-candidate-before-extracted-launch"
+  },
+  {
+    "at": "2026-09-21T07:40:36.882Z",
+    "action": "launch_app",
+    "exe": "F:/Resonance/OriginalExpeditionReviewRuns/candidate-7a6ede9b-20260921/Player/OriginalExpedition.exe",
+    "arguments": [],
+    "label": "extracted-zip-no-arguments"
+  },
+  {
+    "at": "2026-09-21T07:41:13.347Z",
+    "action": "click",
+    "x": 365,
+    "y": 1195,
+    "label": "extracted-zip-open-C01-detail"
+  }
+]

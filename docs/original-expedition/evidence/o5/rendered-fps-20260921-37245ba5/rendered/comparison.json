@@ -1,0 +1,14 @@
+{
+    "result": "PASS",
+    "scope": "O-023 rendered-frame-rate subcase",
+    "lowMeasuredFps": 29.9938212728178,
+    "highMeasuredFps": 116.82379467049849,
+    "commonTicks": 808,
+    "commonCastingTicks": 230,
+    "inputHash": "d5e056caa2c082d6648354594da253477cd86b3ea8f6cd5cc04543fa3e689bf0",
+    "commandHash": "69efea71e01336870e6fda5590424058408a97045d230bff0c37499a321d4b4b",
+    "eventHash": "c040946d9899bb1e0f5a147c657df6437a822fd0b4087428b403e1e92f22c6fd",
+    "damageHash": "4c480ba84b0bd54ac23c409f9da825d2d22f959b328180754c28f6aff247d286",
+    "resolutionHash": "3ef339287b70fee30c71465addf4ed24227629cc9d4ba3b9d02eb5e722d64d5e",
+    "finalStateHash": "5e473d203639e2464a5f9af49d03b0caef4f299fc73974936f01c2a0722482c3"
+}

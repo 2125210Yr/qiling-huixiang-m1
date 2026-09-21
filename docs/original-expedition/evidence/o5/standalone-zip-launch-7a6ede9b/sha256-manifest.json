@@ -1,0 +1,47 @@
+[
+  {
+    "path": ".gitattributes",
+    "bytes": 8,
+    "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+  },
+  {
+    "path": "000-before-close-C-N6.jpg",
+    "bytes": 118811,
+    "sha256": "6289e313f5d8a7c286035dacfc80da7b8deff8e5c524152518890c3dc8782bc8"
+  },
+  {
+    "path": "002-extracted-zip-restores-C-N6.jpg",
+    "bytes": 118507,
+    "sha256": "97ecd5523135675875ec1d1773cfe399004e2949d826051e6fee15215614bcb9"
+  },
+  {
+    "path": "003-extracted-zip-detail-interaction.jpg",
+    "bytes": 127410,
+    "sha256": "3db03db0cb1155a6b2102088945e63dfff29a2b1f2f52c259ffa30c24c3f4979"
+  },
+  {
+    "path": "events.json",
+    "bytes": 559,
+    "sha256": "9cb82b3eba76347d43bf536f721e7b920419cd1984c20e4d8af0875e0b291d38"
+  },
+  {
+    "path": "extraction-verification.json",
+    "bytes": 591,
+    "sha256": "9a23a5d95b91904881d7bb06d225b8f59f3d887592490237332d4a1c628e30aa"
+  },
+  {
+    "path": "launch-verification.json",
+    "bytes": 688,
+    "sha256": "01b4cbd3f5b8e691e28d7df1374d00091789c87d64b3ed09fad5600b6e3e0678"
+  },
+  {
+    "path": "profile-hash-before.json",
+    "bytes": 247,
+    "sha256": "123764f8948cb9592967e7e896df1eda0b64b6f70a60a3ee09685ef05cdbb4eb"
+  },
+  {
+    "path": "README.md",
+    "bytes": 2112,
+    "sha256": "c69967e068f8d34d5b6692678ced3dc9989869726d83f25704793cfec3146473"
+  }
+]

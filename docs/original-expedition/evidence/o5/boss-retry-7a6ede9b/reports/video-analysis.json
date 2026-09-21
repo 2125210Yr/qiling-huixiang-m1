@@ -1,0 +1,196 @@
+{
+  "Scope": "Independent full decoding, frame extraction and personal visual inspection. Two separate captures, not one continuous capture across process exit. All offsets are media offsets, not inferred UTC timestamps.",
+  "CaptureFpsIsNotRenderFps": true,
+  "Backend": "FFmpeg gfxcapture / Windows.Graphics.Capture",
+  "VisualConclusion": "Both clips visibly change across battle states and UI transitions; neither is a frozen-frame recording. Identical frames during a paused battle or a stationary results page are expected and do not erase observed transitions.",
+  "Limits": "This is the boss defeat/reopen/retry/victory segment only; earlier four battles are not included. Sampling does not prove every individual captured frame changes. No claim of 30/120 actual rendering cadence.",
+  "Videos": [
+    {
+      "LocalOriginal": "F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\boss-natural-defeat-before-reopen.mp4",
+      "Sha256": "3dc1b57837c2a5ac2de063237c60d0446b85d746971ed6218d4626deae13dd3f",
+      "Bytes": 1015426,
+      "CreationTimeUtc": "2026-09-21T06:48:45.6654727Z",
+      "LastWriteTimeUtc": "2026-09-21T06:50:38.4323559Z",
+      "Probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 756,
+            "height": 1344,
+            "r_frame_rate": "15/1",
+            "avg_frame_rate": "15/1",
+            "duration": "112.066667",
+            "nb_frames": "1681"
+          }
+        ],
+        "format": {
+          "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+          "start_time": "0.000000",
+          "duration": "112.066667"
+        }
+      },
+      "FullDecodeCommand": "ffmpeg -hide_banner -v error -i 'F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\boss-natural-defeat-before-reopen.mp4' -f null -",
+      "FullDecodeObservedExitCode": 0,
+      "DecodeEvidence": "The independent evidence agent executed full decode of both complete files on 2026-09-21; no decoder errors. This report records that completed check and does not rerun it.",
+      "RecorderSession": 72598,
+      "RecorderTermination": "Window closed; recorder EOF, parent observed exit 0",
+      "Frames": [
+        {
+          "RelativeFile": "video-frames/defeat-005s.png",
+          "MediaOffsetSeconds": 5,
+          "Extraction": "ffmpeg -hide_banner -v error -ss 5 -i 'F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\boss-natural-defeat-before-reopen.mp4' -frames:v 1 -n <relative-file>",
+          "PersonallyInspectedWithViewImage": true,
+          "Observation": "重试页；显示 B01–B04 和全员冻结开局生命。"
+        },
+        {
+          "RelativeFile": "video-frames/defeat-026s.png",
+          "MediaOffsetSeconds": 26,
+          "Extraction": "ffmpeg -hide_banner -v error -ss 26 -i 'F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\boss-natural-defeat-before-reopen.mp4' -frames:v 1 -n <relative-file>",
+          "PersonallyInspectedWithViewImage": true,
+          "Observation": "战斗已推进；阶段1，两面具存活，群攻2.0倍，正在蓄势、2.2秒后结算；主动次数0。"
+        },
+        {
+          "RelativeFile": "video-frames/defeat-030s.png",
+          "MediaOffsetSeconds": 30,
+          "Extraction": "ffmpeg -hide_banner -v error -ss 30 -i 'F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\boss-natural-defeat-before-reopen.mp4' -frames:v 1 -n <relative-file>",
+          "PersonallyInspectedWithViewImage": true,
+          "Observation": "群攻后仍在战斗；首领41114生命，面具3159/2842，队员生命下降，主动次数0。"
+        },
+        {
+          "RelativeFile": "video-frames/defeat-060s.png",
+          "MediaOffsetSeconds": 60,
+          "Extraction": "ffmpeg -hide_banner -v error -ss 60 -i 'F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\boss-natural-defeat-before-reopen.mp4' -frames:v 1 -n <relative-file>",
+          "PersonallyInspectedWithViewImage": true,
+          "Observation": "阶段1，两面具已倒，群攻1.0倍；首领30522生命，队员低生命；主动次数0。"
+        },
+        {
+          "RelativeFile": "video-frames/defeat-090s.png",
+          "MediaOffsetSeconds": 90,
+          "Extraction": "ffmpeg -hide_banner -v error -ss 90 -i 'F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\boss-natural-defeat-before-reopen.mp4' -frames:v 1 -n <relative-file>",
+          "PersonallyInspectedWithViewImage": true,
+          "Observation": "自然败北后返回挑战未完成/原样重试页。"
+        },
+        {
+          "RelativeFile": "video-frames/defeat-110s.png",
+          "MediaOffsetSeconds": 110,
+          "Extraction": "ffmpeg -hide_banner -v error -ss 110 -i 'F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\boss-natural-defeat-before-reopen.mp4' -frames:v 1 -n <relative-file>",
+          "PersonallyInspectedWithViewImage": true,
+          "Observation": "关闭前仍在败北重试页；与90秒帧相同属于静止结果页。"
+        }
+      ]
+    },
+    {
+      "LocalOriginal": "F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\boss-retry-after-reopen.mp4",
+      "Sha256": "6ef5fe03726e4dfa5892d943b7053998386b241240b423fd553cbd915e10ab4d",
+      "Bytes": 3961001,
+      "CreationTimeUtc": "2026-09-21T06:51:25.1219297Z",
+      "LastWriteTimeUtc": "2026-09-21T06:59:11.4705222Z",
+      "Probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 756,
+            "height": 1344,
+            "r_frame_rate": "15/1",
+            "avg_frame_rate": "15/1",
+            "duration": "466.000000",
+            "nb_frames": "6990"
+          }
+        ],
+        "format": {
+          "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+          "start_time": "0.000000",
+          "duration": "466.000000"
+        }
+      },
+      "FullDecodeCommand": "ffmpeg -hide_banner -v error -i 'F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\boss-retry-after-reopen.mp4' -f null -",
+      "FullDecodeObservedExitCode": 0,
+      "DecodeEvidence": "The independent evidence agent executed full decode of both complete files on 2026-09-21; no decoder errors. This report records that completed check and does not rerun it.",
+      "RecorderSession": 52306,
+      "RecorderTermination": "Recorder stdin q; parent observed exit 0",
+      "Frames": [
+        {
+          "RelativeFile": "video-frames/retry-005s.png",
+          "MediaOffsetSeconds": 5,
+          "Extraction": "ffmpeg -hide_banner -v error -ss 5 -i 'F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\boss-retry-after-reopen.mp4' -frames:v 1 -n <relative-file>",
+          "PersonallyInspectedWithViewImage": true,
+          "Observation": "普通重开后原样重试页；五人满生命，遗物沿用。"
+        },
+        {
+          "RelativeFile": "video-frames/retry-045s.png",
+          "MediaOffsetSeconds": 45,
+          "Extraction": "ffmpeg -hide_banner -v error -ss 45 -i 'F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\boss-retry-after-reopen.mp4' -frames:v 1 -n <relative-file>",
+          "PersonallyInspectedWithViewImage": true,
+          "Observation": "阶段1战术暂停；面具为集火目标，引灯已加入队列。"
+        },
+        {
+          "RelativeFile": "video-frames/retry-090s.png",
+          "MediaOffsetSeconds": 90,
+          "Extraction": "ffmpeg -hide_banner -v error -ss 90 -i 'F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\boss-retry-after-reopen.mp4' -frames:v 1 -n <relative-file>",
+          "PersonallyInspectedWithViewImage": true,
+          "Observation": "阶段1战术暂停；两面具已倒、1.0倍群攻正在蓄势2.9秒；首轮四个主动均已执行。"
+        },
+        {
+          "RelativeFile": "video-frames/retry-180s.png",
+          "MediaOffsetSeconds": 180,
+          "Extraction": "ffmpeg -hide_banner -v error -ss 180 -i 'F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\boss-retry-after-reopen.mp4' -frames:v 1 -n <relative-file>",
+          "PersonallyInspectedWithViewImage": true,
+          "Observation": "阶段1，首领22579生命，累计11个主动；有效治疗9157、护盾吸收5078。"
+        },
+        {
+          "RelativeFile": "video-frames/retry-245s.png",
+          "MediaOffsetSeconds": 245,
+          "Extraction": "ffmpeg -hide_banner -v error -ss 245 -i 'F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\boss-retry-after-reopen.mp4' -frames:v 1 -n <relative-file>",
+          "PersonallyInspectedWithViewImage": true,
+          "Observation": "阶段2，两面具复建；首领16387生命，两面具3571/3571，主动16次。"
+        },
+        {
+          "RelativeFile": "video-frames/retry-330s.png",
+          "MediaOffsetSeconds": 330,
+          "Extraction": "ffmpeg -hide_banner -v error -ss 330 -i 'F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\boss-retry-after-reopen.mp4' -frames:v 1 -n <relative-file>",
+          "PersonallyInspectedWithViewImage": true,
+          "Observation": "阶段2，两面具再次倒下；首领9623生命，护盾数值可见，主动21次。"
+        },
+        {
+          "RelativeFile": "video-frames/retry-410s.png",
+          "MediaOffsetSeconds": 410,
+          "Extraction": "ffmpeg -hide_banner -v error -ss 410 -i 'F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\boss-retry-after-reopen.mp4' -frames:v 1 -n <relative-file>",
+          "PersonallyInspectedWithViewImage": true,
+          "Observation": "恢复战斗后首领仅269生命；主动26次，治疗20410、护盾吸收21590。"
+        },
+        {
+          "RelativeFile": "video-frames/retry-425s.png",
+          "MediaOffsetSeconds": 425,
+          "Extraction": "ffmpeg -hide_banner -v error -ss 425 -i 'F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\boss-retry-after-reopen.mp4' -frames:v 1 -n <relative-file>",
+          "PersonallyInspectedWithViewImage": true,
+          "Observation": "终幕落下胜利页；有效敌伤73000、遗物追加25139、完成5场、首通解锁横扫。"
+        },
+        {
+          "RelativeFile": "video-frames/retry-442s.png",
+          "MediaOffsetSeconds": 442,
+          "Extraction": "ffmpeg -hide_banner -v error -ss 442 -i 'F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\boss-retry-after-reopen.mp4' -frames:v 1 -n <relative-file>",
+          "PersonallyInspectedWithViewImage": true,
+          "Observation": "返回据点；横扫配置可选择，发现6/12，临时构筑不会带入下一趟。"
+        },
+        {
+          "RelativeFile": "video-frames/retry-450s.png",
+          "MediaOffsetSeconds": 450,
+          "Extraction": "ffmpeg -hide_banner -v error -ss 450 -i 'F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\boss-retry-after-reopen.mp4' -frames:v 1 -n <relative-file>",
+          "PersonallyInspectedWithViewImage": true,
+          "Observation": "据点打开上趟回顾；相同末战结算数字与首通摘要保留。"
+        },
+        {
+          "RelativeFile": "video-frames/retry-462s.png",
+          "MediaOffsetSeconds": 462,
+          "Extraction": "ffmpeg -hide_banner -v error -ss 462 -i 'F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\boss-retry-after-reopen.mp4' -frames:v 1 -n <relative-file>",
+          "PersonallyInspectedWithViewImage": true,
+          "Observation": "从上趟回顾返回据点。"
+        }
+      ]
+    }
+  ]
+}

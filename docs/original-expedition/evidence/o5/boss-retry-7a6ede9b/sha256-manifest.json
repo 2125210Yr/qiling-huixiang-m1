@@ -1,0 +1,253 @@
+{
+  "schemaVersion": 1,
+  "createdUtc": "2026-09-21T07:13:53.5251675Z",
+  "algorithm": "SHA-256",
+  "scope": "All archived files except this manifest itself; local-only media and full personal profile snapshots listed separately without copying",
+  "archivedFiles": [
+    {
+      "path": ".gitattributes",
+      "bytes": 8,
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "path": "events.json",
+      "bytes": 7853,
+      "sha256": "e91149b4ed7002abbf464e4f577b319585525066d81b6b4bddc0b03c049f1338"
+    },
+    {
+      "path": "preflight/preflight-02-end.png",
+      "bytes": 273807,
+      "sha256": "aab4d348b5cf856334a60523dade84b8f27fd6ffc24b398d26ea52db2dcb1858"
+    },
+    {
+      "path": "preflight/preflight-02-start.png",
+      "bytes": 322507,
+      "sha256": "ad74c0c11288cc8ad2168896df80c705602e5e1802d23c8a8a46e078ee121e6c"
+    },
+    {
+      "path": "preflight/recording-preflight-result.json",
+      "bytes": 1604,
+      "sha256": "319be85f6c370304ddce2b9b5cf7686dc4bd62cb3bb15b7d22f494c581efc36a"
+    },
+    {
+      "path": "README.md",
+      "bytes": 10207,
+      "sha256": "03d334851364c9c34d55601229b38b0d8a5d2cdae730a308259eba1028c27aed"
+    },
+    {
+      "path": "replays/battle-0aed9659585c4708995d6c591a206753.original-replay.json",
+      "bytes": 235977,
+      "sha256": "bb81448629333c5734ce2f20b3ae760bca010fb1fda14187b6424b89a2a04849"
+    },
+    {
+      "path": "replays/battle-5481ae3998634dd98a63671583599c11.original-replay.json",
+      "bytes": 396757,
+      "sha256": "a343fd11f50a964cb185bdbe9ce1efb6e8829838a7709de06bbd079c427d0f25"
+    },
+    {
+      "path": "reports/0aed9659585c4708995d6c591a206753.verify.json",
+      "bytes": 1206,
+      "sha256": "73471a529eff44a2ff0ef44eae0dbefc08e90fc76c1b1920ed4d51520dd3b6a6"
+    },
+    {
+      "path": "reports/5481ae3998634dd98a63671583599c11.verify.json",
+      "bytes": 1207,
+      "sha256": "8f760efea97ecaa5359b65312ce8ac93869a990d789fbfa4f7861cc39360b7ed"
+    },
+    {
+      "path": "reports/battle-settlement-analysis.json",
+      "bytes": 25610,
+      "sha256": "2f1f050f7660803ad2ba590f4e043aa73a87ad40be2da77cb57619d1ccfdd3c8"
+    },
+    {
+      "path": "reports/build-analysis.ps1",
+      "bytes": 10278,
+      "sha256": "ad5da27bf5c925fc4babda480b66a2c28b66ff1003485ae339d8dd3b9f685a37"
+    },
+    {
+      "path": "reports/build-video-analysis.ps1",
+      "bytes": 5019,
+      "sha256": "4e5295e24573987b62b1bc5f74e3dca66e04b6c2fa2e9d60d101781ad8ffb671"
+    },
+    {
+      "path": "reports/checkpoint-profile-comparison.json",
+      "bytes": 10716,
+      "sha256": "9021a8d66e5abfed96a195e5825a06a3ac49c8f572c35001a6102ec92d795d7b"
+    },
+    {
+      "path": "reports/legacy-before.json",
+      "bytes": 373,
+      "sha256": "c4bee405e7f79efaabad83cbbf043d24115eb3cb545101a6eb043efcd450bf71"
+    },
+    {
+      "path": "reports/video-analysis.json",
+      "bytes": 12229,
+      "sha256": "c453d17c006bf1abe6f7383edda279dff6657be26b0530c1b7ca134b14750f07"
+    },
+    {
+      "path": "screens/003-recorded-natural-defeat.jpg",
+      "bytes": 114562,
+      "sha256": "738e1defd6037efeb5c0162093361cf22033532a3e748888c8767107f0d7c0bf"
+    },
+    {
+      "path": "screens/005-reopened-same-boss-retry.jpg",
+      "bytes": 114631,
+      "sha256": "5b177c1ff6fa5ccd7fbd529600b7cd607900261eeee688018b8ed6931b9d3802"
+    },
+    {
+      "path": "screens/033-boss-phase-two.jpg",
+      "bytes": 124319,
+      "sha256": "66543a385a668025f99b01b32bf7f3c80f78c7a96773afce8445e1d5e62280de"
+    },
+    {
+      "path": "screens/052-boss-retry-victory.jpg",
+      "bytes": 71176,
+      "sha256": "0755f224da6cdc1524edc3b79e6d323110751a9030f564e3bc6e818299cb5d67"
+    },
+    {
+      "path": "screens/053-victory-hub-unlock.jpg",
+      "bytes": 121168,
+      "sha256": "95d44acb697913806f2d98a78ed6695e6001ae7dc49846896ed8a17eb2137bd7"
+    },
+    {
+      "path": "screens/054-last-run-summary-retained.jpg",
+      "bytes": 70985,
+      "sha256": "6e6a34c32485344f35bde89f7e4f011d11bae322f6ead33829271a2d7cc3ca81"
+    },
+    {
+      "path": "video-frames/defeat-005s.png",
+      "bytes": 276205,
+      "sha256": "0cec1b6807607abad7a51cefa27b1e51f497987aec98b7ec1c47f58bc0ff731b"
+    },
+    {
+      "path": "video-frames/defeat-026s.png",
+      "bytes": 349646,
+      "sha256": "7d7e40aae7eb742309923cc272812e992b3734b11ae86353f95d6a5efe5fa755"
+    },
+    {
+      "path": "video-frames/defeat-030s.png",
+      "bytes": 354208,
+      "sha256": "b987581d7aea7a37ec7918ce7fcdbce9fea4bf9ebe8d0d7f801b5912112aab51"
+    },
+    {
+      "path": "video-frames/defeat-060s.png",
+      "bytes": 334773,
+      "sha256": "586aef710fe4623bf2404932ada4c88cd30fd4f8c85c653d426a247b8b856d73"
+    },
+    {
+      "path": "video-frames/defeat-090s.png",
+      "bytes": 283199,
+      "sha256": "710a733aacee992f2fbaeb70db87a3e913b67cadca39abca7310d3bad0dd6f11"
+    },
+    {
+      "path": "video-frames/defeat-110s.png",
+      "bytes": 283199,
+      "sha256": "710a733aacee992f2fbaeb70db87a3e913b67cadca39abca7310d3bad0dd6f11"
+    },
+    {
+      "path": "video-frames/retry-005s.png",
+      "bytes": 285680,
+      "sha256": "5469f64931c2ca61089f71b5e87b3e617446b0605ed0653b4471eb5ffdbaaa1b"
+    },
+    {
+      "path": "video-frames/retry-045s.png",
+      "bytes": 347756,
+      "sha256": "054af7f07f2b21c7761c8bf654f91483b4e13ad14aa81a62376f335780a2e417"
+    },
+    {
+      "path": "video-frames/retry-090s.png",
+      "bytes": 335780,
+      "sha256": "8b134a7d78181561495a53caf20faa6d063d113609675cb82875ff0c8720f09c"
+    },
+    {
+      "path": "video-frames/retry-180s.png",
+      "bytes": 348017,
+      "sha256": "269c015d5d1ac78fc88347878f9358851c8b326247df77f99a8392acc697679e"
+    },
+    {
+      "path": "video-frames/retry-245s.png",
+      "bytes": 367985,
+      "sha256": "1c966f121f5c51ebbf6f14dd90d2a21eb1dd7c2e115c32efa40b3ff22c2fdf5b"
+    },
+    {
+      "path": "video-frames/retry-330s.png",
+      "bytes": 340522,
+      "sha256": "8adc262c54300850987eff351814625b673b83bb1142ef3e11f171091446cc76"
+    },
+    {
+      "path": "video-frames/retry-410s.png",
+      "bytes": 332153,
+      "sha256": "c76928dee93bdc8ba0dffa033562b4fce99869901f4dd1104e96f4ddaf1492af"
+    },
+    {
+      "path": "video-frames/retry-425s.png",
+      "bytes": 164621,
+      "sha256": "b66fe4bd7cad62200f61522685a1c5bf47260fde312e9cb4ae99436f29ea6cd9"
+    },
+    {
+      "path": "video-frames/retry-442s.png",
+      "bytes": 300809,
+      "sha256": "7ed420c3ba1e49e8dcc4b58007d46581696602c1cc7b20a41b772eea0d8cfb83"
+    },
+    {
+      "path": "video-frames/retry-450s.png",
+      "bytes": 165132,
+      "sha256": "aae179ba602268a2bd8b7a3b3363e94b33d2082b8919ce178663ae2e2a818a59"
+    },
+    {
+      "path": "video-frames/retry-462s.png",
+      "bytes": 300854,
+      "sha256": "2d4209842c9a3651a1f6fb2f2163448acb704cb7850a2cf0618e0770c3926a6e"
+    }
+  ],
+  "localOnlyOriginals": [
+    {
+      "localPath": "F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\boss-natural-defeat-before-reopen.mp4",
+      "bytes": 1015426,
+      "sha256": "3dc1b57837c2a5ac2de063237c60d0446b85d746971ed6218d4626deae13dd3f",
+      "includedInGitEvidence": false
+    },
+    {
+      "localPath": "F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\boss-retry-after-reopen.mp4",
+      "bytes": 3961001,
+      "sha256": "6ef5fe03726e4dfa5892d943b7053998386b241240b423fd553cbd915e10ab4d",
+      "includedInGitEvidence": false
+    },
+    {
+      "localPath": "F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\gfxcapture-preflight.mp4",
+      "bytes": 143468,
+      "sha256": "004911795e32112ad726dbf32ff8e15d99f9a17f6f761f898729bf43cb51b15d",
+      "includedInGitEvidence": false
+    },
+    {
+      "localPath": "F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\gfxcapture-preflight-02.mp4",
+      "bytes": 184382,
+      "sha256": "3df49bad5469d763e06c8725bc43e2412bd233aaf95dbf43c2b67e0284ddf778",
+      "includedInGitEvidence": false
+    },
+    {
+      "localPath": "F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\checkpoint-before-close.json",
+      "bytes": 38177,
+      "sha256": "29d221f71f58cbc12a9575b0eb087b03775f8e0ca2ed2ed7f2842e8ac13a386f",
+      "includedInGitEvidence": false
+    },
+    {
+      "localPath": "F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\checkpoint-after-reopen.json",
+      "bytes": 38177,
+      "sha256": "29d221f71f58cbc12a9575b0eb087b03775f8e0ca2ed2ed7f2842e8ac13a386f",
+      "includedInGitEvidence": false
+    },
+    {
+      "localPath": "F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\profile-after-victory.json",
+      "bytes": 1015,
+      "sha256": "05cd4b68967181bc852cd3d5cde85e8765a86d70399d8d23d96cb151bab3cc19",
+      "includedInGitEvidence": false
+    },
+    {
+      "localPath": "F:\\天命之子\\dist\\original-expedition-v01\\resume-7a6ede9b-20260921-144630\\profile-at-hub-after-victory.json",
+      "bytes": 1015,
+      "sha256": "05cd4b68967181bc852cd3d5cde85e8765a86d70399d8d23d96cb151bab3cc19",
+      "includedInGitEvidence": false
+    }
+  ]
+}

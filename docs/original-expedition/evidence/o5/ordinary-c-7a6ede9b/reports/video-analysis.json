@@ -1,0 +1,155 @@
+{
+  "LocalOriginal": "F:/天命之子/dist/original-expedition-v01/ordinary-c-7a6ede9b-20260921-1526/ordinary-c-acquisition.mp4",
+  "Bytes": 4087404,
+  "Sha256": "f1d95044a9a0e773288b0b7d414abb95304766eef42a3c57e41fa6ce9c720e1c",
+  "Probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 756,
+        "height": 1344,
+        "r_frame_rate": "15/1",
+        "avg_frame_rate": "15/1",
+        "duration": "545.466667",
+        "nb_frames": "8182"
+      }
+    ],
+    "format": {
+      "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "start_time": "0.000000",
+      "duration": "545.466667"
+    }
+  },
+  "FullDecodeCommand": "ffmpeg -hide_banner -v error -i 'F:/天命之子/dist/original-expedition-v01/ordinary-c-7a6ede9b-20260921-1526/ordinary-c-acquisition.mp4' -f null -",
+  "FullDecodeObservedExitCode": 0,
+  "FullDecodeEvidence": "Independent evidence agent decoded the complete 545.466667-second file without errors on 2026-09-21 before constructing this report.",
+  "RecorderTermination": "Actual operator reported stdin q and exit 0; this agent independently checked the finalized artifact.",
+  "Method": "17 frames extracted by ffmpeg -ss <seconds> -i <video> -frames:v 1 -n <PNG>; every listed PNG personally inspected through view_image. Media offsets are extraction positions, not filesystem timestamps.",
+  "VisualConclusion": "Visible progression through N1, N2, N4, N5 and N6. N5 forte changes from absent to stored, remains stored during the later pause, then is consumed by a native targeted damage skill. This is changing footage, not the earlier frozen GDI recording.",
+  "SplitRecording": "C selection at the original hub and C N1 entry appear in the final segment of ../ordinary-full-a-7a6ede9b. This file continues from N1 paused; there is no claim of one uninterrupted C N0-to-N6 recording.",
+  "CaptureFpsIsNotRenderFps": true,
+  "Frames": [
+    {
+      "MediaOffsetSeconds": 5,
+      "RelativeFile": "video-frames/c-005s.png",
+      "PersonallyViewed": true,
+      "Observation": "N1暂停，承接A片末段；仅C01，主动0。此时生命已受本场影响。"
+    },
+    {
+      "MediaOffsetSeconds": 43,
+      "RelativeFile": "video-frames/c-043s.png",
+      "PersonallyViewed": true,
+      "Observation": "N1三名辅助已施法，C01亮，主动3，治疗2040；充能发生接力。"
+    },
+    {
+      "MediaOffsetSeconds": 89,
+      "RelativeFile": "video-frames/c-089s.png",
+      "PersonallyViewed": true,
+      "Observation": "N1胜利后双向分岔选择。"
+    },
+    {
+      "MediaOffsetSeconds": 134,
+      "RelativeFile": "video-frames/c-134s.png",
+      "PersonallyViewed": true,
+      "Observation": "N2战斗，持有C01/C02但未亮；两次主动。本场回放触发序号均0。"
+    },
+    {
+      "MediaOffsetSeconds": 162,
+      "RelativeFile": "video-frames/c-162s.png",
+      "PersonallyViewed": true,
+      "Observation": "N2奖励选择，C03可选，展开B01详情；不是C02接力触发。"
+    },
+    {
+      "MediaOffsetSeconds": 193,
+      "RelativeFile": "video-frames/c-193s.png",
+      "PersonallyViewed": true,
+      "Observation": "N4开场，C01/C02/C03已持有，和声0/3。"
+    },
+    {
+      "MediaOffsetSeconds": 248,
+      "RelativeFile": "video-frames/c-248s.png",
+      "PersonallyViewed": true,
+      "Observation": "N4三名辅助后C01/C02/C03同时亮，和声归0/3，主动3。"
+    },
+    {
+      "MediaOffsetSeconds": 337,
+      "RelativeFile": "video-frames/c-337s.png",
+      "PersonallyViewed": true,
+      "Observation": "N4奖励可选C04，详情说明下一次主动伤害技能增加120%同通道伤害。"
+    },
+    {
+      "MediaOffsetSeconds": 359,
+      "RelativeFile": "video-frames/c-359s.png",
+      "PersonallyViewed": true,
+      "Observation": "N5开场，完整C01-C04，强奏未储存。"
+    },
+    {
+      "MediaOffsetSeconds": 420,
+      "RelativeFile": "video-frames/c-420s.png",
+      "PersonallyViewed": true,
+      "Observation": "N5暂停，砚盾/聆泉/引灯排队，强奏未储存，主动0。"
+    },
+    {
+      "MediaOffsetSeconds": 438,
+      "RelativeFile": "video-frames/c-438s.png",
+      "PersonallyViewed": true,
+      "Observation": "N5三辅助执行后C01/C02/C03亮，强奏已储存，主动3。"
+    },
+    {
+      "MediaOffsetSeconds": 452,
+      "RelativeFile": "video-frames/c-452s.png",
+      "PersonallyViewed": true,
+      "Observation": "N5再次暂停，强奏仍储存；第四敌人4036，累计敌伤10116。"
+    },
+    {
+      "MediaOffsetSeconds": 488,
+      "RelativeFile": "video-frames/c-488s.png",
+      "PersonallyViewed": true,
+      "Observation": "同一N5暂停状态，已聚焦第四敌人；强奏仍储存。"
+    },
+    {
+      "MediaOffsetSeconds": 490,
+      "RelativeFile": "video-frames/c-490s.png",
+      "PersonallyViewed": true,
+      "Observation": "同一N5暂停状态，点杀排队，强奏仍储存；尚未消耗。"
+    },
+    {
+      "MediaOffsetSeconds": 493,
+      "RelativeFile": "video-frames/c-493s.png",
+      "PersonallyViewed": true,
+      "Observation": "N5点杀执行，C04亮，强奏未储存，第四敌人1462，累计敌伤12690，主动4。"
+    },
+    {
+      "MediaOffsetSeconds": 518,
+      "RelativeFile": "video-frames/c-518s.png",
+      "PersonallyViewed": true,
+      "Observation": "N5已胜利，进入N6首领门前整备，五人恢复满生命。"
+    },
+    {
+      "MediaOffsetSeconds": 543,
+      "RelativeFile": "video-frames/c-543s.png",
+      "PersonallyViewed": true,
+      "Observation": "仍在N6首领门前；C远征尚未完成，未进入首领战。"
+    }
+  ],
+  "ScreenshotLabelCorrections": [
+    {
+      "File": "screens/010-C02-upgraded-relay.jpg",
+      "Actual": "N2 with C02 held",
+      "Limitation": "N2 tape has zero C01/C02 trigger serials. Possession and an intended label cannot establish actual relay."
+    },
+    {
+      "File": "screens/011-C02-guide-relay-flash.jpg",
+      "Actual": "N2 reward screen with B01 details",
+      "Limitation": "An attempted guide click landed after battle end; this is not a relay activation picture."
+    },
+    {
+      "File": "screens/037-C-N5-victory-boss-door-restored.jpg",
+      "Actual": "N6 boss preparation with full HP",
+      "Limitation": "Event 37 intended guard click occurred after N5 ended; it is not an additional active skill execution or boss victory."
+    }
+  ],
+  "Limits": "15 fps is capture cadence, not measured Unity rendering fps. C has four victories and is still active at N6. No claim of a complete C boss clear or continuous capture across the split between A and C files."
+}

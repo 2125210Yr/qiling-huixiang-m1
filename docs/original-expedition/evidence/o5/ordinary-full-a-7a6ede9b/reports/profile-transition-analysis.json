@@ -1,0 +1,231 @@
+{
+  "Method": "Read-only typed deserialization, structural Validate, original DataContractJsonSerializer integrity hash with genuine null set through reflection. Only selected fields and hashes are exported; full personal profiles remain local.",
+  "Profiles": [
+    {
+      "File": "profile-new-a-run.json",
+      "Sha256": "d72e1d4c93721b27e65fa21e38bc6155ed401a956ad99a8fa018eda19bc7edc1",
+      "Bytes": 1573,
+      "StructuralValidation": "PASS",
+      "IntegrityMatches": true,
+      "StoredIntegritySha256": "8da9aeb7430aa40b7bd972ed56bd13eebe636e1868f132332cba5a4eb4aad19c",
+      "RecomputedIntegritySha256": "8da9aeb7430aa40b7bd972ed56bd13eebe636e1868f132332cba5a4eb4aad19c",
+      "Revision": 36,
+      "ActiveRunIsNull": false,
+      "ContentVersion": "original-expedition-content-v0.1.1",
+      "ActiveRun": {
+        "RunId": "439afa6220f34ece9f8d1c6762bcfae2",
+        "RunSeed": 13486312,
+        "Status": "Ready",
+        "CurrentNode": "N1",
+        "BattleOrdinal": 0,
+        "InitialCoreId": "A01",
+        "OwnedRelicIds": [
+          "A01"
+        ],
+        "PartyHp": [
+          5200,
+          6800,
+          5600,
+          5000,
+          5400
+        ],
+        "CurrentCheckpointIsNull": true,
+        "BossCheckpointIsNull": true,
+        "SettledBattleIds": [],
+        "SelectedChoices": [
+          "N0:A01"
+        ]
+      },
+      "UnlockedPresets": [
+        "single",
+        "sweep"
+      ],
+      "ClearedChapters": [
+        "silent-theatre"
+      ],
+      "DiscoveredRelics": [
+        "A01",
+        "A03",
+        "B01",
+        "B02",
+        "B03",
+        "B04"
+      ],
+      "LastRunSummaryRunId": "158dfbcbfa944ee5ad276bb015e20236",
+      "LastRunSummaryHash": "c57084d8530cabdebbf2b928e12fefb6d47e866e7ff78a6c796cde211e524324",
+      "LastRunSummaryVictory": true,
+      "LastRunSummaryApplied": true,
+      "LastRunSummaryRelics": [
+        "B01",
+        "B02",
+        "B03",
+        "B04"
+      ],
+      "LastRunSummaryBattles": 5,
+      "LastRunSummaryNewUnlock": true,
+      "LastRunSummaryRoute": [
+        "N0",
+        "N1",
+        "N2-audience",
+        "N3",
+        "N4",
+        "N5",
+        "N6",
+        "N7"
+      ],
+      "LastRunSummaryFacts": [
+        "有效敌伤 73000，其中遗物独立追加伤害 25139。",
+        "护盾实际吸收 21590，队员累计承受生命伤害 22435。",
+        "有效治疗 20410，过量治疗 2590；主动指令成功 26、未执行 0。",
+        "本场散射确实命中了其他敌人；多个敌人存活时，继续用单体技能集火低生命目标来触发散射。"
+      ]
+    },
+    {
+      "File": "profile-after-a-victory.json",
+      "Sha256": "59bd128c812e99acc51f50efaa9bc3140ccf517b996ddeca5f988f98c1827025",
+      "Bytes": 1015,
+      "StructuralValidation": "PASS",
+      "IntegrityMatches": true,
+      "StoredIntegritySha256": "22ed4eccf42f3f561cbd4aea00db0a8418a76ffc28729c6af1781aac5d83e651",
+      "RecomputedIntegritySha256": "22ed4eccf42f3f561cbd4aea00db0a8418a76ffc28729c6af1781aac5d83e651",
+      "Revision": 51,
+      "ActiveRunIsNull": true,
+      "ContentVersion": "original-expedition-content-v0.1.1",
+      "ActiveRun": null,
+      "UnlockedPresets": [
+        "single",
+        "sweep"
+      ],
+      "ClearedChapters": [
+        "silent-theatre"
+      ],
+      "DiscoveredRelics": [
+        "A01",
+        "A03",
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "A02",
+        "A04"
+      ],
+      "LastRunSummaryRunId": "439afa6220f34ece9f8d1c6762bcfae2",
+      "LastRunSummaryHash": "c1b4bb667afc48350653dfb88f8f9a7686e4caa9baad3a77501dd65fde7f2c1f",
+      "LastRunSummaryVictory": true,
+      "LastRunSummaryApplied": true,
+      "LastRunSummaryRelics": [
+        "A01",
+        "A02",
+        "A04",
+        "A03"
+      ],
+      "LastRunSummaryBattles": 5,
+      "LastRunSummaryNewUnlock": false,
+      "LastRunSummaryRoute": [
+        "N0",
+        "N1",
+        "N2-backstage",
+        "N3",
+        "N4",
+        "N5",
+        "N6",
+        "N7"
+      ],
+      "LastRunSummaryFacts": [
+        "有效敌伤 65720，其中遗物独立追加伤害 24034。",
+        "护盾实际吸收 20963，队员累计承受生命伤害 46567。",
+        "有效治疗 25020，过量治疗 0；主动指令成功 16、未执行 0。",
+        "本场成功执行 16 次主动指令；下一场可用战术暂停，把护盾和增益排在输出技能之前。"
+      ]
+    },
+    {
+      "File": "profile-new-c-run.json",
+      "Sha256": "415104952550eeca6374cb4470eb533702886174b48182c7dc174c1b923787bb",
+      "Bytes": 1579,
+      "StructuralValidation": "PASS",
+      "IntegrityMatches": true,
+      "StoredIntegritySha256": "d6e4782adf65f065229a25e3c1afb50028cdf120d542cd645c2279567f71a119",
+      "RecomputedIntegritySha256": "d6e4782adf65f065229a25e3c1afb50028cdf120d542cd645c2279567f71a119",
+      "Revision": 52,
+      "ActiveRunIsNull": false,
+      "ContentVersion": "original-expedition-content-v0.1.1",
+      "ActiveRun": {
+        "RunId": "a02aeb8c634c4ec2979f7fbbbd7026b4",
+        "RunSeed": 14556671,
+        "Status": "Ready",
+        "CurrentNode": "N1",
+        "BattleOrdinal": 0,
+        "InitialCoreId": "C01",
+        "OwnedRelicIds": [
+          "C01"
+        ],
+        "PartyHp": [
+          5200,
+          6800,
+          5600,
+          5000,
+          5400
+        ],
+        "CurrentCheckpointIsNull": true,
+        "BossCheckpointIsNull": true,
+        "SettledBattleIds": [],
+        "SelectedChoices": [
+          "N0:C01"
+        ]
+      },
+      "UnlockedPresets": [
+        "single",
+        "sweep"
+      ],
+      "ClearedChapters": [
+        "silent-theatre"
+      ],
+      "DiscoveredRelics": [
+        "A01",
+        "A03",
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "A02",
+        "A04",
+        "C01"
+      ],
+      "LastRunSummaryRunId": "439afa6220f34ece9f8d1c6762bcfae2",
+      "LastRunSummaryHash": "c1b4bb667afc48350653dfb88f8f9a7686e4caa9baad3a77501dd65fde7f2c1f",
+      "LastRunSummaryVictory": true,
+      "LastRunSummaryApplied": true,
+      "LastRunSummaryRelics": [
+        "A01",
+        "A02",
+        "A04",
+        "A03"
+      ],
+      "LastRunSummaryBattles": 5,
+      "LastRunSummaryNewUnlock": false,
+      "LastRunSummaryRoute": [
+        "N0",
+        "N1",
+        "N2-backstage",
+        "N3",
+        "N4",
+        "N5",
+        "N6",
+        "N7"
+      ],
+      "LastRunSummaryFacts": [
+        "有效敌伤 65720，其中遗物独立追加伤害 24034。",
+        "护盾实际吸收 20963，队员累计承受生命伤害 46567。",
+        "有效治疗 25020，过量治疗 0；主动指令成功 16、未执行 0。",
+        "本场成功执行 16 次主动指令；下一场可用战术暂停，把护盾和增益排在输出技能之前。"
+      ]
+    }
+  ],
+  "AAfterVictoryActiveRunCleared": true,
+  "FreshCOnlyC01": true,
+  "FreshCPartyHpFull": true,
+  "FreshCNoBattleCheckpoints": true,
+  "ALastSummaryPreservedIntoC": true,
+  "PermanentUnlocksRetainedIntoC": true,
+  "PriorDiscoveriesRetainedIntoC": true
+}

@@ -1,0 +1,16 @@
+{
+  "createdUtc": "2026-09-21T07:41:13.9278798Z",
+  "path": "C:/Users/Administrator/AppData/LocalLow/Resonance/契灵回响/OriginalExpedition/profile.v1.json",
+  "sha256": "58a7644d80e733ecd246d6c082d78bea9bfa4a66d097ffd5f13f451a30d15e9b",
+  "unchanged": true,
+  "process": [
+    {
+      "ProcessId": 40064,
+      "ExecutablePath": "F:\\resonance\\originalexpeditionreviewruns\\candidate-7a6ede9b-20260921\\player\\originalexpedition.exe",
+      "CommandLine": "\"F:\\resonance\\originalexpeditionreviewruns\\candidate-7a6ede9b-20260921\\player\\originalexpedition.exe\" "
+    }
+  ],
+  "logErrors": [
+    "d3d12: failed to query info queue interface (0x80004002)."
+  ]
+}

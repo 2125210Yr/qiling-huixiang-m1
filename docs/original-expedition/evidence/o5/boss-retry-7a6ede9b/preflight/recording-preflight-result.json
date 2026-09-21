@@ -1,0 +1,37 @@
+{
+  "version": "7a6ede9b",
+  "backend": "FFmpeg gfxcapture / Windows.Graphics.Capture",
+  "firstAttempt": "INCONCLUSIVE: 20-second recording ended at 06:47:01Z; click occurred 06:47:04.300Z",
+  "secondAttempt": "PASS_UI_TRANSITION: 28.6-second recording starts with expanded B01 detail and ends with collapsed detail; extracted frames visually match independent Sky observations",
+  "scope": "Recorder UI refresh preflight only; not boss completion or actual rendering FPS evidence",
+  "files": [
+    {
+      "path": "gfxcapture-preflight.mp4",
+      "sha256": "004911795e32112ad726dbf32ff8e15d99f9a17f6f761f898729bf43cb51b15d",
+      "bytes": 143468,
+      "createdUtc": "2026-09-21T06:46:41.3365782Z",
+      "lastWriteUtc": "2026-09-21T06:47:01.7621426Z"
+    },
+    {
+      "path": "gfxcapture-preflight-02.mp4",
+      "sha256": "3df49bad5469d763e06c8725bc43e2412bd233aaf95dbf43c2b67e0284ddf778",
+      "bytes": 184382,
+      "createdUtc": "2026-09-21T06:47:51.1905333Z",
+      "lastWriteUtc": "2026-09-21T06:48:20.1201258Z"
+    },
+    {
+      "path": "preflight-02-start.png",
+      "sha256": "ad74c0c11288cc8ad2168896df80c705602e5e1802d23c8a8a46e078ee121e6c",
+      "bytes": 322507,
+      "createdUtc": "2026-09-21T06:48:20.8349981Z",
+      "lastWriteUtc": "2026-09-21T06:48:20.8349981Z"
+    },
+    {
+      "path": "preflight-02-end.png",
+      "sha256": "aab4d348b5cf856334a60523dade84b8f27fd6ffc24b398d26ea52db2dcb1858",
+      "bytes": 273807,
+      "createdUtc": "2026-09-21T06:48:20.9765076Z",
+      "lastWriteUtc": "2026-09-21T06:48:20.9765076Z"
+    }
+  ]
+}

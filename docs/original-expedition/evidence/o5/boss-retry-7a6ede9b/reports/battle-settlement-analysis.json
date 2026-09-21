@@ -1,0 +1,1026 @@
+[
+  {
+    "Tape": "battle-0aed9659585c4708995d6c591a206753.original-replay.json",
+    "EndTick": 2070,
+    "Input": {
+      "Label": "battle-0aed9659585c4708995d6c591a206753.original-replay.json",
+      "AttemptId": "90d18bd8377d49f8975a1f4299e0933a",
+      "FullHash": "f0cf3126c1620cac9fca08e9d389ad9d0eb40315abb89107b119fd9c101b9fe5",
+      "HashIgnoringOnlyAttemptId": "1dc39a7735865a389af94e700aa59ea6a381088af1d45b7115131e4c048e3172",
+      "RunId": "158dfbcbfa944ee5ad276bb015e20236",
+      "EncounterId": "158dfbcbfa944ee5ad276bb015e20236/N7/5",
+      "Seed": 1964763356,
+      "PresetId": "single",
+      "OpeningHp": [
+        5200,
+        6800,
+        5600,
+        5000,
+        5400
+      ],
+      "RelicIds": [
+        "B01",
+        "B02",
+        "B03",
+        "B04"
+      ],
+      "ContentVersion": "original-expedition-content-v0.1.1",
+      "ContentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd"
+    },
+    "CommandCounts": [],
+    "ActiveAccepted": 0,
+    "ActiveRejected": 0,
+    "ActiveTimeline": [],
+    "EffectiveEnemyDamage": 32734,
+    "DerivedEffectiveEnemyDamage": 12408,
+    "AllyShieldAbsorbed": 0,
+    "AllyHpDamage": 28000,
+    "EffectiveHealing": 0,
+    "Overhealing": 0,
+    "B03RootsHittingTwoDistinctTargets": 52,
+    "B03FirstExample": [
+      {
+        "Origin": 1,
+        "RootActionId": 1,
+        "ProcDepth": 1,
+        "SourceRelicId": "B01",
+        "SkillId": "OE_POINT_auto",
+        "SourceSlot": 0,
+        "SourceAlly": true,
+        "TargetSlot": 1,
+        "TargetAlly": false,
+        "TargetGeneration": 1,
+        "RequestedDamage": 144,
+        "ShieldAbsorbed": 0,
+        "EffectiveHpDamage": 144,
+        "Overkill": 0,
+        "RequestedHeal": 0,
+        "EffectiveHeal": 0,
+        "Overheal": 0,
+        "ShieldProduced": 0,
+        "Killed": false,
+        "NativeKill": false,
+        "EffectiveDamage": 144
+      },
+      {
+        "Origin": 1,
+        "RootActionId": 1,
+        "ProcDepth": 1,
+        "SourceRelicId": "B01",
+        "SkillId": "OE_POINT_auto",
+        "SourceSlot": 0,
+        "SourceAlly": true,
+        "TargetSlot": 2,
+        "TargetAlly": false,
+        "TargetGeneration": 1,
+        "RequestedDamage": 144,
+        "ShieldAbsorbed": 0,
+        "EffectiveHpDamage": 144,
+        "Overkill": 0,
+        "RequestedHeal": 0,
+        "EffectiveHeal": 0,
+        "Overheal": 0,
+        "ShieldProduced": 0,
+        "Killed": false,
+        "NativeKill": false,
+        "EffectiveDamage": 144
+      }
+    ],
+    "B04EchoCount": 1,
+    "B04EchoEffectiveDamage": 134,
+    "B04CausalRoots": [
+      {
+        "RootActionId": 61,
+        "Chain": [
+          {
+            "Origin": 0,
+            "RootActionId": 61,
+            "ProcDepth": 0,
+            "SourceRelicId": "",
+            "SkillId": "OE_GUARD_auto",
+            "SourceSlot": 1,
+            "SourceAlly": true,
+            "TargetSlot": 1,
+            "TargetAlly": false,
+            "TargetGeneration": 1,
+            "RequestedDamage": 134,
+            "ShieldAbsorbed": 0,
+            "EffectiveHpDamage": 124,
+            "Overkill": 10,
+            "RequestedHeal": 0,
+            "EffectiveHeal": 0,
+            "Overheal": 0,
+            "ShieldProduced": 0,
+            "Killed": true,
+            "NativeKill": true,
+            "EffectiveDamage": 124
+          },
+          {
+            "Origin": 1,
+            "RootActionId": 61,
+            "ProcDepth": 1,
+            "SourceRelicId": "B01",
+            "SkillId": "OE_GUARD_auto",
+            "SourceSlot": 1,
+            "SourceAlly": true,
+            "TargetSlot": 0,
+            "TargetAlly": false,
+            "TargetGeneration": 1,
+            "RequestedDamage": 94,
+            "ShieldAbsorbed": 0,
+            "EffectiveHpDamage": 94,
+            "Overkill": 0,
+            "RequestedHeal": 0,
+            "EffectiveHeal": 0,
+            "Overheal": 0,
+            "ShieldProduced": 0,
+            "Killed": false,
+            "NativeKill": false,
+            "EffectiveDamage": 94
+          },
+          {
+            "Origin": 1,
+            "RootActionId": 61,
+            "ProcDepth": 1,
+            "SourceRelicId": "B04",
+            "SkillId": "OE_GUARD_auto",
+            "SourceSlot": 1,
+            "SourceAlly": true,
+            "TargetSlot": 0,
+            "TargetAlly": false,
+            "TargetGeneration": 1,
+            "RequestedDamage": 134,
+            "ShieldAbsorbed": 0,
+            "EffectiveHpDamage": 134,
+            "Overkill": 0,
+            "RequestedHeal": 0,
+            "EffectiveHeal": 0,
+            "Overheal": 0,
+            "ShieldProduced": 0,
+            "Killed": false,
+            "NativeKill": false,
+            "EffectiveDamage": 134
+          }
+        ]
+      }
+    ],
+    "BossEvents": [
+      {
+        "Seq": 26,
+        "Tick": 90,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 55,
+        "Tick": 180,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 134,
+        "Tick": 390,
+        "Kind": "encounter",
+        "Opcode": "area.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 187,
+        "Tick": 480,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 221,
+        "Tick": 570,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 250,
+        "Tick": 660,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 313,
+        "Tick": 810,
+        "Kind": "encounter",
+        "Opcode": "area.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 342,
+        "Tick": 900,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 361,
+        "Tick": 990,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 389,
+        "Tick": 1080,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 426,
+        "Tick": 1230,
+        "Kind": "encounter",
+        "Opcode": "area.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 452,
+        "Tick": 1320,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 480,
+        "Tick": 1410,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 502,
+        "Tick": 1500,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 536,
+        "Tick": 1650,
+        "Kind": "encounter",
+        "Opcode": "area.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 556,
+        "Tick": 1740,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 564,
+        "Tick": 1830,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 571,
+        "Tick": 1920,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 581,
+        "Tick": 2070,
+        "Kind": "encounter",
+        "Opcode": "area.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      }
+    ]
+  },
+  {
+    "Tape": "battle-5481ae3998634dd98a63671583599c11.original-replay.json",
+    "EndTick": 2553,
+    "Input": {
+      "Label": "battle-5481ae3998634dd98a63671583599c11.original-replay.json",
+      "AttemptId": "ac39636336f14edfb19d643c680cea47",
+      "FullHash": "859d92b603b6a254aea2e655b1a8862e4a747ff77fb72bb9df6cd3e5936b21c3",
+      "HashIgnoringOnlyAttemptId": "1dc39a7735865a389af94e700aa59ea6a381088af1d45b7115131e4c048e3172",
+      "RunId": "158dfbcbfa944ee5ad276bb015e20236",
+      "EncounterId": "158dfbcbfa944ee5ad276bb015e20236/N7/5",
+      "Seed": 1964763356,
+      "PresetId": "single",
+      "OpeningHp": [
+        5200,
+        6800,
+        5600,
+        5000,
+        5400
+      ],
+      "RelicIds": [
+        "B01",
+        "B02",
+        "B03",
+        "B04"
+      ],
+      "ContentVersion": "original-expedition-content-v0.1.1",
+      "ContentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd"
+    },
+    "CommandCounts": [
+      {
+        "Kind": "Tap",
+        "Count": 26
+      },
+      {
+        "Kind": "FocusEnemy",
+        "Count": 4
+      },
+      {
+        "Kind": "Pause",
+        "Count": 8
+      },
+      {
+        "Kind": "Resume",
+        "Count": 8
+      }
+    ],
+    "ActiveAccepted": 26,
+    "ActiveRejected": 0,
+    "ActiveTimeline": [
+      {
+        "Seq": 5,
+        "Tick": 483,
+        "Kind": "Tap",
+        "Slot": 4,
+        "RequiredEnemySlot": 0,
+        "RequiredEnemyGeneration": 0,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 6,
+        "Tick": 483,
+        "Kind": "Tap",
+        "Slot": 2,
+        "RequiredEnemySlot": 0,
+        "RequiredEnemyGeneration": 0,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 7,
+        "Tick": 483,
+        "Kind": "Tap",
+        "Slot": 0,
+        "RequiredEnemySlot": 1,
+        "RequiredEnemyGeneration": 1,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 8,
+        "Tick": 483,
+        "Kind": "Tap",
+        "Slot": 3,
+        "RequiredEnemySlot": 0,
+        "RequiredEnemyGeneration": 1,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 11,
+        "Tick": 722,
+        "Kind": "Tap",
+        "Slot": 1,
+        "RequiredEnemySlot": 0,
+        "RequiredEnemyGeneration": 0,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 12,
+        "Tick": 722,
+        "Kind": "Tap",
+        "Slot": 0,
+        "RequiredEnemySlot": 0,
+        "RequiredEnemyGeneration": 1,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 13,
+        "Tick": 722,
+        "Kind": "Tap",
+        "Slot": 3,
+        "RequiredEnemySlot": 0,
+        "RequiredEnemyGeneration": 1,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 16,
+        "Tick": 990,
+        "Kind": "Tap",
+        "Slot": 4,
+        "RequiredEnemySlot": 0,
+        "RequiredEnemyGeneration": 0,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 17,
+        "Tick": 990,
+        "Kind": "Tap",
+        "Slot": 2,
+        "RequiredEnemySlot": 0,
+        "RequiredEnemyGeneration": 0,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 18,
+        "Tick": 990,
+        "Kind": "Tap",
+        "Slot": 0,
+        "RequiredEnemySlot": 0,
+        "RequiredEnemyGeneration": 1,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 19,
+        "Tick": 990,
+        "Kind": "Tap",
+        "Slot": 3,
+        "RequiredEnemySlot": 0,
+        "RequiredEnemyGeneration": 1,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 22,
+        "Tick": 1366,
+        "Kind": "Tap",
+        "Slot": 4,
+        "RequiredEnemySlot": 0,
+        "RequiredEnemyGeneration": 0,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 23,
+        "Tick": 1366,
+        "Kind": "Tap",
+        "Slot": 2,
+        "RequiredEnemySlot": 0,
+        "RequiredEnemyGeneration": 0,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 24,
+        "Tick": 1366,
+        "Kind": "Tap",
+        "Slot": 0,
+        "RequiredEnemySlot": 0,
+        "RequiredEnemyGeneration": 1,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 25,
+        "Tick": 1366,
+        "Kind": "Tap",
+        "Slot": 3,
+        "RequiredEnemySlot": 0,
+        "RequiredEnemyGeneration": 1,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 26,
+        "Tick": 1366,
+        "Kind": "Tap",
+        "Slot": 1,
+        "RequiredEnemySlot": 0,
+        "RequiredEnemyGeneration": 0,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 30,
+        "Tick": 1643,
+        "Kind": "Tap",
+        "Slot": 4,
+        "RequiredEnemySlot": 0,
+        "RequiredEnemyGeneration": 0,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 31,
+        "Tick": 1643,
+        "Kind": "Tap",
+        "Slot": 2,
+        "RequiredEnemySlot": 0,
+        "RequiredEnemyGeneration": 0,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 32,
+        "Tick": 1643,
+        "Kind": "Tap",
+        "Slot": 0,
+        "RequiredEnemySlot": 1,
+        "RequiredEnemyGeneration": 2,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 33,
+        "Tick": 1643,
+        "Kind": "Tap",
+        "Slot": 3,
+        "RequiredEnemySlot": 1,
+        "RequiredEnemyGeneration": 2,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 36,
+        "Tick": 1820,
+        "Kind": "Tap",
+        "Slot": 1,
+        "RequiredEnemySlot": 0,
+        "RequiredEnemyGeneration": 0,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 40,
+        "Tick": 2007,
+        "Kind": "Tap",
+        "Slot": 4,
+        "RequiredEnemySlot": 0,
+        "RequiredEnemyGeneration": 0,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 41,
+        "Tick": 2007,
+        "Kind": "Tap",
+        "Slot": 2,
+        "RequiredEnemySlot": 0,
+        "RequiredEnemyGeneration": 0,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 42,
+        "Tick": 2007,
+        "Kind": "Tap",
+        "Slot": 0,
+        "RequiredEnemySlot": 0,
+        "RequiredEnemyGeneration": 1,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 43,
+        "Tick": 2007,
+        "Kind": "Tap",
+        "Slot": 3,
+        "RequiredEnemySlot": 0,
+        "RequiredEnemyGeneration": 1,
+        "Accepted": true,
+        "Reason": "None"
+      },
+      {
+        "Seq": 46,
+        "Tick": 2184,
+        "Kind": "Tap",
+        "Slot": 1,
+        "RequiredEnemySlot": 0,
+        "RequiredEnemyGeneration": 0,
+        "Accepted": true,
+        "Reason": "None"
+      }
+    ],
+    "EffectiveEnemyDamage": 73000,
+    "DerivedEffectiveEnemyDamage": 25139,
+    "AllyShieldAbsorbed": 21590,
+    "AllyHpDamage": 22435,
+    "EffectiveHealing": 20410,
+    "Overhealing": 2590,
+    "B03RootsHittingTwoDistinctTargets": 65,
+    "B03FirstExample": [
+      {
+        "Origin": 1,
+        "RootActionId": 1,
+        "ProcDepth": 1,
+        "SourceRelicId": "B01",
+        "SkillId": "OE_POINT_auto",
+        "SourceSlot": 0,
+        "SourceAlly": true,
+        "TargetSlot": 1,
+        "TargetAlly": false,
+        "TargetGeneration": 1,
+        "RequestedDamage": 144,
+        "ShieldAbsorbed": 0,
+        "EffectiveHpDamage": 144,
+        "Overkill": 0,
+        "RequestedHeal": 0,
+        "EffectiveHeal": 0,
+        "Overheal": 0,
+        "ShieldProduced": 0,
+        "Killed": false,
+        "NativeKill": false,
+        "EffectiveDamage": 144
+      },
+      {
+        "Origin": 1,
+        "RootActionId": 1,
+        "ProcDepth": 1,
+        "SourceRelicId": "B01",
+        "SkillId": "OE_POINT_auto",
+        "SourceSlot": 0,
+        "SourceAlly": true,
+        "TargetSlot": 2,
+        "TargetAlly": false,
+        "TargetGeneration": 1,
+        "RequestedDamage": 144,
+        "ShieldAbsorbed": 0,
+        "EffectiveHpDamage": 144,
+        "Overkill": 0,
+        "RequestedHeal": 0,
+        "EffectiveHeal": 0,
+        "Overheal": 0,
+        "ShieldProduced": 0,
+        "Killed": false,
+        "NativeKill": false,
+        "EffectiveDamage": 144
+      }
+    ],
+    "B04EchoCount": 1,
+    "B04EchoEffectiveDamage": 137,
+    "B04CausalRoots": [
+      {
+        "RootActionId": 159,
+        "Chain": [
+          {
+            "Origin": 0,
+            "RootActionId": 159,
+            "ProcDepth": 0,
+            "SourceRelicId": "",
+            "SkillId": "OE_HEALER_auto",
+            "SourceSlot": 2,
+            "SourceAlly": true,
+            "TargetSlot": 1,
+            "TargetAlly": false,
+            "TargetGeneration": 2,
+            "RequestedDamage": 137,
+            "ShieldAbsorbed": 0,
+            "EffectiveHpDamage": 54,
+            "Overkill": 83,
+            "RequestedHeal": 0,
+            "EffectiveHeal": 0,
+            "Overheal": 0,
+            "ShieldProduced": 0,
+            "Killed": true,
+            "NativeKill": true,
+            "EffectiveDamage": 54
+          },
+          {
+            "Origin": 1,
+            "RootActionId": 159,
+            "ProcDepth": 1,
+            "SourceRelicId": "B01",
+            "SkillId": "OE_HEALER_auto",
+            "SourceSlot": 2,
+            "SourceAlly": true,
+            "TargetSlot": 0,
+            "TargetAlly": false,
+            "TargetGeneration": 1,
+            "RequestedDamage": 96,
+            "ShieldAbsorbed": 0,
+            "EffectiveHpDamage": 96,
+            "Overkill": 0,
+            "RequestedHeal": 0,
+            "EffectiveHeal": 0,
+            "Overheal": 0,
+            "ShieldProduced": 0,
+            "Killed": false,
+            "NativeKill": false,
+            "EffectiveDamage": 96
+          },
+          {
+            "Origin": 1,
+            "RootActionId": 159,
+            "ProcDepth": 1,
+            "SourceRelicId": "B01",
+            "SkillId": "OE_HEALER_auto",
+            "SourceSlot": 2,
+            "SourceAlly": true,
+            "TargetSlot": 2,
+            "TargetAlly": false,
+            "TargetGeneration": 2,
+            "RequestedDamage": 96,
+            "ShieldAbsorbed": 0,
+            "EffectiveHpDamage": 96,
+            "Overkill": 0,
+            "RequestedHeal": 0,
+            "EffectiveHeal": 0,
+            "Overheal": 0,
+            "ShieldProduced": 0,
+            "Killed": false,
+            "NativeKill": false,
+            "EffectiveDamage": 96
+          },
+          {
+            "Origin": 1,
+            "RootActionId": 159,
+            "ProcDepth": 1,
+            "SourceRelicId": "B04",
+            "SkillId": "OE_HEALER_auto",
+            "SourceSlot": 2,
+            "SourceAlly": true,
+            "TargetSlot": 0,
+            "TargetAlly": false,
+            "TargetGeneration": 1,
+            "RequestedDamage": 137,
+            "ShieldAbsorbed": 0,
+            "EffectiveHpDamage": 137,
+            "Overkill": 0,
+            "RequestedHeal": 0,
+            "EffectiveHeal": 0,
+            "Overheal": 0,
+            "ShieldProduced": 0,
+            "Killed": false,
+            "NativeKill": false,
+            "EffectiveDamage": 137
+          }
+        ]
+      }
+    ],
+    "BossEvents": [
+      {
+        "Seq": 26,
+        "Tick": 90,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 55,
+        "Tick": 180,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 134,
+        "Tick": 390,
+        "Kind": "encounter",
+        "Opcode": "area.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 187,
+        "Tick": 480,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 236,
+        "Tick": 570,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 258,
+        "Tick": 660,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 319,
+        "Tick": 810,
+        "Kind": "encounter",
+        "Opcode": "area.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 348,
+        "Tick": 900,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 377,
+        "Tick": 990,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 420,
+        "Tick": 1080,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 462,
+        "Tick": 1230,
+        "Kind": "encounter",
+        "Opcode": "area.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 488,
+        "Tick": 1320,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 516,
+        "Tick": 1366,
+        "Kind": "encounter",
+        "Opcode": "mask.rebuilt",
+        "Amount": 2,
+        "CasterSlot": -1,
+        "TargetSlot": 1
+      },
+      {
+        "Seq": 517,
+        "Tick": 1366,
+        "Kind": "encounter",
+        "Opcode": "mask.rebuilt",
+        "Amount": 2,
+        "CasterSlot": -1,
+        "TargetSlot": 2
+      },
+      {
+        "Seq": 550,
+        "Tick": 1410,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 629,
+        "Tick": 1590,
+        "Kind": "encounter",
+        "Opcode": "area.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 696,
+        "Tick": 1680,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 727,
+        "Tick": 1770,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 788,
+        "Tick": 1950,
+        "Kind": "encounter",
+        "Opcode": "area.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 826,
+        "Tick": 2040,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 864,
+        "Tick": 2130,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 916,
+        "Tick": 2310,
+        "Kind": "encounter",
+        "Opcode": "area.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 948,
+        "Tick": 2400,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      },
+      {
+        "Seq": 983,
+        "Tick": 2490,
+        "Kind": "encounter",
+        "Opcode": "auto.resolve",
+        "Amount": 0,
+        "CasterSlot": 0,
+        "TargetSlot": -1
+      }
+    ]
+  }
+]

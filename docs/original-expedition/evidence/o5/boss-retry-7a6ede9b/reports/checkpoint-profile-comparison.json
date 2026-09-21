@@ -1,0 +1,323 @@
+{
+  "CheckedUtc": "2026-09-21T07:09:46.1085621Z",
+  "Method": "Typed OriginalBattleRecord and OriginalProfile; exact IEEE canonical fingerprints after nulling only AttemptId on in-memory clones. JSON leaf diff also included; original files remain unchanged.",
+  "VerifierPath": "F:/天命之子/tools/OriginalReplay.Verify/bin/Release/net6.0/OriginalReplay.Verify.dll",
+  "VerifierSha256": "8dd4971f1ef08a421e436559386af1f653fadd5b9ed0610d622fd8703b6b3d1e",
+  "InputFingerprints": [
+    {
+      "Label": "Natural defeat tape",
+      "AttemptId": "90d18bd8377d49f8975a1f4299e0933a",
+      "FullHash": "f0cf3126c1620cac9fca08e9d389ad9d0eb40315abb89107b119fd9c101b9fe5",
+      "HashIgnoringOnlyAttemptId": "1dc39a7735865a389af94e700aa59ea6a381088af1d45b7115131e4c048e3172",
+      "RunId": "158dfbcbfa944ee5ad276bb015e20236",
+      "EncounterId": "158dfbcbfa944ee5ad276bb015e20236/N7/5",
+      "Seed": 1964763356,
+      "PresetId": "single",
+      "OpeningHp": [
+        5200,
+        6800,
+        5600,
+        5000,
+        5400
+      ],
+      "RelicIds": [
+        "B01",
+        "B02",
+        "B03",
+        "B04"
+      ],
+      "ContentVersion": "original-expedition-content-v0.1.1",
+      "ContentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd"
+    },
+    {
+      "Label": "Victory tape after ordinary reopen",
+      "AttemptId": "ac39636336f14edfb19d643c680cea47",
+      "FullHash": "859d92b603b6a254aea2e655b1a8862e4a747ff77fb72bb9df6cd3e5936b21c3",
+      "HashIgnoringOnlyAttemptId": "1dc39a7735865a389af94e700aa59ea6a381088af1d45b7115131e4c048e3172",
+      "RunId": "158dfbcbfa944ee5ad276bb015e20236",
+      "EncounterId": "158dfbcbfa944ee5ad276bb015e20236/N7/5",
+      "Seed": 1964763356,
+      "PresetId": "single",
+      "OpeningHp": [
+        5200,
+        6800,
+        5600,
+        5000,
+        5400
+      ],
+      "RelicIds": [
+        "B01",
+        "B02",
+        "B03",
+        "B04"
+      ],
+      "ContentVersion": "original-expedition-content-v0.1.1",
+      "ContentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd"
+    },
+    {
+      "Label": "Before close BossCheckpoint",
+      "AttemptId": "b1ff4b162d6b441a88468bfae50a03ec",
+      "FullHash": "4d1db75c0eaa6c58cf50619acd09e2fc48c23f6f28aa442f02ba9810f2e6674f",
+      "HashIgnoringOnlyAttemptId": "1dc39a7735865a389af94e700aa59ea6a381088af1d45b7115131e4c048e3172",
+      "RunId": "158dfbcbfa944ee5ad276bb015e20236",
+      "EncounterId": "158dfbcbfa944ee5ad276bb015e20236/N7/5",
+      "Seed": 1964763356,
+      "PresetId": "single",
+      "OpeningHp": [
+        5200,
+        6800,
+        5600,
+        5000,
+        5400
+      ],
+      "RelicIds": [
+        "B01",
+        "B02",
+        "B03",
+        "B04"
+      ],
+      "ContentVersion": "original-expedition-content-v0.1.1",
+      "ContentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd"
+    },
+    {
+      "Label": "Before close CurrentBattleCheckpoint",
+      "AttemptId": "90d18bd8377d49f8975a1f4299e0933a",
+      "FullHash": "f0cf3126c1620cac9fca08e9d389ad9d0eb40315abb89107b119fd9c101b9fe5",
+      "HashIgnoringOnlyAttemptId": "1dc39a7735865a389af94e700aa59ea6a381088af1d45b7115131e4c048e3172",
+      "RunId": "158dfbcbfa944ee5ad276bb015e20236",
+      "EncounterId": "158dfbcbfa944ee5ad276bb015e20236/N7/5",
+      "Seed": 1964763356,
+      "PresetId": "single",
+      "OpeningHp": [
+        5200,
+        6800,
+        5600,
+        5000,
+        5400
+      ],
+      "RelicIds": [
+        "B01",
+        "B02",
+        "B03",
+        "B04"
+      ],
+      "ContentVersion": "original-expedition-content-v0.1.1",
+      "ContentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd"
+    },
+    {
+      "Label": "After reopen BossCheckpoint",
+      "AttemptId": "b1ff4b162d6b441a88468bfae50a03ec",
+      "FullHash": "4d1db75c0eaa6c58cf50619acd09e2fc48c23f6f28aa442f02ba9810f2e6674f",
+      "HashIgnoringOnlyAttemptId": "1dc39a7735865a389af94e700aa59ea6a381088af1d45b7115131e4c048e3172",
+      "RunId": "158dfbcbfa944ee5ad276bb015e20236",
+      "EncounterId": "158dfbcbfa944ee5ad276bb015e20236/N7/5",
+      "Seed": 1964763356,
+      "PresetId": "single",
+      "OpeningHp": [
+        5200,
+        6800,
+        5600,
+        5000,
+        5400
+      ],
+      "RelicIds": [
+        "B01",
+        "B02",
+        "B03",
+        "B04"
+      ],
+      "ContentVersion": "original-expedition-content-v0.1.1",
+      "ContentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd"
+    },
+    {
+      "Label": "After reopen CurrentBattleCheckpoint",
+      "AttemptId": "90d18bd8377d49f8975a1f4299e0933a",
+      "FullHash": "f0cf3126c1620cac9fca08e9d389ad9d0eb40315abb89107b119fd9c101b9fe5",
+      "HashIgnoringOnlyAttemptId": "1dc39a7735865a389af94e700aa59ea6a381088af1d45b7115131e4c048e3172",
+      "RunId": "158dfbcbfa944ee5ad276bb015e20236",
+      "EncounterId": "158dfbcbfa944ee5ad276bb015e20236/N7/5",
+      "Seed": 1964763356,
+      "PresetId": "single",
+      "OpeningHp": [
+        5200,
+        6800,
+        5600,
+        5000,
+        5400
+      ],
+      "RelicIds": [
+        "B01",
+        "B02",
+        "B03",
+        "B04"
+      ],
+      "ContentVersion": "original-expedition-content-v0.1.1",
+      "ContentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd"
+    }
+  ],
+  "AllInputsMatchIgnoringOnlyAttemptId": true,
+  "DefeatVersusVictoryInputLeafDifferences": [
+    {
+      "Path": "Input.AttemptId",
+      "Left": "90d18bd8377d49f8975a1f4299e0933a",
+      "Right": "ac39636336f14edfb19d643c680cea47"
+    }
+  ],
+  "BeforeCloseVersusAfterReopenProfileBytesIdentical": true,
+  "RunSeed": 8509421,
+  "AfterVictoryVersusHubProfileBytesIdentical": true,
+  "ProfileSnapshots": [
+    {
+      "File": "checkpoint-before-close.json",
+      "Sha256": "29d221f71f58cbc12a9575b0eb087b03775f8e0ca2ed2ed7f2842e8ac13a386f",
+      "Bytes": 38177,
+      "StructuralValidation": "PASS",
+      "StoredIntegritySha256": "b135c81cb4601897f22d2b1e8f3de95d64774039673e7196b2720d06f5b182eb",
+      "RecomputedIntegritySha256": "b135c81cb4601897f22d2b1e8f3de95d64774039673e7196b2720d06f5b182eb",
+      "IntegrityMatches": true,
+      "Revision": 33,
+      "ActiveRunIsNull": false,
+      "Status": "BossRetry",
+      "SettledBattleCount": 4,
+      "UnlockedPresets": [
+        "single"
+      ],
+      "ClearedChapters": [],
+      "DiscoveredRelics": [
+        "A01",
+        "A03",
+        "B01",
+        "B02",
+        "B03",
+        "B04"
+      ]
+    },
+    {
+      "File": "checkpoint-after-reopen.json",
+      "Sha256": "29d221f71f58cbc12a9575b0eb087b03775f8e0ca2ed2ed7f2842e8ac13a386f",
+      "Bytes": 38177,
+      "StructuralValidation": "PASS",
+      "StoredIntegritySha256": "b135c81cb4601897f22d2b1e8f3de95d64774039673e7196b2720d06f5b182eb",
+      "RecomputedIntegritySha256": "b135c81cb4601897f22d2b1e8f3de95d64774039673e7196b2720d06f5b182eb",
+      "IntegrityMatches": true,
+      "Revision": 33,
+      "ActiveRunIsNull": false,
+      "Status": "BossRetry",
+      "SettledBattleCount": 4,
+      "UnlockedPresets": [
+        "single"
+      ],
+      "ClearedChapters": [],
+      "DiscoveredRelics": [
+        "A01",
+        "A03",
+        "B01",
+        "B02",
+        "B03",
+        "B04"
+      ]
+    },
+    {
+      "File": "profile-after-victory.json",
+      "Sha256": "05cd4b68967181bc852cd3d5cde85e8765a86d70399d8d23d96cb151bab3cc19",
+      "Bytes": 1015,
+      "StructuralValidation": "PASS",
+      "StoredIntegritySha256": "0d1aae9b44b9982b707923feb50c68dc4043b22cd77070e9e77f7d54723d0f66",
+      "RecomputedIntegritySha256": "0d1aae9b44b9982b707923feb50c68dc4043b22cd77070e9e77f7d54723d0f66",
+      "IntegrityMatches": true,
+      "Revision": 35,
+      "ActiveRunIsNull": true,
+      "Status": null,
+      "SettledBattleCount": null,
+      "UnlockedPresets": [
+        "single",
+        "sweep"
+      ],
+      "ClearedChapters": [
+        "silent-theatre"
+      ],
+      "DiscoveredRelics": [
+        "A01",
+        "A03",
+        "B01",
+        "B02",
+        "B03",
+        "B04"
+      ]
+    },
+    {
+      "File": "profile-at-hub-after-victory.json",
+      "Sha256": "05cd4b68967181bc852cd3d5cde85e8765a86d70399d8d23d96cb151bab3cc19",
+      "Bytes": 1015,
+      "StructuralValidation": "PASS",
+      "StoredIntegritySha256": "0d1aae9b44b9982b707923feb50c68dc4043b22cd77070e9e77f7d54723d0f66",
+      "RecomputedIntegritySha256": "0d1aae9b44b9982b707923feb50c68dc4043b22cd77070e9e77f7d54723d0f66",
+      "IntegrityMatches": true,
+      "Revision": 35,
+      "ActiveRunIsNull": true,
+      "Status": null,
+      "SettledBattleCount": null,
+      "UnlockedPresets": [
+        "single",
+        "sweep"
+      ],
+      "ClearedChapters": [
+        "silent-theatre"
+      ],
+      "DiscoveredRelics": [
+        "A01",
+        "A03",
+        "B01",
+        "B02",
+        "B03",
+        "B04"
+      ]
+    }
+  ],
+  "AfterVictoryLastRunSummary": {
+    "RunId": "158dfbcbfa944ee5ad276bb015e20236",
+    "LastEncounterId": "158dfbcbfa944ee5ad276bb015e20236/N7/5",
+    "Victory": true,
+    "ResultApplied": true,
+    "UnlockedNewPreset": true,
+    "RelicIds": [
+      "B01",
+      "B02",
+      "B03",
+      "B04"
+    ],
+    "VisitedNodeIds": [
+      "N0",
+      "N1",
+      "N2-audience",
+      "N3",
+      "N4",
+      "N5",
+      "N6",
+      "N7"
+    ],
+    "BattlesCompleted": 5,
+    "EndReason": "失声剧院通关",
+    "Facts": [
+      "有效敌伤 73000，其中遗物独立追加伤害 25139。",
+      "护盾实际吸收 21590，队员累计承受生命伤害 22435。",
+      "有效治疗 20410，过量治疗 2590；主动指令成功 26、未执行 0。",
+      "本场散射确实命中了其他敌人；多个敌人存活时，继续用单体技能集火低生命目标来触发散射。"
+    ]
+  },
+  "LiveOriginalProfileAtReadSha256": "06c510bf81bca69a53f4d5c5b18d27481babb33a2e3e841e33bd8a24645a4a15",
+  "LegacyFiles": [
+    {
+      "File": "save.json",
+      "BeforeSha256": "624cc9c6882bb512a7effe419f3b47332747be33a33726796df611612e55c2a7",
+      "AfterSha256": "624cc9c6882bb512a7effe419f3b47332747be33a33726796df611612e55c2a7",
+      "Unchanged": true
+    },
+    {
+      "File": "save.json.bak",
+      "BeforeSha256": "624cc9c6882bb512a7effe419f3b47332747be33a33726796df611612e55c2a7",
+      "AfterSha256": "624cc9c6882bb512a7effe419f3b47332747be33a33726796df611612e55c2a7",
+      "Unchanged": true
+    }
+  ]
+}

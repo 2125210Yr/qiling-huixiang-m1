@@ -1,0 +1,261 @@
+[
+  {
+    "at": "2026-09-21T07:26:03.080Z",
+    "action": "click",
+    "x": 234,
+    "y": 1105,
+    "label": "C-N1-queue-guard"
+  },
+  {
+    "at": "2026-09-21T07:26:11.945Z",
+    "action": "click",
+    "x": 379,
+    "y": 1105,
+    "label": "C-N1-queue-heal-relay"
+  },
+  {
+    "at": "2026-09-21T07:26:22.313Z",
+    "action": "click",
+    "x": 668,
+    "y": 1105,
+    "label": "C-N1-queue-guide"
+  },
+  {
+    "at": "2026-09-21T07:26:35.976Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "C-N1-resume-supports"
+  },
+  {
+    "at": "2026-09-21T07:26:55.414Z",
+    "action": "click",
+    "x": 89,
+    "y": 1105,
+    "label": "C-N1-point-attack"
+  },
+  {
+    "at": "2026-09-21T07:27:21.244Z",
+    "action": "click",
+    "x": 365,
+    "y": 643,
+    "label": "C-R1-choose-C02"
+  },
+  {
+    "at": "2026-09-21T07:27:31.840Z",
+    "action": "click",
+    "x": 365,
+    "y": 563,
+    "label": "C-select-backstage-branch"
+  },
+  {
+    "at": "2026-09-21T07:27:43.450Z",
+    "action": "click",
+    "x": 365,
+    "y": 563,
+    "label": "C-N2-enter"
+  },
+  {
+    "at": "2026-09-21T07:27:55.907Z",
+    "action": "click",
+    "x": 234,
+    "y": 1105,
+    "label": "C-N2-guard"
+  },
+  {
+    "at": "2026-09-21T07:28:04.926Z",
+    "action": "click",
+    "x": 379,
+    "y": 1105,
+    "label": "C-N2-heal-relay"
+  },
+  {
+    "at": "2026-09-21T07:28:33.400Z",
+    "action": "click",
+    "x": 668,
+    "y": 1105,
+    "label": "C-N2-guide-relay"
+  },
+  {
+    "at": "2026-09-21T07:28:44.548Z",
+    "action": "click",
+    "x": 365,
+    "y": 900,
+    "label": "C-R2-choose-C03"
+  },
+  {
+    "at": "2026-09-21T07:28:55.221Z",
+    "action": "click",
+    "x": 365,
+    "y": 563,
+    "label": "C-workshop-rest"
+  },
+  {
+    "at": "2026-09-21T07:29:05.007Z",
+    "action": "click",
+    "x": 365,
+    "y": 563,
+    "label": "C-N4-enter"
+  },
+  {
+    "at": "2026-09-21T07:29:15.249Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "C-N4-pause"
+  },
+  {
+    "at": "2026-09-21T07:29:28.812Z",
+    "action": "click",
+    "x": 234,
+    "y": 1105,
+    "label": "C-N4-queue-guard"
+  },
+  {
+    "at": "2026-09-21T07:29:39.640Z",
+    "action": "click",
+    "x": 379,
+    "y": 1105,
+    "label": "C-N4-queue-heal"
+  },
+  {
+    "at": "2026-09-21T07:29:49.756Z",
+    "action": "click",
+    "x": 668,
+    "y": 1105,
+    "label": "C-N4-queue-guide-harmony"
+  },
+  {
+    "at": "2026-09-21T07:30:01.289Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "C-N4-resume-harmony"
+  },
+  {
+    "at": "2026-09-21T07:30:11.602Z",
+    "action": "click",
+    "x": 89,
+    "y": 446,
+    "label": "C-N4-focus-prompter"
+  },
+  {
+    "at": "2026-09-21T07:30:20.482Z",
+    "action": "click",
+    "x": 89,
+    "y": 1105,
+    "label": "C-N4-point"
+  },
+  {
+    "at": "2026-09-21T07:30:33.007Z",
+    "action": "click",
+    "x": 525,
+    "y": 1105,
+    "label": "C-N4-blade"
+  },
+  {
+    "at": "2026-09-21T07:30:46.664Z",
+    "action": "click",
+    "x": 379,
+    "y": 1105,
+    "label": "C-N4-heal-second-harmony"
+  },
+  {
+    "at": "2026-09-21T07:31:34.030Z",
+    "action": "click",
+    "x": 365,
+    "y": 1157,
+    "label": "C-R4-choose-C04"
+  },
+  {
+    "at": "2026-09-21T07:31:50.064Z",
+    "action": "click",
+    "x": 365,
+    "y": 563,
+    "label": "C-N5-enter-four-relics"
+  },
+  {
+    "at": "2026-09-21T07:32:04.599Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "C-N5-pause-for-relay-harmony-forte"
+  },
+  {
+    "at": "2026-09-21T07:32:17.143Z",
+    "action": "click",
+    "x": 234,
+    "y": 1105,
+    "label": "C-N5-first-support-guard"
+  },
+  {
+    "at": "2026-09-21T07:32:29.429Z",
+    "action": "click",
+    "x": 379,
+    "y": 1105,
+    "label": "C-N5-second-support-heal"
+  },
+  {
+    "at": "2026-09-21T07:32:47.999Z",
+    "action": "click",
+    "x": 668,
+    "y": 1105,
+    "label": "C-N5-third-support-guide"
+  },
+  {
+    "at": "2026-09-21T07:32:57.965Z",
+    "action": "click",
+    "x": 379,
+    "y": 446,
+    "label": "C-N5-focus-durable-usher"
+  },
+  {
+    "at": "2026-09-21T07:33:10.619Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "C-N5-execute-three-supports"
+  },
+  {
+    "at": "2026-09-21T07:33:23.820Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "C-N5-pause-with-forte-stored"
+  },
+  {
+    "at": "2026-09-21T07:33:43.440Z",
+    "action": "click",
+    "x": 525,
+    "y": 446,
+    "label": "C-N5-focus-healthy-chorus-for-forte"
+  },
+  {
+    "at": "2026-09-21T07:33:55.199Z",
+    "action": "click",
+    "x": 89,
+    "y": 1105,
+    "label": "C-N5-next-active-damage-forte"
+  },
+  {
+    "at": "2026-09-21T07:34:06.252Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "C-N5-consume-forte"
+  },
+  {
+    "at": "2026-09-21T07:34:19.998Z",
+    "action": "click",
+    "x": 379,
+    "y": 1105,
+    "label": "C-N5-heal-finish"
+  },
+  {
+    "at": "2026-09-21T07:34:35.766Z",
+    "action": "click",
+    "x": 234,
+    "y": 1105,
+    "label": "C-N5-guard-second-harmony"
+  }
+]

@@ -1,0 +1,339 @@
+{
+  "schemaVersion": 1,
+  "algorithm": "SHA-256",
+  "createdUtc": "2026-09-21T07:37:26.1418314Z",
+  "scope": "All archived files except this manifest itself; local-only video and full profile snapshots separately listed",
+  "archivedFiles": [
+    {
+      "path": ".gitattributes",
+      "bytes": 8,
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "path": "events.json",
+      "bytes": 10756,
+      "sha256": "b66f6a5c1c30668bb40724b13a9cbd28dd01a912062691b21fe18157ad60e8d5"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8088,
+      "sha256": "7d4fcd763a0306918f4ebce2c0eba0f21b001ecd0ccd0df46c557a77195075da"
+    },
+    {
+      "path": "replays/battle-89e7096e93e7401ea58ac258a93f3768.original-replay.json",
+      "bytes": 262962,
+      "sha256": "14be87a5ab0056478f7b37b1ddb401a7e407f8dd3ed38b95a4a84f71e58f5b9a"
+    },
+    {
+      "path": "replays/battle-a532095270a243dbb179e4ddc6e09169.original-replay.json",
+      "bytes": 204664,
+      "sha256": "4e4cea300c6f8c38a3a06f70b4fecaaa8e0f33ffc036977729f4689f87f7d45d"
+    },
+    {
+      "path": "replays/battle-cf4aed6fee7940b5aa2b27e0fc7eda93.original-replay.json",
+      "bytes": 164766,
+      "sha256": "a442dce4eb2fa3c0b0917d4d1ca7f0b8f2285748a1d43089bc855804acce8074"
+    },
+    {
+      "path": "replays/battle-f8823184c2da44d2b2f208c9ce087ce3.original-replay.json",
+      "bytes": 103185,
+      "sha256": "1de9ce8ce72d78227cdd1c2804a18b5064b79713b0386c0a167cc87d8dc6ff24"
+    },
+    {
+      "path": "replays/battle-f8e6b477c8cf4bfe8b367bc04719dcf2.original-replay.json",
+      "bytes": 350030,
+      "sha256": "153d2b91055088220d9e685223608e7b5c61820ec420a1fb639859d31bb94ffe"
+    },
+    {
+      "path": "reports/89e7096e93e7401ea58ac258a93f3768.verify.json",
+      "bytes": 1188,
+      "sha256": "522736bd9051eb036d5b0260fc01d4c08ed7182bf8187f132490bef54774a60b"
+    },
+    {
+      "path": "reports/a532095270a243dbb179e4ddc6e09169.verify.json",
+      "bytes": 1188,
+      "sha256": "b13c28723fbef21dceb9f2a5d345f2045c9f3b2bf9eef93d2bf7bda8da924936"
+    },
+    {
+      "path": "reports/battle-and-queue-analysis.json",
+      "bytes": 53854,
+      "sha256": "1c63f8862ea33128b0fea21fcc73392388351a8790bbb7f12fe00b7389f174ca"
+    },
+    {
+      "path": "reports/build-analysis.ps1",
+      "bytes": 9144,
+      "sha256": "7078680eeb6fc7365d97578098ffbde7d03aefcac01b4e9843d081452ab31a32"
+    },
+    {
+      "path": "reports/build-video-analysis.ps1",
+      "bytes": 5444,
+      "sha256": "fd42630b3f2006e82921fe51ed34fcf9d4a44da458505f40eb4458dd25247ef3"
+    },
+    {
+      "path": "reports/cf4aed6fee7940b5aa2b27e0fc7eda93.verify.json",
+      "bytes": 1198,
+      "sha256": "2d0138ebb51e73099ca94a1be0f11fbabb422601655bd9e6ac64e30544d5cc1e"
+    },
+    {
+      "path": "reports/f8823184c2da44d2b2f208c9ce087ce3.verify.json",
+      "bytes": 1186,
+      "sha256": "a87f5c2ebe59a6cd72d7cb14eb58aa32817f2cbe8247e5a7a64b6de89e1eea32"
+    },
+    {
+      "path": "reports/f8e6b477c8cf4bfe8b367bc04719dcf2.verify.json",
+      "bytes": 1188,
+      "sha256": "7853c62a2f5170232816969de42abed6ab65fc27654c08533a196017497d53a2"
+    },
+    {
+      "path": "reports/profile-transition-analysis.json",
+      "bytes": 7319,
+      "sha256": "ed780e0571f6567774826d43167ab8f7ce42792718ec222d17cc0625eac5820c"
+    },
+    {
+      "path": "reports/video-analysis.json",
+      "bytes": 8174,
+      "sha256": "ad72aad5ffca1d23b68d75b192f6f31eb1cb09eda1b947128194f9b3f6f693a5"
+    },
+    {
+      "path": "screens/000-ordinary-start-hub.jpg",
+      "bytes": 121272,
+      "sha256": "1dcee53fd27aa8aeccfd1be6523fda36d53c1a552137cc0e036338ebe588e887"
+    },
+    {
+      "path": "screens/008-A01-normal-new-run.jpg",
+      "bytes": 99339,
+      "sha256": "b1861e8b97f347dd35bc61a5a659e0ad96d0841091fe0291c8d468d2373f1257"
+    },
+    {
+      "path": "screens/010-return-node-keeps-original-mode.jpg",
+      "bytes": 86867,
+      "sha256": "771d1f78b66455e057fa465b66314ecf0c4ca4b4ee2137133274670fee8597d9"
+    },
+    {
+      "path": "screens/019-queue-overwrite-clear-readd-order.jpg",
+      "bytes": 112736,
+      "sha256": "84cfae05f939b253bb0618529ceb6b3b51afd683ce425682f049ab27c2616011"
+    },
+    {
+      "path": "screens/022-N1-offer-A02-A03-C01.jpg",
+      "bytes": 113064,
+      "sha256": "162fc10d2663499d5304259e6d6819b0df93f3e74ae06521182e194a1ec16aea"
+    },
+    {
+      "path": "screens/023-A02-normal-acquisition.jpg",
+      "bytes": 101682,
+      "sha256": "1fa9df55437aec65560608b130ee036ff2f440bce41209e99aab21f9759da43f"
+    },
+    {
+      "path": "screens/028-N2-offer-A03-A04-C01.jpg",
+      "bytes": 124842,
+      "sha256": "f5c032695cfa20a91a1880b80adcb7dee9d107158d8e4d5fc3f73cc219d18d3f"
+    },
+    {
+      "path": "screens/029-A04-normal-acquisition.jpg",
+      "bytes": 111629,
+      "sha256": "8fb3969eb3dbd7b4fc8f5716c21a17049f36527f481df6550acca623783aa181"
+    },
+    {
+      "path": "screens/037-A04-overload-actually-triggered.jpg",
+      "bytes": 114227,
+      "sha256": "78a82cffef4064a09d88755757b3011938f7de1e5d3e37a9c672f255c9fc51d0"
+    },
+    {
+      "path": "screens/039-N4-final-A-component-offer.jpg",
+      "bytes": 125561,
+      "sha256": "59cae84384636adabb62aa741e771132bf7340fd053d87fc712bea7ee106d655"
+    },
+    {
+      "path": "screens/040-A03-normal-acquisition-family-complete.jpg",
+      "bytes": 103617,
+      "sha256": "f72aed1d127c699985971b6fee5c007cf30f6194cd4addd44888981871f668bc"
+    },
+    {
+      "path": "screens/041-A-four-relics-in-N5.jpg",
+      "bytes": 110683,
+      "sha256": "d4a5cc11e66b86aa9460b7717e990e4b18aeedfb442e572396fde84ed472dada"
+    },
+    {
+      "path": "screens/046-A03-A04-mature-combo-trigger.jpg",
+      "bytes": 118152,
+      "sha256": "aa322886e99961e9583b3a8f2db93975fb5e38a3ffaf27d6e730a2be2568e4c2"
+    },
+    {
+      "path": "screens/047-A-boss-start.jpg",
+      "bytes": 117860,
+      "sha256": "1d57fa124c64800d893b8d9b2c589b55b1d9dcc1dd4bf044e30cb68e6fcab1c9"
+    },
+    {
+      "path": "screens/059-A-boss-three-threshold-energy.jpg",
+      "bytes": 116299,
+      "sha256": "efbf9444063d7cc1e4facba8f9cecf0fa8634fd1913e527c408f54872a7a5343"
+    },
+    {
+      "path": "screens/063-A-boss-overload-release.jpg",
+      "bytes": 112108,
+      "sha256": "c7f3e8a59a7083410b34d5b1e582c4a462562c20ce8194964584e7ace9a98ded"
+    },
+    {
+      "path": "screens/068-A-boss-stage2-overload.jpg",
+      "bytes": 115868,
+      "sha256": "98acbd5027942c25ba6f7aa8223ab5dc706909ff72156a2b8d19872de254312f"
+    },
+    {
+      "path": "screens/070-A-five-battle-victory-settlement.jpg",
+      "bytes": 70298,
+      "sha256": "08baad8a6cd1fa3c6e08258833404f2eb8a12538a0fab2c5887de91c127cac44"
+    },
+    {
+      "path": "screens/071-A-hub-clean-state.jpg",
+      "bytes": 121069,
+      "sha256": "61dbc0a67c43a8813343c077784cbd8ee7002815abb99121eee3f57c703daa43"
+    },
+    {
+      "path": "screens/072-A-last-run-summary-retained.jpg",
+      "bytes": 69939,
+      "sha256": "1c9db0cc4fbf15a69f92ea8b81a7051de7b19341b4288072c0a42698f7e609b0"
+    },
+    {
+      "path": "screens/075-hub-C01-core-choice.jpg",
+      "bytes": 111626,
+      "sha256": "caf7b5cd02a8780f1d6f9bbefa093502f032d9d27097336190f6dd7a4304d1ce"
+    },
+    {
+      "path": "screens/076-C-new-run-full-hp.jpg",
+      "bytes": 99202,
+      "sha256": "329d56992b33ff6ac629e3969c01fc5669e03ebd47ac47307f485ba98d7961d4"
+    },
+    {
+      "path": "screens/077-C-N1-only-C01-no-A-state.jpg",
+      "bytes": 100262,
+      "sha256": "dce3a883eed909a2b202168a4a2c69c776f42250f6b2b68743d3a2f76f7475f7"
+    },
+    {
+      "path": "video-frames/full-a-0025s.png",
+      "bytes": 301129,
+      "sha256": "1cbccc1e56eee8053ee170561803352ade7cae7943c237f792fb648a6df524af"
+    },
+    {
+      "path": "video-frames/full-a-0125s.png",
+      "bytes": 232980,
+      "sha256": "babdf3fa406d4fb5b21c42f33d8e8a7e18f4943b8db2db2454079fd8f37d0700"
+    },
+    {
+      "path": "video-frames/full-a-0232s.png",
+      "bytes": 312265,
+      "sha256": "d626b1eab5ba9fe113c600d6f0db5a89b29b03cca86a15540ecbfaf9dbcd0b7e"
+    },
+    {
+      "path": "video-frames/full-a-0271s.png",
+      "bytes": 245726,
+      "sha256": "9011cc482bd9436bd52e6cf6d7f974babfa1d3e0643ddcf35835ca9eb8e85a20"
+    },
+    {
+      "path": "video-frames/full-a-0318s.png",
+      "bytes": 309678,
+      "sha256": "82774eafeb26c266f698993b5f48bd7139660a05681de54cf15d902e06f275e6"
+    },
+    {
+      "path": "video-frames/full-a-0363s.png",
+      "bytes": 287446,
+      "sha256": "f904bbe16c2f090858192952559575b41218861327c7a11f6c2be9879e89866d"
+    },
+    {
+      "path": "video-frames/full-a-0480s.png",
+      "bytes": 303466,
+      "sha256": "669df1028d73f3f92c642efd39778caba1409f31f444400b78317cce8275034d"
+    },
+    {
+      "path": "video-frames/full-a-0506s.png",
+      "bytes": 242727,
+      "sha256": "bcf43f3012af27d37eb9d95578b8b9be9986b9d0955c215f2e98dc010553afd0"
+    },
+    {
+      "path": "video-frames/full-a-0528s.png",
+      "bytes": 332847,
+      "sha256": "bfc03e190f5f014bcd5436feeeb1fdc44ee70a8d6003b780249279362d5df06b"
+    },
+    {
+      "path": "video-frames/full-a-0570s.png",
+      "bytes": 320259,
+      "sha256": "7eec351f68038f136229bb3667d62236abbfc826de1fd575fe86f5deee7de55e"
+    },
+    {
+      "path": "video-frames/full-a-0640s.png",
+      "bytes": 300374,
+      "sha256": "14880b238cd52862afbc75e7b112a5e8b1c19fdbf1d4a8d07d5dc935ff3e6c65"
+    },
+    {
+      "path": "video-frames/full-a-0883s.png",
+      "bytes": 314898,
+      "sha256": "c1272ac8abbb7d91132257144ba588539701b641be5d7fa0ea2d212c816a705e"
+    },
+    {
+      "path": "video-frames/full-a-1016s.png",
+      "bytes": 330099,
+      "sha256": "a0115a9bca35a28d2250efc41d90e68e60abaa898624bcc474c3934be8455b93"
+    },
+    {
+      "path": "video-frames/full-a-1043s.png",
+      "bytes": 326304,
+      "sha256": "b4cf2c0e71667dd4085fc7f72ac85b3cf15af2d57d63eb78550412071bc5cb66"
+    },
+    {
+      "path": "video-frames/full-a-1091s.png",
+      "bytes": 327962,
+      "sha256": "b12375d84f9de44fb3c076a693e207d683abd40dd54dd6954b017d3762c2f800"
+    },
+    {
+      "path": "video-frames/full-a-1118s.png",
+      "bytes": 158388,
+      "sha256": "71db1662165d896dc43a0feb15c222fc14e9ba3ed66ceedd53af234b6c1b4c41"
+    },
+    {
+      "path": "video-frames/full-a-1130s.png",
+      "bytes": 301085,
+      "sha256": "bd5bda35965e619a9a1923301d96bb84c92839eeabcb3a48e14c48490de47acc"
+    },
+    {
+      "path": "video-frames/full-a-1143s.png",
+      "bytes": 158857,
+      "sha256": "96c898bab4a1bb1da8ddaf2d9f567d9efdfbdd72859057cf36f37acec89c8668"
+    },
+    {
+      "path": "video-frames/full-a-1199s.png",
+      "bytes": 221626,
+      "sha256": "951eea4963355aaadafa5f20d8be835e288d255d517876ba768d509a5317f330"
+    },
+    {
+      "path": "video-frames/full-a-1214s.png",
+      "bytes": 294454,
+      "sha256": "c8a58538b0006172cc11124cdeee6a575d6e38670b772a77cc6424f0d64c2ce1"
+    }
+  ],
+  "localOnlyOriginals": [
+    {
+      "localPath": "F:\\天命之子\\dist\\original-expedition-v01\\full-a-7a6ede9b-20260921-1510\\ordinary-full-a.mp4",
+      "bytes": 8941974,
+      "sha256": "8fbac4be1c7d4780a920e82b94efab00e4e47132e3b7236dabc02b6b22c037da",
+      "includedInGitEvidence": false
+    },
+    {
+      "localPath": "F:\\天命之子\\dist\\original-expedition-v01\\full-a-7a6ede9b-20260921-1510\\profile-new-a-run.json",
+      "bytes": 1573,
+      "sha256": "d72e1d4c93721b27e65fa21e38bc6155ed401a956ad99a8fa018eda19bc7edc1",
+      "includedInGitEvidence": false
+    },
+    {
+      "localPath": "F:\\天命之子\\dist\\original-expedition-v01\\full-a-7a6ede9b-20260921-1510\\profile-after-a-victory.json",
+      "bytes": 1015,
+      "sha256": "59bd128c812e99acc51f50efaa9bc3140ccf517b996ddeca5f988f98c1827025",
+      "includedInGitEvidence": false
+    },
+    {
+      "localPath": "F:\\天命之子\\dist\\original-expedition-v01\\full-a-7a6ede9b-20260921-1510\\profile-new-c-run.json",
+      "bytes": 1579,
+      "sha256": "415104952550eeca6374cb4470eb533702886174b48182c7dc174c1b923787bb",
+      "includedInGitEvidence": false
+    }
+  ]
+}

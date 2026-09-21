@@ -1,0 +1,20 @@
+{
+  "pid": 37228,
+  "startedUtc": "2026-09-21T07:01:52.1166806Z",
+  "arguments": [
+    "-projectPath",
+    "\"F:\\Resonance\\client\"",
+    "-giCustomCacheLocation",
+    "\"C:\\Users\\Administrator\\AppData\\Local\\Temp\\original-rendered-fps-gi-f3ab195ad1b54f6ebf93df9abbcaf339\"",
+    "-runTests",
+    "-testPlatform",
+    "EditMode",
+    "-testFilter",
+    "Resonance.EditorTests.OriginalRenderedFrameRateTests.SameFrozenBossAndTickZeroCommandsMatchAtTwoActualRenderedFrameRates",
+    "-testResults",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\rendered-fps-20260921-37245ba5\\test-results.xml\"",
+    "-logFile",
+    "\"F:\\天命之子\\docs\\original-expedition\\evidence\\o5\\rendered-fps-20260921-37245ba5\\unity.log\""
+  ],
+  "testProfileEnvironment": null
+}

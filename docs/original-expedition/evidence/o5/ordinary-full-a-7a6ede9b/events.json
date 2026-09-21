@@ -1,0 +1,547 @@
+[
+  {
+    "at": "2026-09-21T07:05:26.620Z",
+    "action": "click",
+    "x": 365,
+    "y": 981,
+    "label": "focus-original-relic-detail-for-keyboard-check"
+  },
+  {
+    "at": "2026-09-21T07:05:34.731Z",
+    "action": "key",
+    "key": "Return",
+    "label": "original-Enter-submit-check"
+  },
+  {
+    "at": "2026-09-21T07:05:44.005Z",
+    "action": "key",
+    "key": "space",
+    "label": "original-Space-submit-check"
+  },
+  {
+    "at": "2026-09-21T07:05:54.195Z",
+    "action": "key",
+    "key": "KP_Enter",
+    "label": "original-KeypadEnter-submit-check"
+  },
+  {
+    "at": "2026-09-21T07:06:03.809Z",
+    "action": "key",
+    "key": "Escape",
+    "label": "original-Cancel-does-not-enter-legacy"
+  },
+  {
+    "at": "2026-09-21T07:06:14.927Z",
+    "action": "key",
+    "key": "Down",
+    "label": "original-arrow-focus-navigation"
+  },
+  {
+    "at": "2026-09-21T07:06:26.142Z",
+    "action": "key",
+    "key": "w",
+    "label": "original-WASD-focus-navigation"
+  },
+  {
+    "at": "2026-09-21T07:06:52.228Z",
+    "action": "click",
+    "x": 365,
+    "y": 1037,
+    "label": "ordinary-new-run-A01"
+  },
+  {
+    "at": "2026-09-21T07:07:10.877Z",
+    "action": "click",
+    "x": 365,
+    "y": 563,
+    "label": "A-N1-enter"
+  },
+  {
+    "at": "2026-09-21T07:07:18.108Z",
+    "action": "click",
+    "x": 618,
+    "y": 1285,
+    "label": "ordinary-return-node-navigation-check"
+  },
+  {
+    "at": "2026-09-21T07:07:27.043Z",
+    "action": "click",
+    "x": 365,
+    "y": 604,
+    "label": "ordinary-continue-N1-checkpoint"
+  },
+  {
+    "at": "2026-09-21T07:07:33.918Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "A-N1-pause-ready-skills"
+  },
+  {
+    "at": "2026-09-21T07:07:49.978Z",
+    "action": "click",
+    "x": 234,
+    "y": 1105,
+    "label": "A-N1-queue-guard"
+  },
+  {
+    "at": "2026-09-21T07:07:57.030Z",
+    "action": "click",
+    "x": 89,
+    "y": 1105,
+    "label": "A-N1-queue-point"
+  },
+  {
+    "at": "2026-09-21T07:08:11.955Z",
+    "action": "click",
+    "x": 89,
+    "y": 1105,
+    "label": "A-N1-overwrite-same-slot"
+  },
+  {
+    "at": "2026-09-21T07:08:18.512Z",
+    "action": "click",
+    "x": 668,
+    "y": 1105,
+    "label": "A-N1-queue-guide"
+  },
+  {
+    "at": "2026-09-21T07:08:24.408Z",
+    "action": "click",
+    "x": 89,
+    "y": 1185,
+    "label": "A-N1-clear-point-from-queue"
+  },
+  {
+    "at": "2026-09-21T07:08:34.808Z",
+    "action": "click",
+    "x": 89,
+    "y": 1105,
+    "label": "A-N1-readd-point-at-tail"
+  },
+  {
+    "at": "2026-09-21T07:08:41.724Z",
+    "action": "click",
+    "x": 525,
+    "y": 1105,
+    "label": "A-N1-queue-blade"
+  },
+  {
+    "at": "2026-09-21T07:08:52.484Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "A-N1-execute-reordered-queue"
+  },
+  {
+    "at": "2026-09-21T07:09:00.844Z",
+    "action": "click",
+    "x": 379,
+    "y": 1105,
+    "label": "A-N1-heal-after-shield-absorption"
+  },
+  {
+    "at": "2026-09-21T07:09:08.461Z",
+    "action": "click",
+    "x": 89,
+    "y": 1105,
+    "label": "A-N1-point-finishing-hit"
+  },
+  {
+    "at": "2026-09-21T07:09:20.951Z",
+    "action": "click",
+    "x": 365,
+    "y": 643,
+    "label": "normal-reward-select-A02"
+  },
+  {
+    "at": "2026-09-21T07:09:34.639Z",
+    "action": "click",
+    "x": 365,
+    "y": 563,
+    "label": "A-route-backstage"
+  },
+  {
+    "at": "2026-09-21T07:09:41.957Z",
+    "action": "click",
+    "x": 365,
+    "y": 563,
+    "label": "A-N2-backstage-enter"
+  },
+  {
+    "at": "2026-09-21T07:10:00.530Z",
+    "action": "click",
+    "x": 234,
+    "y": 1105,
+    "label": "A-N2-enhanced-shield"
+  },
+  {
+    "at": "2026-09-21T07:10:09.000Z",
+    "action": "click",
+    "x": 379,
+    "y": 1105,
+    "label": "A-N2-heal-trigger-charged-shock"
+  },
+  {
+    "at": "2026-09-21T07:10:36.267Z",
+    "action": "click",
+    "x": 89,
+    "y": 1105,
+    "label": "A-N2-point-attack"
+  },
+  {
+    "at": "2026-09-21T07:10:52.631Z",
+    "action": "click",
+    "x": 365,
+    "y": 901,
+    "label": "normal-reward-select-A04"
+  },
+  {
+    "at": "2026-09-21T07:11:08.273Z",
+    "action": "click",
+    "x": 365,
+    "y": 563,
+    "label": "A-workshop-rest"
+  },
+  {
+    "at": "2026-09-21T07:11:20.212Z",
+    "action": "click",
+    "x": 365,
+    "y": 563,
+    "label": "A-N4-enter"
+  },
+  {
+    "at": "2026-09-21T07:11:33.395Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "A-N4-pause-first-group-cast"
+  },
+  {
+    "at": "2026-09-21T07:11:55.149Z",
+    "action": "click",
+    "x": 234,
+    "y": 1105,
+    "label": "A-N4-queue-enhanced-shield"
+  },
+  {
+    "at": "2026-09-21T07:12:07.796Z",
+    "action": "click",
+    "x": 379,
+    "y": 1105,
+    "label": "A-N4-queue-heal"
+  },
+  {
+    "at": "2026-09-21T07:12:14.610Z",
+    "action": "click",
+    "x": 89,
+    "y": 446,
+    "label": "A-N4-focus-prompter"
+  },
+  {
+    "at": "2026-09-21T07:12:24.846Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "A-N4-resume-shield-heal"
+  },
+  {
+    "at": "2026-09-21T07:12:38.368Z",
+    "action": "click",
+    "x": 89,
+    "y": 1105,
+    "label": "A-N4-point-release-overload"
+  },
+  {
+    "at": "2026-09-21T07:12:51.479Z",
+    "action": "click",
+    "x": 234,
+    "y": 1105,
+    "label": "A-N4-second-shield"
+  },
+  {
+    "at": "2026-09-21T07:13:04.195Z",
+    "action": "click",
+    "x": 379,
+    "y": 1105,
+    "label": "A-N4-heal-finishing-phase"
+  },
+  {
+    "at": "2026-09-21T07:13:15.887Z",
+    "action": "click",
+    "x": 365,
+    "y": 901,
+    "label": "normal-reward-select-A03-complete-family"
+  },
+  {
+    "at": "2026-09-21T07:13:27.434Z",
+    "action": "click",
+    "x": 365,
+    "y": 563,
+    "label": "A-N5-full-family-enter"
+  },
+  {
+    "at": "2026-09-21T07:13:41.036Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "A-N5-pause-for-shield"
+  },
+  {
+    "at": "2026-09-21T07:13:50.961Z",
+    "action": "click",
+    "x": 379,
+    "y": 446,
+    "label": "A-N5-focus-durable-enemy"
+  },
+  {
+    "at": "2026-09-21T07:14:00.831Z",
+    "action": "click",
+    "x": 234,
+    "y": 1105,
+    "label": "A-N5-queue-enhanced-shield"
+  },
+  {
+    "at": "2026-09-21T07:14:08.524Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "A-N5-resume-shield-absorption"
+  },
+  {
+    "at": "2026-09-21T07:15:31.293Z",
+    "action": "click",
+    "x": 379,
+    "y": 1105,
+    "label": "A-N5-heal-release-overload-splash"
+  },
+  {
+    "at": "2026-09-21T07:19:32.947Z",
+    "action": "click",
+    "x": 365,
+    "y": 990,
+    "label": "A-boss-confirm-single"
+  },
+  {
+    "at": "2026-09-21T07:19:49.718Z",
+    "action": "click",
+    "x": 234,
+    "y": 1105,
+    "label": "A-boss-guard-before-first-group"
+  },
+  {
+    "at": "2026-09-21T07:19:58.524Z",
+    "action": "click",
+    "x": 379,
+    "y": 1105,
+    "label": "A-boss-heal-and-discharge"
+  },
+  {
+    "at": "2026-09-21T07:20:06.965Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "A-boss-pause-plan"
+  },
+  {
+    "at": "2026-09-21T07:20:15.505Z",
+    "action": "click",
+    "x": 234,
+    "y": 1105,
+    "label": "A-boss-queue-guard"
+  },
+  {
+    "at": "2026-09-21T07:20:23.286Z",
+    "action": "click",
+    "x": 379,
+    "y": 1105,
+    "label": "A-boss-queue-heal"
+  },
+  {
+    "at": "2026-09-21T07:20:34.774Z",
+    "action": "click",
+    "x": 668,
+    "y": 1105,
+    "label": "A-boss-queue-guide"
+  },
+  {
+    "at": "2026-09-21T07:20:44.959Z",
+    "action": "click",
+    "x": 234,
+    "y": 446,
+    "label": "A-boss-focus-mask"
+  },
+  {
+    "at": "2026-09-21T07:20:53.253Z",
+    "action": "click",
+    "x": 89,
+    "y": 1105,
+    "label": "A-boss-queue-point"
+  },
+  {
+    "at": "2026-09-21T07:21:06.708Z",
+    "action": "click",
+    "x": 379,
+    "y": 446,
+    "label": "A-boss-focus-second-mask"
+  },
+  {
+    "at": "2026-09-21T07:21:16.812Z",
+    "action": "click",
+    "x": 525,
+    "y": 1105,
+    "label": "A-boss-queue-blade-second-mask"
+  },
+  {
+    "at": "2026-09-21T07:21:27.494Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "A-boss-resume-five-orders"
+  },
+  {
+    "at": "2026-09-21T07:21:35.301Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "A-boss-pause-after-absorption"
+  },
+  {
+    "at": "2026-09-21T07:21:46.981Z",
+    "action": "click",
+    "x": 89,
+    "y": 446,
+    "label": "A-boss-focus-boss-for-overload"
+  },
+  {
+    "at": "2026-09-21T07:21:55.289Z",
+    "action": "click",
+    "x": 89,
+    "y": 1105,
+    "label": "A-boss-queue-overload-point"
+  },
+  {
+    "at": "2026-09-21T07:22:04.146Z",
+    "action": "click",
+    "x": 525,
+    "y": 1105,
+    "label": "A-boss-queue-blade-boss"
+  },
+  {
+    "at": "2026-09-21T07:22:13.006Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "A-boss-release-overload"
+  },
+  {
+    "at": "2026-09-21T07:22:22.717Z",
+    "action": "click",
+    "x": 379,
+    "y": 1105,
+    "label": "A-boss-live-heal-3"
+  },
+  {
+    "at": "2026-09-21T07:22:30.839Z",
+    "action": "click",
+    "x": 234,
+    "y": 1105,
+    "label": "A-boss-live-guard-3"
+  },
+  {
+    "at": "2026-09-21T07:22:40.948Z",
+    "action": "click",
+    "x": 379,
+    "y": 1105,
+    "label": "A-boss-live-heal-4"
+  },
+  {
+    "at": "2026-09-21T07:22:48.934Z",
+    "action": "click",
+    "x": 234,
+    "y": 1105,
+    "label": "A-boss-live-guard-stage2"
+  },
+  {
+    "at": "2026-09-21T07:23:00.918Z",
+    "action": "click",
+    "x": 379,
+    "y": 1105,
+    "label": "A-boss-heal-stage2-overload"
+  },
+  {
+    "at": "2026-09-21T07:23:09.267Z",
+    "action": "click",
+    "x": 234,
+    "y": 1105,
+    "label": "A-boss-guard-final-stage"
+  },
+  {
+    "at": "2026-09-21T07:23:22.219Z",
+    "action": "click",
+    "x": 379,
+    "y": 1105,
+    "label": "A-boss-final-heal-discharge"
+  },
+  {
+    "at": "2026-09-21T07:23:34.461Z",
+    "action": "click",
+    "x": 365,
+    "y": 1325,
+    "label": "A-victory-return-hub"
+  },
+  {
+    "at": "2026-09-21T07:23:47.263Z",
+    "action": "click",
+    "x": 365,
+    "y": 1325,
+    "label": "A-open-last-run-summary"
+  },
+  {
+    "at": "2026-09-21T07:24:01.687Z",
+    "action": "click",
+    "x": 365,
+    "y": 1325,
+    "label": "A-summary-return-hub"
+  },
+  {
+    "at": "2026-09-21T07:24:19.853Z",
+    "action": "scroll",
+    "delta": 682,
+    "label": "hub-scroll-to-C-core"
+  },
+  {
+    "at": "2026-09-21T07:24:31.849Z",
+    "action": "drag",
+    "from": [
+      727,
+      778
+    ],
+    "to": [
+      727,
+      1218
+    ],
+    "label": "hub-scrollbar-to-C"
+  },
+  {
+    "at": "2026-09-21T07:24:42.584Z",
+    "action": "click",
+    "x": 365,
+    "y": 1200,
+    "label": "new-run-select-C01"
+  },
+  {
+    "at": "2026-09-21T07:24:56.218Z",
+    "action": "click",
+    "x": 365,
+    "y": 563,
+    "label": "C-N1-enter"
+  },
+  {
+    "at": "2026-09-21T07:25:06.747Z",
+    "action": "click",
+    "x": 171,
+    "y": 1285,
+    "label": "C-pause-recording-transition"
+  }
+]

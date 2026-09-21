@@ -1,6 +1,6 @@
 {
   "document": "ORIGINAL-EXPEDITION-MVP v0.1 actual acceptance progress",
-  "generated_utc": "2026-09-21T06:15:18.5330422Z",
+  "generated_utc": "2026-09-21T07:53:45.8910059Z",
   "source_plan": "docs/original-expedition/spec/02_ACCEPTANCE_MATRIX.json",
   "source_plan_sha256": "b9e67b41b5335c7396cfb10be519056157f01eea839ab2d1fc224e3b46072162",
   "source_baseline": "8e56ee7c562c55ea336e3402f8c8c85d8c0223f4",
@@ -13,8 +13,8 @@
     "USER_REVIEW": "保留给明确交付后的用户体验评审；本轮没有宣称用户已验收。"
   },
   "counts": {
-    "PASS": 28,
-    "PARTIAL": 10,
+    "PASS": 38,
+    "PARTIAL": 0,
     "NOT_RUN": 0
   },
   "core_evidence": {
@@ -89,7 +89,7 @@
       "corrected_outcomes": {
         "Passed": 3
       },
-      "reason": "最初 AssertClean 错误要求盟方充能为 0；规格第 3.1 节要求每场重新初始化，既有 BattleSim.NewUnit 盟方开局值为 35。仅把夹具预期更正为 35，并加强旧模拟存在 Charge != 35 的断言；生产代码未修改。原始失败 log/TRX 保留，不将其称为生产缺陷修复或抹去。"
+      "reason": "最初 AssertClean 错误要求盟方充能为 0；规格第 3.1 节要求每场重新初始化，既有 BattleSim.Spawn 盟方开局值为 35。仅把夹具预期更正为 35，并加强旧模拟存在 Charge != 35 的断言；生产代码未修改。原始失败 log/TRX 保留，不将其称为生产缺陷修复或抹去。"
     },
     "prior_v010_runs": [
       {
@@ -255,11 +255,11 @@
     "scope_note": "原checkpoint与工具测试字段是v0.1.0历史验证；当前源码/CLI交叉核验/候选包分别以current_code_commit、replay_portability_evidence、current_package_evidence为准。原打包脚本未改，23项测试证据复用，且已用于当前真实Player。"
   },
   "global_limitations": [
-    "当前Unity91/91和.NET565通过/1旧跳过结果不变，本次没有改写旧测试。",
-    "本版真实Player四场Victory、两次Boss Defeat及B01-B04正常获取/使用有六份严格MATCH tape和14张独立Sky/WGC截图；没有首领胜利、关闭重开或结算新趟。",
-    "675.8秒GDI MP4可解码但冻结在入口，最终video-visual-validation.json判INVALID_STALE_CAPTURE；recording-result.json仅初次容器/解码与存档核对历史结果。操作label和时间戳不能替代录像。旧e04的GDI录像也未重新视觉核验，仅保留原件，不用于新版通过结论。",
-    "O015缺A/C八件相应UI范围，O023缺不同实际渲染帧率对照，O024/O036缺有效普通输入/流程片段，O002热键返回栈和O029/O037普通生命周期尚待。",
-    "用户曾明确恢复操作；本次首领重试暂停再次遭Computer Use物理Esc停止后未再输入桌面。ffmpeg经q正常结束，Player仍运行，最后只读状态BossRetry/revision31/已结算四场。"
+    "38项技术验收均PASS；用户体验ACCEPTED仍待反馈，technicalAcceptancePassed与finalAcceptancePassed分别记录。",
+    "生产Player/内容未变，复用.NET565通过/1旧跳过与Unity91/91；另真实渲染帧率1/1独立记账，不伪称一次92项套件。",
+    "A完整五战录像有效；N5未释放A03/A04，完整释放在N7。B失败与关闭重开获胜为两段有效录像。C选核心/开局位于A片末段，后续独立片至N6，不声称C单段全程或首领通关。",
+    "旧675.8秒GDI录像仍INVALID_STALE_CAPTURE；旧独立截图与实际tape有效，历史报告和原件不改写。",
+    "候选ZIP已在工程外实际解压启动，未做整机断网实验。最终review再封装由主集成者执行，须核对相同170个Player字节；原候选包报告保持历史状态。"
   ],
   "checks": [
     {
@@ -272,14 +272,18 @@
       "evidence_required": "普通启动证据＋隔离测试",
       "original_plan_status": "NOT_RUN",
       "actual_status": "PASS",
-      "actual_result": "O0 无参数开发包完成一场真实 UI 战斗、领奖、返回和新一趟；旧 save.json 与备份前后 SHA-256 相同。O2 Unity 生命周期/失焦/暂停隔离用例通过，当前核心默认模式与独立档案检查也通过。此结论限入口和旧档隔离，不代表 O5 最终包。",
+      "actual_result": "当前7a6ede9b普通Player已完成B败北后关闭重开、获胜返回，以及A五战胜利后新开C。B记录前后legacy save.json及备份SHA-256不变；原创profile保存在独立目录。候选ZIP在Unity工程外无参数启动并恢复C的N6，正常详情交互后原创主档hash不变。当前核心默认模式/独立存储检查和91项Unity中的生命周期、失焦与暂停隔离回归通过；早期O0/O2报告作为历史保留。",
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
         "docs/original-expedition/evidence/o0/player-entry/README.md",
         "docs/original-expedition/evidence/o0/player-entry/build-hashes.json",
         "docs/original-expedition/evidence/o0/legacy-profile-comparison.json",
         "docs/original-expedition/evidence/o2/unity-o2.xml",
-        "docs/original-expedition/evidence/o5/replay-portability-unity-final-20260921.xml"
+        "docs/original-expedition/evidence/o5/replay-portability-unity-final-20260921.xml",
+        "docs/original-expedition/evidence/o5/replay-portability-core-final-20260921.trx",
+        "docs/original-expedition/evidence/o5/boss-retry-7a6ede9b/reports/checkpoint-profile-comparison.json",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/README.md",
+        "docs/original-expedition/evidence/o5/standalone-zip-launch-7a6ede9b/launch-verification.json"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalExpeditionModeTests.DefaultMode_IsOriginal_LegacyRequiresExplicitOptIn",
@@ -298,8 +302,19 @@
         }
       ],
       "remaining_requirements": [],
-      "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; SPECIFIC_ORDINARY_EVIDENCE_PENDING",
-      "ordinary_play_execution": "HISTORICAL_O0_SINGLE_BATTLE_PASS"
+      "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; CURRENT_ORDINARY_ENTRY_REOPEN_AND_PROFILE_ISOLATION_PASS",
+      "ordinary_play_execution": "CURRENT_PLAYER_PROFILE_HASHES_UNCHANGED",
+      "acceptance_history": [
+        {
+          "replaced_at_utc": "2026-09-21T07:48:29.0937655Z",
+          "reason": "Current evidence reconciliation; historical reports and source specification remain unchanged",
+          "actual_status": "PASS",
+          "actual_result": "O0 无参数开发包完成一场真实 UI 战斗、领奖、返回和新一趟；旧 save.json 与备份前后 SHA-256 相同。O2 Unity 生命周期/失焦/暂停隔离用例通过，当前核心默认模式与独立档案检查也通过。此结论限入口和旧档隔离，不代表 O5 最终包。",
+          "remaining_requirements": [],
+          "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; SPECIFIC_ORDINARY_EVIDENCE_PENDING",
+          "ordinary_play_execution": "HISTORICAL_O0_SINGLE_BATTLE_PASS"
+        }
+      ]
     },
     {
       "id": "O-002",
@@ -310,8 +325,8 @@
       "expected": "新模式无法触发旧永久奖励、兑换或任意改级；旧代码不被删除冒充功能完成。",
       "evidence_required": "导航测试＋修改路径",
       "original_plan_status": "NOT_RUN",
-      "actual_status": "PARTIAL",
-      "actual_result": "当前91项Unity套件保留七种旧页面导航拒绝与旧持久资源入口阻断。7a6ede9b普通无参数B远征已使用节点/奖励/工坊导航且未进入旧页面；本段没有普通热键和返回栈覆盖，不能把控制器测试代替缺失输入。",
+      "actual_status": "PASS",
+      "actual_result": "七种旧页面导航拒绝及旧资源入口阻断的Unity回归继续有效。新A普通录像和78条操作记录覆盖Return/Space/KeypadEnter、Escape、方向键/WASD焦点、返回节点/继续、结算/据点/上趟回顾；画面始终为原创模式。源码中原创Update提前返回阻断旧Stage启动键，Show和Inspect均有模式守卫。没有独立原创返回栈或数字键技能，不把不存在的入口列为遗漏。",
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
         "docs/original-expedition/evidence/o2/unity-o2.xml",
@@ -319,7 +334,11 @@
         "docs/original-expedition/evidence/o5/replay-portability-unity-final-20260921.xml",
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/session.json",
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/events.json",
-        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/recording-result.json"
+        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/recording-result.json",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/README.md",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/events.json",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/reports/video-analysis.json",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/screens/010-return-node-keeps-original-mode.jpg"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalExpeditionModeTests.DefaultMode_IsOriginal_LegacyRequiresExplicitOptIn"
@@ -331,11 +350,9 @@
           "outcome": "Passed"
         }
       ],
-      "remaining_requirements": [
-        "普通热键及返回栈输入覆盖，并确认不进入旧模式或旧持久奖励入口"
-      ],
+      "remaining_requirements": [],
       "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91",
-      "ordinary_play_execution": "PARTIAL_ORDINARY_NODE_NAVIGATION_ONLY",
+      "ordinary_play_execution": "PASS_CURRENT_PLAYER_EVIDENCE_WITH_STATED_SCOPE",
       "acceptance_history": [
         {
           "replaced_at_utc": "2026-09-21T06:05:21.4430315Z",
@@ -346,6 +363,16 @@
           ],
           "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; SPECIFIC_ORDINARY_EVIDENCE_PENDING",
           "ordinary_play_execution": "NOT_RUN"
+        },
+        {
+          "replaced_at_utc": "2026-09-21T07:40:03.3211898Z",
+          "actual_status": "PARTIAL",
+          "actual_result": "当前91项Unity套件保留七种旧页面导航拒绝与旧持久资源入口阻断。7a6ede9b普通无参数B远征已使用节点/奖励/工坊导航且未进入旧页面；本段没有普通热键和返回栈覆盖，不能把控制器测试代替缺失输入。",
+          "remaining_requirements": [
+            "普通热键及返回栈输入覆盖，并确认不进入旧模式或旧持久奖励入口"
+          ],
+          "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91",
+          "ordinary_play_execution": "PARTIAL_ORDINARY_NODE_NAVIGATION_ONLY"
         }
       ]
     },
@@ -358,8 +385,8 @@
       "expected": "仅5场战斗；分岔互斥；正常界面可继续，无调试状态注入。",
       "evidence_required": "完整普通流程录像",
       "original_plan_status": "NOT_RUN",
-      "actual_status": "PARTIAL",
-      "actual_result": "本版普通无参数Player实际完成N1、N2观众席、N4、N5四场Victory并两次首领自然Defeat，由独立Sky/WGC截图及六份严格MATCH实际tape证明。675.8秒GDI MP4虽正常结束并可解码，抽检却停留在入口旧画面，状态INVALID_STALE_CAPTURE；不能证明四战、败北或任何完整流程。当前BossRetry/revision31/已结算四战，没有N7胜利、结算、返回新趟；不以时间戳、操作标签或tape替代连续录像。",
+      "actual_status": "PASS",
+      "actual_result": "A run439afa6220f34ece9f8d1c6762bcfae2、seed13486312从普通据点选择A01，经后台互斥分支、工坊休整、N4/N5/N6/N7完成五场Victory；五份真实tape的EndTick为685/1320/1452/1809/3331且均严格MATCH。20:16.266667单段WGC视频完整解码且20关键帧亲自检查，覆盖结算、返回、摘要、新C与C的N1。N1早期返回节点/继续为同检查点导航核验，完成节点仍只有五场。",
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
         "docs/original-expedition/evidence/flow/README.md",
@@ -368,7 +395,12 @@
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/events.json",
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/recording-result.json",
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/ordinary-run-replay-summary.json",
-        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/video-visual-validation.json"
+        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/video-visual-validation.json",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/README.md",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/reports/video-analysis.json",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/reports/battle-and-queue-analysis.json",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/reports/profile-transition-analysis.json",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/sha256-manifest.json"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalExpeditionLoopIntegrationTests.ActualSimulation_FiveBattlesRewardsAndNextRun_UseNormalCommands(seed: 91021, branch: \"N2-backstage\")",
@@ -386,11 +418,9 @@
           "outcome": "Passed"
         }
       ],
-      "remaining_requirements": [
-        "重新取得实际持续刷新的同版普通N0→N7胜利、结算、返回及新趟完整连续录像；旧MP4保留为无效采集诊断原件"
-      ],
-      "current_unity_ui_execution": "ORDINARY_PARTIAL_RUN_RECORDED",
-      "ordinary_play_execution": "PARTIAL_REAL_PLAYER_PROGRESS_VIDEO_INVALID",
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "ORDINARY_FULL_FIVE_BATTLE_RUN_AND_NEW_RUN_RECORDED",
+      "ordinary_play_execution": "PASS_CURRENT_PLAYER_EVIDENCE_WITH_STATED_SCOPE",
       "acceptance_history": [
         {
           "replaced_at_utc": "2026-09-21T06:05:21.4430315Z",
@@ -411,6 +441,25 @@
             "同版普通N0→N7胜利、结算、返回及新趟的完整连续录像；本段不得改名或拼接冒充完整通关"
           ],
           "ordinary_play_execution": "PARTIAL_FOUR_VICTORIES_TWO_BOSS_DEFEATS"
+        },
+        {
+          "replaced_at_utc": "2026-09-21T07:40:03.3211898Z",
+          "actual_status": "PARTIAL",
+          "actual_result": "本版普通无参数Player实际完成N1、N2观众席、N4、N5四场Victory并两次首领自然Defeat，由独立Sky/WGC截图及六份严格MATCH实际tape证明。675.8秒GDI MP4虽正常结束并可解码，抽检却停留在入口旧画面，状态INVALID_STALE_CAPTURE；不能证明四战、败北或任何完整流程。当前BossRetry/revision31/已结算四战，没有N7胜利、结算、返回新趟；不以时间戳、操作标签或tape替代连续录像。",
+          "remaining_requirements": [
+            "重新取得实际持续刷新的同版普通N0→N7胜利、结算、返回及新趟完整连续录像；旧MP4保留为无效采集诊断原件"
+          ],
+          "current_unity_ui_execution": "ORDINARY_PARTIAL_RUN_RECORDED",
+          "ordinary_play_execution": "PARTIAL_REAL_PLAYER_PROGRESS_VIDEO_INVALID"
+        },
+        {
+          "replaced_at_utc": "2026-09-21T07:48:29.0937655Z",
+          "reason": "Current evidence reconciliation; historical reports and source specification remain unchanged",
+          "actual_status": "PASS",
+          "actual_result": "A run439afa6220f34ece9f8d1c6762bcfae2、seed13486312从普通据点选择A01，经后台互斥分支、工坊休整、N4/N5/N6/N7完成五场Victory；五份真实tape的EndTick为685/1320/1452/1809/3331且均严格MATCH。20:16.266667单段WGC视频完整解码且20关键帧亲自检查，覆盖结算、返回、摘要、新C与C的N1。N1早期返回节点/继续为同检查点导航核验，完成节点仍只有五场。",
+          "remaining_requirements": [],
+          "current_unity_ui_execution": "ORDINARY_PARTIAL_RUN_RECORDED",
+          "ordinary_play_execution": "PASS_CURRENT_PLAYER_EVIDENCE_WITH_STATED_SCOPE"
         }
       ]
     },
@@ -1070,8 +1119,8 @@
       "expected": "全部定义可从游戏界面获得并触发；不是仅测试构造可用。",
       "evidence_required": "种子清单＋UI获取证据",
       "original_plan_status": "NOT_RUN",
-      "actual_status": "PARTIAL",
-      "actual_result": "既有三族可复现奖励路径和同版受控行为测试保留。普通run 158dfbcbfa944ee5ad276bb015e20236、界面种子8509421在入口选B01，N1后取B02、N2后取B03、N4后取B04；N5真实tape含四件，散射/双目标/回响均有结算证据，非测试构造。A/C八件尚无本版相应普通UI获取证据；规格允许受控行为截帧，不把这次B路线声称为十二件全部正常获取。",
+      "actual_status": "PASS",
+      "actual_result": "三族按普通UI核心及奖励取得并实际生效：B seed8509421取得B01→B02→B03→B04，在N5/N7散射回响；A seed13486312取得A01→A02→A04→A03，A01在N1/N2反击、A02增盾25%、A04在N4/N7、A03在N7。C seed14556671取得C01→C02→C03→C04，N1实际C01接力，N4实际升级接力/和声，N5 tick436三辅助使ForteStored false→true，tick832后续点杀使true→false、C04触发序号0→6；敌HP4036→1462及总敌伤10116→12690均差2574，为本次原生总伤而非全部遗物增量。C四份真实tape严格MATCH，545.466667秒视频完整解码且17帧独立查看，438/452/493秒对应储存/保留/消费。C02在N2未触发；C开局位于A片末段，本片从N1暂停衔接并止N6，不声称C首领通关或单段覆盖C全程。",
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
         "docs/original-expedition/evidence/flow/README.md",
@@ -1082,7 +1131,16 @@
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/frames/025-N2-victory-reward.jpg",
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/frames/038-B04-normal-reward-detail.jpg",
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/frames/040-N5-four-piece-entry.jpg",
-        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/n4-n5-settlement-evidence.json"
+        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/n4-n5-settlement-evidence.json",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/README.md",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/reports/battle-and-queue-analysis.json",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/reports/profile-transition-analysis.json",
+        "docs/original-expedition/evidence/o5/ordinary-c-7a6ede9b/README.md",
+        "docs/original-expedition/evidence/o5/ordinary-c-7a6ede9b/reports/battle-causal-analysis.json",
+        "docs/original-expedition/evidence/o5/ordinary-c-7a6ede9b/reports/profile-acquisition-analysis.json",
+        "docs/original-expedition/evidence/o5/ordinary-c-7a6ede9b/reports/01d69be1b02d4d5cb28c1aaa1ad4e467.input-trace.json",
+        "docs/original-expedition/evidence/o5/ordinary-c-7a6ede9b/reports/video-analysis.json",
+        "docs/original-expedition/evidence/o5/ordinary-c-7a6ede9b/sha256-manifest.json"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalExpeditionFlowTests.EveryFamilyHasAReproducibleFourPiecePathBeforeN5(core: \"A01\", first: \"A02\", second: \"A03\", amplifier: \"A04\")",
@@ -1106,11 +1164,9 @@
           "outcome": "Passed"
         }
       ],
-      "remaining_requirements": [
-        "补A/C八件相应正常UI获取与触发证据；允许标明受控行为范围，不要求三次完整通关录像，但不能冒称均已普通获取"
-      ],
-      "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; ORDINARY_B_FAMILY_ACQUIRED_AND_USED",
-      "ordinary_play_execution": "PARTIAL_B01_B04_PROVEN_A_C_PENDING",
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; ORDINARY_A_B_C_NORMAL_ACQUISITION_AND_ACTUAL_USE_PASS",
+      "ordinary_play_execution": "A_B_C_TWELVE_RELICS_NORMAL_UI_ACQUISITION_AND_USE_PASS",
       "acceptance_history": [
         {
           "replaced_at_utc": "2026-09-21T06:05:21.4430315Z",
@@ -1121,6 +1177,27 @@
           ],
           "current_unity_ui_execution": "NOT_RUN",
           "ordinary_play_execution": "NOT_RUN"
+        },
+        {
+          "replaced_at_utc": "2026-09-21T07:40:03.3211898Z",
+          "actual_status": "PARTIAL",
+          "actual_result": "既有三族可复现奖励路径和同版受控行为测试保留。普通run 158dfbcbfa944ee5ad276bb015e20236、界面种子8509421在入口选B01，N1后取B02、N2后取B03、N4后取B04；N5真实tape含四件，散射/双目标/回响均有结算证据，非测试构造。A/C八件尚无本版相应普通UI获取证据；规格允许受控行为截帧，不把这次B路线声称为十二件全部正常获取。",
+          "remaining_requirements": [
+            "补A/C八件相应正常UI获取与触发证据；允许标明受控行为范围，不要求三次完整通关录像，但不能冒称均已普通获取"
+          ],
+          "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; ORDINARY_B_FAMILY_ACQUIRED_AND_USED",
+          "ordinary_play_execution": "PARTIAL_B01_B04_PROVEN_A_C_PENDING"
+        },
+        {
+          "replaced_at_utc": "2026-09-21T07:53:45.8910059Z",
+          "reason": "Independent C archive complete; ordinary acquisition and native forte consumption verified",
+          "actual_status": "PARTIAL",
+          "actual_result": "固定Flow奖励种子与同版受控三族行为测试保留。B seed8509421普通取得B01–B04并在N5/N7实际生效；A seed13486312普通取得A01→A02→A04→A03，A01在N1/N2反击、A02后续每目标增盾25%、A04在N4/N7、A03在N7实际发生。C seed14556671由A结算后普通新开，执行者已报告C01→C02→C03→C04和N5触发，独立tape/视频核验尚未归档，故本项保留PARTIAL，不提前宣称十二件验收完成。",
+          "remaining_requirements": [
+            "C01–C04正常UI获取与N5接力/和声/后续强奏消费的独立录像、实际tape及核验归档"
+          ],
+          "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; ORDINARY_B_FAMILY_ACQUIRED_AND_USED",
+          "ordinary_play_execution": "A_AND_B_NORMAL_ACQUISITION_AND_USE_PASS_C_EVIDENCE_PENDING"
         }
       ]
     },
@@ -1373,7 +1450,7 @@
       "evidence_required": "模拟边界测试＋画面",
       "original_plan_status": "NOT_RUN",
       "actual_status": "PASS",
-      "actual_result": "既有核心边界覆盖0/1/2活面具倍率1/1.5/2、读条中击杀改变执行时伤害及只结算一次，当前91项Unity真实意图映射测试通过。两张独立Sky/WGC静态画面显示首领准备中2/2面具、2.0倍力度，以及清完面具后读条0.5秒、0/2面具、1.0倍力度；它们不是无效GDI视频抽帧。本项要求模拟边界测试加画面，不要求用录像重现全部数值边界。未拍到1/2或二阶段，相关画面不作通过声称。",
+      "actual_result": "核心边界覆盖0/1/2活面具倍率1/1.5/2、读条中击杀改变执行时伤害及只结算一次；当前91项Unity包含真实意图映射。旧独立Sky/WGC截图提供2/2与0/2面具预警，新A有效连续视频1016秒显示1/2面具与1.5倍力度，1091秒显示二阶段2/2面具与2.0倍力度。画面与严格MATCH战斗记录结合核验，不依赖旧无效GDI视频，也不将不同帧伪称为同一数值边界实验。",
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
         "docs/original-expedition/O3-CHECKPOINT.md",
@@ -1384,7 +1461,11 @@
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/frames/049-boss-zero-masks-telegraph.jpg",
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/ordinary-run-replay-summary.json",
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/recording-result.json",
-        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/video-visual-validation.json"
+        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/video-visual-validation.json",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/README.md",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/reports/video-analysis.json",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/reports/battle-and-queue-analysis.json",
+        "docs/original-expedition/evidence/o5/boss-retry-7a6ede9b/README.md"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalBossControllerTests.ActualCastUsesMasksStillAliveAtResolutionAndSnapshotUpdatesDuringCast",
@@ -1409,8 +1490,8 @@
         }
       ],
       "remaining_requirements": [],
-      "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; ORDINARY_TWO_AND_ZERO_MASK_WARNING_VISIBLE",
-      "ordinary_play_execution": "PASS_STATIC_WARNING_AND_MASK_IMAGES_WITH_CORE_BOUNDARIES",
+      "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; ORDINARY_ZERO_ONE_TWO_MASK_WARNINGS_AND_PHASE_TWO_VISIBLE",
+      "ordinary_play_execution": "CURRENT_PLAYER_WARNING_VIDEO_AND_IMAGES_WITH_CORE_BOUNDARIES",
       "acceptance_history": [
         {
           "replaced_at_utc": "2026-09-21T06:05:21.4430315Z",
@@ -1429,6 +1510,15 @@
           "actual_result": "既有核心实际结算边界覆盖0/1/2活面具倍率1/1.5/2、读条中击杀改变执行时伤害与只结算一次，当前91项Unity中的意图真实映射用例通过。普通本版截图补足可见画面：首领准备中面具2/2、力度2.0倍；清完面具后读条剩0.5秒、面具0/2、力度1.0倍。未声称本段拍到1/2或二阶段，0/1/2数值结论采用测试与普通画面的分层证据。",
           "remaining_requirements": [],
           "ordinary_play_execution": "PASS_WARNING_SCREEN_SCOPE_NO_PHASE_TWO_CLAIM"
+        },
+        {
+          "replaced_at_utc": "2026-09-21T07:48:29.0937655Z",
+          "reason": "Current evidence reconciliation; historical reports and source specification remain unchanged",
+          "actual_status": "PASS",
+          "actual_result": "既有核心边界覆盖0/1/2活面具倍率1/1.5/2、读条中击杀改变执行时伤害及只结算一次，当前91项Unity真实意图映射测试通过。两张独立Sky/WGC静态画面显示首领准备中2/2面具、2.0倍力度，以及清完面具后读条0.5秒、0/2面具、1.0倍力度；它们不是无效GDI视频抽帧。本项要求模拟边界测试加画面，不要求用录像重现全部数值边界。未拍到1/2或二阶段，相关画面不作通过声称。",
+          "remaining_requirements": [],
+          "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; ORDINARY_TWO_AND_ZERO_MASK_WARNING_VISIBLE",
+          "ordinary_play_execution": "PASS_STATIC_WARNING_AND_MASK_IMAGES_WITH_CORE_BOUNDARIES"
         }
       ]
     },
@@ -1563,8 +1653,8 @@
       "expected": "首领意图使用模拟权威时钟；暂停不涨冷却/蓄能；UI倒计时不决定伤害。",
       "evidence_required": "时间与事件对照",
       "original_plan_status": "NOT_RUN",
-      "actual_status": "PARTIAL",
-      "actual_result": "既有模拟1倍/2倍、暂停/政策停顿与91项Unity时钟映射通过。独立截图显示N4读条1.4秒暂停状态，真实tape保存暂停恢复及N5切换2倍命令并严格MATCH；这不提供跨渲染帧率实测。GDI录像已判INVALID_STALE_CAPTURE，其15 FPS仅为录屏参数，不能用作游戏FPS或时间连续性证据。新增受控实际渲染帧率夹具已于fbf7ac10提交，仅离线编译exit0；Unity运行NOT_RUN，默认未设专用环境变量会Ignore，未计入既有91项通过结果。生产源码和当前Player仍为7a6ede9b，O-023仍PARTIAL。",
+      "actual_status": "PASS",
+      "actual_result": "既有1×/2×、暂停/恢复和政策停顿核心及Unity证据继续有效；新增可见Unity Game View实际渲染对照1/1通过，30/120目标档实测中位29.993821/116.823795 FPS。808个共同逻辑tick（230个读条tick）的权威意图和HUD文字一致，129条伤害事件及其tick、全部事件/结算/终态哈希相同，终局均tick825。它是隔离冻结N7开局的受控渲染夹具，不是普通Player录像或显示器刷新率保证。",
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
         "docs/original-expedition/O3-CHECKPOINT.md",
@@ -1575,7 +1665,12 @@
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/ordinary-run-replay-summary.json",
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/video-visual-validation.json",
         "docs/original-expedition/RENDERED-FRAME-RATE-TEST.md",
-        "docs/original-expedition/evidence/o5/rendered-fps-offline-compile.json"
+        "docs/original-expedition/evidence/o5/rendered-fps-offline-compile.json",
+        "docs/original-expedition/evidence/o5/rendered-fps-20260921-37245ba5/RUN-SUMMARY.md",
+        "docs/original-expedition/evidence/o5/rendered-fps-20260921-37245ba5/test-results.xml",
+        "docs/original-expedition/evidence/o5/rendered-fps-20260921-37245ba5/rendered/comparison.json",
+        "docs/original-expedition/evidence/o5/rendered-fps-20260921-37245ba5/rendered/source-identity.json",
+        "docs/original-expedition/evidence/o5/rendered-fps-20260921-37245ba5/postflight.json"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalBossControllerTests.FrozenDefinitionAndOneVsTwoSpeedHaveSameGameTimeActions",
@@ -1605,11 +1700,9 @@
           "outcome": "Passed"
         }
       ],
-      "remaining_requirements": [
-        "不同实际渲染帧率下，同一冻结输入与同tick命令的意图/倒计时/伤害时间对照；需要有效实际画面与帧率测量"
-      ],
-      "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; ORDINARY_PAUSE_SPEED_ONLY",
-      "ordinary_play_execution": "PARTIAL_COMMANDS_AND_STATIC_PAUSE_IMAGE_NO_RENDER_FPS_COMPARISON",
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91_PLUS_SEPARATE_RENDERED_FPS_PASS_1",
+      "ordinary_play_execution": "ORDINARY_SPEED_AND_PAUSE_ACTIONS; SEPARATE_CONTROLLED_ACTUAL_RENDER_FPS_COMPARISON_PASS",
       "acceptance_history": [
         {
           "replaced_at_utc": "2026-09-21T06:05:21.4430315Z",
@@ -1630,6 +1723,25 @@
             "不同实际渲染帧率下，使用同一冻结输入及同tick命令的意图/倒计时/伤害时间对照"
           ],
           "ordinary_play_execution": "PARTIAL_NO_ACTUAL_RENDER_FPS_COMPARISON"
+        },
+        {
+          "replaced_at_utc": "2026-09-21T07:33:29.3130791Z",
+          "actual_status": "PARTIAL",
+          "actual_result": "既有模拟1倍/2倍、暂停/政策停顿与91项Unity时钟映射通过。独立截图显示N4读条1.4秒暂停状态，真实tape保存暂停恢复及N5切换2倍命令并严格MATCH；这不提供跨渲染帧率实测。GDI录像已判INVALID_STALE_CAPTURE，其15 FPS仅为录屏参数，不能用作游戏FPS或时间连续性证据。新增受控实际渲染帧率夹具已于fbf7ac10提交，仅离线编译exit0；Unity运行NOT_RUN，默认未设专用环境变量会Ignore，未计入既有91项通过结果。生产源码和当前Player仍为7a6ede9b，O-023仍PARTIAL。",
+          "remaining_requirements": [
+            "不同实际渲染帧率下，同一冻结输入与同tick命令的意图/倒计时/伤害时间对照；需要有效实际画面与帧率测量"
+          ],
+          "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; ORDINARY_PAUSE_SPEED_ONLY",
+          "ordinary_play_execution": "PARTIAL_COMMANDS_AND_STATIC_PAUSE_IMAGE_NO_RENDER_FPS_COMPARISON"
+        },
+        {
+          "replaced_at_utc": "2026-09-21T07:48:29.0937655Z",
+          "reason": "Current evidence reconciliation; historical reports and source specification remain unchanged",
+          "actual_status": "PASS",
+          "actual_result": "既有1×/2×、暂停/恢复和政策停顿核心及Unity证据继续有效；新增可见Unity Game View实际渲染对照1/1通过，30/120目标档实测中位29.993821/116.823795 FPS。808个共同逻辑tick（230个读条tick）的权威意图和HUD文字一致，129条伤害事件及其tick、全部事件/结算/终态哈希相同，终局均tick825。它是隔离冻结N7开局的受控渲染夹具，不是普通Player录像或显示器刷新率保证。",
+          "remaining_requirements": [],
+          "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91_PLUS_SEPARATE_RENDERED_FPS_PASS_1",
+          "ordinary_play_execution": "PARTIAL_COMMANDS_AND_STATIC_PAUSE_IMAGE_NO_RENDER_FPS_COMPARISON"
         }
       ]
     },
@@ -1642,8 +1754,8 @@
       "expected": "恢复后统一Submit，合法性重验；顺序稳定；拒绝有原因；未就绪不偷偷等待后自动施放。",
       "evidence_required": "队列用例＋正常输入片段",
       "original_plan_status": "NOT_RUN",
-      "actual_status": "PARTIAL",
-      "actual_result": "当前核心/Unity队列边界测试通过。真实N1 tape在tick275记录slot4覆盖、清除重加后恢复按1/4/0/3执行，独立截图显示对应队列；N2 tick393四条成功、slot3目标失效，截图逐人显示原因，tick711重选后成功。上述命令与静态画面有效，但GDI MP4没有刷新游戏流程，不能提供原要求的正常输入片段；先前拟据视频升级的判断撤回。操作记录label只是意图，不计不存在的攻击。",
+      "actual_status": "PASS",
+      "actual_result": "核心及Unity边界覆盖目标失效、资源不足、覆盖/清除、重复恢复和不自动等待。新A有效普通视频232秒及N1 tape Inputs在tick206记录砚盾1→输出0→覆盖0→引灯4→清除0→重加0→逐锋3→恢复，实际Commands严格只执行[1,4,0,3]各一次并MATCH。此前普通B的N2目标失效有真实tape及独立截图；本轮A无拒绝，不冒称其录像覆盖所有拒绝分支。按矩阵以队列边界用例、实际拒绝数据/截图和有效普通输入片段组合验收。",
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
         "docs/original-expedition/O3-CHECKPOINT.md",
@@ -1656,7 +1768,11 @@
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/battle-04e7627c6dce4666822a19dbb16f4ccc.original-replay.json",
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/battle-003b487d08e742c0845b301019d4e1a0.original-replay.json",
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/ordinary-run-replay-summary.json",
-        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/video-visual-validation.json"
+        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/video-visual-validation.json",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/README.md",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/reports/video-analysis.json",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/reports/battle-and-queue-analysis.json",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/reports/f8823184c2da44d2b2f208c9ce087ce3.verify.json"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalExpeditionQueueTests.QueueReplacementPreservesOrder_ClearThenReinsertMovesToEnd_AndSnapshotsAreStable",
@@ -1710,11 +1826,9 @@
           "outcome": "Passed"
         }
       ],
-      "remaining_requirements": [
-        "补有效连续普通输入片段，实际展示暂停、同slot覆盖、清除重加、恢复与拒绝反馈；截图/命令记录不替代所需片段"
-      ],
+      "remaining_requirements": [],
       "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; ORDINARY_QUEUE_ACTIONS_AND_REJECTION_VISIBLE",
-      "ordinary_play_execution": "PARTIAL_REAL_COMMANDS_STATIC_IMAGES_VIDEO_INVALID",
+      "ordinary_play_execution": "PASS_CURRENT_PLAYER_EVIDENCE_WITH_STATED_SCOPE",
       "acceptance_history": [
         {
           "replaced_at_utc": "2026-09-21T06:05:21.4430315Z",
@@ -1733,6 +1847,16 @@
           "actual_result": "既有队列覆盖保序、清除重排、恢复统一Submit、资源不足/目标失效拒绝及不自动等待重试测试通过。普通N1 tape在tick275记录slot4重复编排、slot1、清除slot4后重加、slot0/3，恢复后真实Tap按1/4/0/3顺序全部成功；截图队列与之相符。N2 tick393依次提交2/1/4/0成功，slot3因先前目标死亡明确TargetInvalid，画面逐人显示原因；后续普通重选目标并于tick711成功施放。资源不足和重复恢复依赖已通过边界测试，不虚称本段演示过全部边界。events的label仅为操作意图，事实按命令和画面核验。",
           "remaining_requirements": [],
           "ordinary_play_execution": "PASS_BOUNDED_QUEUE_INPUT_SEQUENCE"
+        },
+        {
+          "replaced_at_utc": "2026-09-21T07:40:03.3211898Z",
+          "actual_status": "PARTIAL",
+          "actual_result": "当前核心/Unity队列边界测试通过。真实N1 tape在tick275记录slot4覆盖、清除重加后恢复按1/4/0/3执行，独立截图显示对应队列；N2 tick393四条成功、slot3目标失效，截图逐人显示原因，tick711重选后成功。上述命令与静态画面有效，但GDI MP4没有刷新游戏流程，不能提供原要求的正常输入片段；先前拟据视频升级的判断撤回。操作记录label只是意图，不计不存在的攻击。",
+          "remaining_requirements": [
+            "补有效连续普通输入片段，实际展示暂停、同slot覆盖、清除重加、恢复与拒绝反馈；截图/命令记录不替代所需片段"
+          ],
+          "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; ORDINARY_QUEUE_ACTIONS_AND_REJECTION_VISIBLE",
+          "ordinary_play_execution": "PARTIAL_REAL_COMMANDS_STATIC_IMAGES_VIDEO_INVALID"
         }
       ]
     },
@@ -1746,7 +1870,7 @@
       "evidence_required": "模式隔离回归",
       "original_plan_status": "NOT_RUN",
       "actual_status": "PASS",
-      "actual_result": "当前核心已有 Drive/Fever/旧自动所有权/3× 拒绝及 Tick 后不进入隐藏等待的模式测试；普通 Auto 仍运行。当前 O3/O4 HUD 刷新与整套 Unity 回归尚未执行，不能把 C# 引用编译当作 UI 通过。 2026-09-21 重启后当前 Unity 75/75 通过，含 OriginalEntry_BlocksLegacyMutationAndAutomaticOwnershipMethods、ActualButtons_PauseQueueClearAndResume_ProduceOrderedSubmitResultsWithoutSaving 及 legacy 教程回归。结合既有高 Drive/Fever 核心测试，补齐分层模式隔离回归；不是一次普通高资源 UI 录像。",
+      "actual_result": "当前v0.1.1核心模式用例验证Drive/Fever、旧自动所有权及3×请求被拒绝，Tick后不进入隐藏QTE/Fever等待，普通Auto仍运行。当前真实Unity最终套件91/91通过，包含OriginalEntry_BlocksLegacyMutationAndAutomaticOwnershipMethods、ActualButtons_PauseQueueClearAndResume_ProduceOrderedSubmitResultsWithoutSaving与legacy教程回归。模式隔离由核心及真实UI分层验证；旧75/75报告作为历史保留，不把普通录像冒称高Drive/Fever资源边界实验。",
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
         "docs/original-expedition/evidence/o2/unity-o2.xml",
@@ -1772,8 +1896,19 @@
         }
       ],
       "remaining_requirements": [],
-      "current_unity_ui_execution": "PASS",
-      "ordinary_play_execution": "NOT_APPLICABLE"
+      "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91_WITH_MODE_ISOLATION_AND_LEGACY_REGRESSION",
+      "ordinary_play_execution": "NOT_APPLICABLE_CONTROLLED_MODE_BOUNDARIES",
+      "acceptance_history": [
+        {
+          "replaced_at_utc": "2026-09-21T07:48:29.0937655Z",
+          "reason": "Current evidence reconciliation; historical reports and source specification remain unchanged",
+          "actual_status": "PASS",
+          "actual_result": "当前核心已有 Drive/Fever/旧自动所有权/3× 拒绝及 Tick 后不进入隐藏等待的模式测试；普通 Auto 仍运行。当前 O3/O4 HUD 刷新与整套 Unity 回归尚未执行，不能把 C# 引用编译当作 UI 通过。 2026-09-21 重启后当前 Unity 75/75 通过，含 OriginalEntry_BlocksLegacyMutationAndAutomaticOwnershipMethods、ActualButtons_PauseQueueClearAndResume_ProduceOrderedSubmitResultsWithoutSaving 及 legacy 教程回归。结合既有高 Drive/Fever 核心测试，补齐分层模式隔离回归；不是一次普通高资源 UI 录像。",
+          "remaining_requirements": [],
+          "current_unity_ui_execution": "PASS",
+          "ordinary_play_execution": "NOT_APPLICABLE"
+        }
+      ]
     },
     {
       "id": "O-026",
@@ -1825,8 +1960,8 @@
       "expected": "基础配置、开局状态、内容hash、seed、遗物相同；attemptId可变；操作可改变结果；不能重抽。",
       "evidence_required": "快照比对＋失败重试录像",
       "original_plan_status": "NOT_RUN",
-      "actual_status": "PARTIAL",
-      "actual_result": "两份普通N7真实tape均自然Defeat/endTick2070且严格MATCH；仅在只读克隆中除去AttemptId后，完整冻结输入哈希相同并等于首次战前检查点，原件未改。第二次只有tick172选面具，暂停遭物理Esc停止，未释放主动技能；未关闭重开也未获胜。有效独立败北截图与tape证明部分行为，但GDI视频为INVALID_STALE_CAPTURE，不构成失败重试录像。",
+      "actual_status": "PASS",
+      "actual_result": "普通B01–B04 run158dfbcbfa944ee5ad276bb015e20236、runSeed8509421先零主动自然Defeat(tick2070)，关闭并无参数重开后，以26次成功主动获得Victory(tick2553)。两份真实Player tape由独立CLI严格MATCH；递归逐叶比较仅AttemptId不同，六份冻结输入归一该字段后的IEEE精确hash相同，关闭前后profile字节相同。两段有效WGC录像完整解码并检查变化帧，清楚标明两段跨退出记录，不冒称跨进程单段录像。",
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
         "docs/original-expedition/evidence/o3/retry-contract.md",
@@ -1837,7 +1972,13 @@
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/verification-batch-03.json",
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/ordinary-run-replay-summary.json",
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/recording-result.json",
-        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/video-visual-validation.json"
+        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/video-visual-validation.json",
+        "docs/original-expedition/evidence/o5/boss-retry-7a6ede9b/README.md",
+        "docs/original-expedition/evidence/o5/boss-retry-7a6ede9b/reports/checkpoint-profile-comparison.json",
+        "docs/original-expedition/evidence/o5/boss-retry-7a6ede9b/reports/video-analysis.json",
+        "docs/original-expedition/evidence/o5/boss-retry-7a6ede9b/reports/0aed9659585c4708995d6c591a206753.verify.json",
+        "docs/original-expedition/evidence/o5/boss-retry-7a6ede9b/reports/5481ae3998634dd98a63671583599c11.verify.json",
+        "docs/original-expedition/evidence/o5/boss-retry-7a6ede9b/reports/battle-settlement-analysis.json"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalBossRetryStrategyTests.SamePersistedBossOpeningNaturallyLosesThenWinsWithLegalCommands",
@@ -1855,11 +1996,9 @@
           "outcome": "Passed"
         }
       ],
-      "remaining_requirements": [
-        "用有效录像记录普通失败、关闭重开、同检查点重试并改变操作获胜；保留对应新实际tape核验"
-      ],
-      "current_unity_ui_execution": "ORDINARY_DEFEAT_AND_RETRY_ENTRY_OBSERVED",
-      "ordinary_play_execution": "PARTIAL_SAME_INPUT_TWO_DEFEATS_NO_VALID_RETRY_VIDEO",
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "ORDINARY_DEFEAT_CLOSE_REOPEN_IDENTICAL_INPUT_RETRY_VICTORY_RECORDED",
+      "ordinary_play_execution": "PASS_ORDINARY_BOSS_DEFEAT_REOPEN_RETRY_VICTORY",
       "acceptance_history": [
         {
           "replaced_at_utc": "2026-09-21T06:05:21.4430315Z",
@@ -1880,6 +2019,25 @@
             "普通关闭重开后继续同检查点，并改变操作取得首领胜利的录像与实际tape"
           ],
           "ordinary_play_execution": "PARTIAL_TWO_DEFEATS_SAME_INPUT_NO_REOPEN_OR_VICTORY"
+        },
+        {
+          "replaced_at_utc": "2026-09-21T07:33:29.3130791Z",
+          "actual_status": "PARTIAL",
+          "actual_result": "两份普通N7真实tape均自然Defeat/endTick2070且严格MATCH；仅在只读克隆中除去AttemptId后，完整冻结输入哈希相同并等于首次战前检查点，原件未改。第二次只有tick172选面具，暂停遭物理Esc停止，未释放主动技能；未关闭重开也未获胜。有效独立败北截图与tape证明部分行为，但GDI视频为INVALID_STALE_CAPTURE，不构成失败重试录像。",
+          "remaining_requirements": [
+            "用有效录像记录普通失败、关闭重开、同检查点重试并改变操作获胜；保留对应新实际tape核验"
+          ],
+          "current_unity_ui_execution": "ORDINARY_DEFEAT_AND_RETRY_ENTRY_OBSERVED",
+          "ordinary_play_execution": "PARTIAL_SAME_INPUT_TWO_DEFEATS_NO_VALID_RETRY_VIDEO"
+        },
+        {
+          "replaced_at_utc": "2026-09-21T07:48:29.0937655Z",
+          "reason": "Current evidence reconciliation; historical reports and source specification remain unchanged",
+          "actual_status": "PASS",
+          "actual_result": "普通B01–B04 run158dfbcbfa944ee5ad276bb015e20236、runSeed8509421先零主动自然Defeat(tick2070)，关闭并无参数重开后，以26次成功主动获得Victory(tick2553)。两份真实Player tape由独立CLI严格MATCH；递归逐叶比较仅AttemptId不同，六份冻结输入归一该字段后的IEEE精确hash相同，关闭前后profile字节相同。两段有效WGC录像完整解码并检查变化帧，清楚标明两段跨退出记录，不冒称跨进程单段录像。",
+          "remaining_requirements": [],
+          "current_unity_ui_execution": "ORDINARY_DEFEAT_AND_RETRY_ENTRY_OBSERVED",
+          "ordinary_play_execution": "PASS_ORDINARY_BOSS_DEFEAT_REOPEN_RETRY_VICTORY"
         }
       ]
     },
@@ -1963,8 +2121,8 @@
       "expected": "无旧遗物/蓄能/生命残留；发现图鉴与解锁保留；摘要不作为战斗输入。",
       "evidence_required": "两趟连续测试",
       "original_plan_status": "NOT_RUN",
-      "actual_status": "PARTIAL",
-      "actual_result": "既有状态机、Flow重建及当前91项Unity退出重建测试证明临时态清理；本次普通远征仍停在BossRetry，尚无本版通关/结束后新趟和旧摘要普通画面，不能用同检查点重试代替新run。",
+      "actual_status": "PASS",
+      "actual_result": "A五战普通胜利后ActiveRun=null，返回据点并打开上趟摘要，再正常创建新C runa02aeb8c634c4ec2979f7fbbbd7026b4、seed14556671。新run仅C01、战前全员满HP、无旧检查点，A摘要hash及永久解锁/发现保留；三个profile结构和完整性均通过，连续录像1118/1130/1143/1199/1214秒覆盖全过程。1214秒已进入战斗且HP正常下降，满HP结论来自1199秒战前，不虚称战中仍满。临时运行态细节仍由已有Flow重建/生命周期用例证明。",
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
         "docs/original-expedition/evidence/o0/player-entry/README.md",
@@ -1972,7 +2130,10 @@
         "docs/original-expedition/evidence/o5/lifecycle-boundaries-green.trx",
         "docs/original-expedition/evidence/o5/lifecycle-boundaries.trx",
         "docs/original-expedition/evidence/o5/replay-portability-unity-final-20260921.xml",
-        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/ordinary-run-replay-summary.json"
+        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/ordinary-run-replay-summary.json",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/README.md",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/reports/profile-transition-analysis.json",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/reports/video-analysis.json"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalExpeditionFlowTests.FiveBattleLoopSettlesOnceAndNextRunClearsTemporaryState(reinforce: False, relicCount: 4)",
@@ -2008,11 +2169,9 @@
           "outcome": "Passed"
         }
       ],
-      "remaining_requirements": [
-        "当前普通结束/通关后返回、旧局摘要与新run清理/永久记录保留的连续UI证据"
-      ],
+      "remaining_requirements": [],
       "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91",
-      "ordinary_play_execution": "NOT_RUN_CURRENT_ORDINARY_NEXT_RUN",
+      "ordinary_play_execution": "PASS_CURRENT_PLAYER_EVIDENCE_WITH_STATED_SCOPE",
       "acceptance_history": [
         {
           "replaced_at_utc": "2026-09-21T06:05:21.4430315Z",
@@ -2023,6 +2182,16 @@
           ],
           "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; SPECIFIC_ORDINARY_EVIDENCE_PENDING",
           "ordinary_play_execution": "HISTORICAL_O0_RESTART_ONLY"
+        },
+        {
+          "replaced_at_utc": "2026-09-21T07:40:03.3211898Z",
+          "actual_status": "PARTIAL",
+          "actual_result": "既有状态机、Flow重建及当前91项Unity退出重建测试证明临时态清理；本次普通远征仍停在BossRetry，尚无本版通关/结束后新趟和旧摘要普通画面，不能用同检查点重试代替新run。",
+          "remaining_requirements": [
+            "当前普通结束/通关后返回、旧局摘要与新run清理/永久记录保留的连续UI证据"
+          ],
+          "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91",
+          "ordinary_play_execution": "NOT_RUN_CURRENT_ORDINARY_NEXT_RUN"
         }
       ]
     },
@@ -2148,7 +2317,7 @@
       "evidence_required": "replay报告",
       "original_plan_status": "NOT_RUN",
       "actual_status": "PASS",
-      "actual_result": "v0.1.1最终核心回放/负向用例通过；Unity6000.3.23f1实际合法Submit/Tick生成A/B/C首领v2磁盘回放，独立.NET6对原件严格验证三份均MATCH（1141/1675/1899tick），命令、事件、结算、完整终态位指纹全部比较。对应.NET三份也MATCH。此前真实Player v1 N1在Unity自验证MATCH、.NET FinalState mismatch的原件保留；诊断实证数字格式与自然充能中间精度差异，修复未增加容差。v1现在明确版本拒绝。这里通过的是录制/跨运行时验证合同，新版普通Player全流程回放仍待生成。 本次补充普通7a6ede9b Player的六份v2原始磁盘记录：N1/N2/N4/N5四场Victory和N7两次Defeat，由同版独立.NET CLI全部严格MATCH；不属于受控逻辑夹具。",
+      "actual_result": "v0.1.1最终核心回放用例通过；Unity6000.3.23f1以合法Submit/Tick生成三族首领v2磁盘回放，独立.NET6对原件严格3/3 MATCH（1141/1675/1899tick），对应.NET自生成三份亦3/3 MATCH，比较命令、事件、结算及完整终态位指纹。同版普通Player已核验17份不同tape：最初B六份、新B败北重开获胜两份、A连续五战五份、C到N6四份，全部严格MATCH；A包含完整五战远征，C只证明四战及家族成型。旧Player v1跨运行时FinalState mismatch原件保留；数字格式与自然充能中间精度修复未增加容差，v1现于模拟前明确版本拒绝。",
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
         "docs/original-expedition/evidence/o5/replay-boundaries.trx",
@@ -2162,7 +2331,13 @@
         "docs/original-expedition/evidence/o5/replay-portability-core-final-20260921.trx",
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/session.json",
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/ordinary-run-replay-summary.json",
-        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/verification-batch-03.json"
+        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/verification-batch-03.json",
+        "docs/original-expedition/evidence/o5/replay-portability-unity-final-20260921.xml",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/README.md",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/reports/battle-and-queue-analysis.json",
+        "docs/original-expedition/evidence/o5/boss-retry-7a6ede9b/README.md",
+        "docs/original-expedition/evidence/o5/ordinary-c-7a6ede9b/README.md",
+        "docs/original-expedition/evidence/o5/ordinary-c-7a6ede9b/reports/battle-causal-analysis.json"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalReplayTests.RecordedAcceptedAndRejectedCommandsRoundTripWithDefaultCriticalRolls",
@@ -2217,8 +2392,8 @@
         }
       ],
       "remaining_requirements": [],
-      "current_unity_ui_execution": "NOT_APPLICABLE",
-      "ordinary_play_execution": "SIX_ACTUAL_PLAYER_V2_TAPES_STRICT_MATCH",
+      "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; THREE_UNITY_TO_NET6_V2_TAPES_MATCH",
+      "ordinary_play_execution": "SEVENTEEN_DISTINCT_ORDINARY_PLAYER_V2_TAPES_STRICT_MATCH",
       "acceptance_history": [
         {
           "replaced_at_utc": "2026-09-21T06:05:21.4430315Z",
@@ -2227,6 +2402,24 @@
           "remaining_requirements": [],
           "current_unity_ui_execution": "NOT_APPLICABLE",
           "ordinary_play_execution": "NOT_APPLICABLE"
+        },
+        {
+          "replaced_at_utc": "2026-09-21T07:48:29.0937655Z",
+          "reason": "Current evidence reconciliation; historical reports and source specification remain unchanged",
+          "actual_status": "PASS",
+          "actual_result": "v0.1.1最终核心回放/负向用例通过；Unity6000.3.23f1实际合法Submit/Tick生成A/B/C首领v2磁盘回放，独立.NET6对原件严格验证三份均MATCH（1141/1675/1899tick），命令、事件、结算、完整终态位指纹全部比较。对应.NET三份也MATCH。此前真实Player v1 N1在Unity自验证MATCH、.NET FinalState mismatch的原件保留；诊断实证数字格式与自然充能中间精度差异，修复未增加容差。v1现在明确版本拒绝。这里通过的是录制/跨运行时验证合同，新版普通Player全流程回放仍待生成。 本次补充普通7a6ede9b Player的六份v2原始磁盘记录：N1/N2/N4/N5四场Victory和N7两次Defeat，由同版独立.NET CLI全部严格MATCH；不属于受控逻辑夹具。",
+          "remaining_requirements": [],
+          "current_unity_ui_execution": "NOT_APPLICABLE",
+          "ordinary_play_execution": "SIX_ACTUAL_PLAYER_V2_TAPES_STRICT_MATCH"
+        },
+        {
+          "replaced_at_utc": "2026-09-21T07:53:45.8910059Z",
+          "reason": "Independent C archive complete; ordinary acquisition and native forte consumption verified",
+          "actual_status": "PASS",
+          "actual_result": "v0.1.1最终核心回放用例通过；Unity6000.3.23f1以合法Submit/Tick生成三族首领v2磁盘回放，独立.NET6对原件严格3/3 MATCH（1141/1675/1899tick），对应.NET自生成三份亦3/3 MATCH，比较命令、事件、结算及完整终态位指纹。同版普通Player已核验13份不同tape：最初B六份、新B败北重开获胜两份、A连续五战五份，全部严格MATCH，其中包含完整A远征。旧Player v1跨运行时FinalState mismatch原件保留；数字格式与自然充能中间精度修复未增加容差，v1现于模拟前明确版本拒绝。",
+          "remaining_requirements": [],
+          "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; THREE_UNITY_TO_NET6_V2_TAPES_MATCH",
+          "ordinary_play_execution": "THIRTEEN_DISTINCT_ORDINARY_PLAYER_V2_TAPES_STRICT_MATCH"
         }
       ]
     },
@@ -2240,14 +2433,15 @@
       "evidence_required": "负向回归",
       "original_plan_status": "NOT_RUN",
       "actual_status": "PASS",
-      "actual_result": "预期终局/状态、技能参数、六种版本标识、命令结果/日志和独立结束边界的负向回归均通过。新增两个独立 case 在合法数值域内分别修改 OpeningHp 和 RelicParameters.ForteDamageBonus，保留旧 InputHash，均在构造模拟前明确拒绝 FrozenInputHashMismatch；不会根据预期结果补时间或改变执行。 本次补充普通7a6ede9b Player的六份v2原始磁盘记录：N1/N2/N4/N5四场Victory和N7两次Defeat，由同版独立.NET CLI全部严格MATCH；不属于受控逻辑夹具。",
+      "actual_result": "当前核心负向回归验证预期终局/状态、技能参数、版本标识、命令结果/日志、事件及结算明细与独立结束边界篡改均被检测。另两个独立case在合法数值域内分别修改OpeningHp与RelicParameters.ForteDamageBonus，保留旧InputHash，均在构造模拟前明确拒绝FrozenInputHashMismatch；不会根据预期结果补时间或改变执行。该项采用负向测试证据，普通正向MATCH记录归O-032。",
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
         "docs/original-expedition/evidence/o5/replay-boundaries.trx",
         "docs/original-expedition/evidence/o5/replay-families.trx",
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/session.json",
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/ordinary-run-replay-summary.json",
-        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/verification-batch-03.json"
+        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/verification-batch-03.json",
+        "docs/original-expedition/evidence/o5/replay-portability-core-final-20260921.trx"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalReplayTests.TamperedFrozenSkillWithUnchangedInputHashIsRejectedBeforeSimulation",
@@ -2345,7 +2539,7 @@
       ],
       "remaining_requirements": [],
       "current_unity_ui_execution": "NOT_APPLICABLE",
-      "ordinary_play_execution": "SIX_ACTUAL_PLAYER_V2_TAPES_STRICT_MATCH",
+      "ordinary_play_execution": "NOT_APPLICABLE_NEGATIVE_REPLAY_FIXTURES",
       "acceptance_history": [
         {
           "replaced_at_utc": "2026-09-21T06:05:21.4430315Z",
@@ -2354,6 +2548,15 @@
           "remaining_requirements": [],
           "current_unity_ui_execution": "NOT_APPLICABLE",
           "ordinary_play_execution": "NOT_APPLICABLE"
+        },
+        {
+          "replaced_at_utc": "2026-09-21T07:48:29.0937655Z",
+          "reason": "Current evidence reconciliation; historical reports and source specification remain unchanged",
+          "actual_status": "PASS",
+          "actual_result": "预期终局/状态、技能参数、六种版本标识、命令结果/日志和独立结束边界的负向回归均通过。新增两个独立 case 在合法数值域内分别修改 OpeningHp 和 RelicParameters.ForteDamageBonus，保留旧 InputHash，均在构造模拟前明确拒绝 FrozenInputHashMismatch；不会根据预期结果补时间或改变执行。 本次补充普通7a6ede9b Player的六份v2原始磁盘记录：N1/N2/N4/N5四场Victory和N7两次Defeat，由同版独立.NET CLI全部严格MATCH；不属于受控逻辑夹具。",
+          "remaining_requirements": [],
+          "current_unity_ui_execution": "NOT_APPLICABLE",
+          "ordinary_play_execution": "SIX_ACTUAL_PLAYER_V2_TAPES_STRICT_MATCH"
         }
       ]
     },
@@ -2367,7 +2570,7 @@
       "evidence_required": "测试原件与归类",
       "original_plan_status": "NOT_RUN",
       "actual_status": "PASS",
-      "actual_result": "最新核心主套件 538 通过、1 项 NotExecuted；已知污染 Catalog 的历史测试另进程 1/1 通过；同一生产代码状态新增回放定点 5/5、遗物验收边界 4/4、生命周期边界 3/3 通过。五份报告累计列项 552、实际执行并通过 551，保留 1 项既有跳过；这不是单次 552 项全套执行。生命周期首次 3 项失败来自错误的充能零值预期，按既有开局值 35 更正测试，原报告保留，生产未改。旧全套顺序污染和隔离原因保留。O2 Unity 61/61 是历史证据，O3/O4 改动后的教程/UI 回归仍未执行。 2026-09-21 当前真实 Unity EditMode 75/75 通过、0 跳过，包含 27 项 legacy 教程和 14 项新增首领/反馈 UI；旧核心源码未变，复用前述核心结果。",
+      "actual_result": "当前v0.1.1核心主套件实际564通过、1项既有NotExecuted；旧Catalog顺序污染用例在隔离进程另1/1通过，合计565通过、1既有跳过，非一次566项全部执行。当前真实Unity最终套件91/91、0跳过，覆盖legacy教程及原创UI/导航/构建/回放回归；另一次可见Game View实际帧率测试1/1单独计数。历史551/1及Unity61/75等报告保留。生命周期首次3失败来自错误充能零值预期，按既有开局35仅更正测试后3/3；旧失败与Catalog污染诊断未覆盖或删去。",
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-catalog-isolated.trx",
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
@@ -2382,7 +2585,9 @@
         "docs/original-expedition/evidence/o5/lifecycle-boundaries.trx",
         "docs/original-expedition/evidence/o5/unity-after-reboot-20260921-1144.xml",
         "docs/original-expedition/evidence/o5/replay-portability-core-final-20260921.trx",
-        "docs/original-expedition/evidence/o5/replay-portability-unity-final-20260921.xml"
+        "docs/original-expedition/evidence/o5/replay-portability-unity-final-20260921.xml",
+        "docs/original-expedition/evidence/o5/fingerprint-catalog-isolated-20260921.trx",
+        "docs/original-expedition/evidence/o5/rendered-fps-20260921-37245ba5/test-results.xml"
       ],
       "exact_test_names": [
         "Resonance.Tests.BattleSimTests.CatalogJsonSerializeRoundtripKeepsOpcode",
@@ -2407,8 +2612,19 @@
         }
       ],
       "remaining_requirements": [],
-      "current_unity_ui_execution": "PASS",
-      "ordinary_play_execution": "NOT_APPLICABLE"
+      "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91_PLUS_SEPARATE_RENDERED_FPS_PASS_1",
+      "ordinary_play_execution": "NOT_APPLICABLE_REGRESSION_SUITES",
+      "acceptance_history": [
+        {
+          "replaced_at_utc": "2026-09-21T07:48:29.0937655Z",
+          "reason": "Current evidence reconciliation; historical reports and source specification remain unchanged",
+          "actual_status": "PASS",
+          "actual_result": "最新核心主套件 538 通过、1 项 NotExecuted；已知污染 Catalog 的历史测试另进程 1/1 通过；同一生产代码状态新增回放定点 5/5、遗物验收边界 4/4、生命周期边界 3/3 通过。五份报告累计列项 552、实际执行并通过 551，保留 1 项既有跳过；这不是单次 552 项全套执行。生命周期首次 3 项失败来自错误的充能零值预期，按既有开局值 35 更正测试，原报告保留，生产未改。旧全套顺序污染和隔离原因保留。O2 Unity 61/61 是历史证据，O3/O4 改动后的教程/UI 回归仍未执行。 2026-09-21 当前真实 Unity EditMode 75/75 通过、0 跳过，包含 27 项 legacy 教程和 14 项新增首领/反馈 UI；旧核心源码未变，复用前述核心结果。",
+          "remaining_requirements": [],
+          "current_unity_ui_execution": "PASS",
+          "ordinary_play_execution": "NOT_APPLICABLE"
+        }
+      ]
     },
     {
       "id": "O-035",
@@ -2420,11 +2636,12 @@
       "evidence_required": "平衡对照与参数版本",
       "original_plan_status": "NOT_RUN",
       "actual_status": "PASS",
-      "actual_result": "固定 N5/single/seed260921 以同一 HP、默认暴击、敌人参数与输入策略比较无遗物、混搭、完整 A/B/C、B+C01 六组；除 RelicIds 外冻结输入指纹相同，均真实胜利并对账。完整 B 11.60 秒对无遗物 30.80 秒，至少一个家族有明确效率优势；此为固定平衡对照，不是玩家体感验收。",
+      "actual_result": "当前v0.1.1主套件FixedN5_SixLegalBuildsShareEveryOtherInput_AndActualResultsReconcileWithTheLedger实际通过；TRX StdOut记录固定N5/single/seed260921的六组结果：无遗物924tick/30.8秒，完整A660tick/22秒，B348tick/11.6秒，C589tick/19.633333秒，混搭544tick/18.133333秒，B+C01 345tick/11.5秒，均Victory。除RelicIds外相同冻结输入、默认暴击与同一策略保持，结果与账本对账。完整B相对无遗物具有明确效率优势。旧o4完整输入/结算JSON属v0.1.0历史；现版本比较依据是本次已通过测试的StdOut，未声称另有当前完整输入JSON，也不等同玩家主观体验。",
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
         "docs/original-expedition/evidence/o4/comparison-n5-single-seed260921.json",
-        "docs/original-expedition/O4-CHECKPOINT.md"
+        "docs/original-expedition/O4-CHECKPOINT.md",
+        "docs/original-expedition/evidence/o5/replay-portability-core-final-20260921.trx"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalBuildComparisonTests.FixedN5_SixLegalBuildsShareEveryOtherInput_AndActualResultsReconcileWithTheLedger"
@@ -2438,7 +2655,18 @@
       ],
       "remaining_requirements": [],
       "current_unity_ui_execution": "NOT_APPLICABLE",
-      "ordinary_play_execution": "CONTROLLED_COMPARISON_ONLY"
+      "ordinary_play_execution": "CONTROLLED_COMPARISON_ONLY",
+      "acceptance_history": [
+        {
+          "replaced_at_utc": "2026-09-21T07:48:29.0937655Z",
+          "reason": "Current evidence reconciliation; historical reports and source specification remain unchanged",
+          "actual_status": "PASS",
+          "actual_result": "固定 N5/single/seed260921 以同一 HP、默认暴击、敌人参数与输入策略比较无遗物、混搭、完整 A/B/C、B+C01 六组；除 RelicIds 外冻结输入指纹相同，均真实胜利并对账。完整 B 11.60 秒对无遗物 30.80 秒，至少一个家族有明确效率优势；此为固定平衡对照，不是玩家体感验收。",
+          "remaining_requirements": [],
+          "current_unity_ui_execution": "NOT_APPLICABLE",
+          "ordinary_play_execution": "CONTROLLED_COMPARISON_ONLY"
+        }
+      ]
     },
     {
       "id": "O-036",
@@ -2449,8 +2677,8 @@
       "expected": "获得强化后确实发挥；不是通关后才发关键组件；可辨认主要触发来源。",
       "evidence_required": "普通流程时间点",
       "original_plan_status": "NOT_RUN",
-      "actual_status": "PARTIAL",
-      "actual_result": "独立奖励/入场/战斗截图和真实tape证明本趟正常取得B01-B04，N5以四件套Victory并产生B01散射11177、B04两次回响217+135=352，B03有34个双目标根动作，随后同构筑进入N7两次Defeat。行为与获取事实保留；原计划要求普通流程时间点证据，GDI录像实际冻结在入口，不能用events时间戳与静态截图替代成型后持续战斗的有效流程录像，因此保留PARTIAL。",
+      "actual_status": "PASS",
+      "actual_result": "普通B在N5前取得B01–B04并实际散射/回响，后续B首领有效录像及tape证明N7继续发挥。新A在R4取得最后一件A03后进入N5、N7：N5四件齐备且A01吸收蓄能/A02增盾生效，但A03/A04未释放；N7 A04三个root、A03两个root三命中，视频1043/1091秒可见完整组合反馈，原始结算对账。N5误标触发的截图046实际为N6，保留原件并明确纠正，不伪造成型后释放。 C在R4正常取得C04后于N5实际储存、保留并消费强奏，四战至N6的原片、因果trace及严格MATCH报告齐备；无需以C首领通关作为该项条件。",
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
         "docs/original-expedition/evidence/flow/README.md",
@@ -2462,7 +2690,15 @@
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/frames/049-boss-first-attempt-natural.jpg",
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/n4-n5-settlement-evidence.json",
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/ordinary-run-replay-summary.json",
-        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/video-visual-validation.json"
+        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/video-visual-validation.json",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/README.md",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/reports/battle-and-queue-analysis.json",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/reports/video-analysis.json",
+        "docs/original-expedition/evidence/o5/boss-retry-7a6ede9b/README.md",
+        "docs/original-expedition/evidence/o5/boss-retry-7a6ede9b/reports/battle-settlement-analysis.json",
+        "docs/original-expedition/evidence/o5/ordinary-c-7a6ede9b/README.md",
+        "docs/original-expedition/evidence/o5/ordinary-c-7a6ede9b/reports/battle-causal-analysis.json",
+        "docs/original-expedition/evidence/o5/ordinary-c-7a6ede9b/reports/video-analysis.json"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalExpeditionFlowTests.EveryFamilyHasAReproducibleFourPiecePathBeforeN5(core: \"A01\", first: \"A02\", second: \"A03\", amplifier: \"A04\")",
@@ -2510,11 +2746,9 @@
           "outcome": "Passed"
         }
       ],
-      "remaining_requirements": [
-        "补有效普通流程录像中的获得关键组件及随后N5/N7发挥效果时间点；现有截图和实际tape可作为补充但不替代该录像"
-      ],
+      "remaining_requirements": [],
       "current_unity_ui_execution": "ORDINARY_MATURE_BUILD_AND_TRIGGER_SCREENSHOTS",
-      "ordinary_play_execution": "PARTIAL_MATURE_B_BUILD_REAL_TAPES_VIDEO_INVALID",
+      "ordinary_play_execution": "PASS_CURRENT_PLAYER_EVIDENCE_WITH_STATED_SCOPE",
       "acceptance_history": [
         {
           "replaced_at_utc": "2026-09-21T06:05:21.4430315Z",
@@ -2533,6 +2767,25 @@
           "actual_result": "普通run界面种子8509421沿B路线，经N1取B02、N2取B03、N4取B04；事件UTC05:49:20.502记录选择B04，05:49:27.961进入N5，截图与N5输入四件清单一致。N5正常Victory且结算确认B01散射11177、B04两次真实回响217+135=352，B03有34个根动作命中两个不同敌人；B02/B03不重复记伤害。随后实际进入N7并沿用四件（两次均Defeat）。证明成型后N5及N7仍有真实战斗及来源反馈，不声称首领获胜或整趟完成。",
           "remaining_requirements": [],
           "ordinary_play_execution": "PASS_MATURE_B_FAMILY_PLAYED_N5_AND_N7"
+        },
+        {
+          "replaced_at_utc": "2026-09-21T07:40:03.3211898Z",
+          "actual_status": "PARTIAL",
+          "actual_result": "独立奖励/入场/战斗截图和真实tape证明本趟正常取得B01-B04，N5以四件套Victory并产生B01散射11177、B04两次回响217+135=352，B03有34个双目标根动作，随后同构筑进入N7两次Defeat。行为与获取事实保留；原计划要求普通流程时间点证据，GDI录像实际冻结在入口，不能用events时间戳与静态截图替代成型后持续战斗的有效流程录像，因此保留PARTIAL。",
+          "remaining_requirements": [
+            "补有效普通流程录像中的获得关键组件及随后N5/N7发挥效果时间点；现有截图和实际tape可作为补充但不替代该录像"
+          ],
+          "current_unity_ui_execution": "ORDINARY_MATURE_BUILD_AND_TRIGGER_SCREENSHOTS",
+          "ordinary_play_execution": "PARTIAL_MATURE_B_BUILD_REAL_TAPES_VIDEO_INVALID"
+        },
+        {
+          "replaced_at_utc": "2026-09-21T07:53:45.8910059Z",
+          "reason": "Independent C archive complete; ordinary acquisition and native forte consumption verified",
+          "actual_status": "PASS",
+          "actual_result": "普通B在N5前取得B01–B04并实际散射/回响，后续B首领有效录像及tape证明N7继续发挥。新A在R4取得最后一件A03后进入N5、N7：N5四件齐备且A01吸收蓄能/A02增盾生效，但A03/A04未释放；N7 A04三个root、A03两个root三命中，视频1043/1091秒可见完整组合反馈，原始结算对账。N5误标触发的截图046实际为N6，保留原件并明确纠正，不伪造成型后释放。",
+          "remaining_requirements": [],
+          "current_unity_ui_execution": "ORDINARY_MATURE_BUILD_AND_TRIGGER_SCREENSHOTS",
+          "ordinary_play_execution": "PASS_CURRENT_PLAYER_EVIDENCE_WITH_STATED_SCOPE"
         }
       ]
     },
@@ -2545,8 +2798,8 @@
       "expected": "不串角色、不抢raycast、不残留遮挡；无关键提示仅靠颜色；意图和贡献数据真实。",
       "evidence_required": "UI测试＋截图",
       "original_plan_status": "NOT_RUN",
-      "actual_status": "PARTIAL",
-      "actual_result": "真实Unity91/91已覆盖长文、字形、占位身份、raycast、意图/贡献及退出重建自动回归。14张独立Sky/WGC截图补充B04长详情、暂停队列、目标失效、散射/回响与首领预告，三张贡献值已对真实tape核对；GDI录像失效不损害这些静态截图。仍没有普通关闭重开及完整退出重建后交互证据，也无有效生命周期连续录像，保留缺口。",
+      "actual_status": "PASS",
+      "actual_result": "既有真实Unity91/91覆盖长文、字形、占位身份、raycast、意图/贡献、暂停与退出重建；原14张独立Sky/WGC截图及精确tape对账保留。新增同版B普通败北→退出→无参数重开→暂停编排→重试胜利→据点→上趟摘要的有效录像和截图，实际后续按钮可操作且无残留遮挡。此结论合用专项UI测试与普通生命周期证据，不宣称全设备或无限压力覆盖。",
       "evidence_paths": [
         "docs/original-expedition/evidence/o5/core-o5-isolated-suite.trx",
         "docs/original-expedition/evidence/o2/unity-o2.xml",
@@ -2564,7 +2817,13 @@
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/frames/049-boss-zero-masks-telegraph.jpg",
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/ui-tape-crosscheck.json",
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/ordinary-run-replay-summary.json",
-        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/video-visual-validation.json"
+        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/video-visual-validation.json",
+        "docs/original-expedition/evidence/o5/boss-retry-7a6ede9b/README.md",
+        "docs/original-expedition/evidence/o5/boss-retry-7a6ede9b/reports/video-analysis.json",
+        "docs/original-expedition/evidence/o5/boss-retry-7a6ede9b/events.json",
+        "docs/original-expedition/evidence/o5/boss-retry-7a6ede9b/screens/005-reopened-same-boss-retry.jpg",
+        "docs/original-expedition/evidence/o5/boss-retry-7a6ede9b/screens/052-boss-retry-victory.jpg",
+        "docs/original-expedition/evidence/o5/boss-retry-7a6ede9b/screens/054-last-run-summary-retained.jpg"
       ],
       "exact_test_names": [
         "Resonance.Tests.OriginalFeedbackTests.EveryRelicTriggeredByOneNativeActionRetainsItsOwnSerial_AndQueryCopiesStayUnchanged",
@@ -2582,11 +2841,9 @@
           "outcome": "Passed"
         }
       ],
-      "remaining_requirements": [
-        "普通关闭重开、退出/重建后的实际交互和界面无残留核验，并取得有效连续画面；自动回归与静态截图不代表全部普通生命周期"
-      ],
+      "remaining_requirements": [],
       "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; CURRENT_ORDINARY_SCREENSHOTS_PROVIDED",
-      "ordinary_play_execution": "PARTIAL_INDEPENDENT_SCREENSHOTS_NO_REOPEN_OR_VALID_LIFECYCLE_VIDEO",
+      "ordinary_play_execution": "PASS_ORDINARY_REOPEN_RETRY_AND_HUB_SUMMARY_UI",
       "acceptance_history": [
         {
           "replaced_at_utc": "2026-09-21T06:05:21.4430315Z",
@@ -2608,6 +2865,16 @@
             "普通关闭重开、退出/重建后的交互和界面无残留核验；不能用自动回归或原样重试入口代替全部生命周期"
           ],
           "ordinary_play_execution": "PARTIAL_PAUSE_RESUME_RETRY_ENTRY_NOT_REOPEN_LIFECYCLE"
+        },
+        {
+          "replaced_at_utc": "2026-09-21T07:33:29.3130791Z",
+          "actual_status": "PARTIAL",
+          "actual_result": "真实Unity91/91已覆盖长文、字形、占位身份、raycast、意图/贡献及退出重建自动回归。14张独立Sky/WGC截图补充B04长详情、暂停队列、目标失效、散射/回响与首领预告，三张贡献值已对真实tape核对；GDI录像失效不损害这些静态截图。仍没有普通关闭重开及完整退出重建后交互证据，也无有效生命周期连续录像，保留缺口。",
+          "remaining_requirements": [
+            "普通关闭重开、退出/重建后的实际交互和界面无残留核验，并取得有效连续画面；自动回归与静态截图不代表全部普通生命周期"
+          ],
+          "current_unity_ui_execution": "AUTOMATED_SUITE_PASS_91; CURRENT_ORDINARY_SCREENSHOTS_PROVIDED",
+          "ordinary_play_execution": "PARTIAL_INDEPENDENT_SCREENSHOTS_NO_REOPEN_OR_VALID_LIFECYCLE_VIDEO"
         }
       ]
     },
@@ -2620,8 +2887,8 @@
       "expected": "不依赖F盘源码；包/源码/视频版本对应；历史ZIP不冒充新版；已知限制明确。",
       "evidence_required": "构建/包指纹＋连续录像",
       "original_plan_status": "NOT_RUN",
-      "actual_status": "PARTIAL",
-      "actual_result": "源码7a6ede9b真实构建exit0、BuildAudit PASS、499输入及170Player/174ZIP项核验通过；六份真实Player v2 tape（四Victory、两Boss Defeat）由当前CLI全部严格MATCH，14张独立Sky/WGC截图有效。675.8秒MP4虽可解码却冻结在入口，状态INVALID_STALE_CAPTURE，不能作部分或完整普通流程录像；原片SHA保留61d59cad400a601ea0b242c8e576fb9ae92fa6ca595e3f7a6466be19904ff114。缺有效完整通关闭环和首领关闭重开后胜利录像，FinalAcceptancePassed仍false。",
+      "actual_status": "PASS",
+      "actual_result": "7a6ede9b真实BuildPlayer exit0、BuildAudit PASS，499源输入核验与170Player文件清单有效。候选ZIP实际解压到Unity工程外F:/Resonance/OriginalExpeditionReviewRuns/candidate-7a6ede9b-20260921：173个受清单约束文件及清单自身共174文件，大小/hash零差异。关闭旧Player确认进程清零后无参数启动抽取EXE，实际进程路径/命令行、N6同C种子恢复及详情交互截图齐备，个人主档hash不变。A同版20:16.266667完整普通五战/结算/返回/新趟视频和B失败关闭重开获胜两段视频、相应7份MATCH tape齐备。未禁用整机网络，不冒称断网实验；离线逻辑/资源隔离由源码和构建审计佐证。最终review仅说明文件再封装，须由其170Player字节相同比对引用本启动证据，不冒称新构建。历史候选FinalAcceptancePassed=false与无效GDI结论保留。",
       "evidence_paths": [
         "docs/original-expedition/PACKAGING-AUDIT.md",
         "docs/original-expedition/evidence/o5/package-preparation.md",
@@ -2640,16 +2907,24 @@
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/evidence-files.json",
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/ordinary-run-replay-summary.json",
         "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/README.md",
-        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/video-visual-validation.json"
+        "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/video-visual-validation.json",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/README.md",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/reports/video-analysis.json",
+        "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/sha256-manifest.json",
+        "docs/original-expedition/evidence/o5/boss-retry-7a6ede9b/README.md",
+        "docs/original-expedition/evidence/o5/boss-retry-7a6ede9b/reports/video-analysis.json",
+        "docs/original-expedition/evidence/o5/boss-retry-7a6ede9b/sha256-manifest.json",
+        "docs/original-expedition/evidence/o5/standalone-zip-launch-7a6ede9b/README.md",
+        "docs/original-expedition/evidence/o5/standalone-zip-launch-7a6ede9b/extraction-verification.json",
+        "docs/original-expedition/evidence/o5/standalone-zip-launch-7a6ede9b/launch-verification.json",
+        "docs/original-expedition/evidence/o5/standalone-zip-launch-7a6ede9b/events.json",
+        "docs/original-expedition/evidence/o5/standalone-zip-launch-7a6ede9b/sha256-manifest.json"
       ],
       "exact_test_names": [],
       "test_evidence": [],
-      "remaining_requirements": [
-        "确认录制实际更新后，重录同版完整普通N0→N7胜利、结算、返回、新趟连续录像",
-        "补普通首领失败后关闭重开、改变操作获胜的有效录像及真实回放对应"
-      ],
-      "current_unity_ui_execution": "CURRENT_PLAYER_PARTIAL_ORDINARY_RUN",
-      "ordinary_play_execution": "PARTIAL_PACKAGE_AND_SIX_REAL_TAPES_PASS_VIDEO_INVALID",
+      "remaining_requirements": [],
+      "current_unity_ui_execution": "CURRENT_PLAYER_FULL_ORDINARY_RUN_AND_EXTRACTED_ZIP_LAUNCH_PASS",
+      "ordinary_play_execution": "PASS_FULL_A_B_RETRY_AND_ACTUAL_EXTRACTED_PLAYER_LAUNCH",
       "acceptance_history": [
         {
           "replaced_at_utc": "2026-09-21T06:05:21.4430315Z",
@@ -2672,6 +2947,26 @@
             "普通首领失败后关闭重开、改变操作获胜及其真实回放核验"
           ],
           "ordinary_play_execution": "PARTIAL_FOUR_VICTORIES_SIX_REAL_TAPES_MATCH_NO_FULL_RUN"
+        },
+        {
+          "replaced_at_utc": "2026-09-21T07:40:03.3211898Z",
+          "actual_status": "PARTIAL",
+          "actual_result": "源码7a6ede9b真实构建exit0、BuildAudit PASS、499输入及170Player/174ZIP项核验通过；六份真实Player v2 tape（四Victory、两Boss Defeat）由当前CLI全部严格MATCH，14张独立Sky/WGC截图有效。675.8秒MP4虽可解码却冻结在入口，状态INVALID_STALE_CAPTURE，不能作部分或完整普通流程录像；原片SHA保留61d59cad400a601ea0b242c8e576fb9ae92fa6ca595e3f7a6466be19904ff114。缺有效完整通关闭环和首领关闭重开后胜利录像，FinalAcceptancePassed仍false。",
+          "remaining_requirements": [
+            "确认录制实际更新后，重录同版完整普通N0→N7胜利、结算、返回、新趟连续录像",
+            "补普通首领失败后关闭重开、改变操作获胜的有效录像及真实回放对应"
+          ],
+          "current_unity_ui_execution": "CURRENT_PLAYER_PARTIAL_ORDINARY_RUN",
+          "ordinary_play_execution": "PARTIAL_PACKAGE_AND_SIX_REAL_TAPES_PASS_VIDEO_INVALID"
+        },
+        {
+          "replaced_at_utc": "2026-09-21T07:48:29.0937655Z",
+          "reason": "Current evidence reconciliation; historical reports and source specification remain unchanged",
+          "actual_status": "PASS",
+          "actual_result": "7a6ede9b真实BuildPlayer exit0、BuildAudit PASS，499源输入核验与170Player文件清单有效。候选ZIP实际解压到Unity工程外F:/Resonance/OriginalExpeditionReviewRuns/candidate-7a6ede9b-20260921：173个受清单约束文件及清单自身共174文件，大小/hash零差异。关闭旧Player确认进程清零后无参数启动抽取EXE，实际进程路径/命令行、N6同C种子恢复及详情交互截图齐备，个人主档hash不变。A同版20:16.266667完整普通五战/结算/返回/新趟视频和B失败关闭重开获胜两段视频、相应7份MATCH tape齐备。未禁用整机网络，不冒称断网实验；离线逻辑/资源隔离由源码和构建审计佐证。最终review仅说明文件再封装，须由其170Player字节相同比对引用本启动证据，不冒称新构建。历史候选FinalAcceptancePassed=false与无效GDI结论保留。",
+          "remaining_requirements": [],
+          "current_unity_ui_execution": "CURRENT_PLAYER_PARTIAL_ORDINARY_RUN",
+          "ordinary_play_execution": "PASS_FULL_A_B_RETRY_AND_ACTUAL_EXTRACTED_PLAYER_LAUNCH"
         }
       ]
     }
@@ -2696,8 +2991,9 @@
     "unity_to_net6_matches": 3,
     "net6_matches": 3,
     "old_v1_policy": "Explicitly rejected before simulation; original files unchanged",
-    "ordinary_player_v2": "SIX_ACTUAL_PLAYER_TAPES_STRICT_MATCH_FOUR_VICTORIES_TWO_BOSS_DEFEATS",
-    "ordinary_player_report": "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/ordinary-run-replay-summary.json"
+    "ordinary_player_v2": "SEVENTEEN_DISTINCT_ACTUAL_PLAYER_TAPES_STRICT_MATCH_WITH_FULL_A_B_REOPEN_VICTORY_AND_C_TO_N6",
+    "ordinary_player_report": "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/README.md",
+    "ordinary_c_report": "docs/original-expedition/evidence/o5/ordinary-c-7a6ede9b/README.md"
   },
   "current_package_evidence": {
     "Status": "BUILD_CANDIDATE_PACKAGED",
@@ -2712,9 +3008,10 @@
     "RemainingAcceptance": [
       "UI inspection",
       "Recorded playthrough"
-    ]
+    ],
+    "HistoricalReportScope": "保留原候选包报告字段；RemainingAcceptance是当时的状态，不是当前38项技术验收缺口。最终review包由主集成者另行生成并校验相同170个Player文件。"
   },
-  "current_code_commit": "7a6ede9b643a3470a9f0924d329a5ca769b40ce2",
+  "current_code_commit": "5397ed73f8a357115b6b059b00be3e4b6b8ec841",
   "global_limitations_history": [
     {
       "replaced_at_utc": "2026-09-21T06:05:21.4430315Z",
@@ -2725,48 +3022,129 @@
         "状态机注入终局、合法Submit/Tick首领逻辑夹具与普通玩家界面操作分开标注。",
         "Computer Use报告物理Esc后未再操作桌面；已询问是否恢复普通游戏窗口操作，等待答复。"
       ]
+    },
+    {
+      "replaced_at_utc": "2026-09-21T07:40:03.3211898Z",
+      "limitations": [
+        "当前Unity91/91和.NET565通过/1旧跳过结果不变，本次没有改写旧测试。",
+        "本版真实Player四场Victory、两次Boss Defeat及B01-B04正常获取/使用有六份严格MATCH tape和14张独立Sky/WGC截图；没有首领胜利、关闭重开或结算新趟。",
+        "675.8秒GDI MP4可解码但冻结在入口，最终video-visual-validation.json判INVALID_STALE_CAPTURE；recording-result.json仅初次容器/解码与存档核对历史结果。操作label和时间戳不能替代录像。旧e04的GDI录像也未重新视觉核验，仅保留原件，不用于新版通过结论。",
+        "O015缺A/C八件相应UI范围，O023缺不同实际渲染帧率对照，O024/O036缺有效普通输入/流程片段，O002热键返回栈和O029/O037普通生命周期尚待。",
+        "用户曾明确恢复操作；本次首领重试暂停再次遭Computer Use物理Esc停止后未再输入桌面。ffmpeg经q正常结束，Player仍运行，最后只读状态BossRetry/revision31/已结算四场。"
+      ]
+    },
+    {
+      "replaced_at_utc": "2026-09-21T07:53:45.8910059Z",
+      "limitations": [
+        "仅C家族普通UI获取及N5接力/和声/强奏消费的独立归档核验尚待，O-015仍PARTIAL；候选ZIP工程外解压启动已核验。",
+        "生产Player/内容未变，复用.NET565通过/1旧跳过与Unity91/91；另真实渲染帧率1/1独立记账，不伪称一次92项套件。",
+        "A五战完整录像已有效；A的N5未释放A03/A04，完整释放在N7。B失败与关闭重开获胜为两段有效录像，不拼成跨退出单片。",
+        "旧675.8秒GDI录像仍INVALID_STALE_CAPTURE；旧独立截图与实际tape有效，历史报告和原件不改写。",
+        "技术验收与用户ACCEPTED分开。最终review再封装由主集成者执行，当前历史候选包报告不改写成最终通过。"
+      ]
     }
   ],
   "ordinary_player_evidence": {
     "source_commit": "7a6ede9b643a3470a9f0924d329a5ca769b40ce2",
-    "run_id": "158dfbcbfa944ee5ad276bb015e20236",
-    "run_seed": 8509421,
-    "session": "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/session.json",
-    "report": "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/ordinary-run-replay-summary.json",
-    "recording_report": "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/recording-result.json",
-    "ui_tape_crosscheck": "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/ui-tape-crosscheck.json",
-    "actual_tapes": 6,
-    "strict_matches": 6,
-    "victories": 4,
-    "boss_defeats": 2,
-    "boss_victories": 0,
-    "complete_run": false,
-    "independent_screenshots": 14,
-    "video_status": "INVALID_STALE_CAPTURE",
-    "video_proves_gameplay": false,
-    "video_seconds": 675.8,
-    "video_sha256": "61d59cad400a601ea0b242c8e576fb9ae92fa6ca595e3f7a6466be19904ff114",
-    "last_profile_status": "BossRetry",
-    "last_profile_revision": 31,
-    "settled_battle_count": 4,
-    "desktop_input_after_second_escape": false,
-    "player_still_running": true,
-    "recording_finalized": true,
-    "historical_test_results_changed": false,
-    "video_visual_report": "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/video-visual-validation.json",
-    "recording_report_role": "Historical initial container/decode and save checks only; visual acceptance is governed by video-visual-validation.json",
-    "next_recording_preflight": "After desktop control resumes, first use gfxcapture/WGC for a 10-second ordinary UI transition and compare before/after extracted frames with fresh observations. No new capture or UI action has yet been executed."
+    "actual_tapes": 17,
+    "strict_matches": 17,
+    "aggregation": "六份最初B实际tape＋两份新B重试tape＋五份A完整远征tape＋四份C至N6的tape，17份不同文件均严格MATCH；受控三族回放另记。",
+    "complete_run": true,
+    "full_run_report": "docs/original-expedition/evidence/o5/ordinary-full-a-7a6ede9b/README.md",
+    "full_run_seed": 13486312,
+    "full_run_video_seconds": 1216.266667,
+    "full_run_video_sha256": "8fbac4be1c7d4780a920e82b94efab00e4e47132e3b7236dabc02b6b22c037da",
+    "boss_retry_report": "docs/original-expedition/evidence/o5/boss-retry-7a6ede9b/README.md",
+    "historical_frozen_video_preserved": true,
+    "current_c_scope": "FOUR_VICTORIES_TO_N6_WITH_NORMAL_C01_C04_ACQUISITION_AND_FORTE_CONSUMPTION_VERIFIED; NO_C_BOSS_CLEAR_CLAIM",
+    "user_acceptance": "PENDING_USER_REVIEW",
+    "c_report": "docs/original-expedition/evidence/o5/ordinary-c-7a6ede9b/README.md",
+    "c_video_seconds": 545.466667,
+    "c_video_sha256": "f1d95044a9a0e773288b0b7d414abb95304766eef42a3c57e41fa6ce9c720e1c"
   },
   "rendered_frame_rate_preparation": {
     "commit": "fbf7ac10",
-    "runtime_status": "NOT_RUN",
+    "runtime_status": "PASS_SEPARATE_ACTUAL_RENDER_RUN",
     "offline_compile_exit_code": 0,
     "default_without_environment": "Ignore",
     "included_in_executed_unity_91": false,
     "production_code_and_player_commit": "7a6ede9b",
     "acceptance_id": "O-023",
-    "acceptance_status": "PARTIAL",
+    "acceptance_status": "PASS",
     "guide": "docs/original-expedition/RENDERED-FRAME-RATE-TEST.md",
-    "compile_evidence": "docs/original-expedition/evidence/o5/rendered-fps-offline-compile.json"
-  }
+    "compile_evidence": "docs/original-expedition/evidence/o5/rendered-fps-offline-compile.json",
+    "runtime_evidence": "docs/original-expedition/evidence/o5/rendered-fps-20260921-37245ba5/RUN-SUMMARY.md"
+  },
+  "technicalAcceptancePassed": true,
+  "userAcceptance": "PENDING_USER_REVIEW",
+  "finalAcceptancePassed": false,
+  "boss_retry_evidence": {
+    "report": "docs/original-expedition/evidence/o5/boss-retry-7a6ede9b/README.md",
+    "strict_matches": 2,
+    "defeat_tick": 2070,
+    "victory_tick": 2553,
+    "input_differences": [
+      "AttemptId"
+    ],
+    "checkpoint_profile_bytes_unchanged": true,
+    "video_scope": "TWO_VALID_CLIPS_WITH_ORDINARY_CLOSE_REOPEN"
+  },
+  "rendered_frame_rate_evidence": {
+    "report": "docs/original-expedition/evidence/o5/rendered-fps-20260921-37245ba5/RUN-SUMMARY.md",
+    "test_results": "docs/original-expedition/evidence/o5/rendered-fps-20260921-37245ba5/test-results.xml",
+    "passed": 1,
+    "failed": 0,
+    "low_measured_median_fps": 29.9938212728178,
+    "high_measured_median_fps": 116.82379467049849,
+    "common_ticks": 808,
+    "common_casting_ticks": 230,
+    "scope": "CONTROLLED_ACTUAL_UNITY_RENDERING_NOT_ORDINARY_PLAYER_PLAY"
+  },
+  "ordinary_player_evidence_history": [
+    {
+      "source_commit": "7a6ede9b643a3470a9f0924d329a5ca769b40ce2",
+      "run_id": "158dfbcbfa944ee5ad276bb015e20236",
+      "run_seed": 8509421,
+      "session": "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/session.json",
+      "report": "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/replays/ordinary-run-replay-summary.json",
+      "recording_report": "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/recording-result.json",
+      "ui_tape_crosscheck": "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/ui-tape-crosscheck.json",
+      "actual_tapes": 6,
+      "strict_matches": 6,
+      "victories": 4,
+      "boss_defeats": 2,
+      "boss_victories": 0,
+      "complete_run": false,
+      "independent_screenshots": 14,
+      "video_status": "INVALID_STALE_CAPTURE",
+      "video_proves_gameplay": false,
+      "video_seconds": 675.8,
+      "video_sha256": "61d59cad400a601ea0b242c8e576fb9ae92fa6ca595e3f7a6466be19904ff114",
+      "last_profile_status": "BossRetry",
+      "last_profile_revision": 31,
+      "settled_battle_count": 4,
+      "desktop_input_after_second_escape": false,
+      "player_still_running": true,
+      "recording_finalized": true,
+      "historical_test_results_changed": false,
+      "video_visual_report": "docs/original-expedition/evidence/o5/ordinary-7a6ede9b/video-visual-validation.json",
+      "recording_report_role": "Historical initial container/decode and save checks only; visual acceptance is governed by video-visual-validation.json",
+      "next_recording_preflight": "After desktop control resumes, first use gfxcapture/WGC for a 10-second ordinary UI transition and compare before/after extracted frames with fresh observations. No new capture or UI action has yet been executed."
+    }
+  ],
+  "production_code_commit": "7a6ede9b643a3470a9f0924d329a5ca769b40ce2",
+  "current_code_commit_scope": "Current repository checkpoint includes delivery-tool changes; Player and production gameplay remain production_code_commit and current_package_evidence.SourceCommit.",
+  "standalone_zip_launch_evidence": {
+    "report": "docs/original-expedition/evidence/o5/standalone-zip-launch-7a6ede9b/README.md",
+    "launch_report": "docs/original-expedition/evidence/o5/standalone-zip-launch-7a6ede9b/launch-verification.json",
+    "extraction_report": "docs/original-expedition/evidence/o5/standalone-zip-launch-7a6ede9b/extraction-verification.json",
+    "manifested_files": 173,
+    "total_files": 174,
+    "player_files": 170,
+    "hash_differences": 0,
+    "actual_no_argument_launch": true,
+    "profile_unchanged": true,
+    "network_disconnect_test_performed": false
+  },
+  "overall_mvp_complete_note": "38项技术验收已通过；overall_mvp_complete与finalAcceptancePassed保留用户体验ACCEPTED边界，当前尚未取得该反馈。"
 }

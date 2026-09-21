@@ -1,0 +1,182 @@
+{
+  "LocalOriginal": "F:/天命之子/dist/original-expedition-v01/full-a-7a6ede9b-20260921-1510/ordinary-full-a.mp4",
+  "Bytes": 8941974,
+  "Sha256": "8fbac4be1c7d4780a920e82b94efab00e4e47132e3b7236dabc02b6b22c037da",
+  "Probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 756,
+        "height": 1344,
+        "r_frame_rate": "15/1",
+        "avg_frame_rate": "15/1",
+        "duration": "1216.266667",
+        "nb_frames": "18244"
+      }
+    ],
+    "format": {
+      "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "start_time": "0.000000",
+      "duration": "1216.266667"
+    }
+  },
+  "FullDecodeCommand": "ffmpeg -hide_banner -v error -i 'F:/天命之子/dist/original-expedition-v01/full-a-7a6ede9b-20260921-1510/ordinary-full-a.mp4' -f null -",
+  "FullDecodeObservedExitCode": 0,
+  "FullDecodeEvidence": "Independent evidence agent decoded the complete 1216.266667-second file without errors on 2026-09-21 before constructing this report.",
+  "RecorderTermination": "Actual operator reported stdin q and exit 0; this agent independently checks the finalized artifact.",
+  "Method": "20 frames extracted by ffmpeg -ss <seconds> -i <video> -frames:v 1 -n <PNG>; every listed PNG personally inspected through view_image. Media offsets are taken from extraction positions, not filesystem timestamps.",
+  "VisualConclusion": "One finalized continuous capture contains original hub, new A run, all five completed battles, A victory/hub/summary and new C entry. Values, screens, phases and outcomes change visibly. Long stationary N6/pause frames are expected; footage is not the earlier frozen GDI recording.",
+  "CaptureFpsIsNotRenderFps": true,
+  "Frames": [
+    {
+      "MediaOffsetSeconds": 25,
+      "RelativeFile": "video-frames/full-a-0025s.png",
+      "PersonallyViewed": true,
+      "Observation": "开始于原创据点，已有single/sweep配置，发现6/12；尚未创建本趟A。"
+    },
+    {
+      "MediaOffsetSeconds": 125,
+      "RelativeFile": "video-frames/full-a-0125s.png",
+      "PersonallyViewed": true,
+      "Observation": "A新run，seed13486312，前厅待进入，五人满生命。"
+    },
+    {
+      "MediaOffsetSeconds": 232,
+      "RelativeFile": "video-frames/full-a-0232s.png",
+      "PersonallyViewed": true,
+      "Observation": "N1暂停，队列顺序为砚盾、引灯、炽羽、逐锋；蓄能0，主动0。"
+    },
+    {
+      "MediaOffsetSeconds": 271,
+      "RelativeFile": "video-frames/full-a-0271s.png",
+      "PersonallyViewed": true,
+      "Observation": "N1已完成，双向分岔可选；未同时完成两侧。"
+    },
+    {
+      "MediaOffsetSeconds": 318,
+      "RelativeFile": "video-frames/full-a-0318s.png",
+      "PersonallyViewed": true,
+      "Observation": "N2后台战斗，两名缄默卫士；A01/A02，蓄能2151/1120，实际吸收2151。"
+    },
+    {
+      "MediaOffsetSeconds": 363,
+      "RelativeFile": "video-frames/full-a-0363s.png",
+      "PersonallyViewed": true,
+      "Observation": "N2之后幕间工坊；A01/A02/A04已持有，五人带当前生命。"
+    },
+    {
+      "MediaOffsetSeconds": 480,
+      "RelativeFile": "video-frames/full-a-0480s.png",
+      "PersonallyViewed": true,
+      "Observation": "N4排练厅战斗，主敌已倒，A04已耗能后蓄能54；主动3。"
+    },
+    {
+      "MediaOffsetSeconds": 506,
+      "RelativeFile": "video-frames/full-a-0506s.png",
+      "PersonallyViewed": true,
+      "Observation": "N4完成，返回回廊N5待进入；前厅/后台/工坊/排练厅已完成，观众席未走。"
+    },
+    {
+      "MediaOffsetSeconds": 528,
+      "RelativeFile": "video-frames/full-a-0528s.png",
+      "PersonallyViewed": true,
+      "Observation": "N5战斗中，A01/A02/A04/A03完整持有；尚未主动施法。"
+    },
+    {
+      "MediaOffsetSeconds": 570,
+      "RelativeFile": "video-frames/full-a-0570s.png",
+      "PersonallyViewed": true,
+      "Observation": "N5中砚盾已执行，实际吸收3897，蓄能3360/1120；主动仅1，未释放A03/A04。"
+    },
+    {
+      "MediaOffsetSeconds": 640,
+      "RelativeFile": "video-frames/full-a-0640s.png",
+      "PersonallyViewed": true,
+      "Observation": "N6首领门前整备；全员恢复，尚未确认首领战。"
+    },
+    {
+      "MediaOffsetSeconds": 883,
+      "RelativeFile": "video-frames/full-a-0883s.png",
+      "PersonallyViewed": true,
+      "Observation": "N7实际开场，首领45000、两面具各7000，完整A构筑，蓄能0；五人生命满。"
+    },
+    {
+      "MediaOffsetSeconds": 1016,
+      "RelativeFile": "video-frames/full-a-1016s.png",
+      "PersonallyViewed": true,
+      "Observation": "N7暂停；一面具已倒，另一637生命，倍率1.5；蓄能3360/1120，主动7。"
+    },
+    {
+      "MediaOffsetSeconds": 1043,
+      "RelativeFile": "video-frames/full-a-1043s.png",
+      "PersonallyViewed": true,
+      "Observation": "N7恢复释放；A04/A03同时亮起，蓄能0，两面具倒下，主动9。"
+    },
+    {
+      "MediaOffsetSeconds": 1091,
+      "RelativeFile": "video-frames/full-a-1091s.png",
+      "PersonallyViewed": true,
+      "Observation": "N7阶段2，两面具重建存活，2.0倍群攻读条2.2秒；A04/A03同时亮，主动14。"
+    },
+    {
+      "MediaOffsetSeconds": 1118,
+      "RelativeFile": "video-frames/full-a-1118s.png",
+      "PersonallyViewed": true,
+      "Observation": "完成5场胜利结算：敌伤65720，遗物24034，吸收20963，生命伤害46567，治疗25020，主动16成功0拒绝。"
+    },
+    {
+      "MediaOffsetSeconds": 1130,
+      "RelativeFile": "video-frames/full-a-1130s.png",
+      "PersonallyViewed": true,
+      "Observation": "返回原创据点，发现8/12，横扫配置保留，提示临时构筑不会带入下一趟。"
+    },
+    {
+      "MediaOffsetSeconds": 1143,
+      "RelativeFile": "video-frames/full-a-1143s.png",
+      "PersonallyViewed": true,
+      "Observation": "据点打开A上趟回顾，保持同一结算数字。"
+    },
+    {
+      "MediaOffsetSeconds": 1199,
+      "RelativeFile": "video-frames/full-a-1199s.png",
+      "PersonallyViewed": true,
+      "Observation": "已创建新C，seed14556671，前厅待进入；五人满生命。"
+    },
+    {
+      "MediaOffsetSeconds": 1214,
+      "RelativeFile": "video-frames/full-a-1214s.png",
+      "PersonallyViewed": true,
+      "Observation": "新C N1战斗中，仅C01，A未持有，主动0；生命随本场战斗下降，不能称这帧仍满生命。"
+    }
+  ],
+  "ScreenshotLabelCorrections": [
+    {
+      "File": "screens/046-A03-A04-mature-combo-trigger.jpg",
+      "Actual": "N6 boss preparation with restored HP",
+      "Limitation": "Does not show N5 battle or A03/A04 activation. The click label records intended action after N5 had already ended."
+    },
+    {
+      "File": "screens/047-A-boss-start.jpg",
+      "Actual": "N6 boss preparation with confirm button",
+      "Limitation": "Still the pre-battle frame; use video 883 seconds for actual N7 opening."
+    },
+    {
+      "File": "screens/037-A04-overload-actually-triggered.jpg",
+      "Actual": "N4 A04 lit, barrier54, three successful actives",
+      "Limitation": "Valid activation picture; exact damage is verified from tape root rather than icon alone."
+    },
+    {
+      "File": "screens/063-A-boss-overload-release.jpg",
+      "Actual": "N7 phase1 A04/A03 both lit, barrier0",
+      "Limitation": "Valid combined activation picture corroborated by actual replay resolutions."
+    },
+    {
+      "File": "screens/068-A-boss-stage2-overload.jpg",
+      "Actual": "N7 phase2 A04/A03 both lit, two rebuilt masks",
+      "Limitation": "Valid combined activation picture corroborated by actual replay resolutions."
+    }
+  ],
+  "Limits": "15 fps is recorder cadence, not measured Unity rendering fps. The earlier B recording remains separately classified. This file does not itself establish offline portability after extracting a ZIP away from source code."
+}

@@ -1,0 +1,17 @@
+{
+  "Status": "BUILD_CANDIDATE_PACKAGED",
+  "Destination": "F:\\天命之子\\dist\\original-expedition-v01\\review-7a6ede9b-20260921-r1",
+  "Zip": "F:\\天命之子\\dist\\original-expedition-v01\\review-7a6ede9b-20260921-r1.zip",
+  "ZipSha256": "6c5022a559b875d670efd9b3689d24a3bd94bd97e0adc8fc32f2c4601f3eedf5",
+  "SourceCommit": "7a6ede9b643a3470a9f0924d329a5ca769b40ce2",
+  "ContentHash": "69aaa51d7fa5077a5e1d30b4c5f2fd042b62f932f86d0dec59a037762880fdbd",
+  "PlayerFileCount": 170,
+  "ZipFileCount": 175,
+  "FinalAcceptancePassed": false,
+  "RemainingAcceptance": [
+    "User experience review"
+  ],
+  "TechnicalAcceptancePassed": true,
+  "UserAcceptance": "PENDING_USER_REVIEW",
+  "AcceptanceSummarySha256": "41cc24734e76a376add797471275e78697becf62eeb2050f4ea38ab5a708b052"
+}
